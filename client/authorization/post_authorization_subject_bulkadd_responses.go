@@ -95,7 +95,6 @@ func (o *PostAuthorizationSubjectBulkaddReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostAuthorizationSubjectBulkaddNoContent() *PostAuthorizationSubjectBulk
 	return &PostAuthorizationSubjectBulkaddNoContent{}
 }
 
-/*PostAuthorizationSubjectBulkaddNoContent handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddNoContent describes a response with status code 204, with default header values.
 
 Bulk Grants Created
 */
 type PostAuthorizationSubjectBulkaddNoContent struct {
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd no content response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd no content response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd no content response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkadd no content response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd no content response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PostAuthorizationSubjectBulkaddNoContent) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddNoContent ", 204)
+}
+
+func (o *PostAuthorizationSubjectBulkaddNoContent) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPostAuthorizationSubjectBulkaddBadRequest() *PostAuthorizationSubjectBul
 	return &PostAuthorizationSubjectBulkaddBadRequest{}
 }
 
-/*PostAuthorizationSubjectBulkaddBadRequest handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostAuthorizationSubjectBulkaddBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd bad request response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd bad request response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd bad request response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd bad request response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd bad request response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAuthorizationSubjectBulkaddBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostAuthorizationSubjectBulkaddUnauthorized() *PostAuthorizationSubjectB
 	return &PostAuthorizationSubjectBulkaddUnauthorized{}
 }
 
-/*PostAuthorizationSubjectBulkaddUnauthorized handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostAuthorizationSubjectBulkaddUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd unauthorized response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd unauthorized response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd unauthorized response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd unauthorized response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd unauthorized response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAuthorizationSubjectBulkaddUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostAuthorizationSubjectBulkaddForbidden() *PostAuthorizationSubjectBulk
 	return &PostAuthorizationSubjectBulkaddForbidden{}
 }
 
-/*PostAuthorizationSubjectBulkaddForbidden handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostAuthorizationSubjectBulkaddForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd forbidden response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd forbidden response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd forbidden response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd forbidden response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd forbidden response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAuthorizationSubjectBulkaddForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostAuthorizationSubjectBulkaddNotFound() *PostAuthorizationSubjectBulka
 	return &PostAuthorizationSubjectBulkaddNotFound{}
 }
 
-/*PostAuthorizationSubjectBulkaddNotFound handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostAuthorizationSubjectBulkaddNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd not found response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd not found response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd not found response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd not found response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd not found response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAuthorizationSubjectBulkaddNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostAuthorizationSubjectBulkaddRequestTimeout() *PostAuthorizationSubjec
 	return &PostAuthorizationSubjectBulkaddRequestTimeout{}
 }
 
-/*PostAuthorizationSubjectBulkaddRequestTimeout handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostAuthorizationSubjectBulkaddRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd request timeout response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd request timeout response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd request timeout response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd request timeout response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd request timeout response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAuthorizationSubjectBulkaddRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostAuthorizationSubjectBulkaddRequestEntityTooLarge() *PostAuthorizatio
 	return &PostAuthorizationSubjectBulkaddRequestEntityTooLarge{}
 }
 
-/*PostAuthorizationSubjectBulkaddRequestEntityTooLarge handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostAuthorizationSubjectBulkaddRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd request entity too large response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd request entity too large response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd request entity too large response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd request entity too large response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd request entity too large response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAuthorizationSubjectBulkaddRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostAuthorizationSubjectBulkaddUnsupportedMediaType() *PostAuthorization
 	return &PostAuthorizationSubjectBulkaddUnsupportedMediaType{}
 }
 
-/*PostAuthorizationSubjectBulkaddUnsupportedMediaType handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostAuthorizationSubjectBulkaddUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd unsupported media type response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd unsupported media type response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd unsupported media type response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd unsupported media type response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd unsupported media type response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAuthorizationSubjectBulkaddUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostAuthorizationSubjectBulkaddTooManyRequests() *PostAuthorizationSubje
 	return &PostAuthorizationSubjectBulkaddTooManyRequests{}
 }
 
-/*PostAuthorizationSubjectBulkaddTooManyRequests handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostAuthorizationSubjectBulkaddTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd too many requests response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd too many requests response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd too many requests response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkadd too many requests response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkadd too many requests response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAuthorizationSubjectBulkaddTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostAuthorizationSubjectBulkaddInternalServerError() *PostAuthorizationS
 	return &PostAuthorizationSubjectBulkaddInternalServerError{}
 }
 
-/*PostAuthorizationSubjectBulkaddInternalServerError handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostAuthorizationSubjectBulkaddInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd internal server error response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd internal server error response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd internal server error response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkadd internal server error response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization subject bulkadd internal server error response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAuthorizationSubjectBulkaddInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostAuthorizationSubjectBulkaddServiceUnavailable() *PostAuthorizationSu
 	return &PostAuthorizationSubjectBulkaddServiceUnavailable{}
 }
 
-/*PostAuthorizationSubjectBulkaddServiceUnavailable handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostAuthorizationSubjectBulkaddServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd service unavailable response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd service unavailable response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd service unavailable response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkadd service unavailable response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization subject bulkadd service unavailable response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAuthorizationSubjectBulkaddServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostAuthorizationSubjectBulkaddGatewayTimeout() *PostAuthorizationSubjec
 	return &PostAuthorizationSubjectBulkaddGatewayTimeout{}
 }
 
-/*PostAuthorizationSubjectBulkaddGatewayTimeout handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkaddGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostAuthorizationSubjectBulkaddGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkadd gateway timeout response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkaddGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkadd gateway timeout response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkaddGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkadd gateway timeout response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkaddGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkadd gateway timeout response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkaddGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization subject bulkadd gateway timeout response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkaddGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAuthorizationSubjectBulkaddGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkaddGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkadd][%d] postAuthorizationSubjectBulkaddGatewayTimeout  %+v", 504, o.Payload)
 }
 

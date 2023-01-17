@@ -17,125 +17,141 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetFlowHistoryHistoryIDParams creates a new GetFlowHistoryHistoryIDParams object
-// with the default values initialized.
+// NewGetFlowHistoryHistoryIDParams creates a new GetFlowHistoryHistoryIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowHistoryHistoryIDParams() *GetFlowHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetFlowHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowHistoryHistoryIDParamsWithTimeout creates a new GetFlowHistoryHistoryIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowHistoryHistoryIDParamsWithTimeout(timeout time.Duration) *GetFlowHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetFlowHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowHistoryHistoryIDParamsWithContext creates a new GetFlowHistoryHistoryIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowHistoryHistoryIDParamsWithContext(ctx context.Context) *GetFlowHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetFlowHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowHistoryHistoryIDParamsWithHTTPClient creates a new GetFlowHistoryHistoryIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowHistoryHistoryIDParamsWithHTTPClient(client *http.Client) *GetFlowHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetFlowHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowHistoryHistoryIDParams contains all the parameters to send to the API endpoint
-for the get flow history history Id operation typically these are written to a http.Request
+/*
+GetFlowHistoryHistoryIDParams contains all the parameters to send to the API endpoint
+
+	for the get flow history history Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowHistoryHistoryIDParams struct {
 
-	/*Action
-	  Flow actions to include (omit to include all)
+	/* Action.
 
+	   Flow actions to include (omit to include all)
 	*/
 	Action []string
-	/*FlowID
-	  Flow ID
 
+	/* FlowID.
+
+	   Flow ID
 	*/
 	FlowID string
-	/*HistoryID
-	  History request ID
 
+	/* HistoryID.
+
+	   History request ID
 	*/
 	HistoryID string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "timestamp"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "desc"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flow history history Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowHistoryHistoryIDParams) WithDefaults() *GetFlowHistoryHistoryIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flow history history Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowHistoryHistoryIDParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("timestamp")
+
+		sortOrderDefault = string("desc")
+	)
+
+	val := GetFlowHistoryHistoryIDParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get flow history history Id params
@@ -256,12 +272,15 @@ func (o *GetFlowHistoryHistoryIDParams) WriteToRequest(r runtime.ClientRequest, 
 	}
 	var res []error
 
-	valuesAction := o.Action
+	if o.Action != nil {
 
-	joinedAction := swag.JoinByFormat(valuesAction, "multi")
-	// query array param action
-	if err := r.SetQueryParam("action", joinedAction...); err != nil {
-		return err
+		// binding items for action
+		joinedAction := o.bindParamAction(reg)
+
+		// query array param action
+		if err := r.SetQueryParam("action", joinedAction...); err != nil {
+			return err
+		}
 	}
 
 	// path param flowId
@@ -278,68 +297,89 @@ func (o *GetFlowHistoryHistoryIDParams) WriteToRequest(r runtime.ClientRequest, 
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetFlowHistoryHistoryID binds the parameter action
+func (o *GetFlowHistoryHistoryIDParams) bindParamAction(formats strfmt.Registry) []string {
+	actionIR := o.Action
+
+	var actionIC []string
+	for _, actionIIR := range actionIR { // explode []string
+
+		actionIIV := actionIIR // string as string
+		actionIC = append(actionIC, actionIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	actionIS := swag.JoinByFormat(actionIC, "multi")
+
+	return actionIS
 }

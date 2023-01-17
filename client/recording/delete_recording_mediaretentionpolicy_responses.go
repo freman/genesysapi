@@ -95,7 +95,6 @@ func (o *DeleteRecordingMediaretentionpolicyReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteRecordingMediaretentionpolicyOK() *DeleteRecordingMediaretentionpo
 	return &DeleteRecordingMediaretentionpolicyOK{}
 }
 
-/*DeleteRecordingMediaretentionpolicyOK handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteRecordingMediaretentionpolicyOK struct {
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy o k response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy o k response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy o k response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy o k response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy o k response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRecordingMediaretentionpolicyOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyOK ", 200)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteRecordingMediaretentionpolicyBadRequest() *DeleteRecordingMediaret
 	return &DeleteRecordingMediaretentionpolicyBadRequest{}
 }
 
-/*DeleteRecordingMediaretentionpolicyBadRequest handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteRecordingMediaretentionpolicyBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy bad request response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy bad request response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy bad request response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy bad request response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy bad request response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRecordingMediaretentionpolicyBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteRecordingMediaretentionpolicyUnauthorized() *DeleteRecordingMediar
 	return &DeleteRecordingMediaretentionpolicyUnauthorized{}
 }
 
-/*DeleteRecordingMediaretentionpolicyUnauthorized handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteRecordingMediaretentionpolicyUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy unauthorized response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy unauthorized response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy unauthorized response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy unauthorized response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy unauthorized response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRecordingMediaretentionpolicyUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteRecordingMediaretentionpolicyForbidden() *DeleteRecordingMediarete
 	return &DeleteRecordingMediaretentionpolicyForbidden{}
 }
 
-/*DeleteRecordingMediaretentionpolicyForbidden handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteRecordingMediaretentionpolicyForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy forbidden response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy forbidden response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy forbidden response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy forbidden response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy forbidden response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRecordingMediaretentionpolicyForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteRecordingMediaretentionpolicyNotFound() *DeleteRecordingMediareten
 	return &DeleteRecordingMediaretentionpolicyNotFound{}
 }
 
-/*DeleteRecordingMediaretentionpolicyNotFound handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteRecordingMediaretentionpolicyNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy not found response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy not found response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy not found response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy not found response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy not found response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRecordingMediaretentionpolicyNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteRecordingMediaretentionpolicyRequestTimeout() *DeleteRecordingMedi
 	return &DeleteRecordingMediaretentionpolicyRequestTimeout{}
 }
 
-/*DeleteRecordingMediaretentionpolicyRequestTimeout handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteRecordingMediaretentionpolicyRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy request timeout response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy request timeout response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy request timeout response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy request timeout response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy request timeout response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRecordingMediaretentionpolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteRecordingMediaretentionpolicyRequestEntityTooLarge() *DeleteRecord
 	return &DeleteRecordingMediaretentionpolicyRequestEntityTooLarge{}
 }
 
-/*DeleteRecordingMediaretentionpolicyRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteRecordingMediaretentionpolicyRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy request entity too large response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy request entity too large response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy request entity too large response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy request entity too large response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy request entity too large response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRecordingMediaretentionpolicyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteRecordingMediaretentionpolicyUnsupportedMediaType() *DeleteRecordi
 	return &DeleteRecordingMediaretentionpolicyUnsupportedMediaType{}
 }
 
-/*DeleteRecordingMediaretentionpolicyUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteRecordingMediaretentionpolicyUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy unsupported media type response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy unsupported media type response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy unsupported media type response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy unsupported media type response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy unsupported media type response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRecordingMediaretentionpolicyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteRecordingMediaretentionpolicyTooManyRequests() *DeleteRecordingMed
 	return &DeleteRecordingMediaretentionpolicyTooManyRequests{}
 }
 
-/*DeleteRecordingMediaretentionpolicyTooManyRequests handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteRecordingMediaretentionpolicyTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy too many requests response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy too many requests response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy too many requests response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy too many requests response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy too many requests response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRecordingMediaretentionpolicyTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteRecordingMediaretentionpolicyInternalServerError() *DeleteRecordin
 	return &DeleteRecordingMediaretentionpolicyInternalServerError{}
 }
 
-/*DeleteRecordingMediaretentionpolicyInternalServerError handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteRecordingMediaretentionpolicyInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy internal server error response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy internal server error response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy internal server error response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy internal server error response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy internal server error response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRecordingMediaretentionpolicyInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteRecordingMediaretentionpolicyServiceUnavailable() *DeleteRecording
 	return &DeleteRecordingMediaretentionpolicyServiceUnavailable{}
 }
 
-/*DeleteRecordingMediaretentionpolicyServiceUnavailable handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteRecordingMediaretentionpolicyServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy service unavailable response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy service unavailable response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy service unavailable response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy service unavailable response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy service unavailable response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRecordingMediaretentionpolicyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteRecordingMediaretentionpolicyGatewayTimeout() *DeleteRecordingMedi
 	return &DeleteRecordingMediaretentionpolicyGatewayTimeout{}
 }
 
-/*DeleteRecordingMediaretentionpolicyGatewayTimeout handles this case with default header values.
+/*
+DeleteRecordingMediaretentionpolicyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteRecordingMediaretentionpolicyGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording mediaretentionpolicy gateway timeout response has a 2xx status code
+func (o *DeleteRecordingMediaretentionpolicyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording mediaretentionpolicy gateway timeout response has a 3xx status code
+func (o *DeleteRecordingMediaretentionpolicyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording mediaretentionpolicy gateway timeout response has a 4xx status code
+func (o *DeleteRecordingMediaretentionpolicyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording mediaretentionpolicy gateway timeout response has a 5xx status code
+func (o *DeleteRecordingMediaretentionpolicyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording mediaretentionpolicy gateway timeout response a status code equal to that given
+func (o *DeleteRecordingMediaretentionpolicyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRecordingMediaretentionpolicyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRecordingMediaretentionpolicyGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/mediaretentionpolicies/{policyId}][%d] deleteRecordingMediaretentionpolicyGatewayTimeout  %+v", 504, o.Payload)
 }
 

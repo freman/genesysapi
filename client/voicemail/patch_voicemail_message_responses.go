@@ -101,7 +101,6 @@ func (o *PatchVoicemailMessageReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchVoicemailMessageOK() *PatchVoicemailMessageOK {
 	return &PatchVoicemailMessageOK{}
 }
 
-/*PatchVoicemailMessageOK handles this case with default header values.
+/*
+PatchVoicemailMessageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchVoicemailMessageOK struct {
 	Payload *models.VoicemailMessage
 }
 
+// IsSuccess returns true when this patch voicemail message o k response has a 2xx status code
+func (o *PatchVoicemailMessageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch voicemail message o k response has a 3xx status code
+func (o *PatchVoicemailMessageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message o k response has a 4xx status code
+func (o *PatchVoicemailMessageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch voicemail message o k response has a 5xx status code
+func (o *PatchVoicemailMessageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message o k response a status code equal to that given
+func (o *PatchVoicemailMessageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchVoicemailMessageOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchVoicemailMessageOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchVoicemailMessageBadRequest() *PatchVoicemailMessageBadRequest {
 	return &PatchVoicemailMessageBadRequest{}
 }
 
-/*PatchVoicemailMessageBadRequest handles this case with default header values.
+/*
+PatchVoicemailMessageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchVoicemailMessageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message bad request response has a 2xx status code
+func (o *PatchVoicemailMessageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message bad request response has a 3xx status code
+func (o *PatchVoicemailMessageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message bad request response has a 4xx status code
+func (o *PatchVoicemailMessageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message bad request response has a 5xx status code
+func (o *PatchVoicemailMessageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message bad request response a status code equal to that given
+func (o *PatchVoicemailMessageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchVoicemailMessageBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchVoicemailMessageBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchVoicemailMessageUnauthorized() *PatchVoicemailMessageUnauthorized {
 	return &PatchVoicemailMessageUnauthorized{}
 }
 
-/*PatchVoicemailMessageUnauthorized handles this case with default header values.
+/*
+PatchVoicemailMessageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchVoicemailMessageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message unauthorized response has a 2xx status code
+func (o *PatchVoicemailMessageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message unauthorized response has a 3xx status code
+func (o *PatchVoicemailMessageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message unauthorized response has a 4xx status code
+func (o *PatchVoicemailMessageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message unauthorized response has a 5xx status code
+func (o *PatchVoicemailMessageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message unauthorized response a status code equal to that given
+func (o *PatchVoicemailMessageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchVoicemailMessageUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchVoicemailMessageUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchVoicemailMessageForbidden() *PatchVoicemailMessageForbidden {
 	return &PatchVoicemailMessageForbidden{}
 }
 
-/*PatchVoicemailMessageForbidden handles this case with default header values.
+/*
+PatchVoicemailMessageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchVoicemailMessageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message forbidden response has a 2xx status code
+func (o *PatchVoicemailMessageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message forbidden response has a 3xx status code
+func (o *PatchVoicemailMessageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message forbidden response has a 4xx status code
+func (o *PatchVoicemailMessageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message forbidden response has a 5xx status code
+func (o *PatchVoicemailMessageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message forbidden response a status code equal to that given
+func (o *PatchVoicemailMessageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchVoicemailMessageForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchVoicemailMessageForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchVoicemailMessageNotFound() *PatchVoicemailMessageNotFound {
 	return &PatchVoicemailMessageNotFound{}
 }
 
-/*PatchVoicemailMessageNotFound handles this case with default header values.
+/*
+PatchVoicemailMessageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchVoicemailMessageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message not found response has a 2xx status code
+func (o *PatchVoicemailMessageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message not found response has a 3xx status code
+func (o *PatchVoicemailMessageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message not found response has a 4xx status code
+func (o *PatchVoicemailMessageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message not found response has a 5xx status code
+func (o *PatchVoicemailMessageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message not found response a status code equal to that given
+func (o *PatchVoicemailMessageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchVoicemailMessageNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchVoicemailMessageNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchVoicemailMessageRequestTimeout() *PatchVoicemailMessageRequestTimeo
 	return &PatchVoicemailMessageRequestTimeout{}
 }
 
-/*PatchVoicemailMessageRequestTimeout handles this case with default header values.
+/*
+PatchVoicemailMessageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchVoicemailMessageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message request timeout response has a 2xx status code
+func (o *PatchVoicemailMessageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message request timeout response has a 3xx status code
+func (o *PatchVoicemailMessageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message request timeout response has a 4xx status code
+func (o *PatchVoicemailMessageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message request timeout response has a 5xx status code
+func (o *PatchVoicemailMessageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message request timeout response a status code equal to that given
+func (o *PatchVoicemailMessageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchVoicemailMessageRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchVoicemailMessageRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchVoicemailMessageConflict() *PatchVoicemailMessageConflict {
 	return &PatchVoicemailMessageConflict{}
 }
 
-/*PatchVoicemailMessageConflict handles this case with default header values.
+/*
+PatchVoicemailMessageConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchVoicemailMessageConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message conflict response has a 2xx status code
+func (o *PatchVoicemailMessageConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message conflict response has a 3xx status code
+func (o *PatchVoicemailMessageConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message conflict response has a 4xx status code
+func (o *PatchVoicemailMessageConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message conflict response has a 5xx status code
+func (o *PatchVoicemailMessageConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message conflict response a status code equal to that given
+func (o *PatchVoicemailMessageConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchVoicemailMessageConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchVoicemailMessageConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchVoicemailMessageRequestEntityTooLarge() *PatchVoicemailMessageReque
 	return &PatchVoicemailMessageRequestEntityTooLarge{}
 }
 
-/*PatchVoicemailMessageRequestEntityTooLarge handles this case with default header values.
+/*
+PatchVoicemailMessageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchVoicemailMessageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message request entity too large response has a 2xx status code
+func (o *PatchVoicemailMessageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message request entity too large response has a 3xx status code
+func (o *PatchVoicemailMessageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message request entity too large response has a 4xx status code
+func (o *PatchVoicemailMessageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message request entity too large response has a 5xx status code
+func (o *PatchVoicemailMessageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message request entity too large response a status code equal to that given
+func (o *PatchVoicemailMessageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchVoicemailMessageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchVoicemailMessageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchVoicemailMessageUnsupportedMediaType() *PatchVoicemailMessageUnsupp
 	return &PatchVoicemailMessageUnsupportedMediaType{}
 }
 
-/*PatchVoicemailMessageUnsupportedMediaType handles this case with default header values.
+/*
+PatchVoicemailMessageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchVoicemailMessageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message unsupported media type response has a 2xx status code
+func (o *PatchVoicemailMessageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message unsupported media type response has a 3xx status code
+func (o *PatchVoicemailMessageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message unsupported media type response has a 4xx status code
+func (o *PatchVoicemailMessageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message unsupported media type response has a 5xx status code
+func (o *PatchVoicemailMessageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message unsupported media type response a status code equal to that given
+func (o *PatchVoicemailMessageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchVoicemailMessageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchVoicemailMessageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchVoicemailMessageTooManyRequests() *PatchVoicemailMessageTooManyRequ
 	return &PatchVoicemailMessageTooManyRequests{}
 }
 
-/*PatchVoicemailMessageTooManyRequests handles this case with default header values.
+/*
+PatchVoicemailMessageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchVoicemailMessageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message too many requests response has a 2xx status code
+func (o *PatchVoicemailMessageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message too many requests response has a 3xx status code
+func (o *PatchVoicemailMessageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message too many requests response has a 4xx status code
+func (o *PatchVoicemailMessageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch voicemail message too many requests response has a 5xx status code
+func (o *PatchVoicemailMessageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch voicemail message too many requests response a status code equal to that given
+func (o *PatchVoicemailMessageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchVoicemailMessageTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchVoicemailMessageTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchVoicemailMessageInternalServerError() *PatchVoicemailMessageInterna
 	return &PatchVoicemailMessageInternalServerError{}
 }
 
-/*PatchVoicemailMessageInternalServerError handles this case with default header values.
+/*
+PatchVoicemailMessageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchVoicemailMessageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message internal server error response has a 2xx status code
+func (o *PatchVoicemailMessageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message internal server error response has a 3xx status code
+func (o *PatchVoicemailMessageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message internal server error response has a 4xx status code
+func (o *PatchVoicemailMessageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch voicemail message internal server error response has a 5xx status code
+func (o *PatchVoicemailMessageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch voicemail message internal server error response a status code equal to that given
+func (o *PatchVoicemailMessageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchVoicemailMessageInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchVoicemailMessageInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchVoicemailMessageServiceUnavailable() *PatchVoicemailMessageServiceU
 	return &PatchVoicemailMessageServiceUnavailable{}
 }
 
-/*PatchVoicemailMessageServiceUnavailable handles this case with default header values.
+/*
+PatchVoicemailMessageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchVoicemailMessageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message service unavailable response has a 2xx status code
+func (o *PatchVoicemailMessageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message service unavailable response has a 3xx status code
+func (o *PatchVoicemailMessageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message service unavailable response has a 4xx status code
+func (o *PatchVoicemailMessageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch voicemail message service unavailable response has a 5xx status code
+func (o *PatchVoicemailMessageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch voicemail message service unavailable response a status code equal to that given
+func (o *PatchVoicemailMessageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchVoicemailMessageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchVoicemailMessageServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchVoicemailMessageGatewayTimeout() *PatchVoicemailMessageGatewayTimeo
 	return &PatchVoicemailMessageGatewayTimeout{}
 }
 
-/*PatchVoicemailMessageGatewayTimeout handles this case with default header values.
+/*
+PatchVoicemailMessageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchVoicemailMessageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch voicemail message gateway timeout response has a 2xx status code
+func (o *PatchVoicemailMessageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch voicemail message gateway timeout response has a 3xx status code
+func (o *PatchVoicemailMessageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch voicemail message gateway timeout response has a 4xx status code
+func (o *PatchVoicemailMessageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch voicemail message gateway timeout response has a 5xx status code
+func (o *PatchVoicemailMessageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch voicemail message gateway timeout response a status code equal to that given
+func (o *PatchVoicemailMessageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchVoicemailMessageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchVoicemailMessageGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/voicemail/messages/{messageId}][%d] patchVoicemailMessageGatewayTimeout  %+v", 504, o.Payload)
 }
 

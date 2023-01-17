@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundSchedulesEmailcampaignParams creates a new DeleteOutboundSchedulesEmailcampaignParams object
-// with the default values initialized.
+// NewDeleteOutboundSchedulesEmailcampaignParams creates a new DeleteOutboundSchedulesEmailcampaignParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundSchedulesEmailcampaignParams() *DeleteOutboundSchedulesEmailcampaignParams {
-	var ()
 	return &DeleteOutboundSchedulesEmailcampaignParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundSchedulesEmailcampaignParamsWithTimeout creates a new DeleteOutboundSchedulesEmailcampaignParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundSchedulesEmailcampaignParamsWithTimeout(timeout time.Duration) *DeleteOutboundSchedulesEmailcampaignParams {
-	var ()
 	return &DeleteOutboundSchedulesEmailcampaignParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundSchedulesEmailcampaignParamsWithContext creates a new DeleteOutboundSchedulesEmailcampaignParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundSchedulesEmailcampaignParamsWithContext(ctx context.Context) *DeleteOutboundSchedulesEmailcampaignParams {
-	var ()
 	return &DeleteOutboundSchedulesEmailcampaignParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundSchedulesEmailcampaignParamsWithHTTPClient creates a new DeleteOutboundSchedulesEmailcampaignParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundSchedulesEmailcampaignParamsWithHTTPClient(client *http.Client) *DeleteOutboundSchedulesEmailcampaignParams {
-	var ()
 	return &DeleteOutboundSchedulesEmailcampaignParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignParams contains all the parameters to send to the API endpoint
-for the delete outbound schedules emailcampaign operation typically these are written to a http.Request
+/*
+DeleteOutboundSchedulesEmailcampaignParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound schedules emailcampaign operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundSchedulesEmailcampaignParams struct {
 
-	/*EmailCampaignID
-	  Email Campaign ID
+	/* EmailCampaignID.
 
+	   Email Campaign ID
 	*/
 	EmailCampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound schedules emailcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundSchedulesEmailcampaignParams) WithDefaults() *DeleteOutboundSchedulesEmailcampaignParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound schedules emailcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundSchedulesEmailcampaignParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound schedules emailcampaign params

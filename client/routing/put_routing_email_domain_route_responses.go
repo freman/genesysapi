@@ -95,7 +95,6 @@ func (o *PutRoutingEmailDomainRouteReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRoutingEmailDomainRouteOK() *PutRoutingEmailDomainRouteOK {
 	return &PutRoutingEmailDomainRouteOK{}
 }
 
-/*PutRoutingEmailDomainRouteOK handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRoutingEmailDomainRouteOK struct {
 	Payload *models.InboundRoute
 }
 
+// IsSuccess returns true when this put routing email domain route o k response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put routing email domain route o k response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route o k response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing email domain route o k response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route o k response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRoutingEmailDomainRouteOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRoutingEmailDomainRouteBadRequest() *PutRoutingEmailDomainRouteBadReq
 	return &PutRoutingEmailDomainRouteBadRequest{}
 }
 
-/*PutRoutingEmailDomainRouteBadRequest handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRoutingEmailDomainRouteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route bad request response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route bad request response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route bad request response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route bad request response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route bad request response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRoutingEmailDomainRouteBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRoutingEmailDomainRouteUnauthorized() *PutRoutingEmailDomainRouteUnau
 	return &PutRoutingEmailDomainRouteUnauthorized{}
 }
 
-/*PutRoutingEmailDomainRouteUnauthorized handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRoutingEmailDomainRouteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route unauthorized response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route unauthorized response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route unauthorized response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route unauthorized response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route unauthorized response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRoutingEmailDomainRouteUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRoutingEmailDomainRouteForbidden() *PutRoutingEmailDomainRouteForbidd
 	return &PutRoutingEmailDomainRouteForbidden{}
 }
 
-/*PutRoutingEmailDomainRouteForbidden handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRoutingEmailDomainRouteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route forbidden response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route forbidden response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route forbidden response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route forbidden response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route forbidden response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRoutingEmailDomainRouteForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRoutingEmailDomainRouteNotFound() *PutRoutingEmailDomainRouteNotFound
 	return &PutRoutingEmailDomainRouteNotFound{}
 }
 
-/*PutRoutingEmailDomainRouteNotFound handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRoutingEmailDomainRouteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route not found response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route not found response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route not found response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route not found response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route not found response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRoutingEmailDomainRouteNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRoutingEmailDomainRouteRequestTimeout() *PutRoutingEmailDomainRouteRe
 	return &PutRoutingEmailDomainRouteRequestTimeout{}
 }
 
-/*PutRoutingEmailDomainRouteRequestTimeout handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRoutingEmailDomainRouteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route request timeout response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route request timeout response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route request timeout response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route request timeout response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route request timeout response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRoutingEmailDomainRouteRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRoutingEmailDomainRouteRequestEntityTooLarge() *PutRoutingEmailDomain
 	return &PutRoutingEmailDomainRouteRequestEntityTooLarge{}
 }
 
-/*PutRoutingEmailDomainRouteRequestEntityTooLarge handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRoutingEmailDomainRouteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route request entity too large response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route request entity too large response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route request entity too large response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route request entity too large response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route request entity too large response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRoutingEmailDomainRouteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRoutingEmailDomainRouteUnsupportedMediaType() *PutRoutingEmailDomainR
 	return &PutRoutingEmailDomainRouteUnsupportedMediaType{}
 }
 
-/*PutRoutingEmailDomainRouteUnsupportedMediaType handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRoutingEmailDomainRouteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route unsupported media type response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route unsupported media type response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route unsupported media type response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route unsupported media type response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route unsupported media type response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRoutingEmailDomainRouteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRoutingEmailDomainRouteTooManyRequests() *PutRoutingEmailDomainRouteT
 	return &PutRoutingEmailDomainRouteTooManyRequests{}
 }
 
-/*PutRoutingEmailDomainRouteTooManyRequests handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRoutingEmailDomainRouteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route too many requests response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route too many requests response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route too many requests response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing email domain route too many requests response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing email domain route too many requests response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRoutingEmailDomainRouteTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRoutingEmailDomainRouteInternalServerError() *PutRoutingEmailDomainRo
 	return &PutRoutingEmailDomainRouteInternalServerError{}
 }
 
-/*PutRoutingEmailDomainRouteInternalServerError handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRoutingEmailDomainRouteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route internal server error response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route internal server error response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route internal server error response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing email domain route internal server error response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing email domain route internal server error response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRoutingEmailDomainRouteInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRoutingEmailDomainRouteServiceUnavailable() *PutRoutingEmailDomainRou
 	return &PutRoutingEmailDomainRouteServiceUnavailable{}
 }
 
-/*PutRoutingEmailDomainRouteServiceUnavailable handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRoutingEmailDomainRouteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route service unavailable response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route service unavailable response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route service unavailable response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing email domain route service unavailable response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing email domain route service unavailable response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRoutingEmailDomainRouteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRoutingEmailDomainRouteGatewayTimeout() *PutRoutingEmailDomainRouteGa
 	return &PutRoutingEmailDomainRouteGatewayTimeout{}
 }
 
-/*PutRoutingEmailDomainRouteGatewayTimeout handles this case with default header values.
+/*
+PutRoutingEmailDomainRouteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRoutingEmailDomainRouteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing email domain route gateway timeout response has a 2xx status code
+func (o *PutRoutingEmailDomainRouteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing email domain route gateway timeout response has a 3xx status code
+func (o *PutRoutingEmailDomainRouteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing email domain route gateway timeout response has a 4xx status code
+func (o *PutRoutingEmailDomainRouteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing email domain route gateway timeout response has a 5xx status code
+func (o *PutRoutingEmailDomainRouteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing email domain route gateway timeout response a status code equal to that given
+func (o *PutRoutingEmailDomainRouteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRoutingEmailDomainRouteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRoutingEmailDomainRouteGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] putRoutingEmailDomainRouteGatewayTimeout  %+v", 504, o.Payload)
 }
 

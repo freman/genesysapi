@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetMobiledeviceParams creates a new GetMobiledeviceParams object
-// with the default values initialized.
+// NewGetMobiledeviceParams creates a new GetMobiledeviceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetMobiledeviceParams() *GetMobiledeviceParams {
-	var ()
 	return &GetMobiledeviceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetMobiledeviceParamsWithTimeout creates a new GetMobiledeviceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetMobiledeviceParamsWithTimeout(timeout time.Duration) *GetMobiledeviceParams {
-	var ()
 	return &GetMobiledeviceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetMobiledeviceParamsWithContext creates a new GetMobiledeviceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetMobiledeviceParamsWithContext(ctx context.Context) *GetMobiledeviceParams {
-	var ()
 	return &GetMobiledeviceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetMobiledeviceParamsWithHTTPClient creates a new GetMobiledeviceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetMobiledeviceParamsWithHTTPClient(client *http.Client) *GetMobiledeviceParams {
-	var ()
 	return &GetMobiledeviceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetMobiledeviceParams contains all the parameters to send to the API endpoint
-for the get mobiledevice operation typically these are written to a http.Request
+/*
+GetMobiledeviceParams contains all the parameters to send to the API endpoint
+
+	for the get mobiledevice operation.
+
+	Typically these are written to a http.Request.
 */
 type GetMobiledeviceParams struct {
 
-	/*DeviceID
-	  Device ID
+	/* DeviceID.
 
+	   Device ID
 	*/
 	DeviceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get mobiledevice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMobiledeviceParams) WithDefaults() *GetMobiledeviceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get mobiledevice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetMobiledeviceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get mobiledevice params

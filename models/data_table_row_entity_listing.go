@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -84,7 +86,6 @@ func (m *DataTableRowEntityListing) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DataTableRowEntityListing) validateFirstURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FirstURI) { // not required
 		return nil
 	}
@@ -97,7 +98,6 @@ func (m *DataTableRowEntityListing) validateFirstURI(formats strfmt.Registry) er
 }
 
 func (m *DataTableRowEntityListing) validateLastURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastURI) { // not required
 		return nil
 	}
@@ -110,7 +110,6 @@ func (m *DataTableRowEntityListing) validateLastURI(formats strfmt.Registry) err
 }
 
 func (m *DataTableRowEntityListing) validateNextURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NextURI) { // not required
 		return nil
 	}
@@ -123,7 +122,6 @@ func (m *DataTableRowEntityListing) validateNextURI(formats strfmt.Registry) err
 }
 
 func (m *DataTableRowEntityListing) validatePreviousURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviousURI) { // not required
 		return nil
 	}
@@ -136,7 +134,6 @@ func (m *DataTableRowEntityListing) validatePreviousURI(formats strfmt.Registry)
 }
 
 func (m *DataTableRowEntityListing) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -145,6 +142,11 @@ func (m *DataTableRowEntityListing) validateSelfURI(formats strfmt.Registry) err
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this data table row entity listing based on context it is used
+func (m *DataTableRowEntityListing) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

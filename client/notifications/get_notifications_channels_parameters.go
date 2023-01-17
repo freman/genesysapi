@@ -16,71 +16,88 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetNotificationsChannelsParams creates a new GetNotificationsChannelsParams object
-// with the default values initialized.
+// NewGetNotificationsChannelsParams creates a new GetNotificationsChannelsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetNotificationsChannelsParams() *GetNotificationsChannelsParams {
-	var (
-		includechannelsDefault = string("token")
-	)
 	return &GetNotificationsChannelsParams{
-		Includechannels: &includechannelsDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetNotificationsChannelsParamsWithTimeout creates a new GetNotificationsChannelsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetNotificationsChannelsParamsWithTimeout(timeout time.Duration) *GetNotificationsChannelsParams {
-	var (
-		includechannelsDefault = string("token")
-	)
 	return &GetNotificationsChannelsParams{
-		Includechannels: &includechannelsDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetNotificationsChannelsParamsWithContext creates a new GetNotificationsChannelsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetNotificationsChannelsParamsWithContext(ctx context.Context) *GetNotificationsChannelsParams {
-	var (
-		includechannelsDefault = string("token")
-	)
 	return &GetNotificationsChannelsParams{
-		Includechannels: &includechannelsDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetNotificationsChannelsParamsWithHTTPClient creates a new GetNotificationsChannelsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetNotificationsChannelsParamsWithHTTPClient(client *http.Client) *GetNotificationsChannelsParams {
-	var (
-		includechannelsDefault = string("token")
-	)
 	return &GetNotificationsChannelsParams{
-		Includechannels: &includechannelsDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*GetNotificationsChannelsParams contains all the parameters to send to the API endpoint
-for the get notifications channels operation typically these are written to a http.Request
+/*
+GetNotificationsChannelsParams contains all the parameters to send to the API endpoint
+
+	for the get notifications channels operation.
+
+	Typically these are written to a http.Request.
 */
 type GetNotificationsChannelsParams struct {
 
-	/*Includechannels
-	  Show user's channels for this specific token or across all tokens for this user and app.  Channel Ids for other access tokens will not be shown, but will be presented to show their existence.
+	/* Includechannels.
 
+	   Show user's channels for this specific token or across all tokens for this user and app.  Channel Ids for other access tokens will not be shown, but will be presented to show their existence.
+
+	   Default: "token"
 	*/
 	Includechannels *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get notifications channels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetNotificationsChannelsParams) WithDefaults() *GetNotificationsChannelsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get notifications channels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetNotificationsChannelsParams) SetDefaults() {
+	var (
+		includechannelsDefault = string("token")
+	)
+
+	val := GetNotificationsChannelsParams{
+		Includechannels: &includechannelsDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get notifications channels params
@@ -139,16 +156,17 @@ func (o *GetNotificationsChannelsParams) WriteToRequest(r runtime.ClientRequest,
 
 		// query param includechannels
 		var qrIncludechannels string
+
 		if o.Includechannels != nil {
 			qrIncludechannels = *o.Includechannels
 		}
 		qIncludechannels := qrIncludechannels
 		if qIncludechannels != "" {
+
 			if err := r.SetQueryParam("includechannels", qIncludechannels); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

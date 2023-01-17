@@ -95,7 +95,6 @@ func (o *PostCertificateDetailsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostCertificateDetailsOK() *PostCertificateDetailsOK {
 	return &PostCertificateDetailsOK{}
 }
 
-/*PostCertificateDetailsOK handles this case with default header values.
+/*
+PostCertificateDetailsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostCertificateDetailsOK struct {
 	Payload *models.ParsedCertificate
 }
 
+// IsSuccess returns true when this post certificate details o k response has a 2xx status code
+func (o *PostCertificateDetailsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post certificate details o k response has a 3xx status code
+func (o *PostCertificateDetailsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details o k response has a 4xx status code
+func (o *PostCertificateDetailsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post certificate details o k response has a 5xx status code
+func (o *PostCertificateDetailsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details o k response a status code equal to that given
+func (o *PostCertificateDetailsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostCertificateDetailsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostCertificateDetailsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostCertificateDetailsBadRequest() *PostCertificateDetailsBadRequest {
 	return &PostCertificateDetailsBadRequest{}
 }
 
-/*PostCertificateDetailsBadRequest handles this case with default header values.
+/*
+PostCertificateDetailsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostCertificateDetailsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details bad request response has a 2xx status code
+func (o *PostCertificateDetailsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details bad request response has a 3xx status code
+func (o *PostCertificateDetailsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details bad request response has a 4xx status code
+func (o *PostCertificateDetailsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details bad request response has a 5xx status code
+func (o *PostCertificateDetailsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details bad request response a status code equal to that given
+func (o *PostCertificateDetailsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostCertificateDetailsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostCertificateDetailsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostCertificateDetailsUnauthorized() *PostCertificateDetailsUnauthorized
 	return &PostCertificateDetailsUnauthorized{}
 }
 
-/*PostCertificateDetailsUnauthorized handles this case with default header values.
+/*
+PostCertificateDetailsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostCertificateDetailsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details unauthorized response has a 2xx status code
+func (o *PostCertificateDetailsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details unauthorized response has a 3xx status code
+func (o *PostCertificateDetailsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details unauthorized response has a 4xx status code
+func (o *PostCertificateDetailsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details unauthorized response has a 5xx status code
+func (o *PostCertificateDetailsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details unauthorized response a status code equal to that given
+func (o *PostCertificateDetailsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostCertificateDetailsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostCertificateDetailsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostCertificateDetailsForbidden() *PostCertificateDetailsForbidden {
 	return &PostCertificateDetailsForbidden{}
 }
 
-/*PostCertificateDetailsForbidden handles this case with default header values.
+/*
+PostCertificateDetailsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostCertificateDetailsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details forbidden response has a 2xx status code
+func (o *PostCertificateDetailsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details forbidden response has a 3xx status code
+func (o *PostCertificateDetailsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details forbidden response has a 4xx status code
+func (o *PostCertificateDetailsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details forbidden response has a 5xx status code
+func (o *PostCertificateDetailsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details forbidden response a status code equal to that given
+func (o *PostCertificateDetailsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostCertificateDetailsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostCertificateDetailsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostCertificateDetailsNotFound() *PostCertificateDetailsNotFound {
 	return &PostCertificateDetailsNotFound{}
 }
 
-/*PostCertificateDetailsNotFound handles this case with default header values.
+/*
+PostCertificateDetailsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostCertificateDetailsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details not found response has a 2xx status code
+func (o *PostCertificateDetailsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details not found response has a 3xx status code
+func (o *PostCertificateDetailsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details not found response has a 4xx status code
+func (o *PostCertificateDetailsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details not found response has a 5xx status code
+func (o *PostCertificateDetailsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details not found response a status code equal to that given
+func (o *PostCertificateDetailsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostCertificateDetailsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostCertificateDetailsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostCertificateDetailsRequestTimeout() *PostCertificateDetailsRequestTim
 	return &PostCertificateDetailsRequestTimeout{}
 }
 
-/*PostCertificateDetailsRequestTimeout handles this case with default header values.
+/*
+PostCertificateDetailsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostCertificateDetailsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details request timeout response has a 2xx status code
+func (o *PostCertificateDetailsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details request timeout response has a 3xx status code
+func (o *PostCertificateDetailsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details request timeout response has a 4xx status code
+func (o *PostCertificateDetailsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details request timeout response has a 5xx status code
+func (o *PostCertificateDetailsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details request timeout response a status code equal to that given
+func (o *PostCertificateDetailsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostCertificateDetailsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostCertificateDetailsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostCertificateDetailsRequestEntityTooLarge() *PostCertificateDetailsReq
 	return &PostCertificateDetailsRequestEntityTooLarge{}
 }
 
-/*PostCertificateDetailsRequestEntityTooLarge handles this case with default header values.
+/*
+PostCertificateDetailsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostCertificateDetailsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details request entity too large response has a 2xx status code
+func (o *PostCertificateDetailsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details request entity too large response has a 3xx status code
+func (o *PostCertificateDetailsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details request entity too large response has a 4xx status code
+func (o *PostCertificateDetailsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details request entity too large response has a 5xx status code
+func (o *PostCertificateDetailsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details request entity too large response a status code equal to that given
+func (o *PostCertificateDetailsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostCertificateDetailsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostCertificateDetailsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostCertificateDetailsUnsupportedMediaType() *PostCertificateDetailsUnsu
 	return &PostCertificateDetailsUnsupportedMediaType{}
 }
 
-/*PostCertificateDetailsUnsupportedMediaType handles this case with default header values.
+/*
+PostCertificateDetailsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostCertificateDetailsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details unsupported media type response has a 2xx status code
+func (o *PostCertificateDetailsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details unsupported media type response has a 3xx status code
+func (o *PostCertificateDetailsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details unsupported media type response has a 4xx status code
+func (o *PostCertificateDetailsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details unsupported media type response has a 5xx status code
+func (o *PostCertificateDetailsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details unsupported media type response a status code equal to that given
+func (o *PostCertificateDetailsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostCertificateDetailsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostCertificateDetailsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostCertificateDetailsTooManyRequests() *PostCertificateDetailsTooManyRe
 	return &PostCertificateDetailsTooManyRequests{}
 }
 
-/*PostCertificateDetailsTooManyRequests handles this case with default header values.
+/*
+PostCertificateDetailsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostCertificateDetailsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details too many requests response has a 2xx status code
+func (o *PostCertificateDetailsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details too many requests response has a 3xx status code
+func (o *PostCertificateDetailsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details too many requests response has a 4xx status code
+func (o *PostCertificateDetailsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post certificate details too many requests response has a 5xx status code
+func (o *PostCertificateDetailsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post certificate details too many requests response a status code equal to that given
+func (o *PostCertificateDetailsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostCertificateDetailsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostCertificateDetailsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostCertificateDetailsInternalServerError() *PostCertificateDetailsInter
 	return &PostCertificateDetailsInternalServerError{}
 }
 
-/*PostCertificateDetailsInternalServerError handles this case with default header values.
+/*
+PostCertificateDetailsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostCertificateDetailsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details internal server error response has a 2xx status code
+func (o *PostCertificateDetailsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details internal server error response has a 3xx status code
+func (o *PostCertificateDetailsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details internal server error response has a 4xx status code
+func (o *PostCertificateDetailsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post certificate details internal server error response has a 5xx status code
+func (o *PostCertificateDetailsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post certificate details internal server error response a status code equal to that given
+func (o *PostCertificateDetailsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostCertificateDetailsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostCertificateDetailsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostCertificateDetailsServiceUnavailable() *PostCertificateDetailsServic
 	return &PostCertificateDetailsServiceUnavailable{}
 }
 
-/*PostCertificateDetailsServiceUnavailable handles this case with default header values.
+/*
+PostCertificateDetailsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostCertificateDetailsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details service unavailable response has a 2xx status code
+func (o *PostCertificateDetailsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details service unavailable response has a 3xx status code
+func (o *PostCertificateDetailsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details service unavailable response has a 4xx status code
+func (o *PostCertificateDetailsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post certificate details service unavailable response has a 5xx status code
+func (o *PostCertificateDetailsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post certificate details service unavailable response a status code equal to that given
+func (o *PostCertificateDetailsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostCertificateDetailsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostCertificateDetailsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostCertificateDetailsGatewayTimeout() *PostCertificateDetailsGatewayTim
 	return &PostCertificateDetailsGatewayTimeout{}
 }
 
-/*PostCertificateDetailsGatewayTimeout handles this case with default header values.
+/*
+PostCertificateDetailsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostCertificateDetailsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post certificate details gateway timeout response has a 2xx status code
+func (o *PostCertificateDetailsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post certificate details gateway timeout response has a 3xx status code
+func (o *PostCertificateDetailsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post certificate details gateway timeout response has a 4xx status code
+func (o *PostCertificateDetailsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post certificate details gateway timeout response has a 5xx status code
+func (o *PostCertificateDetailsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post certificate details gateway timeout response a status code equal to that given
+func (o *PostCertificateDetailsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostCertificateDetailsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostCertificateDetailsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/certificate/details][%d] postCertificateDetailsGatewayTimeout  %+v", 504, o.Payload)
 }
 

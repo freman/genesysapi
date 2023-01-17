@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostExternalcontactsIdentifierlookupParams creates a new PostExternalcontactsIdentifierlookupParams object
-// with the default values initialized.
+// NewPostExternalcontactsIdentifierlookupParams creates a new PostExternalcontactsIdentifierlookupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsIdentifierlookupParams() *PostExternalcontactsIdentifierlookupParams {
-	var ()
 	return &PostExternalcontactsIdentifierlookupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsIdentifierlookupParamsWithTimeout creates a new PostExternalcontactsIdentifierlookupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsIdentifierlookupParamsWithTimeout(timeout time.Duration) *PostExternalcontactsIdentifierlookupParams {
-	var ()
 	return &PostExternalcontactsIdentifierlookupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsIdentifierlookupParamsWithContext creates a new PostExternalcontactsIdentifierlookupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsIdentifierlookupParamsWithContext(ctx context.Context) *PostExternalcontactsIdentifierlookupParams {
-	var ()
 	return &PostExternalcontactsIdentifierlookupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsIdentifierlookupParamsWithHTTPClient creates a new PostExternalcontactsIdentifierlookupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsIdentifierlookupParamsWithHTTPClient(client *http.Client) *PostExternalcontactsIdentifierlookupParams {
-	var ()
 	return &PostExternalcontactsIdentifierlookupParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsIdentifierlookupParams contains all the parameters to send to the API endpoint
-for the post externalcontacts identifierlookup operation typically these are written to a http.Request
+/*
+PostExternalcontactsIdentifierlookupParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts identifierlookup operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsIdentifierlookupParams struct {
 
-	/*Identifier*/
+	// Identifier.
 	Identifier *models.ContactIdentifier
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts identifierlookup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsIdentifierlookupParams) WithDefaults() *PostExternalcontactsIdentifierlookupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts identifierlookup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsIdentifierlookupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts identifierlookup params
@@ -121,7 +137,6 @@ func (o *PostExternalcontactsIdentifierlookupParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Identifier != nil {
 		if err := r.SetBodyParam(o.Identifier); err != nil {
 			return err

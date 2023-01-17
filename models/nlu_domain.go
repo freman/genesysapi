@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -90,7 +92,6 @@ func (m *NluDomain) Validate(formats strfmt.Registry) error {
 }
 
 func (m *NluDomain) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -103,7 +104,6 @@ func (m *NluDomain) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *NluDomain) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -116,7 +116,6 @@ func (m *NluDomain) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *NluDomain) validateDraftVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DraftVersion) { // not required
 		return nil
 	}
@@ -125,6 +124,8 @@ func (m *NluDomain) validateDraftVersion(formats strfmt.Registry) error {
 		if err := m.DraftVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("draftVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("draftVersion")
 			}
 			return err
 		}
@@ -134,7 +135,6 @@ func (m *NluDomain) validateDraftVersion(formats strfmt.Registry) error {
 }
 
 func (m *NluDomain) validateLastPublishedVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastPublishedVersion) { // not required
 		return nil
 	}
@@ -143,6 +143,8 @@ func (m *NluDomain) validateLastPublishedVersion(formats strfmt.Registry) error 
 		if err := m.LastPublishedVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastPublishedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastPublishedVersion")
 			}
 			return err
 		}
@@ -161,12 +163,113 @@ func (m *NluDomain) validateName(formats strfmt.Registry) error {
 }
 
 func (m *NluDomain) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this nlu domain based on the context it is used
+func (m *NluDomain) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDraftVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastPublishedVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NluDomain) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomain) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomain) contextValidateDraftVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DraftVersion != nil {
+		if err := m.DraftVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("draftVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("draftVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NluDomain) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomain) contextValidateLastPublishedVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastPublishedVersion != nil {
+		if err := m.LastPublishedVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastPublishedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastPublishedVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NluDomain) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

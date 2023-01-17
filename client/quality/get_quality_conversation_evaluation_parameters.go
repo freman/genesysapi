@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetQualityConversationEvaluationParams creates a new GetQualityConversationEvaluationParams object
-// with the default values initialized.
+// NewGetQualityConversationEvaluationParams creates a new GetQualityConversationEvaluationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityConversationEvaluationParams() *GetQualityConversationEvaluationParams {
-	var ()
 	return &GetQualityConversationEvaluationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityConversationEvaluationParamsWithTimeout creates a new GetQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityConversationEvaluationParamsWithTimeout(timeout time.Duration) *GetQualityConversationEvaluationParams {
-	var ()
 	return &GetQualityConversationEvaluationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityConversationEvaluationParamsWithContext creates a new GetQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityConversationEvaluationParamsWithContext(ctx context.Context) *GetQualityConversationEvaluationParams {
-	var ()
 	return &GetQualityConversationEvaluationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityConversationEvaluationParamsWithHTTPClient creates a new GetQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityConversationEvaluationParamsWithHTTPClient(client *http.Client) *GetQualityConversationEvaluationParams {
-	var ()
 	return &GetQualityConversationEvaluationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityConversationEvaluationParams contains all the parameters to send to the API endpoint
-for the get quality conversation evaluation operation typically these are written to a http.Request
+/*
+GetQualityConversationEvaluationParams contains all the parameters to send to the API endpoint
+
+	for the get quality conversation evaluation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityConversationEvaluationParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*EvaluationID
-	  evaluationId
 
+	/* EvaluationID.
+
+	   evaluationId
 	*/
 	EvaluationID string
-	/*Expand
-	  agent, evaluator, evaluationForm
 
+	/* Expand.
+
+	   agent, evaluator, evaluationForm
 	*/
 	Expand *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality conversation evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityConversationEvaluationParams) WithDefaults() *GetQualityConversationEvaluationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality conversation evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityConversationEvaluationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get quality conversation evaluation params
@@ -169,16 +187,17 @@ func (o *GetQualityConversationEvaluationParams) WriteToRequest(r runtime.Client
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchCoachingAppointmentParams creates a new PatchCoachingAppointmentParams object
-// with the default values initialized.
+// NewPatchCoachingAppointmentParams creates a new PatchCoachingAppointmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchCoachingAppointmentParams() *PatchCoachingAppointmentParams {
-	var ()
 	return &PatchCoachingAppointmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchCoachingAppointmentParamsWithTimeout creates a new PatchCoachingAppointmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchCoachingAppointmentParamsWithTimeout(timeout time.Duration) *PatchCoachingAppointmentParams {
-	var ()
 	return &PatchCoachingAppointmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchCoachingAppointmentParamsWithContext creates a new PatchCoachingAppointmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchCoachingAppointmentParamsWithContext(ctx context.Context) *PatchCoachingAppointmentParams {
-	var ()
 	return &PatchCoachingAppointmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchCoachingAppointmentParamsWithHTTPClient creates a new PatchCoachingAppointmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchCoachingAppointmentParamsWithHTTPClient(client *http.Client) *PatchCoachingAppointmentParams {
-	var ()
 	return &PatchCoachingAppointmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchCoachingAppointmentParams contains all the parameters to send to the API endpoint
-for the patch coaching appointment operation typically these are written to a http.Request
+/*
+PatchCoachingAppointmentParams contains all the parameters to send to the API endpoint
+
+	for the patch coaching appointment operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchCoachingAppointmentParams struct {
 
-	/*AppointmentID
-	  The ID of the coaching appointment.
+	/* AppointmentID.
 
+	   The ID of the coaching appointment.
 	*/
 	AppointmentID string
-	/*Body
-	  The new version of the appointment
 
+	/* Body.
+
+	   The new version of the appointment
 	*/
 	Body *models.UpdateCoachingAppointmentRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch coaching appointment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchCoachingAppointmentParams) WithDefaults() *PatchCoachingAppointmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch coaching appointment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchCoachingAppointmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch coaching appointment params
@@ -145,7 +162,6 @@ func (o *PatchCoachingAppointmentParams) WriteToRequest(r runtime.ClientRequest,
 	if err := r.SetPathParam("appointmentId", o.AppointmentID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

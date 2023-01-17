@@ -17,84 +17,105 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeKnowledgebaseLabelsParams creates a new GetKnowledgeKnowledgebaseLabelsParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseLabelsParams creates a new GetKnowledgeKnowledgebaseLabelsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseLabelsParams() *GetKnowledgeKnowledgebaseLabelsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLabelsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLabelsParamsWithTimeout creates a new GetKnowledgeKnowledgebaseLabelsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseLabelsParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseLabelsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLabelsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLabelsParamsWithContext creates a new GetKnowledgeKnowledgebaseLabelsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseLabelsParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseLabelsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLabelsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLabelsParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseLabelsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseLabelsParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseLabelsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLabelsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseLabelsParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase labels operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseLabelsParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase labels operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseLabelsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*IncludeDocumentCount
-	  If specified, retrieves the number of documents related to label.
 
+	/* IncludeDocumentCount.
+
+	   If specified, retrieves the number of documents related to label.
 	*/
 	IncludeDocumentCount *bool
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*Name
-	  Filter to return the labels that contains the given phrase in the name.
 
+	/* Name.
+
+	   Filter to return the labels that contains the given phrase in the name.
 	*/
 	Name *string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase labels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLabelsParams) WithDefaults() *GetKnowledgeKnowledgebaseLabelsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase labels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLabelsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase labels params
@@ -208,48 +229,51 @@ func (o *GetKnowledgeKnowledgebaseLabelsParams) WriteToRequest(r runtime.ClientR
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeDocumentCount != nil {
 
 		// query param includeDocumentCount
 		var qrIncludeDocumentCount bool
+
 		if o.IncludeDocumentCount != nil {
 			qrIncludeDocumentCount = *o.IncludeDocumentCount
 		}
 		qIncludeDocumentCount := swag.FormatBool(qrIncludeDocumentCount)
 		if qIncludeDocumentCount != "" {
+
 			if err := r.SetQueryParam("includeDocumentCount", qIncludeDocumentCount); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param knowledgeBaseId
@@ -261,32 +285,34 @@ func (o *GetKnowledgeKnowledgebaseLabelsParams) WriteToRequest(r runtime.ClientR
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

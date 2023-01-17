@@ -16,64 +16,85 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationScorecardsAttendanceParams creates a new GetGamificationScorecardsAttendanceParams object
-// with the default values initialized.
+// NewGetGamificationScorecardsAttendanceParams creates a new GetGamificationScorecardsAttendanceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationScorecardsAttendanceParams() *GetGamificationScorecardsAttendanceParams {
-	var ()
 	return &GetGamificationScorecardsAttendanceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationScorecardsAttendanceParamsWithTimeout creates a new GetGamificationScorecardsAttendanceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationScorecardsAttendanceParamsWithTimeout(timeout time.Duration) *GetGamificationScorecardsAttendanceParams {
-	var ()
 	return &GetGamificationScorecardsAttendanceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationScorecardsAttendanceParamsWithContext creates a new GetGamificationScorecardsAttendanceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationScorecardsAttendanceParamsWithContext(ctx context.Context) *GetGamificationScorecardsAttendanceParams {
-	var ()
 	return &GetGamificationScorecardsAttendanceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationScorecardsAttendanceParamsWithHTTPClient creates a new GetGamificationScorecardsAttendanceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationScorecardsAttendanceParamsWithHTTPClient(client *http.Client) *GetGamificationScorecardsAttendanceParams {
-	var ()
 	return &GetGamificationScorecardsAttendanceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationScorecardsAttendanceParams contains all the parameters to send to the API endpoint
-for the get gamification scorecards attendance operation typically these are written to a http.Request
+/*
+GetGamificationScorecardsAttendanceParams contains all the parameters to send to the API endpoint
+
+	for the get gamification scorecards attendance operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationScorecardsAttendanceParams struct {
 
-	/*EndWorkday
-	  End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	/* EndWorkday.
 
+	   End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	EndWorkday strfmt.Date
-	/*StartWorkday
-	  Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* StartWorkday.
+
+	   Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	StartWorkday strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification scorecards attendance params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsAttendanceParams) WithDefaults() *GetGamificationScorecardsAttendanceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification scorecards attendance params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsAttendanceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification scorecards attendance params
@@ -143,6 +164,7 @@ func (o *GetGamificationScorecardsAttendanceParams) WriteToRequest(r runtime.Cli
 	qrEndWorkday := o.EndWorkday
 	qEndWorkday := qrEndWorkday.String()
 	if qEndWorkday != "" {
+
 		if err := r.SetQueryParam("endWorkday", qEndWorkday); err != nil {
 			return err
 		}
@@ -152,6 +174,7 @@ func (o *GetGamificationScorecardsAttendanceParams) WriteToRequest(r runtime.Cli
 	qrStartWorkday := o.StartWorkday
 	qStartWorkday := qrStartWorkday.String()
 	if qStartWorkday != "" {
+
 		if err := r.SetQueryParam("startWorkday", qStartWorkday); err != nil {
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -78,7 +79,6 @@ func (m *CreateObjective) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CreateObjective) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -110,7 +110,6 @@ func (m *CreateObjective) validateMediaTypesItemsEnum(path, location string, val
 }
 
 func (m *CreateObjective) validateMediaTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaTypes) { // not required
 		return nil
 	}
@@ -157,7 +156,6 @@ func (m *CreateObjective) validateTopicIdsFilterTypeEnum(path, location string, 
 }
 
 func (m *CreateObjective) validateTopicIdsFilterType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TopicIdsFilterType) { // not required
 		return nil
 	}
@@ -171,7 +169,6 @@ func (m *CreateObjective) validateTopicIdsFilterType(formats strfmt.Registry) er
 }
 
 func (m *CreateObjective) validateZones(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Zones) { // not required
 		return nil
 	}
@@ -185,6 +182,55 @@ func (m *CreateObjective) validateZones(formats strfmt.Registry) error {
 			if err := m.Zones[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("zones" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("zones" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create objective based on the context it is used
+func (m *CreateObjective) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateZones(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateObjective) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CreateObjective) contextValidateZones(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Zones); i++ {
+
+		if m.Zones[i] != nil {
+			if err := m.Zones[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("zones" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("zones" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

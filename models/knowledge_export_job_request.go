@@ -6,6 +6,9 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -20,6 +23,11 @@ type KnowledgeExportJobRequest struct {
 	// What to export.
 	// Required: true
 	ExportFilter *KnowledgeExportJobFilter `json:"exportFilter"`
+
+	// File type of the document
+	// Required: true
+	// Enum: [Json Csv Xlsx]
+	FileType *string `json:"fileType"`
 }
 
 // Validate validates this knowledge export job request
@@ -27,6 +35,10 @@ func (m *KnowledgeExportJobRequest) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateExportFilter(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFileType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -46,6 +58,84 @@ func (m *KnowledgeExportJobRequest) validateExportFilter(formats strfmt.Registry
 		if err := m.ExportFilter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("exportFilter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exportFilter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+var knowledgeExportJobRequestTypeFileTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Json","Csv","Xlsx"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		knowledgeExportJobRequestTypeFileTypePropEnum = append(knowledgeExportJobRequestTypeFileTypePropEnum, v)
+	}
+}
+
+const (
+
+	// KnowledgeExportJobRequestFileTypeJSON captures enum value "Json"
+	KnowledgeExportJobRequestFileTypeJSON string = "Json"
+
+	// KnowledgeExportJobRequestFileTypeCsv captures enum value "Csv"
+	KnowledgeExportJobRequestFileTypeCsv string = "Csv"
+
+	// KnowledgeExportJobRequestFileTypeXlsx captures enum value "Xlsx"
+	KnowledgeExportJobRequestFileTypeXlsx string = "Xlsx"
+)
+
+// prop value enum
+func (m *KnowledgeExportJobRequest) validateFileTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, knowledgeExportJobRequestTypeFileTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KnowledgeExportJobRequest) validateFileType(formats strfmt.Registry) error {
+
+	if err := validate.Required("fileType", "body", m.FileType); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateFileTypeEnum("fileType", "body", *m.FileType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge export job request based on the context it is used
+func (m *KnowledgeExportJobRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExportFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeExportJobRequest) contextValidateExportFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExportFilter != nil {
+		if err := m.ExportFilter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("exportFilter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exportFilter")
 			}
 			return err
 		}

@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesEdgeversionreportParams creates a new GetTelephonyProvidersEdgesEdgeversionreportParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesEdgeversionreportParams creates a new GetTelephonyProvidersEdgesEdgeversionreportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesEdgeversionreportParams() *GetTelephonyProvidersEdgesEdgeversionreportParams {
-
 	return &GetTelephonyProvidersEdgesEdgeversionreportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesEdgeversionreportParamsWithTimeout creates a new GetTelephonyProvidersEdgesEdgeversionreportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesEdgeversionreportParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesEdgeversionreportParams {
-
 	return &GetTelephonyProvidersEdgesEdgeversionreportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesEdgeversionreportParamsWithContext creates a new GetTelephonyProvidersEdgesEdgeversionreportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesEdgeversionreportParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesEdgeversionreportParams {
-
 	return &GetTelephonyProvidersEdgesEdgeversionreportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesEdgeversionreportParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesEdgeversionreportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesEdgeversionreportParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesEdgeversionreportParams {
-
 	return &GetTelephonyProvidersEdgesEdgeversionreportParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesEdgeversionreportParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges edgeversionreport operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesEdgeversionreportParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges edgeversionreport operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesEdgeversionreportParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges edgeversionreport params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesEdgeversionreportParams) WithDefaults() *GetTelephonyProvidersEdgesEdgeversionreportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges edgeversionreport params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesEdgeversionreportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges edgeversionreport params

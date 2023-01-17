@@ -95,7 +95,6 @@ func (o *GetBillingReportsBillableusageReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetBillingReportsBillableusageOK() *GetBillingReportsBillableusageOK {
 	return &GetBillingReportsBillableusageOK{}
 }
 
-/*GetBillingReportsBillableusageOK handles this case with default header values.
+/*
+GetBillingReportsBillableusageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetBillingReportsBillableusageOK struct {
 	Payload *models.BillingUsageReport
 }
 
+// IsSuccess returns true when this get billing reports billableusage o k response has a 2xx status code
+func (o *GetBillingReportsBillableusageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get billing reports billableusage o k response has a 3xx status code
+func (o *GetBillingReportsBillableusageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage o k response has a 4xx status code
+func (o *GetBillingReportsBillableusageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing reports billableusage o k response has a 5xx status code
+func (o *GetBillingReportsBillableusageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage o k response a status code equal to that given
+func (o *GetBillingReportsBillableusageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetBillingReportsBillableusageOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageOK  %+v", 200, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetBillingReportsBillableusageBadRequest() *GetBillingReportsBillableusa
 	return &GetBillingReportsBillableusageBadRequest{}
 }
 
-/*GetBillingReportsBillableusageBadRequest handles this case with default header values.
+/*
+GetBillingReportsBillableusageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetBillingReportsBillableusageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage bad request response has a 2xx status code
+func (o *GetBillingReportsBillableusageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage bad request response has a 3xx status code
+func (o *GetBillingReportsBillableusageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage bad request response has a 4xx status code
+func (o *GetBillingReportsBillableusageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage bad request response has a 5xx status code
+func (o *GetBillingReportsBillableusageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage bad request response a status code equal to that given
+func (o *GetBillingReportsBillableusageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetBillingReportsBillableusageBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetBillingReportsBillableusageUnauthorized() *GetBillingReportsBillableu
 	return &GetBillingReportsBillableusageUnauthorized{}
 }
 
-/*GetBillingReportsBillableusageUnauthorized handles this case with default header values.
+/*
+GetBillingReportsBillableusageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetBillingReportsBillableusageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage unauthorized response has a 2xx status code
+func (o *GetBillingReportsBillableusageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage unauthorized response has a 3xx status code
+func (o *GetBillingReportsBillableusageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage unauthorized response has a 4xx status code
+func (o *GetBillingReportsBillableusageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage unauthorized response has a 5xx status code
+func (o *GetBillingReportsBillableusageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage unauthorized response a status code equal to that given
+func (o *GetBillingReportsBillableusageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetBillingReportsBillableusageUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetBillingReportsBillableusageForbidden() *GetBillingReportsBillableusag
 	return &GetBillingReportsBillableusageForbidden{}
 }
 
-/*GetBillingReportsBillableusageForbidden handles this case with default header values.
+/*
+GetBillingReportsBillableusageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetBillingReportsBillableusageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage forbidden response has a 2xx status code
+func (o *GetBillingReportsBillableusageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage forbidden response has a 3xx status code
+func (o *GetBillingReportsBillableusageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage forbidden response has a 4xx status code
+func (o *GetBillingReportsBillableusageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage forbidden response has a 5xx status code
+func (o *GetBillingReportsBillableusageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage forbidden response a status code equal to that given
+func (o *GetBillingReportsBillableusageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetBillingReportsBillableusageForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetBillingReportsBillableusageNotFound() *GetBillingReportsBillableusage
 	return &GetBillingReportsBillableusageNotFound{}
 }
 
-/*GetBillingReportsBillableusageNotFound handles this case with default header values.
+/*
+GetBillingReportsBillableusageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetBillingReportsBillableusageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage not found response has a 2xx status code
+func (o *GetBillingReportsBillableusageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage not found response has a 3xx status code
+func (o *GetBillingReportsBillableusageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage not found response has a 4xx status code
+func (o *GetBillingReportsBillableusageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage not found response has a 5xx status code
+func (o *GetBillingReportsBillableusageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage not found response a status code equal to that given
+func (o *GetBillingReportsBillableusageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetBillingReportsBillableusageNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetBillingReportsBillableusageRequestTimeout() *GetBillingReportsBillabl
 	return &GetBillingReportsBillableusageRequestTimeout{}
 }
 
-/*GetBillingReportsBillableusageRequestTimeout handles this case with default header values.
+/*
+GetBillingReportsBillableusageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetBillingReportsBillableusageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage request timeout response has a 2xx status code
+func (o *GetBillingReportsBillableusageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage request timeout response has a 3xx status code
+func (o *GetBillingReportsBillableusageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage request timeout response has a 4xx status code
+func (o *GetBillingReportsBillableusageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage request timeout response has a 5xx status code
+func (o *GetBillingReportsBillableusageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage request timeout response a status code equal to that given
+func (o *GetBillingReportsBillableusageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetBillingReportsBillableusageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetBillingReportsBillableusageRequestEntityTooLarge() *GetBillingReports
 	return &GetBillingReportsBillableusageRequestEntityTooLarge{}
 }
 
-/*GetBillingReportsBillableusageRequestEntityTooLarge handles this case with default header values.
+/*
+GetBillingReportsBillableusageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetBillingReportsBillableusageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage request entity too large response has a 2xx status code
+func (o *GetBillingReportsBillableusageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage request entity too large response has a 3xx status code
+func (o *GetBillingReportsBillableusageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage request entity too large response has a 4xx status code
+func (o *GetBillingReportsBillableusageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage request entity too large response has a 5xx status code
+func (o *GetBillingReportsBillableusageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage request entity too large response a status code equal to that given
+func (o *GetBillingReportsBillableusageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetBillingReportsBillableusageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetBillingReportsBillableusageUnsupportedMediaType() *GetBillingReportsB
 	return &GetBillingReportsBillableusageUnsupportedMediaType{}
 }
 
-/*GetBillingReportsBillableusageUnsupportedMediaType handles this case with default header values.
+/*
+GetBillingReportsBillableusageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetBillingReportsBillableusageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage unsupported media type response has a 2xx status code
+func (o *GetBillingReportsBillableusageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage unsupported media type response has a 3xx status code
+func (o *GetBillingReportsBillableusageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage unsupported media type response has a 4xx status code
+func (o *GetBillingReportsBillableusageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage unsupported media type response has a 5xx status code
+func (o *GetBillingReportsBillableusageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage unsupported media type response a status code equal to that given
+func (o *GetBillingReportsBillableusageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetBillingReportsBillableusageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetBillingReportsBillableusageTooManyRequests() *GetBillingReportsBillab
 	return &GetBillingReportsBillableusageTooManyRequests{}
 }
 
-/*GetBillingReportsBillableusageTooManyRequests handles this case with default header values.
+/*
+GetBillingReportsBillableusageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetBillingReportsBillableusageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage too many requests response has a 2xx status code
+func (o *GetBillingReportsBillableusageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage too many requests response has a 3xx status code
+func (o *GetBillingReportsBillableusageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage too many requests response has a 4xx status code
+func (o *GetBillingReportsBillableusageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing reports billableusage too many requests response has a 5xx status code
+func (o *GetBillingReportsBillableusageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing reports billableusage too many requests response a status code equal to that given
+func (o *GetBillingReportsBillableusageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetBillingReportsBillableusageTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetBillingReportsBillableusageInternalServerError() *GetBillingReportsBi
 	return &GetBillingReportsBillableusageInternalServerError{}
 }
 
-/*GetBillingReportsBillableusageInternalServerError handles this case with default header values.
+/*
+GetBillingReportsBillableusageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetBillingReportsBillableusageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage internal server error response has a 2xx status code
+func (o *GetBillingReportsBillableusageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage internal server error response has a 3xx status code
+func (o *GetBillingReportsBillableusageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage internal server error response has a 4xx status code
+func (o *GetBillingReportsBillableusageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing reports billableusage internal server error response has a 5xx status code
+func (o *GetBillingReportsBillableusageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get billing reports billableusage internal server error response a status code equal to that given
+func (o *GetBillingReportsBillableusageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetBillingReportsBillableusageInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetBillingReportsBillableusageServiceUnavailable() *GetBillingReportsBil
 	return &GetBillingReportsBillableusageServiceUnavailable{}
 }
 
-/*GetBillingReportsBillableusageServiceUnavailable handles this case with default header values.
+/*
+GetBillingReportsBillableusageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetBillingReportsBillableusageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage service unavailable response has a 2xx status code
+func (o *GetBillingReportsBillableusageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage service unavailable response has a 3xx status code
+func (o *GetBillingReportsBillableusageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage service unavailable response has a 4xx status code
+func (o *GetBillingReportsBillableusageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing reports billableusage service unavailable response has a 5xx status code
+func (o *GetBillingReportsBillableusageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get billing reports billableusage service unavailable response a status code equal to that given
+func (o *GetBillingReportsBillableusageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetBillingReportsBillableusageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetBillingReportsBillableusageGatewayTimeout() *GetBillingReportsBillabl
 	return &GetBillingReportsBillableusageGatewayTimeout{}
 }
 
-/*GetBillingReportsBillableusageGatewayTimeout handles this case with default header values.
+/*
+GetBillingReportsBillableusageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetBillingReportsBillableusageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing reports billableusage gateway timeout response has a 2xx status code
+func (o *GetBillingReportsBillableusageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing reports billableusage gateway timeout response has a 3xx status code
+func (o *GetBillingReportsBillableusageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing reports billableusage gateway timeout response has a 4xx status code
+func (o *GetBillingReportsBillableusageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing reports billableusage gateway timeout response has a 5xx status code
+func (o *GetBillingReportsBillableusageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get billing reports billableusage gateway timeout response a status code equal to that given
+func (o *GetBillingReportsBillableusageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetBillingReportsBillableusageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetBillingReportsBillableusageGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/reports/billableusage][%d] getBillingReportsBillableusageGatewayTimeout  %+v", 504, o.Payload)
 }
 

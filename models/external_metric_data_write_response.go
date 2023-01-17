@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -44,7 +45,6 @@ func (m *ExternalMetricDataWriteResponse) Validate(formats strfmt.Registry) erro
 }
 
 func (m *ExternalMetricDataWriteResponse) validateProcessedEntities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProcessedEntities) { // not required
 		return nil
 	}
@@ -58,6 +58,8 @@ func (m *ExternalMetricDataWriteResponse) validateProcessedEntities(formats strf
 			if err := m.ProcessedEntities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("processedEntities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("processedEntities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -69,7 +71,6 @@ func (m *ExternalMetricDataWriteResponse) validateProcessedEntities(formats strf
 }
 
 func (m *ExternalMetricDataWriteResponse) validateUnprocessedEntities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnprocessedEntities) { // not required
 		return nil
 	}
@@ -83,6 +84,66 @@ func (m *ExternalMetricDataWriteResponse) validateUnprocessedEntities(formats st
 			if err := m.UnprocessedEntities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("unprocessedEntities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("unprocessedEntities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this external metric data write response based on the context it is used
+func (m *ExternalMetricDataWriteResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateProcessedEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUnprocessedEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ExternalMetricDataWriteResponse) contextValidateProcessedEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ProcessedEntities); i++ {
+
+		if m.ProcessedEntities[i] != nil {
+			if err := m.ProcessedEntities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("processedEntities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("processedEntities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ExternalMetricDataWriteResponse) contextValidateUnprocessedEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UnprocessedEntities); i++ {
+
+		if m.UnprocessedEntities[i] != nil {
+			if err := m.UnprocessedEntities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("unprocessedEntities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("unprocessedEntities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

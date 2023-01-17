@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutRoutingSettingsTranscriptionParams creates a new PutRoutingSettingsTranscriptionParams object
-// with the default values initialized.
+// NewPutRoutingSettingsTranscriptionParams creates a new PutRoutingSettingsTranscriptionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutRoutingSettingsTranscriptionParams() *PutRoutingSettingsTranscriptionParams {
-	var ()
 	return &PutRoutingSettingsTranscriptionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutRoutingSettingsTranscriptionParamsWithTimeout creates a new PutRoutingSettingsTranscriptionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutRoutingSettingsTranscriptionParamsWithTimeout(timeout time.Duration) *PutRoutingSettingsTranscriptionParams {
-	var ()
 	return &PutRoutingSettingsTranscriptionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutRoutingSettingsTranscriptionParamsWithContext creates a new PutRoutingSettingsTranscriptionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutRoutingSettingsTranscriptionParamsWithContext(ctx context.Context) *PutRoutingSettingsTranscriptionParams {
-	var ()
 	return &PutRoutingSettingsTranscriptionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutRoutingSettingsTranscriptionParamsWithHTTPClient creates a new PutRoutingSettingsTranscriptionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutRoutingSettingsTranscriptionParamsWithHTTPClient(client *http.Client) *PutRoutingSettingsTranscriptionParams {
-	var ()
 	return &PutRoutingSettingsTranscriptionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutRoutingSettingsTranscriptionParams contains all the parameters to send to the API endpoint
-for the put routing settings transcription operation typically these are written to a http.Request
+/*
+PutRoutingSettingsTranscriptionParams contains all the parameters to send to the API endpoint
+
+	for the put routing settings transcription operation.
+
+	Typically these are written to a http.Request.
 */
 type PutRoutingSettingsTranscriptionParams struct {
 
-	/*Body
-	  Organization Settings
+	/* Body.
 
+	   Organization Settings
 	*/
 	Body *models.TranscriptionSettings
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put routing settings transcription params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingSettingsTranscriptionParams) WithDefaults() *PutRoutingSettingsTranscriptionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put routing settings transcription params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingSettingsTranscriptionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put routing settings transcription params
@@ -124,7 +140,6 @@ func (o *PutRoutingSettingsTranscriptionParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

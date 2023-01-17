@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteIdentityprovidersSalesforceParams creates a new DeleteIdentityprovidersSalesforceParams object
-// with the default values initialized.
+// NewDeleteIdentityprovidersSalesforceParams creates a new DeleteIdentityprovidersSalesforceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteIdentityprovidersSalesforceParams() *DeleteIdentityprovidersSalesforceParams {
-
 	return &DeleteIdentityprovidersSalesforceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteIdentityprovidersSalesforceParamsWithTimeout creates a new DeleteIdentityprovidersSalesforceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteIdentityprovidersSalesforceParamsWithTimeout(timeout time.Duration) *DeleteIdentityprovidersSalesforceParams {
-
 	return &DeleteIdentityprovidersSalesforceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteIdentityprovidersSalesforceParamsWithContext creates a new DeleteIdentityprovidersSalesforceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteIdentityprovidersSalesforceParamsWithContext(ctx context.Context) *DeleteIdentityprovidersSalesforceParams {
-
 	return &DeleteIdentityprovidersSalesforceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteIdentityprovidersSalesforceParamsWithHTTPClient creates a new DeleteIdentityprovidersSalesforceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteIdentityprovidersSalesforceParamsWithHTTPClient(client *http.Client) *DeleteIdentityprovidersSalesforceParams {
-
 	return &DeleteIdentityprovidersSalesforceParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteIdentityprovidersSalesforceParams contains all the parameters to send to the API endpoint
-for the delete identityproviders salesforce operation typically these are written to a http.Request
+/*
+DeleteIdentityprovidersSalesforceParams contains all the parameters to send to the API endpoint
+
+	for the delete identityproviders salesforce operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteIdentityprovidersSalesforceParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete identityproviders salesforce params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIdentityprovidersSalesforceParams) WithDefaults() *DeleteIdentityprovidersSalesforceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete identityproviders salesforce params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIdentityprovidersSalesforceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete identityproviders salesforce params

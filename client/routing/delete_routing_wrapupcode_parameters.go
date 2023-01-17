@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRoutingWrapupcodeParams creates a new DeleteRoutingWrapupcodeParams object
-// with the default values initialized.
+// NewDeleteRoutingWrapupcodeParams creates a new DeleteRoutingWrapupcodeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRoutingWrapupcodeParams() *DeleteRoutingWrapupcodeParams {
-	var ()
 	return &DeleteRoutingWrapupcodeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRoutingWrapupcodeParamsWithTimeout creates a new DeleteRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRoutingWrapupcodeParamsWithTimeout(timeout time.Duration) *DeleteRoutingWrapupcodeParams {
-	var ()
 	return &DeleteRoutingWrapupcodeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRoutingWrapupcodeParamsWithContext creates a new DeleteRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRoutingWrapupcodeParamsWithContext(ctx context.Context) *DeleteRoutingWrapupcodeParams {
-	var ()
 	return &DeleteRoutingWrapupcodeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRoutingWrapupcodeParamsWithHTTPClient creates a new DeleteRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRoutingWrapupcodeParamsWithHTTPClient(client *http.Client) *DeleteRoutingWrapupcodeParams {
-	var ()
 	return &DeleteRoutingWrapupcodeParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRoutingWrapupcodeParams contains all the parameters to send to the API endpoint
-for the delete routing wrapupcode operation typically these are written to a http.Request
+/*
+DeleteRoutingWrapupcodeParams contains all the parameters to send to the API endpoint
+
+	for the delete routing wrapupcode operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRoutingWrapupcodeParams struct {
 
-	/*CodeID
-	  Wrapup Code ID
+	/* CodeID.
 
+	   Wrapup Code ID
 	*/
 	CodeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete routing wrapupcode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingWrapupcodeParams) WithDefaults() *DeleteRoutingWrapupcodeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete routing wrapupcode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingWrapupcodeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete routing wrapupcode params

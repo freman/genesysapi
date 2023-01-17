@@ -101,7 +101,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekSchedulesReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesOK() *PostWorkforcemanag
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesOK{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesOK handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesOK struct {
 	Payload *models.BuScheduleMetadata
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules o k response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules o k response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules o k response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules o k response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules o k response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesCreated() *PostWorkforce
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesCreated{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesCreated handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesCreated describes a response with status code 201, with default header values.
 
 The schedule was successfully created
 */
@@ -153,7 +183,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesCreated struct {
 	Payload *models.BuScheduleMetadata
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules created response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules created response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules created response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules created response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules created response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesCreated  %+v", 201, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesBadRequest() *PostWorkfo
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules bad request response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules bad request response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules bad request response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules bad request response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules bad request response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized() *PostWork
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesForbidden() *PostWorkfor
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesForbidden{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesNotFound() *PostWorkforc
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesNotFound{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules not found response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules not found response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules not found response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules not found response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules not found response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout() *PostWo
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge() 
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType() *
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests() *PostW
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError() *P
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable() *Po
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout() *PostWo
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week schedules gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week schedules gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week schedules gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week schedules gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week schedules gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules][%d] postWorkforcemanagementBusinessunitWeekSchedulesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,74 +18,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutQualityConversationEvaluationParams creates a new PutQualityConversationEvaluationParams object
-// with the default values initialized.
+// NewPutQualityConversationEvaluationParams creates a new PutQualityConversationEvaluationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutQualityConversationEvaluationParams() *PutQualityConversationEvaluationParams {
-	var ()
 	return &PutQualityConversationEvaluationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutQualityConversationEvaluationParamsWithTimeout creates a new PutQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutQualityConversationEvaluationParamsWithTimeout(timeout time.Duration) *PutQualityConversationEvaluationParams {
-	var ()
 	return &PutQualityConversationEvaluationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutQualityConversationEvaluationParamsWithContext creates a new PutQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutQualityConversationEvaluationParamsWithContext(ctx context.Context) *PutQualityConversationEvaluationParams {
-	var ()
 	return &PutQualityConversationEvaluationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutQualityConversationEvaluationParamsWithHTTPClient creates a new PutQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutQualityConversationEvaluationParamsWithHTTPClient(client *http.Client) *PutQualityConversationEvaluationParams {
-	var ()
 	return &PutQualityConversationEvaluationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutQualityConversationEvaluationParams contains all the parameters to send to the API endpoint
-for the put quality conversation evaluation operation typically these are written to a http.Request
+/*
+PutQualityConversationEvaluationParams contains all the parameters to send to the API endpoint
+
+	for the put quality conversation evaluation operation.
+
+	Typically these are written to a http.Request.
 */
 type PutQualityConversationEvaluationParams struct {
 
-	/*Body
-	  evaluation
+	/* Body.
 
+	   evaluation
 	*/
 	Body *models.Evaluation
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*EvaluationID
-	  evaluationId
 
+	/* EvaluationID.
+
+	   evaluationId
 	*/
 	EvaluationID string
-	/*Expand
-	  evaluatorId, evaluationForm
 
+	/* Expand.
+
+	   evaluatorId, evaluationForm
 	*/
 	Expand *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put quality conversation evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityConversationEvaluationParams) WithDefaults() *PutQualityConversationEvaluationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put quality conversation evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityConversationEvaluationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put quality conversation evaluation params
@@ -172,7 +191,6 @@ func (o *PutQualityConversationEvaluationParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -193,16 +211,17 @@ func (o *PutQualityConversationEvaluationParams) WriteToRequest(r runtime.Client
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -49,7 +50,6 @@ func (m *PredictorSchedule) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PredictorSchedule) validateDateStarted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStarted) { // not required
 		return nil
 	}
@@ -98,6 +98,29 @@ func (m *PredictorSchedule) validateScheduleType(formats strfmt.Registry) error 
 
 	// value enum
 	if err := m.validateScheduleTypeEnum("scheduleType", "body", *m.ScheduleType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this predictor schedule based on the context it is used
+func (m *PredictorSchedule) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateStarted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PredictorSchedule) contextValidateDateStarted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStarted", "body", strfmt.DateTime(m.DateStarted)); err != nil {
 		return err
 	}
 

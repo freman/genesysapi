@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *NluDetectionContext) Validate(formats strfmt.Registry) error {
 }
 
 func (m *NluDetectionContext) validateEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entity) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *NluDetectionContext) validateEntity(formats strfmt.Registry) error {
 		if err := m.Entity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *NluDetectionContext) validateEntity(formats strfmt.Registry) error {
 }
 
 func (m *NluDetectionContext) validateIntent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intent) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *NluDetectionContext) validateIntent(formats strfmt.Registry) error {
 		if err := m.Intent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("intent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("intent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this nlu detection context based on the context it is used
+func (m *NluDetectionContext) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NluDetectionContext) contextValidateEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Entity != nil {
+		if err := m.Entity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NluDetectionContext) contextValidateIntent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Intent != nil {
+		if err := m.Intent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("intent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("intent")
 			}
 			return err
 		}

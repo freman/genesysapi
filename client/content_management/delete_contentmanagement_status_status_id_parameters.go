@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteContentmanagementStatusStatusIDParams creates a new DeleteContentmanagementStatusStatusIDParams object
-// with the default values initialized.
+// NewDeleteContentmanagementStatusStatusIDParams creates a new DeleteContentmanagementStatusStatusIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteContentmanagementStatusStatusIDParams() *DeleteContentmanagementStatusStatusIDParams {
-	var ()
 	return &DeleteContentmanagementStatusStatusIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteContentmanagementStatusStatusIDParamsWithTimeout creates a new DeleteContentmanagementStatusStatusIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteContentmanagementStatusStatusIDParamsWithTimeout(timeout time.Duration) *DeleteContentmanagementStatusStatusIDParams {
-	var ()
 	return &DeleteContentmanagementStatusStatusIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteContentmanagementStatusStatusIDParamsWithContext creates a new DeleteContentmanagementStatusStatusIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteContentmanagementStatusStatusIDParamsWithContext(ctx context.Context) *DeleteContentmanagementStatusStatusIDParams {
-	var ()
 	return &DeleteContentmanagementStatusStatusIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteContentmanagementStatusStatusIDParamsWithHTTPClient creates a new DeleteContentmanagementStatusStatusIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteContentmanagementStatusStatusIDParamsWithHTTPClient(client *http.Client) *DeleteContentmanagementStatusStatusIDParams {
-	var ()
 	return &DeleteContentmanagementStatusStatusIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteContentmanagementStatusStatusIDParams contains all the parameters to send to the API endpoint
-for the delete contentmanagement status status Id operation typically these are written to a http.Request
+/*
+DeleteContentmanagementStatusStatusIDParams contains all the parameters to send to the API endpoint
+
+	for the delete contentmanagement status status Id operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteContentmanagementStatusStatusIDParams struct {
 
-	/*StatusID
-	  Status ID
+	/* StatusID.
 
+	   Status ID
 	*/
 	StatusID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete contentmanagement status status Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementStatusStatusIDParams) WithDefaults() *DeleteContentmanagementStatusStatusIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete contentmanagement status status Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementStatusStatusIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete contentmanagement status status Id params

@@ -101,7 +101,6 @@ func (o *PatchUserCallforwardingReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchUserCallforwardingOK() *PatchUserCallforwardingOK {
 	return &PatchUserCallforwardingOK{}
 }
 
-/*PatchUserCallforwardingOK handles this case with default header values.
+/*
+PatchUserCallforwardingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchUserCallforwardingOK struct {
 	Payload *models.CallForwarding
 }
 
+// IsSuccess returns true when this patch user callforwarding o k response has a 2xx status code
+func (o *PatchUserCallforwardingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user callforwarding o k response has a 3xx status code
+func (o *PatchUserCallforwardingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding o k response has a 4xx status code
+func (o *PatchUserCallforwardingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user callforwarding o k response has a 5xx status code
+func (o *PatchUserCallforwardingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding o k response a status code equal to that given
+func (o *PatchUserCallforwardingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchUserCallforwardingOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchUserCallforwardingOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchUserCallforwardingBadRequest() *PatchUserCallforwardingBadRequest {
 	return &PatchUserCallforwardingBadRequest{}
 }
 
-/*PatchUserCallforwardingBadRequest handles this case with default header values.
+/*
+PatchUserCallforwardingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchUserCallforwardingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding bad request response has a 2xx status code
+func (o *PatchUserCallforwardingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding bad request response has a 3xx status code
+func (o *PatchUserCallforwardingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding bad request response has a 4xx status code
+func (o *PatchUserCallforwardingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding bad request response has a 5xx status code
+func (o *PatchUserCallforwardingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding bad request response a status code equal to that given
+func (o *PatchUserCallforwardingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchUserCallforwardingBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchUserCallforwardingBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchUserCallforwardingUnauthorized() *PatchUserCallforwardingUnauthoriz
 	return &PatchUserCallforwardingUnauthorized{}
 }
 
-/*PatchUserCallforwardingUnauthorized handles this case with default header values.
+/*
+PatchUserCallforwardingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchUserCallforwardingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding unauthorized response has a 2xx status code
+func (o *PatchUserCallforwardingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding unauthorized response has a 3xx status code
+func (o *PatchUserCallforwardingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding unauthorized response has a 4xx status code
+func (o *PatchUserCallforwardingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding unauthorized response has a 5xx status code
+func (o *PatchUserCallforwardingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding unauthorized response a status code equal to that given
+func (o *PatchUserCallforwardingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchUserCallforwardingUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchUserCallforwardingUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchUserCallforwardingForbidden() *PatchUserCallforwardingForbidden {
 	return &PatchUserCallforwardingForbidden{}
 }
 
-/*PatchUserCallforwardingForbidden handles this case with default header values.
+/*
+PatchUserCallforwardingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchUserCallforwardingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding forbidden response has a 2xx status code
+func (o *PatchUserCallforwardingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding forbidden response has a 3xx status code
+func (o *PatchUserCallforwardingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding forbidden response has a 4xx status code
+func (o *PatchUserCallforwardingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding forbidden response has a 5xx status code
+func (o *PatchUserCallforwardingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding forbidden response a status code equal to that given
+func (o *PatchUserCallforwardingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchUserCallforwardingForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchUserCallforwardingForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchUserCallforwardingNotFound() *PatchUserCallforwardingNotFound {
 	return &PatchUserCallforwardingNotFound{}
 }
 
-/*PatchUserCallforwardingNotFound handles this case with default header values.
+/*
+PatchUserCallforwardingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchUserCallforwardingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding not found response has a 2xx status code
+func (o *PatchUserCallforwardingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding not found response has a 3xx status code
+func (o *PatchUserCallforwardingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding not found response has a 4xx status code
+func (o *PatchUserCallforwardingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding not found response has a 5xx status code
+func (o *PatchUserCallforwardingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding not found response a status code equal to that given
+func (o *PatchUserCallforwardingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchUserCallforwardingNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchUserCallforwardingNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchUserCallforwardingRequestTimeout() *PatchUserCallforwardingRequestT
 	return &PatchUserCallforwardingRequestTimeout{}
 }
 
-/*PatchUserCallforwardingRequestTimeout handles this case with default header values.
+/*
+PatchUserCallforwardingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchUserCallforwardingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding request timeout response has a 2xx status code
+func (o *PatchUserCallforwardingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding request timeout response has a 3xx status code
+func (o *PatchUserCallforwardingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding request timeout response has a 4xx status code
+func (o *PatchUserCallforwardingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding request timeout response has a 5xx status code
+func (o *PatchUserCallforwardingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding request timeout response a status code equal to that given
+func (o *PatchUserCallforwardingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchUserCallforwardingRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserCallforwardingRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchUserCallforwardingConflict() *PatchUserCallforwardingConflict {
 	return &PatchUserCallforwardingConflict{}
 }
 
-/*PatchUserCallforwardingConflict handles this case with default header values.
+/*
+PatchUserCallforwardingConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchUserCallforwardingConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding conflict response has a 2xx status code
+func (o *PatchUserCallforwardingConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding conflict response has a 3xx status code
+func (o *PatchUserCallforwardingConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding conflict response has a 4xx status code
+func (o *PatchUserCallforwardingConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding conflict response has a 5xx status code
+func (o *PatchUserCallforwardingConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding conflict response a status code equal to that given
+func (o *PatchUserCallforwardingConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchUserCallforwardingConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchUserCallforwardingConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchUserCallforwardingRequestEntityTooLarge() *PatchUserCallforwardingR
 	return &PatchUserCallforwardingRequestEntityTooLarge{}
 }
 
-/*PatchUserCallforwardingRequestEntityTooLarge handles this case with default header values.
+/*
+PatchUserCallforwardingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchUserCallforwardingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding request entity too large response has a 2xx status code
+func (o *PatchUserCallforwardingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding request entity too large response has a 3xx status code
+func (o *PatchUserCallforwardingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding request entity too large response has a 4xx status code
+func (o *PatchUserCallforwardingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding request entity too large response has a 5xx status code
+func (o *PatchUserCallforwardingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding request entity too large response a status code equal to that given
+func (o *PatchUserCallforwardingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchUserCallforwardingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchUserCallforwardingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchUserCallforwardingUnsupportedMediaType() *PatchUserCallforwardingUn
 	return &PatchUserCallforwardingUnsupportedMediaType{}
 }
 
-/*PatchUserCallforwardingUnsupportedMediaType handles this case with default header values.
+/*
+PatchUserCallforwardingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchUserCallforwardingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding unsupported media type response has a 2xx status code
+func (o *PatchUserCallforwardingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding unsupported media type response has a 3xx status code
+func (o *PatchUserCallforwardingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding unsupported media type response has a 4xx status code
+func (o *PatchUserCallforwardingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding unsupported media type response has a 5xx status code
+func (o *PatchUserCallforwardingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding unsupported media type response a status code equal to that given
+func (o *PatchUserCallforwardingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchUserCallforwardingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchUserCallforwardingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchUserCallforwardingTooManyRequests() *PatchUserCallforwardingTooMany
 	return &PatchUserCallforwardingTooManyRequests{}
 }
 
-/*PatchUserCallforwardingTooManyRequests handles this case with default header values.
+/*
+PatchUserCallforwardingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchUserCallforwardingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding too many requests response has a 2xx status code
+func (o *PatchUserCallforwardingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding too many requests response has a 3xx status code
+func (o *PatchUserCallforwardingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding too many requests response has a 4xx status code
+func (o *PatchUserCallforwardingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user callforwarding too many requests response has a 5xx status code
+func (o *PatchUserCallforwardingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user callforwarding too many requests response a status code equal to that given
+func (o *PatchUserCallforwardingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchUserCallforwardingTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchUserCallforwardingTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchUserCallforwardingInternalServerError() *PatchUserCallforwardingInt
 	return &PatchUserCallforwardingInternalServerError{}
 }
 
-/*PatchUserCallforwardingInternalServerError handles this case with default header values.
+/*
+PatchUserCallforwardingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchUserCallforwardingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding internal server error response has a 2xx status code
+func (o *PatchUserCallforwardingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding internal server error response has a 3xx status code
+func (o *PatchUserCallforwardingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding internal server error response has a 4xx status code
+func (o *PatchUserCallforwardingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user callforwarding internal server error response has a 5xx status code
+func (o *PatchUserCallforwardingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user callforwarding internal server error response a status code equal to that given
+func (o *PatchUserCallforwardingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchUserCallforwardingInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchUserCallforwardingInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchUserCallforwardingServiceUnavailable() *PatchUserCallforwardingServ
 	return &PatchUserCallforwardingServiceUnavailable{}
 }
 
-/*PatchUserCallforwardingServiceUnavailable handles this case with default header values.
+/*
+PatchUserCallforwardingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchUserCallforwardingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding service unavailable response has a 2xx status code
+func (o *PatchUserCallforwardingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding service unavailable response has a 3xx status code
+func (o *PatchUserCallforwardingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding service unavailable response has a 4xx status code
+func (o *PatchUserCallforwardingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user callforwarding service unavailable response has a 5xx status code
+func (o *PatchUserCallforwardingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user callforwarding service unavailable response a status code equal to that given
+func (o *PatchUserCallforwardingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchUserCallforwardingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchUserCallforwardingServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchUserCallforwardingGatewayTimeout() *PatchUserCallforwardingGatewayT
 	return &PatchUserCallforwardingGatewayTimeout{}
 }
 
-/*PatchUserCallforwardingGatewayTimeout handles this case with default header values.
+/*
+PatchUserCallforwardingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchUserCallforwardingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user callforwarding gateway timeout response has a 2xx status code
+func (o *PatchUserCallforwardingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user callforwarding gateway timeout response has a 3xx status code
+func (o *PatchUserCallforwardingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user callforwarding gateway timeout response has a 4xx status code
+func (o *PatchUserCallforwardingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user callforwarding gateway timeout response has a 5xx status code
+func (o *PatchUserCallforwardingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user callforwarding gateway timeout response a status code equal to that given
+func (o *PatchUserCallforwardingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchUserCallforwardingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchUserCallforwardingGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/callforwarding][%d] patchUserCallforwardingGatewayTimeout  %+v", 504, o.Payload)
 }
 

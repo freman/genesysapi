@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -60,7 +62,6 @@ func (m *UpdateDraftInput) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UpdateDraftInput) validateConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Config) { // not required
 		return nil
 	}
@@ -69,6 +70,8 @@ func (m *UpdateDraftInput) validateConfig(formats strfmt.Registry) error {
 		if err := m.Config.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("config")
 			}
 			return err
 		}
@@ -78,7 +81,6 @@ func (m *UpdateDraftInput) validateConfig(formats strfmt.Registry) error {
 }
 
 func (m *UpdateDraftInput) validateContract(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Contract) { // not required
 		return nil
 	}
@@ -87,6 +89,8 @@ func (m *UpdateDraftInput) validateContract(formats strfmt.Registry) error {
 		if err := m.Contract.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contract")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contract")
 			}
 			return err
 		}
@@ -99,6 +103,56 @@ func (m *UpdateDraftInput) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update draft input based on the context it is used
+func (m *UpdateDraftInput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContract(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateDraftInput) contextValidateConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Config != nil {
+		if err := m.Config.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("config")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("config")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateDraftInput) contextValidateContract(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Contract != nil {
+		if err := m.Contract.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contract")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contract")
+			}
+			return err
+		}
 	}
 
 	return nil

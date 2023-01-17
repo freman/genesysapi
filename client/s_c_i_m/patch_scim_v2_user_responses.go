@@ -101,7 +101,6 @@ func (o *PatchScimV2UserReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchScimV2UserOK() *PatchScimV2UserOK {
 	return &PatchScimV2UserOK{}
 }
 
-/*PatchScimV2UserOK handles this case with default header values.
+/*
+PatchScimV2UserOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchScimV2UserOK struct {
 	Payload *models.ScimV2User
 }
 
+// IsSuccess returns true when this patch scim v2 user o k response has a 2xx status code
+func (o *PatchScimV2UserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch scim v2 user o k response has a 3xx status code
+func (o *PatchScimV2UserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user o k response has a 4xx status code
+func (o *PatchScimV2UserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim v2 user o k response has a 5xx status code
+func (o *PatchScimV2UserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user o k response a status code equal to that given
+func (o *PatchScimV2UserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchScimV2UserOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchScimV2UserOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchScimV2UserBadRequest() *PatchScimV2UserBadRequest {
 	return &PatchScimV2UserBadRequest{}
 }
 
-/*PatchScimV2UserBadRequest handles this case with default header values.
+/*
+PatchScimV2UserBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchScimV2UserBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user bad request response has a 2xx status code
+func (o *PatchScimV2UserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user bad request response has a 3xx status code
+func (o *PatchScimV2UserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user bad request response has a 4xx status code
+func (o *PatchScimV2UserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user bad request response has a 5xx status code
+func (o *PatchScimV2UserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user bad request response a status code equal to that given
+func (o *PatchScimV2UserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchScimV2UserBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchScimV2UserBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchScimV2UserUnauthorized() *PatchScimV2UserUnauthorized {
 	return &PatchScimV2UserUnauthorized{}
 }
 
-/*PatchScimV2UserUnauthorized handles this case with default header values.
+/*
+PatchScimV2UserUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchScimV2UserUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user unauthorized response has a 2xx status code
+func (o *PatchScimV2UserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user unauthorized response has a 3xx status code
+func (o *PatchScimV2UserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user unauthorized response has a 4xx status code
+func (o *PatchScimV2UserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user unauthorized response has a 5xx status code
+func (o *PatchScimV2UserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user unauthorized response a status code equal to that given
+func (o *PatchScimV2UserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchScimV2UserUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchScimV2UserUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchScimV2UserForbidden() *PatchScimV2UserForbidden {
 	return &PatchScimV2UserForbidden{}
 }
 
-/*PatchScimV2UserForbidden handles this case with default header values.
+/*
+PatchScimV2UserForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchScimV2UserForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user forbidden response has a 2xx status code
+func (o *PatchScimV2UserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user forbidden response has a 3xx status code
+func (o *PatchScimV2UserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user forbidden response has a 4xx status code
+func (o *PatchScimV2UserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user forbidden response has a 5xx status code
+func (o *PatchScimV2UserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user forbidden response a status code equal to that given
+func (o *PatchScimV2UserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchScimV2UserForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchScimV2UserForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchScimV2UserNotFound() *PatchScimV2UserNotFound {
 	return &PatchScimV2UserNotFound{}
 }
 
-/*PatchScimV2UserNotFound handles this case with default header values.
+/*
+PatchScimV2UserNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchScimV2UserNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user not found response has a 2xx status code
+func (o *PatchScimV2UserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user not found response has a 3xx status code
+func (o *PatchScimV2UserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user not found response has a 4xx status code
+func (o *PatchScimV2UserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user not found response has a 5xx status code
+func (o *PatchScimV2UserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user not found response a status code equal to that given
+func (o *PatchScimV2UserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchScimV2UserNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchScimV2UserNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchScimV2UserRequestTimeout() *PatchScimV2UserRequestTimeout {
 	return &PatchScimV2UserRequestTimeout{}
 }
 
-/*PatchScimV2UserRequestTimeout handles this case with default header values.
+/*
+PatchScimV2UserRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchScimV2UserRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user request timeout response has a 2xx status code
+func (o *PatchScimV2UserRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user request timeout response has a 3xx status code
+func (o *PatchScimV2UserRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user request timeout response has a 4xx status code
+func (o *PatchScimV2UserRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user request timeout response has a 5xx status code
+func (o *PatchScimV2UserRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user request timeout response a status code equal to that given
+func (o *PatchScimV2UserRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchScimV2UserRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchScimV2UserRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchScimV2UserConflict() *PatchScimV2UserConflict {
 	return &PatchScimV2UserConflict{}
 }
 
-/*PatchScimV2UserConflict handles this case with default header values.
+/*
+PatchScimV2UserConflict describes a response with status code 409, with default header values.
 
 Version does not match current version.
 */
@@ -318,7 +498,36 @@ type PatchScimV2UserConflict struct {
 	Payload *models.ScimError
 }
 
+// IsSuccess returns true when this patch scim v2 user conflict response has a 2xx status code
+func (o *PatchScimV2UserConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user conflict response has a 3xx status code
+func (o *PatchScimV2UserConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user conflict response has a 4xx status code
+func (o *PatchScimV2UserConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user conflict response has a 5xx status code
+func (o *PatchScimV2UserConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user conflict response a status code equal to that given
+func (o *PatchScimV2UserConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchScimV2UserConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchScimV2UserConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchScimV2UserRequestEntityTooLarge() *PatchScimV2UserRequestEntityTooL
 	return &PatchScimV2UserRequestEntityTooLarge{}
 }
 
-/*PatchScimV2UserRequestEntityTooLarge handles this case with default header values.
+/*
+PatchScimV2UserRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchScimV2UserRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user request entity too large response has a 2xx status code
+func (o *PatchScimV2UserRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user request entity too large response has a 3xx status code
+func (o *PatchScimV2UserRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user request entity too large response has a 4xx status code
+func (o *PatchScimV2UserRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user request entity too large response has a 5xx status code
+func (o *PatchScimV2UserRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user request entity too large response a status code equal to that given
+func (o *PatchScimV2UserRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchScimV2UserRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchScimV2UserRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchScimV2UserUnsupportedMediaType() *PatchScimV2UserUnsupportedMediaTy
 	return &PatchScimV2UserUnsupportedMediaType{}
 }
 
-/*PatchScimV2UserUnsupportedMediaType handles this case with default header values.
+/*
+PatchScimV2UserUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchScimV2UserUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user unsupported media type response has a 2xx status code
+func (o *PatchScimV2UserUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user unsupported media type response has a 3xx status code
+func (o *PatchScimV2UserUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user unsupported media type response has a 4xx status code
+func (o *PatchScimV2UserUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user unsupported media type response has a 5xx status code
+func (o *PatchScimV2UserUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user unsupported media type response a status code equal to that given
+func (o *PatchScimV2UserUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchScimV2UserUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchScimV2UserUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchScimV2UserTooManyRequests() *PatchScimV2UserTooManyRequests {
 	return &PatchScimV2UserTooManyRequests{}
 }
 
-/*PatchScimV2UserTooManyRequests handles this case with default header values.
+/*
+PatchScimV2UserTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchScimV2UserTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user too many requests response has a 2xx status code
+func (o *PatchScimV2UserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user too many requests response has a 3xx status code
+func (o *PatchScimV2UserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user too many requests response has a 4xx status code
+func (o *PatchScimV2UserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim v2 user too many requests response has a 5xx status code
+func (o *PatchScimV2UserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim v2 user too many requests response a status code equal to that given
+func (o *PatchScimV2UserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchScimV2UserTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchScimV2UserTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchScimV2UserInternalServerError() *PatchScimV2UserInternalServerError
 	return &PatchScimV2UserInternalServerError{}
 }
 
-/*PatchScimV2UserInternalServerError handles this case with default header values.
+/*
+PatchScimV2UserInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchScimV2UserInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user internal server error response has a 2xx status code
+func (o *PatchScimV2UserInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user internal server error response has a 3xx status code
+func (o *PatchScimV2UserInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user internal server error response has a 4xx status code
+func (o *PatchScimV2UserInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim v2 user internal server error response has a 5xx status code
+func (o *PatchScimV2UserInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch scim v2 user internal server error response a status code equal to that given
+func (o *PatchScimV2UserInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchScimV2UserInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchScimV2UserInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchScimV2UserServiceUnavailable() *PatchScimV2UserServiceUnavailable {
 	return &PatchScimV2UserServiceUnavailable{}
 }
 
-/*PatchScimV2UserServiceUnavailable handles this case with default header values.
+/*
+PatchScimV2UserServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchScimV2UserServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user service unavailable response has a 2xx status code
+func (o *PatchScimV2UserServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user service unavailable response has a 3xx status code
+func (o *PatchScimV2UserServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user service unavailable response has a 4xx status code
+func (o *PatchScimV2UserServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim v2 user service unavailable response has a 5xx status code
+func (o *PatchScimV2UserServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch scim v2 user service unavailable response a status code equal to that given
+func (o *PatchScimV2UserServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchScimV2UserServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchScimV2UserServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchScimV2UserGatewayTimeout() *PatchScimV2UserGatewayTimeout {
 	return &PatchScimV2UserGatewayTimeout{}
 }
 
-/*PatchScimV2UserGatewayTimeout handles this case with default header values.
+/*
+PatchScimV2UserGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchScimV2UserGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim v2 user gateway timeout response has a 2xx status code
+func (o *PatchScimV2UserGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim v2 user gateway timeout response has a 3xx status code
+func (o *PatchScimV2UserGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim v2 user gateway timeout response has a 4xx status code
+func (o *PatchScimV2UserGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim v2 user gateway timeout response has a 5xx status code
+func (o *PatchScimV2UserGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch scim v2 user gateway timeout response a status code equal to that given
+func (o *PatchScimV2UserGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchScimV2UserGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchScimV2UserGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/v2/users/{userId}][%d] patchScimV2UserGatewayTimeout  %+v", 504, o.Payload)
 }
 

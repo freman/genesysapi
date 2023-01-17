@@ -95,7 +95,6 @@ func (o *GetConversationSecureattributesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationSecureattributesOK() *GetConversationSecureattributesOK {
 	return &GetConversationSecureattributesOK{}
 }
 
-/*GetConversationSecureattributesOK handles this case with default header values.
+/*
+GetConversationSecureattributesOK describes a response with status code 200, with default header values.
 
 Secure attributes retrieved successfully
 */
@@ -114,7 +114,36 @@ type GetConversationSecureattributesOK struct {
 	Payload *models.ConversationSecureAttributes
 }
 
+// IsSuccess returns true when this get conversation secureattributes o k response has a 2xx status code
+func (o *GetConversationSecureattributesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversation secureattributes o k response has a 3xx status code
+func (o *GetConversationSecureattributesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes o k response has a 4xx status code
+func (o *GetConversationSecureattributesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation secureattributes o k response has a 5xx status code
+func (o *GetConversationSecureattributesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes o k response a status code equal to that given
+func (o *GetConversationSecureattributesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationSecureattributesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationSecureattributesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationSecureattributesBadRequest() *GetConversationSecureattrib
 	return &GetConversationSecureattributesBadRequest{}
 }
 
-/*GetConversationSecureattributesBadRequest handles this case with default header values.
+/*
+GetConversationSecureattributesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationSecureattributesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes bad request response has a 2xx status code
+func (o *GetConversationSecureattributesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes bad request response has a 3xx status code
+func (o *GetConversationSecureattributesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes bad request response has a 4xx status code
+func (o *GetConversationSecureattributesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes bad request response has a 5xx status code
+func (o *GetConversationSecureattributesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes bad request response a status code equal to that given
+func (o *GetConversationSecureattributesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationSecureattributesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationSecureattributesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationSecureattributesUnauthorized() *GetConversationSecureattr
 	return &GetConversationSecureattributesUnauthorized{}
 }
 
-/*GetConversationSecureattributesUnauthorized handles this case with default header values.
+/*
+GetConversationSecureattributesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationSecureattributesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes unauthorized response has a 2xx status code
+func (o *GetConversationSecureattributesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes unauthorized response has a 3xx status code
+func (o *GetConversationSecureattributesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes unauthorized response has a 4xx status code
+func (o *GetConversationSecureattributesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes unauthorized response has a 5xx status code
+func (o *GetConversationSecureattributesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes unauthorized response a status code equal to that given
+func (o *GetConversationSecureattributesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationSecureattributesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationSecureattributesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationSecureattributesForbidden() *GetConversationSecureattribu
 	return &GetConversationSecureattributesForbidden{}
 }
 
-/*GetConversationSecureattributesForbidden handles this case with default header values.
+/*
+GetConversationSecureattributesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationSecureattributesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes forbidden response has a 2xx status code
+func (o *GetConversationSecureattributesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes forbidden response has a 3xx status code
+func (o *GetConversationSecureattributesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes forbidden response has a 4xx status code
+func (o *GetConversationSecureattributesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes forbidden response has a 5xx status code
+func (o *GetConversationSecureattributesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes forbidden response a status code equal to that given
+func (o *GetConversationSecureattributesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationSecureattributesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationSecureattributesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationSecureattributesNotFound() *GetConversationSecureattribut
 	return &GetConversationSecureattributesNotFound{}
 }
 
-/*GetConversationSecureattributesNotFound handles this case with default header values.
+/*
+GetConversationSecureattributesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationSecureattributesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes not found response has a 2xx status code
+func (o *GetConversationSecureattributesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes not found response has a 3xx status code
+func (o *GetConversationSecureattributesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes not found response has a 4xx status code
+func (o *GetConversationSecureattributesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes not found response has a 5xx status code
+func (o *GetConversationSecureattributesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes not found response a status code equal to that given
+func (o *GetConversationSecureattributesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationSecureattributesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationSecureattributesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationSecureattributesRequestTimeout() *GetConversationSecureat
 	return &GetConversationSecureattributesRequestTimeout{}
 }
 
-/*GetConversationSecureattributesRequestTimeout handles this case with default header values.
+/*
+GetConversationSecureattributesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationSecureattributesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes request timeout response has a 2xx status code
+func (o *GetConversationSecureattributesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes request timeout response has a 3xx status code
+func (o *GetConversationSecureattributesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes request timeout response has a 4xx status code
+func (o *GetConversationSecureattributesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes request timeout response has a 5xx status code
+func (o *GetConversationSecureattributesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes request timeout response a status code equal to that given
+func (o *GetConversationSecureattributesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationSecureattributesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationSecureattributesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationSecureattributesRequestEntityTooLarge() *GetConversationS
 	return &GetConversationSecureattributesRequestEntityTooLarge{}
 }
 
-/*GetConversationSecureattributesRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationSecureattributesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationSecureattributesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes request entity too large response has a 2xx status code
+func (o *GetConversationSecureattributesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes request entity too large response has a 3xx status code
+func (o *GetConversationSecureattributesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes request entity too large response has a 4xx status code
+func (o *GetConversationSecureattributesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes request entity too large response has a 5xx status code
+func (o *GetConversationSecureattributesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes request entity too large response a status code equal to that given
+func (o *GetConversationSecureattributesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationSecureattributesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationSecureattributesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationSecureattributesUnsupportedMediaType() *GetConversationSe
 	return &GetConversationSecureattributesUnsupportedMediaType{}
 }
 
-/*GetConversationSecureattributesUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationSecureattributesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationSecureattributesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes unsupported media type response has a 2xx status code
+func (o *GetConversationSecureattributesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes unsupported media type response has a 3xx status code
+func (o *GetConversationSecureattributesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes unsupported media type response has a 4xx status code
+func (o *GetConversationSecureattributesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes unsupported media type response has a 5xx status code
+func (o *GetConversationSecureattributesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes unsupported media type response a status code equal to that given
+func (o *GetConversationSecureattributesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationSecureattributesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationSecureattributesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationSecureattributesTooManyRequests() *GetConversationSecurea
 	return &GetConversationSecureattributesTooManyRequests{}
 }
 
-/*GetConversationSecureattributesTooManyRequests handles this case with default header values.
+/*
+GetConversationSecureattributesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationSecureattributesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes too many requests response has a 2xx status code
+func (o *GetConversationSecureattributesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes too many requests response has a 3xx status code
+func (o *GetConversationSecureattributesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes too many requests response has a 4xx status code
+func (o *GetConversationSecureattributesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation secureattributes too many requests response has a 5xx status code
+func (o *GetConversationSecureattributesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation secureattributes too many requests response a status code equal to that given
+func (o *GetConversationSecureattributesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationSecureattributesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationSecureattributesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationSecureattributesInternalServerError() *GetConversationSec
 	return &GetConversationSecureattributesInternalServerError{}
 }
 
-/*GetConversationSecureattributesInternalServerError handles this case with default header values.
+/*
+GetConversationSecureattributesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationSecureattributesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes internal server error response has a 2xx status code
+func (o *GetConversationSecureattributesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes internal server error response has a 3xx status code
+func (o *GetConversationSecureattributesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes internal server error response has a 4xx status code
+func (o *GetConversationSecureattributesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation secureattributes internal server error response has a 5xx status code
+func (o *GetConversationSecureattributesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation secureattributes internal server error response a status code equal to that given
+func (o *GetConversationSecureattributesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationSecureattributesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationSecureattributesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationSecureattributesServiceUnavailable() *GetConversationSecu
 	return &GetConversationSecureattributesServiceUnavailable{}
 }
 
-/*GetConversationSecureattributesServiceUnavailable handles this case with default header values.
+/*
+GetConversationSecureattributesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationSecureattributesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes service unavailable response has a 2xx status code
+func (o *GetConversationSecureattributesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes service unavailable response has a 3xx status code
+func (o *GetConversationSecureattributesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes service unavailable response has a 4xx status code
+func (o *GetConversationSecureattributesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation secureattributes service unavailable response has a 5xx status code
+func (o *GetConversationSecureattributesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation secureattributes service unavailable response a status code equal to that given
+func (o *GetConversationSecureattributesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationSecureattributesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationSecureattributesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationSecureattributesGatewayTimeout() *GetConversationSecureat
 	return &GetConversationSecureattributesGatewayTimeout{}
 }
 
-/*GetConversationSecureattributesGatewayTimeout handles this case with default header values.
+/*
+GetConversationSecureattributesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationSecureattributesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation secureattributes gateway timeout response has a 2xx status code
+func (o *GetConversationSecureattributesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation secureattributes gateway timeout response has a 3xx status code
+func (o *GetConversationSecureattributesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation secureattributes gateway timeout response has a 4xx status code
+func (o *GetConversationSecureattributesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation secureattributes gateway timeout response has a 5xx status code
+func (o *GetConversationSecureattributesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation secureattributes gateway timeout response a status code equal to that given
+func (o *GetConversationSecureattributesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationSecureattributesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationSecureattributesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/secureattributes][%d] getConversationSecureattributesGatewayTimeout  %+v", 504, o.Payload)
 }
 

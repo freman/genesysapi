@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIdentityprovidersAdfsParams creates a new PutIdentityprovidersAdfsParams object
-// with the default values initialized.
+// NewPutIdentityprovidersAdfsParams creates a new PutIdentityprovidersAdfsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIdentityprovidersAdfsParams() *PutIdentityprovidersAdfsParams {
-	var ()
 	return &PutIdentityprovidersAdfsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIdentityprovidersAdfsParamsWithTimeout creates a new PutIdentityprovidersAdfsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIdentityprovidersAdfsParamsWithTimeout(timeout time.Duration) *PutIdentityprovidersAdfsParams {
-	var ()
 	return &PutIdentityprovidersAdfsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIdentityprovidersAdfsParamsWithContext creates a new PutIdentityprovidersAdfsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIdentityprovidersAdfsParamsWithContext(ctx context.Context) *PutIdentityprovidersAdfsParams {
-	var ()
 	return &PutIdentityprovidersAdfsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIdentityprovidersAdfsParamsWithHTTPClient creates a new PutIdentityprovidersAdfsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIdentityprovidersAdfsParamsWithHTTPClient(client *http.Client) *PutIdentityprovidersAdfsParams {
-	var ()
 	return &PutIdentityprovidersAdfsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIdentityprovidersAdfsParams contains all the parameters to send to the API endpoint
-for the put identityproviders adfs operation typically these are written to a http.Request
+/*
+PutIdentityprovidersAdfsParams contains all the parameters to send to the API endpoint
+
+	for the put identityproviders adfs operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIdentityprovidersAdfsParams struct {
 
-	/*Body
-	  Provider
+	/* Body.
 
+	   Provider
 	*/
 	Body *models.ADFS
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put identityproviders adfs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersAdfsParams) WithDefaults() *PutIdentityprovidersAdfsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put identityproviders adfs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersAdfsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put identityproviders adfs params
@@ -124,7 +140,6 @@ func (o *PutIdentityprovidersAdfsParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

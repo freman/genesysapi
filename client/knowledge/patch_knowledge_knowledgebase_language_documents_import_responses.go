@@ -101,7 +101,6 @@ func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportOK() *PatchKnowledgeKn
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK describes a response with status code 200, with default header values.
 
 Import operation finished
 */
@@ -120,7 +120,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK struct {
 	Payload *models.KnowledgeImport
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import o k response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import o k response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import o k response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import o k response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import o k response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted() *PatchKnowl
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted describes a response with status code 202, with default header values.
 
 Import operation started
 */
@@ -153,7 +183,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted struct {
 	Payload *models.KnowledgeImport
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import accepted response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import accepted response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import accepted response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import accepted response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import accepted response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest() *PatchKno
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import bad request response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import bad request response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import bad request response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import bad request response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import bad request response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized() *PatchK
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import unauthorized response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import unauthorized response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import unauthorized response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import unauthorized response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import unauthorized response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden() *PatchKnow
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import forbidden response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import forbidden response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import forbidden response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import forbidden response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import forbidden response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound() *PatchKnowl
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import not found response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import not found response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import not found response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import not found response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import not found response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout() *Patc
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import request timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import request timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import request timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import request timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import request timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge(
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import request entity too large response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import request entity too large response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import request entity too large response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import request entity too large response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import request entity too large response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType()
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import unsupported media type response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import unsupported media type response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import unsupported media type response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import unsupported media type response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import unsupported media type response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests() *Pat
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import too many requests response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import too many requests response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import too many requests response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import too many requests response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import too many requests response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError() 
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import internal server error response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import internal server error response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import internal server error response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import internal server error response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import internal server error response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable() *
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import service unavailable response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import service unavailable response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import service unavailable response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import service unavailable response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import service unavailable response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout() *Patc
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase language documents import gateway timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase language documents import gateway timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase language documents import gateway timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase language documents import gateway timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase language documents import gateway timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] patchKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout  %+v", 504, o.Payload)
 }
 

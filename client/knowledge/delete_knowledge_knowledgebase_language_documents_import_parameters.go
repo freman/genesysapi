@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams creates a new DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized.
+// NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams creates a new DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams() *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithTimeout creates a new DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithTimeout(timeout time.Duration) *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithContext creates a new DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithContext(ctx context.Context) *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithHTTPClient creates a new DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithHTTPClient(client *http.Client) *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams contains all the parameters to send to the API endpoint
-for the delete knowledge knowledgebase language documents import operation typically these are written to a http.Request
+/*
+DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams contains all the parameters to send to the API endpoint
+
+	for the delete knowledge knowledgebase language documents import operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams struct {
 
-	/*ImportID
-	  Import ID
+	/* ImportID.
 
+	   Import ID
 	*/
 	ImportID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete knowledge knowledgebase language documents import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams) WithDefaults() *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete knowledge knowledgebase language documents import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseLanguageDocumentsImportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete knowledge knowledgebase language documents import params

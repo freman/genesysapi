@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -49,7 +51,6 @@ func (m *AgentManagementUnitReference) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AgentManagementUnitReference) validateBusinessUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BusinessUnit) { // not required
 		return nil
 	}
@@ -58,6 +59,8 @@ func (m *AgentManagementUnitReference) validateBusinessUnit(formats strfmt.Regis
 		if err := m.BusinessUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
 			}
 			return err
 		}
@@ -67,7 +70,6 @@ func (m *AgentManagementUnitReference) validateBusinessUnit(formats strfmt.Regis
 }
 
 func (m *AgentManagementUnitReference) validateManagementUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ManagementUnit) { // not required
 		return nil
 	}
@@ -76,6 +78,8 @@ func (m *AgentManagementUnitReference) validateManagementUnit(formats strfmt.Reg
 		if err := m.ManagementUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
 			}
 			return err
 		}
@@ -85,7 +89,6 @@ func (m *AgentManagementUnitReference) validateManagementUnit(formats strfmt.Reg
 }
 
 func (m *AgentManagementUnitReference) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -94,6 +97,78 @@ func (m *AgentManagementUnitReference) validateUser(formats strfmt.Registry) err
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this agent management unit reference based on the context it is used
+func (m *AgentManagementUnitReference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBusinessUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateManagementUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AgentManagementUnitReference) contextValidateBusinessUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AgentManagementUnitReference) contextValidateManagementUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ManagementUnit != nil {
+		if err := m.ManagementUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AgentManagementUnitReference) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

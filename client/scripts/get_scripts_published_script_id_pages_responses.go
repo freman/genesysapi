@@ -95,7 +95,6 @@ func (o *GetScriptsPublishedScriptIDPagesReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetScriptsPublishedScriptIDPagesOK() *GetScriptsPublishedScriptIDPagesOK
 	return &GetScriptsPublishedScriptIDPagesOK{}
 }
 
-/*GetScriptsPublishedScriptIDPagesOK handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetScriptsPublishedScriptIDPagesOK struct {
 	Payload []*models.Page
 }
 
+// IsSuccess returns true when this get scripts published script Id pages o k response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scripts published script Id pages o k response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages o k response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts published script Id pages o k response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages o k response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScriptsPublishedScriptIDPagesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetScriptsPublishedScriptIDPagesBadRequest() *GetScriptsPublishedScriptI
 	return &GetScriptsPublishedScriptIDPagesBadRequest{}
 }
 
-/*GetScriptsPublishedScriptIDPagesBadRequest handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetScriptsPublishedScriptIDPagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages bad request response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages bad request response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages bad request response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages bad request response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages bad request response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScriptsPublishedScriptIDPagesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetScriptsPublishedScriptIDPagesUnauthorized() *GetScriptsPublishedScrip
 	return &GetScriptsPublishedScriptIDPagesUnauthorized{}
 }
 
-/*GetScriptsPublishedScriptIDPagesUnauthorized handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetScriptsPublishedScriptIDPagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages unauthorized response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages unauthorized response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages unauthorized response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages unauthorized response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages unauthorized response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScriptsPublishedScriptIDPagesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetScriptsPublishedScriptIDPagesForbidden() *GetScriptsPublishedScriptID
 	return &GetScriptsPublishedScriptIDPagesForbidden{}
 }
 
-/*GetScriptsPublishedScriptIDPagesForbidden handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetScriptsPublishedScriptIDPagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages forbidden response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages forbidden response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages forbidden response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages forbidden response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages forbidden response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScriptsPublishedScriptIDPagesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetScriptsPublishedScriptIDPagesNotFound() *GetScriptsPublishedScriptIDP
 	return &GetScriptsPublishedScriptIDPagesNotFound{}
 }
 
-/*GetScriptsPublishedScriptIDPagesNotFound handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetScriptsPublishedScriptIDPagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages not found response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages not found response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages not found response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages not found response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages not found response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScriptsPublishedScriptIDPagesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetScriptsPublishedScriptIDPagesRequestTimeout() *GetScriptsPublishedScr
 	return &GetScriptsPublishedScriptIDPagesRequestTimeout{}
 }
 
-/*GetScriptsPublishedScriptIDPagesRequestTimeout handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetScriptsPublishedScriptIDPagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages request timeout response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages request timeout response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages request timeout response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages request timeout response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages request timeout response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScriptsPublishedScriptIDPagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetScriptsPublishedScriptIDPagesRequestEntityTooLarge() *GetScriptsPubli
 	return &GetScriptsPublishedScriptIDPagesRequestEntityTooLarge{}
 }
 
-/*GetScriptsPublishedScriptIDPagesRequestEntityTooLarge handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetScriptsPublishedScriptIDPagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages request entity too large response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages request entity too large response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages request entity too large response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages request entity too large response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages request entity too large response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScriptsPublishedScriptIDPagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetScriptsPublishedScriptIDPagesUnsupportedMediaType() *GetScriptsPublis
 	return &GetScriptsPublishedScriptIDPagesUnsupportedMediaType{}
 }
 
-/*GetScriptsPublishedScriptIDPagesUnsupportedMediaType handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetScriptsPublishedScriptIDPagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages unsupported media type response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages unsupported media type response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages unsupported media type response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages unsupported media type response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages unsupported media type response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScriptsPublishedScriptIDPagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetScriptsPublishedScriptIDPagesTooManyRequests() *GetScriptsPublishedSc
 	return &GetScriptsPublishedScriptIDPagesTooManyRequests{}
 }
 
-/*GetScriptsPublishedScriptIDPagesTooManyRequests handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetScriptsPublishedScriptIDPagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages too many requests response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages too many requests response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages too many requests response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts published script Id pages too many requests response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts published script Id pages too many requests response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScriptsPublishedScriptIDPagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetScriptsPublishedScriptIDPagesInternalServerError() *GetScriptsPublish
 	return &GetScriptsPublishedScriptIDPagesInternalServerError{}
 }
 
-/*GetScriptsPublishedScriptIDPagesInternalServerError handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetScriptsPublishedScriptIDPagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages internal server error response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages internal server error response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages internal server error response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts published script Id pages internal server error response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts published script Id pages internal server error response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScriptsPublishedScriptIDPagesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetScriptsPublishedScriptIDPagesServiceUnavailable() *GetScriptsPublishe
 	return &GetScriptsPublishedScriptIDPagesServiceUnavailable{}
 }
 
-/*GetScriptsPublishedScriptIDPagesServiceUnavailable handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetScriptsPublishedScriptIDPagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages service unavailable response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages service unavailable response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages service unavailable response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts published script Id pages service unavailable response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts published script Id pages service unavailable response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScriptsPublishedScriptIDPagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetScriptsPublishedScriptIDPagesGatewayTimeout() *GetScriptsPublishedScr
 	return &GetScriptsPublishedScriptIDPagesGatewayTimeout{}
 }
 
-/*GetScriptsPublishedScriptIDPagesGatewayTimeout handles this case with default header values.
+/*
+GetScriptsPublishedScriptIDPagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetScriptsPublishedScriptIDPagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts published script Id pages gateway timeout response has a 2xx status code
+func (o *GetScriptsPublishedScriptIDPagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts published script Id pages gateway timeout response has a 3xx status code
+func (o *GetScriptsPublishedScriptIDPagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts published script Id pages gateway timeout response has a 4xx status code
+func (o *GetScriptsPublishedScriptIDPagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts published script Id pages gateway timeout response has a 5xx status code
+func (o *GetScriptsPublishedScriptIDPagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts published script Id pages gateway timeout response a status code equal to that given
+func (o *GetScriptsPublishedScriptIDPagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScriptsPublishedScriptIDPagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScriptsPublishedScriptIDPagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/published/{scriptId}/pages][%d] getScriptsPublishedScriptIdPagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

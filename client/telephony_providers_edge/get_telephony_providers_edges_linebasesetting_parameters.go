@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesLinebasesettingParams creates a new GetTelephonyProvidersEdgesLinebasesettingParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesLinebasesettingParams creates a new GetTelephonyProvidersEdgesLinebasesettingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesLinebasesettingParams() *GetTelephonyProvidersEdgesLinebasesettingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinebasesettingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLinebasesettingParamsWithTimeout creates a new GetTelephonyProvidersEdgesLinebasesettingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesLinebasesettingParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesLinebasesettingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinebasesettingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLinebasesettingParamsWithContext creates a new GetTelephonyProvidersEdgesLinebasesettingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesLinebasesettingParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesLinebasesettingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinebasesettingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLinebasesettingParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesLinebasesettingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesLinebasesettingParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesLinebasesettingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinebasesettingParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesLinebasesettingParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges linebasesetting operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesLinebasesettingParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges linebasesetting operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesLinebasesettingParams struct {
 
-	/*LineBaseID
-	  Line base ID
+	/* LineBaseID.
 
+	   Line base ID
 	*/
 	LineBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges linebasesetting params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesLinebasesettingParams) WithDefaults() *GetTelephonyProvidersEdgesLinebasesettingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges linebasesetting params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesLinebasesettingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges linebasesetting params

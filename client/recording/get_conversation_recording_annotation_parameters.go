@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationRecordingAnnotationParams creates a new GetConversationRecordingAnnotationParams object
-// with the default values initialized.
+// NewGetConversationRecordingAnnotationParams creates a new GetConversationRecordingAnnotationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationRecordingAnnotationParams() *GetConversationRecordingAnnotationParams {
-	var ()
 	return &GetConversationRecordingAnnotationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationRecordingAnnotationParamsWithTimeout creates a new GetConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationRecordingAnnotationParamsWithTimeout(timeout time.Duration) *GetConversationRecordingAnnotationParams {
-	var ()
 	return &GetConversationRecordingAnnotationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationRecordingAnnotationParamsWithContext creates a new GetConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationRecordingAnnotationParamsWithContext(ctx context.Context) *GetConversationRecordingAnnotationParams {
-	var ()
 	return &GetConversationRecordingAnnotationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationRecordingAnnotationParamsWithHTTPClient creates a new GetConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationRecordingAnnotationParamsWithHTTPClient(client *http.Client) *GetConversationRecordingAnnotationParams {
-	var ()
 	return &GetConversationRecordingAnnotationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationRecordingAnnotationParams contains all the parameters to send to the API endpoint
-for the get conversation recording annotation operation typically these are written to a http.Request
+/*
+GetConversationRecordingAnnotationParams contains all the parameters to send to the API endpoint
+
+	for the get conversation recording annotation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationRecordingAnnotationParams struct {
 
-	/*AnnotationID
-	  Annotation ID
+	/* AnnotationID.
 
+	   Annotation ID
 	*/
 	AnnotationID string
-	/*ConversationID
-	  Conversation ID
 
+	/* ConversationID.
+
+	   Conversation ID
 	*/
 	ConversationID string
-	/*RecordingID
-	  Recording ID
 
+	/* RecordingID.
+
+	   Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversation recording annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingAnnotationParams) WithDefaults() *GetConversationRecordingAnnotationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversation recording annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingAnnotationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversation recording annotation params

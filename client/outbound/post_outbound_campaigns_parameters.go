@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundCampaignsParams creates a new PostOutboundCampaignsParams object
-// with the default values initialized.
+// NewPostOutboundCampaignsParams creates a new PostOutboundCampaignsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundCampaignsParams() *PostOutboundCampaignsParams {
-	var ()
 	return &PostOutboundCampaignsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundCampaignsParamsWithTimeout creates a new PostOutboundCampaignsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundCampaignsParamsWithTimeout(timeout time.Duration) *PostOutboundCampaignsParams {
-	var ()
 	return &PostOutboundCampaignsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundCampaignsParamsWithContext creates a new PostOutboundCampaignsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundCampaignsParamsWithContext(ctx context.Context) *PostOutboundCampaignsParams {
-	var ()
 	return &PostOutboundCampaignsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundCampaignsParamsWithHTTPClient creates a new PostOutboundCampaignsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundCampaignsParamsWithHTTPClient(client *http.Client) *PostOutboundCampaignsParams {
-	var ()
 	return &PostOutboundCampaignsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundCampaignsParams contains all the parameters to send to the API endpoint
-for the post outbound campaigns operation typically these are written to a http.Request
+/*
+PostOutboundCampaignsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound campaigns operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundCampaignsParams struct {
 
-	/*Body
-	  Campaign
+	/* Body.
 
+	   Campaign
 	*/
 	Body *models.Campaign
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound campaigns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCampaignsParams) WithDefaults() *PostOutboundCampaignsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound campaigns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCampaignsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound campaigns params
@@ -124,7 +140,6 @@ func (o *PostOutboundCampaignsParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

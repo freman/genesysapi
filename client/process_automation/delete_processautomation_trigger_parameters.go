@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteProcessautomationTriggerParams creates a new DeleteProcessautomationTriggerParams object
-// with the default values initialized.
+// NewDeleteProcessautomationTriggerParams creates a new DeleteProcessautomationTriggerParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteProcessautomationTriggerParams() *DeleteProcessautomationTriggerParams {
-	var ()
 	return &DeleteProcessautomationTriggerParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteProcessautomationTriggerParamsWithTimeout creates a new DeleteProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteProcessautomationTriggerParamsWithTimeout(timeout time.Duration) *DeleteProcessautomationTriggerParams {
-	var ()
 	return &DeleteProcessautomationTriggerParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteProcessautomationTriggerParamsWithContext creates a new DeleteProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteProcessautomationTriggerParamsWithContext(ctx context.Context) *DeleteProcessautomationTriggerParams {
-	var ()
 	return &DeleteProcessautomationTriggerParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteProcessautomationTriggerParamsWithHTTPClient creates a new DeleteProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteProcessautomationTriggerParamsWithHTTPClient(client *http.Client) *DeleteProcessautomationTriggerParams {
-	var ()
 	return &DeleteProcessautomationTriggerParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteProcessautomationTriggerParams contains all the parameters to send to the API endpoint
-for the delete processautomation trigger operation typically these are written to a http.Request
+/*
+DeleteProcessautomationTriggerParams contains all the parameters to send to the API endpoint
+
+	for the delete processautomation trigger operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteProcessautomationTriggerParams struct {
 
-	/*TriggerID
-	  triggerId
+	/* TriggerID.
 
+	   triggerId
 	*/
 	TriggerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete processautomation trigger params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteProcessautomationTriggerParams) WithDefaults() *DeleteProcessautomationTriggerParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete processautomation trigger params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteProcessautomationTriggerParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete processautomation trigger params

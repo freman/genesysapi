@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type NTPSettings struct {
 
 // Validate validates this n t p settings
 func (m *NTPSettings) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this n t p settings based on context it is used
+func (m *NTPSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

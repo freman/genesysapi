@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -115,7 +116,6 @@ func (m *TimeOffLimitValueRange) validateGranularity(formats strfmt.Registry) er
 }
 
 func (m *TimeOffLimitValueRange) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -124,6 +124,8 @@ func (m *TimeOffLimitValueRange) validateMetadata(formats strfmt.Registry) error
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -146,7 +148,6 @@ func (m *TimeOffLimitValueRange) validateStartDate(formats strfmt.Registry) erro
 }
 
 func (m *TimeOffLimitValueRange) validateTimeOffLimit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeOffLimit) { // not required
 		return nil
 	}
@@ -155,6 +156,58 @@ func (m *TimeOffLimitValueRange) validateTimeOffLimit(formats strfmt.Registry) e
 		if err := m.TimeOffLimit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeOffLimit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffLimit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this time off limit value range based on the context it is used
+func (m *TimeOffLimitValueRange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeOffLimit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TimeOffLimitValueRange) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TimeOffLimitValueRange) contextValidateTimeOffLimit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeOffLimit != nil {
+		if err := m.TimeOffLimit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeOffLimit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffLimit")
 			}
 			return err
 		}

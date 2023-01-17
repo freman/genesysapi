@@ -18,81 +18,100 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAuthorizationSubjectBulkaddParams creates a new PostAuthorizationSubjectBulkaddParams object
-// with the default values initialized.
+// NewPostAuthorizationSubjectBulkaddParams creates a new PostAuthorizationSubjectBulkaddParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAuthorizationSubjectBulkaddParams() *PostAuthorizationSubjectBulkaddParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectBulkaddParams{
-		SubjectType: &subjectTypeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAuthorizationSubjectBulkaddParamsWithTimeout creates a new PostAuthorizationSubjectBulkaddParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAuthorizationSubjectBulkaddParamsWithTimeout(timeout time.Duration) *PostAuthorizationSubjectBulkaddParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectBulkaddParams{
-		SubjectType: &subjectTypeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAuthorizationSubjectBulkaddParamsWithContext creates a new PostAuthorizationSubjectBulkaddParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAuthorizationSubjectBulkaddParamsWithContext(ctx context.Context) *PostAuthorizationSubjectBulkaddParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectBulkaddParams{
-		SubjectType: &subjectTypeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostAuthorizationSubjectBulkaddParamsWithHTTPClient creates a new PostAuthorizationSubjectBulkaddParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAuthorizationSubjectBulkaddParamsWithHTTPClient(client *http.Client) *PostAuthorizationSubjectBulkaddParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectBulkaddParams{
-		SubjectType: &subjectTypeDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*PostAuthorizationSubjectBulkaddParams contains all the parameters to send to the API endpoint
-for the post authorization subject bulkadd operation typically these are written to a http.Request
+/*
+PostAuthorizationSubjectBulkaddParams contains all the parameters to send to the API endpoint
+
+	for the post authorization subject bulkadd operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAuthorizationSubjectBulkaddParams struct {
 
-	/*Body
-	  Pairs of role and division IDs
+	/* Body.
 
+	   Pairs of role and division IDs
 	*/
 	Body *models.RoleDivisionGrants
-	/*SubjectID
-	  Subject ID (user or group)
 
+	/* SubjectID.
+
+	   Subject ID (user or group)
 	*/
 	SubjectID string
-	/*SubjectType
-	  what the type of the subject is (PC_GROUP, PC_USER or PC_OAUTH_CLIENT)
 
+	/* SubjectType.
+
+	   what the type of the subject is (PC_GROUP, PC_USER or PC_OAUTH_CLIENT)
+
+	   Default: "PC_USER"
 	*/
 	SubjectType *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post authorization subject bulkadd params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationSubjectBulkaddParams) WithDefaults() *PostAuthorizationSubjectBulkaddParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post authorization subject bulkadd params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationSubjectBulkaddParams) SetDefaults() {
+	var (
+		subjectTypeDefault = string("PC_USER")
+	)
+
+	val := PostAuthorizationSubjectBulkaddParams{
+		SubjectType: &subjectTypeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post authorization subject bulkadd params
@@ -168,7 +187,6 @@ func (o *PostAuthorizationSubjectBulkaddParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -184,16 +202,17 @@ func (o *PostAuthorizationSubjectBulkaddParams) WriteToRequest(r runtime.ClientR
 
 		// query param subjectType
 		var qrSubjectType string
+
 		if o.SubjectType != nil {
 			qrSubjectType = *o.SubjectType
 		}
 		qSubjectType := qrSubjectType
 		if qSubjectType != "" {
+
 			if err := r.SetQueryParam("subjectType", qSubjectType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

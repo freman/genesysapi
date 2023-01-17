@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUserSuperiorsParams creates a new GetUserSuperiorsParams object
-// with the default values initialized.
+// NewGetUserSuperiorsParams creates a new GetUserSuperiorsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserSuperiorsParams() *GetUserSuperiorsParams {
-	var ()
 	return &GetUserSuperiorsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserSuperiorsParamsWithTimeout creates a new GetUserSuperiorsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserSuperiorsParamsWithTimeout(timeout time.Duration) *GetUserSuperiorsParams {
-	var ()
 	return &GetUserSuperiorsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserSuperiorsParamsWithContext creates a new GetUserSuperiorsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserSuperiorsParamsWithContext(ctx context.Context) *GetUserSuperiorsParams {
-	var ()
 	return &GetUserSuperiorsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserSuperiorsParamsWithHTTPClient creates a new GetUserSuperiorsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserSuperiorsParamsWithHTTPClient(client *http.Client) *GetUserSuperiorsParams {
-	var ()
 	return &GetUserSuperiorsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetUserSuperiorsParams contains all the parameters to send to the API endpoint
-for the get user superiors operation typically these are written to a http.Request
+/*
+GetUserSuperiorsParams contains all the parameters to send to the API endpoint
+
+	for the get user superiors operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserSuperiorsParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user superiors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserSuperiorsParams) WithDefaults() *GetUserSuperiorsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user superiors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserSuperiorsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get user superiors params
@@ -140,12 +157,15 @@ func (o *GetUserSuperiorsParams) WriteToRequest(r runtime.ClientRequest, reg str
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param userId
@@ -157,4 +177,21 @@ func (o *GetUserSuperiorsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetUserSuperiors binds the parameter expand
+func (o *GetUserSuperiorsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

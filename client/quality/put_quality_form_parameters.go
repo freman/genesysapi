@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutQualityFormParams creates a new PutQualityFormParams object
-// with the default values initialized.
+// NewPutQualityFormParams creates a new PutQualityFormParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutQualityFormParams() *PutQualityFormParams {
-	var ()
 	return &PutQualityFormParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutQualityFormParamsWithTimeout creates a new PutQualityFormParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutQualityFormParamsWithTimeout(timeout time.Duration) *PutQualityFormParams {
-	var ()
 	return &PutQualityFormParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutQualityFormParamsWithContext creates a new PutQualityFormParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutQualityFormParamsWithContext(ctx context.Context) *PutQualityFormParams {
-	var ()
 	return &PutQualityFormParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutQualityFormParamsWithHTTPClient creates a new PutQualityFormParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutQualityFormParamsWithHTTPClient(client *http.Client) *PutQualityFormParams {
-	var ()
 	return &PutQualityFormParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutQualityFormParams contains all the parameters to send to the API endpoint
-for the put quality form operation typically these are written to a http.Request
+/*
+PutQualityFormParams contains all the parameters to send to the API endpoint
+
+	for the put quality form operation.
+
+	Typically these are written to a http.Request.
 */
 type PutQualityFormParams struct {
 
-	/*Body
-	  Evaluation form
+	/* Body.
 
+	   Evaluation form
 	*/
 	Body *models.EvaluationForm
-	/*FormID
-	  Form ID
 
+	/* FormID.
+
+	   Form ID
 	*/
 	FormID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put quality form params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityFormParams) WithDefaults() *PutQualityFormParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put quality form params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityFormParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put quality form params
@@ -140,7 +157,6 @@ func (o *PutQualityFormParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

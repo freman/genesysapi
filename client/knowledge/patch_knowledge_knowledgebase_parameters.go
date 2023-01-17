@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchKnowledgeKnowledgebaseParams creates a new PatchKnowledgeKnowledgebaseParams object
-// with the default values initialized.
+// NewPatchKnowledgeKnowledgebaseParams creates a new PatchKnowledgeKnowledgebaseParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchKnowledgeKnowledgebaseParams() *PatchKnowledgeKnowledgebaseParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseParamsWithTimeout creates a new PatchKnowledgeKnowledgebaseParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchKnowledgeKnowledgebaseParamsWithTimeout(timeout time.Duration) *PatchKnowledgeKnowledgebaseParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseParamsWithContext creates a new PatchKnowledgeKnowledgebaseParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchKnowledgeKnowledgebaseParamsWithContext(ctx context.Context) *PatchKnowledgeKnowledgebaseParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseParamsWithHTTPClient creates a new PatchKnowledgeKnowledgebaseParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchKnowledgeKnowledgebaseParamsWithHTTPClient(client *http.Client) *PatchKnowledgeKnowledgebaseParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchKnowledgeKnowledgebaseParams contains all the parameters to send to the API endpoint
-for the patch knowledge knowledgebase operation typically these are written to a http.Request
+/*
+PatchKnowledgeKnowledgebaseParams contains all the parameters to send to the API endpoint
+
+	for the patch knowledge knowledgebase operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchKnowledgeKnowledgebaseParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeBase
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch knowledge knowledgebase params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseParams) WithDefaults() *PatchKnowledgeKnowledgebaseParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch knowledge knowledgebase params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch knowledge knowledgebase params
@@ -137,7 +154,6 @@ func (o *PatchKnowledgeKnowledgebaseParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

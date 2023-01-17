@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -68,7 +69,6 @@ func (m *UnansweredGroup) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UnansweredGroup) validatePhraseGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhraseGroups) { // not required
 		return nil
 	}
@@ -82,6 +82,8 @@ func (m *UnansweredGroup) validatePhraseGroups(formats strfmt.Registry) error {
 			if err := m.PhraseGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phraseGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phraseGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -93,7 +95,6 @@ func (m *UnansweredGroup) validatePhraseGroups(formats strfmt.Registry) error {
 }
 
 func (m *UnansweredGroup) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -106,7 +107,6 @@ func (m *UnansweredGroup) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *UnansweredGroup) validateStatistics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Statistics) { // not required
 		return nil
 	}
@@ -115,6 +115,8 @@ func (m *UnansweredGroup) validateStatistics(formats strfmt.Registry) error {
 		if err := m.Statistics.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("statistics")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("statistics")
 			}
 			return err
 		}
@@ -124,7 +126,6 @@ func (m *UnansweredGroup) validateStatistics(formats strfmt.Registry) error {
 }
 
 func (m *UnansweredGroup) validateSuggestedDocuments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SuggestedDocuments) { // not required
 		return nil
 	}
@@ -138,6 +139,112 @@ func (m *UnansweredGroup) validateSuggestedDocuments(formats strfmt.Registry) er
 			if err := m.SuggestedDocuments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("suggestedDocuments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("suggestedDocuments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this unanswered group based on the context it is used
+func (m *UnansweredGroup) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhraseGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatistics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSuggestedDocuments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UnansweredGroup) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UnansweredGroup) contextValidatePhraseGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PhraseGroups); i++ {
+
+		if m.PhraseGroups[i] != nil {
+			if err := m.PhraseGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phraseGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phraseGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UnansweredGroup) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UnansweredGroup) contextValidateStatistics(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Statistics != nil {
+		if err := m.Statistics.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("statistics")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("statistics")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UnansweredGroup) contextValidateSuggestedDocuments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SuggestedDocuments); i++ {
+
+		if m.SuggestedDocuments[i] != nil {
+			if err := m.SuggestedDocuments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("suggestedDocuments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("suggestedDocuments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

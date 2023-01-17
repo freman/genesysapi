@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type ForecastServiceLevelResponse struct {
 
 // Validate validates this forecast service level response
 func (m *ForecastServiceLevelResponse) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this forecast service level response based on context it is used
+func (m *ForecastServiceLevelResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScriptPageParams creates a new GetScriptPageParams object
-// with the default values initialized.
+// NewGetScriptPageParams creates a new GetScriptPageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScriptPageParams() *GetScriptPageParams {
-	var ()
 	return &GetScriptPageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScriptPageParamsWithTimeout creates a new GetScriptPageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScriptPageParamsWithTimeout(timeout time.Duration) *GetScriptPageParams {
-	var ()
 	return &GetScriptPageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScriptPageParamsWithContext creates a new GetScriptPageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScriptPageParamsWithContext(ctx context.Context) *GetScriptPageParams {
-	var ()
 	return &GetScriptPageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScriptPageParamsWithHTTPClient creates a new GetScriptPageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScriptPageParamsWithHTTPClient(client *http.Client) *GetScriptPageParams {
-	var ()
 	return &GetScriptPageParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScriptPageParams contains all the parameters to send to the API endpoint
-for the get script page operation typically these are written to a http.Request
+/*
+GetScriptPageParams contains all the parameters to send to the API endpoint
+
+	for the get script page operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScriptPageParams struct {
 
-	/*PageID
-	  Page ID
+	/* PageID.
 
+	   Page ID
 	*/
 	PageID string
-	/*ScriptDataVersion
-	  Advanced usage - controls the data version of the script
 
+	/* ScriptDataVersion.
+
+	   Advanced usage - controls the data version of the script
 	*/
 	ScriptDataVersion *string
-	/*ScriptID
-	  Script ID
 
+	/* ScriptID.
+
+	   Script ID
 	*/
 	ScriptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get script page params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptPageParams) WithDefaults() *GetScriptPageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get script page params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptPageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get script page params
@@ -164,16 +182,17 @@ func (o *GetScriptPageParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 
 		// query param scriptDataVersion
 		var qrScriptDataVersion string
+
 		if o.ScriptDataVersion != nil {
 			qrScriptDataVersion = *o.ScriptDataVersion
 		}
 		qScriptDataVersion := qrScriptDataVersion
 		if qScriptDataVersion != "" {
+
 			if err := r.SetQueryParam("scriptDataVersion", qScriptDataVersion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param scriptId

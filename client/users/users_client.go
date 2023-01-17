@@ -199,6 +199,10 @@ type API interface {
 	*/
 	PostUsersSearch(ctx context.Context, params *PostUsersSearchParams) (*PostUsersSearchOK, error)
 	/*
+	   PostUsersSearchTeamsAssign searches users assigned to teams
+	*/
+	PostUsersSearchTeamsAssign(ctx context.Context, params *PostUsersSearchTeamsAssignParams) (*PostUsersSearchTeamsAssignOK, error)
+	/*
 	   PutUserCallforwarding updates a user s call forwarding
 	*/
 	PutUserCallforwarding(ctx context.Context, params *PutUserCallforwardingParams) (*PutUserCallforwardingOK, error)
@@ -1350,6 +1354,31 @@ func (a *Client) PostUsersSearch(ctx context.Context, params *PostUsersSearchPar
 		return nil, err
 	}
 	return result.(*PostUsersSearchOK), nil
+
+}
+
+/*
+PostUsersSearchTeamsAssign searches users assigned to teams
+*/
+func (a *Client) PostUsersSearchTeamsAssign(ctx context.Context, params *PostUsersSearchTeamsAssignParams) (*PostUsersSearchTeamsAssignOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postUsersSearchTeamsAssign",
+		Method:             "POST",
+		PathPattern:        "/api/v2/users/search/teams/assign",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostUsersSearchTeamsAssignReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostUsersSearchTeamsAssignOK), nil
 
 }
 

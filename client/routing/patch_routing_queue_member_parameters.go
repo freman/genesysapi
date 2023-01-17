@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchRoutingQueueMemberParams creates a new PatchRoutingQueueMemberParams object
-// with the default values initialized.
+// NewPatchRoutingQueueMemberParams creates a new PatchRoutingQueueMemberParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchRoutingQueueMemberParams() *PatchRoutingQueueMemberParams {
-	var ()
 	return &PatchRoutingQueueMemberParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchRoutingQueueMemberParamsWithTimeout creates a new PatchRoutingQueueMemberParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchRoutingQueueMemberParamsWithTimeout(timeout time.Duration) *PatchRoutingQueueMemberParams {
-	var ()
 	return &PatchRoutingQueueMemberParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchRoutingQueueMemberParamsWithContext creates a new PatchRoutingQueueMemberParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchRoutingQueueMemberParamsWithContext(ctx context.Context) *PatchRoutingQueueMemberParams {
-	var ()
 	return &PatchRoutingQueueMemberParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchRoutingQueueMemberParamsWithHTTPClient creates a new PatchRoutingQueueMemberParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchRoutingQueueMemberParamsWithHTTPClient(client *http.Client) *PatchRoutingQueueMemberParams {
-	var ()
 	return &PatchRoutingQueueMemberParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchRoutingQueueMemberParams contains all the parameters to send to the API endpoint
-for the patch routing queue member operation typically these are written to a http.Request
+/*
+PatchRoutingQueueMemberParams contains all the parameters to send to the API endpoint
+
+	for the patch routing queue member operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchRoutingQueueMemberParams struct {
 
-	/*Body
-	  Queue Member
+	/* Body.
 
+	   Queue Member
 	*/
 	Body *models.QueueMember
-	/*MemberID
-	  Member ID
 
+	/* MemberID.
+
+	   Member ID
 	*/
 	MemberID string
-	/*QueueID
-	  Queue ID
 
+	/* QueueID.
+
+	   Queue ID
 	*/
 	QueueID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch routing queue member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingQueueMemberParams) WithDefaults() *PatchRoutingQueueMemberParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch routing queue member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingQueueMemberParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch routing queue member params
@@ -156,7 +174,6 @@ func (o *PatchRoutingQueueMemberParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

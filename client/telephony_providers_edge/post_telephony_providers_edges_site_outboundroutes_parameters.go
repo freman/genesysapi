@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgesSiteOutboundroutesParams creates a new PostTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgesSiteOutboundroutesParams creates a new PostTelephonyProvidersEdgesSiteOutboundroutesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgesSiteOutboundroutesParams() *PostTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesSiteOutboundroutesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesSiteOutboundroutesParamsWithTimeout creates a new PostTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgesSiteOutboundroutesParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesSiteOutboundroutesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesSiteOutboundroutesParamsWithContext creates a new PostTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgesSiteOutboundroutesParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesSiteOutboundroutesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesSiteOutboundroutesParamsWithHTTPClient creates a new PostTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgesSiteOutboundroutesParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesSiteOutboundroutesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgesSiteOutboundroutesParams contains all the parameters to send to the API endpoint
-for the post telephony providers edges site outboundroutes operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgesSiteOutboundroutesParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edges site outboundroutes operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgesSiteOutboundroutesParams struct {
 
-	/*Body
-	  OutboundRoute
+	/* Body.
 
+	   OutboundRoute
 	*/
 	Body *models.OutboundRouteBase
-	/*SiteID
-	  Site ID
 
+	/* SiteID.
+
+	   Site ID
 	*/
 	SiteID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edges site outboundroutes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesSiteOutboundroutesParams) WithDefaults() *PostTelephonyProvidersEdgesSiteOutboundroutesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edges site outboundroutes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesSiteOutboundroutesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edges site outboundroutes params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgesSiteOutboundroutesParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

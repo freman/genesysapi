@@ -95,7 +95,6 @@ func (o *GetLearningModulesReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLearningModulesOK() *GetLearningModulesOK {
 	return &GetLearningModulesOK{}
 }
 
-/*GetLearningModulesOK handles this case with default header values.
+/*
+GetLearningModulesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLearningModulesOK struct {
 	Payload *models.LearningModulesDomainEntityListing
 }
 
+// IsSuccess returns true when this get learning modules o k response has a 2xx status code
+func (o *GetLearningModulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get learning modules o k response has a 3xx status code
+func (o *GetLearningModulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules o k response has a 4xx status code
+func (o *GetLearningModulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules o k response has a 5xx status code
+func (o *GetLearningModulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules o k response a status code equal to that given
+func (o *GetLearningModulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLearningModulesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLearningModulesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLearningModulesBadRequest() *GetLearningModulesBadRequest {
 	return &GetLearningModulesBadRequest{}
 }
 
-/*GetLearningModulesBadRequest handles this case with default header values.
+/*
+GetLearningModulesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLearningModulesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules bad request response has a 2xx status code
+func (o *GetLearningModulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules bad request response has a 3xx status code
+func (o *GetLearningModulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules bad request response has a 4xx status code
+func (o *GetLearningModulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules bad request response has a 5xx status code
+func (o *GetLearningModulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules bad request response a status code equal to that given
+func (o *GetLearningModulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLearningModulesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLearningModulesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLearningModulesUnauthorized() *GetLearningModulesUnauthorized {
 	return &GetLearningModulesUnauthorized{}
 }
 
-/*GetLearningModulesUnauthorized handles this case with default header values.
+/*
+GetLearningModulesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLearningModulesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules unauthorized response has a 2xx status code
+func (o *GetLearningModulesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules unauthorized response has a 3xx status code
+func (o *GetLearningModulesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules unauthorized response has a 4xx status code
+func (o *GetLearningModulesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules unauthorized response has a 5xx status code
+func (o *GetLearningModulesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules unauthorized response a status code equal to that given
+func (o *GetLearningModulesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLearningModulesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLearningModulesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLearningModulesForbidden() *GetLearningModulesForbidden {
 	return &GetLearningModulesForbidden{}
 }
 
-/*GetLearningModulesForbidden handles this case with default header values.
+/*
+GetLearningModulesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLearningModulesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules forbidden response has a 2xx status code
+func (o *GetLearningModulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules forbidden response has a 3xx status code
+func (o *GetLearningModulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules forbidden response has a 4xx status code
+func (o *GetLearningModulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules forbidden response has a 5xx status code
+func (o *GetLearningModulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules forbidden response a status code equal to that given
+func (o *GetLearningModulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLearningModulesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLearningModulesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLearningModulesNotFound() *GetLearningModulesNotFound {
 	return &GetLearningModulesNotFound{}
 }
 
-/*GetLearningModulesNotFound handles this case with default header values.
+/*
+GetLearningModulesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLearningModulesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules not found response has a 2xx status code
+func (o *GetLearningModulesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules not found response has a 3xx status code
+func (o *GetLearningModulesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules not found response has a 4xx status code
+func (o *GetLearningModulesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules not found response has a 5xx status code
+func (o *GetLearningModulesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules not found response a status code equal to that given
+func (o *GetLearningModulesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLearningModulesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLearningModulesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLearningModulesRequestTimeout() *GetLearningModulesRequestTimeout {
 	return &GetLearningModulesRequestTimeout{}
 }
 
-/*GetLearningModulesRequestTimeout handles this case with default header values.
+/*
+GetLearningModulesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLearningModulesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules request timeout response has a 2xx status code
+func (o *GetLearningModulesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules request timeout response has a 3xx status code
+func (o *GetLearningModulesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules request timeout response has a 4xx status code
+func (o *GetLearningModulesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules request timeout response has a 5xx status code
+func (o *GetLearningModulesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules request timeout response a status code equal to that given
+func (o *GetLearningModulesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLearningModulesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLearningModulesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLearningModulesRequestEntityTooLarge() *GetLearningModulesRequestEnti
 	return &GetLearningModulesRequestEntityTooLarge{}
 }
 
-/*GetLearningModulesRequestEntityTooLarge handles this case with default header values.
+/*
+GetLearningModulesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLearningModulesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules request entity too large response has a 2xx status code
+func (o *GetLearningModulesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules request entity too large response has a 3xx status code
+func (o *GetLearningModulesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules request entity too large response has a 4xx status code
+func (o *GetLearningModulesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules request entity too large response has a 5xx status code
+func (o *GetLearningModulesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules request entity too large response a status code equal to that given
+func (o *GetLearningModulesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLearningModulesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLearningModulesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLearningModulesUnsupportedMediaType() *GetLearningModulesUnsupportedM
 	return &GetLearningModulesUnsupportedMediaType{}
 }
 
-/*GetLearningModulesUnsupportedMediaType handles this case with default header values.
+/*
+GetLearningModulesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLearningModulesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules unsupported media type response has a 2xx status code
+func (o *GetLearningModulesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules unsupported media type response has a 3xx status code
+func (o *GetLearningModulesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules unsupported media type response has a 4xx status code
+func (o *GetLearningModulesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules unsupported media type response has a 5xx status code
+func (o *GetLearningModulesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules unsupported media type response a status code equal to that given
+func (o *GetLearningModulesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLearningModulesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLearningModulesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLearningModulesTooManyRequests() *GetLearningModulesTooManyRequests {
 	return &GetLearningModulesTooManyRequests{}
 }
 
-/*GetLearningModulesTooManyRequests handles this case with default header values.
+/*
+GetLearningModulesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLearningModulesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules too many requests response has a 2xx status code
+func (o *GetLearningModulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules too many requests response has a 3xx status code
+func (o *GetLearningModulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules too many requests response has a 4xx status code
+func (o *GetLearningModulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules too many requests response has a 5xx status code
+func (o *GetLearningModulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules too many requests response a status code equal to that given
+func (o *GetLearningModulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLearningModulesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLearningModulesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLearningModulesInternalServerError() *GetLearningModulesInternalServe
 	return &GetLearningModulesInternalServerError{}
 }
 
-/*GetLearningModulesInternalServerError handles this case with default header values.
+/*
+GetLearningModulesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLearningModulesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules internal server error response has a 2xx status code
+func (o *GetLearningModulesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules internal server error response has a 3xx status code
+func (o *GetLearningModulesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules internal server error response has a 4xx status code
+func (o *GetLearningModulesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules internal server error response has a 5xx status code
+func (o *GetLearningModulesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning modules internal server error response a status code equal to that given
+func (o *GetLearningModulesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLearningModulesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLearningModulesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLearningModulesServiceUnavailable() *GetLearningModulesServiceUnavail
 	return &GetLearningModulesServiceUnavailable{}
 }
 
-/*GetLearningModulesServiceUnavailable handles this case with default header values.
+/*
+GetLearningModulesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLearningModulesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules service unavailable response has a 2xx status code
+func (o *GetLearningModulesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules service unavailable response has a 3xx status code
+func (o *GetLearningModulesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules service unavailable response has a 4xx status code
+func (o *GetLearningModulesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules service unavailable response has a 5xx status code
+func (o *GetLearningModulesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning modules service unavailable response a status code equal to that given
+func (o *GetLearningModulesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLearningModulesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLearningModulesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLearningModulesGatewayTimeout() *GetLearningModulesGatewayTimeout {
 	return &GetLearningModulesGatewayTimeout{}
 }
 
-/*GetLearningModulesGatewayTimeout handles this case with default header values.
+/*
+GetLearningModulesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLearningModulesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules gateway timeout response has a 2xx status code
+func (o *GetLearningModulesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules gateway timeout response has a 3xx status code
+func (o *GetLearningModulesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules gateway timeout response has a 4xx status code
+func (o *GetLearningModulesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules gateway timeout response has a 5xx status code
+func (o *GetLearningModulesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning modules gateway timeout response a status code equal to that given
+func (o *GetLearningModulesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLearningModulesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLearningModulesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules][%d] getLearningModulesGatewayTimeout  %+v", 504, o.Payload)
 }
 

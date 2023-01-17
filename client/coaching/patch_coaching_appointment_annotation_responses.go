@@ -95,7 +95,6 @@ func (o *PatchCoachingAppointmentAnnotationReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchCoachingAppointmentAnnotationOK() *PatchCoachingAppointmentAnnotati
 	return &PatchCoachingAppointmentAnnotationOK{}
 }
 
-/*PatchCoachingAppointmentAnnotationOK handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchCoachingAppointmentAnnotationOK struct {
 	Payload *models.CoachingAnnotation
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation o k response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation o k response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation o k response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching appointment annotation o k response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation o k response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchCoachingAppointmentAnnotationOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchCoachingAppointmentAnnotationBadRequest() *PatchCoachingAppointment
 	return &PatchCoachingAppointmentAnnotationBadRequest{}
 }
 
-/*PatchCoachingAppointmentAnnotationBadRequest handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchCoachingAppointmentAnnotationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation bad request response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation bad request response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation bad request response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation bad request response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation bad request response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchCoachingAppointmentAnnotationBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchCoachingAppointmentAnnotationUnauthorized() *PatchCoachingAppointme
 	return &PatchCoachingAppointmentAnnotationUnauthorized{}
 }
 
-/*PatchCoachingAppointmentAnnotationUnauthorized handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchCoachingAppointmentAnnotationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation unauthorized response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation unauthorized response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation unauthorized response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation unauthorized response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation unauthorized response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchCoachingAppointmentAnnotationUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchCoachingAppointmentAnnotationForbidden() *PatchCoachingAppointmentA
 	return &PatchCoachingAppointmentAnnotationForbidden{}
 }
 
-/*PatchCoachingAppointmentAnnotationForbidden handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchCoachingAppointmentAnnotationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation forbidden response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation forbidden response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation forbidden response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation forbidden response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation forbidden response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchCoachingAppointmentAnnotationForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchCoachingAppointmentAnnotationNotFound() *PatchCoachingAppointmentAn
 	return &PatchCoachingAppointmentAnnotationNotFound{}
 }
 
-/*PatchCoachingAppointmentAnnotationNotFound handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchCoachingAppointmentAnnotationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation not found response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation not found response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation not found response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation not found response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation not found response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchCoachingAppointmentAnnotationNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchCoachingAppointmentAnnotationRequestTimeout() *PatchCoachingAppoint
 	return &PatchCoachingAppointmentAnnotationRequestTimeout{}
 }
 
-/*PatchCoachingAppointmentAnnotationRequestTimeout handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchCoachingAppointmentAnnotationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation request timeout response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation request timeout response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation request timeout response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation request timeout response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation request timeout response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchCoachingAppointmentAnnotationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchCoachingAppointmentAnnotationRequestEntityTooLarge() *PatchCoaching
 	return &PatchCoachingAppointmentAnnotationRequestEntityTooLarge{}
 }
 
-/*PatchCoachingAppointmentAnnotationRequestEntityTooLarge handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchCoachingAppointmentAnnotationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation request entity too large response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation request entity too large response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation request entity too large response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation request entity too large response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation request entity too large response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchCoachingAppointmentAnnotationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchCoachingAppointmentAnnotationUnsupportedMediaType() *PatchCoachingA
 	return &PatchCoachingAppointmentAnnotationUnsupportedMediaType{}
 }
 
-/*PatchCoachingAppointmentAnnotationUnsupportedMediaType handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchCoachingAppointmentAnnotationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation unsupported media type response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation unsupported media type response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation unsupported media type response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation unsupported media type response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation unsupported media type response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchCoachingAppointmentAnnotationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchCoachingAppointmentAnnotationTooManyRequests() *PatchCoachingAppoin
 	return &PatchCoachingAppointmentAnnotationTooManyRequests{}
 }
 
-/*PatchCoachingAppointmentAnnotationTooManyRequests handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchCoachingAppointmentAnnotationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation too many requests response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation too many requests response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation too many requests response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching appointment annotation too many requests response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching appointment annotation too many requests response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchCoachingAppointmentAnnotationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchCoachingAppointmentAnnotationInternalServerError() *PatchCoachingAp
 	return &PatchCoachingAppointmentAnnotationInternalServerError{}
 }
 
-/*PatchCoachingAppointmentAnnotationInternalServerError handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchCoachingAppointmentAnnotationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation internal server error response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation internal server error response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation internal server error response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching appointment annotation internal server error response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch coaching appointment annotation internal server error response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchCoachingAppointmentAnnotationInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchCoachingAppointmentAnnotationServiceUnavailable() *PatchCoachingApp
 	return &PatchCoachingAppointmentAnnotationServiceUnavailable{}
 }
 
-/*PatchCoachingAppointmentAnnotationServiceUnavailable handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchCoachingAppointmentAnnotationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation service unavailable response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation service unavailable response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation service unavailable response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching appointment annotation service unavailable response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch coaching appointment annotation service unavailable response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchCoachingAppointmentAnnotationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchCoachingAppointmentAnnotationGatewayTimeout() *PatchCoachingAppoint
 	return &PatchCoachingAppointmentAnnotationGatewayTimeout{}
 }
 
-/*PatchCoachingAppointmentAnnotationGatewayTimeout handles this case with default header values.
+/*
+PatchCoachingAppointmentAnnotationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchCoachingAppointmentAnnotationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching appointment annotation gateway timeout response has a 2xx status code
+func (o *PatchCoachingAppointmentAnnotationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching appointment annotation gateway timeout response has a 3xx status code
+func (o *PatchCoachingAppointmentAnnotationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching appointment annotation gateway timeout response has a 4xx status code
+func (o *PatchCoachingAppointmentAnnotationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching appointment annotation gateway timeout response has a 5xx status code
+func (o *PatchCoachingAppointmentAnnotationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch coaching appointment annotation gateway timeout response a status code equal to that given
+func (o *PatchCoachingAppointmentAnnotationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchCoachingAppointmentAnnotationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchCoachingAppointmentAnnotationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/appointments/{appointmentId}/annotations/{annotationId}][%d] patchCoachingAppointmentAnnotationGatewayTimeout  %+v", 504, o.Payload)
 }
 

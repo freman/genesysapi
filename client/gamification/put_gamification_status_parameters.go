@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutGamificationStatusParams creates a new PutGamificationStatusParams object
-// with the default values initialized.
+// NewPutGamificationStatusParams creates a new PutGamificationStatusParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutGamificationStatusParams() *PutGamificationStatusParams {
-	var ()
 	return &PutGamificationStatusParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutGamificationStatusParamsWithTimeout creates a new PutGamificationStatusParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutGamificationStatusParamsWithTimeout(timeout time.Duration) *PutGamificationStatusParams {
-	var ()
 	return &PutGamificationStatusParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutGamificationStatusParamsWithContext creates a new PutGamificationStatusParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutGamificationStatusParamsWithContext(ctx context.Context) *PutGamificationStatusParams {
-	var ()
 	return &PutGamificationStatusParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutGamificationStatusParamsWithHTTPClient creates a new PutGamificationStatusParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutGamificationStatusParamsWithHTTPClient(client *http.Client) *PutGamificationStatusParams {
-	var ()
 	return &PutGamificationStatusParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutGamificationStatusParams contains all the parameters to send to the API endpoint
-for the put gamification status operation typically these are written to a http.Request
+/*
+PutGamificationStatusParams contains all the parameters to send to the API endpoint
+
+	for the put gamification status operation.
+
+	Typically these are written to a http.Request.
 */
 type PutGamificationStatusParams struct {
 
-	/*Status
-	  Gamification status
+	/* Status.
 
+	   Gamification status
 	*/
 	Status *models.GamificationStatus
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put gamification status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutGamificationStatusParams) WithDefaults() *PutGamificationStatusParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put gamification status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutGamificationStatusParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put gamification status params
@@ -124,7 +140,6 @@ func (o *PutGamificationStatusParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Status != nil {
 		if err := r.SetBodyParam(o.Status); err != nil {
 			return err

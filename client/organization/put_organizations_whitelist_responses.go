@@ -95,7 +95,6 @@ func (o *PutOrganizationsWhitelistReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOrganizationsWhitelistOK() *PutOrganizationsWhitelistOK {
 	return &PutOrganizationsWhitelistOK{}
 }
 
-/*PutOrganizationsWhitelistOK handles this case with default header values.
+/*
+PutOrganizationsWhitelistOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOrganizationsWhitelistOK struct {
 	Payload *models.OrgWhitelistSettings
 }
 
+// IsSuccess returns true when this put organizations whitelist o k response has a 2xx status code
+func (o *PutOrganizationsWhitelistOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put organizations whitelist o k response has a 3xx status code
+func (o *PutOrganizationsWhitelistOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist o k response has a 4xx status code
+func (o *PutOrganizationsWhitelistOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations whitelist o k response has a 5xx status code
+func (o *PutOrganizationsWhitelistOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist o k response a status code equal to that given
+func (o *PutOrganizationsWhitelistOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOrganizationsWhitelistOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOrganizationsWhitelistBadRequest() *PutOrganizationsWhitelistBadReque
 	return &PutOrganizationsWhitelistBadRequest{}
 }
 
-/*PutOrganizationsWhitelistBadRequest handles this case with default header values.
+/*
+PutOrganizationsWhitelistBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOrganizationsWhitelistBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist bad request response has a 2xx status code
+func (o *PutOrganizationsWhitelistBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist bad request response has a 3xx status code
+func (o *PutOrganizationsWhitelistBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist bad request response has a 4xx status code
+func (o *PutOrganizationsWhitelistBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist bad request response has a 5xx status code
+func (o *PutOrganizationsWhitelistBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist bad request response a status code equal to that given
+func (o *PutOrganizationsWhitelistBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOrganizationsWhitelistBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOrganizationsWhitelistUnauthorized() *PutOrganizationsWhitelistUnauth
 	return &PutOrganizationsWhitelistUnauthorized{}
 }
 
-/*PutOrganizationsWhitelistUnauthorized handles this case with default header values.
+/*
+PutOrganizationsWhitelistUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOrganizationsWhitelistUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist unauthorized response has a 2xx status code
+func (o *PutOrganizationsWhitelistUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist unauthorized response has a 3xx status code
+func (o *PutOrganizationsWhitelistUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist unauthorized response has a 4xx status code
+func (o *PutOrganizationsWhitelistUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist unauthorized response has a 5xx status code
+func (o *PutOrganizationsWhitelistUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist unauthorized response a status code equal to that given
+func (o *PutOrganizationsWhitelistUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOrganizationsWhitelistUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOrganizationsWhitelistForbidden() *PutOrganizationsWhitelistForbidden
 	return &PutOrganizationsWhitelistForbidden{}
 }
 
-/*PutOrganizationsWhitelistForbidden handles this case with default header values.
+/*
+PutOrganizationsWhitelistForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOrganizationsWhitelistForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist forbidden response has a 2xx status code
+func (o *PutOrganizationsWhitelistForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist forbidden response has a 3xx status code
+func (o *PutOrganizationsWhitelistForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist forbidden response has a 4xx status code
+func (o *PutOrganizationsWhitelistForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist forbidden response has a 5xx status code
+func (o *PutOrganizationsWhitelistForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist forbidden response a status code equal to that given
+func (o *PutOrganizationsWhitelistForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOrganizationsWhitelistForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOrganizationsWhitelistNotFound() *PutOrganizationsWhitelistNotFound {
 	return &PutOrganizationsWhitelistNotFound{}
 }
 
-/*PutOrganizationsWhitelistNotFound handles this case with default header values.
+/*
+PutOrganizationsWhitelistNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOrganizationsWhitelistNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist not found response has a 2xx status code
+func (o *PutOrganizationsWhitelistNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist not found response has a 3xx status code
+func (o *PutOrganizationsWhitelistNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist not found response has a 4xx status code
+func (o *PutOrganizationsWhitelistNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist not found response has a 5xx status code
+func (o *PutOrganizationsWhitelistNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist not found response a status code equal to that given
+func (o *PutOrganizationsWhitelistNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOrganizationsWhitelistNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOrganizationsWhitelistRequestTimeout() *PutOrganizationsWhitelistRequ
 	return &PutOrganizationsWhitelistRequestTimeout{}
 }
 
-/*PutOrganizationsWhitelistRequestTimeout handles this case with default header values.
+/*
+PutOrganizationsWhitelistRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOrganizationsWhitelistRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist request timeout response has a 2xx status code
+func (o *PutOrganizationsWhitelistRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist request timeout response has a 3xx status code
+func (o *PutOrganizationsWhitelistRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist request timeout response has a 4xx status code
+func (o *PutOrganizationsWhitelistRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist request timeout response has a 5xx status code
+func (o *PutOrganizationsWhitelistRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist request timeout response a status code equal to that given
+func (o *PutOrganizationsWhitelistRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOrganizationsWhitelistRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOrganizationsWhitelistRequestEntityTooLarge() *PutOrganizationsWhitel
 	return &PutOrganizationsWhitelistRequestEntityTooLarge{}
 }
 
-/*PutOrganizationsWhitelistRequestEntityTooLarge handles this case with default header values.
+/*
+PutOrganizationsWhitelistRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOrganizationsWhitelistRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist request entity too large response has a 2xx status code
+func (o *PutOrganizationsWhitelistRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist request entity too large response has a 3xx status code
+func (o *PutOrganizationsWhitelistRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist request entity too large response has a 4xx status code
+func (o *PutOrganizationsWhitelistRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist request entity too large response has a 5xx status code
+func (o *PutOrganizationsWhitelistRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist request entity too large response a status code equal to that given
+func (o *PutOrganizationsWhitelistRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOrganizationsWhitelistRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOrganizationsWhitelistUnsupportedMediaType() *PutOrganizationsWhiteli
 	return &PutOrganizationsWhitelistUnsupportedMediaType{}
 }
 
-/*PutOrganizationsWhitelistUnsupportedMediaType handles this case with default header values.
+/*
+PutOrganizationsWhitelistUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOrganizationsWhitelistUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist unsupported media type response has a 2xx status code
+func (o *PutOrganizationsWhitelistUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist unsupported media type response has a 3xx status code
+func (o *PutOrganizationsWhitelistUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist unsupported media type response has a 4xx status code
+func (o *PutOrganizationsWhitelistUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist unsupported media type response has a 5xx status code
+func (o *PutOrganizationsWhitelistUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist unsupported media type response a status code equal to that given
+func (o *PutOrganizationsWhitelistUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOrganizationsWhitelistUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOrganizationsWhitelistTooManyRequests() *PutOrganizationsWhitelistToo
 	return &PutOrganizationsWhitelistTooManyRequests{}
 }
 
-/*PutOrganizationsWhitelistTooManyRequests handles this case with default header values.
+/*
+PutOrganizationsWhitelistTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOrganizationsWhitelistTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist too many requests response has a 2xx status code
+func (o *PutOrganizationsWhitelistTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist too many requests response has a 3xx status code
+func (o *PutOrganizationsWhitelistTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist too many requests response has a 4xx status code
+func (o *PutOrganizationsWhitelistTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations whitelist too many requests response has a 5xx status code
+func (o *PutOrganizationsWhitelistTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations whitelist too many requests response a status code equal to that given
+func (o *PutOrganizationsWhitelistTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOrganizationsWhitelistTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOrganizationsWhitelistInternalServerError() *PutOrganizationsWhitelis
 	return &PutOrganizationsWhitelistInternalServerError{}
 }
 
-/*PutOrganizationsWhitelistInternalServerError handles this case with default header values.
+/*
+PutOrganizationsWhitelistInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOrganizationsWhitelistInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist internal server error response has a 2xx status code
+func (o *PutOrganizationsWhitelistInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist internal server error response has a 3xx status code
+func (o *PutOrganizationsWhitelistInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist internal server error response has a 4xx status code
+func (o *PutOrganizationsWhitelistInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations whitelist internal server error response has a 5xx status code
+func (o *PutOrganizationsWhitelistInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations whitelist internal server error response a status code equal to that given
+func (o *PutOrganizationsWhitelistInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOrganizationsWhitelistInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOrganizationsWhitelistServiceUnavailable() *PutOrganizationsWhitelist
 	return &PutOrganizationsWhitelistServiceUnavailable{}
 }
 
-/*PutOrganizationsWhitelistServiceUnavailable handles this case with default header values.
+/*
+PutOrganizationsWhitelistServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOrganizationsWhitelistServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist service unavailable response has a 2xx status code
+func (o *PutOrganizationsWhitelistServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist service unavailable response has a 3xx status code
+func (o *PutOrganizationsWhitelistServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist service unavailable response has a 4xx status code
+func (o *PutOrganizationsWhitelistServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations whitelist service unavailable response has a 5xx status code
+func (o *PutOrganizationsWhitelistServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations whitelist service unavailable response a status code equal to that given
+func (o *PutOrganizationsWhitelistServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOrganizationsWhitelistServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOrganizationsWhitelistGatewayTimeout() *PutOrganizationsWhitelistGate
 	return &PutOrganizationsWhitelistGatewayTimeout{}
 }
 
-/*PutOrganizationsWhitelistGatewayTimeout handles this case with default header values.
+/*
+PutOrganizationsWhitelistGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOrganizationsWhitelistGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations whitelist gateway timeout response has a 2xx status code
+func (o *PutOrganizationsWhitelistGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations whitelist gateway timeout response has a 3xx status code
+func (o *PutOrganizationsWhitelistGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations whitelist gateway timeout response has a 4xx status code
+func (o *PutOrganizationsWhitelistGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations whitelist gateway timeout response has a 5xx status code
+func (o *PutOrganizationsWhitelistGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations whitelist gateway timeout response a status code equal to that given
+func (o *PutOrganizationsWhitelistGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOrganizationsWhitelistGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOrganizationsWhitelistGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/whitelist][%d] putOrganizationsWhitelistGatewayTimeout  %+v", 504, o.Payload)
 }
 

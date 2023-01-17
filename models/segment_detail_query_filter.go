@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -55,7 +56,6 @@ func (m *SegmentDetailQueryFilter) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SegmentDetailQueryFilter) validateClauses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Clauses) { // not required
 		return nil
 	}
@@ -69,6 +69,8 @@ func (m *SegmentDetailQueryFilter) validateClauses(formats strfmt.Registry) erro
 			if err := m.Clauses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("clauses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clauses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -80,7 +82,6 @@ func (m *SegmentDetailQueryFilter) validateClauses(formats strfmt.Registry) erro
 }
 
 func (m *SegmentDetailQueryFilter) validatePredicates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Predicates) { // not required
 		return nil
 	}
@@ -94,6 +95,8 @@ func (m *SegmentDetailQueryFilter) validatePredicates(formats strfmt.Registry) e
 			if err := m.Predicates[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("predicates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("predicates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -142,6 +145,64 @@ func (m *SegmentDetailQueryFilter) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", *m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this segment detail query filter based on the context it is used
+func (m *SegmentDetailQueryFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClauses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePredicates(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SegmentDetailQueryFilter) contextValidateClauses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Clauses); i++ {
+
+		if m.Clauses[i] != nil {
+			if err := m.Clauses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("clauses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clauses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SegmentDetailQueryFilter) contextValidatePredicates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Predicates); i++ {
+
+		if m.Predicates[i] != nil {
+			if err := m.Predicates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("predicates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("predicates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

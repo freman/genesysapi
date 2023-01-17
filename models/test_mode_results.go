@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -52,7 +54,6 @@ func (m *TestModeResults) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TestModeResults) validateJSONPathValidation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JSONPathValidation) { // not required
 		return nil
 	}
@@ -61,6 +62,8 @@ func (m *TestModeResults) validateJSONPathValidation(formats strfmt.Registry) er
 		if err := m.JSONPathValidation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("jsonPathValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jsonPathValidation")
 			}
 			return err
 		}
@@ -70,7 +73,6 @@ func (m *TestModeResults) validateJSONPathValidation(formats strfmt.Registry) er
 }
 
 func (m *TestModeResults) validateSchemaValidation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SchemaValidation) { // not required
 		return nil
 	}
@@ -79,6 +81,8 @@ func (m *TestModeResults) validateSchemaValidation(formats strfmt.Registry) erro
 		if err := m.SchemaValidation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schemaValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schemaValidation")
 			}
 			return err
 		}
@@ -88,7 +92,6 @@ func (m *TestModeResults) validateSchemaValidation(formats strfmt.Registry) erro
 }
 
 func (m *TestModeResults) validateTargetValidation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TargetValidation) { // not required
 		return nil
 	}
@@ -97,6 +100,78 @@ func (m *TestModeResults) validateTargetValidation(formats strfmt.Registry) erro
 		if err := m.TargetValidation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("targetValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("targetValidation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this test mode results based on the context it is used
+func (m *TestModeResults) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateJSONPathValidation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchemaValidation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTargetValidation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TestModeResults) contextValidateJSONPathValidation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.JSONPathValidation != nil {
+		if err := m.JSONPathValidation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("jsonPathValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("jsonPathValidation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TestModeResults) contextValidateSchemaValidation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SchemaValidation != nil {
+		if err := m.SchemaValidation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schemaValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schemaValidation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TestModeResults) contextValidateTargetValidation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TargetValidation != nil {
+		if err := m.TargetValidation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("targetValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("targetValidation")
 			}
 			return err
 		}

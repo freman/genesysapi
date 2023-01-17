@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -166,7 +167,6 @@ func (m *CallHistoryParticipant) validateDirectionEnum(path, location string, va
 }
 
 func (m *CallHistoryParticipant) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -205,23 +205,23 @@ const (
 	// CallHistoryParticipantDisconnectTypeTransfer captures enum value "transfer"
 	CallHistoryParticipantDisconnectTypeTransfer string = "transfer"
 
-	// CallHistoryParticipantDisconnectTypeTransferConference captures enum value "transfer.conference"
-	CallHistoryParticipantDisconnectTypeTransferConference string = "transfer.conference"
+	// CallHistoryParticipantDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	CallHistoryParticipantDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// CallHistoryParticipantDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	CallHistoryParticipantDisconnectTypeTransferConsult string = "transfer.consult"
+	// CallHistoryParticipantDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	CallHistoryParticipantDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// CallHistoryParticipantDisconnectTypeTransferForward captures enum value "transfer.forward"
-	CallHistoryParticipantDisconnectTypeTransferForward string = "transfer.forward"
+	// CallHistoryParticipantDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	CallHistoryParticipantDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// CallHistoryParticipantDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	CallHistoryParticipantDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// CallHistoryParticipantDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	CallHistoryParticipantDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// CallHistoryParticipantDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	CallHistoryParticipantDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// CallHistoryParticipantDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	CallHistoryParticipantDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// CallHistoryParticipantDisconnectTypeTransportFailure captures enum value "transport.failure"
-	CallHistoryParticipantDisconnectTypeTransportFailure string = "transport.failure"
+	// CallHistoryParticipantDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	CallHistoryParticipantDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// CallHistoryParticipantDisconnectTypeError captures enum value "error"
 	CallHistoryParticipantDisconnectTypeError string = "error"
@@ -245,7 +245,6 @@ func (m *CallHistoryParticipant) validateDisconnectTypeEnum(path, location strin
 }
 
 func (m *CallHistoryParticipant) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -259,7 +258,6 @@ func (m *CallHistoryParticipant) validateDisconnectType(formats strfmt.Registry)
 }
 
 func (m *CallHistoryParticipant) validateEndTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndTime) { // not required
 		return nil
 	}
@@ -272,7 +270,6 @@ func (m *CallHistoryParticipant) validateEndTime(formats strfmt.Registry) error 
 }
 
 func (m *CallHistoryParticipant) validateExternalContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalContact) { // not required
 		return nil
 	}
@@ -281,6 +278,8 @@ func (m *CallHistoryParticipant) validateExternalContact(formats strfmt.Registry
 		if err := m.ExternalContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
 			}
 			return err
 		}
@@ -290,7 +289,6 @@ func (m *CallHistoryParticipant) validateExternalContact(formats strfmt.Registry
 }
 
 func (m *CallHistoryParticipant) validateExternalOrganization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalOrganization) { // not required
 		return nil
 	}
@@ -299,6 +297,8 @@ func (m *CallHistoryParticipant) validateExternalOrganization(formats strfmt.Reg
 		if err := m.ExternalOrganization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalOrganization")
 			}
 			return err
 		}
@@ -334,7 +334,6 @@ func (m *CallHistoryParticipant) validateFlaggedReasonEnum(path, location string
 }
 
 func (m *CallHistoryParticipant) validateFlaggedReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlaggedReason) { // not required
 		return nil
 	}
@@ -348,7 +347,6 @@ func (m *CallHistoryParticipant) validateFlaggedReason(formats strfmt.Registry) 
 }
 
 func (m *CallHistoryParticipant) validateGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Group) { // not required
 		return nil
 	}
@@ -357,6 +355,8 @@ func (m *CallHistoryParticipant) validateGroup(formats strfmt.Registry) error {
 		if err := m.Group.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -366,7 +366,6 @@ func (m *CallHistoryParticipant) validateGroup(formats strfmt.Registry) error {
 }
 
 func (m *CallHistoryParticipant) validateOutboundCampaign(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutboundCampaign) { // not required
 		return nil
 	}
@@ -375,6 +374,8 @@ func (m *CallHistoryParticipant) validateOutboundCampaign(formats strfmt.Registr
 		if err := m.OutboundCampaign.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outboundCampaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outboundCampaign")
 			}
 			return err
 		}
@@ -384,7 +385,6 @@ func (m *CallHistoryParticipant) validateOutboundCampaign(formats strfmt.Registr
 }
 
 func (m *CallHistoryParticipant) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -393,6 +393,8 @@ func (m *CallHistoryParticipant) validateQueue(formats strfmt.Registry) error {
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
@@ -402,7 +404,6 @@ func (m *CallHistoryParticipant) validateQueue(formats strfmt.Registry) error {
 }
 
 func (m *CallHistoryParticipant) validateStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartTime) { // not required
 		return nil
 	}
@@ -415,7 +416,6 @@ func (m *CallHistoryParticipant) validateStartTime(formats strfmt.Registry) erro
 }
 
 func (m *CallHistoryParticipant) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -424,6 +424,138 @@ func (m *CallHistoryParticipant) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this call history participant based on the context it is used
+func (m *CallHistoryParticipant) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExternalContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalOrganization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutboundCampaign(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CallHistoryParticipant) contextValidateExternalContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalContact != nil {
+		if err := m.ExternalContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallHistoryParticipant) contextValidateExternalOrganization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalOrganization != nil {
+		if err := m.ExternalOrganization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalOrganization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallHistoryParticipant) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Group != nil {
+		if err := m.Group.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallHistoryParticipant) contextValidateOutboundCampaign(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutboundCampaign != nil {
+		if err := m.OutboundCampaign.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outboundCampaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outboundCampaign")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallHistoryParticipant) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallHistoryParticipant) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

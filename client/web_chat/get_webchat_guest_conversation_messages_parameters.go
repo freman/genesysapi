@@ -17,99 +17,118 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWebchatGuestConversationMessagesParams creates a new GetWebchatGuestConversationMessagesParams object
-// with the default values initialized.
+// NewGetWebchatGuestConversationMessagesParams creates a new GetWebchatGuestConversationMessagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebchatGuestConversationMessagesParams() *GetWebchatGuestConversationMessagesParams {
-	var (
-		maxResultsDefault = int32(100)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetWebchatGuestConversationMessagesParams{
-		MaxResults: &maxResultsDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMessagesParamsWithTimeout creates a new GetWebchatGuestConversationMessagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebchatGuestConversationMessagesParamsWithTimeout(timeout time.Duration) *GetWebchatGuestConversationMessagesParams {
-	var (
-		maxResultsDefault = int32(100)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetWebchatGuestConversationMessagesParams{
-		MaxResults: &maxResultsDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMessagesParamsWithContext creates a new GetWebchatGuestConversationMessagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebchatGuestConversationMessagesParamsWithContext(ctx context.Context) *GetWebchatGuestConversationMessagesParams {
-	var (
-		maxResultsDefault = int32(100)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetWebchatGuestConversationMessagesParams{
-		MaxResults: &maxResultsDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebchatGuestConversationMessagesParamsWithHTTPClient creates a new GetWebchatGuestConversationMessagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebchatGuestConversationMessagesParamsWithHTTPClient(client *http.Client) *GetWebchatGuestConversationMessagesParams {
-	var (
-		maxResultsDefault = int32(100)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetWebchatGuestConversationMessagesParams{
-		MaxResults: &maxResultsDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetWebchatGuestConversationMessagesParams contains all the parameters to send to the API endpoint
-for the get webchat guest conversation messages operation typically these are written to a http.Request
+/*
+GetWebchatGuestConversationMessagesParams contains all the parameters to send to the API endpoint
+
+	for the get webchat guest conversation messages operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebchatGuestConversationMessagesParams struct {
 
-	/*After
-	  If available, get the messages chronologically after the id of this message
+	/* After.
 
+	   If available, get the messages chronologically after the id of this message
 	*/
 	After *string
-	/*Before
-	  If available, get the messages chronologically before the id of this message
 
+	/* Before.
+
+	   If available, get the messages chronologically before the id of this message
 	*/
 	Before *string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*MaxResults
-	  Limit the returned number of messages, up to a maximum of 100
 
+	/* MaxResults.
+
+	   Limit the returned number of messages, up to a maximum of 100
+
+	   Format: int32
+	   Default: 100
 	*/
 	MaxResults *int32
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ascending"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webchat guest conversation messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMessagesParams) WithDefaults() *GetWebchatGuestConversationMessagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webchat guest conversation messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMessagesParams) SetDefaults() {
+	var (
+		maxResultsDefault = int32(100)
+
+		sortOrderDefault = string("ascending")
+	)
+
+	val := GetWebchatGuestConversationMessagesParams{
+		MaxResults: &maxResultsDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get webchat guest conversation messages params
@@ -212,32 +231,34 @@ func (o *GetWebchatGuestConversationMessagesParams) WriteToRequest(r runtime.Cli
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param conversationId
@@ -249,32 +270,34 @@ func (o *GetWebchatGuestConversationMessagesParams) WriteToRequest(r runtime.Cli
 
 		// query param maxResults
 		var qrMaxResults int32
+
 		if o.MaxResults != nil {
 			qrMaxResults = *o.MaxResults
 		}
 		qMaxResults := swag.FormatInt32(qrMaxResults)
 		if qMaxResults != "" {
+
 			if err := r.SetQueryParam("maxResults", qMaxResults); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

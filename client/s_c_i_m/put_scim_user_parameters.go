@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutScimUserParams creates a new PutScimUserParams object
-// with the default values initialized.
+// NewPutScimUserParams creates a new PutScimUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutScimUserParams() *PutScimUserParams {
-	var ()
 	return &PutScimUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutScimUserParamsWithTimeout creates a new PutScimUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutScimUserParamsWithTimeout(timeout time.Duration) *PutScimUserParams {
-	var ()
 	return &PutScimUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutScimUserParamsWithContext creates a new PutScimUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutScimUserParamsWithContext(ctx context.Context) *PutScimUserParams {
-	var ()
 	return &PutScimUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutScimUserParamsWithHTTPClient creates a new PutScimUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutScimUserParamsWithHTTPClient(client *http.Client) *PutScimUserParams {
-	var ()
 	return &PutScimUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutScimUserParams contains all the parameters to send to the API endpoint
-for the put scim user operation typically these are written to a http.Request
+/*
+PutScimUserParams contains all the parameters to send to the API endpoint
+
+	for the put scim user operation.
+
+	Typically these are written to a http.Request.
 */
 type PutScimUserParams struct {
 
-	/*IfMatch
-	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/users/{userId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
+	/* IfMatch.
 
+	   The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/users/{userId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
 	*/
 	IfMatch *string
-	/*Body
-	  The information used to replace a user.
 
+	/* Body.
+
+	   The information used to replace a user.
 	*/
 	Body *models.ScimV2User
-	/*UserID
-	  The ID of a user. Returned with GET /api/v2/scim/users.
 
+	/* UserID.
+
+	   The ID of a user. Returned with GET /api/v2/scim/users.
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put scim user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutScimUserParams) WithDefaults() *PutScimUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put scim user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutScimUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put scim user params
@@ -163,9 +181,7 @@ func (o *PutScimUserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		if err := r.SetHeaderParam("If-Match", *o.IfMatch); err != nil {
 			return err
 		}
-
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

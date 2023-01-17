@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteTelephonyProvidersEdgesDidpoolParams creates a new DeleteTelephonyProvidersEdgesDidpoolParams object
-// with the default values initialized.
+// NewDeleteTelephonyProvidersEdgesDidpoolParams creates a new DeleteTelephonyProvidersEdgesDidpoolParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteTelephonyProvidersEdgesDidpoolParams() *DeleteTelephonyProvidersEdgesDidpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesDidpoolParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesDidpoolParamsWithTimeout creates a new DeleteTelephonyProvidersEdgesDidpoolParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteTelephonyProvidersEdgesDidpoolParamsWithTimeout(timeout time.Duration) *DeleteTelephonyProvidersEdgesDidpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesDidpoolParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesDidpoolParamsWithContext creates a new DeleteTelephonyProvidersEdgesDidpoolParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteTelephonyProvidersEdgesDidpoolParamsWithContext(ctx context.Context) *DeleteTelephonyProvidersEdgesDidpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesDidpoolParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesDidpoolParamsWithHTTPClient creates a new DeleteTelephonyProvidersEdgesDidpoolParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteTelephonyProvidersEdgesDidpoolParamsWithHTTPClient(client *http.Client) *DeleteTelephonyProvidersEdgesDidpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesDidpoolParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteTelephonyProvidersEdgesDidpoolParams contains all the parameters to send to the API endpoint
-for the delete telephony providers edges didpool operation typically these are written to a http.Request
+/*
+DeleteTelephonyProvidersEdgesDidpoolParams contains all the parameters to send to the API endpoint
+
+	for the delete telephony providers edges didpool operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteTelephonyProvidersEdgesDidpoolParams struct {
 
-	/*DidPoolID
-	  DID pool ID
+	/* DidPoolID.
 
+	   DID pool ID
 	*/
 	DidPoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete telephony providers edges didpool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgesDidpoolParams) WithDefaults() *DeleteTelephonyProvidersEdgesDidpoolParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete telephony providers edges didpool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgesDidpoolParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete telephony providers edges didpool params

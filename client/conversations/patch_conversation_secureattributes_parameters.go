@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationSecureattributesParams creates a new PatchConversationSecureattributesParams object
-// with the default values initialized.
+// NewPatchConversationSecureattributesParams creates a new PatchConversationSecureattributesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationSecureattributesParams() *PatchConversationSecureattributesParams {
-	var ()
 	return &PatchConversationSecureattributesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationSecureattributesParamsWithTimeout creates a new PatchConversationSecureattributesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationSecureattributesParamsWithTimeout(timeout time.Duration) *PatchConversationSecureattributesParams {
-	var ()
 	return &PatchConversationSecureattributesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationSecureattributesParamsWithContext creates a new PatchConversationSecureattributesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationSecureattributesParamsWithContext(ctx context.Context) *PatchConversationSecureattributesParams {
-	var ()
 	return &PatchConversationSecureattributesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationSecureattributesParamsWithHTTPClient creates a new PatchConversationSecureattributesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationSecureattributesParamsWithHTTPClient(client *http.Client) *PatchConversationSecureattributesParams {
-	var ()
 	return &PatchConversationSecureattributesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationSecureattributesParams contains all the parameters to send to the API endpoint
-for the patch conversation secureattributes operation typically these are written to a http.Request
+/*
+PatchConversationSecureattributesParams contains all the parameters to send to the API endpoint
+
+	for the patch conversation secureattributes operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationSecureattributesParams struct {
 
-	/*Body
-	  Conversation Secure Attributes
+	/* Body.
 
+	   Conversation Secure Attributes
 	*/
 	Body *models.ConversationSecureAttributes
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversation secureattributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationSecureattributesParams) WithDefaults() *PatchConversationSecureattributesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversation secureattributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationSecureattributesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversation secureattributes params
@@ -140,7 +157,6 @@ func (o *PatchConversationSecureattributesParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

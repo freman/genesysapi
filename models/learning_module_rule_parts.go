@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -183,6 +184,11 @@ func (m *LearningModuleRuleParts) validateValue(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this learning module rule parts based on context it is used
+func (m *LearningModuleRuleParts) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteFaxDocumentParams creates a new DeleteFaxDocumentParams object
-// with the default values initialized.
+// NewDeleteFaxDocumentParams creates a new DeleteFaxDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteFaxDocumentParams() *DeleteFaxDocumentParams {
-	var ()
 	return &DeleteFaxDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteFaxDocumentParamsWithTimeout creates a new DeleteFaxDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteFaxDocumentParamsWithTimeout(timeout time.Duration) *DeleteFaxDocumentParams {
-	var ()
 	return &DeleteFaxDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteFaxDocumentParamsWithContext creates a new DeleteFaxDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteFaxDocumentParamsWithContext(ctx context.Context) *DeleteFaxDocumentParams {
-	var ()
 	return &DeleteFaxDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteFaxDocumentParamsWithHTTPClient creates a new DeleteFaxDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteFaxDocumentParamsWithHTTPClient(client *http.Client) *DeleteFaxDocumentParams {
-	var ()
 	return &DeleteFaxDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteFaxDocumentParams contains all the parameters to send to the API endpoint
-for the delete fax document operation typically these are written to a http.Request
+/*
+DeleteFaxDocumentParams contains all the parameters to send to the API endpoint
+
+	for the delete fax document operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteFaxDocumentParams struct {
 
-	/*DocumentID
-	  Document ID
+	/* DocumentID.
 
+	   Document ID
 	*/
 	DocumentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete fax document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFaxDocumentParams) WithDefaults() *DeleteFaxDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete fax document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFaxDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete fax document params

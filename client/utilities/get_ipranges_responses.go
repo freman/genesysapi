@@ -95,7 +95,6 @@ func (o *GetIprangesReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIprangesOK() *GetIprangesOK {
 	return &GetIprangesOK{}
 }
 
-/*GetIprangesOK handles this case with default header values.
+/*
+GetIprangesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIprangesOK struct {
 	Payload *models.IPAddressRangeListing
 }
 
+// IsSuccess returns true when this get ipranges o k response has a 2xx status code
+func (o *GetIprangesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get ipranges o k response has a 3xx status code
+func (o *GetIprangesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges o k response has a 4xx status code
+func (o *GetIprangesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get ipranges o k response has a 5xx status code
+func (o *GetIprangesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges o k response a status code equal to that given
+func (o *GetIprangesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIprangesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIprangesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIprangesBadRequest() *GetIprangesBadRequest {
 	return &GetIprangesBadRequest{}
 }
 
-/*GetIprangesBadRequest handles this case with default header values.
+/*
+GetIprangesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIprangesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges bad request response has a 2xx status code
+func (o *GetIprangesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges bad request response has a 3xx status code
+func (o *GetIprangesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges bad request response has a 4xx status code
+func (o *GetIprangesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges bad request response has a 5xx status code
+func (o *GetIprangesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges bad request response a status code equal to that given
+func (o *GetIprangesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIprangesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIprangesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIprangesUnauthorized() *GetIprangesUnauthorized {
 	return &GetIprangesUnauthorized{}
 }
 
-/*GetIprangesUnauthorized handles this case with default header values.
+/*
+GetIprangesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIprangesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges unauthorized response has a 2xx status code
+func (o *GetIprangesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges unauthorized response has a 3xx status code
+func (o *GetIprangesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges unauthorized response has a 4xx status code
+func (o *GetIprangesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges unauthorized response has a 5xx status code
+func (o *GetIprangesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges unauthorized response a status code equal to that given
+func (o *GetIprangesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIprangesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIprangesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIprangesForbidden() *GetIprangesForbidden {
 	return &GetIprangesForbidden{}
 }
 
-/*GetIprangesForbidden handles this case with default header values.
+/*
+GetIprangesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIprangesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges forbidden response has a 2xx status code
+func (o *GetIprangesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges forbidden response has a 3xx status code
+func (o *GetIprangesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges forbidden response has a 4xx status code
+func (o *GetIprangesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges forbidden response has a 5xx status code
+func (o *GetIprangesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges forbidden response a status code equal to that given
+func (o *GetIprangesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIprangesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIprangesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIprangesNotFound() *GetIprangesNotFound {
 	return &GetIprangesNotFound{}
 }
 
-/*GetIprangesNotFound handles this case with default header values.
+/*
+GetIprangesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIprangesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges not found response has a 2xx status code
+func (o *GetIprangesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges not found response has a 3xx status code
+func (o *GetIprangesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges not found response has a 4xx status code
+func (o *GetIprangesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges not found response has a 5xx status code
+func (o *GetIprangesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges not found response a status code equal to that given
+func (o *GetIprangesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIprangesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIprangesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIprangesRequestTimeout() *GetIprangesRequestTimeout {
 	return &GetIprangesRequestTimeout{}
 }
 
-/*GetIprangesRequestTimeout handles this case with default header values.
+/*
+GetIprangesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIprangesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges request timeout response has a 2xx status code
+func (o *GetIprangesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges request timeout response has a 3xx status code
+func (o *GetIprangesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges request timeout response has a 4xx status code
+func (o *GetIprangesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges request timeout response has a 5xx status code
+func (o *GetIprangesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges request timeout response a status code equal to that given
+func (o *GetIprangesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIprangesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIprangesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIprangesRequestEntityTooLarge() *GetIprangesRequestEntityTooLarge {
 	return &GetIprangesRequestEntityTooLarge{}
 }
 
-/*GetIprangesRequestEntityTooLarge handles this case with default header values.
+/*
+GetIprangesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIprangesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges request entity too large response has a 2xx status code
+func (o *GetIprangesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges request entity too large response has a 3xx status code
+func (o *GetIprangesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges request entity too large response has a 4xx status code
+func (o *GetIprangesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges request entity too large response has a 5xx status code
+func (o *GetIprangesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges request entity too large response a status code equal to that given
+func (o *GetIprangesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIprangesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIprangesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIprangesUnsupportedMediaType() *GetIprangesUnsupportedMediaType {
 	return &GetIprangesUnsupportedMediaType{}
 }
 
-/*GetIprangesUnsupportedMediaType handles this case with default header values.
+/*
+GetIprangesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIprangesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges unsupported media type response has a 2xx status code
+func (o *GetIprangesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges unsupported media type response has a 3xx status code
+func (o *GetIprangesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges unsupported media type response has a 4xx status code
+func (o *GetIprangesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges unsupported media type response has a 5xx status code
+func (o *GetIprangesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges unsupported media type response a status code equal to that given
+func (o *GetIprangesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIprangesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIprangesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIprangesTooManyRequests() *GetIprangesTooManyRequests {
 	return &GetIprangesTooManyRequests{}
 }
 
-/*GetIprangesTooManyRequests handles this case with default header values.
+/*
+GetIprangesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIprangesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges too many requests response has a 2xx status code
+func (o *GetIprangesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges too many requests response has a 3xx status code
+func (o *GetIprangesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges too many requests response has a 4xx status code
+func (o *GetIprangesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get ipranges too many requests response has a 5xx status code
+func (o *GetIprangesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get ipranges too many requests response a status code equal to that given
+func (o *GetIprangesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIprangesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIprangesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIprangesInternalServerError() *GetIprangesInternalServerError {
 	return &GetIprangesInternalServerError{}
 }
 
-/*GetIprangesInternalServerError handles this case with default header values.
+/*
+GetIprangesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIprangesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges internal server error response has a 2xx status code
+func (o *GetIprangesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges internal server error response has a 3xx status code
+func (o *GetIprangesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges internal server error response has a 4xx status code
+func (o *GetIprangesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get ipranges internal server error response has a 5xx status code
+func (o *GetIprangesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get ipranges internal server error response a status code equal to that given
+func (o *GetIprangesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIprangesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIprangesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIprangesServiceUnavailable() *GetIprangesServiceUnavailable {
 	return &GetIprangesServiceUnavailable{}
 }
 
-/*GetIprangesServiceUnavailable handles this case with default header values.
+/*
+GetIprangesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIprangesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges service unavailable response has a 2xx status code
+func (o *GetIprangesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges service unavailable response has a 3xx status code
+func (o *GetIprangesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges service unavailable response has a 4xx status code
+func (o *GetIprangesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get ipranges service unavailable response has a 5xx status code
+func (o *GetIprangesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get ipranges service unavailable response a status code equal to that given
+func (o *GetIprangesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIprangesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIprangesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIprangesGatewayTimeout() *GetIprangesGatewayTimeout {
 	return &GetIprangesGatewayTimeout{}
 }
 
-/*GetIprangesGatewayTimeout handles this case with default header values.
+/*
+GetIprangesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIprangesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get ipranges gateway timeout response has a 2xx status code
+func (o *GetIprangesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get ipranges gateway timeout response has a 3xx status code
+func (o *GetIprangesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get ipranges gateway timeout response has a 4xx status code
+func (o *GetIprangesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get ipranges gateway timeout response has a 5xx status code
+func (o *GetIprangesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get ipranges gateway timeout response a status code equal to that given
+func (o *GetIprangesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIprangesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIprangesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/ipranges][%d] getIprangesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsFaxesParams creates a new PostConversationsFaxesParams object
-// with the default values initialized.
+// NewPostConversationsFaxesParams creates a new PostConversationsFaxesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsFaxesParams() *PostConversationsFaxesParams {
-	var ()
 	return &PostConversationsFaxesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsFaxesParamsWithTimeout creates a new PostConversationsFaxesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsFaxesParamsWithTimeout(timeout time.Duration) *PostConversationsFaxesParams {
-	var ()
 	return &PostConversationsFaxesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsFaxesParamsWithContext creates a new PostConversationsFaxesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsFaxesParamsWithContext(ctx context.Context) *PostConversationsFaxesParams {
-	var ()
 	return &PostConversationsFaxesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsFaxesParamsWithHTTPClient creates a new PostConversationsFaxesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsFaxesParamsWithHTTPClient(client *http.Client) *PostConversationsFaxesParams {
-	var ()
 	return &PostConversationsFaxesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsFaxesParams contains all the parameters to send to the API endpoint
-for the post conversations faxes operation typically these are written to a http.Request
+/*
+PostConversationsFaxesParams contains all the parameters to send to the API endpoint
+
+	for the post conversations faxes operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsFaxesParams struct {
 
-	/*Body
-	  Fax
+	/* Body.
 
+	   Fax
 	*/
 	Body *models.FaxSendRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations faxes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsFaxesParams) WithDefaults() *PostConversationsFaxesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations faxes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsFaxesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations faxes params
@@ -124,7 +140,6 @@ func (o *PostConversationsFaxesParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

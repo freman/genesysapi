@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -57,7 +58,6 @@ func (m *ModelingStatusResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ModelingStatusResponse) validateErrorDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorDetails) { // not required
 		return nil
 	}
@@ -71,6 +71,8 @@ func (m *ModelingStatusResponse) validateErrorDetails(formats strfmt.Registry) e
 			if err := m.ErrorDetails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -120,13 +122,89 @@ func (m *ModelingStatusResponse) validateStatusEnum(path, location string, value
 }
 
 func (m *ModelingStatusResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this modeling status response based on the context it is used
+func (m *ModelingStatusResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModelingResultURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ModelingStatusResponse) contextValidateErrorDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "errorDetails", "body", []*ModelingProcessingError(m.ErrorDetails)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ErrorDetails); i++ {
+
+		if m.ErrorDetails[i] != nil {
+			if err := m.ErrorDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ModelingStatusResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelingStatusResponse) contextValidateModelingResultURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modelingResultUri", "body", string(m.ModelingResultURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelingStatusResponse) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

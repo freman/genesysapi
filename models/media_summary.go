@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *MediaSummary) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MediaSummary) validateContactCenter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactCenter) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *MediaSummary) validateContactCenter(formats strfmt.Registry) error {
 		if err := m.ContactCenter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactCenter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactCenter")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *MediaSummary) validateContactCenter(formats strfmt.Registry) error {
 }
 
 func (m *MediaSummary) validateEnterprise(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Enterprise) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *MediaSummary) validateEnterprise(formats strfmt.Registry) error {
 		if err := m.Enterprise.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this media summary based on the context it is used
+func (m *MediaSummary) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContactCenter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEnterprise(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MediaSummary) contextValidateContactCenter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactCenter != nil {
+		if err := m.ContactCenter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactCenter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactCenter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MediaSummary) contextValidateEnterprise(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Enterprise != nil {
+		if err := m.Enterprise.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("enterprise")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("enterprise")
 			}
 			return err
 		}

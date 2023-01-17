@@ -113,7 +113,6 @@ func (o *PostFlowsActionsCheckoutReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -124,7 +123,8 @@ func NewPostFlowsActionsCheckoutOK() *PostFlowsActionsCheckoutOK {
 	return &PostFlowsActionsCheckoutOK{}
 }
 
-/*PostFlowsActionsCheckoutOK handles this case with default header values.
+/*
+PostFlowsActionsCheckoutOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -132,7 +132,36 @@ type PostFlowsActionsCheckoutOK struct {
 	Payload *models.Flow
 }
 
+// IsSuccess returns true when this post flows actions checkout o k response has a 2xx status code
+func (o *PostFlowsActionsCheckoutOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows actions checkout o k response has a 3xx status code
+func (o *PostFlowsActionsCheckoutOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout o k response has a 4xx status code
+func (o *PostFlowsActionsCheckoutOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkout o k response has a 5xx status code
+func (o *PostFlowsActionsCheckoutOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout o k response a status code equal to that given
+func (o *PostFlowsActionsCheckoutOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsActionsCheckoutOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutOK  %+v", 200, o.Payload)
 }
 
@@ -157,7 +186,8 @@ func NewPostFlowsActionsCheckoutBadRequest() *PostFlowsActionsCheckoutBadRequest
 	return &PostFlowsActionsCheckoutBadRequest{}
 }
 
-/*PostFlowsActionsCheckoutBadRequest handles this case with default header values.
+/*
+PostFlowsActionsCheckoutBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -165,7 +195,36 @@ type PostFlowsActionsCheckoutBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout bad request response has a 2xx status code
+func (o *PostFlowsActionsCheckoutBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout bad request response has a 3xx status code
+func (o *PostFlowsActionsCheckoutBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout bad request response has a 4xx status code
+func (o *PostFlowsActionsCheckoutBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout bad request response has a 5xx status code
+func (o *PostFlowsActionsCheckoutBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout bad request response a status code equal to that given
+func (o *PostFlowsActionsCheckoutBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsActionsCheckoutBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutBadRequest  %+v", 400, o.Payload)
 }
 
@@ -190,7 +249,8 @@ func NewPostFlowsActionsCheckoutUnauthorized() *PostFlowsActionsCheckoutUnauthor
 	return &PostFlowsActionsCheckoutUnauthorized{}
 }
 
-/*PostFlowsActionsCheckoutUnauthorized handles this case with default header values.
+/*
+PostFlowsActionsCheckoutUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -198,7 +258,36 @@ type PostFlowsActionsCheckoutUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout unauthorized response has a 2xx status code
+func (o *PostFlowsActionsCheckoutUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout unauthorized response has a 3xx status code
+func (o *PostFlowsActionsCheckoutUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout unauthorized response has a 4xx status code
+func (o *PostFlowsActionsCheckoutUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout unauthorized response has a 5xx status code
+func (o *PostFlowsActionsCheckoutUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout unauthorized response a status code equal to that given
+func (o *PostFlowsActionsCheckoutUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsActionsCheckoutUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -223,7 +312,8 @@ func NewPostFlowsActionsCheckoutForbidden() *PostFlowsActionsCheckoutForbidden {
 	return &PostFlowsActionsCheckoutForbidden{}
 }
 
-/*PostFlowsActionsCheckoutForbidden handles this case with default header values.
+/*
+PostFlowsActionsCheckoutForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -231,7 +321,36 @@ type PostFlowsActionsCheckoutForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout forbidden response has a 2xx status code
+func (o *PostFlowsActionsCheckoutForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout forbidden response has a 3xx status code
+func (o *PostFlowsActionsCheckoutForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout forbidden response has a 4xx status code
+func (o *PostFlowsActionsCheckoutForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout forbidden response has a 5xx status code
+func (o *PostFlowsActionsCheckoutForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout forbidden response a status code equal to that given
+func (o *PostFlowsActionsCheckoutForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsActionsCheckoutForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutForbidden  %+v", 403, o.Payload)
 }
 
@@ -256,7 +375,8 @@ func NewPostFlowsActionsCheckoutNotFound() *PostFlowsActionsCheckoutNotFound {
 	return &PostFlowsActionsCheckoutNotFound{}
 }
 
-/*PostFlowsActionsCheckoutNotFound handles this case with default header values.
+/*
+PostFlowsActionsCheckoutNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -264,7 +384,36 @@ type PostFlowsActionsCheckoutNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout not found response has a 2xx status code
+func (o *PostFlowsActionsCheckoutNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout not found response has a 3xx status code
+func (o *PostFlowsActionsCheckoutNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout not found response has a 4xx status code
+func (o *PostFlowsActionsCheckoutNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout not found response has a 5xx status code
+func (o *PostFlowsActionsCheckoutNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout not found response a status code equal to that given
+func (o *PostFlowsActionsCheckoutNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsActionsCheckoutNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutNotFound  %+v", 404, o.Payload)
 }
 
@@ -289,7 +438,8 @@ func NewPostFlowsActionsCheckoutMethodNotAllowed() *PostFlowsActionsCheckoutMeth
 	return &PostFlowsActionsCheckoutMethodNotAllowed{}
 }
 
-/*PostFlowsActionsCheckoutMethodNotAllowed handles this case with default header values.
+/*
+PostFlowsActionsCheckoutMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -297,7 +447,36 @@ type PostFlowsActionsCheckoutMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout method not allowed response has a 2xx status code
+func (o *PostFlowsActionsCheckoutMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout method not allowed response has a 3xx status code
+func (o *PostFlowsActionsCheckoutMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout method not allowed response has a 4xx status code
+func (o *PostFlowsActionsCheckoutMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout method not allowed response has a 5xx status code
+func (o *PostFlowsActionsCheckoutMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout method not allowed response a status code equal to that given
+func (o *PostFlowsActionsCheckoutMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PostFlowsActionsCheckoutMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutMethodNotAllowed) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -322,7 +501,8 @@ func NewPostFlowsActionsCheckoutRequestTimeout() *PostFlowsActionsCheckoutReques
 	return &PostFlowsActionsCheckoutRequestTimeout{}
 }
 
-/*PostFlowsActionsCheckoutRequestTimeout handles this case with default header values.
+/*
+PostFlowsActionsCheckoutRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -330,7 +510,36 @@ type PostFlowsActionsCheckoutRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout request timeout response has a 2xx status code
+func (o *PostFlowsActionsCheckoutRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout request timeout response has a 3xx status code
+func (o *PostFlowsActionsCheckoutRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout request timeout response has a 4xx status code
+func (o *PostFlowsActionsCheckoutRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout request timeout response has a 5xx status code
+func (o *PostFlowsActionsCheckoutRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout request timeout response a status code equal to that given
+func (o *PostFlowsActionsCheckoutRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsActionsCheckoutRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -355,7 +564,8 @@ func NewPostFlowsActionsCheckoutConflict() *PostFlowsActionsCheckoutConflict {
 	return &PostFlowsActionsCheckoutConflict{}
 }
 
-/*PostFlowsActionsCheckoutConflict handles this case with default header values.
+/*
+PostFlowsActionsCheckoutConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -363,7 +573,36 @@ type PostFlowsActionsCheckoutConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout conflict response has a 2xx status code
+func (o *PostFlowsActionsCheckoutConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout conflict response has a 3xx status code
+func (o *PostFlowsActionsCheckoutConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout conflict response has a 4xx status code
+func (o *PostFlowsActionsCheckoutConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout conflict response has a 5xx status code
+func (o *PostFlowsActionsCheckoutConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout conflict response a status code equal to that given
+func (o *PostFlowsActionsCheckoutConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostFlowsActionsCheckoutConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutConflict  %+v", 409, o.Payload)
 }
 
@@ -388,7 +627,8 @@ func NewPostFlowsActionsCheckoutGone() *PostFlowsActionsCheckoutGone {
 	return &PostFlowsActionsCheckoutGone{}
 }
 
-/*PostFlowsActionsCheckoutGone handles this case with default header values.
+/*
+PostFlowsActionsCheckoutGone describes a response with status code 410, with default header values.
 
 Gone
 */
@@ -396,7 +636,36 @@ type PostFlowsActionsCheckoutGone struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout gone response has a 2xx status code
+func (o *PostFlowsActionsCheckoutGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout gone response has a 3xx status code
+func (o *PostFlowsActionsCheckoutGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout gone response has a 4xx status code
+func (o *PostFlowsActionsCheckoutGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout gone response has a 5xx status code
+func (o *PostFlowsActionsCheckoutGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout gone response a status code equal to that given
+func (o *PostFlowsActionsCheckoutGone) IsCode(code int) bool {
+	return code == 410
+}
+
 func (o *PostFlowsActionsCheckoutGone) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutGone  %+v", 410, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutGone) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutGone  %+v", 410, o.Payload)
 }
 
@@ -421,7 +690,8 @@ func NewPostFlowsActionsCheckoutRequestEntityTooLarge() *PostFlowsActionsCheckou
 	return &PostFlowsActionsCheckoutRequestEntityTooLarge{}
 }
 
-/*PostFlowsActionsCheckoutRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsActionsCheckoutRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -429,7 +699,36 @@ type PostFlowsActionsCheckoutRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout request entity too large response has a 2xx status code
+func (o *PostFlowsActionsCheckoutRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout request entity too large response has a 3xx status code
+func (o *PostFlowsActionsCheckoutRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout request entity too large response has a 4xx status code
+func (o *PostFlowsActionsCheckoutRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout request entity too large response has a 5xx status code
+func (o *PostFlowsActionsCheckoutRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout request entity too large response a status code equal to that given
+func (o *PostFlowsActionsCheckoutRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsActionsCheckoutRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -454,7 +753,8 @@ func NewPostFlowsActionsCheckoutUnsupportedMediaType() *PostFlowsActionsCheckout
 	return &PostFlowsActionsCheckoutUnsupportedMediaType{}
 }
 
-/*PostFlowsActionsCheckoutUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsActionsCheckoutUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -462,7 +762,36 @@ type PostFlowsActionsCheckoutUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout unsupported media type response has a 2xx status code
+func (o *PostFlowsActionsCheckoutUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout unsupported media type response has a 3xx status code
+func (o *PostFlowsActionsCheckoutUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout unsupported media type response has a 4xx status code
+func (o *PostFlowsActionsCheckoutUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout unsupported media type response has a 5xx status code
+func (o *PostFlowsActionsCheckoutUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout unsupported media type response a status code equal to that given
+func (o *PostFlowsActionsCheckoutUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsActionsCheckoutUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -487,7 +816,8 @@ func NewPostFlowsActionsCheckoutTooManyRequests() *PostFlowsActionsCheckoutTooMa
 	return &PostFlowsActionsCheckoutTooManyRequests{}
 }
 
-/*PostFlowsActionsCheckoutTooManyRequests handles this case with default header values.
+/*
+PostFlowsActionsCheckoutTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -495,7 +825,36 @@ type PostFlowsActionsCheckoutTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout too many requests response has a 2xx status code
+func (o *PostFlowsActionsCheckoutTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout too many requests response has a 3xx status code
+func (o *PostFlowsActionsCheckoutTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout too many requests response has a 4xx status code
+func (o *PostFlowsActionsCheckoutTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkout too many requests response has a 5xx status code
+func (o *PostFlowsActionsCheckoutTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkout too many requests response a status code equal to that given
+func (o *PostFlowsActionsCheckoutTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsActionsCheckoutTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -520,7 +879,8 @@ func NewPostFlowsActionsCheckoutInternalServerError() *PostFlowsActionsCheckoutI
 	return &PostFlowsActionsCheckoutInternalServerError{}
 }
 
-/*PostFlowsActionsCheckoutInternalServerError handles this case with default header values.
+/*
+PostFlowsActionsCheckoutInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -528,7 +888,36 @@ type PostFlowsActionsCheckoutInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout internal server error response has a 2xx status code
+func (o *PostFlowsActionsCheckoutInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout internal server error response has a 3xx status code
+func (o *PostFlowsActionsCheckoutInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout internal server error response has a 4xx status code
+func (o *PostFlowsActionsCheckoutInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkout internal server error response has a 5xx status code
+func (o *PostFlowsActionsCheckoutInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions checkout internal server error response a status code equal to that given
+func (o *PostFlowsActionsCheckoutInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsActionsCheckoutInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -553,7 +942,8 @@ func NewPostFlowsActionsCheckoutServiceUnavailable() *PostFlowsActionsCheckoutSe
 	return &PostFlowsActionsCheckoutServiceUnavailable{}
 }
 
-/*PostFlowsActionsCheckoutServiceUnavailable handles this case with default header values.
+/*
+PostFlowsActionsCheckoutServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -561,7 +951,36 @@ type PostFlowsActionsCheckoutServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout service unavailable response has a 2xx status code
+func (o *PostFlowsActionsCheckoutServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout service unavailable response has a 3xx status code
+func (o *PostFlowsActionsCheckoutServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout service unavailable response has a 4xx status code
+func (o *PostFlowsActionsCheckoutServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkout service unavailable response has a 5xx status code
+func (o *PostFlowsActionsCheckoutServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions checkout service unavailable response a status code equal to that given
+func (o *PostFlowsActionsCheckoutServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsActionsCheckoutServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -586,7 +1005,8 @@ func NewPostFlowsActionsCheckoutGatewayTimeout() *PostFlowsActionsCheckoutGatewa
 	return &PostFlowsActionsCheckoutGatewayTimeout{}
 }
 
-/*PostFlowsActionsCheckoutGatewayTimeout handles this case with default header values.
+/*
+PostFlowsActionsCheckoutGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -594,7 +1014,36 @@ type PostFlowsActionsCheckoutGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkout gateway timeout response has a 2xx status code
+func (o *PostFlowsActionsCheckoutGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkout gateway timeout response has a 3xx status code
+func (o *PostFlowsActionsCheckoutGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkout gateway timeout response has a 4xx status code
+func (o *PostFlowsActionsCheckoutGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkout gateway timeout response has a 5xx status code
+func (o *PostFlowsActionsCheckoutGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions checkout gateway timeout response a status code equal to that given
+func (o *PostFlowsActionsCheckoutGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsActionsCheckoutGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckoutGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkout][%d] postFlowsActionsCheckoutGatewayTimeout  %+v", 504, o.Payload)
 }
 

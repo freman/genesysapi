@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -53,7 +55,6 @@ func (m *ClonedUser) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ClonedUser) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -66,7 +67,6 @@ func (m *ClonedUser) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *ClonedUser) validateTrustor(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trustor) { // not required
 		return nil
 	}
@@ -75,6 +75,64 @@ func (m *ClonedUser) validateTrustor(formats strfmt.Registry) error {
 		if err := m.Trustor.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trustor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trustor")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this cloned user based on the context it is used
+func (m *ClonedUser) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrustor(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ClonedUser) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ClonedUser) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ClonedUser) contextValidateTrustor(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trustor != nil {
+		if err := m.Trustor.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trustor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trustor")
 			}
 			return err
 		}

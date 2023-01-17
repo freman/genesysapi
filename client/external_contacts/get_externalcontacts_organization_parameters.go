@@ -17,69 +17,87 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetExternalcontactsOrganizationParams creates a new GetExternalcontactsOrganizationParams object
-// with the default values initialized.
+// NewGetExternalcontactsOrganizationParams creates a new GetExternalcontactsOrganizationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsOrganizationParams() *GetExternalcontactsOrganizationParams {
-	var ()
 	return &GetExternalcontactsOrganizationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsOrganizationParamsWithTimeout creates a new GetExternalcontactsOrganizationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsOrganizationParamsWithTimeout(timeout time.Duration) *GetExternalcontactsOrganizationParams {
-	var ()
 	return &GetExternalcontactsOrganizationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsOrganizationParamsWithContext creates a new GetExternalcontactsOrganizationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsOrganizationParamsWithContext(ctx context.Context) *GetExternalcontactsOrganizationParams {
-	var ()
 	return &GetExternalcontactsOrganizationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsOrganizationParamsWithHTTPClient creates a new GetExternalcontactsOrganizationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsOrganizationParamsWithHTTPClient(client *http.Client) *GetExternalcontactsOrganizationParams {
-	var ()
 	return &GetExternalcontactsOrganizationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsOrganizationParams contains all the parameters to send to the API endpoint
-for the get externalcontacts organization operation typically these are written to a http.Request
+/*
+GetExternalcontactsOrganizationParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts organization operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsOrganizationParams struct {
 
-	/*Expand
-	  which fields, if any, to expand (externalDataSources)
+	/* Expand.
 
+	   which fields, if any, to expand (externalDataSources)
 	*/
 	Expand *string
-	/*ExternalOrganizationID
-	  External Organization ID
 
+	/* ExternalOrganizationID.
+
+	   External Organization ID
 	*/
 	ExternalOrganizationID string
-	/*IncludeTrustors
-	  (true or false) whether or not to include trustor information embedded in the externalOrganization
 
+	/* IncludeTrustors.
+
+	   (true or false) whether or not to include trustor information embedded in the externalOrganization
 	*/
 	IncludeTrustors *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts organization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsOrganizationParams) WithDefaults() *GetExternalcontactsOrganizationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts organization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsOrganizationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts organization params
@@ -160,16 +178,17 @@ func (o *GetExternalcontactsOrganizationParams) WriteToRequest(r runtime.ClientR
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param externalOrganizationId
@@ -181,16 +200,17 @@ func (o *GetExternalcontactsOrganizationParams) WriteToRequest(r runtime.ClientR
 
 		// query param includeTrustors
 		var qrIncludeTrustors bool
+
 		if o.IncludeTrustors != nil {
 			qrIncludeTrustors = *o.IncludeTrustors
 		}
 		qIncludeTrustors := swag.FormatBool(qrIncludeTrustors)
 		if qIncludeTrustors != "" {
+
 			if err := r.SetQueryParam("includeTrustors", qIncludeTrustors); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

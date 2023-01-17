@@ -17,99 +17,123 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeKnowledgebasesParams creates a new GetKnowledgeKnowledgebasesParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebasesParams creates a new GetKnowledgeKnowledgebasesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebasesParams() *GetKnowledgeKnowledgebasesParams {
-	var ()
 	return &GetKnowledgeKnowledgebasesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebasesParamsWithTimeout creates a new GetKnowledgeKnowledgebasesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebasesParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebasesParams {
-	var ()
 	return &GetKnowledgeKnowledgebasesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebasesParamsWithContext creates a new GetKnowledgeKnowledgebasesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebasesParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebasesParams {
-	var ()
 	return &GetKnowledgeKnowledgebasesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebasesParamsWithHTTPClient creates a new GetKnowledgeKnowledgebasesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebasesParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebasesParams {
-	var ()
 	return &GetKnowledgeKnowledgebasesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebasesParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebases operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebasesParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebases operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebasesParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*CoreLanguage
-	  Filter by core language.
 
+	/* CoreLanguage.
+
+	   Filter by core language.
 	*/
 	CoreLanguage *string
-	/*Limit
-	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 
+	/* Limit.
+
+	   Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 	*/
 	Limit *string
-	/*Name
-	  Filter by Name.
 
+	/* Name.
+
+	   Filter by Name.
 	*/
 	Name *string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
-	/*Published
-	  Filter by published status.
 
+	/* Published.
+
+	   Filter by published status.
 	*/
 	Published *bool
-	/*SortBy
-	  Sort by.
 
+	/* SortBy.
+
+	   Sort by.
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort Order.
 
+	/* SortOrder.
+
+	   Sort Order.
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebases params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebasesParams) WithDefaults() *GetKnowledgeKnowledgebasesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebases params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebasesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebases params
@@ -256,144 +280,153 @@ func (o *GetKnowledgeKnowledgebasesParams) WriteToRequest(r runtime.ClientReques
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.CoreLanguage != nil {
 
 		// query param coreLanguage
 		var qrCoreLanguage string
+
 		if o.CoreLanguage != nil {
 			qrCoreLanguage = *o.CoreLanguage
 		}
 		qCoreLanguage := qrCoreLanguage
 		if qCoreLanguage != "" {
+
 			if err := r.SetQueryParam("coreLanguage", qCoreLanguage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit string
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Published != nil {
 
 		// query param published
 		var qrPublished bool
+
 		if o.Published != nil {
 			qrPublished = *o.Published
 		}
 		qPublished := swag.FormatBool(qrPublished)
 		if qPublished != "" {
+
 			if err := r.SetQueryParam("published", qPublished); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

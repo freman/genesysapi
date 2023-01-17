@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAnalyticsReportingScheduleParams creates a new GetAnalyticsReportingScheduleParams object
-// with the default values initialized.
+// NewGetAnalyticsReportingScheduleParams creates a new GetAnalyticsReportingScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAnalyticsReportingScheduleParams() *GetAnalyticsReportingScheduleParams {
-	var ()
 	return &GetAnalyticsReportingScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAnalyticsReportingScheduleParamsWithTimeout creates a new GetAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAnalyticsReportingScheduleParamsWithTimeout(timeout time.Duration) *GetAnalyticsReportingScheduleParams {
-	var ()
 	return &GetAnalyticsReportingScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAnalyticsReportingScheduleParamsWithContext creates a new GetAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAnalyticsReportingScheduleParamsWithContext(ctx context.Context) *GetAnalyticsReportingScheduleParams {
-	var ()
 	return &GetAnalyticsReportingScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAnalyticsReportingScheduleParamsWithHTTPClient creates a new GetAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAnalyticsReportingScheduleParamsWithHTTPClient(client *http.Client) *GetAnalyticsReportingScheduleParams {
-	var ()
 	return &GetAnalyticsReportingScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAnalyticsReportingScheduleParams contains all the parameters to send to the API endpoint
-for the get analytics reporting schedule operation typically these are written to a http.Request
+/*
+GetAnalyticsReportingScheduleParams contains all the parameters to send to the API endpoint
+
+	for the get analytics reporting schedule operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAnalyticsReportingScheduleParams struct {
 
-	/*ScheduleID
-	  Schedule ID
+	/* ScheduleID.
 
+	   Schedule ID
 	*/
 	ScheduleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get analytics reporting schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingScheduleParams) WithDefaults() *GetAnalyticsReportingScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get analytics reporting schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get analytics reporting schedule params

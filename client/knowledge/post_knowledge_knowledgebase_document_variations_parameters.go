@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeKnowledgebaseDocumentVariationsParams creates a new PostKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseDocumentVariationsParams creates a new PostKnowledgeKnowledgebaseDocumentVariationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseDocumentVariationsParams() *PostKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentVariationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseDocumentVariationsParamsWithTimeout creates a new PostKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseDocumentVariationsParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentVariationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseDocumentVariationsParamsWithContext creates a new PostKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseDocumentVariationsParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentVariationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseDocumentVariationsParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseDocumentVariationsParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentVariationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVariationsParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase document variations operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseDocumentVariationsParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase document variations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseDocumentVariationsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.DocumentVariation
-	/*DocumentID
-	  Globally unique identifier for the document.
 
+	/* DocumentID.
+
+	   Globally unique identifier for the document.
 	*/
 	DocumentID string
-	/*KnowledgeBaseID
-	  Globally unique identifier for the knowledge base.
 
+	/* KnowledgeBaseID.
+
+	   Globally unique identifier for the knowledge base.
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase document variations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseDocumentVariationsParams) WithDefaults() *PostKnowledgeKnowledgebaseDocumentVariationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase document variations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseDocumentVariationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase document variations params
@@ -153,7 +171,6 @@ func (o *PostKnowledgeKnowledgebaseDocumentVariationsParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

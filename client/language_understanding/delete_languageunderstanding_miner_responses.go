@@ -95,7 +95,6 @@ func (o *DeleteLanguageunderstandingMinerReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteLanguageunderstandingMinerNoContent() *DeleteLanguageunderstanding
 	return &DeleteLanguageunderstandingMinerNoContent{}
 }
 
-/*DeleteLanguageunderstandingMinerNoContent handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerNoContent describes a response with status code 204, with default header values.
 
 Miner deleted
 */
 type DeleteLanguageunderstandingMinerNoContent struct {
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner no content response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner no content response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner no content response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding miner no content response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner no content response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteLanguageunderstandingMinerNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerNoContent ", 204)
+}
+
+func (o *DeleteLanguageunderstandingMinerNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteLanguageunderstandingMinerBadRequest() *DeleteLanguageunderstandin
 	return &DeleteLanguageunderstandingMinerBadRequest{}
 }
 
-/*DeleteLanguageunderstandingMinerBadRequest handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteLanguageunderstandingMinerBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner bad request response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner bad request response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner bad request response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner bad request response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner bad request response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteLanguageunderstandingMinerBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteLanguageunderstandingMinerUnauthorized() *DeleteLanguageunderstand
 	return &DeleteLanguageunderstandingMinerUnauthorized{}
 }
 
-/*DeleteLanguageunderstandingMinerUnauthorized handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteLanguageunderstandingMinerUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner unauthorized response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner unauthorized response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner unauthorized response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner unauthorized response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner unauthorized response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteLanguageunderstandingMinerUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteLanguageunderstandingMinerForbidden() *DeleteLanguageunderstanding
 	return &DeleteLanguageunderstandingMinerForbidden{}
 }
 
-/*DeleteLanguageunderstandingMinerForbidden handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteLanguageunderstandingMinerForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner forbidden response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner forbidden response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner forbidden response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner forbidden response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner forbidden response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteLanguageunderstandingMinerForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteLanguageunderstandingMinerNotFound() *DeleteLanguageunderstandingM
 	return &DeleteLanguageunderstandingMinerNotFound{}
 }
 
-/*DeleteLanguageunderstandingMinerNotFound handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteLanguageunderstandingMinerNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner not found response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner not found response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner not found response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner not found response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner not found response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteLanguageunderstandingMinerNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteLanguageunderstandingMinerRequestTimeout() *DeleteLanguageundersta
 	return &DeleteLanguageunderstandingMinerRequestTimeout{}
 }
 
-/*DeleteLanguageunderstandingMinerRequestTimeout handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteLanguageunderstandingMinerRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner request timeout response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner request timeout response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner request timeout response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner request timeout response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner request timeout response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteLanguageunderstandingMinerRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteLanguageunderstandingMinerRequestEntityTooLarge() *DeleteLanguageu
 	return &DeleteLanguageunderstandingMinerRequestEntityTooLarge{}
 }
 
-/*DeleteLanguageunderstandingMinerRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteLanguageunderstandingMinerRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner request entity too large response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner request entity too large response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner request entity too large response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner request entity too large response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner request entity too large response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteLanguageunderstandingMinerRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteLanguageunderstandingMinerUnsupportedMediaType() *DeleteLanguageun
 	return &DeleteLanguageunderstandingMinerUnsupportedMediaType{}
 }
 
-/*DeleteLanguageunderstandingMinerUnsupportedMediaType handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteLanguageunderstandingMinerUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner unsupported media type response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner unsupported media type response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner unsupported media type response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner unsupported media type response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner unsupported media type response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteLanguageunderstandingMinerUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteLanguageunderstandingMinerTooManyRequests() *DeleteLanguageunderst
 	return &DeleteLanguageunderstandingMinerTooManyRequests{}
 }
 
-/*DeleteLanguageunderstandingMinerTooManyRequests handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteLanguageunderstandingMinerTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner too many requests response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner too many requests response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner too many requests response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding miner too many requests response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding miner too many requests response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteLanguageunderstandingMinerTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteLanguageunderstandingMinerInternalServerError() *DeleteLanguageund
 	return &DeleteLanguageunderstandingMinerInternalServerError{}
 }
 
-/*DeleteLanguageunderstandingMinerInternalServerError handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteLanguageunderstandingMinerInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner internal server error response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner internal server error response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner internal server error response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding miner internal server error response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding miner internal server error response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteLanguageunderstandingMinerInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteLanguageunderstandingMinerServiceUnavailable() *DeleteLanguageunde
 	return &DeleteLanguageunderstandingMinerServiceUnavailable{}
 }
 
-/*DeleteLanguageunderstandingMinerServiceUnavailable handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteLanguageunderstandingMinerServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner service unavailable response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner service unavailable response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner service unavailable response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding miner service unavailable response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding miner service unavailable response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteLanguageunderstandingMinerServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteLanguageunderstandingMinerGatewayTimeout() *DeleteLanguageundersta
 	return &DeleteLanguageunderstandingMinerGatewayTimeout{}
 }
 
-/*DeleteLanguageunderstandingMinerGatewayTimeout handles this case with default header values.
+/*
+DeleteLanguageunderstandingMinerGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteLanguageunderstandingMinerGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding miner gateway timeout response has a 2xx status code
+func (o *DeleteLanguageunderstandingMinerGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding miner gateway timeout response has a 3xx status code
+func (o *DeleteLanguageunderstandingMinerGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding miner gateway timeout response has a 4xx status code
+func (o *DeleteLanguageunderstandingMinerGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding miner gateway timeout response has a 5xx status code
+func (o *DeleteLanguageunderstandingMinerGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding miner gateway timeout response a status code equal to that given
+func (o *DeleteLanguageunderstandingMinerGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteLanguageunderstandingMinerGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingMinerGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/miners/{minerId}][%d] deleteLanguageunderstandingMinerGatewayTimeout  %+v", 504, o.Payload)
 }
 

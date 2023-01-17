@@ -16,84 +16,105 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseDocumentVariationsParams creates a new GetKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseDocumentVariationsParams creates a new GetKnowledgeKnowledgebaseDocumentVariationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseDocumentVariationsParams() *GetKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVariationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVariationsParamsWithTimeout creates a new GetKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseDocumentVariationsParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVariationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVariationsParamsWithContext creates a new GetKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseDocumentVariationsParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVariationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVariationsParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseDocumentVariationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseDocumentVariationsParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseDocumentVariationsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVariationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVariationsParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase document variations operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseDocumentVariationsParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase document variations operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseDocumentVariationsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*DocumentID
-	  Globally unique identifier for the document.
 
+	/* DocumentID.
+
+	   Globally unique identifier for the document.
 	*/
 	DocumentID string
-	/*DocumentState
-	  The state of the document.
 
+	/* DocumentState.
+
+	   The state of the document.
 	*/
 	DocumentState *string
-	/*KnowledgeBaseID
-	  Globally unique identifier for the knowledge base.
 
+	/* KnowledgeBaseID.
+
+	   Globally unique identifier for the knowledge base.
 	*/
 	KnowledgeBaseID string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase document variations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentVariationsParams) WithDefaults() *GetKnowledgeKnowledgebaseDocumentVariationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase document variations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentVariationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase document variations params
@@ -207,32 +228,34 @@ func (o *GetKnowledgeKnowledgebaseDocumentVariationsParams) WriteToRequest(r run
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param documentId
@@ -244,16 +267,17 @@ func (o *GetKnowledgeKnowledgebaseDocumentVariationsParams) WriteToRequest(r run
 
 		// query param documentState
 		var qrDocumentState string
+
 		if o.DocumentState != nil {
 			qrDocumentState = *o.DocumentState
 		}
 		qDocumentState := qrDocumentState
 		if qDocumentState != "" {
+
 			if err := r.SetQueryParam("documentState", qDocumentState); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param knowledgeBaseId
@@ -265,16 +289,17 @@ func (o *GetKnowledgeKnowledgebaseDocumentVariationsParams) WriteToRequest(r run
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

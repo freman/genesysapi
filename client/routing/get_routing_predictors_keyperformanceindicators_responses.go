@@ -95,7 +95,6 @@ func (o *GetRoutingPredictorsKeyperformanceindicatorsReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsOK() *GetRoutingPredictorsKe
 	return &GetRoutingPredictorsKeyperformanceindicatorsOK{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsOK handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsOK struct {
 	Payload []*models.KeyPerformanceIndicator
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators o k response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators o k response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators o k response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators o k response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators o k response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsBadRequest() *GetRoutingPred
 	return &GetRoutingPredictorsKeyperformanceindicatorsBadRequest{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsBadRequest handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators bad request response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators bad request response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators bad request response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators bad request response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators bad request response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsUnauthorized() *GetRoutingPr
 	return &GetRoutingPredictorsKeyperformanceindicatorsUnauthorized{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsUnauthorized handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators unauthorized response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators unauthorized response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators unauthorized response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators unauthorized response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators unauthorized response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsForbidden() *GetRoutingPredi
 	return &GetRoutingPredictorsKeyperformanceindicatorsForbidden{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsForbidden handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators forbidden response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators forbidden response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators forbidden response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators forbidden response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators forbidden response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsNotFound() *GetRoutingPredic
 	return &GetRoutingPredictorsKeyperformanceindicatorsNotFound{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsNotFound handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators not found response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators not found response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators not found response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators not found response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators not found response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsRequestTimeout() *GetRouting
 	return &GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators request timeout response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators request timeout response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators request timeout response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators request timeout response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators request timeout response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge() *Get
 	return &GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators request entity too large response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators request entity too large response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators request entity too large response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators request entity too large response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators request entity too large response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType() *GetR
 	return &GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators unsupported media type response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators unsupported media type response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators unsupported media type response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators unsupported media type response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators unsupported media type response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsTooManyRequests() *GetRoutin
 	return &GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators too many requests response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators too many requests response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators too many requests response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators too many requests response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators too many requests response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsInternalServerError() *GetRo
 	return &GetRoutingPredictorsKeyperformanceindicatorsInternalServerError{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsInternalServerError handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators internal server error response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators internal server error response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators internal server error response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators internal server error response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators internal server error response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable() *GetRou
 	return &GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators service unavailable response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators service unavailable response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators service unavailable response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators service unavailable response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators service unavailable response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout() *GetRouting
 	return &GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout{}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout handles this case with default header values.
+/*
+GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictors keyperformanceindicators gateway timeout response has a 2xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictors keyperformanceindicators gateway timeout response has a 3xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictors keyperformanceindicators gateway timeout response has a 4xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictors keyperformanceindicators gateway timeout response has a 5xx status code
+func (o *GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictors keyperformanceindicators gateway timeout response a status code equal to that given
+func (o *GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingPredictorsKeyperformanceindicatorsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/keyperformanceindicators][%d] getRoutingPredictorsKeyperformanceindicatorsGatewayTimeout  %+v", 504, o.Payload)
 }
 

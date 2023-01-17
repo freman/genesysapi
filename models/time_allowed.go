@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -43,7 +44,6 @@ func (m *TimeAllowed) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TimeAllowed) validateTimeSlots(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeSlots) { // not required
 		return nil
 	}
@@ -57,6 +57,42 @@ func (m *TimeAllowed) validateTimeSlots(formats strfmt.Registry) error {
 			if err := m.TimeSlots[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("timeSlots" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeSlots" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this time allowed based on the context it is used
+func (m *TimeAllowed) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTimeSlots(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TimeAllowed) contextValidateTimeSlots(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TimeSlots); i++ {
+
+		if m.TimeSlots[i] != nil {
+			if err := m.TimeSlots[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("timeSlots" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeSlots" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

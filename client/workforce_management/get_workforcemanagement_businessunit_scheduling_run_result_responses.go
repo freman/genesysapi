@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultReader) ReadRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultOK() *GetWorkforcem
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultOK{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultOK handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultOK struct {
 	Payload *models.BuRescheduleResult
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result o k response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result o k response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result o k response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result o k response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result o k response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest() *GetWo
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result bad request response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result bad request response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result bad request response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result bad request response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result bad request response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized() *Get
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultForbidden() *GetWor
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultNotFound() *GetWork
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result not found response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result not found response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result not found response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result not found response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result not found response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout() *G
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLar
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaTyp
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests() *
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable(
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout() *G
 	return &GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit scheduling run result gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit scheduling run result gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit scheduling run result gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit scheduling run result gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit scheduling run result gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/scheduling/runs/{runId}/result][%d] getWorkforcemanagementBusinessunitSchedulingRunResultGatewayTimeout  %+v", 504, o.Payload)
 }
 

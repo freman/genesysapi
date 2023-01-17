@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesCertificateauthoritiesParams creates a new GetTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesCertificateauthoritiesParams creates a new GetTelephonyProvidersEdgesCertificateauthoritiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesCertificateauthoritiesParams() *GetTelephonyProvidersEdgesCertificateauthoritiesParams {
-
 	return &GetTelephonyProvidersEdgesCertificateauthoritiesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesCertificateauthoritiesParamsWithTimeout creates a new GetTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesCertificateauthoritiesParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesCertificateauthoritiesParams {
-
 	return &GetTelephonyProvidersEdgesCertificateauthoritiesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesCertificateauthoritiesParamsWithContext creates a new GetTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesCertificateauthoritiesParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesCertificateauthoritiesParams {
-
 	return &GetTelephonyProvidersEdgesCertificateauthoritiesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesCertificateauthoritiesParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesCertificateauthoritiesParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesCertificateauthoritiesParams {
-
 	return &GetTelephonyProvidersEdgesCertificateauthoritiesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesCertificateauthoritiesParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges certificateauthorities operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesCertificateauthoritiesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges certificateauthorities operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesCertificateauthoritiesParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges certificateauthorities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesCertificateauthoritiesParams) WithDefaults() *GetTelephonyProvidersEdgesCertificateauthoritiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges certificateauthorities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesCertificateauthoritiesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges certificateauthorities params

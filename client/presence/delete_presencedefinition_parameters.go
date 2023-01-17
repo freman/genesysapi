@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeletePresencedefinitionParams creates a new DeletePresencedefinitionParams object
-// with the default values initialized.
+// NewDeletePresencedefinitionParams creates a new DeletePresencedefinitionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeletePresencedefinitionParams() *DeletePresencedefinitionParams {
-	var ()
 	return &DeletePresencedefinitionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeletePresencedefinitionParamsWithTimeout creates a new DeletePresencedefinitionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeletePresencedefinitionParamsWithTimeout(timeout time.Duration) *DeletePresencedefinitionParams {
-	var ()
 	return &DeletePresencedefinitionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeletePresencedefinitionParamsWithContext creates a new DeletePresencedefinitionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeletePresencedefinitionParamsWithContext(ctx context.Context) *DeletePresencedefinitionParams {
-	var ()
 	return &DeletePresencedefinitionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeletePresencedefinitionParamsWithHTTPClient creates a new DeletePresencedefinitionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeletePresencedefinitionParamsWithHTTPClient(client *http.Client) *DeletePresencedefinitionParams {
-	var ()
 	return &DeletePresencedefinitionParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeletePresencedefinitionParams contains all the parameters to send to the API endpoint
-for the delete presencedefinition operation typically these are written to a http.Request
+/*
+DeletePresencedefinitionParams contains all the parameters to send to the API endpoint
+
+	for the delete presencedefinition operation.
+
+	Typically these are written to a http.Request.
 */
 type DeletePresencedefinitionParams struct {
 
-	/*PresenceID
-	  Organization Presence ID
+	/* PresenceID.
 
+	   Organization Presence ID
 	*/
 	PresenceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete presencedefinition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeletePresencedefinitionParams) WithDefaults() *DeletePresencedefinitionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete presencedefinition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeletePresencedefinitionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete presencedefinition params

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -44,7 +46,6 @@ func (m *AddConversationResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AddConversationResponse) validateAppointment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Appointment) { // not required
 		return nil
 	}
@@ -53,6 +54,8 @@ func (m *AddConversationResponse) validateAppointment(formats strfmt.Registry) e
 		if err := m.Appointment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appointment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appointment")
 			}
 			return err
 		}
@@ -62,7 +65,6 @@ func (m *AddConversationResponse) validateAppointment(formats strfmt.Registry) e
 }
 
 func (m *AddConversationResponse) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -71,6 +73,58 @@ func (m *AddConversationResponse) validateConversation(formats strfmt.Registry) 
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this add conversation response based on the context it is used
+func (m *AddConversationResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAppointment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AddConversationResponse) contextValidateAppointment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Appointment != nil {
+		if err := m.Appointment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("appointment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appointment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AddConversationResponse) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}

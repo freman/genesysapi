@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTokensMeParams creates a new GetTokensMeParams object
-// with the default values initialized.
+// NewGetTokensMeParams creates a new GetTokensMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTokensMeParams() *GetTokensMeParams {
-
 	return &GetTokensMeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTokensMeParamsWithTimeout creates a new GetTokensMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTokensMeParamsWithTimeout(timeout time.Duration) *GetTokensMeParams {
-
 	return &GetTokensMeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTokensMeParamsWithContext creates a new GetTokensMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTokensMeParamsWithContext(ctx context.Context) *GetTokensMeParams {
-
 	return &GetTokensMeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTokensMeParamsWithHTTPClient creates a new GetTokensMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTokensMeParamsWithHTTPClient(client *http.Client) *GetTokensMeParams {
-
 	return &GetTokensMeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTokensMeParams contains all the parameters to send to the API endpoint
-for the get tokens me operation typically these are written to a http.Request
+/*
+GetTokensMeParams contains all the parameters to send to the API endpoint
+
+	for the get tokens me operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTokensMeParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get tokens me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTokensMeParams) WithDefaults() *GetTokensMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get tokens me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTokensMeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get tokens me params

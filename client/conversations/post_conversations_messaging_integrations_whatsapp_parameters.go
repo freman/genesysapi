@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsMessagingIntegrationsWhatsappParams creates a new PostConversationsMessagingIntegrationsWhatsappParams object
-// with the default values initialized.
+// NewPostConversationsMessagingIntegrationsWhatsappParams creates a new PostConversationsMessagingIntegrationsWhatsappParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessagingIntegrationsWhatsappParams() *PostConversationsMessagingIntegrationsWhatsappParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsWhatsappParamsWithTimeout creates a new PostConversationsMessagingIntegrationsWhatsappParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessagingIntegrationsWhatsappParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsWhatsappParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsWhatsappParamsWithContext creates a new PostConversationsMessagingIntegrationsWhatsappParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessagingIntegrationsWhatsappParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsWhatsappParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsWhatsappParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsWhatsappParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessagingIntegrationsWhatsappParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsWhatsappParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsWhatsappParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessagingIntegrationsWhatsappParams contains all the parameters to send to the API endpoint
-for the post conversations messaging integrations whatsapp operation typically these are written to a http.Request
+/*
+PostConversationsMessagingIntegrationsWhatsappParams contains all the parameters to send to the API endpoint
+
+	for the post conversations messaging integrations whatsapp operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessagingIntegrationsWhatsappParams struct {
 
-	/*Body
-	  WhatsAppIntegrationRequest
+	/* Body.
 
+	   WhatsAppIntegrationRequest
 	*/
 	Body *models.WhatsAppIntegrationRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations messaging integrations whatsapp params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsWhatsappParams) WithDefaults() *PostConversationsMessagingIntegrationsWhatsappParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations messaging integrations whatsapp params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsWhatsappParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations messaging integrations whatsapp params
@@ -124,7 +140,6 @@ func (o *PostConversationsMessagingIntegrationsWhatsappParams) WriteToRequest(r 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

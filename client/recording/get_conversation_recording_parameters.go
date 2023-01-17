@@ -17,148 +17,160 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetConversationRecordingParams creates a new GetConversationRecordingParams object
-// with the default values initialized.
+// NewGetConversationRecordingParams creates a new GetConversationRecordingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationRecordingParams() *GetConversationRecordingParams {
-	var (
-		chatFormatIDDefault    = string("ZIP")
-		downloadDefault        = bool(false)
-		emailFormatIDDefault   = string("EML")
-		formatIDDefault        = string("WEBM")
-		messageFormatIDDefault = string("ZIP")
-	)
 	return &GetConversationRecordingParams{
-		ChatFormatID:    &chatFormatIDDefault,
-		Download:        &downloadDefault,
-		EmailFormatID:   &emailFormatIDDefault,
-		FormatID:        &formatIDDefault,
-		MessageFormatID: &messageFormatIDDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationRecordingParamsWithTimeout creates a new GetConversationRecordingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationRecordingParamsWithTimeout(timeout time.Duration) *GetConversationRecordingParams {
-	var (
-		chatFormatIDDefault    = string("ZIP")
-		downloadDefault        = bool(false)
-		emailFormatIDDefault   = string("EML")
-		formatIDDefault        = string("WEBM")
-		messageFormatIDDefault = string("ZIP")
-	)
 	return &GetConversationRecordingParams{
-		ChatFormatID:    &chatFormatIDDefault,
-		Download:        &downloadDefault,
-		EmailFormatID:   &emailFormatIDDefault,
-		FormatID:        &formatIDDefault,
-		MessageFormatID: &messageFormatIDDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationRecordingParamsWithContext creates a new GetConversationRecordingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationRecordingParamsWithContext(ctx context.Context) *GetConversationRecordingParams {
-	var (
-		chatFormatIdDefault    = string("ZIP")
-		downloadDefault        = bool(false)
-		emailFormatIdDefault   = string("EML")
-		formatIdDefault        = string("WEBM")
-		messageFormatIdDefault = string("ZIP")
-	)
 	return &GetConversationRecordingParams{
-		ChatFormatID:    &chatFormatIdDefault,
-		Download:        &downloadDefault,
-		EmailFormatID:   &emailFormatIdDefault,
-		FormatID:        &formatIdDefault,
-		MessageFormatID: &messageFormatIdDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationRecordingParamsWithHTTPClient creates a new GetConversationRecordingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationRecordingParamsWithHTTPClient(client *http.Client) *GetConversationRecordingParams {
-	var (
-		chatFormatIdDefault    = string("ZIP")
-		downloadDefault        = bool(false)
-		emailFormatIdDefault   = string("EML")
-		formatIdDefault        = string("WEBM")
-		messageFormatIdDefault = string("ZIP")
-	)
 	return &GetConversationRecordingParams{
-		ChatFormatID:    &chatFormatIdDefault,
-		Download:        &downloadDefault,
-		EmailFormatID:   &emailFormatIdDefault,
-		FormatID:        &formatIdDefault,
-		MessageFormatID: &messageFormatIdDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*GetConversationRecordingParams contains all the parameters to send to the API endpoint
-for the get conversation recording operation typically these are written to a http.Request
+/*
+GetConversationRecordingParams contains all the parameters to send to the API endpoint
+
+	for the get conversation recording operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationRecordingParams struct {
 
-	/*ChatFormatID
-	  The desired media format when downloading a chat recording. Valid values:ZIP,NONE
+	/* ChatFormatID.
 
+	   The desired media format when downloading a chat recording. Valid values:ZIP,NONE
+
+	   Default: "ZIP"
 	*/
 	ChatFormatID *string
-	/*ConversationID
-	  Conversation ID
 
+	/* ConversationID.
+
+	   Conversation ID
 	*/
 	ConversationID string
-	/*Download
-	  requesting a download format of the recording. Valid values:true,false
 
+	/* Download.
+
+	   requesting a download format of the recording. Valid values:true,false
 	*/
 	Download *bool
-	/*EmailFormatID
-	  The desired media format when downloading an email recording. Valid values:EML,NONE
 
+	/* EmailFormatID.
+
+	   The desired media format when downloading an email recording. Valid values:EML,NONE
+
+	   Default: "EML"
 	*/
 	EmailFormatID *string
-	/*FileName
-	  the name of the downloaded fileName
 
+	/* FileName.
+
+	   the name of the downloaded fileName
 	*/
 	FileName *string
-	/*FormatID
-	  The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE
 
+	/* FormatID.
+
+	   The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE
+
+	   Default: "WEBM"
 	*/
 	FormatID *string
-	/*Locale
-	  The locale for the requested file when downloading, as an ISO 639-1 code
 
+	/* Locale.
+
+	   The locale for the requested file when downloading, as an ISO 639-1 code
 	*/
 	Locale *string
-	/*MediaFormats
-	  All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3
 
+	/* MediaFormats.
+
+	   All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3
 	*/
 	MediaFormats []string
-	/*MessageFormatID
-	  The desired media format when downloading a message recording. Valid values:ZIP,NONE
 
+	/* MessageFormatID.
+
+	   The desired media format when downloading a message recording. Valid values:ZIP,NONE
+
+	   Default: "ZIP"
 	*/
 	MessageFormatID *string
-	/*RecordingID
-	  Recording ID
 
+	/* RecordingID.
+
+	   Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversation recording params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingParams) WithDefaults() *GetConversationRecordingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversation recording params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingParams) SetDefaults() {
+	var (
+		chatFormatIDDefault = string("ZIP")
+
+		downloadDefault = bool(false)
+
+		emailFormatIDDefault = string("EML")
+
+		formatIDDefault = string("WEBM")
+
+		messageFormatIDDefault = string("ZIP")
+	)
+
+	val := GetConversationRecordingParams{
+		ChatFormatID:    &chatFormatIDDefault,
+		Download:        &downloadDefault,
+		EmailFormatID:   &emailFormatIDDefault,
+		FormatID:        &formatIDDefault,
+		MessageFormatID: &messageFormatIDDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get conversation recording params
@@ -316,16 +328,17 @@ func (o *GetConversationRecordingParams) WriteToRequest(r runtime.ClientRequest,
 
 		// query param chatFormatId
 		var qrChatFormatID string
+
 		if o.ChatFormatID != nil {
 			qrChatFormatID = *o.ChatFormatID
 		}
 		qChatFormatID := qrChatFormatID
 		if qChatFormatID != "" {
+
 			if err := r.SetQueryParam("chatFormatId", qChatFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param conversationId
@@ -337,104 +350,113 @@ func (o *GetConversationRecordingParams) WriteToRequest(r runtime.ClientRequest,
 
 		// query param download
 		var qrDownload bool
+
 		if o.Download != nil {
 			qrDownload = *o.Download
 		}
 		qDownload := swag.FormatBool(qrDownload)
 		if qDownload != "" {
+
 			if err := r.SetQueryParam("download", qDownload); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.EmailFormatID != nil {
 
 		// query param emailFormatId
 		var qrEmailFormatID string
+
 		if o.EmailFormatID != nil {
 			qrEmailFormatID = *o.EmailFormatID
 		}
 		qEmailFormatID := qrEmailFormatID
 		if qEmailFormatID != "" {
+
 			if err := r.SetQueryParam("emailFormatId", qEmailFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.FileName != nil {
 
 		// query param fileName
 		var qrFileName string
+
 		if o.FileName != nil {
 			qrFileName = *o.FileName
 		}
 		qFileName := qrFileName
 		if qFileName != "" {
+
 			if err := r.SetQueryParam("fileName", qFileName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.FormatID != nil {
 
 		// query param formatId
 		var qrFormatID string
+
 		if o.FormatID != nil {
 			qrFormatID = *o.FormatID
 		}
 		qFormatID := qrFormatID
 		if qFormatID != "" {
+
 			if err := r.SetQueryParam("formatId", qFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Locale != nil {
 
 		// query param locale
 		var qrLocale string
+
 		if o.Locale != nil {
 			qrLocale = *o.Locale
 		}
 		qLocale := qrLocale
 		if qLocale != "" {
+
 			if err := r.SetQueryParam("locale", qLocale); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesMediaFormats := o.MediaFormats
+	if o.MediaFormats != nil {
 
-	joinedMediaFormats := swag.JoinByFormat(valuesMediaFormats, "multi")
-	// query array param mediaFormats
-	if err := r.SetQueryParam("mediaFormats", joinedMediaFormats...); err != nil {
-		return err
+		// binding items for mediaFormats
+		joinedMediaFormats := o.bindParamMediaFormats(reg)
+
+		// query array param mediaFormats
+		if err := r.SetQueryParam("mediaFormats", joinedMediaFormats...); err != nil {
+			return err
+		}
 	}
 
 	if o.MessageFormatID != nil {
 
 		// query param messageFormatId
 		var qrMessageFormatID string
+
 		if o.MessageFormatID != nil {
 			qrMessageFormatID = *o.MessageFormatID
 		}
 		qMessageFormatID := qrMessageFormatID
 		if qMessageFormatID != "" {
+
 			if err := r.SetQueryParam("messageFormatId", qMessageFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param recordingId
@@ -446,4 +468,21 @@ func (o *GetConversationRecordingParams) WriteToRequest(r runtime.ClientRequest,
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetConversationRecording binds the parameter mediaFormats
+func (o *GetConversationRecordingParams) bindParamMediaFormats(formats strfmt.Registry) []string {
+	mediaFormatsIR := o.MediaFormats
+
+	var mediaFormatsIC []string
+	for _, mediaFormatsIIR := range mediaFormatsIR { // explode []string
+
+		mediaFormatsIIV := mediaFormatsIIR // string as string
+		mediaFormatsIC = append(mediaFormatsIC, mediaFormatsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	mediaFormatsIS := swag.JoinByFormat(mediaFormatsIC, "multi")
+
+	return mediaFormatsIS
 }

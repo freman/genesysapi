@@ -95,7 +95,6 @@ func (o *PostOutboundCampaignrulesReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundCampaignrulesOK() *PostOutboundCampaignrulesOK {
 	return &PostOutboundCampaignrulesOK{}
 }
 
-/*PostOutboundCampaignrulesOK handles this case with default header values.
+/*
+PostOutboundCampaignrulesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundCampaignrulesOK struct {
 	Payload *models.CampaignRule
 }
 
+// IsSuccess returns true when this post outbound campaignrules o k response has a 2xx status code
+func (o *PostOutboundCampaignrulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound campaignrules o k response has a 3xx status code
+func (o *PostOutboundCampaignrulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules o k response has a 4xx status code
+func (o *PostOutboundCampaignrulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaignrules o k response has a 5xx status code
+func (o *PostOutboundCampaignrulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules o k response a status code equal to that given
+func (o *PostOutboundCampaignrulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundCampaignrulesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundCampaignrulesBadRequest() *PostOutboundCampaignrulesBadReque
 	return &PostOutboundCampaignrulesBadRequest{}
 }
 
-/*PostOutboundCampaignrulesBadRequest handles this case with default header values.
+/*
+PostOutboundCampaignrulesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundCampaignrulesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules bad request response has a 2xx status code
+func (o *PostOutboundCampaignrulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules bad request response has a 3xx status code
+func (o *PostOutboundCampaignrulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules bad request response has a 4xx status code
+func (o *PostOutboundCampaignrulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules bad request response has a 5xx status code
+func (o *PostOutboundCampaignrulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules bad request response a status code equal to that given
+func (o *PostOutboundCampaignrulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundCampaignrulesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundCampaignrulesUnauthorized() *PostOutboundCampaignrulesUnauth
 	return &PostOutboundCampaignrulesUnauthorized{}
 }
 
-/*PostOutboundCampaignrulesUnauthorized handles this case with default header values.
+/*
+PostOutboundCampaignrulesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundCampaignrulesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules unauthorized response has a 2xx status code
+func (o *PostOutboundCampaignrulesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules unauthorized response has a 3xx status code
+func (o *PostOutboundCampaignrulesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules unauthorized response has a 4xx status code
+func (o *PostOutboundCampaignrulesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules unauthorized response has a 5xx status code
+func (o *PostOutboundCampaignrulesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules unauthorized response a status code equal to that given
+func (o *PostOutboundCampaignrulesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundCampaignrulesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundCampaignrulesForbidden() *PostOutboundCampaignrulesForbidden
 	return &PostOutboundCampaignrulesForbidden{}
 }
 
-/*PostOutboundCampaignrulesForbidden handles this case with default header values.
+/*
+PostOutboundCampaignrulesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundCampaignrulesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules forbidden response has a 2xx status code
+func (o *PostOutboundCampaignrulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules forbidden response has a 3xx status code
+func (o *PostOutboundCampaignrulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules forbidden response has a 4xx status code
+func (o *PostOutboundCampaignrulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules forbidden response has a 5xx status code
+func (o *PostOutboundCampaignrulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules forbidden response a status code equal to that given
+func (o *PostOutboundCampaignrulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundCampaignrulesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundCampaignrulesNotFound() *PostOutboundCampaignrulesNotFound {
 	return &PostOutboundCampaignrulesNotFound{}
 }
 
-/*PostOutboundCampaignrulesNotFound handles this case with default header values.
+/*
+PostOutboundCampaignrulesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundCampaignrulesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules not found response has a 2xx status code
+func (o *PostOutboundCampaignrulesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules not found response has a 3xx status code
+func (o *PostOutboundCampaignrulesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules not found response has a 4xx status code
+func (o *PostOutboundCampaignrulesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules not found response has a 5xx status code
+func (o *PostOutboundCampaignrulesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules not found response a status code equal to that given
+func (o *PostOutboundCampaignrulesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundCampaignrulesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundCampaignrulesRequestTimeout() *PostOutboundCampaignrulesRequ
 	return &PostOutboundCampaignrulesRequestTimeout{}
 }
 
-/*PostOutboundCampaignrulesRequestTimeout handles this case with default header values.
+/*
+PostOutboundCampaignrulesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundCampaignrulesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules request timeout response has a 2xx status code
+func (o *PostOutboundCampaignrulesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules request timeout response has a 3xx status code
+func (o *PostOutboundCampaignrulesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules request timeout response has a 4xx status code
+func (o *PostOutboundCampaignrulesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules request timeout response has a 5xx status code
+func (o *PostOutboundCampaignrulesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules request timeout response a status code equal to that given
+func (o *PostOutboundCampaignrulesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundCampaignrulesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundCampaignrulesRequestEntityTooLarge() *PostOutboundCampaignru
 	return &PostOutboundCampaignrulesRequestEntityTooLarge{}
 }
 
-/*PostOutboundCampaignrulesRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundCampaignrulesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundCampaignrulesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules request entity too large response has a 2xx status code
+func (o *PostOutboundCampaignrulesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules request entity too large response has a 3xx status code
+func (o *PostOutboundCampaignrulesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules request entity too large response has a 4xx status code
+func (o *PostOutboundCampaignrulesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules request entity too large response has a 5xx status code
+func (o *PostOutboundCampaignrulesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules request entity too large response a status code equal to that given
+func (o *PostOutboundCampaignrulesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundCampaignrulesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundCampaignrulesUnsupportedMediaType() *PostOutboundCampaignrul
 	return &PostOutboundCampaignrulesUnsupportedMediaType{}
 }
 
-/*PostOutboundCampaignrulesUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundCampaignrulesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundCampaignrulesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules unsupported media type response has a 2xx status code
+func (o *PostOutboundCampaignrulesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules unsupported media type response has a 3xx status code
+func (o *PostOutboundCampaignrulesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules unsupported media type response has a 4xx status code
+func (o *PostOutboundCampaignrulesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules unsupported media type response has a 5xx status code
+func (o *PostOutboundCampaignrulesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules unsupported media type response a status code equal to that given
+func (o *PostOutboundCampaignrulesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundCampaignrulesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundCampaignrulesTooManyRequests() *PostOutboundCampaignrulesToo
 	return &PostOutboundCampaignrulesTooManyRequests{}
 }
 
-/*PostOutboundCampaignrulesTooManyRequests handles this case with default header values.
+/*
+PostOutboundCampaignrulesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundCampaignrulesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules too many requests response has a 2xx status code
+func (o *PostOutboundCampaignrulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules too many requests response has a 3xx status code
+func (o *PostOutboundCampaignrulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules too many requests response has a 4xx status code
+func (o *PostOutboundCampaignrulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaignrules too many requests response has a 5xx status code
+func (o *PostOutboundCampaignrulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaignrules too many requests response a status code equal to that given
+func (o *PostOutboundCampaignrulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundCampaignrulesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundCampaignrulesInternalServerError() *PostOutboundCampaignrule
 	return &PostOutboundCampaignrulesInternalServerError{}
 }
 
-/*PostOutboundCampaignrulesInternalServerError handles this case with default header values.
+/*
+PostOutboundCampaignrulesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundCampaignrulesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules internal server error response has a 2xx status code
+func (o *PostOutboundCampaignrulesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules internal server error response has a 3xx status code
+func (o *PostOutboundCampaignrulesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules internal server error response has a 4xx status code
+func (o *PostOutboundCampaignrulesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaignrules internal server error response has a 5xx status code
+func (o *PostOutboundCampaignrulesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaignrules internal server error response a status code equal to that given
+func (o *PostOutboundCampaignrulesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundCampaignrulesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundCampaignrulesServiceUnavailable() *PostOutboundCampaignrules
 	return &PostOutboundCampaignrulesServiceUnavailable{}
 }
 
-/*PostOutboundCampaignrulesServiceUnavailable handles this case with default header values.
+/*
+PostOutboundCampaignrulesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundCampaignrulesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules service unavailable response has a 2xx status code
+func (o *PostOutboundCampaignrulesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules service unavailable response has a 3xx status code
+func (o *PostOutboundCampaignrulesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules service unavailable response has a 4xx status code
+func (o *PostOutboundCampaignrulesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaignrules service unavailable response has a 5xx status code
+func (o *PostOutboundCampaignrulesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaignrules service unavailable response a status code equal to that given
+func (o *PostOutboundCampaignrulesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundCampaignrulesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundCampaignrulesGatewayTimeout() *PostOutboundCampaignrulesGate
 	return &PostOutboundCampaignrulesGatewayTimeout{}
 }
 
-/*PostOutboundCampaignrulesGatewayTimeout handles this case with default header values.
+/*
+PostOutboundCampaignrulesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundCampaignrulesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaignrules gateway timeout response has a 2xx status code
+func (o *PostOutboundCampaignrulesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaignrules gateway timeout response has a 3xx status code
+func (o *PostOutboundCampaignrulesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaignrules gateway timeout response has a 4xx status code
+func (o *PostOutboundCampaignrulesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaignrules gateway timeout response has a 5xx status code
+func (o *PostOutboundCampaignrulesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaignrules gateway timeout response a status code equal to that given
+func (o *PostOutboundCampaignrulesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundCampaignrulesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundCampaignrulesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaignrules][%d] postOutboundCampaignrulesGatewayTimeout  %+v", 504, o.Payload)
 }
 

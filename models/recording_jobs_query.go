@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -19,10 +20,13 @@ import (
 // swagger:model RecordingJobsQuery
 type RecordingJobsQuery struct {
 
-	// Operation to perform bulk task. The date when the action will be performed can either be specified as an absolute date for all recordings with the actionDate/screenRecordingActionDate parameters, or as the number of days after each recording's creation time with the actionAge/screenRecordingActionAge parameters. If the operation will cause the delete date of a recording to be older than the export date, the export date will be adjusted to the delete date.
+	// Operation to perform bulk task. If the operation will cause the delete date of a recording to be older than the export date, the export date will be adjusted to the delete date.
 	// Required: true
 	// Enum: [DELETE EXPORT]
 	Action *string `json:"action"`
+
+	// The number of days after each recording's creation date when the action will be performed. If screenRecordingActionAge is also provided, this value is only used for non-screen recordings. Otherwise this value is used for all recordings.
+	ActionAge int32 `json:"actionAge,omitempty"`
 
 	// The date when the action will be performed. If screenRecordingActionDate is also provided, this value is only used for non-screen recordings. Otherwise this value is used for all recordings. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
@@ -43,6 +47,13 @@ type RecordingJobsQuery struct {
 
 	// IntegrationId to Access AWS S3 bucket for bulk recording exports. This field is required and used only for EXPORT action.
 	IntegrationID string `json:"integrationId,omitempty"`
+
+	// The number of days after each screen recording's creation date when the action will be performed. If this is provided then includeScreenRecordings must be true.
+	ScreenRecordingActionAge int32 `json:"screenRecordingActionAge,omitempty"`
+
+	// The date when the action will be performed for screen recordings. If this is provided then includeScreenRecordings must be true. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Format: date-time
+	ScreenRecordingActionDate strfmt.DateTime `json:"screenRecordingActionDate,omitempty"`
 }
 
 // Validate validates this recording jobs query
@@ -58,6 +69,10 @@ func (m *RecordingJobsQuery) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateConversationQuery(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateScreenRecordingActionDate(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -111,7 +126,6 @@ func (m *RecordingJobsQuery) validateAction(formats strfmt.Registry) error {
 }
 
 func (m *RecordingJobsQuery) validateActionDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionDate) { // not required
 		return nil
 	}
@@ -133,6 +147,50 @@ func (m *RecordingJobsQuery) validateConversationQuery(formats strfmt.Registry) 
 		if err := m.ConversationQuery.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationQuery")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationQuery")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingJobsQuery) validateScreenRecordingActionDate(formats strfmt.Registry) error {
+	if swag.IsZero(m.ScreenRecordingActionDate) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("screenRecordingActionDate", "body", "date-time", m.ScreenRecordingActionDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording jobs query based on the context it is used
+func (m *RecordingJobsQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversationQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecordingJobsQuery) contextValidateConversationQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationQuery != nil {
+		if err := m.ConversationQuery.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationQuery")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationQuery")
 			}
 			return err
 		}

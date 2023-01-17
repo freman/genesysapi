@@ -95,7 +95,6 @@ func (o *GetRoutingAssessmentReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingAssessmentOK() *GetRoutingAssessmentOK {
 	return &GetRoutingAssessmentOK{}
 }
 
-/*GetRoutingAssessmentOK handles this case with default header values.
+/*
+GetRoutingAssessmentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingAssessmentOK struct {
 	Payload *models.BenefitAssessment
 }
 
+// IsSuccess returns true when this get routing assessment o k response has a 2xx status code
+func (o *GetRoutingAssessmentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing assessment o k response has a 3xx status code
+func (o *GetRoutingAssessmentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment o k response has a 4xx status code
+func (o *GetRoutingAssessmentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing assessment o k response has a 5xx status code
+func (o *GetRoutingAssessmentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment o k response a status code equal to that given
+func (o *GetRoutingAssessmentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingAssessmentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingAssessmentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingAssessmentBadRequest() *GetRoutingAssessmentBadRequest {
 	return &GetRoutingAssessmentBadRequest{}
 }
 
-/*GetRoutingAssessmentBadRequest handles this case with default header values.
+/*
+GetRoutingAssessmentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingAssessmentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment bad request response has a 2xx status code
+func (o *GetRoutingAssessmentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment bad request response has a 3xx status code
+func (o *GetRoutingAssessmentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment bad request response has a 4xx status code
+func (o *GetRoutingAssessmentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment bad request response has a 5xx status code
+func (o *GetRoutingAssessmentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment bad request response a status code equal to that given
+func (o *GetRoutingAssessmentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingAssessmentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingAssessmentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingAssessmentUnauthorized() *GetRoutingAssessmentUnauthorized {
 	return &GetRoutingAssessmentUnauthorized{}
 }
 
-/*GetRoutingAssessmentUnauthorized handles this case with default header values.
+/*
+GetRoutingAssessmentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingAssessmentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment unauthorized response has a 2xx status code
+func (o *GetRoutingAssessmentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment unauthorized response has a 3xx status code
+func (o *GetRoutingAssessmentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment unauthorized response has a 4xx status code
+func (o *GetRoutingAssessmentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment unauthorized response has a 5xx status code
+func (o *GetRoutingAssessmentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment unauthorized response a status code equal to that given
+func (o *GetRoutingAssessmentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingAssessmentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingAssessmentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingAssessmentForbidden() *GetRoutingAssessmentForbidden {
 	return &GetRoutingAssessmentForbidden{}
 }
 
-/*GetRoutingAssessmentForbidden handles this case with default header values.
+/*
+GetRoutingAssessmentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingAssessmentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment forbidden response has a 2xx status code
+func (o *GetRoutingAssessmentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment forbidden response has a 3xx status code
+func (o *GetRoutingAssessmentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment forbidden response has a 4xx status code
+func (o *GetRoutingAssessmentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment forbidden response has a 5xx status code
+func (o *GetRoutingAssessmentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment forbidden response a status code equal to that given
+func (o *GetRoutingAssessmentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingAssessmentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingAssessmentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingAssessmentNotFound() *GetRoutingAssessmentNotFound {
 	return &GetRoutingAssessmentNotFound{}
 }
 
-/*GetRoutingAssessmentNotFound handles this case with default header values.
+/*
+GetRoutingAssessmentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingAssessmentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment not found response has a 2xx status code
+func (o *GetRoutingAssessmentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment not found response has a 3xx status code
+func (o *GetRoutingAssessmentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment not found response has a 4xx status code
+func (o *GetRoutingAssessmentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment not found response has a 5xx status code
+func (o *GetRoutingAssessmentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment not found response a status code equal to that given
+func (o *GetRoutingAssessmentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingAssessmentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingAssessmentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingAssessmentRequestTimeout() *GetRoutingAssessmentRequestTimeout
 	return &GetRoutingAssessmentRequestTimeout{}
 }
 
-/*GetRoutingAssessmentRequestTimeout handles this case with default header values.
+/*
+GetRoutingAssessmentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingAssessmentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment request timeout response has a 2xx status code
+func (o *GetRoutingAssessmentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment request timeout response has a 3xx status code
+func (o *GetRoutingAssessmentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment request timeout response has a 4xx status code
+func (o *GetRoutingAssessmentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment request timeout response has a 5xx status code
+func (o *GetRoutingAssessmentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment request timeout response a status code equal to that given
+func (o *GetRoutingAssessmentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingAssessmentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingAssessmentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingAssessmentRequestEntityTooLarge() *GetRoutingAssessmentRequest
 	return &GetRoutingAssessmentRequestEntityTooLarge{}
 }
 
-/*GetRoutingAssessmentRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingAssessmentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingAssessmentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment request entity too large response has a 2xx status code
+func (o *GetRoutingAssessmentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment request entity too large response has a 3xx status code
+func (o *GetRoutingAssessmentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment request entity too large response has a 4xx status code
+func (o *GetRoutingAssessmentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment request entity too large response has a 5xx status code
+func (o *GetRoutingAssessmentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment request entity too large response a status code equal to that given
+func (o *GetRoutingAssessmentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingAssessmentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingAssessmentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingAssessmentUnsupportedMediaType() *GetRoutingAssessmentUnsuppor
 	return &GetRoutingAssessmentUnsupportedMediaType{}
 }
 
-/*GetRoutingAssessmentUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingAssessmentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingAssessmentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment unsupported media type response has a 2xx status code
+func (o *GetRoutingAssessmentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment unsupported media type response has a 3xx status code
+func (o *GetRoutingAssessmentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment unsupported media type response has a 4xx status code
+func (o *GetRoutingAssessmentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment unsupported media type response has a 5xx status code
+func (o *GetRoutingAssessmentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment unsupported media type response a status code equal to that given
+func (o *GetRoutingAssessmentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingAssessmentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingAssessmentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingAssessmentTooManyRequests() *GetRoutingAssessmentTooManyReques
 	return &GetRoutingAssessmentTooManyRequests{}
 }
 
-/*GetRoutingAssessmentTooManyRequests handles this case with default header values.
+/*
+GetRoutingAssessmentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingAssessmentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment too many requests response has a 2xx status code
+func (o *GetRoutingAssessmentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment too many requests response has a 3xx status code
+func (o *GetRoutingAssessmentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment too many requests response has a 4xx status code
+func (o *GetRoutingAssessmentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing assessment too many requests response has a 5xx status code
+func (o *GetRoutingAssessmentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing assessment too many requests response a status code equal to that given
+func (o *GetRoutingAssessmentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingAssessmentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingAssessmentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingAssessmentInternalServerError() *GetRoutingAssessmentInternalS
 	return &GetRoutingAssessmentInternalServerError{}
 }
 
-/*GetRoutingAssessmentInternalServerError handles this case with default header values.
+/*
+GetRoutingAssessmentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingAssessmentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment internal server error response has a 2xx status code
+func (o *GetRoutingAssessmentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment internal server error response has a 3xx status code
+func (o *GetRoutingAssessmentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment internal server error response has a 4xx status code
+func (o *GetRoutingAssessmentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing assessment internal server error response has a 5xx status code
+func (o *GetRoutingAssessmentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing assessment internal server error response a status code equal to that given
+func (o *GetRoutingAssessmentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingAssessmentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingAssessmentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingAssessmentServiceUnavailable() *GetRoutingAssessmentServiceUna
 	return &GetRoutingAssessmentServiceUnavailable{}
 }
 
-/*GetRoutingAssessmentServiceUnavailable handles this case with default header values.
+/*
+GetRoutingAssessmentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingAssessmentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment service unavailable response has a 2xx status code
+func (o *GetRoutingAssessmentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment service unavailable response has a 3xx status code
+func (o *GetRoutingAssessmentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment service unavailable response has a 4xx status code
+func (o *GetRoutingAssessmentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing assessment service unavailable response has a 5xx status code
+func (o *GetRoutingAssessmentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing assessment service unavailable response a status code equal to that given
+func (o *GetRoutingAssessmentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingAssessmentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingAssessmentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingAssessmentGatewayTimeout() *GetRoutingAssessmentGatewayTimeout
 	return &GetRoutingAssessmentGatewayTimeout{}
 }
 
-/*GetRoutingAssessmentGatewayTimeout handles this case with default header values.
+/*
+GetRoutingAssessmentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingAssessmentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing assessment gateway timeout response has a 2xx status code
+func (o *GetRoutingAssessmentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing assessment gateway timeout response has a 3xx status code
+func (o *GetRoutingAssessmentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing assessment gateway timeout response has a 4xx status code
+func (o *GetRoutingAssessmentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing assessment gateway timeout response has a 5xx status code
+func (o *GetRoutingAssessmentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing assessment gateway timeout response a status code equal to that given
+func (o *GetRoutingAssessmentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingAssessmentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingAssessmentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/assessments/{assessmentId}][%d] getRoutingAssessmentGatewayTimeout  %+v", 504, o.Payload)
 }
 

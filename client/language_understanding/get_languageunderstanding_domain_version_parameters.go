@@ -17,69 +17,87 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetLanguageunderstandingDomainVersionParams creates a new GetLanguageunderstandingDomainVersionParams object
-// with the default values initialized.
+// NewGetLanguageunderstandingDomainVersionParams creates a new GetLanguageunderstandingDomainVersionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguageunderstandingDomainVersionParams() *GetLanguageunderstandingDomainVersionParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguageunderstandingDomainVersionParamsWithTimeout creates a new GetLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguageunderstandingDomainVersionParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingDomainVersionParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguageunderstandingDomainVersionParamsWithContext creates a new GetLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguageunderstandingDomainVersionParamsWithContext(ctx context.Context) *GetLanguageunderstandingDomainVersionParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguageunderstandingDomainVersionParamsWithHTTPClient creates a new GetLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguageunderstandingDomainVersionParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingDomainVersionParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguageunderstandingDomainVersionParams contains all the parameters to send to the API endpoint
-for the get languageunderstanding domain version operation typically these are written to a http.Request
+/*
+GetLanguageunderstandingDomainVersionParams contains all the parameters to send to the API endpoint
+
+	for the get languageunderstanding domain version operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguageunderstandingDomainVersionParams struct {
 
-	/*DomainID
-	  ID of the NLU domain.
+	/* DomainID.
 
+	   ID of the NLU domain.
 	*/
 	DomainID string
-	/*DomainVersionID
-	  ID of the NLU domain version.
 
+	/* DomainVersionID.
+
+	   ID of the NLU domain version.
 	*/
 	DomainVersionID string
-	/*IncludeUtterances
-	  Whether utterances for intent definition should be included when marshalling response.
 
+	/* IncludeUtterances.
+
+	   Whether utterances for intent definition should be included when marshalling response.
 	*/
 	IncludeUtterances *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languageunderstanding domain version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingDomainVersionParams) WithDefaults() *GetLanguageunderstandingDomainVersionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languageunderstanding domain version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingDomainVersionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languageunderstanding domain version params
@@ -170,16 +188,17 @@ func (o *GetLanguageunderstandingDomainVersionParams) WriteToRequest(r runtime.C
 
 		// query param includeUtterances
 		var qrIncludeUtterances bool
+
 		if o.IncludeUtterances != nil {
 			qrIncludeUtterances = *o.IncludeUtterances
 		}
 		qIncludeUtterances := swag.FormatBool(qrIncludeUtterances)
 		if qIncludeUtterances != "" {
+
 			if err := r.SetQueryParam("includeUtterances", qIncludeUtterances); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

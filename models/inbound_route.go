@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -31,6 +33,10 @@ type InboundRoute struct {
 	// The sender name to use for outgoing replies.
 	// Required: true
 	FromName *string `json:"fromName"`
+
+	// The configuration to indicate how the history of a conversation has to be included in a draft
+	// Enum: [Include Exclude Optional]
+	HistoryInclusion string `json:"historyInclusion,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -86,6 +92,10 @@ func (m *InboundRoute) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateHistoryInclusion(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLanguage(formats); err != nil {
 		res = append(res, err)
 	}
@@ -125,7 +135,6 @@ func (m *InboundRoute) Validate(formats strfmt.Registry) error {
 }
 
 func (m *InboundRoute) validateAutoBcc(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AutoBcc) { // not required
 		return nil
 	}
@@ -139,6 +148,8 @@ func (m *InboundRoute) validateAutoBcc(formats strfmt.Registry) error {
 			if err := m.AutoBcc[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("autoBcc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("autoBcc" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -150,7 +161,6 @@ func (m *InboundRoute) validateAutoBcc(formats strfmt.Registry) error {
 }
 
 func (m *InboundRoute) validateFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flow) { // not required
 		return nil
 	}
@@ -159,6 +169,8 @@ func (m *InboundRoute) validateFlow(formats strfmt.Registry) error {
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -176,8 +188,52 @@ func (m *InboundRoute) validateFromName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *InboundRoute) validateLanguage(formats strfmt.Registry) error {
+var inboundRouteTypeHistoryInclusionPropEnum []interface{}
 
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Include","Exclude","Optional"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		inboundRouteTypeHistoryInclusionPropEnum = append(inboundRouteTypeHistoryInclusionPropEnum, v)
+	}
+}
+
+const (
+
+	// InboundRouteHistoryInclusionInclude captures enum value "Include"
+	InboundRouteHistoryInclusionInclude string = "Include"
+
+	// InboundRouteHistoryInclusionExclude captures enum value "Exclude"
+	InboundRouteHistoryInclusionExclude string = "Exclude"
+
+	// InboundRouteHistoryInclusionOptional captures enum value "Optional"
+	InboundRouteHistoryInclusionOptional string = "Optional"
+)
+
+// prop value enum
+func (m *InboundRoute) validateHistoryInclusionEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, inboundRouteTypeHistoryInclusionPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *InboundRoute) validateHistoryInclusion(formats strfmt.Registry) error {
+	if swag.IsZero(m.HistoryInclusion) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateHistoryInclusionEnum("historyInclusion", "body", m.HistoryInclusion); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) validateLanguage(formats strfmt.Registry) error {
 	if swag.IsZero(m.Language) { // not required
 		return nil
 	}
@@ -186,6 +242,8 @@ func (m *InboundRoute) validateLanguage(formats strfmt.Registry) error {
 		if err := m.Language.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("language")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("language")
 			}
 			return err
 		}
@@ -204,7 +262,6 @@ func (m *InboundRoute) validatePattern(formats strfmt.Registry) error {
 }
 
 func (m *InboundRoute) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -213,6 +270,8 @@ func (m *InboundRoute) validateQueue(formats strfmt.Registry) error {
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
@@ -222,7 +281,6 @@ func (m *InboundRoute) validateQueue(formats strfmt.Registry) error {
 }
 
 func (m *InboundRoute) validateReplyEmailAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReplyEmailAddress) { // not required
 		return nil
 	}
@@ -231,6 +289,8 @@ func (m *InboundRoute) validateReplyEmailAddress(formats strfmt.Registry) error 
 		if err := m.ReplyEmailAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("replyEmailAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyEmailAddress")
 			}
 			return err
 		}
@@ -240,7 +300,6 @@ func (m *InboundRoute) validateReplyEmailAddress(formats strfmt.Registry) error 
 }
 
 func (m *InboundRoute) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -253,7 +312,6 @@ func (m *InboundRoute) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *InboundRoute) validateSignature(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Signature) { // not required
 		return nil
 	}
@@ -262,6 +320,8 @@ func (m *InboundRoute) validateSignature(formats strfmt.Registry) error {
 		if err := m.Signature.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("signature")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("signature")
 			}
 			return err
 		}
@@ -271,7 +331,6 @@ func (m *InboundRoute) validateSignature(formats strfmt.Registry) error {
 }
 
 func (m *InboundRoute) validateSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Skills) { // not required
 		return nil
 	}
@@ -285,6 +344,8 @@ func (m *InboundRoute) validateSkills(formats strfmt.Registry) error {
 			if err := m.Skills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -296,7 +357,6 @@ func (m *InboundRoute) validateSkills(formats strfmt.Registry) error {
 }
 
 func (m *InboundRoute) validateSpamFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SpamFlow) { // not required
 		return nil
 	}
@@ -305,6 +365,212 @@ func (m *InboundRoute) validateSpamFlow(formats strfmt.Registry) error {
 		if err := m.SpamFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("spamFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spamFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this inbound route based on the context it is used
+func (m *InboundRoute) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAutoBcc(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReplyEmailAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSignature(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSpamFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *InboundRoute) contextValidateAutoBcc(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AutoBcc); i++ {
+
+		if m.AutoBcc[i] != nil {
+			if err := m.AutoBcc[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("autoBcc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("autoBcc" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateLanguage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Language != nil {
+		if err := m.Language.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("language")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("language")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateReplyEmailAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReplyEmailAddress != nil {
+		if err := m.ReplyEmailAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("replyEmailAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyEmailAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateSignature(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Signature != nil {
+		if err := m.Signature.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("signature")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("signature")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Skills); i++ {
+
+		if m.Skills[i] != nil {
+			if err := m.Skills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *InboundRoute) contextValidateSpamFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SpamFlow != nil {
+		if err := m.SpamFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("spamFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("spamFlow")
 			}
 			return err
 		}

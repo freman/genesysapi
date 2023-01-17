@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteJourneyOutcomeParams creates a new DeleteJourneyOutcomeParams object
-// with the default values initialized.
+// NewDeleteJourneyOutcomeParams creates a new DeleteJourneyOutcomeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteJourneyOutcomeParams() *DeleteJourneyOutcomeParams {
-	var ()
 	return &DeleteJourneyOutcomeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteJourneyOutcomeParamsWithTimeout creates a new DeleteJourneyOutcomeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteJourneyOutcomeParamsWithTimeout(timeout time.Duration) *DeleteJourneyOutcomeParams {
-	var ()
 	return &DeleteJourneyOutcomeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteJourneyOutcomeParamsWithContext creates a new DeleteJourneyOutcomeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteJourneyOutcomeParamsWithContext(ctx context.Context) *DeleteJourneyOutcomeParams {
-	var ()
 	return &DeleteJourneyOutcomeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteJourneyOutcomeParamsWithHTTPClient creates a new DeleteJourneyOutcomeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteJourneyOutcomeParamsWithHTTPClient(client *http.Client) *DeleteJourneyOutcomeParams {
-	var ()
 	return &DeleteJourneyOutcomeParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteJourneyOutcomeParams contains all the parameters to send to the API endpoint
-for the delete journey outcome operation typically these are written to a http.Request
+/*
+DeleteJourneyOutcomeParams contains all the parameters to send to the API endpoint
+
+	for the delete journey outcome operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteJourneyOutcomeParams struct {
 
-	/*OutcomeID
-	  ID of the outcome.
+	/* OutcomeID.
 
+	   ID of the outcome.
 	*/
 	OutcomeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete journey outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteJourneyOutcomeParams) WithDefaults() *DeleteJourneyOutcomeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete journey outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteJourneyOutcomeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete journey outcome params

@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersPurecloudReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersPurecloudOK() *DeleteIdentityprovidersPurecloudOK
 	return &DeleteIdentityprovidersPurecloudOK{}
 }
 
-/*DeleteIdentityprovidersPurecloudOK handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersPurecloudOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud o k response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud o k response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud o k response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders purecloud o k response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud o k response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersPurecloudOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersPurecloudBadRequest() *DeleteIdentityprovidersPur
 	return &DeleteIdentityprovidersPurecloudBadRequest{}
 }
 
-/*DeleteIdentityprovidersPurecloudBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersPurecloudBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersPurecloudBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersPurecloudUnauthorized() *DeleteIdentityprovidersP
 	return &DeleteIdentityprovidersPurecloudUnauthorized{}
 }
 
-/*DeleteIdentityprovidersPurecloudUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersPurecloudUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersPurecloudUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersPurecloudForbidden() *DeleteIdentityprovidersPure
 	return &DeleteIdentityprovidersPurecloudForbidden{}
 }
 
-/*DeleteIdentityprovidersPurecloudForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersPurecloudForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersPurecloudForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersPurecloudNotFound() *DeleteIdentityprovidersPurec
 	return &DeleteIdentityprovidersPurecloudNotFound{}
 }
 
-/*DeleteIdentityprovidersPurecloudNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersPurecloudNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud not found response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud not found response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud not found response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud not found response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud not found response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersPurecloudNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersPurecloudRequestTimeout() *DeleteIdentityprovider
 	return &DeleteIdentityprovidersPurecloudRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersPurecloudRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersPurecloudRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersPurecloudRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersPurecloudRequestEntityTooLarge() *DeleteIdentityp
 	return &DeleteIdentityprovidersPurecloudRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersPurecloudRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersPurecloudRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersPurecloudRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersPurecloudUnsupportedMediaType() *DeleteIdentitypr
 	return &DeleteIdentityprovidersPurecloudUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersPurecloudUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersPurecloudUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersPurecloudUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersPurecloudTooManyRequests() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersPurecloudTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersPurecloudTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersPurecloudTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders purecloud too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders purecloud too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersPurecloudTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersPurecloudInternalServerError() *DeleteIdentitypro
 	return &DeleteIdentityprovidersPurecloudInternalServerError{}
 }
 
-/*DeleteIdentityprovidersPurecloudInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersPurecloudInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders purecloud internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders purecloud internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersPurecloudInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersPurecloudServiceUnavailable() *DeleteIdentityprov
 	return &DeleteIdentityprovidersPurecloudServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersPurecloudServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersPurecloudServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders purecloud service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders purecloud service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersPurecloudServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersPurecloudGatewayTimeout() *DeleteIdentityprovider
 	return &DeleteIdentityprovidersPurecloudGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersPurecloudGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersPurecloudGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersPurecloudGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders purecloud gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersPurecloudGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders purecloud gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersPurecloudGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders purecloud gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersPurecloudGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders purecloud gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersPurecloudGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders purecloud gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersPurecloudGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersPurecloudGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPurecloudGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/purecloud][%d] deleteIdentityprovidersPurecloudGatewayTimeout  %+v", 504, o.Payload)
 }
 

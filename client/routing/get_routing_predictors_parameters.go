@@ -17,79 +17,99 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingPredictorsParams creates a new GetRoutingPredictorsParams object
-// with the default values initialized.
+// NewGetRoutingPredictorsParams creates a new GetRoutingPredictorsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingPredictorsParams() *GetRoutingPredictorsParams {
-	var ()
 	return &GetRoutingPredictorsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingPredictorsParamsWithTimeout creates a new GetRoutingPredictorsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingPredictorsParamsWithTimeout(timeout time.Duration) *GetRoutingPredictorsParams {
-	var ()
 	return &GetRoutingPredictorsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingPredictorsParamsWithContext creates a new GetRoutingPredictorsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingPredictorsParamsWithContext(ctx context.Context) *GetRoutingPredictorsParams {
-	var ()
 	return &GetRoutingPredictorsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingPredictorsParamsWithHTTPClient creates a new GetRoutingPredictorsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingPredictorsParamsWithHTTPClient(client *http.Client) *GetRoutingPredictorsParams {
-	var ()
 	return &GetRoutingPredictorsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingPredictorsParams contains all the parameters to send to the API endpoint
-for the get routing predictors operation typically these are written to a http.Request
+/*
+GetRoutingPredictorsParams contains all the parameters to send to the API endpoint
+
+	for the get routing predictors operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingPredictorsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*Limit
-	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 
+	/* Limit.
+
+	   Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 	*/
 	Limit *string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
-	/*QueueID
-	  Comma-separated list of queue Ids to filter by.
 
+	/* QueueID.
+
+	   Comma-separated list of queue Ids to filter by.
 	*/
 	QueueID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing predictors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorsParams) WithDefaults() *GetRoutingPredictorsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing predictors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing predictors params
@@ -192,76 +212,100 @@ func (o *GetRoutingPredictorsParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit string
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesQueueID := o.QueueID
+	if o.QueueID != nil {
 
-	joinedQueueID := swag.JoinByFormat(valuesQueueID, "multi")
-	// query array param queueId
-	if err := r.SetQueryParam("queueId", joinedQueueID...); err != nil {
-		return err
+		// binding items for queueId
+		joinedQueueID := o.bindParamQueueID(reg)
+
+		// query array param queueId
+		if err := r.SetQueryParam("queueId", joinedQueueID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRoutingPredictors binds the parameter queueId
+func (o *GetRoutingPredictorsParams) bindParamQueueID(formats strfmt.Registry) []string {
+	queueIDIR := o.QueueID
+
+	var queueIDIC []string
+	for _, queueIDIIR := range queueIDIR { // explode []string
+
+		queueIDIIV := queueIDIIR // string as string
+		queueIDIC = append(queueIDIC, queueIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	queueIDIS := swag.JoinByFormat(queueIDIC, "multi")
+
+	return queueIDIS
 }

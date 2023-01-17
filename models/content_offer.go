@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -75,7 +76,6 @@ func (m *ContentOffer) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ContentOffer) validateCallToAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallToAction) { // not required
 		return nil
 	}
@@ -84,6 +84,8 @@ func (m *ContentOffer) validateCallToAction(formats strfmt.Registry) error {
 		if err := m.CallToAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("callToAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callToAction")
 			}
 			return err
 		}
@@ -194,7 +196,6 @@ func (m *ContentOffer) validateLayoutMode(formats strfmt.Registry) error {
 }
 
 func (m *ContentOffer) validateStyle(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Style) { // not required
 		return nil
 	}
@@ -203,6 +204,58 @@ func (m *ContentOffer) validateStyle(formats strfmt.Registry) error {
 		if err := m.Style.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("style")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("style")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this content offer based on the context it is used
+func (m *ContentOffer) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallToAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStyle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContentOffer) contextValidateCallToAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CallToAction != nil {
+		if err := m.CallToAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("callToAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callToAction")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ContentOffer) contextValidateStyle(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Style != nil {
+		if err := m.Style.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("style")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("style")
 			}
 			return err
 		}

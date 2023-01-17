@@ -101,7 +101,6 @@ func (o *PutUserCallforwardingReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutUserCallforwardingOK() *PutUserCallforwardingOK {
 	return &PutUserCallforwardingOK{}
 }
 
-/*PutUserCallforwardingOK handles this case with default header values.
+/*
+PutUserCallforwardingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutUserCallforwardingOK struct {
 	Payload *models.CallForwarding
 }
 
+// IsSuccess returns true when this put user callforwarding o k response has a 2xx status code
+func (o *PutUserCallforwardingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put user callforwarding o k response has a 3xx status code
+func (o *PutUserCallforwardingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding o k response has a 4xx status code
+func (o *PutUserCallforwardingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user callforwarding o k response has a 5xx status code
+func (o *PutUserCallforwardingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding o k response a status code equal to that given
+func (o *PutUserCallforwardingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutUserCallforwardingOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingOK  %+v", 200, o.Payload)
+}
+
+func (o *PutUserCallforwardingOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutUserCallforwardingBadRequest() *PutUserCallforwardingBadRequest {
 	return &PutUserCallforwardingBadRequest{}
 }
 
-/*PutUserCallforwardingBadRequest handles this case with default header values.
+/*
+PutUserCallforwardingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutUserCallforwardingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding bad request response has a 2xx status code
+func (o *PutUserCallforwardingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding bad request response has a 3xx status code
+func (o *PutUserCallforwardingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding bad request response has a 4xx status code
+func (o *PutUserCallforwardingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding bad request response has a 5xx status code
+func (o *PutUserCallforwardingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding bad request response a status code equal to that given
+func (o *PutUserCallforwardingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUserCallforwardingBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUserCallforwardingBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutUserCallforwardingUnauthorized() *PutUserCallforwardingUnauthorized {
 	return &PutUserCallforwardingUnauthorized{}
 }
 
-/*PutUserCallforwardingUnauthorized handles this case with default header values.
+/*
+PutUserCallforwardingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutUserCallforwardingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding unauthorized response has a 2xx status code
+func (o *PutUserCallforwardingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding unauthorized response has a 3xx status code
+func (o *PutUserCallforwardingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding unauthorized response has a 4xx status code
+func (o *PutUserCallforwardingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding unauthorized response has a 5xx status code
+func (o *PutUserCallforwardingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding unauthorized response a status code equal to that given
+func (o *PutUserCallforwardingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUserCallforwardingUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUserCallforwardingUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutUserCallforwardingForbidden() *PutUserCallforwardingForbidden {
 	return &PutUserCallforwardingForbidden{}
 }
 
-/*PutUserCallforwardingForbidden handles this case with default header values.
+/*
+PutUserCallforwardingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutUserCallforwardingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding forbidden response has a 2xx status code
+func (o *PutUserCallforwardingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding forbidden response has a 3xx status code
+func (o *PutUserCallforwardingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding forbidden response has a 4xx status code
+func (o *PutUserCallforwardingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding forbidden response has a 5xx status code
+func (o *PutUserCallforwardingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding forbidden response a status code equal to that given
+func (o *PutUserCallforwardingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUserCallforwardingForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUserCallforwardingForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutUserCallforwardingNotFound() *PutUserCallforwardingNotFound {
 	return &PutUserCallforwardingNotFound{}
 }
 
-/*PutUserCallforwardingNotFound handles this case with default header values.
+/*
+PutUserCallforwardingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutUserCallforwardingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding not found response has a 2xx status code
+func (o *PutUserCallforwardingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding not found response has a 3xx status code
+func (o *PutUserCallforwardingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding not found response has a 4xx status code
+func (o *PutUserCallforwardingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding not found response has a 5xx status code
+func (o *PutUserCallforwardingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding not found response a status code equal to that given
+func (o *PutUserCallforwardingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUserCallforwardingNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUserCallforwardingNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutUserCallforwardingRequestTimeout() *PutUserCallforwardingRequestTimeo
 	return &PutUserCallforwardingRequestTimeout{}
 }
 
-/*PutUserCallforwardingRequestTimeout handles this case with default header values.
+/*
+PutUserCallforwardingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutUserCallforwardingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding request timeout response has a 2xx status code
+func (o *PutUserCallforwardingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding request timeout response has a 3xx status code
+func (o *PutUserCallforwardingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding request timeout response has a 4xx status code
+func (o *PutUserCallforwardingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding request timeout response has a 5xx status code
+func (o *PutUserCallforwardingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding request timeout response a status code equal to that given
+func (o *PutUserCallforwardingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUserCallforwardingRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserCallforwardingRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutUserCallforwardingConflict() *PutUserCallforwardingConflict {
 	return &PutUserCallforwardingConflict{}
 }
 
-/*PutUserCallforwardingConflict handles this case with default header values.
+/*
+PutUserCallforwardingConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutUserCallforwardingConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding conflict response has a 2xx status code
+func (o *PutUserCallforwardingConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding conflict response has a 3xx status code
+func (o *PutUserCallforwardingConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding conflict response has a 4xx status code
+func (o *PutUserCallforwardingConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding conflict response has a 5xx status code
+func (o *PutUserCallforwardingConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding conflict response a status code equal to that given
+func (o *PutUserCallforwardingConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutUserCallforwardingConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutUserCallforwardingConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutUserCallforwardingRequestEntityTooLarge() *PutUserCallforwardingReque
 	return &PutUserCallforwardingRequestEntityTooLarge{}
 }
 
-/*PutUserCallforwardingRequestEntityTooLarge handles this case with default header values.
+/*
+PutUserCallforwardingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutUserCallforwardingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding request entity too large response has a 2xx status code
+func (o *PutUserCallforwardingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding request entity too large response has a 3xx status code
+func (o *PutUserCallforwardingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding request entity too large response has a 4xx status code
+func (o *PutUserCallforwardingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding request entity too large response has a 5xx status code
+func (o *PutUserCallforwardingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding request entity too large response a status code equal to that given
+func (o *PutUserCallforwardingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUserCallforwardingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUserCallforwardingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutUserCallforwardingUnsupportedMediaType() *PutUserCallforwardingUnsupp
 	return &PutUserCallforwardingUnsupportedMediaType{}
 }
 
-/*PutUserCallforwardingUnsupportedMediaType handles this case with default header values.
+/*
+PutUserCallforwardingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutUserCallforwardingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding unsupported media type response has a 2xx status code
+func (o *PutUserCallforwardingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding unsupported media type response has a 3xx status code
+func (o *PutUserCallforwardingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding unsupported media type response has a 4xx status code
+func (o *PutUserCallforwardingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding unsupported media type response has a 5xx status code
+func (o *PutUserCallforwardingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding unsupported media type response a status code equal to that given
+func (o *PutUserCallforwardingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUserCallforwardingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUserCallforwardingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutUserCallforwardingTooManyRequests() *PutUserCallforwardingTooManyRequ
 	return &PutUserCallforwardingTooManyRequests{}
 }
 
-/*PutUserCallforwardingTooManyRequests handles this case with default header values.
+/*
+PutUserCallforwardingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutUserCallforwardingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding too many requests response has a 2xx status code
+func (o *PutUserCallforwardingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding too many requests response has a 3xx status code
+func (o *PutUserCallforwardingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding too many requests response has a 4xx status code
+func (o *PutUserCallforwardingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user callforwarding too many requests response has a 5xx status code
+func (o *PutUserCallforwardingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user callforwarding too many requests response a status code equal to that given
+func (o *PutUserCallforwardingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUserCallforwardingTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUserCallforwardingTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutUserCallforwardingInternalServerError() *PutUserCallforwardingInterna
 	return &PutUserCallforwardingInternalServerError{}
 }
 
-/*PutUserCallforwardingInternalServerError handles this case with default header values.
+/*
+PutUserCallforwardingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutUserCallforwardingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding internal server error response has a 2xx status code
+func (o *PutUserCallforwardingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding internal server error response has a 3xx status code
+func (o *PutUserCallforwardingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding internal server error response has a 4xx status code
+func (o *PutUserCallforwardingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user callforwarding internal server error response has a 5xx status code
+func (o *PutUserCallforwardingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user callforwarding internal server error response a status code equal to that given
+func (o *PutUserCallforwardingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUserCallforwardingInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUserCallforwardingInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutUserCallforwardingServiceUnavailable() *PutUserCallforwardingServiceU
 	return &PutUserCallforwardingServiceUnavailable{}
 }
 
-/*PutUserCallforwardingServiceUnavailable handles this case with default header values.
+/*
+PutUserCallforwardingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutUserCallforwardingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding service unavailable response has a 2xx status code
+func (o *PutUserCallforwardingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding service unavailable response has a 3xx status code
+func (o *PutUserCallforwardingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding service unavailable response has a 4xx status code
+func (o *PutUserCallforwardingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user callforwarding service unavailable response has a 5xx status code
+func (o *PutUserCallforwardingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user callforwarding service unavailable response a status code equal to that given
+func (o *PutUserCallforwardingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUserCallforwardingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUserCallforwardingServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutUserCallforwardingGatewayTimeout() *PutUserCallforwardingGatewayTimeo
 	return &PutUserCallforwardingGatewayTimeout{}
 }
 
-/*PutUserCallforwardingGatewayTimeout handles this case with default header values.
+/*
+PutUserCallforwardingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutUserCallforwardingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user callforwarding gateway timeout response has a 2xx status code
+func (o *PutUserCallforwardingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user callforwarding gateway timeout response has a 3xx status code
+func (o *PutUserCallforwardingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user callforwarding gateway timeout response has a 4xx status code
+func (o *PutUserCallforwardingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user callforwarding gateway timeout response has a 5xx status code
+func (o *PutUserCallforwardingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user callforwarding gateway timeout response a status code equal to that given
+func (o *PutUserCallforwardingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUserCallforwardingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUserCallforwardingGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/callforwarding][%d] putUserCallforwardingGatewayTimeout  %+v", 504, o.Payload)
 }
 

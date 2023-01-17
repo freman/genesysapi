@@ -16,89 +16,111 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingSmsAvailablephonenumbersParams creates a new GetRoutingSmsAvailablephonenumbersParams object
-// with the default values initialized.
+// NewGetRoutingSmsAvailablephonenumbersParams creates a new GetRoutingSmsAvailablephonenumbersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingSmsAvailablephonenumbersParams() *GetRoutingSmsAvailablephonenumbersParams {
-	var ()
 	return &GetRoutingSmsAvailablephonenumbersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingSmsAvailablephonenumbersParamsWithTimeout creates a new GetRoutingSmsAvailablephonenumbersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingSmsAvailablephonenumbersParamsWithTimeout(timeout time.Duration) *GetRoutingSmsAvailablephonenumbersParams {
-	var ()
 	return &GetRoutingSmsAvailablephonenumbersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingSmsAvailablephonenumbersParamsWithContext creates a new GetRoutingSmsAvailablephonenumbersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingSmsAvailablephonenumbersParamsWithContext(ctx context.Context) *GetRoutingSmsAvailablephonenumbersParams {
-	var ()
 	return &GetRoutingSmsAvailablephonenumbersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingSmsAvailablephonenumbersParamsWithHTTPClient creates a new GetRoutingSmsAvailablephonenumbersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingSmsAvailablephonenumbersParamsWithHTTPClient(client *http.Client) *GetRoutingSmsAvailablephonenumbersParams {
-	var ()
 	return &GetRoutingSmsAvailablephonenumbersParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingSmsAvailablephonenumbersParams contains all the parameters to send to the API endpoint
-for the get routing sms availablephonenumbers operation typically these are written to a http.Request
+/*
+GetRoutingSmsAvailablephonenumbersParams contains all the parameters to send to the API endpoint
+
+	for the get routing sms availablephonenumbers operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingSmsAvailablephonenumbersParams struct {
 
-	/*AddressRequirement
-	  This indicates whether the phone number requires to have an Address registered.
+	/* AddressRequirement.
 
+	   This indicates whether the phone number requires to have an Address registered.
 	*/
 	AddressRequirement *string
-	/*AreaCode
-	  Area code that can be used to restrict the numbers returned
 
+	/* AreaCode.
+
+	   Area code that can be used to restrict the numbers returned
 	*/
 	AreaCode *string
-	/*City
-	  City that can be used to restrict the numbers returned
 
+	/* City.
+
+	   City that can be used to restrict the numbers returned
 	*/
 	City *string
-	/*CountryCode
-	  The ISO 3166-1 alpha-2 country code of the county for which available phone numbers should be returned
 
+	/* CountryCode.
+
+	   The ISO 3166-1 alpha-2 country code of the county for which available phone numbers should be returned
 	*/
 	CountryCode string
-	/*Pattern
-	  A pattern to match phone numbers. Valid characters are '*' and [0-9a-zA-Z]. The '*' character will match any single digit.
 
+	/* Pattern.
+
+	   A pattern to match phone numbers. Valid characters are '*' and [0-9a-zA-Z]. The '*' character will match any single digit.
 	*/
 	Pattern *string
-	/*PhoneNumberType
-	  Type of available phone numbers searched
 
+	/* PhoneNumberType.
+
+	   Type of available phone numbers searched
 	*/
 	PhoneNumberType string
-	/*Region
-	  Region/province/state that can be used to restrict the numbers returned
 
+	/* Region.
+
+	   Region/province/state that can be used to restrict the numbers returned
 	*/
 	Region *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing sms availablephonenumbers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSmsAvailablephonenumbersParams) WithDefaults() *GetRoutingSmsAvailablephonenumbersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing sms availablephonenumbers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSmsAvailablephonenumbersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing sms availablephonenumbers params
@@ -223,54 +245,58 @@ func (o *GetRoutingSmsAvailablephonenumbersParams) WriteToRequest(r runtime.Clie
 
 		// query param addressRequirement
 		var qrAddressRequirement string
+
 		if o.AddressRequirement != nil {
 			qrAddressRequirement = *o.AddressRequirement
 		}
 		qAddressRequirement := qrAddressRequirement
 		if qAddressRequirement != "" {
+
 			if err := r.SetQueryParam("addressRequirement", qAddressRequirement); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.AreaCode != nil {
 
 		// query param areaCode
 		var qrAreaCode string
+
 		if o.AreaCode != nil {
 			qrAreaCode = *o.AreaCode
 		}
 		qAreaCode := qrAreaCode
 		if qAreaCode != "" {
+
 			if err := r.SetQueryParam("areaCode", qAreaCode); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.City != nil {
 
 		// query param city
 		var qrCity string
+
 		if o.City != nil {
 			qrCity = *o.City
 		}
 		qCity := qrCity
 		if qCity != "" {
+
 			if err := r.SetQueryParam("city", qCity); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param countryCode
 	qrCountryCode := o.CountryCode
 	qCountryCode := qrCountryCode
 	if qCountryCode != "" {
+
 		if err := r.SetQueryParam("countryCode", qCountryCode); err != nil {
 			return err
 		}
@@ -280,22 +306,24 @@ func (o *GetRoutingSmsAvailablephonenumbersParams) WriteToRequest(r runtime.Clie
 
 		// query param pattern
 		var qrPattern string
+
 		if o.Pattern != nil {
 			qrPattern = *o.Pattern
 		}
 		qPattern := qrPattern
 		if qPattern != "" {
+
 			if err := r.SetQueryParam("pattern", qPattern); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param phoneNumberType
 	qrPhoneNumberType := o.PhoneNumberType
 	qPhoneNumberType := qrPhoneNumberType
 	if qPhoneNumberType != "" {
+
 		if err := r.SetQueryParam("phoneNumberType", qPhoneNumberType); err != nil {
 			return err
 		}
@@ -305,16 +333,17 @@ func (o *GetRoutingSmsAvailablephonenumbersParams) WriteToRequest(r runtime.Clie
 
 		// query param region
 		var qrRegion string
+
 		if o.Region != nil {
 			qrRegion = *o.Region
 		}
 		qRegion := qrRegion
 		if qRegion != "" {
+
 			if err := r.SetQueryParam("region", qRegion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

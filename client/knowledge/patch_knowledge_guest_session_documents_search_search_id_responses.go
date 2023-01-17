@@ -95,7 +95,6 @@ func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDReader) ReadResponse(r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent() *PatchKnowl
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent describes a response with status code 204, with default header values.
 
 Search updated successfully.
 */
 type PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent struct {
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id no content response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id no content response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id no content response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id no content response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id no content response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdNoContent ", 204)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNoContent) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest() *PatchKnow
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id bad request response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id bad request response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id bad request response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id bad request response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id bad request response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized() *PatchKn
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id unauthorized response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id unauthorized response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id unauthorized response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id unauthorized response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id unauthorized response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden() *PatchKnowl
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id forbidden response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id forbidden response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id forbidden response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id forbidden response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id forbidden response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound() *PatchKnowle
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id not found response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id not found response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id not found response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id not found response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id not found response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout() *Patch
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id request timeout response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id request timeout response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id request timeout response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id request timeout response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id request timeout response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge()
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id request entity too large response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id request entity too large response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id request entity too large response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id request entity too large response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id request entity too large response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType() 
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id unsupported media type response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id unsupported media type response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id unsupported media type response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id unsupported media type response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id unsupported media type response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests() *Patc
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id too many requests response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id too many requests response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id too many requests response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id too many requests response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id too many requests response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError() *
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id internal server error response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id internal server error response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id internal server error response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id internal server error response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id internal server error response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable() *P
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id service unavailable response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id service unavailable response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id service unavailable response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id service unavailable response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id service unavailable response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout() *Patch
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout{}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout handles this case with default header values.
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge guest session documents search search Id gateway timeout response has a 2xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge guest session documents search search Id gateway timeout response has a 3xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge guest session documents search search Id gateway timeout response has a 4xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge guest session documents search search Id gateway timeout response has a 5xx status code
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge guest session documents search search Id gateway timeout response a status code equal to that given
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/{searchId}][%d] patchKnowledgeGuestSessionDocumentsSearchSearchIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

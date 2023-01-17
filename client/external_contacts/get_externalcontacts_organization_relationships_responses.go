@@ -95,7 +95,6 @@ func (o *GetExternalcontactsOrganizationRelationshipsReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetExternalcontactsOrganizationRelationshipsOK() *GetExternalcontactsOrg
 	return &GetExternalcontactsOrganizationRelationshipsOK{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsOK handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetExternalcontactsOrganizationRelationshipsOK struct {
 	Payload *models.RelationshipListing
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships o k response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships o k response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships o k response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships o k response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships o k response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetExternalcontactsOrganizationRelationshipsBadRequest() *GetExternalcon
 	return &GetExternalcontactsOrganizationRelationshipsBadRequest{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsBadRequest handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetExternalcontactsOrganizationRelationshipsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships bad request response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships bad request response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships bad request response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships bad request response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships bad request response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetExternalcontactsOrganizationRelationshipsUnauthorized() *GetExternalc
 	return &GetExternalcontactsOrganizationRelationshipsUnauthorized{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsUnauthorized handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetExternalcontactsOrganizationRelationshipsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships unauthorized response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships unauthorized response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships unauthorized response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships unauthorized response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships unauthorized response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetExternalcontactsOrganizationRelationshipsForbidden() *GetExternalcont
 	return &GetExternalcontactsOrganizationRelationshipsForbidden{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsForbidden handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetExternalcontactsOrganizationRelationshipsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships forbidden response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships forbidden response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships forbidden response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships forbidden response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships forbidden response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetExternalcontactsOrganizationRelationshipsNotFound() *GetExternalconta
 	return &GetExternalcontactsOrganizationRelationshipsNotFound{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsNotFound handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetExternalcontactsOrganizationRelationshipsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships not found response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships not found response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships not found response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships not found response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships not found response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetExternalcontactsOrganizationRelationshipsRequestTimeout() *GetExterna
 	return &GetExternalcontactsOrganizationRelationshipsRequestTimeout{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsRequestTimeout handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetExternalcontactsOrganizationRelationshipsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships request timeout response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships request timeout response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships request timeout response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships request timeout response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships request timeout response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge() *Get
 	return &GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships request entity too large response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships request entity too large response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships request entity too large response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships request entity too large response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships request entity too large response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetExternalcontactsOrganizationRelationshipsUnsupportedMediaType() *GetE
 	return &GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships unsupported media type response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships unsupported media type response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships unsupported media type response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships unsupported media type response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships unsupported media type response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetExternalcontactsOrganizationRelationshipsTooManyRequests() *GetExtern
 	return &GetExternalcontactsOrganizationRelationshipsTooManyRequests{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsTooManyRequests handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetExternalcontactsOrganizationRelationshipsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships too many requests response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships too many requests response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships too many requests response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships too many requests response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organization relationships too many requests response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetExternalcontactsOrganizationRelationshipsInternalServerError() *GetEx
 	return &GetExternalcontactsOrganizationRelationshipsInternalServerError{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsInternalServerError handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetExternalcontactsOrganizationRelationshipsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships internal server error response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships internal server error response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships internal server error response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships internal server error response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts organization relationships internal server error response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetExternalcontactsOrganizationRelationshipsServiceUnavailable() *GetExt
 	return &GetExternalcontactsOrganizationRelationshipsServiceUnavailable{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsServiceUnavailable handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetExternalcontactsOrganizationRelationshipsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships service unavailable response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships service unavailable response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships service unavailable response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships service unavailable response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts organization relationships service unavailable response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetExternalcontactsOrganizationRelationshipsGatewayTimeout() *GetExterna
 	return &GetExternalcontactsOrganizationRelationshipsGatewayTimeout{}
 }
 
-/*GetExternalcontactsOrganizationRelationshipsGatewayTimeout handles this case with default header values.
+/*
+GetExternalcontactsOrganizationRelationshipsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetExternalcontactsOrganizationRelationshipsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organization relationships gateway timeout response has a 2xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organization relationships gateway timeout response has a 3xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organization relationships gateway timeout response has a 4xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organization relationships gateway timeout response has a 5xx status code
+func (o *GetExternalcontactsOrganizationRelationshipsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts organization relationships gateway timeout response a status code equal to that given
+func (o *GetExternalcontactsOrganizationRelationshipsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetExternalcontactsOrganizationRelationshipsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationRelationshipsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/{externalOrganizationId}/relationships][%d] getExternalcontactsOrganizationRelationshipsGatewayTimeout  %+v", 504, o.Payload)
 }
 

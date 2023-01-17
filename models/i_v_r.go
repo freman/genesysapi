@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -139,7 +140,6 @@ func (m *IVR) Validate(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateClosedHoursFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ClosedHoursFlow) { // not required
 		return nil
 	}
@@ -148,6 +148,8 @@ func (m *IVR) validateClosedHoursFlow(formats strfmt.Registry) error {
 		if err := m.ClosedHoursFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("closedHoursFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("closedHoursFlow")
 			}
 			return err
 		}
@@ -157,7 +159,6 @@ func (m *IVR) validateClosedHoursFlow(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -170,7 +171,6 @@ func (m *IVR) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -183,7 +183,6 @@ func (m *IVR) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -192,6 +191,8 @@ func (m *IVR) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -201,7 +202,6 @@ func (m *IVR) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateHolidayHoursFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HolidayHoursFlow) { // not required
 		return nil
 	}
@@ -210,6 +210,8 @@ func (m *IVR) validateHolidayHoursFlow(formats strfmt.Registry) error {
 		if err := m.HolidayHoursFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("holidayHoursFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("holidayHoursFlow")
 			}
 			return err
 		}
@@ -228,7 +230,6 @@ func (m *IVR) validateName(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateOpenHoursFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OpenHoursFlow) { // not required
 		return nil
 	}
@@ -237,6 +238,8 @@ func (m *IVR) validateOpenHoursFlow(formats strfmt.Registry) error {
 		if err := m.OpenHoursFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("openHoursFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("openHoursFlow")
 			}
 			return err
 		}
@@ -246,7 +249,6 @@ func (m *IVR) validateOpenHoursFlow(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateScheduleGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduleGroup) { // not required
 		return nil
 	}
@@ -255,6 +257,8 @@ func (m *IVR) validateScheduleGroup(formats strfmt.Registry) error {
 		if err := m.ScheduleGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduleGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduleGroup")
 			}
 			return err
 		}
@@ -264,7 +268,6 @@ func (m *IVR) validateScheduleGroup(formats strfmt.Registry) error {
 }
 
 func (m *IVR) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -309,13 +312,239 @@ func (m *IVR) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *IVR) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this i v r based on the context it is used
+func (m *IVR) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClosedHoursFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHolidayHoursFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOpenHoursFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduleGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *IVR) contextValidateClosedHoursFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ClosedHoursFlow != nil {
+		if err := m.ClosedHoursFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("closedHoursFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("closedHoursFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateHolidayHoursFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HolidayHoursFlow != nil {
+		if err := m.HolidayHoursFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("holidayHoursFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("holidayHoursFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateOpenHoursFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OpenHoursFlow != nil {
+		if err := m.OpenHoursFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("openHoursFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("openHoursFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateScheduleGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScheduleGroup != nil {
+		if err := m.ScheduleGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduleGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduleGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IVR) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
 		return err
 	}
 

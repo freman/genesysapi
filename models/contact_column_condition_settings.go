@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -29,6 +30,7 @@ type ContactColumnConditionSettings struct {
 	Operator *string `json:"operator"`
 
 	// The value to compare against the contact's data.
+	// Example: For Numeric: '1234', '1234.56', '$1,234.56'. For DateTime: '2022-01-01T12:01:23.456-0000'. For Period: 'P1DT1H1M'.
 	// Required: true
 	Value *string `json:"value"`
 
@@ -195,6 +197,11 @@ func (m *ContactColumnConditionSettings) validateValueType(formats strfmt.Regist
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this contact column condition settings based on context it is used
+func (m *ContactColumnConditionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

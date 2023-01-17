@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -30,7 +31,7 @@ type StatusChange struct {
 
 	// The namespace for the status change
 	// Read Only: true
-	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
+	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search secondary.automation.testing skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
 	Namespace string `json:"namespace,omitempty"`
 
 	// The status the change request transitioned from
@@ -80,7 +81,6 @@ func (m *StatusChange) Validate(formats strfmt.Registry) error {
 }
 
 func (m *StatusChange) validateDateStatusChanged(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStatusChanged) { // not required
 		return nil
 	}
@@ -96,7 +96,7 @@ var statusChangeTypeNamespacePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","secondary.automation.testing","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -109,20 +109,20 @@ const (
 	// StatusChangeNamespaceContacts captures enum value "contacts"
 	StatusChangeNamespaceContacts string = "contacts"
 
-	// StatusChangeNamespaceAgentAssistant captures enum value "agent.assistant"
-	StatusChangeNamespaceAgentAssistant string = "agent.assistant"
+	// StatusChangeNamespaceAgentDotAssistant captures enum value "agent.assistant"
+	StatusChangeNamespaceAgentDotAssistant string = "agent.assistant"
 
-	// StatusChangeNamespaceAnalyticsAlerting captures enum value "analytics.alerting"
-	StatusChangeNamespaceAnalyticsAlerting string = "analytics.alerting"
+	// StatusChangeNamespaceAnalyticsDotAlerting captures enum value "analytics.alerting"
+	StatusChangeNamespaceAnalyticsDotAlerting string = "analytics.alerting"
 
 	// StatusChangeNamespaceAnalytics captures enum value "analytics"
 	StatusChangeNamespaceAnalytics string = "analytics"
 
-	// StatusChangeNamespaceAnalyticsRealtime captures enum value "analytics.realtime"
-	StatusChangeNamespaceAnalyticsRealtime string = "analytics.realtime"
+	// StatusChangeNamespaceAnalyticsDotRealtime captures enum value "analytics.realtime"
+	StatusChangeNamespaceAnalyticsDotRealtime string = "analytics.realtime"
 
-	// StatusChangeNamespaceAnalyticsReportingSettings captures enum value "analytics.reporting.settings"
-	StatusChangeNamespaceAnalyticsReportingSettings string = "analytics.reporting.settings"
+	// StatusChangeNamespaceAnalyticsDotReportingDotSettings captures enum value "analytics.reporting.settings"
+	StatusChangeNamespaceAnalyticsDotReportingDotSettings string = "analytics.reporting.settings"
 
 	// StatusChangeNamespaceArchitect captures enum value "architect"
 	StatusChangeNamespaceArchitect string = "architect"
@@ -133,26 +133,26 @@ const (
 	// StatusChangeNamespaceAudit captures enum value "audit"
 	StatusChangeNamespaceAudit string = "audit"
 
-	// StatusChangeNamespaceAuthAPI captures enum value "auth.api"
-	StatusChangeNamespaceAuthAPI string = "auth.api"
+	// StatusChangeNamespaceAuthDotAPI captures enum value "auth.api"
+	StatusChangeNamespaceAuthDotAPI string = "auth.api"
 
 	// StatusChangeNamespaceAuthorization captures enum value "authorization"
 	StatusChangeNamespaceAuthorization string = "authorization"
 
-	// StatusChangeNamespaceAutomationTesting captures enum value "automation.testing"
-	StatusChangeNamespaceAutomationTesting string = "automation.testing"
+	// StatusChangeNamespaceAutomationDotTesting captures enum value "automation.testing"
+	StatusChangeNamespaceAutomationDotTesting string = "automation.testing"
 
 	// StatusChangeNamespaceBots captures enum value "bots"
 	StatusChangeNamespaceBots string = "bots"
 
-	// StatusChangeNamespaceBotsVoice captures enum value "bots.voice"
-	StatusChangeNamespaceBotsVoice string = "bots.voice"
+	// StatusChangeNamespaceBotsDotVoice captures enum value "bots.voice"
+	StatusChangeNamespaceBotsDotVoice string = "bots.voice"
 
 	// StatusChangeNamespaceCobrowse captures enum value "cobrowse"
 	StatusChangeNamespaceCobrowse string = "cobrowse"
 
-	// StatusChangeNamespaceContentManagement captures enum value "content.management"
-	StatusChangeNamespaceContentManagement string = "content.management"
+	// StatusChangeNamespaceContentDotManagement captures enum value "content.management"
+	StatusChangeNamespaceContentDotManagement string = "content.management"
 
 	// StatusChangeNamespaceConversation captures enum value "conversation"
 	StatusChangeNamespaceConversation string = "conversation"
@@ -169,11 +169,11 @@ const (
 	// StatusChangeNamespaceEmail captures enum value "email"
 	StatusChangeNamespaceEmail string = "email"
 
-	// StatusChangeNamespaceEventOrchestration captures enum value "event.orchestration"
-	StatusChangeNamespaceEventOrchestration string = "event.orchestration"
+	// StatusChangeNamespaceEventDotOrchestration captures enum value "event.orchestration"
+	StatusChangeNamespaceEventDotOrchestration string = "event.orchestration"
 
-	// StatusChangeNamespaceExternalContacts captures enum value "external.contacts"
-	StatusChangeNamespaceExternalContacts string = "external.contacts"
+	// StatusChangeNamespaceExternalDotContacts captures enum value "external.contacts"
+	StatusChangeNamespaceExternalDotContacts string = "external.contacts"
 
 	// StatusChangeNamespaceGcv captures enum value "gcv"
 	StatusChangeNamespaceGcv string = "gcv"
@@ -184,8 +184,8 @@ const (
 	// StatusChangeNamespaceGroups captures enum value "groups"
 	StatusChangeNamespaceGroups string = "groups"
 
-	// StatusChangeNamespaceHistoricalAdherence captures enum value "historical.adherence"
-	StatusChangeNamespaceHistoricalAdherence string = "historical.adherence"
+	// StatusChangeNamespaceHistoricalDotAdherence captures enum value "historical.adherence"
+	StatusChangeNamespaceHistoricalDotAdherence string = "historical.adherence"
 
 	// StatusChangeNamespaceInfrastructureascode captures enum value "infrastructureascode"
 	StatusChangeNamespaceInfrastructureascode string = "infrastructureascode"
@@ -193,8 +193,8 @@ const (
 	// StatusChangeNamespaceIntegrations captures enum value "integrations"
 	StatusChangeNamespaceIntegrations string = "integrations"
 
-	// StatusChangeNamespaceIntentMiner captures enum value "intent.miner"
-	StatusChangeNamespaceIntentMiner string = "intent.miner"
+	// StatusChangeNamespaceIntentDotMiner captures enum value "intent.miner"
+	StatusChangeNamespaceIntentDotMiner string = "intent.miner"
 
 	// StatusChangeNamespaceJourney captures enum value "journey"
 	StatusChangeNamespaceJourney string = "journey"
@@ -202,11 +202,11 @@ const (
 	// StatusChangeNamespaceKnowledge captures enum value "knowledge"
 	StatusChangeNamespaceKnowledge string = "knowledge"
 
-	// StatusChangeNamespaceLanguageUnderstanding captures enum value "language.understanding"
-	StatusChangeNamespaceLanguageUnderstanding string = "language.understanding"
+	// StatusChangeNamespaceLanguageDotUnderstanding captures enum value "language.understanding"
+	StatusChangeNamespaceLanguageDotUnderstanding string = "language.understanding"
 
-	// StatusChangeNamespaceLimitRegistry captures enum value "limit.registry"
-	StatusChangeNamespaceLimitRegistry string = "limit.registry"
+	// StatusChangeNamespaceLimitDotRegistry captures enum value "limit.registry"
+	StatusChangeNamespaceLimitDotRegistry string = "limit.registry"
 
 	// StatusChangeNamespaceMarketplace captures enum value "marketplace"
 	StatusChangeNamespaceMarketplace string = "marketplace"
@@ -223,11 +223,11 @@ const (
 	// StatusChangeNamespaceOutbound captures enum value "outbound"
 	StatusChangeNamespaceOutbound string = "outbound"
 
-	// StatusChangeNamespacePlatformAPI captures enum value "platform.api"
-	StatusChangeNamespacePlatformAPI string = "platform.api"
+	// StatusChangeNamespacePlatformDotAPI captures enum value "platform.api"
+	StatusChangeNamespacePlatformDotAPI string = "platform.api"
 
-	// StatusChangeNamespacePredictiveRouting captures enum value "predictive.routing"
-	StatusChangeNamespacePredictiveRouting string = "predictive.routing"
+	// StatusChangeNamespacePredictiveDotRouting captures enum value "predictive.routing"
+	StatusChangeNamespacePredictiveDotRouting string = "predictive.routing"
 
 	// StatusChangeNamespaceQuality captures enum value "quality"
 	StatusChangeNamespaceQuality string = "quality"
@@ -235,8 +235,8 @@ const (
 	// StatusChangeNamespaceRecording captures enum value "recording"
 	StatusChangeNamespaceRecording string = "recording"
 
-	// StatusChangeNamespaceResponseManagement captures enum value "response.management"
-	StatusChangeNamespaceResponseManagement string = "response.management"
+	// StatusChangeNamespaceResponseDotManagement captures enum value "response.management"
+	StatusChangeNamespaceResponseDotManagement string = "response.management"
 
 	// StatusChangeNamespaceRouting captures enum value "routing"
 	StatusChangeNamespaceRouting string = "routing"
@@ -247,29 +247,32 @@ const (
 	// StatusChangeNamespaceSearch captures enum value "search"
 	StatusChangeNamespaceSearch string = "search"
 
+	// StatusChangeNamespaceSecondaryDotAutomationDotTesting captures enum value "secondary.automation.testing"
+	StatusChangeNamespaceSecondaryDotAutomationDotTesting string = "secondary.automation.testing"
+
 	// StatusChangeNamespaceSkills captures enum value "skills"
 	StatusChangeNamespaceSkills string = "skills"
 
-	// StatusChangeNamespaceSpeechAndTextAnalytics captures enum value "speech.and.text.analytics"
-	StatusChangeNamespaceSpeechAndTextAnalytics string = "speech.and.text.analytics"
+	// StatusChangeNamespaceSpeechDotAndDotTextDotAnalytics captures enum value "speech.and.text.analytics"
+	StatusChangeNamespaceSpeechDotAndDotTextDotAnalytics string = "speech.and.text.analytics"
 
-	// StatusChangeNamespaceSpeechIntegration captures enum value "speech.integration"
-	StatusChangeNamespaceSpeechIntegration string = "speech.integration"
+	// StatusChangeNamespaceSpeechDotIntegration captures enum value "speech.integration"
+	StatusChangeNamespaceSpeechDotIntegration string = "speech.integration"
 
 	// StatusChangeNamespaceSupportability captures enum value "supportability"
 	StatusChangeNamespaceSupportability string = "supportability"
 
-	// StatusChangeNamespaceTaskManagement captures enum value "task.management"
-	StatusChangeNamespaceTaskManagement string = "task.management"
+	// StatusChangeNamespaceTaskDotManagement captures enum value "task.management"
+	StatusChangeNamespaceTaskDotManagement string = "task.management"
 
-	// StatusChangeNamespaceTelephonyConfiguration captures enum value "telephony.configuration"
-	StatusChangeNamespaceTelephonyConfiguration string = "telephony.configuration"
+	// StatusChangeNamespaceTelephonyDotConfiguration captures enum value "telephony.configuration"
+	StatusChangeNamespaceTelephonyDotConfiguration string = "telephony.configuration"
 
-	// StatusChangeNamespaceWebDeployments captures enum value "web.deployments"
-	StatusChangeNamespaceWebDeployments string = "web.deployments"
+	// StatusChangeNamespaceWebDotDeployments captures enum value "web.deployments"
+	StatusChangeNamespaceWebDotDeployments string = "web.deployments"
 
-	// StatusChangeNamespaceWebMessaging captures enum value "web.messaging"
-	StatusChangeNamespaceWebMessaging string = "web.messaging"
+	// StatusChangeNamespaceWebDotMessaging captures enum value "web.messaging"
+	StatusChangeNamespaceWebDotMessaging string = "web.messaging"
 
 	// StatusChangeNamespaceWebchat captures enum value "webchat"
 	StatusChangeNamespaceWebchat string = "webchat"
@@ -277,8 +280,8 @@ const (
 	// StatusChangeNamespaceWebhooks captures enum value "webhooks"
 	StatusChangeNamespaceWebhooks string = "webhooks"
 
-	// StatusChangeNamespaceWorkforceManagement captures enum value "workforce.management"
-	StatusChangeNamespaceWorkforceManagement string = "workforce.management"
+	// StatusChangeNamespaceWorkforceDotManagement captures enum value "workforce.management"
+	StatusChangeNamespaceWorkforceDotManagement string = "workforce.management"
 )
 
 // prop value enum
@@ -290,7 +293,6 @@ func (m *StatusChange) validateNamespaceEnum(path, location string, value string
 }
 
 func (m *StatusChange) validateNamespace(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Namespace) { // not required
 		return nil
 	}
@@ -366,7 +368,6 @@ func (m *StatusChange) validatePreviousStatusEnum(path, location string, value s
 }
 
 func (m *StatusChange) validatePreviousStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviousStatus) { // not required
 		return nil
 	}
@@ -418,7 +419,6 @@ func (m *StatusChange) validateRejectReasonEnum(path, location string, value str
 }
 
 func (m *StatusChange) validateRejectReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RejectReason) { // not required
 		return nil
 	}
@@ -494,13 +494,100 @@ func (m *StatusChange) validateStatusEnum(path, location string, value string) e
 }
 
 func (m *StatusChange) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this status change based on the context it is used
+func (m *StatusChange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateStatusChanged(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNamespace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePreviousStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRejectReason(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *StatusChange) contextValidateDateStatusChanged(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStatusChanged", "body", strfmt.DateTime(m.DateStatusChanged)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StatusChange) contextValidateMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "message", "body", string(m.Message)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StatusChange) contextValidateNamespace(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "namespace", "body", string(m.Namespace)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StatusChange) contextValidatePreviousStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "previousStatus", "body", string(m.PreviousStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StatusChange) contextValidateRejectReason(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "rejectReason", "body", string(m.RejectReason)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *StatusChange) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

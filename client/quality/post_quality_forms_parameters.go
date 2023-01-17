@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostQualityFormsParams creates a new PostQualityFormsParams object
-// with the default values initialized.
+// NewPostQualityFormsParams creates a new PostQualityFormsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostQualityFormsParams() *PostQualityFormsParams {
-	var ()
 	return &PostQualityFormsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostQualityFormsParamsWithTimeout creates a new PostQualityFormsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostQualityFormsParamsWithTimeout(timeout time.Duration) *PostQualityFormsParams {
-	var ()
 	return &PostQualityFormsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostQualityFormsParamsWithContext creates a new PostQualityFormsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostQualityFormsParamsWithContext(ctx context.Context) *PostQualityFormsParams {
-	var ()
 	return &PostQualityFormsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostQualityFormsParamsWithHTTPClient creates a new PostQualityFormsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostQualityFormsParamsWithHTTPClient(client *http.Client) *PostQualityFormsParams {
-	var ()
 	return &PostQualityFormsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostQualityFormsParams contains all the parameters to send to the API endpoint
-for the post quality forms operation typically these are written to a http.Request
+/*
+PostQualityFormsParams contains all the parameters to send to the API endpoint
+
+	for the post quality forms operation.
+
+	Typically these are written to a http.Request.
 */
 type PostQualityFormsParams struct {
 
-	/*Body
-	  Evaluation form
+	/* Body.
 
+	   Evaluation form
 	*/
 	Body *models.EvaluationForm
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post quality forms params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityFormsParams) WithDefaults() *PostQualityFormsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post quality forms params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityFormsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post quality forms params
@@ -124,7 +140,6 @@ func (o *PostQualityFormsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

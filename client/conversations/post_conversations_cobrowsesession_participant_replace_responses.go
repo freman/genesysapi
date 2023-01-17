@@ -95,7 +95,6 @@ func (o *PostConversationsCobrowsesessionParticipantReplaceReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostConversationsCobrowsesessionParticipantReplaceAccepted() *PostConver
 	return &PostConversationsCobrowsesessionParticipantReplaceAccepted{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceAccepted handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PostConversationsCobrowsesessionParticipantReplaceAccepted struct {
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace accepted response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace accepted response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace accepted response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace accepted response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace accepted response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceAccepted ", 202)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceBadRequest() *PostConv
 	return &PostConversationsCobrowsesessionParticipantReplaceBadRequest{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceBadRequest handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostConversationsCobrowsesessionParticipantReplaceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace bad request response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace bad request response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace bad request response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace bad request response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace bad request response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceUnauthorized() *PostCo
 	return &PostConversationsCobrowsesessionParticipantReplaceUnauthorized{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceUnauthorized handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostConversationsCobrowsesessionParticipantReplaceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace unauthorized response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace unauthorized response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace unauthorized response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace unauthorized response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace unauthorized response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceForbidden() *PostConve
 	return &PostConversationsCobrowsesessionParticipantReplaceForbidden{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceForbidden handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostConversationsCobrowsesessionParticipantReplaceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace forbidden response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace forbidden response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace forbidden response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace forbidden response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace forbidden response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceNotFound() *PostConver
 	return &PostConversationsCobrowsesessionParticipantReplaceNotFound{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceNotFound handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostConversationsCobrowsesessionParticipantReplaceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace not found response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace not found response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace not found response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace not found response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace not found response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceRequestTimeout() *Post
 	return &PostConversationsCobrowsesessionParticipantReplaceRequestTimeout{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceRequestTimeout handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostConversationsCobrowsesessionParticipantReplaceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace request timeout response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace request timeout response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace request timeout response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace request timeout response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace request timeout response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge(
 	return &PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace request entity too large response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace request entity too large response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace request entity too large response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace request entity too large response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace request entity too large response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType()
 	return &PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace unsupported media type response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace unsupported media type response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace unsupported media type response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace unsupported media type response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace unsupported media type response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceTooManyRequests() *Pos
 	return &PostConversationsCobrowsesessionParticipantReplaceTooManyRequests{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceTooManyRequests handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostConversationsCobrowsesessionParticipantReplaceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace too many requests response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace too many requests response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace too many requests response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace too many requests response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace too many requests response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceInternalServerError() 
 	return &PostConversationsCobrowsesessionParticipantReplaceInternalServerError{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceInternalServerError handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostConversationsCobrowsesessionParticipantReplaceInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace internal server error response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace internal server error response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace internal server error response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace internal server error response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace internal server error response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceServiceUnavailable() *
 	return &PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace service unavailable response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace service unavailable response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace service unavailable response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace service unavailable response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace service unavailable response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostConversationsCobrowsesessionParticipantReplaceGatewayTimeout() *Post
 	return &PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout{}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout handles this case with default header values.
+/*
+PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations cobrowsesession participant replace gateway timeout response has a 2xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations cobrowsesession participant replace gateway timeout response has a 3xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations cobrowsesession participant replace gateway timeout response has a 4xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations cobrowsesession participant replace gateway timeout response has a 5xx status code
+func (o *PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations cobrowsesession participant replace gateway timeout response a status code equal to that given
+func (o *PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsCobrowsesessionParticipantReplaceGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/replace][%d] postConversationsCobrowsesessionParticipantReplaceGatewayTimeout  %+v", 504, o.Payload)
 }
 

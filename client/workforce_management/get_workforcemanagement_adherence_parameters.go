@@ -17,59 +17,75 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementAdherenceParams creates a new GetWorkforcemanagementAdherenceParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementAdherenceParams creates a new GetWorkforcemanagementAdherenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementAdherenceParams() *GetWorkforcemanagementAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementAdherenceParamsWithTimeout creates a new GetWorkforcemanagementAdherenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementAdherenceParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementAdherenceParamsWithContext creates a new GetWorkforcemanagementAdherenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementAdherenceParamsWithContext(ctx context.Context) *GetWorkforcemanagementAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementAdherenceParamsWithHTTPClient creates a new GetWorkforcemanagementAdherenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementAdherenceParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementAdherenceParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement adherence operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementAdherenceParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement adherence operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementAdherenceParams struct {
 
-	/*UserID
-	  User Id(s) for which to fetch current schedule adherence information.  Min 1, Max of 100 userIds per request
+	/* UserID.
 
+	   User Id(s) for which to fetch current schedule adherence information.  Min 1, Max of 100 userIds per request
 	*/
 	UserID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement adherence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementAdherenceParams) WithDefaults() *GetWorkforcemanagementAdherenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement adherence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementAdherenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement adherence params
@@ -124,16 +140,36 @@ func (o *GetWorkforcemanagementAdherenceParams) WriteToRequest(r runtime.ClientR
 	}
 	var res []error
 
-	valuesUserID := o.UserID
+	if o.UserID != nil {
 
-	joinedUserID := swag.JoinByFormat(valuesUserID, "multi")
-	// query array param userId
-	if err := r.SetQueryParam("userId", joinedUserID...); err != nil {
-		return err
+		// binding items for userId
+		joinedUserID := o.bindParamUserID(reg)
+
+		// query array param userId
+		if err := r.SetQueryParam("userId", joinedUserID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetWorkforcemanagementAdherence binds the parameter userId
+func (o *GetWorkforcemanagementAdherenceParams) bindParamUserID(formats strfmt.Registry) []string {
+	userIDIR := o.UserID
+
+	var userIDIC []string
+	for _, userIDIIR := range userIDIR { // explode []string
+
+		userIDIIV := userIDIIR // string as string
+		userIDIC = append(userIDIC, userIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	userIDIS := swag.JoinByFormat(userIDIC, "multi")
+
+	return userIDIS
 }

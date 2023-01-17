@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -54,6 +56,8 @@ func (m *JourneyAction) validateActionMap(formats strfmt.Registry) error {
 		if err := m.ActionMap.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("actionMap")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionMap")
 			}
 			return err
 		}
@@ -66,6 +70,36 @@ func (m *JourneyAction) validateID(formats strfmt.Registry) error {
 
 	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this journey action based on the context it is used
+func (m *JourneyAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActionMap(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *JourneyAction) contextValidateActionMap(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ActionMap != nil {
+		if err := m.ActionMap.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("actionMap")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionMap")
+			}
+			return err
+		}
 	}
 
 	return nil

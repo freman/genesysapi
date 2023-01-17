@@ -95,7 +95,6 @@ func (o *DeleteConversationsCallParticipantConsultReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteConversationsCallParticipantConsultOK() *DeleteConversationsCallPa
 	return &DeleteConversationsCallParticipantConsultOK{}
 }
 
-/*DeleteConversationsCallParticipantConsultOK handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteConversationsCallParticipantConsultOK struct {
 }
 
+// IsSuccess returns true when this delete conversations call participant consult o k response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversations call participant consult o k response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult o k response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations call participant consult o k response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult o k response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteConversationsCallParticipantConsultOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultOK ", 200)
+}
+
+func (o *DeleteConversationsCallParticipantConsultOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteConversationsCallParticipantConsultBadRequest() *DeleteConversatio
 	return &DeleteConversationsCallParticipantConsultBadRequest{}
 }
 
-/*DeleteConversationsCallParticipantConsultBadRequest handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteConversationsCallParticipantConsultBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult bad request response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult bad request response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult bad request response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult bad request response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult bad request response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationsCallParticipantConsultBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteConversationsCallParticipantConsultUnauthorized() *DeleteConversat
 	return &DeleteConversationsCallParticipantConsultUnauthorized{}
 }
 
-/*DeleteConversationsCallParticipantConsultUnauthorized handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteConversationsCallParticipantConsultUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult unauthorized response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult unauthorized response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult unauthorized response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult unauthorized response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult unauthorized response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationsCallParticipantConsultUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteConversationsCallParticipantConsultForbidden() *DeleteConversation
 	return &DeleteConversationsCallParticipantConsultForbidden{}
 }
 
-/*DeleteConversationsCallParticipantConsultForbidden handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteConversationsCallParticipantConsultForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult forbidden response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult forbidden response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult forbidden response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult forbidden response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult forbidden response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationsCallParticipantConsultForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteConversationsCallParticipantConsultNotFound() *DeleteConversations
 	return &DeleteConversationsCallParticipantConsultNotFound{}
 }
 
-/*DeleteConversationsCallParticipantConsultNotFound handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteConversationsCallParticipantConsultNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult not found response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult not found response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult not found response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult not found response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult not found response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationsCallParticipantConsultNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteConversationsCallParticipantConsultRequestTimeout() *DeleteConvers
 	return &DeleteConversationsCallParticipantConsultRequestTimeout{}
 }
 
-/*DeleteConversationsCallParticipantConsultRequestTimeout handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteConversationsCallParticipantConsultRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult request timeout response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult request timeout response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult request timeout response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult request timeout response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult request timeout response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationsCallParticipantConsultRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteConversationsCallParticipantConsultRequestEntityTooLarge() *Delete
 	return &DeleteConversationsCallParticipantConsultRequestEntityTooLarge{}
 }
 
-/*DeleteConversationsCallParticipantConsultRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteConversationsCallParticipantConsultRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult request entity too large response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult request entity too large response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult request entity too large response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult request entity too large response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult request entity too large response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationsCallParticipantConsultRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteConversationsCallParticipantConsultUnsupportedMediaType() *DeleteC
 	return &DeleteConversationsCallParticipantConsultUnsupportedMediaType{}
 }
 
-/*DeleteConversationsCallParticipantConsultUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteConversationsCallParticipantConsultUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult unsupported media type response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult unsupported media type response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult unsupported media type response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult unsupported media type response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult unsupported media type response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationsCallParticipantConsultUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteConversationsCallParticipantConsultTooManyRequests() *DeleteConver
 	return &DeleteConversationsCallParticipantConsultTooManyRequests{}
 }
 
-/*DeleteConversationsCallParticipantConsultTooManyRequests handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteConversationsCallParticipantConsultTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult too many requests response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult too many requests response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult too many requests response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations call participant consult too many requests response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations call participant consult too many requests response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationsCallParticipantConsultTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteConversationsCallParticipantConsultInternalServerError() *DeleteCo
 	return &DeleteConversationsCallParticipantConsultInternalServerError{}
 }
 
-/*DeleteConversationsCallParticipantConsultInternalServerError handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteConversationsCallParticipantConsultInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult internal server error response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult internal server error response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult internal server error response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations call participant consult internal server error response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations call participant consult internal server error response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationsCallParticipantConsultInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteConversationsCallParticipantConsultServiceUnavailable() *DeleteCon
 	return &DeleteConversationsCallParticipantConsultServiceUnavailable{}
 }
 
-/*DeleteConversationsCallParticipantConsultServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteConversationsCallParticipantConsultServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult service unavailable response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult service unavailable response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult service unavailable response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations call participant consult service unavailable response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations call participant consult service unavailable response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationsCallParticipantConsultServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteConversationsCallParticipantConsultGatewayTimeout() *DeleteConvers
 	return &DeleteConversationsCallParticipantConsultGatewayTimeout{}
 }
 
-/*DeleteConversationsCallParticipantConsultGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationsCallParticipantConsultGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteConversationsCallParticipantConsultGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations call participant consult gateway timeout response has a 2xx status code
+func (o *DeleteConversationsCallParticipantConsultGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations call participant consult gateway timeout response has a 3xx status code
+func (o *DeleteConversationsCallParticipantConsultGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations call participant consult gateway timeout response has a 4xx status code
+func (o *DeleteConversationsCallParticipantConsultGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations call participant consult gateway timeout response has a 5xx status code
+func (o *DeleteConversationsCallParticipantConsultGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations call participant consult gateway timeout response a status code equal to that given
+func (o *DeleteConversationsCallParticipantConsultGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationsCallParticipantConsultGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationsCallParticipantConsultGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/calls/{conversationId}/participants/{participantId}/consult][%d] deleteConversationsCallParticipantConsultGatewayTimeout  %+v", 504, o.Payload)
 }
 

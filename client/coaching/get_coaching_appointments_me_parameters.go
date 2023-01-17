@@ -17,124 +17,153 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetCoachingAppointmentsMeParams creates a new GetCoachingAppointmentsMeParams object
-// with the default values initialized.
+// NewGetCoachingAppointmentsMeParams creates a new GetCoachingAppointmentsMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCoachingAppointmentsMeParams() *GetCoachingAppointmentsMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetCoachingAppointmentsMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCoachingAppointmentsMeParamsWithTimeout creates a new GetCoachingAppointmentsMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCoachingAppointmentsMeParamsWithTimeout(timeout time.Duration) *GetCoachingAppointmentsMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetCoachingAppointmentsMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCoachingAppointmentsMeParamsWithContext creates a new GetCoachingAppointmentsMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCoachingAppointmentsMeParamsWithContext(ctx context.Context) *GetCoachingAppointmentsMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetCoachingAppointmentsMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetCoachingAppointmentsMeParamsWithHTTPClient creates a new GetCoachingAppointmentsMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCoachingAppointmentsMeParamsWithHTTPClient(client *http.Client) *GetCoachingAppointmentsMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetCoachingAppointmentsMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetCoachingAppointmentsMeParams contains all the parameters to send to the API endpoint
-for the get coaching appointments me operation typically these are written to a http.Request
+/*
+GetCoachingAppointmentsMeParams contains all the parameters to send to the API endpoint
+
+	for the get coaching appointments me operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCoachingAppointmentsMeParams struct {
 
-	/*CompletionInterval
-	  Appointment completion start and end to filter by. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	/* CompletionInterval.
 
+	   Appointment completion start and end to filter by. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+
+	   Format: interval
 	*/
 	CompletionInterval *string
-	/*FacilitatorIds
-	  The facilitator IDs for which to retrieve appointments
 
+	/* FacilitatorIds.
+
+	   The facilitator IDs for which to retrieve appointments
 	*/
 	FacilitatorIds []string
-	/*Interval
-	  Interval to filter data by. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 
+	/* Interval.
+
+	   Interval to filter data by. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+
+	   Format: interval
 	*/
 	Interval *string
-	/*IntervalCondition
-	  Filter condition for interval
 
+	/* IntervalCondition.
+
+	   Filter condition for interval
 	*/
 	IntervalCondition *string
-	/*Overdue
-	  Overdue status to filter by
 
+	/* Overdue.
+
+	   Overdue status to filter by
 	*/
 	Overdue *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*Relationships
-	  Relationships to filter by
 
+	/* Relationships.
+
+	   Relationships to filter by
 	*/
 	Relationships []string
-	/*SortOrder
-	  Sort (by due date) either Asc or Desc
 
+	/* SortOrder.
+
+	   Sort (by due date) either Asc or Desc
 	*/
 	SortOrder *string
-	/*Statuses
-	  Appointment Statuses to filter by
 
+	/* Statuses.
+
+	   Appointment Statuses to filter by
 	*/
 	Statuses []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get coaching appointments me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCoachingAppointmentsMeParams) WithDefaults() *GetCoachingAppointmentsMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get coaching appointments me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCoachingAppointmentsMeParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetCoachingAppointmentsMeParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get coaching appointments me params
@@ -292,140 +321,207 @@ func (o *GetCoachingAppointmentsMeParams) WriteToRequest(r runtime.ClientRequest
 
 		// query param completionInterval
 		var qrCompletionInterval string
+
 		if o.CompletionInterval != nil {
 			qrCompletionInterval = *o.CompletionInterval
 		}
 		qCompletionInterval := qrCompletionInterval
 		if qCompletionInterval != "" {
+
 			if err := r.SetQueryParam("completionInterval", qCompletionInterval); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesFacilitatorIds := o.FacilitatorIds
+	if o.FacilitatorIds != nil {
 
-	joinedFacilitatorIds := swag.JoinByFormat(valuesFacilitatorIds, "multi")
-	// query array param facilitatorIds
-	if err := r.SetQueryParam("facilitatorIds", joinedFacilitatorIds...); err != nil {
-		return err
+		// binding items for facilitatorIds
+		joinedFacilitatorIds := o.bindParamFacilitatorIds(reg)
+
+		// query array param facilitatorIds
+		if err := r.SetQueryParam("facilitatorIds", joinedFacilitatorIds...); err != nil {
+			return err
+		}
 	}
 
 	if o.Interval != nil {
 
 		// query param interval
 		var qrInterval string
+
 		if o.Interval != nil {
 			qrInterval = *o.Interval
 		}
 		qInterval := qrInterval
 		if qInterval != "" {
+
 			if err := r.SetQueryParam("interval", qInterval); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IntervalCondition != nil {
 
 		// query param intervalCondition
 		var qrIntervalCondition string
+
 		if o.IntervalCondition != nil {
 			qrIntervalCondition = *o.IntervalCondition
 		}
 		qIntervalCondition := qrIntervalCondition
 		if qIntervalCondition != "" {
+
 			if err := r.SetQueryParam("intervalCondition", qIntervalCondition); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Overdue != nil {
 
 		// query param overdue
 		var qrOverdue string
+
 		if o.Overdue != nil {
 			qrOverdue = *o.Overdue
 		}
 		qOverdue := qrOverdue
 		if qOverdue != "" {
+
 			if err := r.SetQueryParam("overdue", qOverdue); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesRelationships := o.Relationships
+	if o.Relationships != nil {
 
-	joinedRelationships := swag.JoinByFormat(valuesRelationships, "multi")
-	// query array param relationships
-	if err := r.SetQueryParam("relationships", joinedRelationships...); err != nil {
-		return err
+		// binding items for relationships
+		joinedRelationships := o.bindParamRelationships(reg)
+
+		// query array param relationships
+		if err := r.SetQueryParam("relationships", joinedRelationships...); err != nil {
+			return err
+		}
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesStatuses := o.Statuses
+	if o.Statuses != nil {
 
-	joinedStatuses := swag.JoinByFormat(valuesStatuses, "multi")
-	// query array param statuses
-	if err := r.SetQueryParam("statuses", joinedStatuses...); err != nil {
-		return err
+		// binding items for statuses
+		joinedStatuses := o.bindParamStatuses(reg)
+
+		// query array param statuses
+		if err := r.SetQueryParam("statuses", joinedStatuses...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetCoachingAppointmentsMe binds the parameter facilitatorIds
+func (o *GetCoachingAppointmentsMeParams) bindParamFacilitatorIds(formats strfmt.Registry) []string {
+	facilitatorIdsIR := o.FacilitatorIds
+
+	var facilitatorIdsIC []string
+	for _, facilitatorIdsIIR := range facilitatorIdsIR { // explode []string
+
+		facilitatorIdsIIV := facilitatorIdsIIR // string as string
+		facilitatorIdsIC = append(facilitatorIdsIC, facilitatorIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	facilitatorIdsIS := swag.JoinByFormat(facilitatorIdsIC, "multi")
+
+	return facilitatorIdsIS
+}
+
+// bindParamGetCoachingAppointmentsMe binds the parameter relationships
+func (o *GetCoachingAppointmentsMeParams) bindParamRelationships(formats strfmt.Registry) []string {
+	relationshipsIR := o.Relationships
+
+	var relationshipsIC []string
+	for _, relationshipsIIR := range relationshipsIR { // explode []string
+
+		relationshipsIIV := relationshipsIIR // string as string
+		relationshipsIC = append(relationshipsIC, relationshipsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	relationshipsIS := swag.JoinByFormat(relationshipsIC, "multi")
+
+	return relationshipsIS
+}
+
+// bindParamGetCoachingAppointmentsMe binds the parameter statuses
+func (o *GetCoachingAppointmentsMeParams) bindParamStatuses(formats strfmt.Registry) []string {
+	statusesIR := o.Statuses
+
+	var statusesIC []string
+	for _, statusesIIR := range statusesIR { // explode []string
+
+		statusesIIV := statusesIIR // string as string
+		statusesIC = append(statusesIC, statusesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	statusesIS := swag.JoinByFormat(statusesIC, "multi")
+
+	return statusesIS
 }

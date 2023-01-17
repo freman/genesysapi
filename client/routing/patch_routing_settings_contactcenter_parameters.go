@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchRoutingSettingsContactcenterParams creates a new PatchRoutingSettingsContactcenterParams object
-// with the default values initialized.
+// NewPatchRoutingSettingsContactcenterParams creates a new PatchRoutingSettingsContactcenterParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchRoutingSettingsContactcenterParams() *PatchRoutingSettingsContactcenterParams {
-	var ()
 	return &PatchRoutingSettingsContactcenterParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchRoutingSettingsContactcenterParamsWithTimeout creates a new PatchRoutingSettingsContactcenterParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchRoutingSettingsContactcenterParamsWithTimeout(timeout time.Duration) *PatchRoutingSettingsContactcenterParams {
-	var ()
 	return &PatchRoutingSettingsContactcenterParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchRoutingSettingsContactcenterParamsWithContext creates a new PatchRoutingSettingsContactcenterParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchRoutingSettingsContactcenterParamsWithContext(ctx context.Context) *PatchRoutingSettingsContactcenterParams {
-	var ()
 	return &PatchRoutingSettingsContactcenterParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchRoutingSettingsContactcenterParamsWithHTTPClient creates a new PatchRoutingSettingsContactcenterParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchRoutingSettingsContactcenterParamsWithHTTPClient(client *http.Client) *PatchRoutingSettingsContactcenterParams {
-	var ()
 	return &PatchRoutingSettingsContactcenterParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchRoutingSettingsContactcenterParams contains all the parameters to send to the API endpoint
-for the patch routing settings contactcenter operation typically these are written to a http.Request
+/*
+PatchRoutingSettingsContactcenterParams contains all the parameters to send to the API endpoint
+
+	for the patch routing settings contactcenter operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchRoutingSettingsContactcenterParams struct {
 
-	/*Body
-	  Contact Center Settings
+	/* Body.
 
+	   Contact Center Settings
 	*/
 	Body *models.ContactCenterSettings
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch routing settings contactcenter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingSettingsContactcenterParams) WithDefaults() *PatchRoutingSettingsContactcenterParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch routing settings contactcenter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingSettingsContactcenterParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch routing settings contactcenter params
@@ -124,7 +140,6 @@ func (o *PatchRoutingSettingsContactcenterParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

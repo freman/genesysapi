@@ -95,7 +95,6 @@ func (o *GetUserPresenceReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserPresenceOK() *GetUserPresenceOK {
 	return &GetUserPresenceOK{}
 }
 
-/*GetUserPresenceOK handles this case with default header values.
+/*
+GetUserPresenceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserPresenceOK struct {
 	Payload *models.UserPresence
 }
 
+// IsSuccess returns true when this get user presence o k response has a 2xx status code
+func (o *GetUserPresenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user presence o k response has a 3xx status code
+func (o *GetUserPresenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence o k response has a 4xx status code
+func (o *GetUserPresenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presence o k response has a 5xx status code
+func (o *GetUserPresenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence o k response a status code equal to that given
+func (o *GetUserPresenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserPresenceOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserPresenceOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserPresenceBadRequest() *GetUserPresenceBadRequest {
 	return &GetUserPresenceBadRequest{}
 }
 
-/*GetUserPresenceBadRequest handles this case with default header values.
+/*
+GetUserPresenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserPresenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence bad request response has a 2xx status code
+func (o *GetUserPresenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence bad request response has a 3xx status code
+func (o *GetUserPresenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence bad request response has a 4xx status code
+func (o *GetUserPresenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence bad request response has a 5xx status code
+func (o *GetUserPresenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence bad request response a status code equal to that given
+func (o *GetUserPresenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserPresenceBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserPresenceBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserPresenceUnauthorized() *GetUserPresenceUnauthorized {
 	return &GetUserPresenceUnauthorized{}
 }
 
-/*GetUserPresenceUnauthorized handles this case with default header values.
+/*
+GetUserPresenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserPresenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence unauthorized response has a 2xx status code
+func (o *GetUserPresenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence unauthorized response has a 3xx status code
+func (o *GetUserPresenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence unauthorized response has a 4xx status code
+func (o *GetUserPresenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence unauthorized response has a 5xx status code
+func (o *GetUserPresenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence unauthorized response a status code equal to that given
+func (o *GetUserPresenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserPresenceUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserPresenceUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserPresenceForbidden() *GetUserPresenceForbidden {
 	return &GetUserPresenceForbidden{}
 }
 
-/*GetUserPresenceForbidden handles this case with default header values.
+/*
+GetUserPresenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserPresenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence forbidden response has a 2xx status code
+func (o *GetUserPresenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence forbidden response has a 3xx status code
+func (o *GetUserPresenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence forbidden response has a 4xx status code
+func (o *GetUserPresenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence forbidden response has a 5xx status code
+func (o *GetUserPresenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence forbidden response a status code equal to that given
+func (o *GetUserPresenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserPresenceForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserPresenceForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserPresenceNotFound() *GetUserPresenceNotFound {
 	return &GetUserPresenceNotFound{}
 }
 
-/*GetUserPresenceNotFound handles this case with default header values.
+/*
+GetUserPresenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserPresenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence not found response has a 2xx status code
+func (o *GetUserPresenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence not found response has a 3xx status code
+func (o *GetUserPresenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence not found response has a 4xx status code
+func (o *GetUserPresenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence not found response has a 5xx status code
+func (o *GetUserPresenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence not found response a status code equal to that given
+func (o *GetUserPresenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserPresenceNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserPresenceNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserPresenceRequestTimeout() *GetUserPresenceRequestTimeout {
 	return &GetUserPresenceRequestTimeout{}
 }
 
-/*GetUserPresenceRequestTimeout handles this case with default header values.
+/*
+GetUserPresenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserPresenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence request timeout response has a 2xx status code
+func (o *GetUserPresenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence request timeout response has a 3xx status code
+func (o *GetUserPresenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence request timeout response has a 4xx status code
+func (o *GetUserPresenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence request timeout response has a 5xx status code
+func (o *GetUserPresenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence request timeout response a status code equal to that given
+func (o *GetUserPresenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserPresenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserPresenceRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserPresenceRequestEntityTooLarge() *GetUserPresenceRequestEntityTooL
 	return &GetUserPresenceRequestEntityTooLarge{}
 }
 
-/*GetUserPresenceRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserPresenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserPresenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence request entity too large response has a 2xx status code
+func (o *GetUserPresenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence request entity too large response has a 3xx status code
+func (o *GetUserPresenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence request entity too large response has a 4xx status code
+func (o *GetUserPresenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence request entity too large response has a 5xx status code
+func (o *GetUserPresenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence request entity too large response a status code equal to that given
+func (o *GetUserPresenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserPresenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserPresenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserPresenceUnsupportedMediaType() *GetUserPresenceUnsupportedMediaTy
 	return &GetUserPresenceUnsupportedMediaType{}
 }
 
-/*GetUserPresenceUnsupportedMediaType handles this case with default header values.
+/*
+GetUserPresenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserPresenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence unsupported media type response has a 2xx status code
+func (o *GetUserPresenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence unsupported media type response has a 3xx status code
+func (o *GetUserPresenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence unsupported media type response has a 4xx status code
+func (o *GetUserPresenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence unsupported media type response has a 5xx status code
+func (o *GetUserPresenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence unsupported media type response a status code equal to that given
+func (o *GetUserPresenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserPresenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserPresenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserPresenceTooManyRequests() *GetUserPresenceTooManyRequests {
 	return &GetUserPresenceTooManyRequests{}
 }
 
-/*GetUserPresenceTooManyRequests handles this case with default header values.
+/*
+GetUserPresenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserPresenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence too many requests response has a 2xx status code
+func (o *GetUserPresenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence too many requests response has a 3xx status code
+func (o *GetUserPresenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence too many requests response has a 4xx status code
+func (o *GetUserPresenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presence too many requests response has a 5xx status code
+func (o *GetUserPresenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presence too many requests response a status code equal to that given
+func (o *GetUserPresenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserPresenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserPresenceTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserPresenceInternalServerError() *GetUserPresenceInternalServerError
 	return &GetUserPresenceInternalServerError{}
 }
 
-/*GetUserPresenceInternalServerError handles this case with default header values.
+/*
+GetUserPresenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserPresenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence internal server error response has a 2xx status code
+func (o *GetUserPresenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence internal server error response has a 3xx status code
+func (o *GetUserPresenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence internal server error response has a 4xx status code
+func (o *GetUserPresenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presence internal server error response has a 5xx status code
+func (o *GetUserPresenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user presence internal server error response a status code equal to that given
+func (o *GetUserPresenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserPresenceInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserPresenceInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserPresenceServiceUnavailable() *GetUserPresenceServiceUnavailable {
 	return &GetUserPresenceServiceUnavailable{}
 }
 
-/*GetUserPresenceServiceUnavailable handles this case with default header values.
+/*
+GetUserPresenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserPresenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence service unavailable response has a 2xx status code
+func (o *GetUserPresenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence service unavailable response has a 3xx status code
+func (o *GetUserPresenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence service unavailable response has a 4xx status code
+func (o *GetUserPresenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presence service unavailable response has a 5xx status code
+func (o *GetUserPresenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user presence service unavailable response a status code equal to that given
+func (o *GetUserPresenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserPresenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserPresenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserPresenceGatewayTimeout() *GetUserPresenceGatewayTimeout {
 	return &GetUserPresenceGatewayTimeout{}
 }
 
-/*GetUserPresenceGatewayTimeout handles this case with default header values.
+/*
+GetUserPresenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserPresenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presence gateway timeout response has a 2xx status code
+func (o *GetUserPresenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presence gateway timeout response has a 3xx status code
+func (o *GetUserPresenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presence gateway timeout response has a 4xx status code
+func (o *GetUserPresenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presence gateway timeout response has a 5xx status code
+func (o *GetUserPresenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user presence gateway timeout response a status code equal to that given
+func (o *GetUserPresenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserPresenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserPresenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/{sourceId}][%d] getUserPresenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

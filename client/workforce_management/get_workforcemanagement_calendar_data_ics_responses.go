@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementCalendarDataIcsReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementCalendarDataIcsOK() *GetWorkforcemanagementCalenda
 	return &GetWorkforcemanagementCalendarDataIcsOK{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsOK handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementCalendarDataIcsOK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics o k response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics o k response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics o k response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics o k response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics o k response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetWorkforcemanagementCalendarDataIcsBadRequest() *GetWorkforcemanagemen
 	return &GetWorkforcemanagementCalendarDataIcsBadRequest{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetWorkforcemanagementCalendarDataIcsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics bad request response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics bad request response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics bad request response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics bad request response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics bad request response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetWorkforcemanagementCalendarDataIcsUnauthorized() *GetWorkforcemanagem
 	return &GetWorkforcemanagementCalendarDataIcsUnauthorized{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetWorkforcemanagementCalendarDataIcsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetWorkforcemanagementCalendarDataIcsForbidden() *GetWorkforcemanagement
 	return &GetWorkforcemanagementCalendarDataIcsForbidden{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetWorkforcemanagementCalendarDataIcsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetWorkforcemanagementCalendarDataIcsNotFound() *GetWorkforcemanagementC
 	return &GetWorkforcemanagementCalendarDataIcsNotFound{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetWorkforcemanagementCalendarDataIcsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics not found response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics not found response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics not found response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics not found response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics not found response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetWorkforcemanagementCalendarDataIcsRequestTimeout() *GetWorkforcemanag
 	return &GetWorkforcemanagementCalendarDataIcsRequestTimeout{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetWorkforcemanagementCalendarDataIcsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge() *GetWorkfor
 	return &GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetWorkforcemanagementCalendarDataIcsUnsupportedMediaType() *GetWorkforc
 	return &GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetWorkforcemanagementCalendarDataIcsTooManyRequests() *GetWorkforcemana
 	return &GetWorkforcemanagementCalendarDataIcsTooManyRequests{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetWorkforcemanagementCalendarDataIcsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetWorkforcemanagementCalendarDataIcsInternalServerError() *GetWorkforce
 	return &GetWorkforcemanagementCalendarDataIcsInternalServerError{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetWorkforcemanagementCalendarDataIcsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetWorkforcemanagementCalendarDataIcsServiceUnavailable() *GetWorkforcem
 	return &GetWorkforcemanagementCalendarDataIcsServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetWorkforcemanagementCalendarDataIcsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetWorkforcemanagementCalendarDataIcsGatewayTimeout() *GetWorkforcemanag
 	return &GetWorkforcemanagementCalendarDataIcsGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementCalendarDataIcsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetWorkforcemanagementCalendarDataIcsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement calendar data ics gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement calendar data ics gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement calendar data ics gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement calendar data ics gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementCalendarDataIcsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement calendar data ics gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementCalendarDataIcsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementCalendarDataIcsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementCalendarDataIcsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/calendar/data/ics][%d] getWorkforcemanagementCalendarDataIcsGatewayTimeout  %+v", 504, o.Payload)
 }
 

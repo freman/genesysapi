@@ -95,7 +95,6 @@ func (o *PostDocumentationGknSearchReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostDocumentationGknSearchOK() *PostDocumentationGknSearchOK {
 	return &PostDocumentationGknSearchOK{}
 }
 
-/*PostDocumentationGknSearchOK handles this case with default header values.
+/*
+PostDocumentationGknSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostDocumentationGknSearchOK struct {
 	Payload *models.GKNDocumentationSearchResponse
 }
 
+// IsSuccess returns true when this post documentation gkn search o k response has a 2xx status code
+func (o *PostDocumentationGknSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post documentation gkn search o k response has a 3xx status code
+func (o *PostDocumentationGknSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search o k response has a 4xx status code
+func (o *PostDocumentationGknSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation gkn search o k response has a 5xx status code
+func (o *PostDocumentationGknSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search o k response a status code equal to that given
+func (o *PostDocumentationGknSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostDocumentationGknSearchOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostDocumentationGknSearchBadRequest() *PostDocumentationGknSearchBadReq
 	return &PostDocumentationGknSearchBadRequest{}
 }
 
-/*PostDocumentationGknSearchBadRequest handles this case with default header values.
+/*
+PostDocumentationGknSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostDocumentationGknSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search bad request response has a 2xx status code
+func (o *PostDocumentationGknSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search bad request response has a 3xx status code
+func (o *PostDocumentationGknSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search bad request response has a 4xx status code
+func (o *PostDocumentationGknSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search bad request response has a 5xx status code
+func (o *PostDocumentationGknSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search bad request response a status code equal to that given
+func (o *PostDocumentationGknSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostDocumentationGknSearchBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostDocumentationGknSearchUnauthorized() *PostDocumentationGknSearchUnau
 	return &PostDocumentationGknSearchUnauthorized{}
 }
 
-/*PostDocumentationGknSearchUnauthorized handles this case with default header values.
+/*
+PostDocumentationGknSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostDocumentationGknSearchUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search unauthorized response has a 2xx status code
+func (o *PostDocumentationGknSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search unauthorized response has a 3xx status code
+func (o *PostDocumentationGknSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search unauthorized response has a 4xx status code
+func (o *PostDocumentationGknSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search unauthorized response has a 5xx status code
+func (o *PostDocumentationGknSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search unauthorized response a status code equal to that given
+func (o *PostDocumentationGknSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostDocumentationGknSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostDocumentationGknSearchForbidden() *PostDocumentationGknSearchForbidd
 	return &PostDocumentationGknSearchForbidden{}
 }
 
-/*PostDocumentationGknSearchForbidden handles this case with default header values.
+/*
+PostDocumentationGknSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostDocumentationGknSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search forbidden response has a 2xx status code
+func (o *PostDocumentationGknSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search forbidden response has a 3xx status code
+func (o *PostDocumentationGknSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search forbidden response has a 4xx status code
+func (o *PostDocumentationGknSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search forbidden response has a 5xx status code
+func (o *PostDocumentationGknSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search forbidden response a status code equal to that given
+func (o *PostDocumentationGknSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostDocumentationGknSearchForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostDocumentationGknSearchNotFound() *PostDocumentationGknSearchNotFound
 	return &PostDocumentationGknSearchNotFound{}
 }
 
-/*PostDocumentationGknSearchNotFound handles this case with default header values.
+/*
+PostDocumentationGknSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostDocumentationGknSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search not found response has a 2xx status code
+func (o *PostDocumentationGknSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search not found response has a 3xx status code
+func (o *PostDocumentationGknSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search not found response has a 4xx status code
+func (o *PostDocumentationGknSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search not found response has a 5xx status code
+func (o *PostDocumentationGknSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search not found response a status code equal to that given
+func (o *PostDocumentationGknSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostDocumentationGknSearchNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostDocumentationGknSearchRequestTimeout() *PostDocumentationGknSearchRe
 	return &PostDocumentationGknSearchRequestTimeout{}
 }
 
-/*PostDocumentationGknSearchRequestTimeout handles this case with default header values.
+/*
+PostDocumentationGknSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostDocumentationGknSearchRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search request timeout response has a 2xx status code
+func (o *PostDocumentationGknSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search request timeout response has a 3xx status code
+func (o *PostDocumentationGknSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search request timeout response has a 4xx status code
+func (o *PostDocumentationGknSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search request timeout response has a 5xx status code
+func (o *PostDocumentationGknSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search request timeout response a status code equal to that given
+func (o *PostDocumentationGknSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostDocumentationGknSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostDocumentationGknSearchRequestEntityTooLarge() *PostDocumentationGknS
 	return &PostDocumentationGknSearchRequestEntityTooLarge{}
 }
 
-/*PostDocumentationGknSearchRequestEntityTooLarge handles this case with default header values.
+/*
+PostDocumentationGknSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostDocumentationGknSearchRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search request entity too large response has a 2xx status code
+func (o *PostDocumentationGknSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search request entity too large response has a 3xx status code
+func (o *PostDocumentationGknSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search request entity too large response has a 4xx status code
+func (o *PostDocumentationGknSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search request entity too large response has a 5xx status code
+func (o *PostDocumentationGknSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search request entity too large response a status code equal to that given
+func (o *PostDocumentationGknSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostDocumentationGknSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostDocumentationGknSearchUnsupportedMediaType() *PostDocumentationGknSe
 	return &PostDocumentationGknSearchUnsupportedMediaType{}
 }
 
-/*PostDocumentationGknSearchUnsupportedMediaType handles this case with default header values.
+/*
+PostDocumentationGknSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostDocumentationGknSearchUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search unsupported media type response has a 2xx status code
+func (o *PostDocumentationGknSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search unsupported media type response has a 3xx status code
+func (o *PostDocumentationGknSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search unsupported media type response has a 4xx status code
+func (o *PostDocumentationGknSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search unsupported media type response has a 5xx status code
+func (o *PostDocumentationGknSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search unsupported media type response a status code equal to that given
+func (o *PostDocumentationGknSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostDocumentationGknSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostDocumentationGknSearchTooManyRequests() *PostDocumentationGknSearchT
 	return &PostDocumentationGknSearchTooManyRequests{}
 }
 
-/*PostDocumentationGknSearchTooManyRequests handles this case with default header values.
+/*
+PostDocumentationGknSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostDocumentationGknSearchTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search too many requests response has a 2xx status code
+func (o *PostDocumentationGknSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search too many requests response has a 3xx status code
+func (o *PostDocumentationGknSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search too many requests response has a 4xx status code
+func (o *PostDocumentationGknSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation gkn search too many requests response has a 5xx status code
+func (o *PostDocumentationGknSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation gkn search too many requests response a status code equal to that given
+func (o *PostDocumentationGknSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostDocumentationGknSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostDocumentationGknSearchInternalServerError() *PostDocumentationGknSea
 	return &PostDocumentationGknSearchInternalServerError{}
 }
 
-/*PostDocumentationGknSearchInternalServerError handles this case with default header values.
+/*
+PostDocumentationGknSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostDocumentationGknSearchInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search internal server error response has a 2xx status code
+func (o *PostDocumentationGknSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search internal server error response has a 3xx status code
+func (o *PostDocumentationGknSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search internal server error response has a 4xx status code
+func (o *PostDocumentationGknSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation gkn search internal server error response has a 5xx status code
+func (o *PostDocumentationGknSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post documentation gkn search internal server error response a status code equal to that given
+func (o *PostDocumentationGknSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostDocumentationGknSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostDocumentationGknSearchServiceUnavailable() *PostDocumentationGknSear
 	return &PostDocumentationGknSearchServiceUnavailable{}
 }
 
-/*PostDocumentationGknSearchServiceUnavailable handles this case with default header values.
+/*
+PostDocumentationGknSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostDocumentationGknSearchServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search service unavailable response has a 2xx status code
+func (o *PostDocumentationGknSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search service unavailable response has a 3xx status code
+func (o *PostDocumentationGknSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search service unavailable response has a 4xx status code
+func (o *PostDocumentationGknSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation gkn search service unavailable response has a 5xx status code
+func (o *PostDocumentationGknSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post documentation gkn search service unavailable response a status code equal to that given
+func (o *PostDocumentationGknSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostDocumentationGknSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostDocumentationGknSearchGatewayTimeout() *PostDocumentationGknSearchGa
 	return &PostDocumentationGknSearchGatewayTimeout{}
 }
 
-/*PostDocumentationGknSearchGatewayTimeout handles this case with default header values.
+/*
+PostDocumentationGknSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostDocumentationGknSearchGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation gkn search gateway timeout response has a 2xx status code
+func (o *PostDocumentationGknSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation gkn search gateway timeout response has a 3xx status code
+func (o *PostDocumentationGknSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation gkn search gateway timeout response has a 4xx status code
+func (o *PostDocumentationGknSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation gkn search gateway timeout response has a 5xx status code
+func (o *PostDocumentationGknSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post documentation gkn search gateway timeout response a status code equal to that given
+func (o *PostDocumentationGknSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostDocumentationGknSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostDocumentationGknSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/gkn/search][%d] postDocumentationGknSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

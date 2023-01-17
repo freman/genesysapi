@@ -95,7 +95,6 @@ func (o *PostQualityConversationEvaluationsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostQualityConversationEvaluationsOK() *PostQualityConversationEvaluatio
 	return &PostQualityConversationEvaluationsOK{}
 }
 
-/*PostQualityConversationEvaluationsOK handles this case with default header values.
+/*
+PostQualityConversationEvaluationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostQualityConversationEvaluationsOK struct {
 	Payload *models.Evaluation
 }
 
+// IsSuccess returns true when this post quality conversation evaluations o k response has a 2xx status code
+func (o *PostQualityConversationEvaluationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post quality conversation evaluations o k response has a 3xx status code
+func (o *PostQualityConversationEvaluationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations o k response has a 4xx status code
+func (o *PostQualityConversationEvaluationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality conversation evaluations o k response has a 5xx status code
+func (o *PostQualityConversationEvaluationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations o k response a status code equal to that given
+func (o *PostQualityConversationEvaluationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostQualityConversationEvaluationsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostQualityConversationEvaluationsBadRequest() *PostQualityConversationE
 	return &PostQualityConversationEvaluationsBadRequest{}
 }
 
-/*PostQualityConversationEvaluationsBadRequest handles this case with default header values.
+/*
+PostQualityConversationEvaluationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostQualityConversationEvaluationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations bad request response has a 2xx status code
+func (o *PostQualityConversationEvaluationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations bad request response has a 3xx status code
+func (o *PostQualityConversationEvaluationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations bad request response has a 4xx status code
+func (o *PostQualityConversationEvaluationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations bad request response has a 5xx status code
+func (o *PostQualityConversationEvaluationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations bad request response a status code equal to that given
+func (o *PostQualityConversationEvaluationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostQualityConversationEvaluationsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostQualityConversationEvaluationsUnauthorized() *PostQualityConversatio
 	return &PostQualityConversationEvaluationsUnauthorized{}
 }
 
-/*PostQualityConversationEvaluationsUnauthorized handles this case with default header values.
+/*
+PostQualityConversationEvaluationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostQualityConversationEvaluationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations unauthorized response has a 2xx status code
+func (o *PostQualityConversationEvaluationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations unauthorized response has a 3xx status code
+func (o *PostQualityConversationEvaluationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations unauthorized response has a 4xx status code
+func (o *PostQualityConversationEvaluationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations unauthorized response has a 5xx status code
+func (o *PostQualityConversationEvaluationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations unauthorized response a status code equal to that given
+func (o *PostQualityConversationEvaluationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostQualityConversationEvaluationsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostQualityConversationEvaluationsForbidden() *PostQualityConversationEv
 	return &PostQualityConversationEvaluationsForbidden{}
 }
 
-/*PostQualityConversationEvaluationsForbidden handles this case with default header values.
+/*
+PostQualityConversationEvaluationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostQualityConversationEvaluationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations forbidden response has a 2xx status code
+func (o *PostQualityConversationEvaluationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations forbidden response has a 3xx status code
+func (o *PostQualityConversationEvaluationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations forbidden response has a 4xx status code
+func (o *PostQualityConversationEvaluationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations forbidden response has a 5xx status code
+func (o *PostQualityConversationEvaluationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations forbidden response a status code equal to that given
+func (o *PostQualityConversationEvaluationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostQualityConversationEvaluationsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostQualityConversationEvaluationsNotFound() *PostQualityConversationEva
 	return &PostQualityConversationEvaluationsNotFound{}
 }
 
-/*PostQualityConversationEvaluationsNotFound handles this case with default header values.
+/*
+PostQualityConversationEvaluationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostQualityConversationEvaluationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations not found response has a 2xx status code
+func (o *PostQualityConversationEvaluationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations not found response has a 3xx status code
+func (o *PostQualityConversationEvaluationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations not found response has a 4xx status code
+func (o *PostQualityConversationEvaluationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations not found response has a 5xx status code
+func (o *PostQualityConversationEvaluationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations not found response a status code equal to that given
+func (o *PostQualityConversationEvaluationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostQualityConversationEvaluationsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostQualityConversationEvaluationsRequestTimeout() *PostQualityConversat
 	return &PostQualityConversationEvaluationsRequestTimeout{}
 }
 
-/*PostQualityConversationEvaluationsRequestTimeout handles this case with default header values.
+/*
+PostQualityConversationEvaluationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostQualityConversationEvaluationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations request timeout response has a 2xx status code
+func (o *PostQualityConversationEvaluationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations request timeout response has a 3xx status code
+func (o *PostQualityConversationEvaluationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations request timeout response has a 4xx status code
+func (o *PostQualityConversationEvaluationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations request timeout response has a 5xx status code
+func (o *PostQualityConversationEvaluationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations request timeout response a status code equal to that given
+func (o *PostQualityConversationEvaluationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostQualityConversationEvaluationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostQualityConversationEvaluationsRequestEntityTooLarge() *PostQualityCo
 	return &PostQualityConversationEvaluationsRequestEntityTooLarge{}
 }
 
-/*PostQualityConversationEvaluationsRequestEntityTooLarge handles this case with default header values.
+/*
+PostQualityConversationEvaluationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostQualityConversationEvaluationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations request entity too large response has a 2xx status code
+func (o *PostQualityConversationEvaluationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations request entity too large response has a 3xx status code
+func (o *PostQualityConversationEvaluationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations request entity too large response has a 4xx status code
+func (o *PostQualityConversationEvaluationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations request entity too large response has a 5xx status code
+func (o *PostQualityConversationEvaluationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations request entity too large response a status code equal to that given
+func (o *PostQualityConversationEvaluationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostQualityConversationEvaluationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostQualityConversationEvaluationsUnsupportedMediaType() *PostQualityCon
 	return &PostQualityConversationEvaluationsUnsupportedMediaType{}
 }
 
-/*PostQualityConversationEvaluationsUnsupportedMediaType handles this case with default header values.
+/*
+PostQualityConversationEvaluationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostQualityConversationEvaluationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations unsupported media type response has a 2xx status code
+func (o *PostQualityConversationEvaluationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations unsupported media type response has a 3xx status code
+func (o *PostQualityConversationEvaluationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations unsupported media type response has a 4xx status code
+func (o *PostQualityConversationEvaluationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations unsupported media type response has a 5xx status code
+func (o *PostQualityConversationEvaluationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations unsupported media type response a status code equal to that given
+func (o *PostQualityConversationEvaluationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostQualityConversationEvaluationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostQualityConversationEvaluationsTooManyRequests() *PostQualityConversa
 	return &PostQualityConversationEvaluationsTooManyRequests{}
 }
 
-/*PostQualityConversationEvaluationsTooManyRequests handles this case with default header values.
+/*
+PostQualityConversationEvaluationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostQualityConversationEvaluationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations too many requests response has a 2xx status code
+func (o *PostQualityConversationEvaluationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations too many requests response has a 3xx status code
+func (o *PostQualityConversationEvaluationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations too many requests response has a 4xx status code
+func (o *PostQualityConversationEvaluationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality conversation evaluations too many requests response has a 5xx status code
+func (o *PostQualityConversationEvaluationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality conversation evaluations too many requests response a status code equal to that given
+func (o *PostQualityConversationEvaluationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostQualityConversationEvaluationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostQualityConversationEvaluationsInternalServerError() *PostQualityConv
 	return &PostQualityConversationEvaluationsInternalServerError{}
 }
 
-/*PostQualityConversationEvaluationsInternalServerError handles this case with default header values.
+/*
+PostQualityConversationEvaluationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostQualityConversationEvaluationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations internal server error response has a 2xx status code
+func (o *PostQualityConversationEvaluationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations internal server error response has a 3xx status code
+func (o *PostQualityConversationEvaluationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations internal server error response has a 4xx status code
+func (o *PostQualityConversationEvaluationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality conversation evaluations internal server error response has a 5xx status code
+func (o *PostQualityConversationEvaluationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post quality conversation evaluations internal server error response a status code equal to that given
+func (o *PostQualityConversationEvaluationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostQualityConversationEvaluationsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostQualityConversationEvaluationsServiceUnavailable() *PostQualityConve
 	return &PostQualityConversationEvaluationsServiceUnavailable{}
 }
 
-/*PostQualityConversationEvaluationsServiceUnavailable handles this case with default header values.
+/*
+PostQualityConversationEvaluationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostQualityConversationEvaluationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations service unavailable response has a 2xx status code
+func (o *PostQualityConversationEvaluationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations service unavailable response has a 3xx status code
+func (o *PostQualityConversationEvaluationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations service unavailable response has a 4xx status code
+func (o *PostQualityConversationEvaluationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality conversation evaluations service unavailable response has a 5xx status code
+func (o *PostQualityConversationEvaluationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post quality conversation evaluations service unavailable response a status code equal to that given
+func (o *PostQualityConversationEvaluationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostQualityConversationEvaluationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostQualityConversationEvaluationsGatewayTimeout() *PostQualityConversat
 	return &PostQualityConversationEvaluationsGatewayTimeout{}
 }
 
-/*PostQualityConversationEvaluationsGatewayTimeout handles this case with default header values.
+/*
+PostQualityConversationEvaluationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostQualityConversationEvaluationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality conversation evaluations gateway timeout response has a 2xx status code
+func (o *PostQualityConversationEvaluationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality conversation evaluations gateway timeout response has a 3xx status code
+func (o *PostQualityConversationEvaluationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality conversation evaluations gateway timeout response has a 4xx status code
+func (o *PostQualityConversationEvaluationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality conversation evaluations gateway timeout response has a 5xx status code
+func (o *PostQualityConversationEvaluationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post quality conversation evaluations gateway timeout response a status code equal to that given
+func (o *PostQualityConversationEvaluationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostQualityConversationEvaluationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostQualityConversationEvaluationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/conversations/{conversationId}/evaluations][%d] postQualityConversationEvaluationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

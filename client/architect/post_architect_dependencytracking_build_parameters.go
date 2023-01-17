@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostArchitectDependencytrackingBuildParams creates a new PostArchitectDependencytrackingBuildParams object
-// with the default values initialized.
+// NewPostArchitectDependencytrackingBuildParams creates a new PostArchitectDependencytrackingBuildParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostArchitectDependencytrackingBuildParams() *PostArchitectDependencytrackingBuildParams {
-
 	return &PostArchitectDependencytrackingBuildParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostArchitectDependencytrackingBuildParamsWithTimeout creates a new PostArchitectDependencytrackingBuildParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostArchitectDependencytrackingBuildParamsWithTimeout(timeout time.Duration) *PostArchitectDependencytrackingBuildParams {
-
 	return &PostArchitectDependencytrackingBuildParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostArchitectDependencytrackingBuildParamsWithContext creates a new PostArchitectDependencytrackingBuildParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostArchitectDependencytrackingBuildParamsWithContext(ctx context.Context) *PostArchitectDependencytrackingBuildParams {
-
 	return &PostArchitectDependencytrackingBuildParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostArchitectDependencytrackingBuildParamsWithHTTPClient creates a new PostArchitectDependencytrackingBuildParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostArchitectDependencytrackingBuildParamsWithHTTPClient(client *http.Client) *PostArchitectDependencytrackingBuildParams {
-
 	return &PostArchitectDependencytrackingBuildParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostArchitectDependencytrackingBuildParams contains all the parameters to send to the API endpoint
-for the post architect dependencytracking build operation typically these are written to a http.Request
+/*
+PostArchitectDependencytrackingBuildParams contains all the parameters to send to the API endpoint
+
+	for the post architect dependencytracking build operation.
+
+	Typically these are written to a http.Request.
 */
 type PostArchitectDependencytrackingBuildParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post architect dependencytracking build params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectDependencytrackingBuildParams) WithDefaults() *PostArchitectDependencytrackingBuildParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post architect dependencytracking build params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectDependencytrackingBuildParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post architect dependencytracking build params

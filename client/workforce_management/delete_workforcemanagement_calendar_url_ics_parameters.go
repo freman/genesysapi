@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWorkforcemanagementCalendarURLIcsParams creates a new DeleteWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized.
+// NewDeleteWorkforcemanagementCalendarURLIcsParams creates a new DeleteWorkforcemanagementCalendarURLIcsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWorkforcemanagementCalendarURLIcsParams() *DeleteWorkforcemanagementCalendarURLIcsParams {
-
 	return &DeleteWorkforcemanagementCalendarURLIcsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementCalendarURLIcsParamsWithTimeout creates a new DeleteWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWorkforcemanagementCalendarURLIcsParamsWithTimeout(timeout time.Duration) *DeleteWorkforcemanagementCalendarURLIcsParams {
-
 	return &DeleteWorkforcemanagementCalendarURLIcsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementCalendarURLIcsParamsWithContext creates a new DeleteWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWorkforcemanagementCalendarURLIcsParamsWithContext(ctx context.Context) *DeleteWorkforcemanagementCalendarURLIcsParams {
-
 	return &DeleteWorkforcemanagementCalendarURLIcsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWorkforcemanagementCalendarURLIcsParamsWithHTTPClient creates a new DeleteWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWorkforcemanagementCalendarURLIcsParamsWithHTTPClient(client *http.Client) *DeleteWorkforcemanagementCalendarURLIcsParams {
-
 	return &DeleteWorkforcemanagementCalendarURLIcsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsParams contains all the parameters to send to the API endpoint
-for the delete workforcemanagement calendar Url ics operation typically these are written to a http.Request
+/*
+DeleteWorkforcemanagementCalendarURLIcsParams contains all the parameters to send to the API endpoint
+
+	for the delete workforcemanagement calendar Url ics operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWorkforcemanagementCalendarURLIcsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete workforcemanagement calendar Url ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementCalendarURLIcsParams) WithDefaults() *DeleteWorkforcemanagementCalendarURLIcsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete workforcemanagement calendar Url ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementCalendarURLIcsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete workforcemanagement calendar Url ics params

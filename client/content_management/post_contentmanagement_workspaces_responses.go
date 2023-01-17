@@ -95,7 +95,6 @@ func (o *PostContentmanagementWorkspacesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostContentmanagementWorkspacesOK() *PostContentmanagementWorkspacesOK {
 	return &PostContentmanagementWorkspacesOK{}
 }
 
-/*PostContentmanagementWorkspacesOK handles this case with default header values.
+/*
+PostContentmanagementWorkspacesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostContentmanagementWorkspacesOK struct {
 	Payload *models.Workspace
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces o k response has a 2xx status code
+func (o *PostContentmanagementWorkspacesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces o k response has a 3xx status code
+func (o *PostContentmanagementWorkspacesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces o k response has a 4xx status code
+func (o *PostContentmanagementWorkspacesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspaces o k response has a 5xx status code
+func (o *PostContentmanagementWorkspacesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces o k response a status code equal to that given
+func (o *PostContentmanagementWorkspacesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostContentmanagementWorkspacesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostContentmanagementWorkspacesBadRequest() *PostContentmanagementWorksp
 	return &PostContentmanagementWorkspacesBadRequest{}
 }
 
-/*PostContentmanagementWorkspacesBadRequest handles this case with default header values.
+/*
+PostContentmanagementWorkspacesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostContentmanagementWorkspacesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces bad request response has a 2xx status code
+func (o *PostContentmanagementWorkspacesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces bad request response has a 3xx status code
+func (o *PostContentmanagementWorkspacesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces bad request response has a 4xx status code
+func (o *PostContentmanagementWorkspacesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces bad request response has a 5xx status code
+func (o *PostContentmanagementWorkspacesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces bad request response a status code equal to that given
+func (o *PostContentmanagementWorkspacesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostContentmanagementWorkspacesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostContentmanagementWorkspacesUnauthorized() *PostContentmanagementWork
 	return &PostContentmanagementWorkspacesUnauthorized{}
 }
 
-/*PostContentmanagementWorkspacesUnauthorized handles this case with default header values.
+/*
+PostContentmanagementWorkspacesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostContentmanagementWorkspacesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces unauthorized response has a 2xx status code
+func (o *PostContentmanagementWorkspacesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces unauthorized response has a 3xx status code
+func (o *PostContentmanagementWorkspacesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces unauthorized response has a 4xx status code
+func (o *PostContentmanagementWorkspacesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces unauthorized response has a 5xx status code
+func (o *PostContentmanagementWorkspacesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces unauthorized response a status code equal to that given
+func (o *PostContentmanagementWorkspacesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostContentmanagementWorkspacesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostContentmanagementWorkspacesForbidden() *PostContentmanagementWorkspa
 	return &PostContentmanagementWorkspacesForbidden{}
 }
 
-/*PostContentmanagementWorkspacesForbidden handles this case with default header values.
+/*
+PostContentmanagementWorkspacesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostContentmanagementWorkspacesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces forbidden response has a 2xx status code
+func (o *PostContentmanagementWorkspacesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces forbidden response has a 3xx status code
+func (o *PostContentmanagementWorkspacesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces forbidden response has a 4xx status code
+func (o *PostContentmanagementWorkspacesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces forbidden response has a 5xx status code
+func (o *PostContentmanagementWorkspacesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces forbidden response a status code equal to that given
+func (o *PostContentmanagementWorkspacesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostContentmanagementWorkspacesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostContentmanagementWorkspacesNotFound() *PostContentmanagementWorkspac
 	return &PostContentmanagementWorkspacesNotFound{}
 }
 
-/*PostContentmanagementWorkspacesNotFound handles this case with default header values.
+/*
+PostContentmanagementWorkspacesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostContentmanagementWorkspacesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces not found response has a 2xx status code
+func (o *PostContentmanagementWorkspacesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces not found response has a 3xx status code
+func (o *PostContentmanagementWorkspacesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces not found response has a 4xx status code
+func (o *PostContentmanagementWorkspacesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces not found response has a 5xx status code
+func (o *PostContentmanagementWorkspacesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces not found response a status code equal to that given
+func (o *PostContentmanagementWorkspacesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostContentmanagementWorkspacesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostContentmanagementWorkspacesRequestTimeout() *PostContentmanagementWo
 	return &PostContentmanagementWorkspacesRequestTimeout{}
 }
 
-/*PostContentmanagementWorkspacesRequestTimeout handles this case with default header values.
+/*
+PostContentmanagementWorkspacesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostContentmanagementWorkspacesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces request timeout response has a 2xx status code
+func (o *PostContentmanagementWorkspacesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces request timeout response has a 3xx status code
+func (o *PostContentmanagementWorkspacesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces request timeout response has a 4xx status code
+func (o *PostContentmanagementWorkspacesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces request timeout response has a 5xx status code
+func (o *PostContentmanagementWorkspacesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces request timeout response a status code equal to that given
+func (o *PostContentmanagementWorkspacesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostContentmanagementWorkspacesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostContentmanagementWorkspacesRequestEntityTooLarge() *PostContentmanag
 	return &PostContentmanagementWorkspacesRequestEntityTooLarge{}
 }
 
-/*PostContentmanagementWorkspacesRequestEntityTooLarge handles this case with default header values.
+/*
+PostContentmanagementWorkspacesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostContentmanagementWorkspacesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces request entity too large response has a 2xx status code
+func (o *PostContentmanagementWorkspacesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces request entity too large response has a 3xx status code
+func (o *PostContentmanagementWorkspacesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces request entity too large response has a 4xx status code
+func (o *PostContentmanagementWorkspacesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces request entity too large response has a 5xx status code
+func (o *PostContentmanagementWorkspacesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces request entity too large response a status code equal to that given
+func (o *PostContentmanagementWorkspacesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostContentmanagementWorkspacesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostContentmanagementWorkspacesUnsupportedMediaType() *PostContentmanage
 	return &PostContentmanagementWorkspacesUnsupportedMediaType{}
 }
 
-/*PostContentmanagementWorkspacesUnsupportedMediaType handles this case with default header values.
+/*
+PostContentmanagementWorkspacesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostContentmanagementWorkspacesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces unsupported media type response has a 2xx status code
+func (o *PostContentmanagementWorkspacesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces unsupported media type response has a 3xx status code
+func (o *PostContentmanagementWorkspacesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces unsupported media type response has a 4xx status code
+func (o *PostContentmanagementWorkspacesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces unsupported media type response has a 5xx status code
+func (o *PostContentmanagementWorkspacesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces unsupported media type response a status code equal to that given
+func (o *PostContentmanagementWorkspacesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostContentmanagementWorkspacesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostContentmanagementWorkspacesTooManyRequests() *PostContentmanagementW
 	return &PostContentmanagementWorkspacesTooManyRequests{}
 }
 
-/*PostContentmanagementWorkspacesTooManyRequests handles this case with default header values.
+/*
+PostContentmanagementWorkspacesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostContentmanagementWorkspacesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces too many requests response has a 2xx status code
+func (o *PostContentmanagementWorkspacesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces too many requests response has a 3xx status code
+func (o *PostContentmanagementWorkspacesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces too many requests response has a 4xx status code
+func (o *PostContentmanagementWorkspacesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspaces too many requests response has a 5xx status code
+func (o *PostContentmanagementWorkspacesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspaces too many requests response a status code equal to that given
+func (o *PostContentmanagementWorkspacesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostContentmanagementWorkspacesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostContentmanagementWorkspacesInternalServerError() *PostContentmanagem
 	return &PostContentmanagementWorkspacesInternalServerError{}
 }
 
-/*PostContentmanagementWorkspacesInternalServerError handles this case with default header values.
+/*
+PostContentmanagementWorkspacesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostContentmanagementWorkspacesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces internal server error response has a 2xx status code
+func (o *PostContentmanagementWorkspacesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces internal server error response has a 3xx status code
+func (o *PostContentmanagementWorkspacesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces internal server error response has a 4xx status code
+func (o *PostContentmanagementWorkspacesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspaces internal server error response has a 5xx status code
+func (o *PostContentmanagementWorkspacesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement workspaces internal server error response a status code equal to that given
+func (o *PostContentmanagementWorkspacesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostContentmanagementWorkspacesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostContentmanagementWorkspacesServiceUnavailable() *PostContentmanageme
 	return &PostContentmanagementWorkspacesServiceUnavailable{}
 }
 
-/*PostContentmanagementWorkspacesServiceUnavailable handles this case with default header values.
+/*
+PostContentmanagementWorkspacesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostContentmanagementWorkspacesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces service unavailable response has a 2xx status code
+func (o *PostContentmanagementWorkspacesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces service unavailable response has a 3xx status code
+func (o *PostContentmanagementWorkspacesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces service unavailable response has a 4xx status code
+func (o *PostContentmanagementWorkspacesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspaces service unavailable response has a 5xx status code
+func (o *PostContentmanagementWorkspacesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement workspaces service unavailable response a status code equal to that given
+func (o *PostContentmanagementWorkspacesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostContentmanagementWorkspacesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostContentmanagementWorkspacesGatewayTimeout() *PostContentmanagementWo
 	return &PostContentmanagementWorkspacesGatewayTimeout{}
 }
 
-/*PostContentmanagementWorkspacesGatewayTimeout handles this case with default header values.
+/*
+PostContentmanagementWorkspacesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostContentmanagementWorkspacesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspaces gateway timeout response has a 2xx status code
+func (o *PostContentmanagementWorkspacesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspaces gateway timeout response has a 3xx status code
+func (o *PostContentmanagementWorkspacesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspaces gateway timeout response has a 4xx status code
+func (o *PostContentmanagementWorkspacesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspaces gateway timeout response has a 5xx status code
+func (o *PostContentmanagementWorkspacesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement workspaces gateway timeout response a status code equal to that given
+func (o *PostContentmanagementWorkspacesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostContentmanagementWorkspacesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspacesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces][%d] postContentmanagementWorkspacesGatewayTimeout  %+v", 504, o.Payload)
 }
 

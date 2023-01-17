@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundCampaignInteractionsParams creates a new GetOutboundCampaignInteractionsParams object
-// with the default values initialized.
+// NewGetOutboundCampaignInteractionsParams creates a new GetOutboundCampaignInteractionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundCampaignInteractionsParams() *GetOutboundCampaignInteractionsParams {
-	var ()
 	return &GetOutboundCampaignInteractionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundCampaignInteractionsParamsWithTimeout creates a new GetOutboundCampaignInteractionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundCampaignInteractionsParamsWithTimeout(timeout time.Duration) *GetOutboundCampaignInteractionsParams {
-	var ()
 	return &GetOutboundCampaignInteractionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundCampaignInteractionsParamsWithContext creates a new GetOutboundCampaignInteractionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundCampaignInteractionsParamsWithContext(ctx context.Context) *GetOutboundCampaignInteractionsParams {
-	var ()
 	return &GetOutboundCampaignInteractionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundCampaignInteractionsParamsWithHTTPClient creates a new GetOutboundCampaignInteractionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundCampaignInteractionsParamsWithHTTPClient(client *http.Client) *GetOutboundCampaignInteractionsParams {
-	var ()
 	return &GetOutboundCampaignInteractionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundCampaignInteractionsParams contains all the parameters to send to the API endpoint
-for the get outbound campaign interactions operation typically these are written to a http.Request
+/*
+GetOutboundCampaignInteractionsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound campaign interactions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundCampaignInteractionsParams struct {
 
-	/*CampaignID
-	  Campaign ID
+	/* CampaignID.
 
+	   Campaign ID
 	*/
 	CampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound campaign interactions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignInteractionsParams) WithDefaults() *GetOutboundCampaignInteractionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound campaign interactions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignInteractionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound campaign interactions params

@@ -101,7 +101,6 @@ func (o *PostSpeechandtextanalyticsTopicsReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostSpeechandtextanalyticsTopicsOK() *PostSpeechandtextanalyticsTopicsOK
 	return &PostSpeechandtextanalyticsTopicsOK{}
 }
 
-/*PostSpeechandtextanalyticsTopicsOK handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostSpeechandtextanalyticsTopicsOK struct {
 	Payload *models.Topic
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics o k response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics o k response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics o k response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics o k response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics o k response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostSpeechandtextanalyticsTopicsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostSpeechandtextanalyticsTopicsBadRequest() *PostSpeechandtextanalytics
 	return &PostSpeechandtextanalyticsTopicsBadRequest{}
 }
 
-/*PostSpeechandtextanalyticsTopicsBadRequest handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostSpeechandtextanalyticsTopicsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics bad request response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics bad request response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics bad request response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics bad request response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics bad request response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostSpeechandtextanalyticsTopicsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostSpeechandtextanalyticsTopicsUnauthorized() *PostSpeechandtextanalyti
 	return &PostSpeechandtextanalyticsTopicsUnauthorized{}
 }
 
-/*PostSpeechandtextanalyticsTopicsUnauthorized handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostSpeechandtextanalyticsTopicsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics unauthorized response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics unauthorized response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics unauthorized response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics unauthorized response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics unauthorized response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostSpeechandtextanalyticsTopicsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostSpeechandtextanalyticsTopicsForbidden() *PostSpeechandtextanalyticsT
 	return &PostSpeechandtextanalyticsTopicsForbidden{}
 }
 
-/*PostSpeechandtextanalyticsTopicsForbidden handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostSpeechandtextanalyticsTopicsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics forbidden response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics forbidden response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics forbidden response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics forbidden response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics forbidden response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostSpeechandtextanalyticsTopicsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostSpeechandtextanalyticsTopicsNotFound() *PostSpeechandtextanalyticsTo
 	return &PostSpeechandtextanalyticsTopicsNotFound{}
 }
 
-/*PostSpeechandtextanalyticsTopicsNotFound handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostSpeechandtextanalyticsTopicsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics not found response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics not found response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics not found response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics not found response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics not found response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostSpeechandtextanalyticsTopicsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostSpeechandtextanalyticsTopicsRequestTimeout() *PostSpeechandtextanaly
 	return &PostSpeechandtextanalyticsTopicsRequestTimeout{}
 }
 
-/*PostSpeechandtextanalyticsTopicsRequestTimeout handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostSpeechandtextanalyticsTopicsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics request timeout response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics request timeout response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics request timeout response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics request timeout response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics request timeout response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostSpeechandtextanalyticsTopicsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostSpeechandtextanalyticsTopicsConflict() *PostSpeechandtextanalyticsTo
 	return &PostSpeechandtextanalyticsTopicsConflict{}
 }
 
-/*PostSpeechandtextanalyticsTopicsConflict handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostSpeechandtextanalyticsTopicsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics conflict response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics conflict response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics conflict response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics conflict response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics conflict response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostSpeechandtextanalyticsTopicsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostSpeechandtextanalyticsTopicsRequestEntityTooLarge() *PostSpeechandte
 	return &PostSpeechandtextanalyticsTopicsRequestEntityTooLarge{}
 }
 
-/*PostSpeechandtextanalyticsTopicsRequestEntityTooLarge handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostSpeechandtextanalyticsTopicsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics request entity too large response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics request entity too large response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics request entity too large response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics request entity too large response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics request entity too large response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostSpeechandtextanalyticsTopicsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostSpeechandtextanalyticsTopicsUnsupportedMediaType() *PostSpeechandtex
 	return &PostSpeechandtextanalyticsTopicsUnsupportedMediaType{}
 }
 
-/*PostSpeechandtextanalyticsTopicsUnsupportedMediaType handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostSpeechandtextanalyticsTopicsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics unsupported media type response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics unsupported media type response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics unsupported media type response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics unsupported media type response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics unsupported media type response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostSpeechandtextanalyticsTopicsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostSpeechandtextanalyticsTopicsTooManyRequests() *PostSpeechandtextanal
 	return &PostSpeechandtextanalyticsTopicsTooManyRequests{}
 }
 
-/*PostSpeechandtextanalyticsTopicsTooManyRequests handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostSpeechandtextanalyticsTopicsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics too many requests response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics too many requests response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics too many requests response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics too many requests response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics topics too many requests response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostSpeechandtextanalyticsTopicsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostSpeechandtextanalyticsTopicsInternalServerError() *PostSpeechandtext
 	return &PostSpeechandtextanalyticsTopicsInternalServerError{}
 }
 
-/*PostSpeechandtextanalyticsTopicsInternalServerError handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostSpeechandtextanalyticsTopicsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics internal server error response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics internal server error response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics internal server error response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics internal server error response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics topics internal server error response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostSpeechandtextanalyticsTopicsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostSpeechandtextanalyticsTopicsServiceUnavailable() *PostSpeechandtexta
 	return &PostSpeechandtextanalyticsTopicsServiceUnavailable{}
 }
 
-/*PostSpeechandtextanalyticsTopicsServiceUnavailable handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostSpeechandtextanalyticsTopicsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics service unavailable response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics service unavailable response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics service unavailable response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics service unavailable response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics topics service unavailable response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostSpeechandtextanalyticsTopicsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostSpeechandtextanalyticsTopicsGatewayTimeout() *PostSpeechandtextanaly
 	return &PostSpeechandtextanalyticsTopicsGatewayTimeout{}
 }
 
-/*PostSpeechandtextanalyticsTopicsGatewayTimeout handles this case with default header values.
+/*
+PostSpeechandtextanalyticsTopicsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostSpeechandtextanalyticsTopicsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics topics gateway timeout response has a 2xx status code
+func (o *PostSpeechandtextanalyticsTopicsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics topics gateway timeout response has a 3xx status code
+func (o *PostSpeechandtextanalyticsTopicsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics topics gateway timeout response has a 4xx status code
+func (o *PostSpeechandtextanalyticsTopicsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics topics gateway timeout response has a 5xx status code
+func (o *PostSpeechandtextanalyticsTopicsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics topics gateway timeout response a status code equal to that given
+func (o *PostSpeechandtextanalyticsTopicsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostSpeechandtextanalyticsTopicsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsTopicsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/topics][%d] postSpeechandtextanalyticsTopicsGatewayTimeout  %+v", 504, o.Payload)
 }
 

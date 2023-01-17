@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetQualityConversationsAuditsQueryTransactionIDParams creates a new GetQualityConversationsAuditsQueryTransactionIDParams object
-// with the default values initialized.
+// NewGetQualityConversationsAuditsQueryTransactionIDParams creates a new GetQualityConversationsAuditsQueryTransactionIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityConversationsAuditsQueryTransactionIDParams() *GetQualityConversationsAuditsQueryTransactionIDParams {
-	var ()
 	return &GetQualityConversationsAuditsQueryTransactionIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityConversationsAuditsQueryTransactionIDParamsWithTimeout creates a new GetQualityConversationsAuditsQueryTransactionIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityConversationsAuditsQueryTransactionIDParamsWithTimeout(timeout time.Duration) *GetQualityConversationsAuditsQueryTransactionIDParams {
-	var ()
 	return &GetQualityConversationsAuditsQueryTransactionIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityConversationsAuditsQueryTransactionIDParamsWithContext creates a new GetQualityConversationsAuditsQueryTransactionIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityConversationsAuditsQueryTransactionIDParamsWithContext(ctx context.Context) *GetQualityConversationsAuditsQueryTransactionIDParams {
-	var ()
 	return &GetQualityConversationsAuditsQueryTransactionIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityConversationsAuditsQueryTransactionIDParamsWithHTTPClient creates a new GetQualityConversationsAuditsQueryTransactionIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityConversationsAuditsQueryTransactionIDParamsWithHTTPClient(client *http.Client) *GetQualityConversationsAuditsQueryTransactionIDParams {
-	var ()
 	return &GetQualityConversationsAuditsQueryTransactionIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDParams contains all the parameters to send to the API endpoint
-for the get quality conversations audits query transaction Id operation typically these are written to a http.Request
+/*
+GetQualityConversationsAuditsQueryTransactionIDParams contains all the parameters to send to the API endpoint
+
+	for the get quality conversations audits query transaction Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityConversationsAuditsQueryTransactionIDParams struct {
 
-	/*TransactionID
-	  Transaction ID
+	/* TransactionID.
 
+	   Transaction ID
 	*/
 	TransactionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality conversations audits query transaction Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityConversationsAuditsQueryTransactionIDParams) WithDefaults() *GetQualityConversationsAuditsQueryTransactionIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality conversations audits query transaction Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityConversationsAuditsQueryTransactionIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get quality conversations audits query transaction Id params

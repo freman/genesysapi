@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetFlowParams creates a new GetFlowParams object
-// with the default values initialized.
+// NewGetFlowParams creates a new GetFlowParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowParams() *GetFlowParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowParams{
-		Deleted: &deletedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowParamsWithTimeout creates a new GetFlowParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowParamsWithTimeout(timeout time.Duration) *GetFlowParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowParams{
-		Deleted: &deletedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowParamsWithContext creates a new GetFlowParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowParamsWithContext(ctx context.Context) *GetFlowParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowParams{
-		Deleted: &deletedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowParamsWithHTTPClient creates a new GetFlowParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowParamsWithHTTPClient(client *http.Client) *GetFlowParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowParams{
-		Deleted:    &deletedDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowParams contains all the parameters to send to the API endpoint
-for the get flow operation typically these are written to a http.Request
+/*
+GetFlowParams contains all the parameters to send to the API endpoint
+
+	for the get flow operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowParams struct {
 
-	/*Deleted
-	  Deleted flows
+	/* Deleted.
 
+	   Deleted flows
 	*/
 	Deleted *bool
-	/*FlowID
-	  Flow ID
 
+	/* FlowID.
+
+	   Flow ID
 	*/
 	FlowID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flow params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowParams) WithDefaults() *GetFlowParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flow params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowParams) SetDefaults() {
+	var (
+		deletedDefault = bool(false)
+	)
+
+	val := GetFlowParams{
+		Deleted: &deletedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get flow params
@@ -156,16 +172,17 @@ func (o *GetFlowParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 
 		// query param deleted
 		var qrDeleted bool
+
 		if o.Deleted != nil {
 			qrDeleted = *o.Deleted
 		}
 		qDeleted := swag.FormatBool(qrDeleted)
 		if qDeleted != "" {
+
 			if err := r.SetQueryParam("deleted", qDeleted); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param flowId

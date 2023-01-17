@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOrganizationsLimitsNamespaceDefaultsParams creates a new GetOrganizationsLimitsNamespaceDefaultsParams object
-// with the default values initialized.
+// NewGetOrganizationsLimitsNamespaceDefaultsParams creates a new GetOrganizationsLimitsNamespaceDefaultsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrganizationsLimitsNamespaceDefaultsParams() *GetOrganizationsLimitsNamespaceDefaultsParams {
-	var ()
 	return &GetOrganizationsLimitsNamespaceDefaultsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrganizationsLimitsNamespaceDefaultsParamsWithTimeout creates a new GetOrganizationsLimitsNamespaceDefaultsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrganizationsLimitsNamespaceDefaultsParamsWithTimeout(timeout time.Duration) *GetOrganizationsLimitsNamespaceDefaultsParams {
-	var ()
 	return &GetOrganizationsLimitsNamespaceDefaultsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrganizationsLimitsNamespaceDefaultsParamsWithContext creates a new GetOrganizationsLimitsNamespaceDefaultsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrganizationsLimitsNamespaceDefaultsParamsWithContext(ctx context.Context) *GetOrganizationsLimitsNamespaceDefaultsParams {
-	var ()
 	return &GetOrganizationsLimitsNamespaceDefaultsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrganizationsLimitsNamespaceDefaultsParamsWithHTTPClient creates a new GetOrganizationsLimitsNamespaceDefaultsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrganizationsLimitsNamespaceDefaultsParamsWithHTTPClient(client *http.Client) *GetOrganizationsLimitsNamespaceDefaultsParams {
-	var ()
 	return &GetOrganizationsLimitsNamespaceDefaultsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOrganizationsLimitsNamespaceDefaultsParams contains all the parameters to send to the API endpoint
-for the get organizations limits namespace defaults operation typically these are written to a http.Request
+/*
+GetOrganizationsLimitsNamespaceDefaultsParams contains all the parameters to send to the API endpoint
+
+	for the get organizations limits namespace defaults operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationsLimitsNamespaceDefaultsParams struct {
 
-	/*NamespaceName
-	  The namespace to fetch defaults limits for
+	/* NamespaceName.
 
+	   The namespace to fetch defaults limits for
 	*/
 	NamespaceName string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get organizations limits namespace defaults params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsNamespaceDefaultsParams) WithDefaults() *GetOrganizationsLimitsNamespaceDefaultsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get organizations limits namespace defaults params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsNamespaceDefaultsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get organizations limits namespace defaults params

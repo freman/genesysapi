@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundSchedulesMessagingcampaignParams creates a new PutOutboundSchedulesMessagingcampaignParams object
-// with the default values initialized.
+// NewPutOutboundSchedulesMessagingcampaignParams creates a new PutOutboundSchedulesMessagingcampaignParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundSchedulesMessagingcampaignParams() *PutOutboundSchedulesMessagingcampaignParams {
-	var ()
 	return &PutOutboundSchedulesMessagingcampaignParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundSchedulesMessagingcampaignParamsWithTimeout creates a new PutOutboundSchedulesMessagingcampaignParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundSchedulesMessagingcampaignParamsWithTimeout(timeout time.Duration) *PutOutboundSchedulesMessagingcampaignParams {
-	var ()
 	return &PutOutboundSchedulesMessagingcampaignParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundSchedulesMessagingcampaignParamsWithContext creates a new PutOutboundSchedulesMessagingcampaignParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundSchedulesMessagingcampaignParamsWithContext(ctx context.Context) *PutOutboundSchedulesMessagingcampaignParams {
-	var ()
 	return &PutOutboundSchedulesMessagingcampaignParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundSchedulesMessagingcampaignParamsWithHTTPClient creates a new PutOutboundSchedulesMessagingcampaignParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundSchedulesMessagingcampaignParamsWithHTTPClient(client *http.Client) *PutOutboundSchedulesMessagingcampaignParams {
-	var ()
 	return &PutOutboundSchedulesMessagingcampaignParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundSchedulesMessagingcampaignParams contains all the parameters to send to the API endpoint
-for the put outbound schedules messagingcampaign operation typically these are written to a http.Request
+/*
+PutOutboundSchedulesMessagingcampaignParams contains all the parameters to send to the API endpoint
+
+	for the put outbound schedules messagingcampaign operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundSchedulesMessagingcampaignParams struct {
 
-	/*Body
-	  MessagingCampaignSchedule
+	/* Body.
 
+	   MessagingCampaignSchedule
 	*/
 	Body *models.MessagingCampaignSchedule
-	/*MessagingCampaignID
-	  Messaging Campaign ID
 
+	/* MessagingCampaignID.
+
+	   Messaging Campaign ID
 	*/
 	MessagingCampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound schedules messagingcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundSchedulesMessagingcampaignParams) WithDefaults() *PutOutboundSchedulesMessagingcampaignParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound schedules messagingcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundSchedulesMessagingcampaignParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound schedules messagingcampaign params
@@ -140,7 +157,6 @@ func (o *PutOutboundSchedulesMessagingcampaignParams) WriteToRequest(r runtime.C
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

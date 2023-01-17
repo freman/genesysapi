@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -61,7 +62,6 @@ func (m *FileUploadMode) validateFileTypesItemsEnum(path, location string, value
 }
 
 func (m *FileUploadMode) validateFileTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FileTypes) { // not required
 		return nil
 	}
@@ -75,6 +75,11 @@ func (m *FileUploadMode) validateFileTypes(formats strfmt.Registry) error {
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this file upload mode based on context it is used
+func (m *FileUploadMode) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

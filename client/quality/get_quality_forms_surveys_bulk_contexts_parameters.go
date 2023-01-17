@@ -17,76 +17,94 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetQualityFormsSurveysBulkContextsParams creates a new GetQualityFormsSurveysBulkContextsParams object
-// with the default values initialized.
+// NewGetQualityFormsSurveysBulkContextsParams creates a new GetQualityFormsSurveysBulkContextsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityFormsSurveysBulkContextsParams() *GetQualityFormsSurveysBulkContextsParams {
-	var (
-		publishedDefault = bool(true)
-	)
 	return &GetQualityFormsSurveysBulkContextsParams{
-		Published: &publishedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityFormsSurveysBulkContextsParamsWithTimeout creates a new GetQualityFormsSurveysBulkContextsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityFormsSurveysBulkContextsParamsWithTimeout(timeout time.Duration) *GetQualityFormsSurveysBulkContextsParams {
-	var (
-		publishedDefault = bool(true)
-	)
 	return &GetQualityFormsSurveysBulkContextsParams{
-		Published: &publishedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityFormsSurveysBulkContextsParamsWithContext creates a new GetQualityFormsSurveysBulkContextsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityFormsSurveysBulkContextsParamsWithContext(ctx context.Context) *GetQualityFormsSurveysBulkContextsParams {
-	var (
-		publishedDefault = bool(true)
-	)
 	return &GetQualityFormsSurveysBulkContextsParams{
-		Published: &publishedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityFormsSurveysBulkContextsParamsWithHTTPClient creates a new GetQualityFormsSurveysBulkContextsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityFormsSurveysBulkContextsParamsWithHTTPClient(client *http.Client) *GetQualityFormsSurveysBulkContextsParams {
-	var (
-		publishedDefault = bool(true)
-	)
 	return &GetQualityFormsSurveysBulkContextsParams{
-		Published:  &publishedDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityFormsSurveysBulkContextsParams contains all the parameters to send to the API endpoint
-for the get quality forms surveys bulk contexts operation typically these are written to a http.Request
+/*
+GetQualityFormsSurveysBulkContextsParams contains all the parameters to send to the API endpoint
+
+	for the get quality forms surveys bulk contexts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityFormsSurveysBulkContextsParams struct {
 
-	/*ContextID
-	  A comma-delimited list of valid survey form context ids. The maximum number of ids allowed in this list is 100.
+	/* ContextID.
 
+	   A comma-delimited list of valid survey form context ids. The maximum number of ids allowed in this list is 100.
 	*/
 	ContextID []string
-	/*Published
-	  If true, the latest published version will be included. If false, only the unpublished version will be included.
 
+	/* Published.
+
+	   If true, the latest published version will be included. If false, only the unpublished version will be included.
+
+	   Default: true
 	*/
 	Published *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality forms surveys bulk contexts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityFormsSurveysBulkContextsParams) WithDefaults() *GetQualityFormsSurveysBulkContextsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality forms surveys bulk contexts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityFormsSurveysBulkContextsParams) SetDefaults() {
+	var (
+		publishedDefault = bool(true)
+	)
+
+	val := GetQualityFormsSurveysBulkContextsParams{
+		Published: &publishedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get quality forms surveys bulk contexts params
@@ -152,32 +170,53 @@ func (o *GetQualityFormsSurveysBulkContextsParams) WriteToRequest(r runtime.Clie
 	}
 	var res []error
 
-	valuesContextID := o.ContextID
+	if o.ContextID != nil {
 
-	joinedContextID := swag.JoinByFormat(valuesContextID, "multi")
-	// query array param contextId
-	if err := r.SetQueryParam("contextId", joinedContextID...); err != nil {
-		return err
+		// binding items for contextId
+		joinedContextID := o.bindParamContextID(reg)
+
+		// query array param contextId
+		if err := r.SetQueryParam("contextId", joinedContextID...); err != nil {
+			return err
+		}
 	}
 
 	if o.Published != nil {
 
 		// query param published
 		var qrPublished bool
+
 		if o.Published != nil {
 			qrPublished = *o.Published
 		}
 		qPublished := swag.FormatBool(qrPublished)
 		if qPublished != "" {
+
 			if err := r.SetQueryParam("published", qPublished); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetQualityFormsSurveysBulkContexts binds the parameter contextId
+func (o *GetQualityFormsSurveysBulkContextsParams) bindParamContextID(formats strfmt.Registry) []string {
+	contextIDIR := o.ContextID
+
+	var contextIDIC []string
+	for _, contextIDIIR := range contextIDIR { // explode []string
+
+		contextIDIIV := contextIDIIR // string as string
+		contextIDIC = append(contextIDIC, contextIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	contextIDIS := swag.JoinByFormat(contextIDIC, "multi")
+
+	return contextIDIS
 }

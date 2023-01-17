@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -91,7 +92,6 @@ func (m *UserState) validateStateEnum(path, location string, value string) error
 }
 
 func (m *UserState) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -105,7 +105,6 @@ func (m *UserState) validateState(formats strfmt.Registry) error {
 }
 
 func (m *UserState) validateStateChangeDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StateChangeDate) { // not required
 		return nil
 	}
@@ -159,13 +158,35 @@ func (m *UserState) validateStateChangeReasonEnum(path, location string, value s
 }
 
 func (m *UserState) validateStateChangeReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StateChangeReason) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateChangeReasonEnum("stateChangeReason", "body", m.StateChangeReason); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user state based on the context it is used
+func (m *UserState) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateStateChangeDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserState) contextValidateStateChangeDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "stateChangeDate", "body", strfmt.DateTime(m.StateChangeDate)); err != nil {
 		return err
 	}
 

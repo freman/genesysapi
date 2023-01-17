@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -35,7 +37,6 @@ func (m *QueueMessagingAddresses) Validate(formats strfmt.Registry) error {
 }
 
 func (m *QueueMessagingAddresses) validateSmsAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SmsAddress) { // not required
 		return nil
 	}
@@ -44,6 +45,38 @@ func (m *QueueMessagingAddresses) validateSmsAddress(formats strfmt.Registry) er
 		if err := m.SmsAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("smsAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("smsAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this queue messaging addresses based on the context it is used
+func (m *QueueMessagingAddresses) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSmsAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QueueMessagingAddresses) contextValidateSmsAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SmsAddress != nil {
+		if err := m.SmsAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("smsAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("smsAddress")
 			}
 			return err
 		}

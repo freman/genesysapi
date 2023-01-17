@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGamificationProfileMetricsParams creates a new PostGamificationProfileMetricsParams object
-// with the default values initialized.
+// NewPostGamificationProfileMetricsParams creates a new PostGamificationProfileMetricsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGamificationProfileMetricsParams() *PostGamificationProfileMetricsParams {
-	var ()
 	return &PostGamificationProfileMetricsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGamificationProfileMetricsParamsWithTimeout creates a new PostGamificationProfileMetricsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGamificationProfileMetricsParamsWithTimeout(timeout time.Duration) *PostGamificationProfileMetricsParams {
-	var ()
 	return &PostGamificationProfileMetricsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGamificationProfileMetricsParamsWithContext creates a new PostGamificationProfileMetricsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGamificationProfileMetricsParamsWithContext(ctx context.Context) *PostGamificationProfileMetricsParams {
-	var ()
 	return &PostGamificationProfileMetricsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGamificationProfileMetricsParamsWithHTTPClient creates a new PostGamificationProfileMetricsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGamificationProfileMetricsParamsWithHTTPClient(client *http.Client) *PostGamificationProfileMetricsParams {
-	var ()
 	return &PostGamificationProfileMetricsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGamificationProfileMetricsParams contains all the parameters to send to the API endpoint
-for the post gamification profile metrics operation typically these are written to a http.Request
+/*
+PostGamificationProfileMetricsParams contains all the parameters to send to the API endpoint
+
+	for the post gamification profile metrics operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGamificationProfileMetricsParams struct {
 
-	/*Body
-	  Metric
+	/* Body.
 
+	   Metric
 	*/
 	Body *models.CreateMetric
-	/*ProfileID
-	  Performance Profile Id
 
+	/* ProfileID.
+
+	   Performance Profile Id
 	*/
 	ProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post gamification profile metrics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileMetricsParams) WithDefaults() *PostGamificationProfileMetricsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post gamification profile metrics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileMetricsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post gamification profile metrics params
@@ -140,7 +157,6 @@ func (o *PostGamificationProfileMetricsParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

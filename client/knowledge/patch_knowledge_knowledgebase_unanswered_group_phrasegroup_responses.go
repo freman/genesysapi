@@ -95,7 +95,6 @@ func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupReader) ReadRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK() *PatchKnowledg
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK struct {
 	Payload *models.UnansweredPhraseGroupUpdateResponse
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup o k response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup o k response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup o k response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup o k response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup o k response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest() *Patch
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup bad request response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup bad request response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup bad request response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup bad request response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup bad request response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized() *Pat
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup unauthorized response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup unauthorized response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup unauthorized response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup unauthorized response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup unauthorized response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden() *PatchK
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup forbidden response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup forbidden response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup forbidden response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup forbidden response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup forbidden response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound() *PatchKn
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup not found response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup not found response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup not found response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup not found response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup not found response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout() *P
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup request timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup request timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup request timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup request timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup request timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLar
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup request entity too large response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup request entity too large response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup request entity too large response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup request entity too large response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup request entity too large response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaTyp
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup unsupported media type response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup unsupported media type response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup unsupported media type response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup unsupported media type response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup unsupported media type response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests() *
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup too many requests response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup too many requests response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup too many requests response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup too many requests response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup too many requests response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup internal server error response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup internal server error response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup internal server error response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup internal server error response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup internal server error response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable(
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup service unavailable response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup service unavailable response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup service unavailable response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup service unavailable response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup service unavailable response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout() *P
 	return &PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase unanswered group phrasegroup gateway timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase unanswered group phrasegroup gateway timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase unanswered group phrasegroup gateway timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase unanswered group phrasegroup gateway timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase unanswered group phrasegroup gateway timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups/{groupId}/phrasegroups/{phraseGroupId}][%d] patchKnowledgeKnowledgebaseUnansweredGroupPhrasegroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -82,7 +83,7 @@ func (m *ScimServiceProviderConfigAuthenticationScheme) Validate(formats strfmt.
 
 func (m *ScimServiceProviderConfigAuthenticationScheme) validateDescription(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("description", "body", string(m.Description)); err != nil {
+	if err := validate.RequiredString("description", "body", m.Description); err != nil {
 		return err
 	}
 
@@ -90,7 +91,6 @@ func (m *ScimServiceProviderConfigAuthenticationScheme) validateDescription(form
 }
 
 func (m *ScimServiceProviderConfigAuthenticationScheme) validateDocumentationURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DocumentationURI) { // not required
 		return nil
 	}
@@ -104,7 +104,7 @@ func (m *ScimServiceProviderConfigAuthenticationScheme) validateDocumentationURI
 
 func (m *ScimServiceProviderConfigAuthenticationScheme) validateName(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("name", "body", string(m.Name)); err != nil {
+	if err := validate.RequiredString("name", "body", m.Name); err != nil {
 		return err
 	}
 
@@ -112,7 +112,6 @@ func (m *ScimServiceProviderConfigAuthenticationScheme) validateName(formats str
 }
 
 func (m *ScimServiceProviderConfigAuthenticationScheme) validateSpecURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SpecURI) { // not required
 		return nil
 	}
@@ -164,12 +163,100 @@ func (m *ScimServiceProviderConfigAuthenticationScheme) validateTypeEnum(path, l
 
 func (m *ScimServiceProviderConfigAuthenticationScheme) validateType(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("type", "body", string(m.Type)); err != nil {
+	if err := validate.RequiredString("type", "body", m.Type); err != nil {
 		return err
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim service provider config authentication scheme based on the context it is used
+func (m *ScimServiceProviderConfigAuthenticationScheme) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDocumentationURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSpecURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimServiceProviderConfigAuthenticationScheme) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigAuthenticationScheme) contextValidateDocumentationURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "documentationUri", "body", strfmt.URI(m.DocumentationURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigAuthenticationScheme) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigAuthenticationScheme) contextValidatePrimary(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "primary", "body", m.Primary); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigAuthenticationScheme) contextValidateSpecURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "specUri", "body", strfmt.URI(m.SpecURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigAuthenticationScheme) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
 		return err
 	}
 

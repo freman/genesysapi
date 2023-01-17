@@ -95,7 +95,6 @@ func (o *GetOutboundCampaignsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundCampaignsOK() *GetOutboundCampaignsOK {
 	return &GetOutboundCampaignsOK{}
 }
 
-/*GetOutboundCampaignsOK handles this case with default header values.
+/*
+GetOutboundCampaignsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundCampaignsOK struct {
 	Payload *models.CampaignEntityListing
 }
 
+// IsSuccess returns true when this get outbound campaigns o k response has a 2xx status code
+func (o *GetOutboundCampaignsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound campaigns o k response has a 3xx status code
+func (o *GetOutboundCampaignsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns o k response has a 4xx status code
+func (o *GetOutboundCampaignsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns o k response has a 5xx status code
+func (o *GetOutboundCampaignsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns o k response a status code equal to that given
+func (o *GetOutboundCampaignsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundCampaignsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundCampaignsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundCampaignsBadRequest() *GetOutboundCampaignsBadRequest {
 	return &GetOutboundCampaignsBadRequest{}
 }
 
-/*GetOutboundCampaignsBadRequest handles this case with default header values.
+/*
+GetOutboundCampaignsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundCampaignsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns bad request response has a 2xx status code
+func (o *GetOutboundCampaignsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns bad request response has a 3xx status code
+func (o *GetOutboundCampaignsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns bad request response has a 4xx status code
+func (o *GetOutboundCampaignsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns bad request response has a 5xx status code
+func (o *GetOutboundCampaignsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns bad request response a status code equal to that given
+func (o *GetOutboundCampaignsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundCampaignsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundCampaignsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundCampaignsUnauthorized() *GetOutboundCampaignsUnauthorized {
 	return &GetOutboundCampaignsUnauthorized{}
 }
 
-/*GetOutboundCampaignsUnauthorized handles this case with default header values.
+/*
+GetOutboundCampaignsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundCampaignsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns unauthorized response has a 2xx status code
+func (o *GetOutboundCampaignsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns unauthorized response has a 3xx status code
+func (o *GetOutboundCampaignsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns unauthorized response has a 4xx status code
+func (o *GetOutboundCampaignsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns unauthorized response has a 5xx status code
+func (o *GetOutboundCampaignsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns unauthorized response a status code equal to that given
+func (o *GetOutboundCampaignsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundCampaignsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundCampaignsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundCampaignsForbidden() *GetOutboundCampaignsForbidden {
 	return &GetOutboundCampaignsForbidden{}
 }
 
-/*GetOutboundCampaignsForbidden handles this case with default header values.
+/*
+GetOutboundCampaignsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundCampaignsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns forbidden response has a 2xx status code
+func (o *GetOutboundCampaignsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns forbidden response has a 3xx status code
+func (o *GetOutboundCampaignsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns forbidden response has a 4xx status code
+func (o *GetOutboundCampaignsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns forbidden response has a 5xx status code
+func (o *GetOutboundCampaignsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns forbidden response a status code equal to that given
+func (o *GetOutboundCampaignsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundCampaignsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundCampaignsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundCampaignsNotFound() *GetOutboundCampaignsNotFound {
 	return &GetOutboundCampaignsNotFound{}
 }
 
-/*GetOutboundCampaignsNotFound handles this case with default header values.
+/*
+GetOutboundCampaignsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundCampaignsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns not found response has a 2xx status code
+func (o *GetOutboundCampaignsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns not found response has a 3xx status code
+func (o *GetOutboundCampaignsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns not found response has a 4xx status code
+func (o *GetOutboundCampaignsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns not found response has a 5xx status code
+func (o *GetOutboundCampaignsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns not found response a status code equal to that given
+func (o *GetOutboundCampaignsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundCampaignsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundCampaignsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundCampaignsRequestTimeout() *GetOutboundCampaignsRequestTimeout
 	return &GetOutboundCampaignsRequestTimeout{}
 }
 
-/*GetOutboundCampaignsRequestTimeout handles this case with default header values.
+/*
+GetOutboundCampaignsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundCampaignsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns request timeout response has a 2xx status code
+func (o *GetOutboundCampaignsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns request timeout response has a 3xx status code
+func (o *GetOutboundCampaignsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns request timeout response has a 4xx status code
+func (o *GetOutboundCampaignsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns request timeout response has a 5xx status code
+func (o *GetOutboundCampaignsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns request timeout response a status code equal to that given
+func (o *GetOutboundCampaignsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundCampaignsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundCampaignsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundCampaignsRequestEntityTooLarge() *GetOutboundCampaignsRequest
 	return &GetOutboundCampaignsRequestEntityTooLarge{}
 }
 
-/*GetOutboundCampaignsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundCampaignsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundCampaignsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns request entity too large response has a 2xx status code
+func (o *GetOutboundCampaignsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns request entity too large response has a 3xx status code
+func (o *GetOutboundCampaignsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns request entity too large response has a 4xx status code
+func (o *GetOutboundCampaignsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns request entity too large response has a 5xx status code
+func (o *GetOutboundCampaignsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns request entity too large response a status code equal to that given
+func (o *GetOutboundCampaignsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundCampaignsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundCampaignsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundCampaignsUnsupportedMediaType() *GetOutboundCampaignsUnsuppor
 	return &GetOutboundCampaignsUnsupportedMediaType{}
 }
 
-/*GetOutboundCampaignsUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundCampaignsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundCampaignsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns unsupported media type response has a 2xx status code
+func (o *GetOutboundCampaignsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns unsupported media type response has a 3xx status code
+func (o *GetOutboundCampaignsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns unsupported media type response has a 4xx status code
+func (o *GetOutboundCampaignsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns unsupported media type response has a 5xx status code
+func (o *GetOutboundCampaignsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns unsupported media type response a status code equal to that given
+func (o *GetOutboundCampaignsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundCampaignsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundCampaignsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundCampaignsTooManyRequests() *GetOutboundCampaignsTooManyReques
 	return &GetOutboundCampaignsTooManyRequests{}
 }
 
-/*GetOutboundCampaignsTooManyRequests handles this case with default header values.
+/*
+GetOutboundCampaignsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundCampaignsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns too many requests response has a 2xx status code
+func (o *GetOutboundCampaignsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns too many requests response has a 3xx status code
+func (o *GetOutboundCampaignsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns too many requests response has a 4xx status code
+func (o *GetOutboundCampaignsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns too many requests response has a 5xx status code
+func (o *GetOutboundCampaignsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns too many requests response a status code equal to that given
+func (o *GetOutboundCampaignsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundCampaignsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundCampaignsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundCampaignsInternalServerError() *GetOutboundCampaignsInternalS
 	return &GetOutboundCampaignsInternalServerError{}
 }
 
-/*GetOutboundCampaignsInternalServerError handles this case with default header values.
+/*
+GetOutboundCampaignsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundCampaignsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns internal server error response has a 2xx status code
+func (o *GetOutboundCampaignsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns internal server error response has a 3xx status code
+func (o *GetOutboundCampaignsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns internal server error response has a 4xx status code
+func (o *GetOutboundCampaignsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns internal server error response has a 5xx status code
+func (o *GetOutboundCampaignsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaigns internal server error response a status code equal to that given
+func (o *GetOutboundCampaignsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundCampaignsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundCampaignsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundCampaignsServiceUnavailable() *GetOutboundCampaignsServiceUna
 	return &GetOutboundCampaignsServiceUnavailable{}
 }
 
-/*GetOutboundCampaignsServiceUnavailable handles this case with default header values.
+/*
+GetOutboundCampaignsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundCampaignsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns service unavailable response has a 2xx status code
+func (o *GetOutboundCampaignsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns service unavailable response has a 3xx status code
+func (o *GetOutboundCampaignsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns service unavailable response has a 4xx status code
+func (o *GetOutboundCampaignsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns service unavailable response has a 5xx status code
+func (o *GetOutboundCampaignsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaigns service unavailable response a status code equal to that given
+func (o *GetOutboundCampaignsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundCampaignsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundCampaignsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundCampaignsGatewayTimeout() *GetOutboundCampaignsGatewayTimeout
 	return &GetOutboundCampaignsGatewayTimeout{}
 }
 
-/*GetOutboundCampaignsGatewayTimeout handles this case with default header values.
+/*
+GetOutboundCampaignsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundCampaignsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns gateway timeout response has a 2xx status code
+func (o *GetOutboundCampaignsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns gateway timeout response has a 3xx status code
+func (o *GetOutboundCampaignsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns gateway timeout response has a 4xx status code
+func (o *GetOutboundCampaignsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns gateway timeout response has a 5xx status code
+func (o *GetOutboundCampaignsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaigns gateway timeout response a status code equal to that given
+func (o *GetOutboundCampaignsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundCampaignsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundCampaignsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns][%d] getOutboundCampaignsGatewayTimeout  %+v", 504, o.Payload)
 }
 

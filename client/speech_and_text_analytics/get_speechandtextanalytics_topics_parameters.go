@@ -17,101 +17,125 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetSpeechandtextanalyticsTopicsParams creates a new GetSpeechandtextanalyticsTopicsParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsTopicsParams creates a new GetSpeechandtextanalyticsTopicsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsTopicsParams() *GetSpeechandtextanalyticsTopicsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsTopicsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicsParamsWithTimeout creates a new GetSpeechandtextanalyticsTopicsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsTopicsParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsTopicsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsTopicsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicsParamsWithContext creates a new GetSpeechandtextanalyticsTopicsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsTopicsParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsTopicsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsTopicsParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicsParamsWithHTTPClient creates a new GetSpeechandtextanalyticsTopicsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsTopicsParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsTopicsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsTopicsParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsTopicsParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics topics operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsTopicsParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics topics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsTopicsParams struct {
 
-	/*Ids
-	  Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed.
+	/* Ids.
 
+	   Comma separated Topic IDs to filter by. Cannot be used with other filters. Maximum of 50 IDs allowed.
 	*/
 	Ids []string
-	/*Name
-	  Case insensitive partial name to filter by
 
+	/* Name.
+
+	   Case insensitive partial name to filter by
 	*/
 	Name *string
-	/*NextPage
-	  The key for listing the next page
 
+	/* NextPage.
+
+	   The key for listing the next page
 	*/
 	NextPage *string
-	/*PageSize
-	  The page size for the listing
 
+	/* PageSize.
+
+	   The page size for the listing
+
+	   Format: int32
+	   Default: 20
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort results by. Defaults to name
 
+	/* SortBy.
+
+	   Sort results by. Defaults to name
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order. Defaults to asc
 
+	/* SortOrder.
+
+	   Sort order. Defaults to asc
 	*/
 	SortOrder *string
-	/*State
-	  Topic state. Defaults to latest
 
+	/* State.
+
+	   Topic state. Defaults to latest
 	*/
 	State *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics topics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsTopicsParams) WithDefaults() *GetSpeechandtextanalyticsTopicsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics topics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsTopicsParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(20)
+	)
+
+	val := GetSpeechandtextanalyticsTopicsParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics topics params
@@ -232,112 +256,138 @@ func (o *GetSpeechandtextanalyticsTopicsParams) WriteToRequest(r runtime.ClientR
 	}
 	var res []error
 
-	valuesIds := o.Ids
+	if o.Ids != nil {
 
-	joinedIds := swag.JoinByFormat(valuesIds, "multi")
-	// query array param ids
-	if err := r.SetQueryParam("ids", joinedIds...); err != nil {
-		return err
+		// binding items for ids
+		joinedIds := o.bindParamIds(reg)
+
+		// query array param ids
+		if err := r.SetQueryParam("ids", joinedIds...); err != nil {
+			return err
+		}
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.NextPage != nil {
 
 		// query param nextPage
 		var qrNextPage string
+
 		if o.NextPage != nil {
 			qrNextPage = *o.NextPage
 		}
 		qNextPage := qrNextPage
 		if qNextPage != "" {
+
 			if err := r.SetQueryParam("nextPage", qNextPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.State != nil {
 
 		// query param state
 		var qrState string
+
 		if o.State != nil {
 			qrState = *o.State
 		}
 		qState := qrState
 		if qState != "" {
+
 			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetSpeechandtextanalyticsTopics binds the parameter ids
+func (o *GetSpeechandtextanalyticsTopicsParams) bindParamIds(formats strfmt.Registry) []string {
+	idsIR := o.Ids
+
+	var idsIC []string
+	for _, idsIIR := range idsIR { // explode []string
+
+		idsIIV := idsIIR // string as string
+		idsIC = append(idsIC, idsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	idsIS := swag.JoinByFormat(idsIC, "multi")
+
+	return idsIS
 }

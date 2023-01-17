@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -22,6 +24,7 @@ type PatchCallbackRequest struct {
 	AgentID *string `json:"agentId"`
 
 	// The scheduled date-time for the callback. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Example: 2015-01-02T16:59:59.000Z
 	// Format: date-time
 	CallbackScheduledTime strfmt.DateTime `json:"callbackScheduledTime,omitempty"`
 
@@ -65,7 +68,6 @@ func (m *PatchCallbackRequest) validateAgentID(formats strfmt.Registry) error {
 }
 
 func (m *PatchCallbackRequest) validateCallbackScheduledTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallbackScheduledTime) { // not required
 		return nil
 	}
@@ -83,6 +85,11 @@ func (m *PatchCallbackRequest) validateConversationID(formats strfmt.Registry) e
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this patch callback request based on context it is used
+func (m *PatchCallbackRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

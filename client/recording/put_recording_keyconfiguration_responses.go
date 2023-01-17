@@ -95,7 +95,6 @@ func (o *PutRecordingKeyconfigurationReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRecordingKeyconfigurationOK() *PutRecordingKeyconfigurationOK {
 	return &PutRecordingKeyconfigurationOK{}
 }
 
-/*PutRecordingKeyconfigurationOK handles this case with default header values.
+/*
+PutRecordingKeyconfigurationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRecordingKeyconfigurationOK struct {
 	Payload *models.RecordingEncryptionConfiguration
 }
 
+// IsSuccess returns true when this put recording keyconfiguration o k response has a 2xx status code
+func (o *PutRecordingKeyconfigurationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put recording keyconfiguration o k response has a 3xx status code
+func (o *PutRecordingKeyconfigurationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration o k response has a 4xx status code
+func (o *PutRecordingKeyconfigurationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording keyconfiguration o k response has a 5xx status code
+func (o *PutRecordingKeyconfigurationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration o k response a status code equal to that given
+func (o *PutRecordingKeyconfigurationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRecordingKeyconfigurationOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRecordingKeyconfigurationBadRequest() *PutRecordingKeyconfigurationBa
 	return &PutRecordingKeyconfigurationBadRequest{}
 }
 
-/*PutRecordingKeyconfigurationBadRequest handles this case with default header values.
+/*
+PutRecordingKeyconfigurationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRecordingKeyconfigurationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration bad request response has a 2xx status code
+func (o *PutRecordingKeyconfigurationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration bad request response has a 3xx status code
+func (o *PutRecordingKeyconfigurationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration bad request response has a 4xx status code
+func (o *PutRecordingKeyconfigurationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration bad request response has a 5xx status code
+func (o *PutRecordingKeyconfigurationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration bad request response a status code equal to that given
+func (o *PutRecordingKeyconfigurationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRecordingKeyconfigurationBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRecordingKeyconfigurationUnauthorized() *PutRecordingKeyconfiguration
 	return &PutRecordingKeyconfigurationUnauthorized{}
 }
 
-/*PutRecordingKeyconfigurationUnauthorized handles this case with default header values.
+/*
+PutRecordingKeyconfigurationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRecordingKeyconfigurationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration unauthorized response has a 2xx status code
+func (o *PutRecordingKeyconfigurationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration unauthorized response has a 3xx status code
+func (o *PutRecordingKeyconfigurationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration unauthorized response has a 4xx status code
+func (o *PutRecordingKeyconfigurationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration unauthorized response has a 5xx status code
+func (o *PutRecordingKeyconfigurationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration unauthorized response a status code equal to that given
+func (o *PutRecordingKeyconfigurationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRecordingKeyconfigurationUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRecordingKeyconfigurationForbidden() *PutRecordingKeyconfigurationFor
 	return &PutRecordingKeyconfigurationForbidden{}
 }
 
-/*PutRecordingKeyconfigurationForbidden handles this case with default header values.
+/*
+PutRecordingKeyconfigurationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRecordingKeyconfigurationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration forbidden response has a 2xx status code
+func (o *PutRecordingKeyconfigurationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration forbidden response has a 3xx status code
+func (o *PutRecordingKeyconfigurationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration forbidden response has a 4xx status code
+func (o *PutRecordingKeyconfigurationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration forbidden response has a 5xx status code
+func (o *PutRecordingKeyconfigurationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration forbidden response a status code equal to that given
+func (o *PutRecordingKeyconfigurationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRecordingKeyconfigurationForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRecordingKeyconfigurationNotFound() *PutRecordingKeyconfigurationNotF
 	return &PutRecordingKeyconfigurationNotFound{}
 }
 
-/*PutRecordingKeyconfigurationNotFound handles this case with default header values.
+/*
+PutRecordingKeyconfigurationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRecordingKeyconfigurationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration not found response has a 2xx status code
+func (o *PutRecordingKeyconfigurationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration not found response has a 3xx status code
+func (o *PutRecordingKeyconfigurationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration not found response has a 4xx status code
+func (o *PutRecordingKeyconfigurationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration not found response has a 5xx status code
+func (o *PutRecordingKeyconfigurationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration not found response a status code equal to that given
+func (o *PutRecordingKeyconfigurationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRecordingKeyconfigurationNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRecordingKeyconfigurationRequestTimeout() *PutRecordingKeyconfigurati
 	return &PutRecordingKeyconfigurationRequestTimeout{}
 }
 
-/*PutRecordingKeyconfigurationRequestTimeout handles this case with default header values.
+/*
+PutRecordingKeyconfigurationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRecordingKeyconfigurationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration request timeout response has a 2xx status code
+func (o *PutRecordingKeyconfigurationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration request timeout response has a 3xx status code
+func (o *PutRecordingKeyconfigurationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration request timeout response has a 4xx status code
+func (o *PutRecordingKeyconfigurationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration request timeout response has a 5xx status code
+func (o *PutRecordingKeyconfigurationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration request timeout response a status code equal to that given
+func (o *PutRecordingKeyconfigurationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRecordingKeyconfigurationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRecordingKeyconfigurationRequestEntityTooLarge() *PutRecordingKeyconf
 	return &PutRecordingKeyconfigurationRequestEntityTooLarge{}
 }
 
-/*PutRecordingKeyconfigurationRequestEntityTooLarge handles this case with default header values.
+/*
+PutRecordingKeyconfigurationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRecordingKeyconfigurationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration request entity too large response has a 2xx status code
+func (o *PutRecordingKeyconfigurationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration request entity too large response has a 3xx status code
+func (o *PutRecordingKeyconfigurationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration request entity too large response has a 4xx status code
+func (o *PutRecordingKeyconfigurationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration request entity too large response has a 5xx status code
+func (o *PutRecordingKeyconfigurationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration request entity too large response a status code equal to that given
+func (o *PutRecordingKeyconfigurationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRecordingKeyconfigurationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRecordingKeyconfigurationUnsupportedMediaType() *PutRecordingKeyconfi
 	return &PutRecordingKeyconfigurationUnsupportedMediaType{}
 }
 
-/*PutRecordingKeyconfigurationUnsupportedMediaType handles this case with default header values.
+/*
+PutRecordingKeyconfigurationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRecordingKeyconfigurationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration unsupported media type response has a 2xx status code
+func (o *PutRecordingKeyconfigurationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration unsupported media type response has a 3xx status code
+func (o *PutRecordingKeyconfigurationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration unsupported media type response has a 4xx status code
+func (o *PutRecordingKeyconfigurationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration unsupported media type response has a 5xx status code
+func (o *PutRecordingKeyconfigurationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration unsupported media type response a status code equal to that given
+func (o *PutRecordingKeyconfigurationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRecordingKeyconfigurationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRecordingKeyconfigurationTooManyRequests() *PutRecordingKeyconfigurat
 	return &PutRecordingKeyconfigurationTooManyRequests{}
 }
 
-/*PutRecordingKeyconfigurationTooManyRequests handles this case with default header values.
+/*
+PutRecordingKeyconfigurationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRecordingKeyconfigurationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration too many requests response has a 2xx status code
+func (o *PutRecordingKeyconfigurationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration too many requests response has a 3xx status code
+func (o *PutRecordingKeyconfigurationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration too many requests response has a 4xx status code
+func (o *PutRecordingKeyconfigurationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording keyconfiguration too many requests response has a 5xx status code
+func (o *PutRecordingKeyconfigurationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording keyconfiguration too many requests response a status code equal to that given
+func (o *PutRecordingKeyconfigurationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRecordingKeyconfigurationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRecordingKeyconfigurationInternalServerError() *PutRecordingKeyconfig
 	return &PutRecordingKeyconfigurationInternalServerError{}
 }
 
-/*PutRecordingKeyconfigurationInternalServerError handles this case with default header values.
+/*
+PutRecordingKeyconfigurationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRecordingKeyconfigurationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration internal server error response has a 2xx status code
+func (o *PutRecordingKeyconfigurationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration internal server error response has a 3xx status code
+func (o *PutRecordingKeyconfigurationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration internal server error response has a 4xx status code
+func (o *PutRecordingKeyconfigurationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording keyconfiguration internal server error response has a 5xx status code
+func (o *PutRecordingKeyconfigurationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording keyconfiguration internal server error response a status code equal to that given
+func (o *PutRecordingKeyconfigurationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRecordingKeyconfigurationInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRecordingKeyconfigurationServiceUnavailable() *PutRecordingKeyconfigu
 	return &PutRecordingKeyconfigurationServiceUnavailable{}
 }
 
-/*PutRecordingKeyconfigurationServiceUnavailable handles this case with default header values.
+/*
+PutRecordingKeyconfigurationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRecordingKeyconfigurationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration service unavailable response has a 2xx status code
+func (o *PutRecordingKeyconfigurationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration service unavailable response has a 3xx status code
+func (o *PutRecordingKeyconfigurationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration service unavailable response has a 4xx status code
+func (o *PutRecordingKeyconfigurationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording keyconfiguration service unavailable response has a 5xx status code
+func (o *PutRecordingKeyconfigurationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording keyconfiguration service unavailable response a status code equal to that given
+func (o *PutRecordingKeyconfigurationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRecordingKeyconfigurationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRecordingKeyconfigurationGatewayTimeout() *PutRecordingKeyconfigurati
 	return &PutRecordingKeyconfigurationGatewayTimeout{}
 }
 
-/*PutRecordingKeyconfigurationGatewayTimeout handles this case with default header values.
+/*
+PutRecordingKeyconfigurationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRecordingKeyconfigurationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording keyconfiguration gateway timeout response has a 2xx status code
+func (o *PutRecordingKeyconfigurationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording keyconfiguration gateway timeout response has a 3xx status code
+func (o *PutRecordingKeyconfigurationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording keyconfiguration gateway timeout response has a 4xx status code
+func (o *PutRecordingKeyconfigurationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording keyconfiguration gateway timeout response has a 5xx status code
+func (o *PutRecordingKeyconfigurationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording keyconfiguration gateway timeout response a status code equal to that given
+func (o *PutRecordingKeyconfigurationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRecordingKeyconfigurationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRecordingKeyconfigurationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] putRecordingKeyconfigurationGatewayTimeout  %+v", 504, o.Payload)
 }
 

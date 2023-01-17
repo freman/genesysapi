@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetScriptsUploadStatusParams creates a new GetScriptsUploadStatusParams object
-// with the default values initialized.
+// NewGetScriptsUploadStatusParams creates a new GetScriptsUploadStatusParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScriptsUploadStatusParams() *GetScriptsUploadStatusParams {
-	var (
-		longPollDefault = bool(false)
-	)
 	return &GetScriptsUploadStatusParams{
-		LongPoll: &longPollDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScriptsUploadStatusParamsWithTimeout creates a new GetScriptsUploadStatusParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScriptsUploadStatusParamsWithTimeout(timeout time.Duration) *GetScriptsUploadStatusParams {
-	var (
-		longPollDefault = bool(false)
-	)
 	return &GetScriptsUploadStatusParams{
-		LongPoll: &longPollDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScriptsUploadStatusParamsWithContext creates a new GetScriptsUploadStatusParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScriptsUploadStatusParamsWithContext(ctx context.Context) *GetScriptsUploadStatusParams {
-	var (
-		longPollDefault = bool(false)
-	)
 	return &GetScriptsUploadStatusParams{
-		LongPoll: &longPollDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetScriptsUploadStatusParamsWithHTTPClient creates a new GetScriptsUploadStatusParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScriptsUploadStatusParamsWithHTTPClient(client *http.Client) *GetScriptsUploadStatusParams {
-	var (
-		longPollDefault = bool(false)
-	)
 	return &GetScriptsUploadStatusParams{
-		LongPoll:   &longPollDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetScriptsUploadStatusParams contains all the parameters to send to the API endpoint
-for the get scripts upload status operation typically these are written to a http.Request
+/*
+GetScriptsUploadStatusParams contains all the parameters to send to the API endpoint
+
+	for the get scripts upload status operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScriptsUploadStatusParams struct {
 
-	/*LongPoll
-	  Enable longPolling endpoint
+	/* LongPoll.
 
+	   Enable longPolling endpoint
 	*/
 	LongPoll *bool
-	/*UploadID
-	  Upload ID
 
+	/* UploadID.
+
+	   Upload ID
 	*/
 	UploadID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scripts upload status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsUploadStatusParams) WithDefaults() *GetScriptsUploadStatusParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scripts upload status params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsUploadStatusParams) SetDefaults() {
+	var (
+		longPollDefault = bool(false)
+	)
+
+	val := GetScriptsUploadStatusParams{
+		LongPoll: &longPollDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get scripts upload status params
@@ -156,16 +172,17 @@ func (o *GetScriptsUploadStatusParams) WriteToRequest(r runtime.ClientRequest, r
 
 		// query param longPoll
 		var qrLongPoll bool
+
 		if o.LongPoll != nil {
 			qrLongPoll = *o.LongPoll
 		}
 		qLongPoll := swag.FormatBool(qrLongPoll)
 		if qLongPoll != "" {
+
 			if err := r.SetQueryParam("longPoll", qLongPoll); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param uploadId

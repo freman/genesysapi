@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -78,7 +79,6 @@ func (m *LocationUpdateDefinition) Validate(formats strfmt.Registry) error {
 }
 
 func (m *LocationUpdateDefinition) validateAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Address) { // not required
 		return nil
 	}
@@ -87,6 +87,8 @@ func (m *LocationUpdateDefinition) validateAddress(formats strfmt.Registry) erro
 		if err := m.Address.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
 			}
 			return err
 		}
@@ -96,7 +98,6 @@ func (m *LocationUpdateDefinition) validateAddress(formats strfmt.Registry) erro
 }
 
 func (m *LocationUpdateDefinition) validateEmergencyNumber(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmergencyNumber) { // not required
 		return nil
 	}
@@ -105,6 +106,8 @@ func (m *LocationUpdateDefinition) validateEmergencyNumber(formats strfmt.Regist
 		if err := m.EmergencyNumber.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emergencyNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyNumber")
 			}
 			return err
 		}
@@ -152,7 +155,6 @@ func (m *LocationUpdateDefinition) validateStateEnum(path, location string, valu
 }
 
 func (m *LocationUpdateDefinition) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -169,6 +171,56 @@ func (m *LocationUpdateDefinition) validateVersion(formats strfmt.Registry) erro
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this location update definition based on the context it is used
+func (m *LocationUpdateDefinition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmergencyNumber(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LocationUpdateDefinition) contextValidateAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Address != nil {
+		if err := m.Address.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LocationUpdateDefinition) contextValidateEmergencyNumber(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmergencyNumber != nil {
+		if err := m.EmergencyNumber.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emergencyNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyNumber")
+			}
+			return err
+		}
 	}
 
 	return nil

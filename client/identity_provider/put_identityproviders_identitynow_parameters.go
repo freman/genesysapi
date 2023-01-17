@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIdentityprovidersIdentitynowParams creates a new PutIdentityprovidersIdentitynowParams object
-// with the default values initialized.
+// NewPutIdentityprovidersIdentitynowParams creates a new PutIdentityprovidersIdentitynowParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIdentityprovidersIdentitynowParams() *PutIdentityprovidersIdentitynowParams {
-	var ()
 	return &PutIdentityprovidersIdentitynowParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIdentityprovidersIdentitynowParamsWithTimeout creates a new PutIdentityprovidersIdentitynowParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIdentityprovidersIdentitynowParamsWithTimeout(timeout time.Duration) *PutIdentityprovidersIdentitynowParams {
-	var ()
 	return &PutIdentityprovidersIdentitynowParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIdentityprovidersIdentitynowParamsWithContext creates a new PutIdentityprovidersIdentitynowParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIdentityprovidersIdentitynowParamsWithContext(ctx context.Context) *PutIdentityprovidersIdentitynowParams {
-	var ()
 	return &PutIdentityprovidersIdentitynowParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIdentityprovidersIdentitynowParamsWithHTTPClient creates a new PutIdentityprovidersIdentitynowParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIdentityprovidersIdentitynowParamsWithHTTPClient(client *http.Client) *PutIdentityprovidersIdentitynowParams {
-	var ()
 	return &PutIdentityprovidersIdentitynowParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIdentityprovidersIdentitynowParams contains all the parameters to send to the API endpoint
-for the put identityproviders identitynow operation typically these are written to a http.Request
+/*
+PutIdentityprovidersIdentitynowParams contains all the parameters to send to the API endpoint
+
+	for the put identityproviders identitynow operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIdentityprovidersIdentitynowParams struct {
 
-	/*Body
-	  Provider
+	/* Body.
 
+	   Provider
 	*/
 	Body *models.IdentityNow
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put identityproviders identitynow params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersIdentitynowParams) WithDefaults() *PutIdentityprovidersIdentitynowParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put identityproviders identitynow params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersIdentitynowParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put identityproviders identitynow params
@@ -124,7 +140,6 @@ func (o *PutIdentityprovidersIdentitynowParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

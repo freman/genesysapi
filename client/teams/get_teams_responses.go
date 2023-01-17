@@ -95,7 +95,6 @@ func (o *GetTeamsReader) ReadResponse(response runtime.ClientResponse, consumer 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTeamsOK() *GetTeamsOK {
 	return &GetTeamsOK{}
 }
 
-/*GetTeamsOK handles this case with default header values.
+/*
+GetTeamsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTeamsOK struct {
 	Payload *models.TeamEntityListing
 }
 
+// IsSuccess returns true when this get teams o k response has a 2xx status code
+func (o *GetTeamsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get teams o k response has a 3xx status code
+func (o *GetTeamsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams o k response has a 4xx status code
+func (o *GetTeamsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get teams o k response has a 5xx status code
+func (o *GetTeamsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams o k response a status code equal to that given
+func (o *GetTeamsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTeamsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTeamsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTeamsBadRequest() *GetTeamsBadRequest {
 	return &GetTeamsBadRequest{}
 }
 
-/*GetTeamsBadRequest handles this case with default header values.
+/*
+GetTeamsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTeamsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams bad request response has a 2xx status code
+func (o *GetTeamsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams bad request response has a 3xx status code
+func (o *GetTeamsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams bad request response has a 4xx status code
+func (o *GetTeamsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams bad request response has a 5xx status code
+func (o *GetTeamsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams bad request response a status code equal to that given
+func (o *GetTeamsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTeamsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTeamsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTeamsUnauthorized() *GetTeamsUnauthorized {
 	return &GetTeamsUnauthorized{}
 }
 
-/*GetTeamsUnauthorized handles this case with default header values.
+/*
+GetTeamsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTeamsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams unauthorized response has a 2xx status code
+func (o *GetTeamsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams unauthorized response has a 3xx status code
+func (o *GetTeamsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams unauthorized response has a 4xx status code
+func (o *GetTeamsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams unauthorized response has a 5xx status code
+func (o *GetTeamsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams unauthorized response a status code equal to that given
+func (o *GetTeamsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTeamsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTeamsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTeamsForbidden() *GetTeamsForbidden {
 	return &GetTeamsForbidden{}
 }
 
-/*GetTeamsForbidden handles this case with default header values.
+/*
+GetTeamsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTeamsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams forbidden response has a 2xx status code
+func (o *GetTeamsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams forbidden response has a 3xx status code
+func (o *GetTeamsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams forbidden response has a 4xx status code
+func (o *GetTeamsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams forbidden response has a 5xx status code
+func (o *GetTeamsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams forbidden response a status code equal to that given
+func (o *GetTeamsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTeamsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTeamsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTeamsNotFound() *GetTeamsNotFound {
 	return &GetTeamsNotFound{}
 }
 
-/*GetTeamsNotFound handles this case with default header values.
+/*
+GetTeamsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTeamsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams not found response has a 2xx status code
+func (o *GetTeamsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams not found response has a 3xx status code
+func (o *GetTeamsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams not found response has a 4xx status code
+func (o *GetTeamsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams not found response has a 5xx status code
+func (o *GetTeamsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams not found response a status code equal to that given
+func (o *GetTeamsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTeamsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTeamsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTeamsRequestTimeout() *GetTeamsRequestTimeout {
 	return &GetTeamsRequestTimeout{}
 }
 
-/*GetTeamsRequestTimeout handles this case with default header values.
+/*
+GetTeamsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTeamsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams request timeout response has a 2xx status code
+func (o *GetTeamsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams request timeout response has a 3xx status code
+func (o *GetTeamsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams request timeout response has a 4xx status code
+func (o *GetTeamsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams request timeout response has a 5xx status code
+func (o *GetTeamsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams request timeout response a status code equal to that given
+func (o *GetTeamsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTeamsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTeamsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTeamsRequestEntityTooLarge() *GetTeamsRequestEntityTooLarge {
 	return &GetTeamsRequestEntityTooLarge{}
 }
 
-/*GetTeamsRequestEntityTooLarge handles this case with default header values.
+/*
+GetTeamsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTeamsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams request entity too large response has a 2xx status code
+func (o *GetTeamsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams request entity too large response has a 3xx status code
+func (o *GetTeamsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams request entity too large response has a 4xx status code
+func (o *GetTeamsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams request entity too large response has a 5xx status code
+func (o *GetTeamsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams request entity too large response a status code equal to that given
+func (o *GetTeamsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTeamsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTeamsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTeamsUnsupportedMediaType() *GetTeamsUnsupportedMediaType {
 	return &GetTeamsUnsupportedMediaType{}
 }
 
-/*GetTeamsUnsupportedMediaType handles this case with default header values.
+/*
+GetTeamsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTeamsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams unsupported media type response has a 2xx status code
+func (o *GetTeamsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams unsupported media type response has a 3xx status code
+func (o *GetTeamsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams unsupported media type response has a 4xx status code
+func (o *GetTeamsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams unsupported media type response has a 5xx status code
+func (o *GetTeamsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams unsupported media type response a status code equal to that given
+func (o *GetTeamsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTeamsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTeamsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTeamsTooManyRequests() *GetTeamsTooManyRequests {
 	return &GetTeamsTooManyRequests{}
 }
 
-/*GetTeamsTooManyRequests handles this case with default header values.
+/*
+GetTeamsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTeamsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams too many requests response has a 2xx status code
+func (o *GetTeamsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams too many requests response has a 3xx status code
+func (o *GetTeamsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams too many requests response has a 4xx status code
+func (o *GetTeamsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get teams too many requests response has a 5xx status code
+func (o *GetTeamsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get teams too many requests response a status code equal to that given
+func (o *GetTeamsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTeamsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTeamsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTeamsInternalServerError() *GetTeamsInternalServerError {
 	return &GetTeamsInternalServerError{}
 }
 
-/*GetTeamsInternalServerError handles this case with default header values.
+/*
+GetTeamsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTeamsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams internal server error response has a 2xx status code
+func (o *GetTeamsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams internal server error response has a 3xx status code
+func (o *GetTeamsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams internal server error response has a 4xx status code
+func (o *GetTeamsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get teams internal server error response has a 5xx status code
+func (o *GetTeamsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get teams internal server error response a status code equal to that given
+func (o *GetTeamsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTeamsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTeamsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTeamsServiceUnavailable() *GetTeamsServiceUnavailable {
 	return &GetTeamsServiceUnavailable{}
 }
 
-/*GetTeamsServiceUnavailable handles this case with default header values.
+/*
+GetTeamsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTeamsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams service unavailable response has a 2xx status code
+func (o *GetTeamsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams service unavailable response has a 3xx status code
+func (o *GetTeamsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams service unavailable response has a 4xx status code
+func (o *GetTeamsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get teams service unavailable response has a 5xx status code
+func (o *GetTeamsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get teams service unavailable response a status code equal to that given
+func (o *GetTeamsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTeamsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTeamsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTeamsGatewayTimeout() *GetTeamsGatewayTimeout {
 	return &GetTeamsGatewayTimeout{}
 }
 
-/*GetTeamsGatewayTimeout handles this case with default header values.
+/*
+GetTeamsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTeamsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get teams gateway timeout response has a 2xx status code
+func (o *GetTeamsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get teams gateway timeout response has a 3xx status code
+func (o *GetTeamsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get teams gateway timeout response has a 4xx status code
+func (o *GetTeamsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get teams gateway timeout response has a 5xx status code
+func (o *GetTeamsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get teams gateway timeout response a status code equal to that given
+func (o *GetTeamsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTeamsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTeamsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/teams][%d] getTeamsGatewayTimeout  %+v", 504, o.Payload)
 }
 

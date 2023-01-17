@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -43,7 +44,6 @@ func (m *SurveyScoringSet) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SurveyScoringSet) validateQuestionGroupScores(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuestionGroupScores) { // not required
 		return nil
 	}
@@ -57,6 +57,42 @@ func (m *SurveyScoringSet) validateQuestionGroupScores(formats strfmt.Registry) 
 			if err := m.QuestionGroupScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this survey scoring set based on the context it is used
+func (m *SurveyScoringSet) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateQuestionGroupScores(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SurveyScoringSet) contextValidateQuestionGroupScores(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuestionGroupScores); i++ {
+
+		if m.QuestionGroupScores[i] != nil {
+			if err := m.QuestionGroupScores[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -46,6 +48,38 @@ func (m *ResponseQueryResults) validateResults(formats strfmt.Registry) error {
 		if err := m.Results.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("results")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("results")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this response query results based on the context it is used
+func (m *ResponseQueryResults) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ResponseQueryResults) contextValidateResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Results != nil {
+		if err := m.Results.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("results")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("results")
 			}
 			return err
 		}

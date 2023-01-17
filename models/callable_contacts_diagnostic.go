@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // CallableContactsDiagnostic callable contacts diagnostic
@@ -62,7 +64,6 @@ func (m *CallableContactsDiagnostic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CallableContactsDiagnostic) validateAttemptLimits(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AttemptLimits) { // not required
 		return nil
 	}
@@ -71,6 +72,8 @@ func (m *CallableContactsDiagnostic) validateAttemptLimits(formats strfmt.Regist
 		if err := m.AttemptLimits.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attemptLimits")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attemptLimits")
 			}
 			return err
 		}
@@ -80,7 +83,6 @@ func (m *CallableContactsDiagnostic) validateAttemptLimits(formats strfmt.Regist
 }
 
 func (m *CallableContactsDiagnostic) validateCallableTimeSet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallableTimeSet) { // not required
 		return nil
 	}
@@ -89,6 +91,8 @@ func (m *CallableContactsDiagnostic) validateCallableTimeSet(formats strfmt.Regi
 		if err := m.CallableTimeSet.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("callableTimeSet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callableTimeSet")
 			}
 			return err
 		}
@@ -98,7 +102,6 @@ func (m *CallableContactsDiagnostic) validateCallableTimeSet(formats strfmt.Regi
 }
 
 func (m *CallableContactsDiagnostic) validateDncLists(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DncLists) { // not required
 		return nil
 	}
@@ -112,6 +115,8 @@ func (m *CallableContactsDiagnostic) validateDncLists(formats strfmt.Registry) e
 			if err := m.DncLists[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dncLists" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dncLists" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -123,7 +128,6 @@ func (m *CallableContactsDiagnostic) validateDncLists(formats strfmt.Registry) e
 }
 
 func (m *CallableContactsDiagnostic) validateRuleSets(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RuleSets) { // not required
 		return nil
 	}
@@ -137,6 +141,114 @@ func (m *CallableContactsDiagnostic) validateRuleSets(formats strfmt.Registry) e
 			if err := m.RuleSets[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ruleSets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleSets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this callable contacts diagnostic based on the context it is used
+func (m *CallableContactsDiagnostic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttemptLimits(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCallableTimeSet(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDncLists(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRuleSets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CallableContactsDiagnostic) contextValidateAttemptLimits(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AttemptLimits != nil {
+		if err := m.AttemptLimits.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("attemptLimits")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attemptLimits")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallableContactsDiagnostic) contextValidateCallableTimeSet(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CallableTimeSet != nil {
+		if err := m.CallableTimeSet.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("callableTimeSet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callableTimeSet")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallableContactsDiagnostic) contextValidateDncLists(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dncLists", "body", []*DomainEntityRef(m.DncLists)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.DncLists); i++ {
+
+		if m.DncLists[i] != nil {
+			if err := m.DncLists[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dncLists" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dncLists" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CallableContactsDiagnostic) contextValidateRuleSets(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "ruleSets", "body", []*DomainEntityRef(m.RuleSets)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.RuleSets); i++ {
+
+		if m.RuleSets[i] != nil {
+			if err := m.RuleSets[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ruleSets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleSets" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

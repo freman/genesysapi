@@ -95,7 +95,6 @@ func (o *PostOrgauthorizationPairingsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOrgauthorizationPairingsOK() *PostOrgauthorizationPairingsOK {
 	return &PostOrgauthorizationPairingsOK{}
 }
 
-/*PostOrgauthorizationPairingsOK handles this case with default header values.
+/*
+PostOrgauthorizationPairingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOrgauthorizationPairingsOK struct {
 	Payload *models.TrustRequest
 }
 
+// IsSuccess returns true when this post orgauthorization pairings o k response has a 2xx status code
+func (o *PostOrgauthorizationPairingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post orgauthorization pairings o k response has a 3xx status code
+func (o *PostOrgauthorizationPairingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings o k response has a 4xx status code
+func (o *PostOrgauthorizationPairingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization pairings o k response has a 5xx status code
+func (o *PostOrgauthorizationPairingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings o k response a status code equal to that given
+func (o *PostOrgauthorizationPairingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOrgauthorizationPairingsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOrgauthorizationPairingsBadRequest() *PostOrgauthorizationPairingsBa
 	return &PostOrgauthorizationPairingsBadRequest{}
 }
 
-/*PostOrgauthorizationPairingsBadRequest handles this case with default header values.
+/*
+PostOrgauthorizationPairingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOrgauthorizationPairingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings bad request response has a 2xx status code
+func (o *PostOrgauthorizationPairingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings bad request response has a 3xx status code
+func (o *PostOrgauthorizationPairingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings bad request response has a 4xx status code
+func (o *PostOrgauthorizationPairingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings bad request response has a 5xx status code
+func (o *PostOrgauthorizationPairingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings bad request response a status code equal to that given
+func (o *PostOrgauthorizationPairingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOrgauthorizationPairingsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOrgauthorizationPairingsUnauthorized() *PostOrgauthorizationPairings
 	return &PostOrgauthorizationPairingsUnauthorized{}
 }
 
-/*PostOrgauthorizationPairingsUnauthorized handles this case with default header values.
+/*
+PostOrgauthorizationPairingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOrgauthorizationPairingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings unauthorized response has a 2xx status code
+func (o *PostOrgauthorizationPairingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings unauthorized response has a 3xx status code
+func (o *PostOrgauthorizationPairingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings unauthorized response has a 4xx status code
+func (o *PostOrgauthorizationPairingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings unauthorized response has a 5xx status code
+func (o *PostOrgauthorizationPairingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings unauthorized response a status code equal to that given
+func (o *PostOrgauthorizationPairingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOrgauthorizationPairingsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOrgauthorizationPairingsForbidden() *PostOrgauthorizationPairingsFor
 	return &PostOrgauthorizationPairingsForbidden{}
 }
 
-/*PostOrgauthorizationPairingsForbidden handles this case with default header values.
+/*
+PostOrgauthorizationPairingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOrgauthorizationPairingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings forbidden response has a 2xx status code
+func (o *PostOrgauthorizationPairingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings forbidden response has a 3xx status code
+func (o *PostOrgauthorizationPairingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings forbidden response has a 4xx status code
+func (o *PostOrgauthorizationPairingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings forbidden response has a 5xx status code
+func (o *PostOrgauthorizationPairingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings forbidden response a status code equal to that given
+func (o *PostOrgauthorizationPairingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOrgauthorizationPairingsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOrgauthorizationPairingsNotFound() *PostOrgauthorizationPairingsNotF
 	return &PostOrgauthorizationPairingsNotFound{}
 }
 
-/*PostOrgauthorizationPairingsNotFound handles this case with default header values.
+/*
+PostOrgauthorizationPairingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOrgauthorizationPairingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings not found response has a 2xx status code
+func (o *PostOrgauthorizationPairingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings not found response has a 3xx status code
+func (o *PostOrgauthorizationPairingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings not found response has a 4xx status code
+func (o *PostOrgauthorizationPairingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings not found response has a 5xx status code
+func (o *PostOrgauthorizationPairingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings not found response a status code equal to that given
+func (o *PostOrgauthorizationPairingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOrgauthorizationPairingsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOrgauthorizationPairingsRequestTimeout() *PostOrgauthorizationPairin
 	return &PostOrgauthorizationPairingsRequestTimeout{}
 }
 
-/*PostOrgauthorizationPairingsRequestTimeout handles this case with default header values.
+/*
+PostOrgauthorizationPairingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOrgauthorizationPairingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings request timeout response has a 2xx status code
+func (o *PostOrgauthorizationPairingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings request timeout response has a 3xx status code
+func (o *PostOrgauthorizationPairingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings request timeout response has a 4xx status code
+func (o *PostOrgauthorizationPairingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings request timeout response has a 5xx status code
+func (o *PostOrgauthorizationPairingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings request timeout response a status code equal to that given
+func (o *PostOrgauthorizationPairingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOrgauthorizationPairingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOrgauthorizationPairingsRequestEntityTooLarge() *PostOrgauthorizatio
 	return &PostOrgauthorizationPairingsRequestEntityTooLarge{}
 }
 
-/*PostOrgauthorizationPairingsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOrgauthorizationPairingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOrgauthorizationPairingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings request entity too large response has a 2xx status code
+func (o *PostOrgauthorizationPairingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings request entity too large response has a 3xx status code
+func (o *PostOrgauthorizationPairingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings request entity too large response has a 4xx status code
+func (o *PostOrgauthorizationPairingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings request entity too large response has a 5xx status code
+func (o *PostOrgauthorizationPairingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings request entity too large response a status code equal to that given
+func (o *PostOrgauthorizationPairingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOrgauthorizationPairingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOrgauthorizationPairingsUnsupportedMediaType() *PostOrgauthorization
 	return &PostOrgauthorizationPairingsUnsupportedMediaType{}
 }
 
-/*PostOrgauthorizationPairingsUnsupportedMediaType handles this case with default header values.
+/*
+PostOrgauthorizationPairingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOrgauthorizationPairingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings unsupported media type response has a 2xx status code
+func (o *PostOrgauthorizationPairingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings unsupported media type response has a 3xx status code
+func (o *PostOrgauthorizationPairingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings unsupported media type response has a 4xx status code
+func (o *PostOrgauthorizationPairingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings unsupported media type response has a 5xx status code
+func (o *PostOrgauthorizationPairingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings unsupported media type response a status code equal to that given
+func (o *PostOrgauthorizationPairingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOrgauthorizationPairingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOrgauthorizationPairingsTooManyRequests() *PostOrgauthorizationPairi
 	return &PostOrgauthorizationPairingsTooManyRequests{}
 }
 
-/*PostOrgauthorizationPairingsTooManyRequests handles this case with default header values.
+/*
+PostOrgauthorizationPairingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOrgauthorizationPairingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings too many requests response has a 2xx status code
+func (o *PostOrgauthorizationPairingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings too many requests response has a 3xx status code
+func (o *PostOrgauthorizationPairingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings too many requests response has a 4xx status code
+func (o *PostOrgauthorizationPairingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization pairings too many requests response has a 5xx status code
+func (o *PostOrgauthorizationPairingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization pairings too many requests response a status code equal to that given
+func (o *PostOrgauthorizationPairingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOrgauthorizationPairingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOrgauthorizationPairingsInternalServerError() *PostOrgauthorizationP
 	return &PostOrgauthorizationPairingsInternalServerError{}
 }
 
-/*PostOrgauthorizationPairingsInternalServerError handles this case with default header values.
+/*
+PostOrgauthorizationPairingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOrgauthorizationPairingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings internal server error response has a 2xx status code
+func (o *PostOrgauthorizationPairingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings internal server error response has a 3xx status code
+func (o *PostOrgauthorizationPairingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings internal server error response has a 4xx status code
+func (o *PostOrgauthorizationPairingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization pairings internal server error response has a 5xx status code
+func (o *PostOrgauthorizationPairingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization pairings internal server error response a status code equal to that given
+func (o *PostOrgauthorizationPairingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOrgauthorizationPairingsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOrgauthorizationPairingsServiceUnavailable() *PostOrgauthorizationPa
 	return &PostOrgauthorizationPairingsServiceUnavailable{}
 }
 
-/*PostOrgauthorizationPairingsServiceUnavailable handles this case with default header values.
+/*
+PostOrgauthorizationPairingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOrgauthorizationPairingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings service unavailable response has a 2xx status code
+func (o *PostOrgauthorizationPairingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings service unavailable response has a 3xx status code
+func (o *PostOrgauthorizationPairingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings service unavailable response has a 4xx status code
+func (o *PostOrgauthorizationPairingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization pairings service unavailable response has a 5xx status code
+func (o *PostOrgauthorizationPairingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization pairings service unavailable response a status code equal to that given
+func (o *PostOrgauthorizationPairingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOrgauthorizationPairingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOrgauthorizationPairingsGatewayTimeout() *PostOrgauthorizationPairin
 	return &PostOrgauthorizationPairingsGatewayTimeout{}
 }
 
-/*PostOrgauthorizationPairingsGatewayTimeout handles this case with default header values.
+/*
+PostOrgauthorizationPairingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOrgauthorizationPairingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization pairings gateway timeout response has a 2xx status code
+func (o *PostOrgauthorizationPairingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization pairings gateway timeout response has a 3xx status code
+func (o *PostOrgauthorizationPairingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization pairings gateway timeout response has a 4xx status code
+func (o *PostOrgauthorizationPairingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization pairings gateway timeout response has a 5xx status code
+func (o *PostOrgauthorizationPairingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization pairings gateway timeout response a status code equal to that given
+func (o *PostOrgauthorizationPairingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOrgauthorizationPairingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOrgauthorizationPairingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/pairings][%d] postOrgauthorizationPairingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

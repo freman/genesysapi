@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -274,7 +275,6 @@ func (m *Edge) validateCallDrainingStateEnum(path, location string, value string
 }
 
 func (m *Edge) validateCallDrainingState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallDrainingState) { // not required
 		return nil
 	}
@@ -288,7 +288,6 @@ func (m *Edge) validateCallDrainingState(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -301,7 +300,6 @@ func (m *Edge) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -314,7 +312,6 @@ func (m *Edge) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -323,6 +320,8 @@ func (m *Edge) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -370,7 +369,6 @@ func (m *Edge) validateEdgeDeploymentTypeEnum(path, location string, value strin
 }
 
 func (m *Edge) validateEdgeDeploymentType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeDeploymentType) { // not required
 		return nil
 	}
@@ -384,7 +382,6 @@ func (m *Edge) validateEdgeDeploymentType(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateEdgeGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeGroup) { // not required
 		return nil
 	}
@@ -393,6 +390,8 @@ func (m *Edge) validateEdgeGroup(formats strfmt.Registry) error {
 		if err := m.EdgeGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
 			}
 			return err
 		}
@@ -402,7 +401,6 @@ func (m *Edge) validateEdgeGroup(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateInterfaces(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Interfaces) { // not required
 		return nil
 	}
@@ -416,6 +414,8 @@ func (m *Edge) validateInterfaces(formats strfmt.Registry) error {
 			if err := m.Interfaces[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -465,7 +465,6 @@ func (m *Edge) validateOnlineStatusEnum(path, location string, value string) err
 }
 
 func (m *Edge) validateOnlineStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OnlineStatus) { // not required
 		return nil
 	}
@@ -479,7 +478,6 @@ func (m *Edge) validateOnlineStatus(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -492,7 +490,6 @@ func (m *Edge) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateSite(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Site) { // not required
 		return nil
 	}
@@ -501,6 +498,8 @@ func (m *Edge) validateSite(formats strfmt.Registry) error {
 		if err := m.Site.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -510,7 +509,6 @@ func (m *Edge) validateSite(formats strfmt.Registry) error {
 }
 
 func (m *Edge) validateSoftwareStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SoftwareStatus) { // not required
 		return nil
 	}
@@ -519,6 +517,8 @@ func (m *Edge) validateSoftwareStatus(formats strfmt.Registry) error {
 		if err := m.SoftwareStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("softwareStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("softwareStatus")
 			}
 			return err
 		}
@@ -560,7 +560,6 @@ func (m *Edge) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Edge) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -633,13 +632,295 @@ func (m *Edge) validateStatusCodeEnum(path, location string, value string) error
 }
 
 func (m *Edge) validateStatusCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StatusCode) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusCodeEnum("statusCode", "body", m.StatusCode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this edge based on the context it is used
+func (m *Edge) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallDrainingState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdgeGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInterfaces(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOfflineConfigCalled(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOsName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSite(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSoftwareStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Edge) contextValidateCallDrainingState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "callDrainingState", "body", string(m.CallDrainingState)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateConversationCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationCount", "body", int32(m.ConversationCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateEdgeGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EdgeGroup != nil {
+		if err := m.EdgeGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateInterfaces(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Interfaces); i++ {
+
+		if m.Interfaces[i] != nil {
+			if err := m.Interfaces[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interfaces" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateOfflineConfigCalled(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "offlineConfigCalled", "body", m.OfflineConfigCalled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateOsName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "osName", "body", string(m.OsName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateSite(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Site != nil {
+		if err := m.Site.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateSoftwareStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SoftwareStatus != nil {
+		if err := m.SoftwareStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("softwareStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("softwareStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Edge) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
 		return err
 	}
 

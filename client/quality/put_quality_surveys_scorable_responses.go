@@ -95,7 +95,6 @@ func (o *PutQualitySurveysScorableReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutQualitySurveysScorableOK() *PutQualitySurveysScorableOK {
 	return &PutQualitySurveysScorableOK{}
 }
 
-/*PutQualitySurveysScorableOK handles this case with default header values.
+/*
+PutQualitySurveysScorableOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutQualitySurveysScorableOK struct {
 	Payload *models.ScorableSurvey
 }
 
+// IsSuccess returns true when this put quality surveys scorable o k response has a 2xx status code
+func (o *PutQualitySurveysScorableOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put quality surveys scorable o k response has a 3xx status code
+func (o *PutQualitySurveysScorableOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable o k response has a 4xx status code
+func (o *PutQualitySurveysScorableOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality surveys scorable o k response has a 5xx status code
+func (o *PutQualitySurveysScorableOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable o k response a status code equal to that given
+func (o *PutQualitySurveysScorableOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutQualitySurveysScorableOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableOK  %+v", 200, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutQualitySurveysScorableBadRequest() *PutQualitySurveysScorableBadReque
 	return &PutQualitySurveysScorableBadRequest{}
 }
 
-/*PutQualitySurveysScorableBadRequest handles this case with default header values.
+/*
+PutQualitySurveysScorableBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutQualitySurveysScorableBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable bad request response has a 2xx status code
+func (o *PutQualitySurveysScorableBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable bad request response has a 3xx status code
+func (o *PutQualitySurveysScorableBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable bad request response has a 4xx status code
+func (o *PutQualitySurveysScorableBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable bad request response has a 5xx status code
+func (o *PutQualitySurveysScorableBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable bad request response a status code equal to that given
+func (o *PutQualitySurveysScorableBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutQualitySurveysScorableBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutQualitySurveysScorableUnauthorized() *PutQualitySurveysScorableUnauth
 	return &PutQualitySurveysScorableUnauthorized{}
 }
 
-/*PutQualitySurveysScorableUnauthorized handles this case with default header values.
+/*
+PutQualitySurveysScorableUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutQualitySurveysScorableUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable unauthorized response has a 2xx status code
+func (o *PutQualitySurveysScorableUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable unauthorized response has a 3xx status code
+func (o *PutQualitySurveysScorableUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable unauthorized response has a 4xx status code
+func (o *PutQualitySurveysScorableUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable unauthorized response has a 5xx status code
+func (o *PutQualitySurveysScorableUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable unauthorized response a status code equal to that given
+func (o *PutQualitySurveysScorableUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutQualitySurveysScorableUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutQualitySurveysScorableForbidden() *PutQualitySurveysScorableForbidden
 	return &PutQualitySurveysScorableForbidden{}
 }
 
-/*PutQualitySurveysScorableForbidden handles this case with default header values.
+/*
+PutQualitySurveysScorableForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutQualitySurveysScorableForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable forbidden response has a 2xx status code
+func (o *PutQualitySurveysScorableForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable forbidden response has a 3xx status code
+func (o *PutQualitySurveysScorableForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable forbidden response has a 4xx status code
+func (o *PutQualitySurveysScorableForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable forbidden response has a 5xx status code
+func (o *PutQualitySurveysScorableForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable forbidden response a status code equal to that given
+func (o *PutQualitySurveysScorableForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutQualitySurveysScorableForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutQualitySurveysScorableNotFound() *PutQualitySurveysScorableNotFound {
 	return &PutQualitySurveysScorableNotFound{}
 }
 
-/*PutQualitySurveysScorableNotFound handles this case with default header values.
+/*
+PutQualitySurveysScorableNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutQualitySurveysScorableNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable not found response has a 2xx status code
+func (o *PutQualitySurveysScorableNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable not found response has a 3xx status code
+func (o *PutQualitySurveysScorableNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable not found response has a 4xx status code
+func (o *PutQualitySurveysScorableNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable not found response has a 5xx status code
+func (o *PutQualitySurveysScorableNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable not found response a status code equal to that given
+func (o *PutQualitySurveysScorableNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutQualitySurveysScorableNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutQualitySurveysScorableRequestTimeout() *PutQualitySurveysScorableRequ
 	return &PutQualitySurveysScorableRequestTimeout{}
 }
 
-/*PutQualitySurveysScorableRequestTimeout handles this case with default header values.
+/*
+PutQualitySurveysScorableRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutQualitySurveysScorableRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable request timeout response has a 2xx status code
+func (o *PutQualitySurveysScorableRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable request timeout response has a 3xx status code
+func (o *PutQualitySurveysScorableRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable request timeout response has a 4xx status code
+func (o *PutQualitySurveysScorableRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable request timeout response has a 5xx status code
+func (o *PutQualitySurveysScorableRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable request timeout response a status code equal to that given
+func (o *PutQualitySurveysScorableRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutQualitySurveysScorableRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutQualitySurveysScorableRequestEntityTooLarge() *PutQualitySurveysScora
 	return &PutQualitySurveysScorableRequestEntityTooLarge{}
 }
 
-/*PutQualitySurveysScorableRequestEntityTooLarge handles this case with default header values.
+/*
+PutQualitySurveysScorableRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutQualitySurveysScorableRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable request entity too large response has a 2xx status code
+func (o *PutQualitySurveysScorableRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable request entity too large response has a 3xx status code
+func (o *PutQualitySurveysScorableRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable request entity too large response has a 4xx status code
+func (o *PutQualitySurveysScorableRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable request entity too large response has a 5xx status code
+func (o *PutQualitySurveysScorableRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable request entity too large response a status code equal to that given
+func (o *PutQualitySurveysScorableRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutQualitySurveysScorableRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutQualitySurveysScorableUnsupportedMediaType() *PutQualitySurveysScorab
 	return &PutQualitySurveysScorableUnsupportedMediaType{}
 }
 
-/*PutQualitySurveysScorableUnsupportedMediaType handles this case with default header values.
+/*
+PutQualitySurveysScorableUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutQualitySurveysScorableUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable unsupported media type response has a 2xx status code
+func (o *PutQualitySurveysScorableUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable unsupported media type response has a 3xx status code
+func (o *PutQualitySurveysScorableUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable unsupported media type response has a 4xx status code
+func (o *PutQualitySurveysScorableUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable unsupported media type response has a 5xx status code
+func (o *PutQualitySurveysScorableUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable unsupported media type response a status code equal to that given
+func (o *PutQualitySurveysScorableUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutQualitySurveysScorableUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutQualitySurveysScorableTooManyRequests() *PutQualitySurveysScorableToo
 	return &PutQualitySurveysScorableTooManyRequests{}
 }
 
-/*PutQualitySurveysScorableTooManyRequests handles this case with default header values.
+/*
+PutQualitySurveysScorableTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutQualitySurveysScorableTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable too many requests response has a 2xx status code
+func (o *PutQualitySurveysScorableTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable too many requests response has a 3xx status code
+func (o *PutQualitySurveysScorableTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable too many requests response has a 4xx status code
+func (o *PutQualitySurveysScorableTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality surveys scorable too many requests response has a 5xx status code
+func (o *PutQualitySurveysScorableTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality surveys scorable too many requests response a status code equal to that given
+func (o *PutQualitySurveysScorableTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutQualitySurveysScorableTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutQualitySurveysScorableInternalServerError() *PutQualitySurveysScorabl
 	return &PutQualitySurveysScorableInternalServerError{}
 }
 
-/*PutQualitySurveysScorableInternalServerError handles this case with default header values.
+/*
+PutQualitySurveysScorableInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutQualitySurveysScorableInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable internal server error response has a 2xx status code
+func (o *PutQualitySurveysScorableInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable internal server error response has a 3xx status code
+func (o *PutQualitySurveysScorableInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable internal server error response has a 4xx status code
+func (o *PutQualitySurveysScorableInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality surveys scorable internal server error response has a 5xx status code
+func (o *PutQualitySurveysScorableInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put quality surveys scorable internal server error response a status code equal to that given
+func (o *PutQualitySurveysScorableInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutQualitySurveysScorableInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutQualitySurveysScorableServiceUnavailable() *PutQualitySurveysScorable
 	return &PutQualitySurveysScorableServiceUnavailable{}
 }
 
-/*PutQualitySurveysScorableServiceUnavailable handles this case with default header values.
+/*
+PutQualitySurveysScorableServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutQualitySurveysScorableServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable service unavailable response has a 2xx status code
+func (o *PutQualitySurveysScorableServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable service unavailable response has a 3xx status code
+func (o *PutQualitySurveysScorableServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable service unavailable response has a 4xx status code
+func (o *PutQualitySurveysScorableServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality surveys scorable service unavailable response has a 5xx status code
+func (o *PutQualitySurveysScorableServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put quality surveys scorable service unavailable response a status code equal to that given
+func (o *PutQualitySurveysScorableServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutQualitySurveysScorableServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutQualitySurveysScorableGatewayTimeout() *PutQualitySurveysScorableGate
 	return &PutQualitySurveysScorableGatewayTimeout{}
 }
 
-/*PutQualitySurveysScorableGatewayTimeout handles this case with default header values.
+/*
+PutQualitySurveysScorableGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutQualitySurveysScorableGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality surveys scorable gateway timeout response has a 2xx status code
+func (o *PutQualitySurveysScorableGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality surveys scorable gateway timeout response has a 3xx status code
+func (o *PutQualitySurveysScorableGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality surveys scorable gateway timeout response has a 4xx status code
+func (o *PutQualitySurveysScorableGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality surveys scorable gateway timeout response has a 5xx status code
+func (o *PutQualitySurveysScorableGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put quality surveys scorable gateway timeout response a status code equal to that given
+func (o *PutQualitySurveysScorableGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutQualitySurveysScorableGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutQualitySurveysScorableGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/surveys/scorable][%d] putQualitySurveysScorableGatewayTimeout  %+v", 504, o.Payload)
 }
 

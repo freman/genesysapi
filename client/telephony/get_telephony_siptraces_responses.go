@@ -95,7 +95,6 @@ func (o *GetTelephonySiptracesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTelephonySiptracesOK() *GetTelephonySiptracesOK {
 	return &GetTelephonySiptracesOK{}
 }
 
-/*GetTelephonySiptracesOK handles this case with default header values.
+/*
+GetTelephonySiptracesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTelephonySiptracesOK struct {
 	Payload *models.SipSearchResult
 }
 
+// IsSuccess returns true when this get telephony siptraces o k response has a 2xx status code
+func (o *GetTelephonySiptracesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get telephony siptraces o k response has a 3xx status code
+func (o *GetTelephonySiptracesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces o k response has a 4xx status code
+func (o *GetTelephonySiptracesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces o k response has a 5xx status code
+func (o *GetTelephonySiptracesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces o k response a status code equal to that given
+func (o *GetTelephonySiptracesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTelephonySiptracesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTelephonySiptracesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTelephonySiptracesBadRequest() *GetTelephonySiptracesBadRequest {
 	return &GetTelephonySiptracesBadRequest{}
 }
 
-/*GetTelephonySiptracesBadRequest handles this case with default header values.
+/*
+GetTelephonySiptracesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTelephonySiptracesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces bad request response has a 2xx status code
+func (o *GetTelephonySiptracesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces bad request response has a 3xx status code
+func (o *GetTelephonySiptracesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces bad request response has a 4xx status code
+func (o *GetTelephonySiptracesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces bad request response has a 5xx status code
+func (o *GetTelephonySiptracesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces bad request response a status code equal to that given
+func (o *GetTelephonySiptracesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTelephonySiptracesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTelephonySiptracesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTelephonySiptracesUnauthorized() *GetTelephonySiptracesUnauthorized {
 	return &GetTelephonySiptracesUnauthorized{}
 }
 
-/*GetTelephonySiptracesUnauthorized handles this case with default header values.
+/*
+GetTelephonySiptracesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTelephonySiptracesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces unauthorized response has a 2xx status code
+func (o *GetTelephonySiptracesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces unauthorized response has a 3xx status code
+func (o *GetTelephonySiptracesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces unauthorized response has a 4xx status code
+func (o *GetTelephonySiptracesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces unauthorized response has a 5xx status code
+func (o *GetTelephonySiptracesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces unauthorized response a status code equal to that given
+func (o *GetTelephonySiptracesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTelephonySiptracesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTelephonySiptracesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTelephonySiptracesForbidden() *GetTelephonySiptracesForbidden {
 	return &GetTelephonySiptracesForbidden{}
 }
 
-/*GetTelephonySiptracesForbidden handles this case with default header values.
+/*
+GetTelephonySiptracesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTelephonySiptracesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces forbidden response has a 2xx status code
+func (o *GetTelephonySiptracesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces forbidden response has a 3xx status code
+func (o *GetTelephonySiptracesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces forbidden response has a 4xx status code
+func (o *GetTelephonySiptracesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces forbidden response has a 5xx status code
+func (o *GetTelephonySiptracesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces forbidden response a status code equal to that given
+func (o *GetTelephonySiptracesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTelephonySiptracesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTelephonySiptracesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTelephonySiptracesNotFound() *GetTelephonySiptracesNotFound {
 	return &GetTelephonySiptracesNotFound{}
 }
 
-/*GetTelephonySiptracesNotFound handles this case with default header values.
+/*
+GetTelephonySiptracesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTelephonySiptracesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces not found response has a 2xx status code
+func (o *GetTelephonySiptracesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces not found response has a 3xx status code
+func (o *GetTelephonySiptracesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces not found response has a 4xx status code
+func (o *GetTelephonySiptracesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces not found response has a 5xx status code
+func (o *GetTelephonySiptracesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces not found response a status code equal to that given
+func (o *GetTelephonySiptracesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTelephonySiptracesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTelephonySiptracesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTelephonySiptracesRequestTimeout() *GetTelephonySiptracesRequestTimeo
 	return &GetTelephonySiptracesRequestTimeout{}
 }
 
-/*GetTelephonySiptracesRequestTimeout handles this case with default header values.
+/*
+GetTelephonySiptracesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTelephonySiptracesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces request timeout response has a 2xx status code
+func (o *GetTelephonySiptracesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces request timeout response has a 3xx status code
+func (o *GetTelephonySiptracesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces request timeout response has a 4xx status code
+func (o *GetTelephonySiptracesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces request timeout response has a 5xx status code
+func (o *GetTelephonySiptracesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces request timeout response a status code equal to that given
+func (o *GetTelephonySiptracesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTelephonySiptracesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonySiptracesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTelephonySiptracesRequestEntityTooLarge() *GetTelephonySiptracesReque
 	return &GetTelephonySiptracesRequestEntityTooLarge{}
 }
 
-/*GetTelephonySiptracesRequestEntityTooLarge handles this case with default header values.
+/*
+GetTelephonySiptracesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTelephonySiptracesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces request entity too large response has a 2xx status code
+func (o *GetTelephonySiptracesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces request entity too large response has a 3xx status code
+func (o *GetTelephonySiptracesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces request entity too large response has a 4xx status code
+func (o *GetTelephonySiptracesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces request entity too large response has a 5xx status code
+func (o *GetTelephonySiptracesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces request entity too large response a status code equal to that given
+func (o *GetTelephonySiptracesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTelephonySiptracesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTelephonySiptracesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTelephonySiptracesUnsupportedMediaType() *GetTelephonySiptracesUnsupp
 	return &GetTelephonySiptracesUnsupportedMediaType{}
 }
 
-/*GetTelephonySiptracesUnsupportedMediaType handles this case with default header values.
+/*
+GetTelephonySiptracesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTelephonySiptracesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces unsupported media type response has a 2xx status code
+func (o *GetTelephonySiptracesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces unsupported media type response has a 3xx status code
+func (o *GetTelephonySiptracesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces unsupported media type response has a 4xx status code
+func (o *GetTelephonySiptracesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces unsupported media type response has a 5xx status code
+func (o *GetTelephonySiptracesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces unsupported media type response a status code equal to that given
+func (o *GetTelephonySiptracesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTelephonySiptracesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTelephonySiptracesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTelephonySiptracesTooManyRequests() *GetTelephonySiptracesTooManyRequ
 	return &GetTelephonySiptracesTooManyRequests{}
 }
 
-/*GetTelephonySiptracesTooManyRequests handles this case with default header values.
+/*
+GetTelephonySiptracesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTelephonySiptracesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces too many requests response has a 2xx status code
+func (o *GetTelephonySiptracesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces too many requests response has a 3xx status code
+func (o *GetTelephonySiptracesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces too many requests response has a 4xx status code
+func (o *GetTelephonySiptracesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces too many requests response has a 5xx status code
+func (o *GetTelephonySiptracesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces too many requests response a status code equal to that given
+func (o *GetTelephonySiptracesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTelephonySiptracesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTelephonySiptracesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTelephonySiptracesInternalServerError() *GetTelephonySiptracesInterna
 	return &GetTelephonySiptracesInternalServerError{}
 }
 
-/*GetTelephonySiptracesInternalServerError handles this case with default header values.
+/*
+GetTelephonySiptracesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTelephonySiptracesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces internal server error response has a 2xx status code
+func (o *GetTelephonySiptracesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces internal server error response has a 3xx status code
+func (o *GetTelephonySiptracesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces internal server error response has a 4xx status code
+func (o *GetTelephonySiptracesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces internal server error response has a 5xx status code
+func (o *GetTelephonySiptracesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony siptraces internal server error response a status code equal to that given
+func (o *GetTelephonySiptracesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTelephonySiptracesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTelephonySiptracesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTelephonySiptracesServiceUnavailable() *GetTelephonySiptracesServiceU
 	return &GetTelephonySiptracesServiceUnavailable{}
 }
 
-/*GetTelephonySiptracesServiceUnavailable handles this case with default header values.
+/*
+GetTelephonySiptracesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTelephonySiptracesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces service unavailable response has a 2xx status code
+func (o *GetTelephonySiptracesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces service unavailable response has a 3xx status code
+func (o *GetTelephonySiptracesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces service unavailable response has a 4xx status code
+func (o *GetTelephonySiptracesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces service unavailable response has a 5xx status code
+func (o *GetTelephonySiptracesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony siptraces service unavailable response a status code equal to that given
+func (o *GetTelephonySiptracesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTelephonySiptracesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTelephonySiptracesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTelephonySiptracesGatewayTimeout() *GetTelephonySiptracesGatewayTimeo
 	return &GetTelephonySiptracesGatewayTimeout{}
 }
 
-/*GetTelephonySiptracesGatewayTimeout handles this case with default header values.
+/*
+GetTelephonySiptracesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTelephonySiptracesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces gateway timeout response has a 2xx status code
+func (o *GetTelephonySiptracesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces gateway timeout response has a 3xx status code
+func (o *GetTelephonySiptracesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces gateway timeout response has a 4xx status code
+func (o *GetTelephonySiptracesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces gateway timeout response has a 5xx status code
+func (o *GetTelephonySiptracesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony siptraces gateway timeout response a status code equal to that given
+func (o *GetTelephonySiptracesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTelephonySiptracesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTelephonySiptracesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces][%d] getTelephonySiptracesGatewayTimeout  %+v", 504, o.Payload)
 }
 

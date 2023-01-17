@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -151,7 +152,6 @@ func (m *ConversationChat) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConversationChat) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -160,6 +160,8 @@ func (m *ConversationChat) validateAfterCallWork(formats strfmt.Registry) error 
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -169,7 +171,6 @@ func (m *ConversationChat) validateAfterCallWork(formats strfmt.Registry) error 
 }
 
 func (m *ConversationChat) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -211,7 +212,6 @@ func (m *ConversationChat) validateDirectionEnum(path, location string, value st
 }
 
 func (m *ConversationChat) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -250,14 +250,14 @@ const (
 	// ConversationChatDisconnectTypeTransfer captures enum value "transfer"
 	ConversationChatDisconnectTypeTransfer string = "transfer"
 
-	// ConversationChatDisconnectTypeTransferConference captures enum value "transfer.conference"
-	ConversationChatDisconnectTypeTransferConference string = "transfer.conference"
+	// ConversationChatDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	ConversationChatDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// ConversationChatDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	ConversationChatDisconnectTypeTransferConsult string = "transfer.consult"
+	// ConversationChatDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	ConversationChatDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// ConversationChatDisconnectTypeTransferForward captures enum value "transfer.forward"
-	ConversationChatDisconnectTypeTransferForward string = "transfer.forward"
+	// ConversationChatDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	ConversationChatDisconnectTypeTransferDotForward string = "transfer.forward"
 
 	// ConversationChatDisconnectTypeError captures enum value "error"
 	ConversationChatDisconnectTypeError string = "error"
@@ -284,7 +284,6 @@ func (m *ConversationChat) validateDisconnectTypeEnum(path, location string, val
 }
 
 func (m *ConversationChat) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -298,7 +297,6 @@ func (m *ConversationChat) validateDisconnectType(formats strfmt.Registry) error
 }
 
 func (m *ConversationChat) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -358,7 +356,6 @@ func (m *ConversationChat) validateInitialStateEnum(path, location string, value
 }
 
 func (m *ConversationChat) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -372,7 +369,6 @@ func (m *ConversationChat) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *ConversationChat) validateJourneyContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JourneyContext) { // not required
 		return nil
 	}
@@ -381,6 +377,8 @@ func (m *ConversationChat) validateJourneyContext(formats strfmt.Registry) error
 		if err := m.JourneyContext.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
 			}
 			return err
 		}
@@ -390,7 +388,6 @@ func (m *ConversationChat) validateJourneyContext(formats strfmt.Registry) error
 }
 
 func (m *ConversationChat) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -404,6 +401,8 @@ func (m *ConversationChat) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -415,7 +414,6 @@ func (m *ConversationChat) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *ConversationChat) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -428,7 +426,6 @@ func (m *ConversationChat) validateStartAlertingTime(formats strfmt.Registry) er
 }
 
 func (m *ConversationChat) validateStartHoldTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartHoldTime) { // not required
 		return nil
 	}
@@ -488,7 +485,6 @@ func (m *ConversationChat) validateStateEnum(path, location string, value string
 }
 
 func (m *ConversationChat) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -502,7 +498,6 @@ func (m *ConversationChat) validateState(formats strfmt.Registry) error {
 }
 
 func (m *ConversationChat) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -511,6 +506,102 @@ func (m *ConversationChat) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation chat based on the context it is used
+func (m *ConversationChat) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJourneyContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationChat) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationChat) contextValidateJourneyContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.JourneyContext != nil {
+		if err := m.JourneyContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationChat) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConversationChat) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

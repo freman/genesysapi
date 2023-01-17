@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -66,7 +67,6 @@ func (m *UpdateScheduleUploadSchema) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UpdateScheduleUploadSchema) validateAgentSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AgentSchedules) { // not required
 		return nil
 	}
@@ -80,6 +80,8 @@ func (m *UpdateScheduleUploadSchema) validateAgentSchedules(formats strfmt.Regis
 			if err := m.AgentSchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -91,7 +93,6 @@ func (m *UpdateScheduleUploadSchema) validateAgentSchedules(formats strfmt.Regis
 }
 
 func (m *UpdateScheduleUploadSchema) validateHeadcountForecast(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HeadcountForecast) { // not required
 		return nil
 	}
@@ -100,6 +101,8 @@ func (m *UpdateScheduleUploadSchema) validateHeadcountForecast(formats strfmt.Re
 		if err := m.HeadcountForecast.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("headcountForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headcountForecast")
 			}
 			return err
 		}
@@ -118,6 +121,8 @@ func (m *UpdateScheduleUploadSchema) validateMetadata(formats strfmt.Registry) e
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -127,7 +132,6 @@ func (m *UpdateScheduleUploadSchema) validateMetadata(formats strfmt.Registry) e
 }
 
 func (m *UpdateScheduleUploadSchema) validateShortTermForecast(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortTermForecast) { // not required
 		return nil
 	}
@@ -136,6 +140,102 @@ func (m *UpdateScheduleUploadSchema) validateShortTermForecast(formats strfmt.Re
 		if err := m.ShortTermForecast.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update schedule upload schema based on the context it is used
+func (m *UpdateScheduleUploadSchema) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgentSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHeadcountForecast(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShortTermForecast(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateScheduleUploadSchema) contextValidateAgentSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AgentSchedules); i++ {
+
+		if m.AgentSchedules[i] != nil {
+			if err := m.AgentSchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UpdateScheduleUploadSchema) contextValidateHeadcountForecast(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HeadcountForecast != nil {
+		if err := m.HeadcountForecast.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("headcountForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headcountForecast")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateScheduleUploadSchema) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateScheduleUploadSchema) contextValidateShortTermForecast(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShortTermForecast != nil {
+		if err := m.ShortTermForecast.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
 			}
 			return err
 		}

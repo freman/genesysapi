@@ -101,7 +101,6 @@ func (o *PostFlowsActionsCheckinReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostFlowsActionsCheckinOK() *PostFlowsActionsCheckinOK {
 	return &PostFlowsActionsCheckinOK{}
 }
 
-/*PostFlowsActionsCheckinOK handles this case with default header values.
+/*
+PostFlowsActionsCheckinOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostFlowsActionsCheckinOK struct {
 	Payload *models.Operation
 }
 
+// IsSuccess returns true when this post flows actions checkin o k response has a 2xx status code
+func (o *PostFlowsActionsCheckinOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows actions checkin o k response has a 3xx status code
+func (o *PostFlowsActionsCheckinOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin o k response has a 4xx status code
+func (o *PostFlowsActionsCheckinOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkin o k response has a 5xx status code
+func (o *PostFlowsActionsCheckinOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin o k response a status code equal to that given
+func (o *PostFlowsActionsCheckinOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsActionsCheckinOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostFlowsActionsCheckinBadRequest() *PostFlowsActionsCheckinBadRequest {
 	return &PostFlowsActionsCheckinBadRequest{}
 }
 
-/*PostFlowsActionsCheckinBadRequest handles this case with default header values.
+/*
+PostFlowsActionsCheckinBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostFlowsActionsCheckinBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin bad request response has a 2xx status code
+func (o *PostFlowsActionsCheckinBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin bad request response has a 3xx status code
+func (o *PostFlowsActionsCheckinBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin bad request response has a 4xx status code
+func (o *PostFlowsActionsCheckinBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin bad request response has a 5xx status code
+func (o *PostFlowsActionsCheckinBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin bad request response a status code equal to that given
+func (o *PostFlowsActionsCheckinBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsActionsCheckinBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostFlowsActionsCheckinUnauthorized() *PostFlowsActionsCheckinUnauthoriz
 	return &PostFlowsActionsCheckinUnauthorized{}
 }
 
-/*PostFlowsActionsCheckinUnauthorized handles this case with default header values.
+/*
+PostFlowsActionsCheckinUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostFlowsActionsCheckinUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin unauthorized response has a 2xx status code
+func (o *PostFlowsActionsCheckinUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin unauthorized response has a 3xx status code
+func (o *PostFlowsActionsCheckinUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin unauthorized response has a 4xx status code
+func (o *PostFlowsActionsCheckinUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin unauthorized response has a 5xx status code
+func (o *PostFlowsActionsCheckinUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin unauthorized response a status code equal to that given
+func (o *PostFlowsActionsCheckinUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsActionsCheckinUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostFlowsActionsCheckinForbidden() *PostFlowsActionsCheckinForbidden {
 	return &PostFlowsActionsCheckinForbidden{}
 }
 
-/*PostFlowsActionsCheckinForbidden handles this case with default header values.
+/*
+PostFlowsActionsCheckinForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostFlowsActionsCheckinForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin forbidden response has a 2xx status code
+func (o *PostFlowsActionsCheckinForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin forbidden response has a 3xx status code
+func (o *PostFlowsActionsCheckinForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin forbidden response has a 4xx status code
+func (o *PostFlowsActionsCheckinForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin forbidden response has a 5xx status code
+func (o *PostFlowsActionsCheckinForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin forbidden response a status code equal to that given
+func (o *PostFlowsActionsCheckinForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsActionsCheckinForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostFlowsActionsCheckinNotFound() *PostFlowsActionsCheckinNotFound {
 	return &PostFlowsActionsCheckinNotFound{}
 }
 
-/*PostFlowsActionsCheckinNotFound handles this case with default header values.
+/*
+PostFlowsActionsCheckinNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostFlowsActionsCheckinNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin not found response has a 2xx status code
+func (o *PostFlowsActionsCheckinNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin not found response has a 3xx status code
+func (o *PostFlowsActionsCheckinNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin not found response has a 4xx status code
+func (o *PostFlowsActionsCheckinNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin not found response has a 5xx status code
+func (o *PostFlowsActionsCheckinNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin not found response a status code equal to that given
+func (o *PostFlowsActionsCheckinNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsActionsCheckinNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostFlowsActionsCheckinMethodNotAllowed() *PostFlowsActionsCheckinMethod
 	return &PostFlowsActionsCheckinMethodNotAllowed{}
 }
 
-/*PostFlowsActionsCheckinMethodNotAllowed handles this case with default header values.
+/*
+PostFlowsActionsCheckinMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -285,7 +435,36 @@ type PostFlowsActionsCheckinMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin method not allowed response has a 2xx status code
+func (o *PostFlowsActionsCheckinMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin method not allowed response has a 3xx status code
+func (o *PostFlowsActionsCheckinMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin method not allowed response has a 4xx status code
+func (o *PostFlowsActionsCheckinMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin method not allowed response has a 5xx status code
+func (o *PostFlowsActionsCheckinMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin method not allowed response a status code equal to that given
+func (o *PostFlowsActionsCheckinMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PostFlowsActionsCheckinMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinMethodNotAllowed) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostFlowsActionsCheckinRequestTimeout() *PostFlowsActionsCheckinRequestT
 	return &PostFlowsActionsCheckinRequestTimeout{}
 }
 
-/*PostFlowsActionsCheckinRequestTimeout handles this case with default header values.
+/*
+PostFlowsActionsCheckinRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostFlowsActionsCheckinRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin request timeout response has a 2xx status code
+func (o *PostFlowsActionsCheckinRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin request timeout response has a 3xx status code
+func (o *PostFlowsActionsCheckinRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin request timeout response has a 4xx status code
+func (o *PostFlowsActionsCheckinRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin request timeout response has a 5xx status code
+func (o *PostFlowsActionsCheckinRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin request timeout response a status code equal to that given
+func (o *PostFlowsActionsCheckinRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsActionsCheckinRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostFlowsActionsCheckinRequestEntityTooLarge() *PostFlowsActionsCheckinR
 	return &PostFlowsActionsCheckinRequestEntityTooLarge{}
 }
 
-/*PostFlowsActionsCheckinRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsActionsCheckinRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostFlowsActionsCheckinRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin request entity too large response has a 2xx status code
+func (o *PostFlowsActionsCheckinRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin request entity too large response has a 3xx status code
+func (o *PostFlowsActionsCheckinRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin request entity too large response has a 4xx status code
+func (o *PostFlowsActionsCheckinRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin request entity too large response has a 5xx status code
+func (o *PostFlowsActionsCheckinRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin request entity too large response a status code equal to that given
+func (o *PostFlowsActionsCheckinRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsActionsCheckinRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostFlowsActionsCheckinUnsupportedMediaType() *PostFlowsActionsCheckinUn
 	return &PostFlowsActionsCheckinUnsupportedMediaType{}
 }
 
-/*PostFlowsActionsCheckinUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsActionsCheckinUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostFlowsActionsCheckinUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin unsupported media type response has a 2xx status code
+func (o *PostFlowsActionsCheckinUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin unsupported media type response has a 3xx status code
+func (o *PostFlowsActionsCheckinUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin unsupported media type response has a 4xx status code
+func (o *PostFlowsActionsCheckinUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin unsupported media type response has a 5xx status code
+func (o *PostFlowsActionsCheckinUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin unsupported media type response a status code equal to that given
+func (o *PostFlowsActionsCheckinUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsActionsCheckinUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostFlowsActionsCheckinTooManyRequests() *PostFlowsActionsCheckinTooMany
 	return &PostFlowsActionsCheckinTooManyRequests{}
 }
 
-/*PostFlowsActionsCheckinTooManyRequests handles this case with default header values.
+/*
+PostFlowsActionsCheckinTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostFlowsActionsCheckinTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin too many requests response has a 2xx status code
+func (o *PostFlowsActionsCheckinTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin too many requests response has a 3xx status code
+func (o *PostFlowsActionsCheckinTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin too many requests response has a 4xx status code
+func (o *PostFlowsActionsCheckinTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions checkin too many requests response has a 5xx status code
+func (o *PostFlowsActionsCheckinTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions checkin too many requests response a status code equal to that given
+func (o *PostFlowsActionsCheckinTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsActionsCheckinTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostFlowsActionsCheckinInternalServerError() *PostFlowsActionsCheckinInt
 	return &PostFlowsActionsCheckinInternalServerError{}
 }
 
-/*PostFlowsActionsCheckinInternalServerError handles this case with default header values.
+/*
+PostFlowsActionsCheckinInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostFlowsActionsCheckinInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin internal server error response has a 2xx status code
+func (o *PostFlowsActionsCheckinInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin internal server error response has a 3xx status code
+func (o *PostFlowsActionsCheckinInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin internal server error response has a 4xx status code
+func (o *PostFlowsActionsCheckinInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkin internal server error response has a 5xx status code
+func (o *PostFlowsActionsCheckinInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions checkin internal server error response a status code equal to that given
+func (o *PostFlowsActionsCheckinInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsActionsCheckinInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostFlowsActionsCheckinServiceUnavailable() *PostFlowsActionsCheckinServ
 	return &PostFlowsActionsCheckinServiceUnavailable{}
 }
 
-/*PostFlowsActionsCheckinServiceUnavailable handles this case with default header values.
+/*
+PostFlowsActionsCheckinServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostFlowsActionsCheckinServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin service unavailable response has a 2xx status code
+func (o *PostFlowsActionsCheckinServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin service unavailable response has a 3xx status code
+func (o *PostFlowsActionsCheckinServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin service unavailable response has a 4xx status code
+func (o *PostFlowsActionsCheckinServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkin service unavailable response has a 5xx status code
+func (o *PostFlowsActionsCheckinServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions checkin service unavailable response a status code equal to that given
+func (o *PostFlowsActionsCheckinServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsActionsCheckinServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostFlowsActionsCheckinGatewayTimeout() *PostFlowsActionsCheckinGatewayT
 	return &PostFlowsActionsCheckinGatewayTimeout{}
 }
 
-/*PostFlowsActionsCheckinGatewayTimeout handles this case with default header values.
+/*
+PostFlowsActionsCheckinGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostFlowsActionsCheckinGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions checkin gateway timeout response has a 2xx status code
+func (o *PostFlowsActionsCheckinGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions checkin gateway timeout response has a 3xx status code
+func (o *PostFlowsActionsCheckinGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions checkin gateway timeout response has a 4xx status code
+func (o *PostFlowsActionsCheckinGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions checkin gateway timeout response has a 5xx status code
+func (o *PostFlowsActionsCheckinGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions checkin gateway timeout response a status code equal to that given
+func (o *PostFlowsActionsCheckinGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsActionsCheckinGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsActionsCheckinGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/checkin][%d] postFlowsActionsCheckinGatewayTimeout  %+v", 504, o.Payload)
 }
 

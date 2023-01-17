@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -46,7 +47,6 @@ func (m *ScimV2PatchRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2PatchRequest) validateOperations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operations) { // not required
 		return nil
 	}
@@ -60,6 +60,8 @@ func (m *ScimV2PatchRequest) validateOperations(formats strfmt.Registry) error {
 			if err := m.Operations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("Operations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Operations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -74,6 +76,40 @@ func (m *ScimV2PatchRequest) validateSchemas(formats strfmt.Registry) error {
 
 	if err := validate.Required("schemas", "body", m.Schemas); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim v2 patch request based on the context it is used
+func (m *ScimV2PatchRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOperations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimV2PatchRequest) contextValidateOperations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Operations); i++ {
+
+		if m.Operations[i] != nil {
+			if err := m.Operations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("Operations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("Operations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

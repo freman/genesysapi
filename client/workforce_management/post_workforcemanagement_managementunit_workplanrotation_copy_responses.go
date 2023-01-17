@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyReader) ReadRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyOK() *PostWorkf
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyOK{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyOK handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyOK struct {
 	Payload *models.WorkPlanRotationResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy o k response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy o k response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy o k response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy o k response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy o k response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest() *P
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy bad request response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy bad request response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy bad request response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy bad request response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy bad request response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized() 
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden() *Po
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound() *Pos
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy not found response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy not found response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy not found response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy not found response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy not found response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout(
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTo
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLa
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMedi
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaTy
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerE
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerErro
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavaila
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout(
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit workplanrotation copy gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit workplanrotation copy gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit workplanrotation copy gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit workplanrotation copy gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit workplanrotation copy gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplanrotations/{workPlanRotationId}/copy][%d] postWorkforcemanagementManagementunitWorkplanrotationCopyGatewayTimeout  %+v", 504, o.Payload)
 }
 

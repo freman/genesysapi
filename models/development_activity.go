@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -47,6 +48,9 @@ type DevelopmentActivity struct {
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// True if this is the latest version of assignment assigned to the user
+	IsLatest bool `json:"isLatest"`
 
 	// Indicates if the activity is overdue
 	IsOverdue bool `json:"isOverdue"`
@@ -123,7 +127,6 @@ func (m *DevelopmentActivity) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DevelopmentActivity) validateAttendees(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attendees) { // not required
 		return nil
 	}
@@ -137,6 +140,8 @@ func (m *DevelopmentActivity) validateAttendees(formats strfmt.Registry) error {
 			if err := m.Attendees[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attendees" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attendees" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -148,7 +153,6 @@ func (m *DevelopmentActivity) validateAttendees(formats strfmt.Registry) error {
 }
 
 func (m *DevelopmentActivity) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -157,6 +161,8 @@ func (m *DevelopmentActivity) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -166,7 +172,6 @@ func (m *DevelopmentActivity) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *DevelopmentActivity) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -179,7 +184,6 @@ func (m *DevelopmentActivity) validateDateCompleted(formats strfmt.Registry) err
 }
 
 func (m *DevelopmentActivity) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -192,7 +196,6 @@ func (m *DevelopmentActivity) validateDateCreated(formats strfmt.Registry) error
 }
 
 func (m *DevelopmentActivity) validateDateDue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateDue) { // not required
 		return nil
 	}
@@ -205,7 +208,6 @@ func (m *DevelopmentActivity) validateDateDue(formats strfmt.Registry) error {
 }
 
 func (m *DevelopmentActivity) validateFacilitator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Facilitator) { // not required
 		return nil
 	}
@@ -214,6 +216,8 @@ func (m *DevelopmentActivity) validateFacilitator(formats strfmt.Registry) error
 		if err := m.Facilitator.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("facilitator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facilitator")
 			}
 			return err
 		}
@@ -223,7 +227,6 @@ func (m *DevelopmentActivity) validateFacilitator(formats strfmt.Registry) error
 }
 
 func (m *DevelopmentActivity) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -274,7 +277,6 @@ func (m *DevelopmentActivity) validateStatusEnum(path, location string, value st
 }
 
 func (m *DevelopmentActivity) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -323,13 +325,164 @@ func (m *DevelopmentActivity) validateTypeEnum(path, location string, value stri
 }
 
 func (m *DevelopmentActivity) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this development activity based on the context it is used
+func (m *DevelopmentActivity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttendees(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCompleted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFacilitator(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsPassed(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePercentageScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateAttendees(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Attendees); i++ {
+
+		if m.Attendees[i] != nil {
+			if err := m.Attendees[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attendees" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attendees" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateDateCompleted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCompleted", "body", strfmt.DateTime(m.DateCompleted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateFacilitator(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Facilitator != nil {
+		if err := m.Facilitator.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("facilitator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facilitator")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateIsPassed(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isPassed", "body", m.IsPassed); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidatePercentageScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "percentageScore", "body", float32(m.PercentageScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DevelopmentActivity) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

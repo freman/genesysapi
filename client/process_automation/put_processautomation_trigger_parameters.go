@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutProcessautomationTriggerParams creates a new PutProcessautomationTriggerParams object
-// with the default values initialized.
+// NewPutProcessautomationTriggerParams creates a new PutProcessautomationTriggerParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutProcessautomationTriggerParams() *PutProcessautomationTriggerParams {
-	var ()
 	return &PutProcessautomationTriggerParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutProcessautomationTriggerParamsWithTimeout creates a new PutProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutProcessautomationTriggerParamsWithTimeout(timeout time.Duration) *PutProcessautomationTriggerParams {
-	var ()
 	return &PutProcessautomationTriggerParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutProcessautomationTriggerParamsWithContext creates a new PutProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutProcessautomationTriggerParamsWithContext(ctx context.Context) *PutProcessautomationTriggerParams {
-	var ()
 	return &PutProcessautomationTriggerParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutProcessautomationTriggerParamsWithHTTPClient creates a new PutProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutProcessautomationTriggerParamsWithHTTPClient(client *http.Client) *PutProcessautomationTriggerParams {
-	var ()
 	return &PutProcessautomationTriggerParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutProcessautomationTriggerParams contains all the parameters to send to the API endpoint
-for the put processautomation trigger operation typically these are written to a http.Request
+/*
+PutProcessautomationTriggerParams contains all the parameters to send to the API endpoint
+
+	for the put processautomation trigger operation.
+
+	Typically these are written to a http.Request.
 */
 type PutProcessautomationTriggerParams struct {
 
-	/*Body
-	  Input to update Trigger. (topicName cannot be updated, a new trigger must be created to use a new topicName)
+	/* Body.
 
+	   Input to update Trigger. (topicName cannot be updated, a new trigger must be created to use a new topicName)
 	*/
 	Body *models.UpdateTriggerRequest
-	/*TriggerID
-	  triggerId
 
+	/* TriggerID.
+
+	   triggerId
 	*/
 	TriggerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put processautomation trigger params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutProcessautomationTriggerParams) WithDefaults() *PutProcessautomationTriggerParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put processautomation trigger params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutProcessautomationTriggerParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put processautomation trigger params
@@ -140,7 +157,6 @@ func (o *PutProcessautomationTriggerParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

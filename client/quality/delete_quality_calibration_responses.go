@@ -95,7 +95,6 @@ func (o *DeleteQualityCalibrationReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteQualityCalibrationOK() *DeleteQualityCalibrationOK {
 	return &DeleteQualityCalibrationOK{}
 }
 
-/*DeleteQualityCalibrationOK handles this case with default header values.
+/*
+DeleteQualityCalibrationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteQualityCalibrationOK struct {
 	Payload *models.Calibration
 }
 
+// IsSuccess returns true when this delete quality calibration o k response has a 2xx status code
+func (o *DeleteQualityCalibrationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete quality calibration o k response has a 3xx status code
+func (o *DeleteQualityCalibrationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration o k response has a 4xx status code
+func (o *DeleteQualityCalibrationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality calibration o k response has a 5xx status code
+func (o *DeleteQualityCalibrationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration o k response a status code equal to that given
+func (o *DeleteQualityCalibrationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteQualityCalibrationOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewDeleteQualityCalibrationBadRequest() *DeleteQualityCalibrationBadRequest
 	return &DeleteQualityCalibrationBadRequest{}
 }
 
-/*DeleteQualityCalibrationBadRequest handles this case with default header values.
+/*
+DeleteQualityCalibrationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type DeleteQualityCalibrationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration bad request response has a 2xx status code
+func (o *DeleteQualityCalibrationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration bad request response has a 3xx status code
+func (o *DeleteQualityCalibrationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration bad request response has a 4xx status code
+func (o *DeleteQualityCalibrationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration bad request response has a 5xx status code
+func (o *DeleteQualityCalibrationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration bad request response a status code equal to that given
+func (o *DeleteQualityCalibrationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteQualityCalibrationBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewDeleteQualityCalibrationUnauthorized() *DeleteQualityCalibrationUnauthor
 	return &DeleteQualityCalibrationUnauthorized{}
 }
 
-/*DeleteQualityCalibrationUnauthorized handles this case with default header values.
+/*
+DeleteQualityCalibrationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type DeleteQualityCalibrationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration unauthorized response has a 2xx status code
+func (o *DeleteQualityCalibrationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration unauthorized response has a 3xx status code
+func (o *DeleteQualityCalibrationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration unauthorized response has a 4xx status code
+func (o *DeleteQualityCalibrationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration unauthorized response has a 5xx status code
+func (o *DeleteQualityCalibrationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration unauthorized response a status code equal to that given
+func (o *DeleteQualityCalibrationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteQualityCalibrationUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewDeleteQualityCalibrationForbidden() *DeleteQualityCalibrationForbidden {
 	return &DeleteQualityCalibrationForbidden{}
 }
 
-/*DeleteQualityCalibrationForbidden handles this case with default header values.
+/*
+DeleteQualityCalibrationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type DeleteQualityCalibrationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration forbidden response has a 2xx status code
+func (o *DeleteQualityCalibrationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration forbidden response has a 3xx status code
+func (o *DeleteQualityCalibrationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration forbidden response has a 4xx status code
+func (o *DeleteQualityCalibrationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration forbidden response has a 5xx status code
+func (o *DeleteQualityCalibrationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration forbidden response a status code equal to that given
+func (o *DeleteQualityCalibrationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteQualityCalibrationForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewDeleteQualityCalibrationNotFound() *DeleteQualityCalibrationNotFound {
 	return &DeleteQualityCalibrationNotFound{}
 }
 
-/*DeleteQualityCalibrationNotFound handles this case with default header values.
+/*
+DeleteQualityCalibrationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type DeleteQualityCalibrationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration not found response has a 2xx status code
+func (o *DeleteQualityCalibrationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration not found response has a 3xx status code
+func (o *DeleteQualityCalibrationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration not found response has a 4xx status code
+func (o *DeleteQualityCalibrationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration not found response has a 5xx status code
+func (o *DeleteQualityCalibrationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration not found response a status code equal to that given
+func (o *DeleteQualityCalibrationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteQualityCalibrationNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewDeleteQualityCalibrationRequestTimeout() *DeleteQualityCalibrationReques
 	return &DeleteQualityCalibrationRequestTimeout{}
 }
 
-/*DeleteQualityCalibrationRequestTimeout handles this case with default header values.
+/*
+DeleteQualityCalibrationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type DeleteQualityCalibrationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration request timeout response has a 2xx status code
+func (o *DeleteQualityCalibrationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration request timeout response has a 3xx status code
+func (o *DeleteQualityCalibrationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration request timeout response has a 4xx status code
+func (o *DeleteQualityCalibrationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration request timeout response has a 5xx status code
+func (o *DeleteQualityCalibrationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration request timeout response a status code equal to that given
+func (o *DeleteQualityCalibrationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteQualityCalibrationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewDeleteQualityCalibrationRequestEntityTooLarge() *DeleteQualityCalibratio
 	return &DeleteQualityCalibrationRequestEntityTooLarge{}
 }
 
-/*DeleteQualityCalibrationRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteQualityCalibrationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type DeleteQualityCalibrationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration request entity too large response has a 2xx status code
+func (o *DeleteQualityCalibrationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration request entity too large response has a 3xx status code
+func (o *DeleteQualityCalibrationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration request entity too large response has a 4xx status code
+func (o *DeleteQualityCalibrationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration request entity too large response has a 5xx status code
+func (o *DeleteQualityCalibrationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration request entity too large response a status code equal to that given
+func (o *DeleteQualityCalibrationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteQualityCalibrationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewDeleteQualityCalibrationUnsupportedMediaType() *DeleteQualityCalibration
 	return &DeleteQualityCalibrationUnsupportedMediaType{}
 }
 
-/*DeleteQualityCalibrationUnsupportedMediaType handles this case with default header values.
+/*
+DeleteQualityCalibrationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type DeleteQualityCalibrationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration unsupported media type response has a 2xx status code
+func (o *DeleteQualityCalibrationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration unsupported media type response has a 3xx status code
+func (o *DeleteQualityCalibrationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration unsupported media type response has a 4xx status code
+func (o *DeleteQualityCalibrationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration unsupported media type response has a 5xx status code
+func (o *DeleteQualityCalibrationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration unsupported media type response a status code equal to that given
+func (o *DeleteQualityCalibrationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteQualityCalibrationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewDeleteQualityCalibrationTooManyRequests() *DeleteQualityCalibrationTooMa
 	return &DeleteQualityCalibrationTooManyRequests{}
 }
 
-/*DeleteQualityCalibrationTooManyRequests handles this case with default header values.
+/*
+DeleteQualityCalibrationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type DeleteQualityCalibrationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration too many requests response has a 2xx status code
+func (o *DeleteQualityCalibrationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration too many requests response has a 3xx status code
+func (o *DeleteQualityCalibrationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration too many requests response has a 4xx status code
+func (o *DeleteQualityCalibrationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality calibration too many requests response has a 5xx status code
+func (o *DeleteQualityCalibrationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality calibration too many requests response a status code equal to that given
+func (o *DeleteQualityCalibrationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteQualityCalibrationTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewDeleteQualityCalibrationInternalServerError() *DeleteQualityCalibrationI
 	return &DeleteQualityCalibrationInternalServerError{}
 }
 
-/*DeleteQualityCalibrationInternalServerError handles this case with default header values.
+/*
+DeleteQualityCalibrationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type DeleteQualityCalibrationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration internal server error response has a 2xx status code
+func (o *DeleteQualityCalibrationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration internal server error response has a 3xx status code
+func (o *DeleteQualityCalibrationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration internal server error response has a 4xx status code
+func (o *DeleteQualityCalibrationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality calibration internal server error response has a 5xx status code
+func (o *DeleteQualityCalibrationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality calibration internal server error response a status code equal to that given
+func (o *DeleteQualityCalibrationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteQualityCalibrationInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewDeleteQualityCalibrationServiceUnavailable() *DeleteQualityCalibrationSe
 	return &DeleteQualityCalibrationServiceUnavailable{}
 }
 
-/*DeleteQualityCalibrationServiceUnavailable handles this case with default header values.
+/*
+DeleteQualityCalibrationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type DeleteQualityCalibrationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration service unavailable response has a 2xx status code
+func (o *DeleteQualityCalibrationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration service unavailable response has a 3xx status code
+func (o *DeleteQualityCalibrationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration service unavailable response has a 4xx status code
+func (o *DeleteQualityCalibrationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality calibration service unavailable response has a 5xx status code
+func (o *DeleteQualityCalibrationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality calibration service unavailable response a status code equal to that given
+func (o *DeleteQualityCalibrationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteQualityCalibrationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewDeleteQualityCalibrationGatewayTimeout() *DeleteQualityCalibrationGatewa
 	return &DeleteQualityCalibrationGatewayTimeout{}
 }
 
-/*DeleteQualityCalibrationGatewayTimeout handles this case with default header values.
+/*
+DeleteQualityCalibrationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type DeleteQualityCalibrationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality calibration gateway timeout response has a 2xx status code
+func (o *DeleteQualityCalibrationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality calibration gateway timeout response has a 3xx status code
+func (o *DeleteQualityCalibrationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality calibration gateway timeout response has a 4xx status code
+func (o *DeleteQualityCalibrationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality calibration gateway timeout response has a 5xx status code
+func (o *DeleteQualityCalibrationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality calibration gateway timeout response a status code equal to that given
+func (o *DeleteQualityCalibrationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteQualityCalibrationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteQualityCalibrationGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/calibrations/{calibrationId}][%d] deleteQualityCalibrationGatewayTimeout  %+v", 504, o.Payload)
 }
 

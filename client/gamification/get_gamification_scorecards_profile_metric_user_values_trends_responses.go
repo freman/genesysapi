@@ -95,7 +95,6 @@ func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsReader) ReadRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsOK() *GetGamificat
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsOK{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsOK handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsOK struct {
 	Payload *models.MetricValueTrendAverage
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends o k response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends o k response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends o k response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends o k response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends o k response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest() *GetG
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends bad request response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends bad request response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends bad request response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends bad request response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends bad request response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized() *Ge
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends unauthorized response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends unauthorized response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends unauthorized response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends unauthorized response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends unauthorized response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsForbidden() *GetGa
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends forbidden response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends forbidden response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends forbidden response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends forbidden response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends forbidden response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsNotFound() *GetGam
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends not found response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends not found response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends not found response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends not found response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends not found response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout() *
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends request timeout response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends request timeout response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends request timeout response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends request timeout response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends request timeout response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLa
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends request entity too large response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends request entity too large response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends request entity too large response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends request entity too large response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends request entity too large response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaTy
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends unsupported media type response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends unsupported media type response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends unsupported media type response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends unsupported media type response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends unsupported media type response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests() 
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends too many requests response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends too many requests response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends too many requests response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends too many requests response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends too many requests response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerErro
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends internal server error response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends internal server error response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends internal server error response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends internal server error response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends internal server error response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends service unavailable response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends service unavailable response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends service unavailable response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends service unavailable response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends service unavailable response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout() *
 	return &GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout{}
 }
 
-/*GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout handles this case with default header values.
+/*
+GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards profile metric user values trends gateway timeout response has a 2xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards profile metric user values trends gateway timeout response has a 3xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards profile metric user values trends gateway timeout response has a 4xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards profile metric user values trends gateway timeout response has a 5xx status code
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards profile metric user values trends gateway timeout response a status code equal to that given
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/profiles/{profileId}/metrics/{metricId}/users/{userId}/values/trends][%d] getGamificationScorecardsProfileMetricUserValuesTrendsGatewayTimeout  %+v", 504, o.Payload)
 }
 

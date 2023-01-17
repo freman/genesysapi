@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostExternalcontactsBulkNotesUpdateParams creates a new PostExternalcontactsBulkNotesUpdateParams object
-// with the default values initialized.
+// NewPostExternalcontactsBulkNotesUpdateParams creates a new PostExternalcontactsBulkNotesUpdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsBulkNotesUpdateParams() *PostExternalcontactsBulkNotesUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkNotesUpdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsBulkNotesUpdateParamsWithTimeout creates a new PostExternalcontactsBulkNotesUpdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsBulkNotesUpdateParamsWithTimeout(timeout time.Duration) *PostExternalcontactsBulkNotesUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkNotesUpdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsBulkNotesUpdateParamsWithContext creates a new PostExternalcontactsBulkNotesUpdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsBulkNotesUpdateParamsWithContext(ctx context.Context) *PostExternalcontactsBulkNotesUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkNotesUpdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsBulkNotesUpdateParamsWithHTTPClient creates a new PostExternalcontactsBulkNotesUpdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsBulkNotesUpdateParamsWithHTTPClient(client *http.Client) *PostExternalcontactsBulkNotesUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkNotesUpdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsBulkNotesUpdateParams contains all the parameters to send to the API endpoint
-for the post externalcontacts bulk notes update operation typically these are written to a http.Request
+/*
+PostExternalcontactsBulkNotesUpdateParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts bulk notes update operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsBulkNotesUpdateParams struct {
 
-	/*Body
-	  Notes
+	/* Body.
 
+	   Notes
 	*/
 	Body *models.BulkNotesRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts bulk notes update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkNotesUpdateParams) WithDefaults() *PostExternalcontactsBulkNotesUpdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts bulk notes update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkNotesUpdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts bulk notes update params
@@ -124,7 +140,6 @@ func (o *PostExternalcontactsBulkNotesUpdateParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

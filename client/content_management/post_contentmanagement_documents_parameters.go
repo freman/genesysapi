@@ -19,74 +19,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostContentmanagementDocumentsParams creates a new PostContentmanagementDocumentsParams object
-// with the default values initialized.
+// NewPostContentmanagementDocumentsParams creates a new PostContentmanagementDocumentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostContentmanagementDocumentsParams() *PostContentmanagementDocumentsParams {
-	var ()
 	return &PostContentmanagementDocumentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostContentmanagementDocumentsParamsWithTimeout creates a new PostContentmanagementDocumentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostContentmanagementDocumentsParamsWithTimeout(timeout time.Duration) *PostContentmanagementDocumentsParams {
-	var ()
 	return &PostContentmanagementDocumentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostContentmanagementDocumentsParamsWithContext creates a new PostContentmanagementDocumentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostContentmanagementDocumentsParamsWithContext(ctx context.Context) *PostContentmanagementDocumentsParams {
-	var ()
 	return &PostContentmanagementDocumentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostContentmanagementDocumentsParamsWithHTTPClient creates a new PostContentmanagementDocumentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostContentmanagementDocumentsParamsWithHTTPClient(client *http.Client) *PostContentmanagementDocumentsParams {
-	var ()
 	return &PostContentmanagementDocumentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostContentmanagementDocumentsParams contains all the parameters to send to the API endpoint
-for the post contentmanagement documents operation typically these are written to a http.Request
+/*
+PostContentmanagementDocumentsParams contains all the parameters to send to the API endpoint
+
+	for the post contentmanagement documents operation.
+
+	Typically these are written to a http.Request.
 */
 type PostContentmanagementDocumentsParams struct {
 
-	/*Body
-	  Document
+	/* Body.
 
+	   Document
 	*/
 	Body *models.DocumentUpload
-	/*CopySource
-	  Copy a document within a workspace or to a new workspace. Provide a document ID as the copy source.
 
+	/* CopySource.
+
+	   Copy a document within a workspace or to a new workspace. Provide a document ID as the copy source.
 	*/
 	CopySource *string
-	/*MoveSource
-	  Move a document to a new workspace. Provide a document ID as the move source.
 
+	/* MoveSource.
+
+	   Move a document to a new workspace. Provide a document ID as the move source.
 	*/
 	MoveSource *string
-	/*Override
-	  Override any lock on the source document
 
+	/* Override.
+
+	   Override any lock on the source document
 	*/
 	Override *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post contentmanagement documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementDocumentsParams) WithDefaults() *PostContentmanagementDocumentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post contentmanagement documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementDocumentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post contentmanagement documents params
@@ -173,7 +192,6 @@ func (o *PostContentmanagementDocumentsParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -184,48 +202,51 @@ func (o *PostContentmanagementDocumentsParams) WriteToRequest(r runtime.ClientRe
 
 		// query param copySource
 		var qrCopySource string
+
 		if o.CopySource != nil {
 			qrCopySource = *o.CopySource
 		}
 		qCopySource := qrCopySource
 		if qCopySource != "" {
+
 			if err := r.SetQueryParam("copySource", qCopySource); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.MoveSource != nil {
 
 		// query param moveSource
 		var qrMoveSource string
+
 		if o.MoveSource != nil {
 			qrMoveSource = *o.MoveSource
 		}
 		qMoveSource := qrMoveSource
 		if qMoveSource != "" {
+
 			if err := r.SetQueryParam("moveSource", qMoveSource); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Override != nil {
 
 		// query param override
 		var qrOverride bool
+
 		if o.Override != nil {
 			qrOverride = *o.Override
 		}
 		qOverride := swag.FormatBool(qrOverride)
 		if qOverride != "" {
+
 			if err := r.SetQueryParam("override", qOverride); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

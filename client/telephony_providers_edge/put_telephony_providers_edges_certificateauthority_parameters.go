@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutTelephonyProvidersEdgesCertificateauthorityParams creates a new PutTelephonyProvidersEdgesCertificateauthorityParams object
-// with the default values initialized.
+// NewPutTelephonyProvidersEdgesCertificateauthorityParams creates a new PutTelephonyProvidersEdgesCertificateauthorityParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutTelephonyProvidersEdgesCertificateauthorityParams() *PutTelephonyProvidersEdgesCertificateauthorityParams {
-	var ()
 	return &PutTelephonyProvidersEdgesCertificateauthorityParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesCertificateauthorityParamsWithTimeout creates a new PutTelephonyProvidersEdgesCertificateauthorityParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutTelephonyProvidersEdgesCertificateauthorityParamsWithTimeout(timeout time.Duration) *PutTelephonyProvidersEdgesCertificateauthorityParams {
-	var ()
 	return &PutTelephonyProvidersEdgesCertificateauthorityParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesCertificateauthorityParamsWithContext creates a new PutTelephonyProvidersEdgesCertificateauthorityParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutTelephonyProvidersEdgesCertificateauthorityParamsWithContext(ctx context.Context) *PutTelephonyProvidersEdgesCertificateauthorityParams {
-	var ()
 	return &PutTelephonyProvidersEdgesCertificateauthorityParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesCertificateauthorityParamsWithHTTPClient creates a new PutTelephonyProvidersEdgesCertificateauthorityParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutTelephonyProvidersEdgesCertificateauthorityParamsWithHTTPClient(client *http.Client) *PutTelephonyProvidersEdgesCertificateauthorityParams {
-	var ()
 	return &PutTelephonyProvidersEdgesCertificateauthorityParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutTelephonyProvidersEdgesCertificateauthorityParams contains all the parameters to send to the API endpoint
-for the put telephony providers edges certificateauthority operation typically these are written to a http.Request
+/*
+PutTelephonyProvidersEdgesCertificateauthorityParams contains all the parameters to send to the API endpoint
+
+	for the put telephony providers edges certificateauthority operation.
+
+	Typically these are written to a http.Request.
 */
 type PutTelephonyProvidersEdgesCertificateauthorityParams struct {
 
-	/*Body
-	  Certificate authority
+	/* Body.
 
+	   Certificate authority
 	*/
 	Body *models.DomainCertificateAuthority
-	/*CertificateID
-	  Certificate ID
 
+	/* CertificateID.
+
+	   Certificate ID
 	*/
 	CertificateID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put telephony providers edges certificateauthority params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesCertificateauthorityParams) WithDefaults() *PutTelephonyProvidersEdgesCertificateauthorityParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put telephony providers edges certificateauthority params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesCertificateauthorityParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put telephony providers edges certificateauthority params
@@ -140,7 +157,6 @@ func (o *PutTelephonyProvidersEdgesCertificateauthorityParams) WriteToRequest(r 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

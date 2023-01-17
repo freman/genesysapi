@@ -95,7 +95,6 @@ func (o *GetKnowledgeKnowledgebaseDocumentVersionsReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsOK() *GetKnowledgeKnowledgebase
 	return &GetKnowledgeKnowledgebaseDocumentVersionsOK{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsOK handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsOK struct {
 	Payload *models.KnowledgeDocumentVersionListing
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions o k response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions o k response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions o k response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions o k response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions o k response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsBadRequest() *GetKnowledgeKnowl
 	return &GetKnowledgeKnowledgebaseDocumentVersionsBadRequest{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsBadRequest handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions bad request response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions bad request response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions bad request response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions bad request response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions bad request response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsUnauthorized() *GetKnowledgeKno
 	return &GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions unauthorized response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions unauthorized response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions unauthorized response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions unauthorized response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions unauthorized response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsForbidden() *GetKnowledgeKnowle
 	return &GetKnowledgeKnowledgebaseDocumentVersionsForbidden{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsForbidden handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions forbidden response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions forbidden response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions forbidden response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions forbidden response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions forbidden response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsNotFound() *GetKnowledgeKnowled
 	return &GetKnowledgeKnowledgebaseDocumentVersionsNotFound{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsNotFound handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions not found response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions not found response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions not found response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions not found response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions not found response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout() *GetKnowledgeK
 	return &GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions request timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions request timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions request timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions request timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions request timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge() *GetKno
 	return &GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions request entity too large response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions request entity too large response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions request entity too large response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions request entity too large response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions request entity too large response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType() *GetKnow
 	return &GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions unsupported media type response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions unsupported media type response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions unsupported media type response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions unsupported media type response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions unsupported media type response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests() *GetKnowledge
 	return &GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions too many requests response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions too many requests response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions too many requests response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions too many requests response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions too many requests response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsInternalServerError() *GetKnowl
 	return &GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions internal server error response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions internal server error response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions internal server error response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions internal server error response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions internal server error response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable() *GetKnowle
 	return &GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions service unavailable response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions service unavailable response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions service unavailable response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions service unavailable response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions service unavailable response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout() *GetKnowledgeK
 	return &GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase document versions gateway timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase document versions gateway timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase document versions gateway timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase document versions gateway timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase document versions gateway timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] getKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

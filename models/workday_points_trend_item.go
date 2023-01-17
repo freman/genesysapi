@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,12 +44,47 @@ func (m *WorkdayPointsTrendItem) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayPointsTrendItem) validateDateWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateWorkday) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("dateWorkday", "body", "date", m.DateWorkday.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this workday points trend item based on the context it is used
+func (m *WorkdayPointsTrendItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WorkdayPointsTrendItem) contextValidateDateWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateWorkday", "body", strfmt.Date(m.DateWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkdayPointsTrendItem) contextValidatePoints(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "points", "body", float64(m.Points)); err != nil {
 		return err
 	}
 

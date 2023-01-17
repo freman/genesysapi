@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteContentmanagementWorkspaceMemberParams creates a new DeleteContentmanagementWorkspaceMemberParams object
-// with the default values initialized.
+// NewDeleteContentmanagementWorkspaceMemberParams creates a new DeleteContentmanagementWorkspaceMemberParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteContentmanagementWorkspaceMemberParams() *DeleteContentmanagementWorkspaceMemberParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceMemberParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceMemberParamsWithTimeout creates a new DeleteContentmanagementWorkspaceMemberParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteContentmanagementWorkspaceMemberParamsWithTimeout(timeout time.Duration) *DeleteContentmanagementWorkspaceMemberParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceMemberParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceMemberParamsWithContext creates a new DeleteContentmanagementWorkspaceMemberParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteContentmanagementWorkspaceMemberParamsWithContext(ctx context.Context) *DeleteContentmanagementWorkspaceMemberParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceMemberParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceMemberParamsWithHTTPClient creates a new DeleteContentmanagementWorkspaceMemberParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteContentmanagementWorkspaceMemberParamsWithHTTPClient(client *http.Client) *DeleteContentmanagementWorkspaceMemberParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceMemberParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteContentmanagementWorkspaceMemberParams contains all the parameters to send to the API endpoint
-for the delete contentmanagement workspace member operation typically these are written to a http.Request
+/*
+DeleteContentmanagementWorkspaceMemberParams contains all the parameters to send to the API endpoint
+
+	for the delete contentmanagement workspace member operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteContentmanagementWorkspaceMemberParams struct {
 
-	/*MemberID
-	  Member ID
+	/* MemberID.
 
+	   Member ID
 	*/
 	MemberID string
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete contentmanagement workspace member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementWorkspaceMemberParams) WithDefaults() *DeleteContentmanagementWorkspaceMemberParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete contentmanagement workspace member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementWorkspaceMemberParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete contentmanagement workspace member params

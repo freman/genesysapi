@@ -95,7 +95,6 @@ func (o *GetOrganizationsLimitsChangerequestReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrganizationsLimitsChangerequestOK() *GetOrganizationsLimitsChangereq
 	return &GetOrganizationsLimitsChangerequestOK{}
 }
 
-/*GetOrganizationsLimitsChangerequestOK handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrganizationsLimitsChangerequestOK struct {
 	Payload *models.LimitChangeRequestDetails
 }
 
+// IsSuccess returns true when this get organizations limits changerequest o k response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organizations limits changerequest o k response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest o k response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits changerequest o k response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest o k response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationsLimitsChangerequestOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrganizationsLimitsChangerequestBadRequest() *GetOrganizationsLimitsC
 	return &GetOrganizationsLimitsChangerequestBadRequest{}
 }
 
-/*GetOrganizationsLimitsChangerequestBadRequest handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrganizationsLimitsChangerequestBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest bad request response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest bad request response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest bad request response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest bad request response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest bad request response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrganizationsLimitsChangerequestBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrganizationsLimitsChangerequestUnauthorized() *GetOrganizationsLimit
 	return &GetOrganizationsLimitsChangerequestUnauthorized{}
 }
 
-/*GetOrganizationsLimitsChangerequestUnauthorized handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrganizationsLimitsChangerequestUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest unauthorized response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest unauthorized response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest unauthorized response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest unauthorized response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest unauthorized response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrganizationsLimitsChangerequestUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrganizationsLimitsChangerequestForbidden() *GetOrganizationsLimitsCh
 	return &GetOrganizationsLimitsChangerequestForbidden{}
 }
 
-/*GetOrganizationsLimitsChangerequestForbidden handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrganizationsLimitsChangerequestForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest forbidden response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest forbidden response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest forbidden response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest forbidden response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest forbidden response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationsLimitsChangerequestForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrganizationsLimitsChangerequestNotFound() *GetOrganizationsLimitsCha
 	return &GetOrganizationsLimitsChangerequestNotFound{}
 }
 
-/*GetOrganizationsLimitsChangerequestNotFound handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrganizationsLimitsChangerequestNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest not found response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest not found response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest not found response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest not found response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest not found response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationsLimitsChangerequestNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrganizationsLimitsChangerequestRequestTimeout() *GetOrganizationsLim
 	return &GetOrganizationsLimitsChangerequestRequestTimeout{}
 }
 
-/*GetOrganizationsLimitsChangerequestRequestTimeout handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrganizationsLimitsChangerequestRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest request timeout response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest request timeout response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest request timeout response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest request timeout response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest request timeout response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrganizationsLimitsChangerequestRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrganizationsLimitsChangerequestRequestEntityTooLarge() *GetOrganizat
 	return &GetOrganizationsLimitsChangerequestRequestEntityTooLarge{}
 }
 
-/*GetOrganizationsLimitsChangerequestRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrganizationsLimitsChangerequestRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest request entity too large response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest request entity too large response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest request entity too large response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest request entity too large response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest request entity too large response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrganizationsLimitsChangerequestRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrganizationsLimitsChangerequestUnsupportedMediaType() *GetOrganizati
 	return &GetOrganizationsLimitsChangerequestUnsupportedMediaType{}
 }
 
-/*GetOrganizationsLimitsChangerequestUnsupportedMediaType handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrganizationsLimitsChangerequestUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest unsupported media type response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest unsupported media type response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest unsupported media type response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest unsupported media type response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest unsupported media type response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrganizationsLimitsChangerequestUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrganizationsLimitsChangerequestTooManyRequests() *GetOrganizationsLi
 	return &GetOrganizationsLimitsChangerequestTooManyRequests{}
 }
 
-/*GetOrganizationsLimitsChangerequestTooManyRequests handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrganizationsLimitsChangerequestTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest too many requests response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest too many requests response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest too many requests response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits changerequest too many requests response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits changerequest too many requests response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrganizationsLimitsChangerequestTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrganizationsLimitsChangerequestInternalServerError() *GetOrganizatio
 	return &GetOrganizationsLimitsChangerequestInternalServerError{}
 }
 
-/*GetOrganizationsLimitsChangerequestInternalServerError handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrganizationsLimitsChangerequestInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest internal server error response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest internal server error response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest internal server error response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits changerequest internal server error response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits changerequest internal server error response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrganizationsLimitsChangerequestInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrganizationsLimitsChangerequestServiceUnavailable() *GetOrganization
 	return &GetOrganizationsLimitsChangerequestServiceUnavailable{}
 }
 
-/*GetOrganizationsLimitsChangerequestServiceUnavailable handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrganizationsLimitsChangerequestServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest service unavailable response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest service unavailable response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest service unavailable response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits changerequest service unavailable response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits changerequest service unavailable response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrganizationsLimitsChangerequestServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrganizationsLimitsChangerequestGatewayTimeout() *GetOrganizationsLim
 	return &GetOrganizationsLimitsChangerequestGatewayTimeout{}
 }
 
-/*GetOrganizationsLimitsChangerequestGatewayTimeout handles this case with default header values.
+/*
+GetOrganizationsLimitsChangerequestGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrganizationsLimitsChangerequestGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits changerequest gateway timeout response has a 2xx status code
+func (o *GetOrganizationsLimitsChangerequestGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits changerequest gateway timeout response has a 3xx status code
+func (o *GetOrganizationsLimitsChangerequestGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits changerequest gateway timeout response has a 4xx status code
+func (o *GetOrganizationsLimitsChangerequestGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits changerequest gateway timeout response has a 5xx status code
+func (o *GetOrganizationsLimitsChangerequestGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits changerequest gateway timeout response a status code equal to that given
+func (o *GetOrganizationsLimitsChangerequestGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrganizationsLimitsChangerequestGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsChangerequestGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/changerequests/{requestId}][%d] getOrganizationsLimitsChangerequestGatewayTimeout  %+v", 504, o.Payload)
 }
 

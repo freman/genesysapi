@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWebdeploymentsConfigurationVersionParams creates a new GetWebdeploymentsConfigurationVersionParams object
-// with the default values initialized.
+// NewGetWebdeploymentsConfigurationVersionParams creates a new GetWebdeploymentsConfigurationVersionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebdeploymentsConfigurationVersionParams() *GetWebdeploymentsConfigurationVersionParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationVersionParamsWithTimeout creates a new GetWebdeploymentsConfigurationVersionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebdeploymentsConfigurationVersionParamsWithTimeout(timeout time.Duration) *GetWebdeploymentsConfigurationVersionParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationVersionParamsWithContext creates a new GetWebdeploymentsConfigurationVersionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebdeploymentsConfigurationVersionParamsWithContext(ctx context.Context) *GetWebdeploymentsConfigurationVersionParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationVersionParamsWithHTTPClient creates a new GetWebdeploymentsConfigurationVersionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebdeploymentsConfigurationVersionParamsWithHTTPClient(client *http.Client) *GetWebdeploymentsConfigurationVersionParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWebdeploymentsConfigurationVersionParams contains all the parameters to send to the API endpoint
-for the get webdeployments configuration version operation typically these are written to a http.Request
+/*
+GetWebdeploymentsConfigurationVersionParams contains all the parameters to send to the API endpoint
+
+	for the get webdeployments configuration version operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebdeploymentsConfigurationVersionParams struct {
 
-	/*ConfigurationID
-	  The configuration version ID
+	/* ConfigurationID.
 
+	   The configuration version ID
 	*/
 	ConfigurationID string
-	/*VersionID
-	  The version of the configuration to get
 
+	/* VersionID.
+
+	   The version of the configuration to get
 	*/
 	VersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webdeployments configuration version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsConfigurationVersionParams) WithDefaults() *GetWebdeploymentsConfigurationVersionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webdeployments configuration version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsConfigurationVersionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get webdeployments configuration version params

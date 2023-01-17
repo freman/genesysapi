@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -151,7 +152,6 @@ func (m *DialerAction) validateActionTypeName(formats strfmt.Registry) error {
 }
 
 func (m *DialerAction) validateContactColumnToDataActionFieldMappings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactColumnToDataActionFieldMappings) { // not required
 		return nil
 	}
@@ -165,6 +165,8 @@ func (m *DialerAction) validateContactColumnToDataActionFieldMappings(formats st
 			if err := m.ContactColumnToDataActionFieldMappings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -176,7 +178,6 @@ func (m *DialerAction) validateContactColumnToDataActionFieldMappings(formats st
 }
 
 func (m *DialerAction) validateDataAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DataAction) { // not required
 		return nil
 	}
@@ -185,6 +186,8 @@ func (m *DialerAction) validateDataAction(formats strfmt.Registry) error {
 		if err := m.DataAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dataAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dataAction")
 			}
 			return err
 		}
@@ -275,7 +278,6 @@ func (m *DialerAction) validateUpdateOptionEnum(path, location string, value str
 }
 
 func (m *DialerAction) validateUpdateOption(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UpdateOption) { // not required
 		return nil
 	}
@@ -283,6 +285,60 @@ func (m *DialerAction) validateUpdateOption(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateUpdateOptionEnum("updateOption", "body", m.UpdateOption); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this dialer action based on the context it is used
+func (m *DialerAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContactColumnToDataActionFieldMappings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDataAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DialerAction) contextValidateContactColumnToDataActionFieldMappings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ContactColumnToDataActionFieldMappings); i++ {
+
+		if m.ContactColumnToDataActionFieldMappings[i] != nil {
+			if err := m.ContactColumnToDataActionFieldMappings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerAction) contextValidateDataAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DataAction != nil {
+		if err := m.DataAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dataAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dataAction")
+			}
+			return err
+		}
 	}
 
 	return nil

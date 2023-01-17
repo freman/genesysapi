@@ -95,7 +95,6 @@ func (o *PostResponsemanagementResponseassetsUploadsReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostResponsemanagementResponseassetsUploadsOK() *PostResponsemanagementR
 	return &PostResponsemanagementResponseassetsUploadsOK{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsOK handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostResponsemanagementResponseassetsUploadsOK struct {
 	Payload *models.CreateResponseAssetResponse
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads o k response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads o k response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads o k response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads o k response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads o k response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostResponsemanagementResponseassetsUploadsBadRequest() *PostResponseman
 	return &PostResponsemanagementResponseassetsUploadsBadRequest{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsBadRequest handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostResponsemanagementResponseassetsUploadsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads bad request response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads bad request response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads bad request response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads bad request response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads bad request response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostResponsemanagementResponseassetsUploadsUnauthorized() *PostResponsem
 	return &PostResponsemanagementResponseassetsUploadsUnauthorized{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsUnauthorized handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostResponsemanagementResponseassetsUploadsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads unauthorized response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads unauthorized response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads unauthorized response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads unauthorized response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads unauthorized response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostResponsemanagementResponseassetsUploadsForbidden() *PostResponsemana
 	return &PostResponsemanagementResponseassetsUploadsForbidden{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsForbidden handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostResponsemanagementResponseassetsUploadsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads forbidden response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads forbidden response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads forbidden response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads forbidden response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads forbidden response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostResponsemanagementResponseassetsUploadsNotFound() *PostResponsemanag
 	return &PostResponsemanagementResponseassetsUploadsNotFound{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsNotFound handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostResponsemanagementResponseassetsUploadsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads not found response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads not found response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads not found response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads not found response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads not found response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostResponsemanagementResponseassetsUploadsRequestTimeout() *PostRespons
 	return &PostResponsemanagementResponseassetsUploadsRequestTimeout{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsRequestTimeout handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostResponsemanagementResponseassetsUploadsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads request timeout response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads request timeout response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads request timeout response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads request timeout response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads request timeout response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostResponsemanagementResponseassetsUploadsRequestEntityTooLarge() *Post
 	return &PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads request entity too large response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads request entity too large response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads request entity too large response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads request entity too large response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads request entity too large response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostResponsemanagementResponseassetsUploadsUnsupportedMediaType() *PostR
 	return &PostResponsemanagementResponseassetsUploadsUnsupportedMediaType{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsUnsupportedMediaType handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostResponsemanagementResponseassetsUploadsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads unsupported media type response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads unsupported media type response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads unsupported media type response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads unsupported media type response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads unsupported media type response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostResponsemanagementResponseassetsUploadsTooManyRequests() *PostRespon
 	return &PostResponsemanagementResponseassetsUploadsTooManyRequests{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsTooManyRequests handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostResponsemanagementResponseassetsUploadsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads too many requests response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads too many requests response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads too many requests response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads too many requests response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads too many requests response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostResponsemanagementResponseassetsUploadsInternalServerError() *PostRe
 	return &PostResponsemanagementResponseassetsUploadsInternalServerError{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsInternalServerError handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostResponsemanagementResponseassetsUploadsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads internal server error response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads internal server error response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads internal server error response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads internal server error response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads internal server error response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostResponsemanagementResponseassetsUploadsServiceUnavailable() *PostRes
 	return &PostResponsemanagementResponseassetsUploadsServiceUnavailable{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsServiceUnavailable handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostResponsemanagementResponseassetsUploadsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads service unavailable response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads service unavailable response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads service unavailable response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads service unavailable response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads service unavailable response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostResponsemanagementResponseassetsUploadsGatewayTimeout() *PostRespons
 	return &PostResponsemanagementResponseassetsUploadsGatewayTimeout{}
 }
 
-/*PostResponsemanagementResponseassetsUploadsGatewayTimeout handles this case with default header values.
+/*
+PostResponsemanagementResponseassetsUploadsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostResponsemanagementResponseassetsUploadsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post responsemanagement responseassets uploads gateway timeout response has a 2xx status code
+func (o *PostResponsemanagementResponseassetsUploadsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post responsemanagement responseassets uploads gateway timeout response has a 3xx status code
+func (o *PostResponsemanagementResponseassetsUploadsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post responsemanagement responseassets uploads gateway timeout response has a 4xx status code
+func (o *PostResponsemanagementResponseassetsUploadsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post responsemanagement responseassets uploads gateway timeout response has a 5xx status code
+func (o *PostResponsemanagementResponseassetsUploadsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post responsemanagement responseassets uploads gateway timeout response a status code equal to that given
+func (o *PostResponsemanagementResponseassetsUploadsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostResponsemanagementResponseassetsUploadsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostResponsemanagementResponseassetsUploadsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/responsemanagement/responseassets/uploads][%d] postResponsemanagementResponseassetsUploadsGatewayTimeout  %+v", 504, o.Payload)
 }
 

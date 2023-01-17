@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitActivitycodesParams creates a new PostWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitActivitycodesParams creates a new PostWorkforcemanagementBusinessunitActivitycodesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitActivitycodesParams() *PostWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitActivitycodesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitActivitycodesParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitActivitycodesParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitActivitycodesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitActivitycodesParamsWithContext creates a new PostWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitActivitycodesParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitActivitycodesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitActivitycodesParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitActivitycodesParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitActivitycodesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit activitycodes operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitActivitycodesParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit activitycodes operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitActivitycodesParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.CreateActivityCodeRequest
-	/*BusinessUnitID
-	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 	*/
 	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit activitycodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) WithDefaults() *PostWorkforcemanagementBusinessunitActivitycodesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit activitycodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit activitycodes params
@@ -140,7 +157,6 @@ func (o *PostWorkforcemanagementBusinessunitActivitycodesParams) WriteToRequest(
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

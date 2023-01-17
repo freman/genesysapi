@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -94,7 +95,6 @@ func (m *APIUsageQuery) validateGranularityEnum(path, location string, value str
 }
 
 func (m *APIUsageQuery) validateGranularity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Granularity) { // not required
 		return nil
 	}
@@ -127,7 +127,6 @@ func (m *APIUsageQuery) validateGroupByItemsEnum(path, location string, value st
 }
 
 func (m *APIUsageQuery) validateGroupBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupBy) { // not required
 		return nil
 	}
@@ -173,7 +172,6 @@ func (m *APIUsageQuery) validateMetricsItemsEnum(path, location string, value st
 }
 
 func (m *APIUsageQuery) validateMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metrics) { // not required
 		return nil
 	}
@@ -187,6 +185,11 @@ func (m *APIUsageQuery) validateMetrics(formats strfmt.Registry) error {
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this Api usage query based on context it is used
+func (m *APIUsageQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

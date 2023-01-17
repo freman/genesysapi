@@ -95,7 +95,6 @@ func (o *PutConversationsCallParticipantCommunicationUuidataReader) ReadResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataOK() *PutConversation
 	return &PutConversationsCallParticipantCommunicationUuidataOK{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataOK handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutConversationsCallParticipantCommunicationUuidataOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata o k response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata o k response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata o k response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata o k response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata o k response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataBadRequest() *PutConv
 	return &PutConversationsCallParticipantCommunicationUuidataBadRequest{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataBadRequest handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PutConversationsCallParticipantCommunicationUuidataBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata bad request response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata bad request response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata bad request response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata bad request response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata bad request response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataUnauthorized() *PutCo
 	return &PutConversationsCallParticipantCommunicationUuidataUnauthorized{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataUnauthorized handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PutConversationsCallParticipantCommunicationUuidataUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata unauthorized response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata unauthorized response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata unauthorized response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata unauthorized response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata unauthorized response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataForbidden() *PutConve
 	return &PutConversationsCallParticipantCommunicationUuidataForbidden{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataForbidden handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PutConversationsCallParticipantCommunicationUuidataForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata forbidden response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata forbidden response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata forbidden response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata forbidden response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata forbidden response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataNotFound() *PutConver
 	return &PutConversationsCallParticipantCommunicationUuidataNotFound{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataNotFound handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PutConversationsCallParticipantCommunicationUuidataNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata not found response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata not found response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata not found response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata not found response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata not found response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataRequestTimeout() *Put
 	return &PutConversationsCallParticipantCommunicationUuidataRequestTimeout{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataRequestTimeout handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PutConversationsCallParticipantCommunicationUuidataRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata request timeout response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata request timeout response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata request timeout response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata request timeout response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata request timeout response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge
 	return &PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata request entity too large response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata request entity too large response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata request entity too large response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata request entity too large response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata request entity too large response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType(
 	return &PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata unsupported media type response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata unsupported media type response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata unsupported media type response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata unsupported media type response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata unsupported media type response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataTooManyRequests() *Pu
 	return &PutConversationsCallParticipantCommunicationUuidataTooManyRequests{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataTooManyRequests handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PutConversationsCallParticipantCommunicationUuidataTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata too many requests response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata too many requests response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata too many requests response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata too many requests response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata too many requests response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataInternalServerError()
 	return &PutConversationsCallParticipantCommunicationUuidataInternalServerError{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataInternalServerError handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PutConversationsCallParticipantCommunicationUuidataInternalServerError stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata internal server error response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata internal server error response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata internal server error response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata internal server error response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata internal server error response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataServiceUnavailable() 
 	return &PutConversationsCallParticipantCommunicationUuidataServiceUnavailable{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataServiceUnavailable handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PutConversationsCallParticipantCommunicationUuidataServiceUnavailable struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata service unavailable response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata service unavailable response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata service unavailable response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata service unavailable response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata service unavailable response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPutConversationsCallParticipantCommunicationUuidataGatewayTimeout() *Put
 	return &PutConversationsCallParticipantCommunicationUuidataGatewayTimeout{}
 }
 
-/*PutConversationsCallParticipantCommunicationUuidataGatewayTimeout handles this case with default header values.
+/*
+PutConversationsCallParticipantCommunicationUuidataGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PutConversationsCallParticipantCommunicationUuidataGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations call participant communication uuidata gateway timeout response has a 2xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations call participant communication uuidata gateway timeout response has a 3xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations call participant communication uuidata gateway timeout response has a 4xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations call participant communication uuidata gateway timeout response has a 5xx status code
+func (o *PutConversationsCallParticipantCommunicationUuidataGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations call participant communication uuidata gateway timeout response a status code equal to that given
+func (o *PutConversationsCallParticipantCommunicationUuidataGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsCallParticipantCommunicationUuidataGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsCallParticipantCommunicationUuidataGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/uuidata][%d] putConversationsCallParticipantCommunicationUuidataGatewayTimeout  %+v", 504, o.Payload)
 }
 

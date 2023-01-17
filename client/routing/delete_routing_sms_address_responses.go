@@ -95,7 +95,6 @@ func (o *DeleteRoutingSmsAddressReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteRoutingSmsAddressNoContent() *DeleteRoutingSmsAddressNoContent {
 	return &DeleteRoutingSmsAddressNoContent{}
 }
 
-/*DeleteRoutingSmsAddressNoContent handles this case with default header values.
+/*
+DeleteRoutingSmsAddressNoContent describes a response with status code 204, with default header values.
 
 Operation was successful
 */
 type DeleteRoutingSmsAddressNoContent struct {
 }
 
+// IsSuccess returns true when this delete routing sms address no content response has a 2xx status code
+func (o *DeleteRoutingSmsAddressNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete routing sms address no content response has a 3xx status code
+func (o *DeleteRoutingSmsAddressNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address no content response has a 4xx status code
+func (o *DeleteRoutingSmsAddressNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing sms address no content response has a 5xx status code
+func (o *DeleteRoutingSmsAddressNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address no content response a status code equal to that given
+func (o *DeleteRoutingSmsAddressNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteRoutingSmsAddressNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressNoContent ", 204)
+}
+
+func (o *DeleteRoutingSmsAddressNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteRoutingSmsAddressBadRequest() *DeleteRoutingSmsAddressBadRequest {
 	return &DeleteRoutingSmsAddressBadRequest{}
 }
 
-/*DeleteRoutingSmsAddressBadRequest handles this case with default header values.
+/*
+DeleteRoutingSmsAddressBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteRoutingSmsAddressBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address bad request response has a 2xx status code
+func (o *DeleteRoutingSmsAddressBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address bad request response has a 3xx status code
+func (o *DeleteRoutingSmsAddressBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address bad request response has a 4xx status code
+func (o *DeleteRoutingSmsAddressBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address bad request response has a 5xx status code
+func (o *DeleteRoutingSmsAddressBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address bad request response a status code equal to that given
+func (o *DeleteRoutingSmsAddressBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRoutingSmsAddressBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteRoutingSmsAddressUnauthorized() *DeleteRoutingSmsAddressUnauthoriz
 	return &DeleteRoutingSmsAddressUnauthorized{}
 }
 
-/*DeleteRoutingSmsAddressUnauthorized handles this case with default header values.
+/*
+DeleteRoutingSmsAddressUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteRoutingSmsAddressUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address unauthorized response has a 2xx status code
+func (o *DeleteRoutingSmsAddressUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address unauthorized response has a 3xx status code
+func (o *DeleteRoutingSmsAddressUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address unauthorized response has a 4xx status code
+func (o *DeleteRoutingSmsAddressUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address unauthorized response has a 5xx status code
+func (o *DeleteRoutingSmsAddressUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address unauthorized response a status code equal to that given
+func (o *DeleteRoutingSmsAddressUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRoutingSmsAddressUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteRoutingSmsAddressForbidden() *DeleteRoutingSmsAddressForbidden {
 	return &DeleteRoutingSmsAddressForbidden{}
 }
 
-/*DeleteRoutingSmsAddressForbidden handles this case with default header values.
+/*
+DeleteRoutingSmsAddressForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteRoutingSmsAddressForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address forbidden response has a 2xx status code
+func (o *DeleteRoutingSmsAddressForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address forbidden response has a 3xx status code
+func (o *DeleteRoutingSmsAddressForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address forbidden response has a 4xx status code
+func (o *DeleteRoutingSmsAddressForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address forbidden response has a 5xx status code
+func (o *DeleteRoutingSmsAddressForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address forbidden response a status code equal to that given
+func (o *DeleteRoutingSmsAddressForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRoutingSmsAddressForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteRoutingSmsAddressNotFound() *DeleteRoutingSmsAddressNotFound {
 	return &DeleteRoutingSmsAddressNotFound{}
 }
 
-/*DeleteRoutingSmsAddressNotFound handles this case with default header values.
+/*
+DeleteRoutingSmsAddressNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteRoutingSmsAddressNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address not found response has a 2xx status code
+func (o *DeleteRoutingSmsAddressNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address not found response has a 3xx status code
+func (o *DeleteRoutingSmsAddressNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address not found response has a 4xx status code
+func (o *DeleteRoutingSmsAddressNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address not found response has a 5xx status code
+func (o *DeleteRoutingSmsAddressNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address not found response a status code equal to that given
+func (o *DeleteRoutingSmsAddressNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRoutingSmsAddressNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteRoutingSmsAddressRequestTimeout() *DeleteRoutingSmsAddressRequestT
 	return &DeleteRoutingSmsAddressRequestTimeout{}
 }
 
-/*DeleteRoutingSmsAddressRequestTimeout handles this case with default header values.
+/*
+DeleteRoutingSmsAddressRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteRoutingSmsAddressRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address request timeout response has a 2xx status code
+func (o *DeleteRoutingSmsAddressRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address request timeout response has a 3xx status code
+func (o *DeleteRoutingSmsAddressRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address request timeout response has a 4xx status code
+func (o *DeleteRoutingSmsAddressRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address request timeout response has a 5xx status code
+func (o *DeleteRoutingSmsAddressRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address request timeout response a status code equal to that given
+func (o *DeleteRoutingSmsAddressRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRoutingSmsAddressRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteRoutingSmsAddressRequestEntityTooLarge() *DeleteRoutingSmsAddressR
 	return &DeleteRoutingSmsAddressRequestEntityTooLarge{}
 }
 
-/*DeleteRoutingSmsAddressRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRoutingSmsAddressRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteRoutingSmsAddressRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address request entity too large response has a 2xx status code
+func (o *DeleteRoutingSmsAddressRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address request entity too large response has a 3xx status code
+func (o *DeleteRoutingSmsAddressRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address request entity too large response has a 4xx status code
+func (o *DeleteRoutingSmsAddressRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address request entity too large response has a 5xx status code
+func (o *DeleteRoutingSmsAddressRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address request entity too large response a status code equal to that given
+func (o *DeleteRoutingSmsAddressRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRoutingSmsAddressRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteRoutingSmsAddressUnsupportedMediaType() *DeleteRoutingSmsAddressUn
 	return &DeleteRoutingSmsAddressUnsupportedMediaType{}
 }
 
-/*DeleteRoutingSmsAddressUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRoutingSmsAddressUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteRoutingSmsAddressUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address unsupported media type response has a 2xx status code
+func (o *DeleteRoutingSmsAddressUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address unsupported media type response has a 3xx status code
+func (o *DeleteRoutingSmsAddressUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address unsupported media type response has a 4xx status code
+func (o *DeleteRoutingSmsAddressUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address unsupported media type response has a 5xx status code
+func (o *DeleteRoutingSmsAddressUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address unsupported media type response a status code equal to that given
+func (o *DeleteRoutingSmsAddressUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRoutingSmsAddressUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteRoutingSmsAddressTooManyRequests() *DeleteRoutingSmsAddressTooMany
 	return &DeleteRoutingSmsAddressTooManyRequests{}
 }
 
-/*DeleteRoutingSmsAddressTooManyRequests handles this case with default header values.
+/*
+DeleteRoutingSmsAddressTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteRoutingSmsAddressTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address too many requests response has a 2xx status code
+func (o *DeleteRoutingSmsAddressTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address too many requests response has a 3xx status code
+func (o *DeleteRoutingSmsAddressTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address too many requests response has a 4xx status code
+func (o *DeleteRoutingSmsAddressTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing sms address too many requests response has a 5xx status code
+func (o *DeleteRoutingSmsAddressTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing sms address too many requests response a status code equal to that given
+func (o *DeleteRoutingSmsAddressTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRoutingSmsAddressTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteRoutingSmsAddressInternalServerError() *DeleteRoutingSmsAddressInt
 	return &DeleteRoutingSmsAddressInternalServerError{}
 }
 
-/*DeleteRoutingSmsAddressInternalServerError handles this case with default header values.
+/*
+DeleteRoutingSmsAddressInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteRoutingSmsAddressInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address internal server error response has a 2xx status code
+func (o *DeleteRoutingSmsAddressInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address internal server error response has a 3xx status code
+func (o *DeleteRoutingSmsAddressInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address internal server error response has a 4xx status code
+func (o *DeleteRoutingSmsAddressInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing sms address internal server error response has a 5xx status code
+func (o *DeleteRoutingSmsAddressInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing sms address internal server error response a status code equal to that given
+func (o *DeleteRoutingSmsAddressInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRoutingSmsAddressInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteRoutingSmsAddressServiceUnavailable() *DeleteRoutingSmsAddressServ
 	return &DeleteRoutingSmsAddressServiceUnavailable{}
 }
 
-/*DeleteRoutingSmsAddressServiceUnavailable handles this case with default header values.
+/*
+DeleteRoutingSmsAddressServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteRoutingSmsAddressServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address service unavailable response has a 2xx status code
+func (o *DeleteRoutingSmsAddressServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address service unavailable response has a 3xx status code
+func (o *DeleteRoutingSmsAddressServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address service unavailable response has a 4xx status code
+func (o *DeleteRoutingSmsAddressServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing sms address service unavailable response has a 5xx status code
+func (o *DeleteRoutingSmsAddressServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing sms address service unavailable response a status code equal to that given
+func (o *DeleteRoutingSmsAddressServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRoutingSmsAddressServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteRoutingSmsAddressGatewayTimeout() *DeleteRoutingSmsAddressGatewayT
 	return &DeleteRoutingSmsAddressGatewayTimeout{}
 }
 
-/*DeleteRoutingSmsAddressGatewayTimeout handles this case with default header values.
+/*
+DeleteRoutingSmsAddressGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteRoutingSmsAddressGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing sms address gateway timeout response has a 2xx status code
+func (o *DeleteRoutingSmsAddressGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing sms address gateway timeout response has a 3xx status code
+func (o *DeleteRoutingSmsAddressGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing sms address gateway timeout response has a 4xx status code
+func (o *DeleteRoutingSmsAddressGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing sms address gateway timeout response has a 5xx status code
+func (o *DeleteRoutingSmsAddressGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing sms address gateway timeout response a status code equal to that given
+func (o *DeleteRoutingSmsAddressGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRoutingSmsAddressGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRoutingSmsAddressGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/sms/addresses/{addressId}][%d] deleteRoutingSmsAddressGatewayTimeout  %+v", 504, o.Payload)
 }
 

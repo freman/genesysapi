@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitServicegoaltemplateParams creates a new GetWorkforcemanagementBusinessunitServicegoaltemplateParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitServicegoaltemplateParams creates a new GetWorkforcemanagementBusinessunitServicegoaltemplateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitServicegoaltemplateParams() *GetWorkforcemanagementBusinessunitServicegoaltemplateParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitServicegoaltemplateParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitServicegoaltemplateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitServicegoaltemplateParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitServicegoaltemplateParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitServicegoaltemplateParamsWithContext creates a new GetWorkforcemanagementBusinessunitServicegoaltemplateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitServicegoaltemplateParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitServicegoaltemplateParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitServicegoaltemplateParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitServicegoaltemplateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitServicegoaltemplateParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitServicegoaltemplateParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplateParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplateParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit servicegoaltemplate operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplateParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit servicegoaltemplate operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitServicegoaltemplateParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit.
+	/* BusinessUnitID.
 
+	   The ID of the business unit.
 	*/
 	BusinessUnitID string
-	/*ServiceGoalTemplateID
-	  The ID of a service goal template to fetch
 
+	/* ServiceGoalTemplateID.
+
+	   The ID of a service goal template to fetch
 	*/
 	ServiceGoalTemplateID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit servicegoaltemplate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplateParams) WithDefaults() *GetWorkforcemanagementBusinessunitServicegoaltemplateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit servicegoaltemplate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit servicegoaltemplate params

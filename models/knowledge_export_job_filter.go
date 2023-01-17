@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +48,6 @@ func (m *KnowledgeExportJobFilter) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeExportJobFilter) validateDocumentsFilter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DocumentsFilter) { // not required
 		return nil
 	}
@@ -56,6 +56,8 @@ func (m *KnowledgeExportJobFilter) validateDocumentsFilter(formats strfmt.Regist
 		if err := m.DocumentsFilter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("documentsFilter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("documentsFilter")
 			}
 			return err
 		}
@@ -102,6 +104,36 @@ func (m *KnowledgeExportJobFilter) validateVersionFilter(formats strfmt.Registry
 	// value enum
 	if err := m.validateVersionFilterEnum("versionFilter", "body", *m.VersionFilter); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge export job filter based on the context it is used
+func (m *KnowledgeExportJobFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDocumentsFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeExportJobFilter) contextValidateDocumentsFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DocumentsFilter != nil {
+		if err := m.DocumentsFilter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("documentsFilter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("documentsFilter")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetFlowsOutcomeParams creates a new GetFlowsOutcomeParams object
-// with the default values initialized.
+// NewGetFlowsOutcomeParams creates a new GetFlowsOutcomeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowsOutcomeParams() *GetFlowsOutcomeParams {
-	var ()
 	return &GetFlowsOutcomeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowsOutcomeParamsWithTimeout creates a new GetFlowsOutcomeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowsOutcomeParamsWithTimeout(timeout time.Duration) *GetFlowsOutcomeParams {
-	var ()
 	return &GetFlowsOutcomeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowsOutcomeParamsWithContext creates a new GetFlowsOutcomeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowsOutcomeParamsWithContext(ctx context.Context) *GetFlowsOutcomeParams {
-	var ()
 	return &GetFlowsOutcomeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowsOutcomeParamsWithHTTPClient creates a new GetFlowsOutcomeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowsOutcomeParamsWithHTTPClient(client *http.Client) *GetFlowsOutcomeParams {
-	var ()
 	return &GetFlowsOutcomeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowsOutcomeParams contains all the parameters to send to the API endpoint
-for the get flows outcome operation typically these are written to a http.Request
+/*
+GetFlowsOutcomeParams contains all the parameters to send to the API endpoint
+
+	for the get flows outcome operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowsOutcomeParams struct {
 
-	/*FlowOutcomeID
-	  flow outcome ID
+	/* FlowOutcomeID.
 
+	   flow outcome ID
 	*/
 	FlowOutcomeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flows outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsOutcomeParams) WithDefaults() *GetFlowsOutcomeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flows outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsOutcomeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get flows outcome params

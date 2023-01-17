@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGeolocationsSettingsParams creates a new GetGeolocationsSettingsParams object
-// with the default values initialized.
+// NewGetGeolocationsSettingsParams creates a new GetGeolocationsSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGeolocationsSettingsParams() *GetGeolocationsSettingsParams {
-
 	return &GetGeolocationsSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGeolocationsSettingsParamsWithTimeout creates a new GetGeolocationsSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGeolocationsSettingsParamsWithTimeout(timeout time.Duration) *GetGeolocationsSettingsParams {
-
 	return &GetGeolocationsSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGeolocationsSettingsParamsWithContext creates a new GetGeolocationsSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGeolocationsSettingsParamsWithContext(ctx context.Context) *GetGeolocationsSettingsParams {
-
 	return &GetGeolocationsSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGeolocationsSettingsParamsWithHTTPClient creates a new GetGeolocationsSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGeolocationsSettingsParamsWithHTTPClient(client *http.Client) *GetGeolocationsSettingsParams {
-
 	return &GetGeolocationsSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGeolocationsSettingsParams contains all the parameters to send to the API endpoint
-for the get geolocations settings operation typically these are written to a http.Request
+/*
+GetGeolocationsSettingsParams contains all the parameters to send to the API endpoint
+
+	for the get geolocations settings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGeolocationsSettingsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get geolocations settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGeolocationsSettingsParams) WithDefaults() *GetGeolocationsSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get geolocations settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGeolocationsSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get geolocations settings params

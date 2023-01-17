@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRecordingMediaretentionpolicyParams creates a new GetRecordingMediaretentionpolicyParams object
-// with the default values initialized.
+// NewGetRecordingMediaretentionpolicyParams creates a new GetRecordingMediaretentionpolicyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingMediaretentionpolicyParams() *GetRecordingMediaretentionpolicyParams {
-	var ()
 	return &GetRecordingMediaretentionpolicyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingMediaretentionpolicyParamsWithTimeout creates a new GetRecordingMediaretentionpolicyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingMediaretentionpolicyParamsWithTimeout(timeout time.Duration) *GetRecordingMediaretentionpolicyParams {
-	var ()
 	return &GetRecordingMediaretentionpolicyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingMediaretentionpolicyParamsWithContext creates a new GetRecordingMediaretentionpolicyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingMediaretentionpolicyParamsWithContext(ctx context.Context) *GetRecordingMediaretentionpolicyParams {
-	var ()
 	return &GetRecordingMediaretentionpolicyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingMediaretentionpolicyParamsWithHTTPClient creates a new GetRecordingMediaretentionpolicyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingMediaretentionpolicyParamsWithHTTPClient(client *http.Client) *GetRecordingMediaretentionpolicyParams {
-	var ()
 	return &GetRecordingMediaretentionpolicyParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRecordingMediaretentionpolicyParams contains all the parameters to send to the API endpoint
-for the get recording mediaretentionpolicy operation typically these are written to a http.Request
+/*
+GetRecordingMediaretentionpolicyParams contains all the parameters to send to the API endpoint
+
+	for the get recording mediaretentionpolicy operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingMediaretentionpolicyParams struct {
 
-	/*PolicyID
-	  Policy ID
+	/* PolicyID.
 
+	   Policy ID
 	*/
 	PolicyID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recording mediaretentionpolicy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingMediaretentionpolicyParams) WithDefaults() *GetRecordingMediaretentionpolicyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recording mediaretentionpolicy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingMediaretentionpolicyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get recording mediaretentionpolicy params

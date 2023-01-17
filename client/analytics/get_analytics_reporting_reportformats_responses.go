@@ -95,7 +95,6 @@ func (o *GetAnalyticsReportingReportformatsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAnalyticsReportingReportformatsOK() *GetAnalyticsReportingReportforma
 	return &GetAnalyticsReportingReportformatsOK{}
 }
 
-/*GetAnalyticsReportingReportformatsOK handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAnalyticsReportingReportformatsOK struct {
 	Payload []string
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats o k response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats o k response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats o k response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting reportformats o k response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats o k response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAnalyticsReportingReportformatsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetAnalyticsReportingReportformatsBadRequest() *GetAnalyticsReportingRep
 	return &GetAnalyticsReportingReportformatsBadRequest{}
 }
 
-/*GetAnalyticsReportingReportformatsBadRequest handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetAnalyticsReportingReportformatsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats bad request response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats bad request response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats bad request response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats bad request response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats bad request response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAnalyticsReportingReportformatsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetAnalyticsReportingReportformatsUnauthorized() *GetAnalyticsReportingR
 	return &GetAnalyticsReportingReportformatsUnauthorized{}
 }
 
-/*GetAnalyticsReportingReportformatsUnauthorized handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetAnalyticsReportingReportformatsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats unauthorized response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats unauthorized response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats unauthorized response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats unauthorized response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats unauthorized response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAnalyticsReportingReportformatsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetAnalyticsReportingReportformatsForbidden() *GetAnalyticsReportingRepo
 	return &GetAnalyticsReportingReportformatsForbidden{}
 }
 
-/*GetAnalyticsReportingReportformatsForbidden handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetAnalyticsReportingReportformatsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats forbidden response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats forbidden response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats forbidden response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats forbidden response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats forbidden response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAnalyticsReportingReportformatsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetAnalyticsReportingReportformatsNotFound() *GetAnalyticsReportingRepor
 	return &GetAnalyticsReportingReportformatsNotFound{}
 }
 
-/*GetAnalyticsReportingReportformatsNotFound handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetAnalyticsReportingReportformatsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats not found response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats not found response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats not found response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats not found response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats not found response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAnalyticsReportingReportformatsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetAnalyticsReportingReportformatsRequestTimeout() *GetAnalyticsReportin
 	return &GetAnalyticsReportingReportformatsRequestTimeout{}
 }
 
-/*GetAnalyticsReportingReportformatsRequestTimeout handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetAnalyticsReportingReportformatsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats request timeout response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats request timeout response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats request timeout response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats request timeout response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats request timeout response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAnalyticsReportingReportformatsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetAnalyticsReportingReportformatsRequestEntityTooLarge() *GetAnalyticsR
 	return &GetAnalyticsReportingReportformatsRequestEntityTooLarge{}
 }
 
-/*GetAnalyticsReportingReportformatsRequestEntityTooLarge handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetAnalyticsReportingReportformatsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats request entity too large response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats request entity too large response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats request entity too large response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats request entity too large response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats request entity too large response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAnalyticsReportingReportformatsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetAnalyticsReportingReportformatsUnsupportedMediaType() *GetAnalyticsRe
 	return &GetAnalyticsReportingReportformatsUnsupportedMediaType{}
 }
 
-/*GetAnalyticsReportingReportformatsUnsupportedMediaType handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetAnalyticsReportingReportformatsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats unsupported media type response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats unsupported media type response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats unsupported media type response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats unsupported media type response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats unsupported media type response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAnalyticsReportingReportformatsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetAnalyticsReportingReportformatsTooManyRequests() *GetAnalyticsReporti
 	return &GetAnalyticsReportingReportformatsTooManyRequests{}
 }
 
-/*GetAnalyticsReportingReportformatsTooManyRequests handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetAnalyticsReportingReportformatsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats too many requests response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats too many requests response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats too many requests response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting reportformats too many requests response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting reportformats too many requests response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAnalyticsReportingReportformatsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetAnalyticsReportingReportformatsInternalServerError() *GetAnalyticsRep
 	return &GetAnalyticsReportingReportformatsInternalServerError{}
 }
 
-/*GetAnalyticsReportingReportformatsInternalServerError handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetAnalyticsReportingReportformatsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats internal server error response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats internal server error response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats internal server error response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting reportformats internal server error response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting reportformats internal server error response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAnalyticsReportingReportformatsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetAnalyticsReportingReportformatsServiceUnavailable() *GetAnalyticsRepo
 	return &GetAnalyticsReportingReportformatsServiceUnavailable{}
 }
 
-/*GetAnalyticsReportingReportformatsServiceUnavailable handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetAnalyticsReportingReportformatsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats service unavailable response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats service unavailable response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats service unavailable response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting reportformats service unavailable response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting reportformats service unavailable response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAnalyticsReportingReportformatsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetAnalyticsReportingReportformatsGatewayTimeout() *GetAnalyticsReportin
 	return &GetAnalyticsReportingReportformatsGatewayTimeout{}
 }
 
-/*GetAnalyticsReportingReportformatsGatewayTimeout handles this case with default header values.
+/*
+GetAnalyticsReportingReportformatsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetAnalyticsReportingReportformatsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting reportformats gateway timeout response has a 2xx status code
+func (o *GetAnalyticsReportingReportformatsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting reportformats gateway timeout response has a 3xx status code
+func (o *GetAnalyticsReportingReportformatsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting reportformats gateway timeout response has a 4xx status code
+func (o *GetAnalyticsReportingReportformatsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting reportformats gateway timeout response has a 5xx status code
+func (o *GetAnalyticsReportingReportformatsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting reportformats gateway timeout response a status code equal to that given
+func (o *GetAnalyticsReportingReportformatsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAnalyticsReportingReportformatsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAnalyticsReportingReportformatsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/reportformats][%d] getAnalyticsReportingReportformatsGatewayTimeout  %+v", 504, o.Payload)
 }
 

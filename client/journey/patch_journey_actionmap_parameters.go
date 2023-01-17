@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchJourneyActionmapParams creates a new PatchJourneyActionmapParams object
-// with the default values initialized.
+// NewPatchJourneyActionmapParams creates a new PatchJourneyActionmapParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchJourneyActionmapParams() *PatchJourneyActionmapParams {
-	var ()
 	return &PatchJourneyActionmapParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchJourneyActionmapParamsWithTimeout creates a new PatchJourneyActionmapParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchJourneyActionmapParamsWithTimeout(timeout time.Duration) *PatchJourneyActionmapParams {
-	var ()
 	return &PatchJourneyActionmapParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchJourneyActionmapParamsWithContext creates a new PatchJourneyActionmapParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchJourneyActionmapParamsWithContext(ctx context.Context) *PatchJourneyActionmapParams {
-	var ()
 	return &PatchJourneyActionmapParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchJourneyActionmapParamsWithHTTPClient creates a new PatchJourneyActionmapParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchJourneyActionmapParamsWithHTTPClient(client *http.Client) *PatchJourneyActionmapParams {
-	var ()
 	return &PatchJourneyActionmapParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchJourneyActionmapParams contains all the parameters to send to the API endpoint
-for the patch journey actionmap operation typically these are written to a http.Request
+/*
+PatchJourneyActionmapParams contains all the parameters to send to the API endpoint
+
+	for the patch journey actionmap operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchJourneyActionmapParams struct {
 
-	/*ActionMapID
-	  ID of the action map.
+	/* ActionMapID.
 
+	   ID of the action map.
 	*/
 	ActionMapID string
-	/*Body*/
+
+	// Body.
 	Body *models.PatchActionMap
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch journey actionmap params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchJourneyActionmapParams) WithDefaults() *PatchJourneyActionmapParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch journey actionmap params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchJourneyActionmapParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch journey actionmap params
@@ -142,7 +159,6 @@ func (o *PatchJourneyActionmapParams) WriteToRequest(r runtime.ClientRequest, re
 	if err := r.SetPathParam("actionMapId", o.ActionMapID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -81,7 +82,6 @@ func (m *WidgetDeployment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WidgetDeployment) validateClientConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ClientConfig) { // not required
 		return nil
 	}
@@ -90,6 +90,8 @@ func (m *WidgetDeployment) validateClientConfig(formats strfmt.Registry) error {
 		if err := m.ClientConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clientConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clientConfig")
 			}
 			return err
 		}
@@ -118,11 +120,11 @@ const (
 	// WidgetDeploymentClientTypeV2 captures enum value "v2"
 	WidgetDeploymentClientTypeV2 string = "v2"
 
-	// WidgetDeploymentClientTypeV1HTTP captures enum value "v1-http"
-	WidgetDeploymentClientTypeV1HTTP string = "v1-http"
+	// WidgetDeploymentClientTypeV1DashHTTP captures enum value "v1-http"
+	WidgetDeploymentClientTypeV1DashHTTP string = "v1-http"
 
-	// WidgetDeploymentClientTypeThirdParty captures enum value "third-party"
-	WidgetDeploymentClientTypeThirdParty string = "third-party"
+	// WidgetDeploymentClientTypeThirdDashParty captures enum value "third-party"
+	WidgetDeploymentClientTypeThirdDashParty string = "third-party"
 )
 
 // prop value enum
@@ -134,7 +136,6 @@ func (m *WidgetDeployment) validateClientTypeEnum(path, location string, value s
 }
 
 func (m *WidgetDeployment) validateClientType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ClientType) { // not required
 		return nil
 	}
@@ -148,7 +149,6 @@ func (m *WidgetDeployment) validateClientType(formats strfmt.Registry) error {
 }
 
 func (m *WidgetDeployment) validateFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flow) { // not required
 		return nil
 	}
@@ -157,6 +157,8 @@ func (m *WidgetDeployment) validateFlow(formats strfmt.Registry) error {
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -166,12 +168,87 @@ func (m *WidgetDeployment) validateFlow(formats strfmt.Registry) error {
 }
 
 func (m *WidgetDeployment) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this widget deployment based on the context it is used
+func (m *WidgetDeployment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClientConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WidgetDeployment) contextValidateClientConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ClientConfig != nil {
+		if err := m.ClientConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("clientConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clientConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WidgetDeployment) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WidgetDeployment) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WidgetDeployment) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

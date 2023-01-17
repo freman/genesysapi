@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -57,6 +58,8 @@ func (m *IdentifierClaimRequest) validateIdentifier(formats strfmt.Registry) err
 		if err := m.Identifier.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("identifier")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identifier")
 			}
 			return err
 		}
@@ -103,6 +106,36 @@ func (m *IdentifierClaimRequest) validateOperation(formats strfmt.Registry) erro
 	// value enum
 	if err := m.validateOperationEnum("operation", "body", *m.Operation); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this identifier claim request based on the context it is used
+func (m *IdentifierClaimRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIdentifier(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *IdentifierClaimRequest) contextValidateIdentifier(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Identifier != nil {
+		if err := m.Identifier.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("identifier")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("identifier")
+			}
+			return err
+		}
 	}
 
 	return nil

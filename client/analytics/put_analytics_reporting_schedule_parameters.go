@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutAnalyticsReportingScheduleParams creates a new PutAnalyticsReportingScheduleParams object
-// with the default values initialized.
+// NewPutAnalyticsReportingScheduleParams creates a new PutAnalyticsReportingScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutAnalyticsReportingScheduleParams() *PutAnalyticsReportingScheduleParams {
-	var ()
 	return &PutAnalyticsReportingScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutAnalyticsReportingScheduleParamsWithTimeout creates a new PutAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutAnalyticsReportingScheduleParamsWithTimeout(timeout time.Duration) *PutAnalyticsReportingScheduleParams {
-	var ()
 	return &PutAnalyticsReportingScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutAnalyticsReportingScheduleParamsWithContext creates a new PutAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutAnalyticsReportingScheduleParamsWithContext(ctx context.Context) *PutAnalyticsReportingScheduleParams {
-	var ()
 	return &PutAnalyticsReportingScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutAnalyticsReportingScheduleParamsWithHTTPClient creates a new PutAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutAnalyticsReportingScheduleParamsWithHTTPClient(client *http.Client) *PutAnalyticsReportingScheduleParams {
-	var ()
 	return &PutAnalyticsReportingScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutAnalyticsReportingScheduleParams contains all the parameters to send to the API endpoint
-for the put analytics reporting schedule operation typically these are written to a http.Request
+/*
+PutAnalyticsReportingScheduleParams contains all the parameters to send to the API endpoint
+
+	for the put analytics reporting schedule operation.
+
+	Typically these are written to a http.Request.
 */
 type PutAnalyticsReportingScheduleParams struct {
 
-	/*Body
-	  ReportSchedule
+	/* Body.
 
+	   ReportSchedule
 	*/
 	Body *models.ReportSchedule
-	/*ScheduleID
-	  Schedule ID
 
+	/* ScheduleID.
+
+	   Schedule ID
 	*/
 	ScheduleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put analytics reporting schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAnalyticsReportingScheduleParams) WithDefaults() *PutAnalyticsReportingScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put analytics reporting schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAnalyticsReportingScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put analytics reporting schedule params
@@ -140,7 +157,6 @@ func (o *PutAnalyticsReportingScheduleParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

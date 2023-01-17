@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -78,7 +79,6 @@ func (m *CreateAgentTimeOffRequest) validateDailyDurationMinutes(formats strfmt.
 }
 
 func (m *CreateAgentTimeOffRequest) validatePartialDayStartDateTimes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PartialDayStartDateTimes) { // not required
 		return nil
 	}
@@ -91,6 +91,11 @@ func (m *CreateAgentTimeOffRequest) validatePartialDayStartDateTimes(formats str
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this create agent time off request based on context it is used
+func (m *CreateAgentTimeOffRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type CreateBenefitAssessmentJobRequest struct {
 
 // Validate validates this create benefit assessment job request
 func (m *CreateBenefitAssessmentJobRequest) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this create benefit assessment job request based on context it is used
+func (m *CreateBenefitAssessmentJobRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

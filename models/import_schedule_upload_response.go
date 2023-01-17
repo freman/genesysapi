@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -44,7 +46,6 @@ func (m *ImportScheduleUploadResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ImportScheduleUploadResponse) validateUploadBodySchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadBodySchema) { // not required
 		return nil
 	}
@@ -53,6 +54,38 @@ func (m *ImportScheduleUploadResponse) validateUploadBodySchema(formats strfmt.R
 		if err := m.UploadBodySchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uploadBodySchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadBodySchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this import schedule upload response based on the context it is used
+func (m *ImportScheduleUploadResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUploadBodySchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ImportScheduleUploadResponse) contextValidateUploadBodySchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UploadBodySchema != nil {
+		if err := m.UploadBodySchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("uploadBodySchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadBodySchema")
 			}
 			return err
 		}

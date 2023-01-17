@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,7 +54,6 @@ func (m *Ring) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Ring) validateActions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Actions) { // not required
 		return nil
 	}
@@ -62,6 +62,8 @@ func (m *Ring) validateActions(formats strfmt.Registry) error {
 		if err := m.Actions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("actions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actions")
 			}
 			return err
 		}
@@ -71,7 +73,6 @@ func (m *Ring) validateActions(formats strfmt.Registry) error {
 }
 
 func (m *Ring) validateExpansionCriteria(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExpansionCriteria) { // not required
 		return nil
 	}
@@ -85,6 +86,8 @@ func (m *Ring) validateExpansionCriteria(formats strfmt.Registry) error {
 			if err := m.ExpansionCriteria[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("expansionCriteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("expansionCriteria" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -96,7 +99,6 @@ func (m *Ring) validateExpansionCriteria(formats strfmt.Registry) error {
 }
 
 func (m *Ring) validateMemberGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MemberGroups) { // not required
 		return nil
 	}
@@ -114,6 +116,86 @@ func (m *Ring) validateMemberGroups(formats strfmt.Registry) error {
 			if err := m.MemberGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("memberGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memberGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this ring based on the context it is used
+func (m *Ring) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExpansionCriteria(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMemberGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Ring) contextValidateActions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Actions != nil {
+		if err := m.Actions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("actions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Ring) contextValidateExpansionCriteria(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExpansionCriteria); i++ {
+
+		if m.ExpansionCriteria[i] != nil {
+			if err := m.ExpansionCriteria[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("expansionCriteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("expansionCriteria" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Ring) contextValidateMemberGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MemberGroups); i++ {
+
+		if m.MemberGroups[i] != nil {
+			if err := m.MemberGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("memberGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memberGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

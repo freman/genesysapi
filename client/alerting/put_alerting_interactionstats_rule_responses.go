@@ -95,7 +95,6 @@ func (o *PutAlertingInteractionstatsRuleReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutAlertingInteractionstatsRuleOK() *PutAlertingInteractionstatsRuleOK {
 	return &PutAlertingInteractionstatsRuleOK{}
 }
 
-/*PutAlertingInteractionstatsRuleOK handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutAlertingInteractionstatsRuleOK struct {
 	Payload *models.InteractionStatsRule
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule o k response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule o k response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule o k response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put alerting interactionstats rule o k response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule o k response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutAlertingInteractionstatsRuleOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleOK  %+v", 200, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutAlertingInteractionstatsRuleBadRequest() *PutAlertingInteractionstats
 	return &PutAlertingInteractionstatsRuleBadRequest{}
 }
 
-/*PutAlertingInteractionstatsRuleBadRequest handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutAlertingInteractionstatsRuleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule bad request response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule bad request response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule bad request response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule bad request response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule bad request response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutAlertingInteractionstatsRuleBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutAlertingInteractionstatsRuleUnauthorized() *PutAlertingInteractionsta
 	return &PutAlertingInteractionstatsRuleUnauthorized{}
 }
 
-/*PutAlertingInteractionstatsRuleUnauthorized handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutAlertingInteractionstatsRuleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule unauthorized response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule unauthorized response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule unauthorized response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule unauthorized response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule unauthorized response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutAlertingInteractionstatsRuleUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutAlertingInteractionstatsRuleForbidden() *PutAlertingInteractionstatsR
 	return &PutAlertingInteractionstatsRuleForbidden{}
 }
 
-/*PutAlertingInteractionstatsRuleForbidden handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutAlertingInteractionstatsRuleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule forbidden response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule forbidden response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule forbidden response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule forbidden response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule forbidden response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutAlertingInteractionstatsRuleForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutAlertingInteractionstatsRuleNotFound() *PutAlertingInteractionstatsRu
 	return &PutAlertingInteractionstatsRuleNotFound{}
 }
 
-/*PutAlertingInteractionstatsRuleNotFound handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutAlertingInteractionstatsRuleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule not found response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule not found response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule not found response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule not found response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule not found response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutAlertingInteractionstatsRuleNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutAlertingInteractionstatsRuleRequestTimeout() *PutAlertingInteractions
 	return &PutAlertingInteractionstatsRuleRequestTimeout{}
 }
 
-/*PutAlertingInteractionstatsRuleRequestTimeout handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutAlertingInteractionstatsRuleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule request timeout response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule request timeout response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule request timeout response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule request timeout response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule request timeout response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutAlertingInteractionstatsRuleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutAlertingInteractionstatsRuleRequestEntityTooLarge() *PutAlertingInter
 	return &PutAlertingInteractionstatsRuleRequestEntityTooLarge{}
 }
 
-/*PutAlertingInteractionstatsRuleRequestEntityTooLarge handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutAlertingInteractionstatsRuleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule request entity too large response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule request entity too large response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule request entity too large response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule request entity too large response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule request entity too large response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutAlertingInteractionstatsRuleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutAlertingInteractionstatsRuleUnsupportedMediaType() *PutAlertingIntera
 	return &PutAlertingInteractionstatsRuleUnsupportedMediaType{}
 }
 
-/*PutAlertingInteractionstatsRuleUnsupportedMediaType handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutAlertingInteractionstatsRuleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule unsupported media type response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule unsupported media type response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule unsupported media type response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule unsupported media type response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule unsupported media type response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutAlertingInteractionstatsRuleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutAlertingInteractionstatsRuleTooManyRequests() *PutAlertingInteraction
 	return &PutAlertingInteractionstatsRuleTooManyRequests{}
 }
 
-/*PutAlertingInteractionstatsRuleTooManyRequests handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutAlertingInteractionstatsRuleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule too many requests response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule too many requests response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule too many requests response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put alerting interactionstats rule too many requests response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put alerting interactionstats rule too many requests response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutAlertingInteractionstatsRuleTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutAlertingInteractionstatsRuleInternalServerError() *PutAlertingInterac
 	return &PutAlertingInteractionstatsRuleInternalServerError{}
 }
 
-/*PutAlertingInteractionstatsRuleInternalServerError handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutAlertingInteractionstatsRuleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule internal server error response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule internal server error response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule internal server error response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put alerting interactionstats rule internal server error response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put alerting interactionstats rule internal server error response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutAlertingInteractionstatsRuleInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutAlertingInteractionstatsRuleServiceUnavailable() *PutAlertingInteract
 	return &PutAlertingInteractionstatsRuleServiceUnavailable{}
 }
 
-/*PutAlertingInteractionstatsRuleServiceUnavailable handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutAlertingInteractionstatsRuleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule service unavailable response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule service unavailable response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule service unavailable response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put alerting interactionstats rule service unavailable response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put alerting interactionstats rule service unavailable response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutAlertingInteractionstatsRuleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutAlertingInteractionstatsRuleGatewayTimeout() *PutAlertingInteractions
 	return &PutAlertingInteractionstatsRuleGatewayTimeout{}
 }
 
-/*PutAlertingInteractionstatsRuleGatewayTimeout handles this case with default header values.
+/*
+PutAlertingInteractionstatsRuleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutAlertingInteractionstatsRuleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put alerting interactionstats rule gateway timeout response has a 2xx status code
+func (o *PutAlertingInteractionstatsRuleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put alerting interactionstats rule gateway timeout response has a 3xx status code
+func (o *PutAlertingInteractionstatsRuleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put alerting interactionstats rule gateway timeout response has a 4xx status code
+func (o *PutAlertingInteractionstatsRuleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put alerting interactionstats rule gateway timeout response has a 5xx status code
+func (o *PutAlertingInteractionstatsRuleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put alerting interactionstats rule gateway timeout response a status code equal to that given
+func (o *PutAlertingInteractionstatsRuleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutAlertingInteractionstatsRuleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutAlertingInteractionstatsRuleGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/alerting/interactionstats/rules/{ruleId}][%d] putAlertingInteractionstatsRuleGatewayTimeout  %+v", 504, o.Payload)
 }
 

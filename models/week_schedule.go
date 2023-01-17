@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -89,7 +91,6 @@ func (m *WeekSchedule) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WeekSchedule) validateGenerationResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GenerationResults) { // not required
 		return nil
 	}
@@ -98,6 +99,8 @@ func (m *WeekSchedule) validateGenerationResults(formats strfmt.Registry) error 
 		if err := m.GenerationResults.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generationResults")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generationResults")
 			}
 			return err
 		}
@@ -107,7 +110,6 @@ func (m *WeekSchedule) validateGenerationResults(formats strfmt.Registry) error 
 }
 
 func (m *WeekSchedule) validateHeadcountForecast(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HeadcountForecast) { // not required
 		return nil
 	}
@@ -116,6 +118,8 @@ func (m *WeekSchedule) validateHeadcountForecast(formats strfmt.Registry) error 
 		if err := m.HeadcountForecast.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("headcountForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headcountForecast")
 			}
 			return err
 		}
@@ -125,7 +129,6 @@ func (m *WeekSchedule) validateHeadcountForecast(formats strfmt.Registry) error 
 }
 
 func (m *WeekSchedule) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -134,6 +137,8 @@ func (m *WeekSchedule) validateMetadata(formats strfmt.Registry) error {
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -143,7 +148,6 @@ func (m *WeekSchedule) validateMetadata(formats strfmt.Registry) error {
 }
 
 func (m *WeekSchedule) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -156,7 +160,6 @@ func (m *WeekSchedule) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *WeekSchedule) validateShortTermForecast(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortTermForecast) { // not required
 		return nil
 	}
@@ -165,6 +168,8 @@ func (m *WeekSchedule) validateShortTermForecast(formats strfmt.Registry) error 
 		if err := m.ShortTermForecast.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
 			}
 			return err
 		}
@@ -174,7 +179,6 @@ func (m *WeekSchedule) validateShortTermForecast(formats strfmt.Registry) error 
 }
 
 func (m *WeekSchedule) validateUserSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserSchedules) { // not required
 		return nil
 	}
@@ -186,6 +190,146 @@ func (m *WeekSchedule) validateUserSchedules(formats strfmt.Registry) error {
 		}
 		if val, ok := m.UserSchedules[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userSchedules" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userSchedules" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this week schedule based on the context it is used
+func (m *WeekSchedule) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateGenerationResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHeadcountForecast(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShortTermForecast(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WeekSchedule) contextValidateGenerationResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GenerationResults != nil {
+		if err := m.GenerationResults.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("generationResults")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generationResults")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WeekSchedule) contextValidateHeadcountForecast(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HeadcountForecast != nil {
+		if err := m.HeadcountForecast.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("headcountForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headcountForecast")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WeekSchedule) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WeekSchedule) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WeekSchedule) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WeekSchedule) contextValidateShortTermForecast(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShortTermForecast != nil {
+		if err := m.ShortTermForecast.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WeekSchedule) contextValidateUserSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.UserSchedules {
+
+		if val, ok := m.UserSchedules[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

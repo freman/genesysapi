@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -58,7 +59,6 @@ func (m *AnalyticsUserPresenceRecord) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsUserPresenceRecord) validateEndTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndTime) { // not required
 		return nil
 	}
@@ -71,7 +71,6 @@ func (m *AnalyticsUserPresenceRecord) validateEndTime(formats strfmt.Registry) e
 }
 
 func (m *AnalyticsUserPresenceRecord) validateStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartTime) { // not required
 		return nil
 	}
@@ -137,7 +136,6 @@ func (m *AnalyticsUserPresenceRecord) validateSystemPresenceEnum(path, location 
 }
 
 func (m *AnalyticsUserPresenceRecord) validateSystemPresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SystemPresence) { // not required
 		return nil
 	}
@@ -147,6 +145,11 @@ func (m *AnalyticsUserPresenceRecord) validateSystemPresence(formats strfmt.Regi
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this analytics user presence record based on context it is used
+func (m *AnalyticsUserPresenceRecord) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

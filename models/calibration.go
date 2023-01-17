@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -123,7 +124,6 @@ func (m *Calibration) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateAgent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Agent) { // not required
 		return nil
 	}
@@ -132,6 +132,8 @@ func (m *Calibration) validateAgent(formats strfmt.Registry) error {
 		if err := m.Agent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
 			}
 			return err
 		}
@@ -141,7 +143,6 @@ func (m *Calibration) validateAgent(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateCalibrator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Calibrator) { // not required
 		return nil
 	}
@@ -150,6 +151,8 @@ func (m *Calibration) validateCalibrator(formats strfmt.Registry) error {
 		if err := m.Calibrator.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("calibrator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("calibrator")
 			}
 			return err
 		}
@@ -159,7 +162,6 @@ func (m *Calibration) validateCalibrator(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -168,6 +170,8 @@ func (m *Calibration) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -177,7 +181,6 @@ func (m *Calibration) validateConversation(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -190,7 +193,6 @@ func (m *Calibration) validateCreatedDate(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateEvaluationForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EvaluationForm) { // not required
 		return nil
 	}
@@ -199,6 +201,8 @@ func (m *Calibration) validateEvaluationForm(formats strfmt.Registry) error {
 		if err := m.EvaluationForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("evaluationForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationForm")
 			}
 			return err
 		}
@@ -208,7 +212,6 @@ func (m *Calibration) validateEvaluationForm(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateEvaluations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Evaluations) { // not required
 		return nil
 	}
@@ -222,6 +225,8 @@ func (m *Calibration) validateEvaluations(formats strfmt.Registry) error {
 			if err := m.Evaluations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -233,7 +238,6 @@ func (m *Calibration) validateEvaluations(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateEvaluators(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Evaluators) { // not required
 		return nil
 	}
@@ -247,6 +251,8 @@ func (m *Calibration) validateEvaluators(formats strfmt.Registry) error {
 			if err := m.Evaluators[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("evaluators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -258,7 +264,6 @@ func (m *Calibration) validateEvaluators(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateExpertEvaluator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExpertEvaluator) { // not required
 		return nil
 	}
@@ -267,6 +272,8 @@ func (m *Calibration) validateExpertEvaluator(formats strfmt.Registry) error {
 		if err := m.ExpertEvaluator.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("expertEvaluator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("expertEvaluator")
 			}
 			return err
 		}
@@ -276,7 +283,6 @@ func (m *Calibration) validateExpertEvaluator(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateScoringIndex(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScoringIndex) { // not required
 		return nil
 	}
@@ -285,6 +291,8 @@ func (m *Calibration) validateScoringIndex(formats strfmt.Registry) error {
 		if err := m.ScoringIndex.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scoringIndex")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scoringIndex")
 			}
 			return err
 		}
@@ -294,12 +302,215 @@ func (m *Calibration) validateScoringIndex(formats strfmt.Registry) error {
 }
 
 func (m *Calibration) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this calibration based on the context it is used
+func (m *Calibration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCalibrator(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluationForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluators(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExpertEvaluator(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScoringIndex(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Calibration) contextValidateAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Agent != nil {
+		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateCalibrator(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Calibrator != nil {
+		if err := m.Calibrator.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("calibrator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("calibrator")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateEvaluationForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EvaluationForm != nil {
+		if err := m.EvaluationForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("evaluationForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateEvaluations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Evaluations); i++ {
+
+		if m.Evaluations[i] != nil {
+			if err := m.Evaluations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateEvaluators(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Evaluators); i++ {
+
+		if m.Evaluators[i] != nil {
+			if err := m.Evaluators[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("evaluators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluators" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateExpertEvaluator(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExpertEvaluator != nil {
+		if err := m.ExpertEvaluator.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("expertEvaluator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("expertEvaluator")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateScoringIndex(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScoringIndex != nil {
+		if err := m.ScoringIndex.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scoringIndex")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scoringIndex")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Calibration) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

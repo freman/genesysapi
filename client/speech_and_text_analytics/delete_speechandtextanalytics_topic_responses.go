@@ -95,7 +95,6 @@ func (o *DeleteSpeechandtextanalyticsTopicReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteSpeechandtextanalyticsTopicNoContent() *DeleteSpeechandtextanalyti
 	return &DeleteSpeechandtextanalyticsTopicNoContent{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicNoContent handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicNoContent describes a response with status code 204, with default header values.
 
 The topic was deleted successfully
 */
 type DeleteSpeechandtextanalyticsTopicNoContent struct {
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic no content response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic no content response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic no content response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic no content response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic no content response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicNoContent ", 204)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteSpeechandtextanalyticsTopicBadRequest() *DeleteSpeechandtextanalyt
 	return &DeleteSpeechandtextanalyticsTopicBadRequest{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicBadRequest handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteSpeechandtextanalyticsTopicBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic bad request response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic bad request response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic bad request response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic bad request response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic bad request response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteSpeechandtextanalyticsTopicUnauthorized() *DeleteSpeechandtextanal
 	return &DeleteSpeechandtextanalyticsTopicUnauthorized{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicUnauthorized handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteSpeechandtextanalyticsTopicUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic unauthorized response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic unauthorized response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic unauthorized response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic unauthorized response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic unauthorized response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteSpeechandtextanalyticsTopicForbidden() *DeleteSpeechandtextanalyti
 	return &DeleteSpeechandtextanalyticsTopicForbidden{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicForbidden handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteSpeechandtextanalyticsTopicForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic forbidden response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic forbidden response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic forbidden response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic forbidden response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic forbidden response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteSpeechandtextanalyticsTopicNotFound() *DeleteSpeechandtextanalytic
 	return &DeleteSpeechandtextanalyticsTopicNotFound{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicNotFound handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteSpeechandtextanalyticsTopicNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic not found response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic not found response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic not found response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic not found response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic not found response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteSpeechandtextanalyticsTopicRequestTimeout() *DeleteSpeechandtextan
 	return &DeleteSpeechandtextanalyticsTopicRequestTimeout{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicRequestTimeout handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteSpeechandtextanalyticsTopicRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic request timeout response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic request timeout response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic request timeout response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic request timeout response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic request timeout response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteSpeechandtextanalyticsTopicRequestEntityTooLarge() *DeleteSpeechan
 	return &DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic request entity too large response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic request entity too large response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic request entity too large response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic request entity too large response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic request entity too large response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteSpeechandtextanalyticsTopicUnsupportedMediaType() *DeleteSpeechand
 	return &DeleteSpeechandtextanalyticsTopicUnsupportedMediaType{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicUnsupportedMediaType handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteSpeechandtextanalyticsTopicUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic unsupported media type response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic unsupported media type response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic unsupported media type response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic unsupported media type response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic unsupported media type response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteSpeechandtextanalyticsTopicTooManyRequests() *DeleteSpeechandtexta
 	return &DeleteSpeechandtextanalyticsTopicTooManyRequests{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicTooManyRequests handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteSpeechandtextanalyticsTopicTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic too many requests response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic too many requests response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic too many requests response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic too many requests response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic too many requests response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteSpeechandtextanalyticsTopicInternalServerError() *DeleteSpeechandt
 	return &DeleteSpeechandtextanalyticsTopicInternalServerError{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicInternalServerError handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteSpeechandtextanalyticsTopicInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic internal server error response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic internal server error response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic internal server error response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic internal server error response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic internal server error response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteSpeechandtextanalyticsTopicServiceUnavailable() *DeleteSpeechandte
 	return &DeleteSpeechandtextanalyticsTopicServiceUnavailable{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicServiceUnavailable handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteSpeechandtextanalyticsTopicServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic service unavailable response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic service unavailable response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic service unavailable response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic service unavailable response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic service unavailable response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteSpeechandtextanalyticsTopicGatewayTimeout() *DeleteSpeechandtextan
 	return &DeleteSpeechandtextanalyticsTopicGatewayTimeout{}
 }
 
-/*DeleteSpeechandtextanalyticsTopicGatewayTimeout handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsTopicGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteSpeechandtextanalyticsTopicGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics topic gateway timeout response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsTopicGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics topic gateway timeout response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsTopicGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics topic gateway timeout response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsTopicGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics topic gateway timeout response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsTopicGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics topic gateway timeout response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsTopicGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteSpeechandtextanalyticsTopicGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsTopicGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/topics/{topicId}][%d] deleteSpeechandtextanalyticsTopicGatewayTimeout  %+v", 504, o.Payload)
 }
 

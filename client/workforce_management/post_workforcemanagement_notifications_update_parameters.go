@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementNotificationsUpdateParams creates a new PostWorkforcemanagementNotificationsUpdateParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementNotificationsUpdateParams creates a new PostWorkforcemanagementNotificationsUpdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementNotificationsUpdateParams() *PostWorkforcemanagementNotificationsUpdateParams {
-	var ()
 	return &PostWorkforcemanagementNotificationsUpdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementNotificationsUpdateParamsWithTimeout creates a new PostWorkforcemanagementNotificationsUpdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementNotificationsUpdateParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementNotificationsUpdateParams {
-	var ()
 	return &PostWorkforcemanagementNotificationsUpdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementNotificationsUpdateParamsWithContext creates a new PostWorkforcemanagementNotificationsUpdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementNotificationsUpdateParamsWithContext(ctx context.Context) *PostWorkforcemanagementNotificationsUpdateParams {
-	var ()
 	return &PostWorkforcemanagementNotificationsUpdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementNotificationsUpdateParamsWithHTTPClient creates a new PostWorkforcemanagementNotificationsUpdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementNotificationsUpdateParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementNotificationsUpdateParams {
-	var ()
 	return &PostWorkforcemanagementNotificationsUpdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement notifications update operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementNotificationsUpdateParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement notifications update operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementNotificationsUpdateParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.UpdateNotificationsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement notifications update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementNotificationsUpdateParams) WithDefaults() *PostWorkforcemanagementNotificationsUpdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement notifications update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementNotificationsUpdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement notifications update params
@@ -124,7 +140,6 @@ func (o *PostWorkforcemanagementNotificationsUpdateParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

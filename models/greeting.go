@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -115,7 +116,6 @@ func (m *Greeting) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Greeting) validateAudioFile(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AudioFile) { // not required
 		return nil
 	}
@@ -124,6 +124,8 @@ func (m *Greeting) validateAudioFile(formats strfmt.Registry) error {
 		if err := m.AudioFile.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("audioFile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("audioFile")
 			}
 			return err
 		}
@@ -133,7 +135,6 @@ func (m *Greeting) validateAudioFile(formats strfmt.Registry) error {
 }
 
 func (m *Greeting) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -146,7 +147,6 @@ func (m *Greeting) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *Greeting) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -159,7 +159,6 @@ func (m *Greeting) validateCreatedDate(formats strfmt.Registry) error {
 }
 
 func (m *Greeting) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -172,7 +171,6 @@ func (m *Greeting) validateModifiedBy(formats strfmt.Registry) error {
 }
 
 func (m *Greeting) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -194,6 +192,8 @@ func (m *Greeting) validateOwner(formats strfmt.Registry) error {
 		if err := m.Owner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
 			}
 			return err
 		}
@@ -249,7 +249,6 @@ func (m *Greeting) validateOwnerType(formats strfmt.Registry) error {
 }
 
 func (m *Greeting) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -301,6 +300,82 @@ func (m *Greeting) validateType(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", *m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this greeting based on the context it is used
+func (m *Greeting) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAudioFile(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOwner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Greeting) contextValidateAudioFile(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AudioFile != nil {
+		if err := m.AudioFile.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("audioFile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("audioFile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Greeting) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Greeting) contextValidateOwner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Owner != nil {
+		if err := m.Owner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Greeting) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

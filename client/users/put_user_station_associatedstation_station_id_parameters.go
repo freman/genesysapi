@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPutUserStationAssociatedstationStationIDParams creates a new PutUserStationAssociatedstationStationIDParams object
-// with the default values initialized.
+// NewPutUserStationAssociatedstationStationIDParams creates a new PutUserStationAssociatedstationStationIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutUserStationAssociatedstationStationIDParams() *PutUserStationAssociatedstationStationIDParams {
-	var ()
 	return &PutUserStationAssociatedstationStationIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutUserStationAssociatedstationStationIDParamsWithTimeout creates a new PutUserStationAssociatedstationStationIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutUserStationAssociatedstationStationIDParamsWithTimeout(timeout time.Duration) *PutUserStationAssociatedstationStationIDParams {
-	var ()
 	return &PutUserStationAssociatedstationStationIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutUserStationAssociatedstationStationIDParamsWithContext creates a new PutUserStationAssociatedstationStationIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutUserStationAssociatedstationStationIDParamsWithContext(ctx context.Context) *PutUserStationAssociatedstationStationIDParams {
-	var ()
 	return &PutUserStationAssociatedstationStationIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutUserStationAssociatedstationStationIDParamsWithHTTPClient creates a new PutUserStationAssociatedstationStationIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutUserStationAssociatedstationStationIDParamsWithHTTPClient(client *http.Client) *PutUserStationAssociatedstationStationIDParams {
-	var ()
 	return &PutUserStationAssociatedstationStationIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutUserStationAssociatedstationStationIDParams contains all the parameters to send to the API endpoint
-for the put user station associatedstation station Id operation typically these are written to a http.Request
+/*
+PutUserStationAssociatedstationStationIDParams contains all the parameters to send to the API endpoint
+
+	for the put user station associatedstation station Id operation.
+
+	Typically these are written to a http.Request.
 */
 type PutUserStationAssociatedstationStationIDParams struct {
 
-	/*StationID
-	  stationId
+	/* StationID.
 
+	   stationId
 	*/
 	StationID string
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put user station associatedstation station Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserStationAssociatedstationStationIDParams) WithDefaults() *PutUserStationAssociatedstationStationIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put user station associatedstation station Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserStationAssociatedstationStationIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put user station associatedstation station Id params

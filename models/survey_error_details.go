@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -38,7 +40,6 @@ func (m *SurveyErrorDetails) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SurveyErrorDetails) validateFlowDiagnosticInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowDiagnosticInfo) { // not required
 		return nil
 	}
@@ -47,6 +48,38 @@ func (m *SurveyErrorDetails) validateFlowDiagnosticInfo(formats strfmt.Registry)
 		if err := m.FlowDiagnosticInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flowDiagnosticInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowDiagnosticInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this survey error details based on the context it is used
+func (m *SurveyErrorDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFlowDiagnosticInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SurveyErrorDetails) contextValidateFlowDiagnosticInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FlowDiagnosticInfo != nil {
+		if err := m.FlowDiagnosticInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flowDiagnosticInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowDiagnosticInfo")
 			}
 			return err
 		}

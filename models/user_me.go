@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -388,7 +389,6 @@ func (m *UserMe) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateAddresses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Addresses) { // not required
 		return nil
 	}
@@ -402,6 +402,8 @@ func (m *UserMe) validateAddresses(formats strfmt.Registry) error {
 			if err := m.Addresses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("addresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addresses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -413,7 +415,6 @@ func (m *UserMe) validateAddresses(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateAdjacents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Adjacents) { // not required
 		return nil
 	}
@@ -422,6 +423,8 @@ func (m *UserMe) validateAdjacents(formats strfmt.Registry) error {
 		if err := m.Adjacents.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adjacents")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adjacents")
 			}
 			return err
 		}
@@ -431,7 +434,6 @@ func (m *UserMe) validateAdjacents(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateAuthorization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Authorization) { // not required
 		return nil
 	}
@@ -440,6 +442,8 @@ func (m *UserMe) validateAuthorization(formats strfmt.Registry) error {
 		if err := m.Authorization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("authorization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("authorization")
 			}
 			return err
 		}
@@ -449,7 +453,6 @@ func (m *UserMe) validateAuthorization(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateBiography(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Biography) { // not required
 		return nil
 	}
@@ -458,6 +461,8 @@ func (m *UserMe) validateBiography(formats strfmt.Registry) error {
 		if err := m.Biography.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("biography")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("biography")
 			}
 			return err
 		}
@@ -467,7 +472,6 @@ func (m *UserMe) validateBiography(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateChat(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Chat) { // not required
 		return nil
 	}
@@ -476,6 +480,8 @@ func (m *UserMe) validateChat(formats strfmt.Registry) error {
 		if err := m.Chat.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("chat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("chat")
 			}
 			return err
 		}
@@ -485,7 +491,6 @@ func (m *UserMe) validateChat(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateConversationSummary(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationSummary) { // not required
 		return nil
 	}
@@ -494,6 +499,8 @@ func (m *UserMe) validateConversationSummary(formats strfmt.Registry) error {
 		if err := m.ConversationSummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationSummary")
 			}
 			return err
 		}
@@ -503,7 +510,6 @@ func (m *UserMe) validateConversationSummary(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Date) { // not required
 		return nil
 	}
@@ -512,6 +518,8 @@ func (m *UserMe) validateDate(formats strfmt.Registry) error {
 		if err := m.Date.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("date")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("date")
 			}
 			return err
 		}
@@ -521,7 +529,6 @@ func (m *UserMe) validateDate(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateDateLastLogin(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateLastLogin) { // not required
 		return nil
 	}
@@ -534,7 +541,6 @@ func (m *UserMe) validateDateLastLogin(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateDirectReports(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DirectReports) { // not required
 		return nil
 	}
@@ -548,6 +554,8 @@ func (m *UserMe) validateDirectReports(formats strfmt.Registry) error {
 			if err := m.DirectReports[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("directReports" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("directReports" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -559,7 +567,6 @@ func (m *UserMe) validateDirectReports(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -568,6 +575,8 @@ func (m *UserMe) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -577,7 +586,6 @@ func (m *UserMe) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateEmployerInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmployerInfo) { // not required
 		return nil
 	}
@@ -586,6 +594,8 @@ func (m *UserMe) validateEmployerInfo(formats strfmt.Registry) error {
 		if err := m.EmployerInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("employerInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("employerInfo")
 			}
 			return err
 		}
@@ -595,7 +605,6 @@ func (m *UserMe) validateEmployerInfo(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateFavorites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Favorites) { // not required
 		return nil
 	}
@@ -609,6 +618,8 @@ func (m *UserMe) validateFavorites(formats strfmt.Registry) error {
 			if err := m.Favorites[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("favorites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("favorites" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -620,7 +631,6 @@ func (m *UserMe) validateFavorites(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateFieldConfigs(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FieldConfigs) { // not required
 		return nil
 	}
@@ -629,6 +639,8 @@ func (m *UserMe) validateFieldConfigs(formats strfmt.Registry) error {
 		if err := m.FieldConfigs.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fieldConfigs")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fieldConfigs")
 			}
 			return err
 		}
@@ -638,7 +650,6 @@ func (m *UserMe) validateFieldConfigs(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateGeolocation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Geolocation) { // not required
 		return nil
 	}
@@ -647,6 +658,8 @@ func (m *UserMe) validateGeolocation(formats strfmt.Registry) error {
 		if err := m.Geolocation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("geolocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocation")
 			}
 			return err
 		}
@@ -656,7 +669,6 @@ func (m *UserMe) validateGeolocation(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateGeolocationSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GeolocationSettings) { // not required
 		return nil
 	}
@@ -665,6 +677,8 @@ func (m *UserMe) validateGeolocationSettings(formats strfmt.Registry) error {
 		if err := m.GeolocationSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("geolocationSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocationSettings")
 			}
 			return err
 		}
@@ -674,7 +688,6 @@ func (m *UserMe) validateGeolocationSettings(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Groups) { // not required
 		return nil
 	}
@@ -688,6 +701,8 @@ func (m *UserMe) validateGroups(formats strfmt.Registry) error {
 			if err := m.Groups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -699,7 +714,6 @@ func (m *UserMe) validateGroups(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateImages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Images) { // not required
 		return nil
 	}
@@ -713,6 +727,8 @@ func (m *UserMe) validateImages(formats strfmt.Registry) error {
 			if err := m.Images[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("images" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("images" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -724,7 +740,6 @@ func (m *UserMe) validateImages(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateIntegrationPresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IntegrationPresence) { // not required
 		return nil
 	}
@@ -733,6 +748,8 @@ func (m *UserMe) validateIntegrationPresence(formats strfmt.Registry) error {
 		if err := m.IntegrationPresence.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("integrationPresence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationPresence")
 			}
 			return err
 		}
@@ -742,7 +759,6 @@ func (m *UserMe) validateIntegrationPresence(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Languages) { // not required
 		return nil
 	}
@@ -756,6 +772,8 @@ func (m *UserMe) validateLanguages(formats strfmt.Registry) error {
 			if err := m.Languages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -767,7 +785,6 @@ func (m *UserMe) validateLanguages(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateLastTokenIssued(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastTokenIssued) { // not required
 		return nil
 	}
@@ -776,6 +793,8 @@ func (m *UserMe) validateLastTokenIssued(formats strfmt.Registry) error {
 		if err := m.LastTokenIssued.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastTokenIssued")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastTokenIssued")
 			}
 			return err
 		}
@@ -785,7 +804,6 @@ func (m *UserMe) validateLastTokenIssued(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateLocationDefinitions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LocationDefinitions) { // not required
 		return nil
 	}
@@ -799,6 +817,8 @@ func (m *UserMe) validateLocationDefinitions(formats strfmt.Registry) error {
 			if err := m.LocationDefinitions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("locationDefinitions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("locationDefinitions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -810,7 +830,6 @@ func (m *UserMe) validateLocationDefinitions(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateLocations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Locations) { // not required
 		return nil
 	}
@@ -824,6 +843,8 @@ func (m *UserMe) validateLocations(formats strfmt.Registry) error {
 			if err := m.Locations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("locations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("locations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -835,7 +856,6 @@ func (m *UserMe) validateLocations(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateManager(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Manager) { // not required
 		return nil
 	}
@@ -844,6 +864,8 @@ func (m *UserMe) validateManager(formats strfmt.Registry) error {
 		if err := m.Manager.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("manager")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manager")
 			}
 			return err
 		}
@@ -853,7 +875,6 @@ func (m *UserMe) validateManager(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateOrgAuthorization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OrgAuthorization) { // not required
 		return nil
 	}
@@ -867,6 +888,8 @@ func (m *UserMe) validateOrgAuthorization(formats strfmt.Registry) error {
 			if err := m.OrgAuthorization[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("orgAuthorization" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("orgAuthorization" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -878,7 +901,6 @@ func (m *UserMe) validateOrgAuthorization(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateOrgProducts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OrgProducts) { // not required
 		return nil
 	}
@@ -892,6 +914,8 @@ func (m *UserMe) validateOrgProducts(formats strfmt.Registry) error {
 			if err := m.OrgProducts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("orgProducts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("orgProducts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -903,7 +927,6 @@ func (m *UserMe) validateOrgProducts(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateOrganization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Organization) { // not required
 		return nil
 	}
@@ -912,6 +935,8 @@ func (m *UserMe) validateOrganization(formats strfmt.Registry) error {
 		if err := m.Organization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("organization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("organization")
 			}
 			return err
 		}
@@ -921,7 +946,6 @@ func (m *UserMe) validateOrganization(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateOutOfOffice(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutOfOffice) { // not required
 		return nil
 	}
@@ -930,6 +954,8 @@ func (m *UserMe) validateOutOfOffice(formats strfmt.Registry) error {
 		if err := m.OutOfOffice.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outOfOffice")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outOfOffice")
 			}
 			return err
 		}
@@ -939,7 +965,6 @@ func (m *UserMe) validateOutOfOffice(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validatePresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Presence) { // not required
 		return nil
 	}
@@ -948,6 +973,8 @@ func (m *UserMe) validatePresence(formats strfmt.Registry) error {
 		if err := m.Presence.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
 			}
 			return err
 		}
@@ -957,7 +984,6 @@ func (m *UserMe) validatePresence(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validatePresenceDefinitions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PresenceDefinitions) { // not required
 		return nil
 	}
@@ -971,6 +997,8 @@ func (m *UserMe) validatePresenceDefinitions(formats strfmt.Registry) error {
 			if err := m.PresenceDefinitions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("presenceDefinitions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("presenceDefinitions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -982,7 +1010,6 @@ func (m *UserMe) validatePresenceDefinitions(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validatePrimaryContactInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimaryContactInfo) { // not required
 		return nil
 	}
@@ -996,6 +1023,8 @@ func (m *UserMe) validatePrimaryContactInfo(formats strfmt.Registry) error {
 			if err := m.PrimaryContactInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("primaryContactInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryContactInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1007,7 +1036,6 @@ func (m *UserMe) validatePrimaryContactInfo(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateRoutingSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingSkills) { // not required
 		return nil
 	}
@@ -1021,6 +1049,8 @@ func (m *UserMe) validateRoutingSkills(formats strfmt.Registry) error {
 			if err := m.RoutingSkills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingSkills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingSkills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1032,7 +1062,6 @@ func (m *UserMe) validateRoutingSkills(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateRoutingStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingStatus) { // not required
 		return nil
 	}
@@ -1041,6 +1070,8 @@ func (m *UserMe) validateRoutingStatus(formats strfmt.Registry) error {
 		if err := m.RoutingStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("routingStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingStatus")
 			}
 			return err
 		}
@@ -1050,7 +1081,6 @@ func (m *UserMe) validateRoutingStatus(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -1063,7 +1093,6 @@ func (m *UserMe) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Skills) { // not required
 		return nil
 	}
@@ -1077,6 +1106,8 @@ func (m *UserMe) validateSkills(formats strfmt.Registry) error {
 			if err := m.Skills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1120,7 +1151,6 @@ func (m *UserMe) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *UserMe) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -1134,7 +1164,6 @@ func (m *UserMe) validateState(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateStation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Station) { // not required
 		return nil
 	}
@@ -1143,6 +1172,8 @@ func (m *UserMe) validateStation(formats strfmt.Registry) error {
 		if err := m.Station.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("station")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("station")
 			}
 			return err
 		}
@@ -1152,7 +1183,6 @@ func (m *UserMe) validateStation(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateSuperiors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Superiors) { // not required
 		return nil
 	}
@@ -1166,6 +1196,8 @@ func (m *UserMe) validateSuperiors(formats strfmt.Registry) error {
 			if err := m.Superiors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("superiors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("superiors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1177,7 +1209,6 @@ func (m *UserMe) validateSuperiors(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateTeam(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Team) { // not required
 		return nil
 	}
@@ -1186,6 +1217,8 @@ func (m *UserMe) validateTeam(formats strfmt.Registry) error {
 		if err := m.Team.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("team")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("team")
 			}
 			return err
 		}
@@ -1195,7 +1228,6 @@ func (m *UserMe) validateTeam(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateToken(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Token) { // not required
 		return nil
 	}
@@ -1204,6 +1236,8 @@ func (m *UserMe) validateToken(formats strfmt.Registry) error {
 		if err := m.Token.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
 			}
 			return err
 		}
@@ -1213,7 +1247,6 @@ func (m *UserMe) validateToken(formats strfmt.Registry) error {
 }
 
 func (m *UserMe) validateTrustors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trustors) { // not required
 		return nil
 	}
@@ -1227,6 +1260,8 @@ func (m *UserMe) validateTrustors(formats strfmt.Registry) error {
 			if err := m.Trustors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("trustors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("trustors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1241,6 +1276,954 @@ func (m *UserMe) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user me based on the context it is used
+func (m *UserMe) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddresses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAdjacents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAuthorization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBiography(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateChat(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateLastLogin(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDirectReports(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmployerInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFavorites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFieldConfigs(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGeolocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGeolocationSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntegrationPresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguagePreference(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastTokenIssued(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocationDefinitions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateManager(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrgAuthorization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrgProducts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrganization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutOfOffice(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePresenceDefinitions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimaryContactInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProfileSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSuperiors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTeam(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateToken(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrustors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserMe) contextValidateAddresses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Addresses); i++ {
+
+		if m.Addresses[i] != nil {
+			if err := m.Addresses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addresses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateAdjacents(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Adjacents != nil {
+		if err := m.Adjacents.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("adjacents")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adjacents")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateAuthorization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Authorization != nil {
+		if err := m.Authorization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("authorization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("authorization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateBiography(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Biography != nil {
+		if err := m.Biography.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("biography")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("biography")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateChat(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Chat != nil {
+		if err := m.Chat.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("chat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("chat")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateConversationSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationSummary != nil {
+		if err := m.ConversationSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationSummary")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Date != nil {
+		if err := m.Date.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("date")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("date")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateDateLastLogin(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateLastLogin", "body", strfmt.DateTime(m.DateLastLogin)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateDirectReports(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "directReports", "body", []*User(m.DirectReports)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.DirectReports); i++ {
+
+		if m.DirectReports[i] != nil {
+			if err := m.DirectReports[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("directReports" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("directReports" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateEmployerInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmployerInfo != nil {
+		if err := m.EmployerInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("employerInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("employerInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateFavorites(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "favorites", "body", []*User(m.Favorites)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Favorites); i++ {
+
+		if m.Favorites[i] != nil {
+			if err := m.Favorites[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("favorites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("favorites" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateFieldConfigs(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FieldConfigs != nil {
+		if err := m.FieldConfigs.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fieldConfigs")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fieldConfigs")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateGeolocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Geolocation != nil {
+		if err := m.Geolocation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("geolocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateGeolocationSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GeolocationSettings != nil {
+		if err := m.GeolocationSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("geolocationSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocationSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "groups", "body", []*Group(m.Groups)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Groups); i++ {
+
+		if m.Groups[i] != nil {
+			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateImages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Images); i++ {
+
+		if m.Images[i] != nil {
+			if err := m.Images[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("images" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("images" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateIntegrationPresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IntegrationPresence != nil {
+		if err := m.IntegrationPresence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integrationPresence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationPresence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateLanguagePreference(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "languagePreference", "body", string(m.LanguagePreference)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "languages", "body", []*UserRoutingLanguage(m.Languages)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Languages); i++ {
+
+		if m.Languages[i] != nil {
+			if err := m.Languages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateLastTokenIssued(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastTokenIssued != nil {
+		if err := m.LastTokenIssued.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastTokenIssued")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastTokenIssued")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateLocationDefinitions(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "locationDefinitions", "body", []*LocationDefinition(m.LocationDefinitions)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.LocationDefinitions); i++ {
+
+		if m.LocationDefinitions[i] != nil {
+			if err := m.LocationDefinitions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("locationDefinitions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("locationDefinitions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateLocations(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "locations", "body", []*Location(m.Locations)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Locations); i++ {
+
+		if m.Locations[i] != nil {
+			if err := m.Locations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("locations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("locations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateManager(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Manager != nil {
+		if err := m.Manager.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("manager")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("manager")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateOrgAuthorization(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "orgAuthorization", "body", []*DomainOrganizationRole(m.OrgAuthorization)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.OrgAuthorization); i++ {
+
+		if m.OrgAuthorization[i] != nil {
+			if err := m.OrgAuthorization[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("orgAuthorization" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("orgAuthorization" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateOrgProducts(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "orgProducts", "body", []*DomainOrganizationProduct(m.OrgProducts)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.OrgProducts); i++ {
+
+		if m.OrgProducts[i] != nil {
+			if err := m.OrgProducts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("orgProducts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("orgProducts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateOrganization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Organization != nil {
+		if err := m.Organization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("organization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("organization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateOutOfOffice(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutOfOffice != nil {
+		if err := m.OutOfOffice.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outOfOffice")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outOfOffice")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidatePresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Presence != nil {
+		if err := m.Presence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidatePresenceDefinitions(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "presenceDefinitions", "body", []*OrganizationPresence(m.PresenceDefinitions)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.PresenceDefinitions); i++ {
+
+		if m.PresenceDefinitions[i] != nil {
+			if err := m.PresenceDefinitions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("presenceDefinitions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("presenceDefinitions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidatePrimaryContactInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "primaryContactInfo", "body", []*Contact(m.PrimaryContactInfo)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.PrimaryContactInfo); i++ {
+
+		if m.PrimaryContactInfo[i] != nil {
+			if err := m.PrimaryContactInfo[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("primaryContactInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryContactInfo" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateProfileSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "profileSkills", "body", []string(m.ProfileSkills)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateRoutingSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "routingSkills", "body", []*RoutingSkill(m.RoutingSkills)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.RoutingSkills); i++ {
+
+		if m.RoutingSkills[i] != nil {
+			if err := m.RoutingSkills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingSkills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingSkills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateRoutingStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RoutingStatus != nil {
+		if err := m.RoutingStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("routingStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "skills", "body", []*UserRoutingSkill(m.Skills)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Skills); i++ {
+
+		if m.Skills[i] != nil {
+			if err := m.Skills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateStation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Station != nil {
+		if err := m.Station.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("station")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("station")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateSuperiors(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "superiors", "body", []*User(m.Superiors)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Superiors); i++ {
+
+		if m.Superiors[i] != nil {
+			if err := m.Superiors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("superiors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("superiors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateTeam(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Team != nil {
+		if err := m.Team.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("team")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("team")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateToken(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Token != nil {
+		if err := m.Token.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("token")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("token")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateTrustors(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "trustors", "body", []*Trustor(m.Trustors)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Trustors); i++ {
+
+		if m.Trustors[i] != nil {
+			if err := m.Trustors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("trustors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("trustors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

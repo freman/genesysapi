@@ -95,7 +95,6 @@ func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDReader) ReadRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent() *De
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent describes a response with status code 204, with default header values.
 
 Operation was successful
 */
 type DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent struct {
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id no content response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id no content response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id no content response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id no content response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id no content response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdNoContent ", 204)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest() *D
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id bad request response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id bad request response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id bad request response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id bad request response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id bad request response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized() 
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id unauthorized response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id unauthorized response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id unauthorized response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id unauthorized response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id unauthorized response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden() *De
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id forbidden response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id forbidden response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id forbidden response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id forbidden response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id forbidden response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound() *Del
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id not found response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id not found response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id not found response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id not found response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id not found response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout(
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id request timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id request timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id request timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id request timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id request timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTo
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLa
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id request entity too large response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id request entity too large response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id request entity too large response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id request entity too large response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id request entity too large response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMedi
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaTy
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id unsupported media type response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id unsupported media type response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id unsupported media type response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id unsupported media type response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id unsupported media type response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id too many requests response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id too many requests response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id too many requests response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id too many requests response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id too many requests response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerE
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerErro
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id internal server error response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id internal server error response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id internal server error response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id internal server error response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id internal server error response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavaila
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id service unavailable response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id service unavailable response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id service unavailable response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id service unavailable response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id service unavailable response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout(
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout{}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations open integration Id gateway timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations open integration Id gateway timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations open integration Id gateway timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations open integration Id gateway timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations open integration Id gateway timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] deleteConversationsMessagingIntegrationsOpenIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PutUserGreetingsDefaultsReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutUserGreetingsDefaultsOK() *PutUserGreetingsDefaultsOK {
 	return &PutUserGreetingsDefaultsOK{}
 }
 
-/*PutUserGreetingsDefaultsOK handles this case with default header values.
+/*
+PutUserGreetingsDefaultsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutUserGreetingsDefaultsOK struct {
 	Payload *models.DefaultGreetingList
 }
 
+// IsSuccess returns true when this put user greetings defaults o k response has a 2xx status code
+func (o *PutUserGreetingsDefaultsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put user greetings defaults o k response has a 3xx status code
+func (o *PutUserGreetingsDefaultsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults o k response has a 4xx status code
+func (o *PutUserGreetingsDefaultsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user greetings defaults o k response has a 5xx status code
+func (o *PutUserGreetingsDefaultsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults o k response a status code equal to that given
+func (o *PutUserGreetingsDefaultsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutUserGreetingsDefaultsOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsOK  %+v", 200, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutUserGreetingsDefaultsBadRequest() *PutUserGreetingsDefaultsBadRequest
 	return &PutUserGreetingsDefaultsBadRequest{}
 }
 
-/*PutUserGreetingsDefaultsBadRequest handles this case with default header values.
+/*
+PutUserGreetingsDefaultsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutUserGreetingsDefaultsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults bad request response has a 2xx status code
+func (o *PutUserGreetingsDefaultsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults bad request response has a 3xx status code
+func (o *PutUserGreetingsDefaultsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults bad request response has a 4xx status code
+func (o *PutUserGreetingsDefaultsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults bad request response has a 5xx status code
+func (o *PutUserGreetingsDefaultsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults bad request response a status code equal to that given
+func (o *PutUserGreetingsDefaultsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUserGreetingsDefaultsBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutUserGreetingsDefaultsUnauthorized() *PutUserGreetingsDefaultsUnauthor
 	return &PutUserGreetingsDefaultsUnauthorized{}
 }
 
-/*PutUserGreetingsDefaultsUnauthorized handles this case with default header values.
+/*
+PutUserGreetingsDefaultsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutUserGreetingsDefaultsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults unauthorized response has a 2xx status code
+func (o *PutUserGreetingsDefaultsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults unauthorized response has a 3xx status code
+func (o *PutUserGreetingsDefaultsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults unauthorized response has a 4xx status code
+func (o *PutUserGreetingsDefaultsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults unauthorized response has a 5xx status code
+func (o *PutUserGreetingsDefaultsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults unauthorized response a status code equal to that given
+func (o *PutUserGreetingsDefaultsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUserGreetingsDefaultsUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutUserGreetingsDefaultsForbidden() *PutUserGreetingsDefaultsForbidden {
 	return &PutUserGreetingsDefaultsForbidden{}
 }
 
-/*PutUserGreetingsDefaultsForbidden handles this case with default header values.
+/*
+PutUserGreetingsDefaultsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutUserGreetingsDefaultsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults forbidden response has a 2xx status code
+func (o *PutUserGreetingsDefaultsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults forbidden response has a 3xx status code
+func (o *PutUserGreetingsDefaultsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults forbidden response has a 4xx status code
+func (o *PutUserGreetingsDefaultsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults forbidden response has a 5xx status code
+func (o *PutUserGreetingsDefaultsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults forbidden response a status code equal to that given
+func (o *PutUserGreetingsDefaultsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUserGreetingsDefaultsForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutUserGreetingsDefaultsNotFound() *PutUserGreetingsDefaultsNotFound {
 	return &PutUserGreetingsDefaultsNotFound{}
 }
 
-/*PutUserGreetingsDefaultsNotFound handles this case with default header values.
+/*
+PutUserGreetingsDefaultsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutUserGreetingsDefaultsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults not found response has a 2xx status code
+func (o *PutUserGreetingsDefaultsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults not found response has a 3xx status code
+func (o *PutUserGreetingsDefaultsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults not found response has a 4xx status code
+func (o *PutUserGreetingsDefaultsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults not found response has a 5xx status code
+func (o *PutUserGreetingsDefaultsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults not found response a status code equal to that given
+func (o *PutUserGreetingsDefaultsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUserGreetingsDefaultsNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutUserGreetingsDefaultsRequestTimeout() *PutUserGreetingsDefaultsReques
 	return &PutUserGreetingsDefaultsRequestTimeout{}
 }
 
-/*PutUserGreetingsDefaultsRequestTimeout handles this case with default header values.
+/*
+PutUserGreetingsDefaultsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutUserGreetingsDefaultsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults request timeout response has a 2xx status code
+func (o *PutUserGreetingsDefaultsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults request timeout response has a 3xx status code
+func (o *PutUserGreetingsDefaultsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults request timeout response has a 4xx status code
+func (o *PutUserGreetingsDefaultsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults request timeout response has a 5xx status code
+func (o *PutUserGreetingsDefaultsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults request timeout response a status code equal to that given
+func (o *PutUserGreetingsDefaultsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUserGreetingsDefaultsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutUserGreetingsDefaultsRequestEntityTooLarge() *PutUserGreetingsDefault
 	return &PutUserGreetingsDefaultsRequestEntityTooLarge{}
 }
 
-/*PutUserGreetingsDefaultsRequestEntityTooLarge handles this case with default header values.
+/*
+PutUserGreetingsDefaultsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutUserGreetingsDefaultsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults request entity too large response has a 2xx status code
+func (o *PutUserGreetingsDefaultsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults request entity too large response has a 3xx status code
+func (o *PutUserGreetingsDefaultsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults request entity too large response has a 4xx status code
+func (o *PutUserGreetingsDefaultsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults request entity too large response has a 5xx status code
+func (o *PutUserGreetingsDefaultsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults request entity too large response a status code equal to that given
+func (o *PutUserGreetingsDefaultsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUserGreetingsDefaultsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutUserGreetingsDefaultsUnsupportedMediaType() *PutUserGreetingsDefaults
 	return &PutUserGreetingsDefaultsUnsupportedMediaType{}
 }
 
-/*PutUserGreetingsDefaultsUnsupportedMediaType handles this case with default header values.
+/*
+PutUserGreetingsDefaultsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutUserGreetingsDefaultsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults unsupported media type response has a 2xx status code
+func (o *PutUserGreetingsDefaultsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults unsupported media type response has a 3xx status code
+func (o *PutUserGreetingsDefaultsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults unsupported media type response has a 4xx status code
+func (o *PutUserGreetingsDefaultsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults unsupported media type response has a 5xx status code
+func (o *PutUserGreetingsDefaultsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults unsupported media type response a status code equal to that given
+func (o *PutUserGreetingsDefaultsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUserGreetingsDefaultsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutUserGreetingsDefaultsTooManyRequests() *PutUserGreetingsDefaultsTooMa
 	return &PutUserGreetingsDefaultsTooManyRequests{}
 }
 
-/*PutUserGreetingsDefaultsTooManyRequests handles this case with default header values.
+/*
+PutUserGreetingsDefaultsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutUserGreetingsDefaultsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults too many requests response has a 2xx status code
+func (o *PutUserGreetingsDefaultsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults too many requests response has a 3xx status code
+func (o *PutUserGreetingsDefaultsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults too many requests response has a 4xx status code
+func (o *PutUserGreetingsDefaultsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user greetings defaults too many requests response has a 5xx status code
+func (o *PutUserGreetingsDefaultsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user greetings defaults too many requests response a status code equal to that given
+func (o *PutUserGreetingsDefaultsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUserGreetingsDefaultsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutUserGreetingsDefaultsInternalServerError() *PutUserGreetingsDefaultsI
 	return &PutUserGreetingsDefaultsInternalServerError{}
 }
 
-/*PutUserGreetingsDefaultsInternalServerError handles this case with default header values.
+/*
+PutUserGreetingsDefaultsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutUserGreetingsDefaultsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults internal server error response has a 2xx status code
+func (o *PutUserGreetingsDefaultsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults internal server error response has a 3xx status code
+func (o *PutUserGreetingsDefaultsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults internal server error response has a 4xx status code
+func (o *PutUserGreetingsDefaultsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user greetings defaults internal server error response has a 5xx status code
+func (o *PutUserGreetingsDefaultsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user greetings defaults internal server error response a status code equal to that given
+func (o *PutUserGreetingsDefaultsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUserGreetingsDefaultsInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutUserGreetingsDefaultsServiceUnavailable() *PutUserGreetingsDefaultsSe
 	return &PutUserGreetingsDefaultsServiceUnavailable{}
 }
 
-/*PutUserGreetingsDefaultsServiceUnavailable handles this case with default header values.
+/*
+PutUserGreetingsDefaultsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutUserGreetingsDefaultsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults service unavailable response has a 2xx status code
+func (o *PutUserGreetingsDefaultsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults service unavailable response has a 3xx status code
+func (o *PutUserGreetingsDefaultsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults service unavailable response has a 4xx status code
+func (o *PutUserGreetingsDefaultsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user greetings defaults service unavailable response has a 5xx status code
+func (o *PutUserGreetingsDefaultsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user greetings defaults service unavailable response a status code equal to that given
+func (o *PutUserGreetingsDefaultsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUserGreetingsDefaultsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutUserGreetingsDefaultsGatewayTimeout() *PutUserGreetingsDefaultsGatewa
 	return &PutUserGreetingsDefaultsGatewayTimeout{}
 }
 
-/*PutUserGreetingsDefaultsGatewayTimeout handles this case with default header values.
+/*
+PutUserGreetingsDefaultsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutUserGreetingsDefaultsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user greetings defaults gateway timeout response has a 2xx status code
+func (o *PutUserGreetingsDefaultsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user greetings defaults gateway timeout response has a 3xx status code
+func (o *PutUserGreetingsDefaultsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user greetings defaults gateway timeout response has a 4xx status code
+func (o *PutUserGreetingsDefaultsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user greetings defaults gateway timeout response has a 5xx status code
+func (o *PutUserGreetingsDefaultsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user greetings defaults gateway timeout response a status code equal to that given
+func (o *PutUserGreetingsDefaultsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUserGreetingsDefaultsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUserGreetingsDefaultsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/greetings/defaults][%d] putUserGreetingsDefaultsGatewayTimeout  %+v", 504, o.Payload)
 }
 

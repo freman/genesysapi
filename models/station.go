@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -100,7 +101,6 @@ func (m *Station) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Station) validatePrimaryEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimaryEdge) { // not required
 		return nil
 	}
@@ -109,6 +109,8 @@ func (m *Station) validatePrimaryEdge(formats strfmt.Registry) error {
 		if err := m.PrimaryEdge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("primaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primaryEdge")
 			}
 			return err
 		}
@@ -118,7 +120,6 @@ func (m *Station) validatePrimaryEdge(formats strfmt.Registry) error {
 }
 
 func (m *Station) validateSecondaryEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryEdge) { // not required
 		return nil
 	}
@@ -127,6 +128,8 @@ func (m *Station) validateSecondaryEdge(formats strfmt.Registry) error {
 		if err := m.SecondaryEdge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secondaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryEdge")
 			}
 			return err
 		}
@@ -136,7 +139,6 @@ func (m *Station) validateSecondaryEdge(formats strfmt.Registry) error {
 }
 
 func (m *Station) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -178,13 +180,140 @@ func (m *Station) validateStatusEnum(path, location string, value string) error 
 }
 
 func (m *Station) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this station based on the context it is used
+func (m *Station) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimaryEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondaryEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebRtcCallAppearances(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebRtcForceTurn(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebRtcMediaDscp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebRtcPersistentEnabled(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Station) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidatePrimaryEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PrimaryEdge != nil {
+		if err := m.PrimaryEdge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("primaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primaryEdge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidateSecondaryEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SecondaryEdge != nil {
+		if err := m.SecondaryEdge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secondaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryEdge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidateWebRtcCallAppearances(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "webRtcCallAppearances", "body", int32(m.WebRtcCallAppearances)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidateWebRtcForceTurn(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "webRtcForceTurn", "body", m.WebRtcForceTurn); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidateWebRtcMediaDscp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "webRtcMediaDscp", "body", int32(m.WebRtcMediaDscp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidateWebRtcPersistentEnabled(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "webRtcPersistentEnabled", "body", m.WebRtcPersistentEnabled); err != nil {
 		return err
 	}
 

@@ -95,7 +95,6 @@ func (o *DeleteAuthorizationDivisionReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteAuthorizationDivisionNoContent() *DeleteAuthorizationDivisionNoCon
 	return &DeleteAuthorizationDivisionNoContent{}
 }
 
-/*DeleteAuthorizationDivisionNoContent handles this case with default header values.
+/*
+DeleteAuthorizationDivisionNoContent describes a response with status code 204, with default header values.
 
 Deleted
 */
 type DeleteAuthorizationDivisionNoContent struct {
 }
 
+// IsSuccess returns true when this delete authorization division no content response has a 2xx status code
+func (o *DeleteAuthorizationDivisionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete authorization division no content response has a 3xx status code
+func (o *DeleteAuthorizationDivisionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division no content response has a 4xx status code
+func (o *DeleteAuthorizationDivisionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete authorization division no content response has a 5xx status code
+func (o *DeleteAuthorizationDivisionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division no content response a status code equal to that given
+func (o *DeleteAuthorizationDivisionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteAuthorizationDivisionNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionNoContent ", 204)
+}
+
+func (o *DeleteAuthorizationDivisionNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteAuthorizationDivisionBadRequest() *DeleteAuthorizationDivisionBadR
 	return &DeleteAuthorizationDivisionBadRequest{}
 }
 
-/*DeleteAuthorizationDivisionBadRequest handles this case with default header values.
+/*
+DeleteAuthorizationDivisionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteAuthorizationDivisionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division bad request response has a 2xx status code
+func (o *DeleteAuthorizationDivisionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division bad request response has a 3xx status code
+func (o *DeleteAuthorizationDivisionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division bad request response has a 4xx status code
+func (o *DeleteAuthorizationDivisionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division bad request response has a 5xx status code
+func (o *DeleteAuthorizationDivisionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division bad request response a status code equal to that given
+func (o *DeleteAuthorizationDivisionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteAuthorizationDivisionBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteAuthorizationDivisionUnauthorized() *DeleteAuthorizationDivisionUn
 	return &DeleteAuthorizationDivisionUnauthorized{}
 }
 
-/*DeleteAuthorizationDivisionUnauthorized handles this case with default header values.
+/*
+DeleteAuthorizationDivisionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteAuthorizationDivisionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division unauthorized response has a 2xx status code
+func (o *DeleteAuthorizationDivisionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division unauthorized response has a 3xx status code
+func (o *DeleteAuthorizationDivisionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division unauthorized response has a 4xx status code
+func (o *DeleteAuthorizationDivisionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division unauthorized response has a 5xx status code
+func (o *DeleteAuthorizationDivisionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division unauthorized response a status code equal to that given
+func (o *DeleteAuthorizationDivisionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteAuthorizationDivisionUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteAuthorizationDivisionForbidden() *DeleteAuthorizationDivisionForbi
 	return &DeleteAuthorizationDivisionForbidden{}
 }
 
-/*DeleteAuthorizationDivisionForbidden handles this case with default header values.
+/*
+DeleteAuthorizationDivisionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteAuthorizationDivisionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division forbidden response has a 2xx status code
+func (o *DeleteAuthorizationDivisionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division forbidden response has a 3xx status code
+func (o *DeleteAuthorizationDivisionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division forbidden response has a 4xx status code
+func (o *DeleteAuthorizationDivisionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division forbidden response has a 5xx status code
+func (o *DeleteAuthorizationDivisionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division forbidden response a status code equal to that given
+func (o *DeleteAuthorizationDivisionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteAuthorizationDivisionForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteAuthorizationDivisionNotFound() *DeleteAuthorizationDivisionNotFou
 	return &DeleteAuthorizationDivisionNotFound{}
 }
 
-/*DeleteAuthorizationDivisionNotFound handles this case with default header values.
+/*
+DeleteAuthorizationDivisionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteAuthorizationDivisionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division not found response has a 2xx status code
+func (o *DeleteAuthorizationDivisionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division not found response has a 3xx status code
+func (o *DeleteAuthorizationDivisionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division not found response has a 4xx status code
+func (o *DeleteAuthorizationDivisionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division not found response has a 5xx status code
+func (o *DeleteAuthorizationDivisionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division not found response a status code equal to that given
+func (o *DeleteAuthorizationDivisionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteAuthorizationDivisionNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteAuthorizationDivisionRequestTimeout() *DeleteAuthorizationDivision
 	return &DeleteAuthorizationDivisionRequestTimeout{}
 }
 
-/*DeleteAuthorizationDivisionRequestTimeout handles this case with default header values.
+/*
+DeleteAuthorizationDivisionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteAuthorizationDivisionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division request timeout response has a 2xx status code
+func (o *DeleteAuthorizationDivisionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division request timeout response has a 3xx status code
+func (o *DeleteAuthorizationDivisionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division request timeout response has a 4xx status code
+func (o *DeleteAuthorizationDivisionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division request timeout response has a 5xx status code
+func (o *DeleteAuthorizationDivisionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division request timeout response a status code equal to that given
+func (o *DeleteAuthorizationDivisionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteAuthorizationDivisionRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteAuthorizationDivisionRequestEntityTooLarge() *DeleteAuthorizationD
 	return &DeleteAuthorizationDivisionRequestEntityTooLarge{}
 }
 
-/*DeleteAuthorizationDivisionRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteAuthorizationDivisionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteAuthorizationDivisionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division request entity too large response has a 2xx status code
+func (o *DeleteAuthorizationDivisionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division request entity too large response has a 3xx status code
+func (o *DeleteAuthorizationDivisionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division request entity too large response has a 4xx status code
+func (o *DeleteAuthorizationDivisionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division request entity too large response has a 5xx status code
+func (o *DeleteAuthorizationDivisionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division request entity too large response a status code equal to that given
+func (o *DeleteAuthorizationDivisionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteAuthorizationDivisionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteAuthorizationDivisionUnsupportedMediaType() *DeleteAuthorizationDi
 	return &DeleteAuthorizationDivisionUnsupportedMediaType{}
 }
 
-/*DeleteAuthorizationDivisionUnsupportedMediaType handles this case with default header values.
+/*
+DeleteAuthorizationDivisionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteAuthorizationDivisionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division unsupported media type response has a 2xx status code
+func (o *DeleteAuthorizationDivisionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division unsupported media type response has a 3xx status code
+func (o *DeleteAuthorizationDivisionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division unsupported media type response has a 4xx status code
+func (o *DeleteAuthorizationDivisionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division unsupported media type response has a 5xx status code
+func (o *DeleteAuthorizationDivisionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division unsupported media type response a status code equal to that given
+func (o *DeleteAuthorizationDivisionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteAuthorizationDivisionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteAuthorizationDivisionTooManyRequests() *DeleteAuthorizationDivisio
 	return &DeleteAuthorizationDivisionTooManyRequests{}
 }
 
-/*DeleteAuthorizationDivisionTooManyRequests handles this case with default header values.
+/*
+DeleteAuthorizationDivisionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteAuthorizationDivisionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division too many requests response has a 2xx status code
+func (o *DeleteAuthorizationDivisionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division too many requests response has a 3xx status code
+func (o *DeleteAuthorizationDivisionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division too many requests response has a 4xx status code
+func (o *DeleteAuthorizationDivisionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization division too many requests response has a 5xx status code
+func (o *DeleteAuthorizationDivisionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization division too many requests response a status code equal to that given
+func (o *DeleteAuthorizationDivisionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteAuthorizationDivisionTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteAuthorizationDivisionInternalServerError() *DeleteAuthorizationDiv
 	return &DeleteAuthorizationDivisionInternalServerError{}
 }
 
-/*DeleteAuthorizationDivisionInternalServerError handles this case with default header values.
+/*
+DeleteAuthorizationDivisionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteAuthorizationDivisionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division internal server error response has a 2xx status code
+func (o *DeleteAuthorizationDivisionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division internal server error response has a 3xx status code
+func (o *DeleteAuthorizationDivisionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division internal server error response has a 4xx status code
+func (o *DeleteAuthorizationDivisionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete authorization division internal server error response has a 5xx status code
+func (o *DeleteAuthorizationDivisionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete authorization division internal server error response a status code equal to that given
+func (o *DeleteAuthorizationDivisionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteAuthorizationDivisionInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteAuthorizationDivisionServiceUnavailable() *DeleteAuthorizationDivi
 	return &DeleteAuthorizationDivisionServiceUnavailable{}
 }
 
-/*DeleteAuthorizationDivisionServiceUnavailable handles this case with default header values.
+/*
+DeleteAuthorizationDivisionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteAuthorizationDivisionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division service unavailable response has a 2xx status code
+func (o *DeleteAuthorizationDivisionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division service unavailable response has a 3xx status code
+func (o *DeleteAuthorizationDivisionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division service unavailable response has a 4xx status code
+func (o *DeleteAuthorizationDivisionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete authorization division service unavailable response has a 5xx status code
+func (o *DeleteAuthorizationDivisionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete authorization division service unavailable response a status code equal to that given
+func (o *DeleteAuthorizationDivisionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteAuthorizationDivisionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteAuthorizationDivisionGatewayTimeout() *DeleteAuthorizationDivision
 	return &DeleteAuthorizationDivisionGatewayTimeout{}
 }
 
-/*DeleteAuthorizationDivisionGatewayTimeout handles this case with default header values.
+/*
+DeleteAuthorizationDivisionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteAuthorizationDivisionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization division gateway timeout response has a 2xx status code
+func (o *DeleteAuthorizationDivisionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization division gateway timeout response has a 3xx status code
+func (o *DeleteAuthorizationDivisionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization division gateway timeout response has a 4xx status code
+func (o *DeleteAuthorizationDivisionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete authorization division gateway timeout response has a 5xx status code
+func (o *DeleteAuthorizationDivisionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete authorization division gateway timeout response a status code equal to that given
+func (o *DeleteAuthorizationDivisionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteAuthorizationDivisionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteAuthorizationDivisionGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/divisions/{divisionId}][%d] deleteAuthorizationDivisionGatewayTimeout  %+v", 504, o.Payload)
 }
 

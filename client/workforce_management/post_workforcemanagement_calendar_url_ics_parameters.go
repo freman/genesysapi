@@ -16,71 +16,88 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostWorkforcemanagementCalendarURLIcsParams creates a new PostWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementCalendarURLIcsParams creates a new PostWorkforcemanagementCalendarURLIcsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementCalendarURLIcsParams() *PostWorkforcemanagementCalendarURLIcsParams {
-	var (
-		languageDefault = string("en-US")
-	)
 	return &PostWorkforcemanagementCalendarURLIcsParams{
-		Language: &languageDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementCalendarURLIcsParamsWithTimeout creates a new PostWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementCalendarURLIcsParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementCalendarURLIcsParams {
-	var (
-		languageDefault = string("en-US")
-	)
 	return &PostWorkforcemanagementCalendarURLIcsParams{
-		Language: &languageDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementCalendarURLIcsParamsWithContext creates a new PostWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementCalendarURLIcsParamsWithContext(ctx context.Context) *PostWorkforcemanagementCalendarURLIcsParams {
-	var (
-		languageDefault = string("en-US")
-	)
 	return &PostWorkforcemanagementCalendarURLIcsParams{
-		Language: &languageDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementCalendarURLIcsParamsWithHTTPClient creates a new PostWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementCalendarURLIcsParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementCalendarURLIcsParams {
-	var (
-		languageDefault = string("en-US")
-	)
 	return &PostWorkforcemanagementCalendarURLIcsParams{
-		Language:   &languageDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement calendar Url ics operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementCalendarURLIcsParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement calendar Url ics operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementCalendarURLIcsParams struct {
 
-	/*Language
-	  A language tag (which is sometimes referred to as a "locale identifier") to use to localize default activity code names in the ics-formatted calendar
+	/* Language.
 
+	   A language tag (which is sometimes referred to as a "locale identifier") to use to localize default activity code names in the ics-formatted calendar
+
+	   Default: "en-US"
 	*/
 	Language *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement calendar Url ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementCalendarURLIcsParams) WithDefaults() *PostWorkforcemanagementCalendarURLIcsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement calendar Url ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementCalendarURLIcsParams) SetDefaults() {
+	var (
+		languageDefault = string("en-US")
+	)
+
+	val := PostWorkforcemanagementCalendarURLIcsParams{
+		Language: &languageDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement calendar Url ics params
@@ -139,16 +156,17 @@ func (o *PostWorkforcemanagementCalendarURLIcsParams) WriteToRequest(r runtime.C
 
 		// query param language
 		var qrLanguage string
+
 		if o.Language != nil {
 			qrLanguage = *o.Language
 		}
 		qLanguage := qrLanguage
 		if qLanguage != "" {
+
 			if err := r.SetQueryParam("language", qLanguage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

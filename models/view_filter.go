@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -29,7 +30,7 @@ type ViewFilter struct {
 	// The acd durations in milliseconds used to filter the view
 	AcdDurationsMilliseconds []*NumericRange `json:"acdDurationsMilliseconds"`
 
-	// Action Category Name
+	// Deprecated - Please use integrationIds instead
 	ActionCategoryName string `json:"actionCategoryName,omitempty"`
 
 	// The acw durations in milliseconds used to filter the view
@@ -92,6 +93,9 @@ type ViewFilter struct {
 
 	// A list of callback numbers or substrings of numbers (ex: ["317", "13172222222"])
 	CallbackNumberList []string `json:"callbackNumberList"`
+
+	// The canonical contact ids are used to filter the view
+	CanonicalContactIds []string `json:"canonicalContactIds"`
 
 	// The contact ids are used to filter the view
 	ContactIds []string `json:"contactIds"`
@@ -255,6 +259,9 @@ type ViewFilter struct {
 	// The hold durations in milliseconds used to filter the view
 	HoldDurationsMilliseconds []*NumericRange `json:"holdDurationsMilliseconds"`
 
+	// The list of integration IDs for Data Action
+	IntegrationIds []string `json:"integrationIds"`
+
 	// Filter to indicate if interaction was ACD or non-ACD
 	IsAcdInteraction bool `json:"isAcdInteraction"`
 
@@ -416,6 +423,9 @@ type ViewFilter struct {
 
 	// The skill ids are used to filter the view
 	SkillIds []string `json:"skillIds"`
+
+	// The list of agent errors that are related to station
+	StationErrors []string `json:"stationErrors"`
 
 	// The list of survey form context ids used to filter the view
 	SurveyFormContextIds []string `json:"surveyFormContextIds"`
@@ -663,7 +673,6 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateAbandonDurationsMilliseconds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AbandonDurationsMilliseconds) { // not required
 		return nil
 	}
@@ -677,6 +686,8 @@ func (m *ViewFilter) validateAbandonDurationsMilliseconds(formats strfmt.Registr
 			if err := m.AbandonDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("abandonDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("abandonDurationsMilliseconds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -688,7 +699,6 @@ func (m *ViewFilter) validateAbandonDurationsMilliseconds(formats strfmt.Registr
 }
 
 func (m *ViewFilter) validateAcdDurationsMilliseconds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AcdDurationsMilliseconds) { // not required
 		return nil
 	}
@@ -702,6 +712,8 @@ func (m *ViewFilter) validateAcdDurationsMilliseconds(formats strfmt.Registry) e
 			if err := m.AcdDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acdDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acdDurationsMilliseconds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -713,7 +725,6 @@ func (m *ViewFilter) validateAcdDurationsMilliseconds(formats strfmt.Registry) e
 }
 
 func (m *ViewFilter) validateAcwDurationsMilliseconds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AcwDurationsMilliseconds) { // not required
 		return nil
 	}
@@ -727,6 +738,8 @@ func (m *ViewFilter) validateAcwDurationsMilliseconds(formats strfmt.Registry) e
 			if err := m.AcwDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("acwDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acwDurationsMilliseconds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -767,7 +780,6 @@ func (m *ViewFilter) validateAvailableDashboardEnum(path, location string, value
 }
 
 func (m *ViewFilter) validateAvailableDashboard(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AvailableDashboard) { // not required
 		return nil
 	}
@@ -800,7 +812,6 @@ func (m *ViewFilter) validateBlockedReasonsItemsEnum(path, location string, valu
 }
 
 func (m *ViewFilter) validateBlockedReasons(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BlockedReasons) { // not required
 		return nil
 	}
@@ -837,7 +848,6 @@ func (m *ViewFilter) validateBotMessageTypesItemsEnum(path, location string, val
 }
 
 func (m *ViewFilter) validateBotMessageTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BotMessageTypes) { // not required
 		return nil
 	}
@@ -858,7 +868,7 @@ var viewFilterBotProductListItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Unknown","GenesysDialogEngine","AmazonLex","GoogleDialogFlow","GoogleDialogFlowResell","GenesysBotFlow","NuanceDlg","GoogleDialogFlowCx","GenesysByob","AmazonLexV2","GoogleDialogFlowCxResell","MicrosoftSttBotFlow"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Unknown","GenesysDialogEngine","AmazonLex","GoogleDialogFlow","GoogleDialogFlowResell","GenesysBotFlow","NuanceDlg","GoogleDialogFlowCx","GenesysByob","AmazonLexV2","GoogleDialogFlowCxResell","GoogleSttBotFlow","MicrosoftSttBotFlow"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -874,7 +884,6 @@ func (m *ViewFilter) validateBotProductListItemsEnum(path, location string, valu
 }
 
 func (m *ViewFilter) validateBotProductList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BotProductList) { // not required
 		return nil
 	}
@@ -911,7 +920,6 @@ func (m *ViewFilter) validateBotProviderListItemsEnum(path, location string, val
 }
 
 func (m *ViewFilter) validateBotProviderList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BotProviderList) { // not required
 		return nil
 	}
@@ -948,7 +956,6 @@ func (m *ViewFilter) validateBotRecognitionFailureReasonListItemsEnum(path, loca
 }
 
 func (m *ViewFilter) validateBotRecognitionFailureReasonList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BotRecognitionFailureReasonList) { // not required
 		return nil
 	}
@@ -985,7 +992,6 @@ func (m *ViewFilter) validateBotResultListItemsEnum(path, location string, value
 }
 
 func (m *ViewFilter) validateBotResultList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BotResultList) { // not required
 		return nil
 	}
@@ -1003,7 +1009,6 @@ func (m *ViewFilter) validateBotResultList(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateConversationProperties(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationProperties) { // not required
 		return nil
 	}
@@ -1012,6 +1017,8 @@ func (m *ViewFilter) validateConversationProperties(formats strfmt.Registry) err
 		if err := m.ConversationProperties.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationProperties")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationProperties")
 			}
 			return err
 		}
@@ -1021,7 +1028,6 @@ func (m *ViewFilter) validateConversationProperties(formats strfmt.Registry) err
 }
 
 func (m *ViewFilter) validateCustomerSentimentScore(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomerSentimentScore) { // not required
 		return nil
 	}
@@ -1030,6 +1036,8 @@ func (m *ViewFilter) validateCustomerSentimentScore(formats strfmt.Registry) err
 		if err := m.CustomerSentimentScore.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customerSentimentScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customerSentimentScore")
 			}
 			return err
 		}
@@ -1039,7 +1047,6 @@ func (m *ViewFilter) validateCustomerSentimentScore(formats strfmt.Registry) err
 }
 
 func (m *ViewFilter) validateCustomerSentimentTrend(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomerSentimentTrend) { // not required
 		return nil
 	}
@@ -1048,6 +1055,8 @@ func (m *ViewFilter) validateCustomerSentimentTrend(formats strfmt.Registry) err
 		if err := m.CustomerSentimentTrend.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customerSentimentTrend")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customerSentimentTrend")
 			}
 			return err
 		}
@@ -1076,7 +1085,6 @@ func (m *ViewFilter) validateDevelopmentRoleListItemsEnum(path, location string,
 }
 
 func (m *ViewFilter) validateDevelopmentRoleList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DevelopmentRoleList) { // not required
 		return nil
 	}
@@ -1113,7 +1121,6 @@ func (m *ViewFilter) validateDevelopmentStatusListItemsEnum(path, location strin
 }
 
 func (m *ViewFilter) validateDevelopmentStatusList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DevelopmentStatusList) { // not required
 		return nil
 	}
@@ -1150,7 +1157,6 @@ func (m *ViewFilter) validateDevelopmentTypeListItemsEnum(path, location string,
 }
 
 func (m *ViewFilter) validateDevelopmentTypeList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DevelopmentTypeList) { // not required
 		return nil
 	}
@@ -1187,7 +1193,6 @@ func (m *ViewFilter) validateDirectionsItemsEnum(path, location string, value st
 }
 
 func (m *ViewFilter) validateDirections(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Directions) { // not required
 		return nil
 	}
@@ -1205,7 +1210,6 @@ func (m *ViewFilter) validateDirections(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateDurationsMilliseconds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DurationsMilliseconds) { // not required
 		return nil
 	}
@@ -1219,6 +1223,8 @@ func (m *ViewFilter) validateDurationsMilliseconds(formats strfmt.Registry) erro
 			if err := m.DurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("durationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("durationsMilliseconds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1249,7 +1255,6 @@ func (m *ViewFilter) validateEmailDeliveryStatusListItemsEnum(path, location str
 }
 
 func (m *ViewFilter) validateEmailDeliveryStatusList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmailDeliveryStatusList) { // not required
 		return nil
 	}
@@ -1267,7 +1272,6 @@ func (m *ViewFilter) validateEmailDeliveryStatusList(formats strfmt.Registry) er
 }
 
 func (m *ViewFilter) validateEvaluationCriticalScore(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EvaluationCriticalScore) { // not required
 		return nil
 	}
@@ -1276,6 +1280,8 @@ func (m *ViewFilter) validateEvaluationCriticalScore(formats strfmt.Registry) er
 		if err := m.EvaluationCriticalScore.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("evaluationCriticalScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationCriticalScore")
 			}
 			return err
 		}
@@ -1285,7 +1291,6 @@ func (m *ViewFilter) validateEvaluationCriticalScore(formats strfmt.Registry) er
 }
 
 func (m *ViewFilter) validateEvaluationScore(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EvaluationScore) { // not required
 		return nil
 	}
@@ -1294,6 +1299,8 @@ func (m *ViewFilter) validateEvaluationScore(formats strfmt.Registry) error {
 		if err := m.EvaluationScore.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("evaluationScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationScore")
 			}
 			return err
 		}
@@ -1322,7 +1329,6 @@ func (m *ViewFilter) validateFlowDestinationTypesItemsEnum(path, location string
 }
 
 func (m *ViewFilter) validateFlowDestinationTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowDestinationTypes) { // not required
 		return nil
 	}
@@ -1359,7 +1365,6 @@ func (m *ViewFilter) validateFlowDisconnectReasonsItemsEnum(path, location strin
 }
 
 func (m *ViewFilter) validateFlowDisconnectReasons(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowDisconnectReasons) { // not required
 		return nil
 	}
@@ -1396,7 +1401,6 @@ func (m *ViewFilter) validateFlowEntryTypesItemsEnum(path, location string, valu
 }
 
 func (m *ViewFilter) validateFlowEntryTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowEntryTypes) { // not required
 		return nil
 	}
@@ -1433,7 +1437,6 @@ func (m *ViewFilter) validateFlowOutcomeValuesItemsEnum(path, location string, v
 }
 
 func (m *ViewFilter) validateFlowOutcomeValues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowOutcomeValues) { // not required
 		return nil
 	}
@@ -1470,7 +1473,6 @@ func (m *ViewFilter) validateFlowTypesItemsEnum(path, location string, value str
 }
 
 func (m *ViewFilter) validateFlowTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowTypes) { // not required
 		return nil
 	}
@@ -1488,7 +1490,6 @@ func (m *ViewFilter) validateFlowTypes(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateHandleDurationsMilliseconds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HandleDurationsMilliseconds) { // not required
 		return nil
 	}
@@ -1502,6 +1503,8 @@ func (m *ViewFilter) validateHandleDurationsMilliseconds(formats strfmt.Registry
 			if err := m.HandleDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("handleDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("handleDurationsMilliseconds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1513,7 +1516,6 @@ func (m *ViewFilter) validateHandleDurationsMilliseconds(formats strfmt.Registry
 }
 
 func (m *ViewFilter) validateHoldDurationsMilliseconds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HoldDurationsMilliseconds) { // not required
 		return nil
 	}
@@ -1527,6 +1529,8 @@ func (m *ViewFilter) validateHoldDurationsMilliseconds(formats strfmt.Registry) 
 			if err := m.HoldDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("holdDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("holdDurationsMilliseconds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1557,7 +1561,6 @@ func (m *ViewFilter) validateJourneyActionMapTypesItemsEnum(path, location strin
 }
 
 func (m *ViewFilter) validateJourneyActionMapTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JourneyActionMapTypes) { // not required
 		return nil
 	}
@@ -1594,7 +1597,6 @@ func (m *ViewFilter) validateMediaTypesItemsEnum(path, location string, value st
 }
 
 func (m *ViewFilter) validateMediaTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaTypes) { // not required
 		return nil
 	}
@@ -1631,7 +1633,6 @@ func (m *ViewFilter) validateMessageTypesItemsEnum(path, location string, value 
 }
 
 func (m *ViewFilter) validateMessageTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageTypes) { // not required
 		return nil
 	}
@@ -1649,7 +1650,6 @@ func (m *ViewFilter) validateMessageTypes(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateMos(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Mos) { // not required
 		return nil
 	}
@@ -1658,6 +1658,8 @@ func (m *ViewFilter) validateMos(formats strfmt.Registry) error {
 		if err := m.Mos.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mos")
 			}
 			return err
 		}
@@ -1686,7 +1688,6 @@ func (m *ViewFilter) validateOriginatingDirectionsItemsEnum(path, location strin
 }
 
 func (m *ViewFilter) validateOriginatingDirections(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OriginatingDirections) { // not required
 		return nil
 	}
@@ -1723,7 +1724,6 @@ func (m *ViewFilter) validateParticipantPurposesItemsEnum(path, location string,
 }
 
 func (m *ViewFilter) validateParticipantPurposes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ParticipantPurposes) { // not required
 		return nil
 	}
@@ -1741,7 +1741,6 @@ func (m *ViewFilter) validateParticipantPurposes(formats strfmt.Registry) error 
 }
 
 func (m *ViewFilter) validatePromoterScores(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PromoterScores) { // not required
 		return nil
 	}
@@ -1755,6 +1754,8 @@ func (m *ViewFilter) validatePromoterScores(formats strfmt.Registry) error {
 			if err := m.PromoterScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("promoterScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("promoterScores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1769,7 +1770,7 @@ var viewFilterRequestedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1785,7 +1786,6 @@ func (m *ViewFilter) validateRequestedRoutingTypesItemsEnum(path, location strin
 }
 
 func (m *ViewFilter) validateRequestedRoutingTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RequestedRoutingTypes) { // not required
 		return nil
 	}
@@ -1803,7 +1803,6 @@ func (m *ViewFilter) validateRequestedRoutingTypes(formats strfmt.Registry) erro
 }
 
 func (m *ViewFilter) validateSurveyNpsScore(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyNpsScore) { // not required
 		return nil
 	}
@@ -1812,6 +1811,8 @@ func (m *ViewFilter) validateSurveyNpsScore(formats strfmt.Registry) error {
 		if err := m.SurveyNpsScore.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyNpsScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyNpsScore")
 			}
 			return err
 		}
@@ -1821,7 +1822,6 @@ func (m *ViewFilter) validateSurveyNpsScore(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateSurveyPromoterScore(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyPromoterScore) { // not required
 		return nil
 	}
@@ -1830,6 +1830,8 @@ func (m *ViewFilter) validateSurveyPromoterScore(formats strfmt.Registry) error 
 		if err := m.SurveyPromoterScore.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyPromoterScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyPromoterScore")
 			}
 			return err
 		}
@@ -1839,7 +1841,6 @@ func (m *ViewFilter) validateSurveyPromoterScore(formats strfmt.Registry) error 
 }
 
 func (m *ViewFilter) validateSurveyQuestionGroupScore(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyQuestionGroupScore) { // not required
 		return nil
 	}
@@ -1848,6 +1849,8 @@ func (m *ViewFilter) validateSurveyQuestionGroupScore(formats strfmt.Registry) e
 		if err := m.SurveyQuestionGroupScore.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyQuestionGroupScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyQuestionGroupScore")
 			}
 			return err
 		}
@@ -1857,7 +1860,6 @@ func (m *ViewFilter) validateSurveyQuestionGroupScore(formats strfmt.Registry) e
 }
 
 func (m *ViewFilter) validateSurveyScores(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyScores) { // not required
 		return nil
 	}
@@ -1871,6 +1873,8 @@ func (m *ViewFilter) validateSurveyScores(formats strfmt.Registry) error {
 			if err := m.SurveyScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("surveyScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("surveyScores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1882,7 +1886,6 @@ func (m *ViewFilter) validateSurveyScores(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateSurveyTotalScore(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyTotalScore) { // not required
 		return nil
 	}
@@ -1891,6 +1894,8 @@ func (m *ViewFilter) validateSurveyTotalScore(formats strfmt.Registry) error {
 		if err := m.SurveyTotalScore.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyTotalScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyTotalScore")
 			}
 			return err
 		}
@@ -1900,7 +1905,6 @@ func (m *ViewFilter) validateSurveyTotalScore(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateTalkDurationsMilliseconds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TalkDurationsMilliseconds) { // not required
 		return nil
 	}
@@ -1914,6 +1918,8 @@ func (m *ViewFilter) validateTalkDurationsMilliseconds(formats strfmt.Registry) 
 			if err := m.TalkDurationsMilliseconds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("talkDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("talkDurationsMilliseconds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1925,7 +1931,6 @@ func (m *ViewFilter) validateTalkDurationsMilliseconds(formats strfmt.Registry) 
 }
 
 func (m *ViewFilter) validateTranscriptTopics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TranscriptTopics) { // not required
 		return nil
 	}
@@ -1939,6 +1944,8 @@ func (m *ViewFilter) validateTranscriptTopics(formats strfmt.Registry) error {
 			if err := m.TranscriptTopics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1950,7 +1957,6 @@ func (m *ViewFilter) validateTranscriptTopics(formats strfmt.Registry) error {
 }
 
 func (m *ViewFilter) validateTranscripts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Transcripts) { // not required
 		return nil
 	}
@@ -1964,6 +1970,8 @@ func (m *ViewFilter) validateTranscripts(formats strfmt.Registry) error {
 			if err := m.Transcripts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("transcripts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcripts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -1978,7 +1986,7 @@ var viewFilterUsedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -1994,7 +2002,6 @@ func (m *ViewFilter) validateUsedRoutingTypesItemsEnum(path, location string, va
 }
 
 func (m *ViewFilter) validateUsedRoutingTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UsedRoutingTypes) { // not required
 		return nil
 	}
@@ -2004,6 +2011,480 @@ func (m *ViewFilter) validateUsedRoutingTypes(formats strfmt.Registry) error {
 		// value enum
 		if err := m.validateUsedRoutingTypesItemsEnum("usedRoutingTypes"+"."+strconv.Itoa(i), "body", m.UsedRoutingTypes[i]); err != nil {
 			return err
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this view filter based on the context it is used
+func (m *ViewFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAbandonDurationsMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAcdDurationsMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAcwDurationsMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationProperties(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCustomerSentimentScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCustomerSentimentTrend(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDurationsMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluationCriticalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluationScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHandleDurationsMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHoldDurationsMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMos(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePromoterScores(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyNpsScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyPromoterScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyQuestionGroupScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyScores(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyTotalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTalkDurationsMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTranscriptTopics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTranscripts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ViewFilter) contextValidateAbandonDurationsMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AbandonDurationsMilliseconds); i++ {
+
+		if m.AbandonDurationsMilliseconds[i] != nil {
+			if err := m.AbandonDurationsMilliseconds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("abandonDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("abandonDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateAcdDurationsMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AcdDurationsMilliseconds); i++ {
+
+		if m.AcdDurationsMilliseconds[i] != nil {
+			if err := m.AcdDurationsMilliseconds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("acdDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acdDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateAcwDurationsMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AcwDurationsMilliseconds); i++ {
+
+		if m.AcwDurationsMilliseconds[i] != nil {
+			if err := m.AcwDurationsMilliseconds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("acwDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("acwDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateConversationProperties(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationProperties != nil {
+		if err := m.ConversationProperties.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationProperties")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationProperties")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateCustomerSentimentScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CustomerSentimentScore != nil {
+		if err := m.CustomerSentimentScore.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customerSentimentScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customerSentimentScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateCustomerSentimentTrend(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CustomerSentimentTrend != nil {
+		if err := m.CustomerSentimentTrend.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customerSentimentTrend")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customerSentimentTrend")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateDurationsMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DurationsMilliseconds); i++ {
+
+		if m.DurationsMilliseconds[i] != nil {
+			if err := m.DurationsMilliseconds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("durationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("durationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateEvaluationCriticalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EvaluationCriticalScore != nil {
+		if err := m.EvaluationCriticalScore.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("evaluationCriticalScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationCriticalScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateEvaluationScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EvaluationScore != nil {
+		if err := m.EvaluationScore.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("evaluationScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateHandleDurationsMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HandleDurationsMilliseconds); i++ {
+
+		if m.HandleDurationsMilliseconds[i] != nil {
+			if err := m.HandleDurationsMilliseconds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("handleDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("handleDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateHoldDurationsMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HoldDurationsMilliseconds); i++ {
+
+		if m.HoldDurationsMilliseconds[i] != nil {
+			if err := m.HoldDurationsMilliseconds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("holdDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("holdDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateMos(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Mos != nil {
+		if err := m.Mos.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mos")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidatePromoterScores(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PromoterScores); i++ {
+
+		if m.PromoterScores[i] != nil {
+			if err := m.PromoterScores[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("promoterScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("promoterScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateSurveyNpsScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyNpsScore != nil {
+		if err := m.SurveyNpsScore.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyNpsScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyNpsScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateSurveyPromoterScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyPromoterScore != nil {
+		if err := m.SurveyPromoterScore.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyPromoterScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyPromoterScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateSurveyQuestionGroupScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyQuestionGroupScore != nil {
+		if err := m.SurveyQuestionGroupScore.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyQuestionGroupScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyQuestionGroupScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateSurveyScores(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SurveyScores); i++ {
+
+		if m.SurveyScores[i] != nil {
+			if err := m.SurveyScores[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("surveyScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("surveyScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateSurveyTotalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyTotalScore != nil {
+		if err := m.SurveyTotalScore.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyTotalScore")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyTotalScore")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateTalkDurationsMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TalkDurationsMilliseconds); i++ {
+
+		if m.TalkDurationsMilliseconds[i] != nil {
+			if err := m.TalkDurationsMilliseconds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("talkDurationsMilliseconds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("talkDurationsMilliseconds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateTranscriptTopics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TranscriptTopics); i++ {
+
+		if m.TranscriptTopics[i] != nil {
+			if err := m.TranscriptTopics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ViewFilter) contextValidateTranscripts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Transcripts); i++ {
+
+		if m.Transcripts[i] != nil {
+			if err := m.Transcripts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("transcripts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcripts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
 		}
 
 	}

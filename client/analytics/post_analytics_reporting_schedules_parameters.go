@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAnalyticsReportingSchedulesParams creates a new PostAnalyticsReportingSchedulesParams object
-// with the default values initialized.
+// NewPostAnalyticsReportingSchedulesParams creates a new PostAnalyticsReportingSchedulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsReportingSchedulesParams() *PostAnalyticsReportingSchedulesParams {
-	var ()
 	return &PostAnalyticsReportingSchedulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsReportingSchedulesParamsWithTimeout creates a new PostAnalyticsReportingSchedulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsReportingSchedulesParamsWithTimeout(timeout time.Duration) *PostAnalyticsReportingSchedulesParams {
-	var ()
 	return &PostAnalyticsReportingSchedulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsReportingSchedulesParamsWithContext creates a new PostAnalyticsReportingSchedulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsReportingSchedulesParamsWithContext(ctx context.Context) *PostAnalyticsReportingSchedulesParams {
-	var ()
 	return &PostAnalyticsReportingSchedulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsReportingSchedulesParamsWithHTTPClient creates a new PostAnalyticsReportingSchedulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsReportingSchedulesParamsWithHTTPClient(client *http.Client) *PostAnalyticsReportingSchedulesParams {
-	var ()
 	return &PostAnalyticsReportingSchedulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsReportingSchedulesParams contains all the parameters to send to the API endpoint
-for the post analytics reporting schedules operation typically these are written to a http.Request
+/*
+PostAnalyticsReportingSchedulesParams contains all the parameters to send to the API endpoint
+
+	for the post analytics reporting schedules operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsReportingSchedulesParams struct {
 
-	/*Body
-	  ReportSchedule
+	/* Body.
 
+	   ReportSchedule
 	*/
 	Body *models.ReportSchedule
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics reporting schedules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsReportingSchedulesParams) WithDefaults() *PostAnalyticsReportingSchedulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics reporting schedules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsReportingSchedulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics reporting schedules params
@@ -124,7 +140,6 @@ func (o *PostAnalyticsReportingSchedulesParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

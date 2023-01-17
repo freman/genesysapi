@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsMessagingSupportedcontentParams creates a new PostConversationsMessagingSupportedcontentParams object
-// with the default values initialized.
+// NewPostConversationsMessagingSupportedcontentParams creates a new PostConversationsMessagingSupportedcontentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessagingSupportedcontentParams() *PostConversationsMessagingSupportedcontentParams {
-	var ()
 	return &PostConversationsMessagingSupportedcontentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessagingSupportedcontentParamsWithTimeout creates a new PostConversationsMessagingSupportedcontentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessagingSupportedcontentParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingSupportedcontentParams {
-	var ()
 	return &PostConversationsMessagingSupportedcontentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessagingSupportedcontentParamsWithContext creates a new PostConversationsMessagingSupportedcontentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessagingSupportedcontentParamsWithContext(ctx context.Context) *PostConversationsMessagingSupportedcontentParams {
-	var ()
 	return &PostConversationsMessagingSupportedcontentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessagingSupportedcontentParamsWithHTTPClient creates a new PostConversationsMessagingSupportedcontentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessagingSupportedcontentParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingSupportedcontentParams {
-	var ()
 	return &PostConversationsMessagingSupportedcontentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessagingSupportedcontentParams contains all the parameters to send to the API endpoint
-for the post conversations messaging supportedcontent operation typically these are written to a http.Request
+/*
+PostConversationsMessagingSupportedcontentParams contains all the parameters to send to the API endpoint
+
+	for the post conversations messaging supportedcontent operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessagingSupportedcontentParams struct {
 
-	/*Body
-	  SupportedContent
+	/* Body.
 
+	   SupportedContent
 	*/
 	Body *models.SupportedContent
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations messaging supportedcontent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingSupportedcontentParams) WithDefaults() *PostConversationsMessagingSupportedcontentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations messaging supportedcontent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingSupportedcontentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations messaging supportedcontent params
@@ -124,7 +140,6 @@ func (o *PostConversationsMessagingSupportedcontentParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

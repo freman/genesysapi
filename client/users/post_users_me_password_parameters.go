@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUsersMePasswordParams creates a new PostUsersMePasswordParams object
-// with the default values initialized.
+// NewPostUsersMePasswordParams creates a new PostUsersMePasswordParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUsersMePasswordParams() *PostUsersMePasswordParams {
-	var ()
 	return &PostUsersMePasswordParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUsersMePasswordParamsWithTimeout creates a new PostUsersMePasswordParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUsersMePasswordParamsWithTimeout(timeout time.Duration) *PostUsersMePasswordParams {
-	var ()
 	return &PostUsersMePasswordParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUsersMePasswordParamsWithContext creates a new PostUsersMePasswordParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUsersMePasswordParamsWithContext(ctx context.Context) *PostUsersMePasswordParams {
-	var ()
 	return &PostUsersMePasswordParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUsersMePasswordParamsWithHTTPClient creates a new PostUsersMePasswordParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUsersMePasswordParamsWithHTTPClient(client *http.Client) *PostUsersMePasswordParams {
-	var ()
 	return &PostUsersMePasswordParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUsersMePasswordParams contains all the parameters to send to the API endpoint
-for the post users me password operation typically these are written to a http.Request
+/*
+PostUsersMePasswordParams contains all the parameters to send to the API endpoint
+
+	for the post users me password operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUsersMePasswordParams struct {
 
-	/*Body
-	  Password
+	/* Body.
 
+	   Password
 	*/
 	Body *models.ChangeMyPasswordRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post users me password params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUsersMePasswordParams) WithDefaults() *PostUsersMePasswordParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post users me password params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUsersMePasswordParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post users me password params
@@ -124,7 +140,6 @@ func (o *PostUsersMePasswordParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

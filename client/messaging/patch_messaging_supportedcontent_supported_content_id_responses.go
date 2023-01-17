@@ -95,7 +95,6 @@ func (o *PatchMessagingSupportedcontentSupportedContentIDReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDOK() *PatchMessagingSupp
 	return &PatchMessagingSupportedcontentSupportedContentIDOK{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDOK handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchMessagingSupportedcontentSupportedContentIDOK struct {
 	Payload *models.SupportedContent
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id o k response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id o k response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id o k response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id o k response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id o k response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDBadRequest() *PatchMessa
 	return &PatchMessagingSupportedcontentSupportedContentIDBadRequest{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDBadRequest handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchMessagingSupportedcontentSupportedContentIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id bad request response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id bad request response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id bad request response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id bad request response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id bad request response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDUnauthorized() *PatchMes
 	return &PatchMessagingSupportedcontentSupportedContentIDUnauthorized{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDUnauthorized handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchMessagingSupportedcontentSupportedContentIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id unauthorized response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id unauthorized response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id unauthorized response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id unauthorized response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id unauthorized response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDForbidden() *PatchMessag
 	return &PatchMessagingSupportedcontentSupportedContentIDForbidden{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDForbidden handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchMessagingSupportedcontentSupportedContentIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id forbidden response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id forbidden response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id forbidden response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id forbidden response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id forbidden response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDNotFound() *PatchMessagi
 	return &PatchMessagingSupportedcontentSupportedContentIDNotFound{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDNotFound handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchMessagingSupportedcontentSupportedContentIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id not found response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id not found response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id not found response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id not found response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id not found response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDRequestTimeout() *PatchM
 	return &PatchMessagingSupportedcontentSupportedContentIDRequestTimeout{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDRequestTimeout handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchMessagingSupportedcontentSupportedContentIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id request timeout response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id request timeout response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id request timeout response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id request timeout response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id request timeout response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge() 
 	return &PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id request entity too large response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id request entity too large response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id request entity too large response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id request entity too large response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id request entity too large response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType() *
 	return &PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id unsupported media type response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id unsupported media type response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id unsupported media type response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id unsupported media type response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id unsupported media type response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDTooManyRequests() *Patch
 	return &PatchMessagingSupportedcontentSupportedContentIDTooManyRequests{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDTooManyRequests handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchMessagingSupportedcontentSupportedContentIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id too many requests response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id too many requests response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id too many requests response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id too many requests response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id too many requests response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDInternalServerError() *P
 	return &PatchMessagingSupportedcontentSupportedContentIDInternalServerError{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDInternalServerError handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchMessagingSupportedcontentSupportedContentIDInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id internal server error response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id internal server error response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id internal server error response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id internal server error response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id internal server error response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDServiceUnavailable() *Pa
 	return &PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id service unavailable response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id service unavailable response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id service unavailable response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id service unavailable response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id service unavailable response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchMessagingSupportedcontentSupportedContentIDGatewayTimeout() *PatchM
 	return &PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout{}
 }
 
-/*PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout handles this case with default header values.
+/*
+PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch messaging supportedcontent supported content Id gateway timeout response has a 2xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch messaging supportedcontent supported content Id gateway timeout response has a 3xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch messaging supportedcontent supported content Id gateway timeout response has a 4xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch messaging supportedcontent supported content Id gateway timeout response has a 5xx status code
+func (o *PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch messaging supportedcontent supported content Id gateway timeout response a status code equal to that given
+func (o *PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchMessagingSupportedcontentSupportedContentIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/messaging/supportedcontent/{supportedContentId}][%d] patchMessagingSupportedcontentSupportedContentIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

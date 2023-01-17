@@ -95,7 +95,6 @@ func (o *PutContentmanagementWorkspaceReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutContentmanagementWorkspaceOK() *PutContentmanagementWorkspaceOK {
 	return &PutContentmanagementWorkspaceOK{}
 }
 
-/*PutContentmanagementWorkspaceOK handles this case with default header values.
+/*
+PutContentmanagementWorkspaceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutContentmanagementWorkspaceOK struct {
 	Payload *models.Workspace
 }
 
+// IsSuccess returns true when this put contentmanagement workspace o k response has a 2xx status code
+func (o *PutContentmanagementWorkspaceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put contentmanagement workspace o k response has a 3xx status code
+func (o *PutContentmanagementWorkspaceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace o k response has a 4xx status code
+func (o *PutContentmanagementWorkspaceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put contentmanagement workspace o k response has a 5xx status code
+func (o *PutContentmanagementWorkspaceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace o k response a status code equal to that given
+func (o *PutContentmanagementWorkspaceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutContentmanagementWorkspaceOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceOK  %+v", 200, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutContentmanagementWorkspaceBadRequest() *PutContentmanagementWorkspace
 	return &PutContentmanagementWorkspaceBadRequest{}
 }
 
-/*PutContentmanagementWorkspaceBadRequest handles this case with default header values.
+/*
+PutContentmanagementWorkspaceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutContentmanagementWorkspaceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace bad request response has a 2xx status code
+func (o *PutContentmanagementWorkspaceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace bad request response has a 3xx status code
+func (o *PutContentmanagementWorkspaceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace bad request response has a 4xx status code
+func (o *PutContentmanagementWorkspaceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace bad request response has a 5xx status code
+func (o *PutContentmanagementWorkspaceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace bad request response a status code equal to that given
+func (o *PutContentmanagementWorkspaceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutContentmanagementWorkspaceBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutContentmanagementWorkspaceUnauthorized() *PutContentmanagementWorkspa
 	return &PutContentmanagementWorkspaceUnauthorized{}
 }
 
-/*PutContentmanagementWorkspaceUnauthorized handles this case with default header values.
+/*
+PutContentmanagementWorkspaceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutContentmanagementWorkspaceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace unauthorized response has a 2xx status code
+func (o *PutContentmanagementWorkspaceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace unauthorized response has a 3xx status code
+func (o *PutContentmanagementWorkspaceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace unauthorized response has a 4xx status code
+func (o *PutContentmanagementWorkspaceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace unauthorized response has a 5xx status code
+func (o *PutContentmanagementWorkspaceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace unauthorized response a status code equal to that given
+func (o *PutContentmanagementWorkspaceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutContentmanagementWorkspaceUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutContentmanagementWorkspaceForbidden() *PutContentmanagementWorkspaceF
 	return &PutContentmanagementWorkspaceForbidden{}
 }
 
-/*PutContentmanagementWorkspaceForbidden handles this case with default header values.
+/*
+PutContentmanagementWorkspaceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutContentmanagementWorkspaceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace forbidden response has a 2xx status code
+func (o *PutContentmanagementWorkspaceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace forbidden response has a 3xx status code
+func (o *PutContentmanagementWorkspaceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace forbidden response has a 4xx status code
+func (o *PutContentmanagementWorkspaceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace forbidden response has a 5xx status code
+func (o *PutContentmanagementWorkspaceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace forbidden response a status code equal to that given
+func (o *PutContentmanagementWorkspaceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutContentmanagementWorkspaceForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutContentmanagementWorkspaceNotFound() *PutContentmanagementWorkspaceNo
 	return &PutContentmanagementWorkspaceNotFound{}
 }
 
-/*PutContentmanagementWorkspaceNotFound handles this case with default header values.
+/*
+PutContentmanagementWorkspaceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutContentmanagementWorkspaceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace not found response has a 2xx status code
+func (o *PutContentmanagementWorkspaceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace not found response has a 3xx status code
+func (o *PutContentmanagementWorkspaceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace not found response has a 4xx status code
+func (o *PutContentmanagementWorkspaceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace not found response has a 5xx status code
+func (o *PutContentmanagementWorkspaceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace not found response a status code equal to that given
+func (o *PutContentmanagementWorkspaceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutContentmanagementWorkspaceNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutContentmanagementWorkspaceRequestTimeout() *PutContentmanagementWorks
 	return &PutContentmanagementWorkspaceRequestTimeout{}
 }
 
-/*PutContentmanagementWorkspaceRequestTimeout handles this case with default header values.
+/*
+PutContentmanagementWorkspaceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutContentmanagementWorkspaceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace request timeout response has a 2xx status code
+func (o *PutContentmanagementWorkspaceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace request timeout response has a 3xx status code
+func (o *PutContentmanagementWorkspaceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace request timeout response has a 4xx status code
+func (o *PutContentmanagementWorkspaceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace request timeout response has a 5xx status code
+func (o *PutContentmanagementWorkspaceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace request timeout response a status code equal to that given
+func (o *PutContentmanagementWorkspaceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutContentmanagementWorkspaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutContentmanagementWorkspaceRequestEntityTooLarge() *PutContentmanageme
 	return &PutContentmanagementWorkspaceRequestEntityTooLarge{}
 }
 
-/*PutContentmanagementWorkspaceRequestEntityTooLarge handles this case with default header values.
+/*
+PutContentmanagementWorkspaceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutContentmanagementWorkspaceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace request entity too large response has a 2xx status code
+func (o *PutContentmanagementWorkspaceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace request entity too large response has a 3xx status code
+func (o *PutContentmanagementWorkspaceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace request entity too large response has a 4xx status code
+func (o *PutContentmanagementWorkspaceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace request entity too large response has a 5xx status code
+func (o *PutContentmanagementWorkspaceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace request entity too large response a status code equal to that given
+func (o *PutContentmanagementWorkspaceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutContentmanagementWorkspaceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutContentmanagementWorkspaceUnsupportedMediaType() *PutContentmanagemen
 	return &PutContentmanagementWorkspaceUnsupportedMediaType{}
 }
 
-/*PutContentmanagementWorkspaceUnsupportedMediaType handles this case with default header values.
+/*
+PutContentmanagementWorkspaceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutContentmanagementWorkspaceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace unsupported media type response has a 2xx status code
+func (o *PutContentmanagementWorkspaceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace unsupported media type response has a 3xx status code
+func (o *PutContentmanagementWorkspaceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace unsupported media type response has a 4xx status code
+func (o *PutContentmanagementWorkspaceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace unsupported media type response has a 5xx status code
+func (o *PutContentmanagementWorkspaceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace unsupported media type response a status code equal to that given
+func (o *PutContentmanagementWorkspaceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutContentmanagementWorkspaceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutContentmanagementWorkspaceTooManyRequests() *PutContentmanagementWork
 	return &PutContentmanagementWorkspaceTooManyRequests{}
 }
 
-/*PutContentmanagementWorkspaceTooManyRequests handles this case with default header values.
+/*
+PutContentmanagementWorkspaceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutContentmanagementWorkspaceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace too many requests response has a 2xx status code
+func (o *PutContentmanagementWorkspaceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace too many requests response has a 3xx status code
+func (o *PutContentmanagementWorkspaceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace too many requests response has a 4xx status code
+func (o *PutContentmanagementWorkspaceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put contentmanagement workspace too many requests response has a 5xx status code
+func (o *PutContentmanagementWorkspaceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put contentmanagement workspace too many requests response a status code equal to that given
+func (o *PutContentmanagementWorkspaceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutContentmanagementWorkspaceTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutContentmanagementWorkspaceInternalServerError() *PutContentmanagement
 	return &PutContentmanagementWorkspaceInternalServerError{}
 }
 
-/*PutContentmanagementWorkspaceInternalServerError handles this case with default header values.
+/*
+PutContentmanagementWorkspaceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutContentmanagementWorkspaceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace internal server error response has a 2xx status code
+func (o *PutContentmanagementWorkspaceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace internal server error response has a 3xx status code
+func (o *PutContentmanagementWorkspaceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace internal server error response has a 4xx status code
+func (o *PutContentmanagementWorkspaceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put contentmanagement workspace internal server error response has a 5xx status code
+func (o *PutContentmanagementWorkspaceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put contentmanagement workspace internal server error response a status code equal to that given
+func (o *PutContentmanagementWorkspaceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutContentmanagementWorkspaceInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutContentmanagementWorkspaceServiceUnavailable() *PutContentmanagementW
 	return &PutContentmanagementWorkspaceServiceUnavailable{}
 }
 
-/*PutContentmanagementWorkspaceServiceUnavailable handles this case with default header values.
+/*
+PutContentmanagementWorkspaceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutContentmanagementWorkspaceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace service unavailable response has a 2xx status code
+func (o *PutContentmanagementWorkspaceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace service unavailable response has a 3xx status code
+func (o *PutContentmanagementWorkspaceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace service unavailable response has a 4xx status code
+func (o *PutContentmanagementWorkspaceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put contentmanagement workspace service unavailable response has a 5xx status code
+func (o *PutContentmanagementWorkspaceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put contentmanagement workspace service unavailable response a status code equal to that given
+func (o *PutContentmanagementWorkspaceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutContentmanagementWorkspaceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutContentmanagementWorkspaceGatewayTimeout() *PutContentmanagementWorks
 	return &PutContentmanagementWorkspaceGatewayTimeout{}
 }
 
-/*PutContentmanagementWorkspaceGatewayTimeout handles this case with default header values.
+/*
+PutContentmanagementWorkspaceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutContentmanagementWorkspaceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put contentmanagement workspace gateway timeout response has a 2xx status code
+func (o *PutContentmanagementWorkspaceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put contentmanagement workspace gateway timeout response has a 3xx status code
+func (o *PutContentmanagementWorkspaceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put contentmanagement workspace gateway timeout response has a 4xx status code
+func (o *PutContentmanagementWorkspaceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put contentmanagement workspace gateway timeout response has a 5xx status code
+func (o *PutContentmanagementWorkspaceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put contentmanagement workspace gateway timeout response a status code equal to that given
+func (o *PutContentmanagementWorkspaceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutContentmanagementWorkspaceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutContentmanagementWorkspaceGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/contentmanagement/workspaces/{workspaceId}][%d] putContentmanagementWorkspaceGatewayTimeout  %+v", 504, o.Payload)
 }
 

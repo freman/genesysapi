@@ -95,7 +95,6 @@ func (o *PostEventsUsersRoutingstatusReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostEventsUsersRoutingstatusOK() *PostEventsUsersRoutingstatusOK {
 	return &PostEventsUsersRoutingstatusOK{}
 }
 
-/*PostEventsUsersRoutingstatusOK handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostEventsUsersRoutingstatusOK struct {
 	Payload *models.BatchEventResponse
 }
 
+// IsSuccess returns true when this post events users routingstatus o k response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post events users routingstatus o k response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus o k response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users routingstatus o k response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus o k response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostEventsUsersRoutingstatusOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusOK  %+v", 200, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostEventsUsersRoutingstatusBadRequest() *PostEventsUsersRoutingstatusBa
 	return &PostEventsUsersRoutingstatusBadRequest{}
 }
 
-/*PostEventsUsersRoutingstatusBadRequest handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostEventsUsersRoutingstatusBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus bad request response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus bad request response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus bad request response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus bad request response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus bad request response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostEventsUsersRoutingstatusBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostEventsUsersRoutingstatusUnauthorized() *PostEventsUsersRoutingstatus
 	return &PostEventsUsersRoutingstatusUnauthorized{}
 }
 
-/*PostEventsUsersRoutingstatusUnauthorized handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostEventsUsersRoutingstatusUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus unauthorized response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus unauthorized response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus unauthorized response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus unauthorized response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus unauthorized response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostEventsUsersRoutingstatusUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostEventsUsersRoutingstatusForbidden() *PostEventsUsersRoutingstatusFor
 	return &PostEventsUsersRoutingstatusForbidden{}
 }
 
-/*PostEventsUsersRoutingstatusForbidden handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostEventsUsersRoutingstatusForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus forbidden response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus forbidden response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus forbidden response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus forbidden response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus forbidden response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostEventsUsersRoutingstatusForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostEventsUsersRoutingstatusNotFound() *PostEventsUsersRoutingstatusNotF
 	return &PostEventsUsersRoutingstatusNotFound{}
 }
 
-/*PostEventsUsersRoutingstatusNotFound handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostEventsUsersRoutingstatusNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus not found response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus not found response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus not found response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus not found response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus not found response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostEventsUsersRoutingstatusNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostEventsUsersRoutingstatusRequestTimeout() *PostEventsUsersRoutingstat
 	return &PostEventsUsersRoutingstatusRequestTimeout{}
 }
 
-/*PostEventsUsersRoutingstatusRequestTimeout handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostEventsUsersRoutingstatusRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus request timeout response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus request timeout response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus request timeout response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus request timeout response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus request timeout response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostEventsUsersRoutingstatusRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostEventsUsersRoutingstatusRequestEntityTooLarge() *PostEventsUsersRout
 	return &PostEventsUsersRoutingstatusRequestEntityTooLarge{}
 }
 
-/*PostEventsUsersRoutingstatusRequestEntityTooLarge handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostEventsUsersRoutingstatusRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus request entity too large response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus request entity too large response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus request entity too large response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus request entity too large response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus request entity too large response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostEventsUsersRoutingstatusRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostEventsUsersRoutingstatusUnsupportedMediaType() *PostEventsUsersRouti
 	return &PostEventsUsersRoutingstatusUnsupportedMediaType{}
 }
 
-/*PostEventsUsersRoutingstatusUnsupportedMediaType handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostEventsUsersRoutingstatusUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus unsupported media type response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus unsupported media type response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus unsupported media type response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus unsupported media type response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus unsupported media type response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostEventsUsersRoutingstatusUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostEventsUsersRoutingstatusTooManyRequests() *PostEventsUsersRoutingsta
 	return &PostEventsUsersRoutingstatusTooManyRequests{}
 }
 
-/*PostEventsUsersRoutingstatusTooManyRequests handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostEventsUsersRoutingstatusTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus too many requests response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus too many requests response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus too many requests response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users routingstatus too many requests response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users routingstatus too many requests response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostEventsUsersRoutingstatusTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostEventsUsersRoutingstatusInternalServerError() *PostEventsUsersRoutin
 	return &PostEventsUsersRoutingstatusInternalServerError{}
 }
 
-/*PostEventsUsersRoutingstatusInternalServerError handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostEventsUsersRoutingstatusInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus internal server error response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus internal server error response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus internal server error response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users routingstatus internal server error response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post events users routingstatus internal server error response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostEventsUsersRoutingstatusInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostEventsUsersRoutingstatusServiceUnavailable() *PostEventsUsersRouting
 	return &PostEventsUsersRoutingstatusServiceUnavailable{}
 }
 
-/*PostEventsUsersRoutingstatusServiceUnavailable handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostEventsUsersRoutingstatusServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus service unavailable response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus service unavailable response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus service unavailable response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users routingstatus service unavailable response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post events users routingstatus service unavailable response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostEventsUsersRoutingstatusServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostEventsUsersRoutingstatusGatewayTimeout() *PostEventsUsersRoutingstat
 	return &PostEventsUsersRoutingstatusGatewayTimeout{}
 }
 
-/*PostEventsUsersRoutingstatusGatewayTimeout handles this case with default header values.
+/*
+PostEventsUsersRoutingstatusGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostEventsUsersRoutingstatusGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users routingstatus gateway timeout response has a 2xx status code
+func (o *PostEventsUsersRoutingstatusGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users routingstatus gateway timeout response has a 3xx status code
+func (o *PostEventsUsersRoutingstatusGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users routingstatus gateway timeout response has a 4xx status code
+func (o *PostEventsUsersRoutingstatusGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users routingstatus gateway timeout response has a 5xx status code
+func (o *PostEventsUsersRoutingstatusGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post events users routingstatus gateway timeout response a status code equal to that given
+func (o *PostEventsUsersRoutingstatusGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostEventsUsersRoutingstatusGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostEventsUsersRoutingstatusGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/routingstatus][%d] postEventsUsersRoutingstatusGatewayTimeout  %+v", 504, o.Payload)
 }
 

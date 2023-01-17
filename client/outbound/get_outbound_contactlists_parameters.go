@@ -17,169 +17,174 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOutboundContactlistsParams creates a new GetOutboundContactlistsParams object
-// with the default values initialized.
+// NewGetOutboundContactlistsParams creates a new GetOutboundContactlistsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundContactlistsParams() *GetOutboundContactlistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-		sortOrderDefault           = string("a")
-	)
 	return &GetOutboundContactlistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-		SortOrder:           &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundContactlistsParamsWithTimeout creates a new GetOutboundContactlistsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundContactlistsParamsWithTimeout(timeout time.Duration) *GetOutboundContactlistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-		sortOrderDefault           = string("a")
-	)
 	return &GetOutboundContactlistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-		SortOrder:           &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundContactlistsParamsWithContext creates a new GetOutboundContactlistsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundContactlistsParamsWithContext(ctx context.Context) *GetOutboundContactlistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-		sortOrderDefault           = string("a")
-	)
 	return &GetOutboundContactlistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-		SortOrder:           &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundContactlistsParamsWithHTTPClient creates a new GetOutboundContactlistsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundContactlistsParamsWithHTTPClient(client *http.Client) *GetOutboundContactlistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-		sortOrderDefault           = string("a")
-	)
 	return &GetOutboundContactlistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-		SortOrder:           &sortOrderDefault,
-		HTTPClient:          client,
+		HTTPClient: client,
 	}
 }
 
-/*GetOutboundContactlistsParams contains all the parameters to send to the API endpoint
-for the get outbound contactlists operation typically these are written to a http.Request
+/*
+GetOutboundContactlistsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound contactlists operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundContactlistsParams struct {
 
-	/*AllowEmptyResult
-	  Whether to return an empty page when there are no results for that page
+	/* AllowEmptyResult.
 
+	   Whether to return an empty page when there are no results for that page
 	*/
 	AllowEmptyResult *bool
-	/*DivisionID
-	  Division ID(s)
 
+	/* DivisionID.
+
+	   Division ID(s)
 	*/
 	DivisionID []string
-	/*FilterType
-	  Filter type
 
+	/* FilterType.
+
+	   Filter type
+
+	   Default: "Prefix"
 	*/
 	FilterType *string
-	/*ID
-	  id
 
+	/* ID.
+
+	   id
 	*/
 	ID []string
-	/*IncludeImportStatus
-	  Include import status
 
+	/* IncludeImportStatus.
+
+	   Include import status
 	*/
 	IncludeImportStatus *bool
-	/*IncludeSize
-	  Include size
 
+	/* IncludeSize.
+
+	   Include size
 	*/
 	IncludeSize *bool
-	/*Name
-	  Name
 
+	/* Name.
+
+	   Name
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size. The max that will be returned is 100.
 
+	/* PageSize.
+
+	   Page size. The max that will be returned is 100.
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "a"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound contactlists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistsParams) WithDefaults() *GetOutboundContactlistsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound contactlists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistsParams) SetDefaults() {
+	var (
+		allowEmptyResultDefault = bool(false)
+
+		filterTypeDefault = string("Prefix")
+
+		includeImportStatusDefault = bool(false)
+
+		includeSizeDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("a")
+	)
+
+	val := GetOutboundContactlistsParams{
+		AllowEmptyResult:    &allowEmptyResultDefault,
+		FilterType:          &filterTypeDefault,
+		IncludeImportStatus: &includeImportStatusDefault,
+		IncludeSize:         &includeSizeDefault,
+		PageNumber:          &pageNumberDefault,
+		PageSize:            &pageSizeDefault,
+		SortOrder:           &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound contactlists params
@@ -348,164 +353,213 @@ func (o *GetOutboundContactlistsParams) WriteToRequest(r runtime.ClientRequest, 
 
 		// query param allowEmptyResult
 		var qrAllowEmptyResult bool
+
 		if o.AllowEmptyResult != nil {
 			qrAllowEmptyResult = *o.AllowEmptyResult
 		}
 		qAllowEmptyResult := swag.FormatBool(qrAllowEmptyResult)
 		if qAllowEmptyResult != "" {
+
 			if err := r.SetQueryParam("allowEmptyResult", qAllowEmptyResult); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
 	if o.FilterType != nil {
 
 		// query param filterType
 		var qrFilterType string
+
 		if o.FilterType != nil {
 			qrFilterType = *o.FilterType
 		}
 		qFilterType := qrFilterType
 		if qFilterType != "" {
+
 			if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.IncludeImportStatus != nil {
 
 		// query param includeImportStatus
 		var qrIncludeImportStatus bool
+
 		if o.IncludeImportStatus != nil {
 			qrIncludeImportStatus = *o.IncludeImportStatus
 		}
 		qIncludeImportStatus := swag.FormatBool(qrIncludeImportStatus)
 		if qIncludeImportStatus != "" {
+
 			if err := r.SetQueryParam("includeImportStatus", qIncludeImportStatus); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeSize != nil {
 
 		// query param includeSize
 		var qrIncludeSize bool
+
 		if o.IncludeSize != nil {
 			qrIncludeSize = *o.IncludeSize
 		}
 		qIncludeSize := swag.FormatBool(qrIncludeSize)
 		if qIncludeSize != "" {
+
 			if err := r.SetQueryParam("includeSize", qIncludeSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetOutboundContactlists binds the parameter divisionId
+func (o *GetOutboundContactlistsParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
+}
+
+// bindParamGetOutboundContactlists binds the parameter id
+func (o *GetOutboundContactlistsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

@@ -101,7 +101,6 @@ func (o *PostTelephonyProvidersEdgeUnpairReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostTelephonyProvidersEdgeUnpairOK() *PostTelephonyProvidersEdgeUnpairOK
 	return &PostTelephonyProvidersEdgeUnpairOK{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairOK handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostTelephonyProvidersEdgeUnpairOK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair o k response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair o k response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair o k response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge unpair o k response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair o k response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairOK  %+v", 200, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairOK  %+v", 200, o.Payload)
 }
 
@@ -143,7 +172,8 @@ func NewPostTelephonyProvidersEdgeUnpairBadRequest() *PostTelephonyProvidersEdge
 	return &PostTelephonyProvidersEdgeUnpairBadRequest{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairBadRequest handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -151,7 +181,36 @@ type PostTelephonyProvidersEdgeUnpairBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair bad request response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair bad request response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair bad request response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair bad request response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair bad request response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairBadRequest  %+v", 400, o.Payload)
 }
 
@@ -176,7 +235,8 @@ func NewPostTelephonyProvidersEdgeUnpairUnauthorized() *PostTelephonyProvidersEd
 	return &PostTelephonyProvidersEdgeUnpairUnauthorized{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairUnauthorized handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -184,7 +244,36 @@ type PostTelephonyProvidersEdgeUnpairUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair unauthorized response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair unauthorized response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair unauthorized response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair unauthorized response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair unauthorized response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -209,7 +298,8 @@ func NewPostTelephonyProvidersEdgeUnpairForbidden() *PostTelephonyProvidersEdgeU
 	return &PostTelephonyProvidersEdgeUnpairForbidden{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairForbidden handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -217,7 +307,36 @@ type PostTelephonyProvidersEdgeUnpairForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair forbidden response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair forbidden response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair forbidden response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair forbidden response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair forbidden response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairForbidden  %+v", 403, o.Payload)
 }
 
@@ -242,7 +361,8 @@ func NewPostTelephonyProvidersEdgeUnpairNotFound() *PostTelephonyProvidersEdgeUn
 	return &PostTelephonyProvidersEdgeUnpairNotFound{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairNotFound handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -250,7 +370,36 @@ type PostTelephonyProvidersEdgeUnpairNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair not found response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair not found response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair not found response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair not found response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair not found response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairNotFound  %+v", 404, o.Payload)
 }
 
@@ -275,7 +424,8 @@ func NewPostTelephonyProvidersEdgeUnpairRequestTimeout() *PostTelephonyProviders
 	return &PostTelephonyProvidersEdgeUnpairRequestTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairRequestTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -283,7 +433,36 @@ type PostTelephonyProvidersEdgeUnpairRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair request timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair request timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair request timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair request timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair request timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -308,7 +487,8 @@ func NewPostTelephonyProvidersEdgeUnpairConflict() *PostTelephonyProvidersEdgeUn
 	return &PostTelephonyProvidersEdgeUnpairConflict{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairConflict handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -316,7 +496,36 @@ type PostTelephonyProvidersEdgeUnpairConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair conflict response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair conflict response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair conflict response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair conflict response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair conflict response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairConflict  %+v", 409, o.Payload)
 }
 
@@ -341,7 +550,8 @@ func NewPostTelephonyProvidersEdgeUnpairRequestEntityTooLarge() *PostTelephonyPr
 	return &PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -349,7 +559,36 @@ type PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair request entity too large response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair request entity too large response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair request entity too large response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair request entity too large response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair request entity too large response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -374,7 +613,8 @@ func NewPostTelephonyProvidersEdgeUnpairUnsupportedMediaType() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgeUnpairUnsupportedMediaType{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairUnsupportedMediaType handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -382,7 +622,36 @@ type PostTelephonyProvidersEdgeUnpairUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair unsupported media type response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair unsupported media type response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair unsupported media type response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair unsupported media type response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair unsupported media type response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -407,7 +676,8 @@ func NewPostTelephonyProvidersEdgeUnpairTooManyRequests() *PostTelephonyProvider
 	return &PostTelephonyProvidersEdgeUnpairTooManyRequests{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairTooManyRequests handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -415,7 +685,36 @@ type PostTelephonyProvidersEdgeUnpairTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair too many requests response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair too many requests response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair too many requests response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge unpair too many requests response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge unpair too many requests response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -440,7 +739,8 @@ func NewPostTelephonyProvidersEdgeUnpairInternalServerError() *PostTelephonyProv
 	return &PostTelephonyProvidersEdgeUnpairInternalServerError{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairInternalServerError handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -448,7 +748,36 @@ type PostTelephonyProvidersEdgeUnpairInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair internal server error response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair internal server error response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair internal server error response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge unpair internal server error response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge unpair internal server error response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -473,7 +802,8 @@ func NewPostTelephonyProvidersEdgeUnpairServiceUnavailable() *PostTelephonyProvi
 	return &PostTelephonyProvidersEdgeUnpairServiceUnavailable{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairServiceUnavailable handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -481,7 +811,36 @@ type PostTelephonyProvidersEdgeUnpairServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair service unavailable response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair service unavailable response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair service unavailable response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge unpair service unavailable response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge unpair service unavailable response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -506,7 +865,8 @@ func NewPostTelephonyProvidersEdgeUnpairGatewayTimeout() *PostTelephonyProviders
 	return &PostTelephonyProvidersEdgeUnpairGatewayTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeUnpairGatewayTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeUnpairGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -514,7 +874,36 @@ type PostTelephonyProvidersEdgeUnpairGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge unpair gateway timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeUnpairGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge unpair gateway timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeUnpairGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge unpair gateway timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeUnpairGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge unpair gateway timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeUnpairGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge unpair gateway timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeUnpairGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTelephonyProvidersEdgeUnpairGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeUnpairGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/unpair][%d] postTelephonyProvidersEdgeUnpairGatewayTimeout  %+v", 504, o.Payload)
 }
 

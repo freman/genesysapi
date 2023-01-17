@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutResponsemanagementResponseParams creates a new PutResponsemanagementResponseParams object
-// with the default values initialized.
+// NewPutResponsemanagementResponseParams creates a new PutResponsemanagementResponseParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutResponsemanagementResponseParams() *PutResponsemanagementResponseParams {
-	var ()
 	return &PutResponsemanagementResponseParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutResponsemanagementResponseParamsWithTimeout creates a new PutResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutResponsemanagementResponseParamsWithTimeout(timeout time.Duration) *PutResponsemanagementResponseParams {
-	var ()
 	return &PutResponsemanagementResponseParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutResponsemanagementResponseParamsWithContext creates a new PutResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutResponsemanagementResponseParamsWithContext(ctx context.Context) *PutResponsemanagementResponseParams {
-	var ()
 	return &PutResponsemanagementResponseParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutResponsemanagementResponseParamsWithHTTPClient creates a new PutResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutResponsemanagementResponseParamsWithHTTPClient(client *http.Client) *PutResponsemanagementResponseParams {
-	var ()
 	return &PutResponsemanagementResponseParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutResponsemanagementResponseParams contains all the parameters to send to the API endpoint
-for the put responsemanagement response operation typically these are written to a http.Request
+/*
+PutResponsemanagementResponseParams contains all the parameters to send to the API endpoint
+
+	for the put responsemanagement response operation.
+
+	Typically these are written to a http.Request.
 */
 type PutResponsemanagementResponseParams struct {
 
-	/*Body
-	  Response
+	/* Body.
 
+	   Response
 	*/
 	Body *models.Response
-	/*Expand
-	  Expand instructions for the return value.
 
+	/* Expand.
+
+	   Expand instructions for the return value.
 	*/
 	Expand *string
-	/*ResponseID
-	  Response ID
 
+	/* ResponseID.
+
+	   Response ID
 	*/
 	ResponseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put responsemanagement response params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutResponsemanagementResponseParams) WithDefaults() *PutResponsemanagementResponseParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put responsemanagement response params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutResponsemanagementResponseParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put responsemanagement response params
@@ -156,7 +174,6 @@ func (o *PutResponsemanagementResponseParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -167,16 +184,17 @@ func (o *PutResponsemanagementResponseParams) WriteToRequest(r runtime.ClientReq
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param responseId

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteContentmanagementWorkspaceTagvalueParams creates a new DeleteContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized.
+// NewDeleteContentmanagementWorkspaceTagvalueParams creates a new DeleteContentmanagementWorkspaceTagvalueParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteContentmanagementWorkspaceTagvalueParams() *DeleteContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceTagvalueParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceTagvalueParamsWithTimeout creates a new DeleteContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteContentmanagementWorkspaceTagvalueParamsWithTimeout(timeout time.Duration) *DeleteContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceTagvalueParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceTagvalueParamsWithContext creates a new DeleteContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteContentmanagementWorkspaceTagvalueParamsWithContext(ctx context.Context) *DeleteContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceTagvalueParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceTagvalueParamsWithHTTPClient creates a new DeleteContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteContentmanagementWorkspaceTagvalueParamsWithHTTPClient(client *http.Client) *DeleteContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceTagvalueParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteContentmanagementWorkspaceTagvalueParams contains all the parameters to send to the API endpoint
-for the delete contentmanagement workspace tagvalue operation typically these are written to a http.Request
+/*
+DeleteContentmanagementWorkspaceTagvalueParams contains all the parameters to send to the API endpoint
+
+	for the delete contentmanagement workspace tagvalue operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteContentmanagementWorkspaceTagvalueParams struct {
 
-	/*TagID
-	  Tag ID
+	/* TagID.
 
+	   Tag ID
 	*/
 	TagID string
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete contentmanagement workspace tagvalue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementWorkspaceTagvalueParams) WithDefaults() *DeleteContentmanagementWorkspaceTagvalueParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete contentmanagement workspace tagvalue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementWorkspaceTagvalueParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete contentmanagement workspace tagvalue params

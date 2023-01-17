@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundSequenceParams creates a new DeleteOutboundSequenceParams object
-// with the default values initialized.
+// NewDeleteOutboundSequenceParams creates a new DeleteOutboundSequenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundSequenceParams() *DeleteOutboundSequenceParams {
-	var ()
 	return &DeleteOutboundSequenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundSequenceParamsWithTimeout creates a new DeleteOutboundSequenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundSequenceParamsWithTimeout(timeout time.Duration) *DeleteOutboundSequenceParams {
-	var ()
 	return &DeleteOutboundSequenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundSequenceParamsWithContext creates a new DeleteOutboundSequenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundSequenceParamsWithContext(ctx context.Context) *DeleteOutboundSequenceParams {
-	var ()
 	return &DeleteOutboundSequenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundSequenceParamsWithHTTPClient creates a new DeleteOutboundSequenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundSequenceParamsWithHTTPClient(client *http.Client) *DeleteOutboundSequenceParams {
-	var ()
 	return &DeleteOutboundSequenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundSequenceParams contains all the parameters to send to the API endpoint
-for the delete outbound sequence operation typically these are written to a http.Request
+/*
+DeleteOutboundSequenceParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound sequence operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundSequenceParams struct {
 
-	/*SequenceID
-	  Campaign Sequence ID
+	/* SequenceID.
 
+	   Campaign Sequence ID
 	*/
 	SequenceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundSequenceParams) WithDefaults() *DeleteOutboundSequenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundSequenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound sequence params

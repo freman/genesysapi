@@ -95,7 +95,6 @@ func (o *PutUserProfileskillsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutUserProfileskillsOK() *PutUserProfileskillsOK {
 	return &PutUserProfileskillsOK{}
 }
 
-/*PutUserProfileskillsOK handles this case with default header values.
+/*
+PutUserProfileskillsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutUserProfileskillsOK struct {
 	Payload []string
 }
 
+// IsSuccess returns true when this put user profileskills o k response has a 2xx status code
+func (o *PutUserProfileskillsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put user profileskills o k response has a 3xx status code
+func (o *PutUserProfileskillsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills o k response has a 4xx status code
+func (o *PutUserProfileskillsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user profileskills o k response has a 5xx status code
+func (o *PutUserProfileskillsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills o k response a status code equal to that given
+func (o *PutUserProfileskillsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutUserProfileskillsOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsOK  %+v", 200, o.Payload)
+}
+
+func (o *PutUserProfileskillsOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPutUserProfileskillsBadRequest() *PutUserProfileskillsBadRequest {
 	return &PutUserProfileskillsBadRequest{}
 }
 
-/*PutUserProfileskillsBadRequest handles this case with default header values.
+/*
+PutUserProfileskillsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PutUserProfileskillsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills bad request response has a 2xx status code
+func (o *PutUserProfileskillsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills bad request response has a 3xx status code
+func (o *PutUserProfileskillsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills bad request response has a 4xx status code
+func (o *PutUserProfileskillsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills bad request response has a 5xx status code
+func (o *PutUserProfileskillsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills bad request response a status code equal to that given
+func (o *PutUserProfileskillsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUserProfileskillsBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUserProfileskillsBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPutUserProfileskillsUnauthorized() *PutUserProfileskillsUnauthorized {
 	return &PutUserProfileskillsUnauthorized{}
 }
 
-/*PutUserProfileskillsUnauthorized handles this case with default header values.
+/*
+PutUserProfileskillsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PutUserProfileskillsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills unauthorized response has a 2xx status code
+func (o *PutUserProfileskillsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills unauthorized response has a 3xx status code
+func (o *PutUserProfileskillsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills unauthorized response has a 4xx status code
+func (o *PutUserProfileskillsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills unauthorized response has a 5xx status code
+func (o *PutUserProfileskillsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills unauthorized response a status code equal to that given
+func (o *PutUserProfileskillsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUserProfileskillsUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUserProfileskillsUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPutUserProfileskillsForbidden() *PutUserProfileskillsForbidden {
 	return &PutUserProfileskillsForbidden{}
 }
 
-/*PutUserProfileskillsForbidden handles this case with default header values.
+/*
+PutUserProfileskillsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PutUserProfileskillsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills forbidden response has a 2xx status code
+func (o *PutUserProfileskillsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills forbidden response has a 3xx status code
+func (o *PutUserProfileskillsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills forbidden response has a 4xx status code
+func (o *PutUserProfileskillsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills forbidden response has a 5xx status code
+func (o *PutUserProfileskillsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills forbidden response a status code equal to that given
+func (o *PutUserProfileskillsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUserProfileskillsForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUserProfileskillsForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPutUserProfileskillsNotFound() *PutUserProfileskillsNotFound {
 	return &PutUserProfileskillsNotFound{}
 }
 
-/*PutUserProfileskillsNotFound handles this case with default header values.
+/*
+PutUserProfileskillsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PutUserProfileskillsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills not found response has a 2xx status code
+func (o *PutUserProfileskillsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills not found response has a 3xx status code
+func (o *PutUserProfileskillsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills not found response has a 4xx status code
+func (o *PutUserProfileskillsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills not found response has a 5xx status code
+func (o *PutUserProfileskillsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills not found response a status code equal to that given
+func (o *PutUserProfileskillsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUserProfileskillsNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUserProfileskillsNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPutUserProfileskillsRequestTimeout() *PutUserProfileskillsRequestTimeout
 	return &PutUserProfileskillsRequestTimeout{}
 }
 
-/*PutUserProfileskillsRequestTimeout handles this case with default header values.
+/*
+PutUserProfileskillsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PutUserProfileskillsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills request timeout response has a 2xx status code
+func (o *PutUserProfileskillsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills request timeout response has a 3xx status code
+func (o *PutUserProfileskillsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills request timeout response has a 4xx status code
+func (o *PutUserProfileskillsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills request timeout response has a 5xx status code
+func (o *PutUserProfileskillsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills request timeout response a status code equal to that given
+func (o *PutUserProfileskillsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUserProfileskillsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserProfileskillsRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPutUserProfileskillsRequestEntityTooLarge() *PutUserProfileskillsRequest
 	return &PutUserProfileskillsRequestEntityTooLarge{}
 }
 
-/*PutUserProfileskillsRequestEntityTooLarge handles this case with default header values.
+/*
+PutUserProfileskillsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PutUserProfileskillsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills request entity too large response has a 2xx status code
+func (o *PutUserProfileskillsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills request entity too large response has a 3xx status code
+func (o *PutUserProfileskillsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills request entity too large response has a 4xx status code
+func (o *PutUserProfileskillsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills request entity too large response has a 5xx status code
+func (o *PutUserProfileskillsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills request entity too large response a status code equal to that given
+func (o *PutUserProfileskillsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUserProfileskillsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUserProfileskillsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPutUserProfileskillsUnsupportedMediaType() *PutUserProfileskillsUnsuppor
 	return &PutUserProfileskillsUnsupportedMediaType{}
 }
 
-/*PutUserProfileskillsUnsupportedMediaType handles this case with default header values.
+/*
+PutUserProfileskillsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PutUserProfileskillsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills unsupported media type response has a 2xx status code
+func (o *PutUserProfileskillsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills unsupported media type response has a 3xx status code
+func (o *PutUserProfileskillsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills unsupported media type response has a 4xx status code
+func (o *PutUserProfileskillsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills unsupported media type response has a 5xx status code
+func (o *PutUserProfileskillsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills unsupported media type response a status code equal to that given
+func (o *PutUserProfileskillsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUserProfileskillsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUserProfileskillsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPutUserProfileskillsTooManyRequests() *PutUserProfileskillsTooManyReques
 	return &PutUserProfileskillsTooManyRequests{}
 }
 
-/*PutUserProfileskillsTooManyRequests handles this case with default header values.
+/*
+PutUserProfileskillsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PutUserProfileskillsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills too many requests response has a 2xx status code
+func (o *PutUserProfileskillsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills too many requests response has a 3xx status code
+func (o *PutUserProfileskillsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills too many requests response has a 4xx status code
+func (o *PutUserProfileskillsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user profileskills too many requests response has a 5xx status code
+func (o *PutUserProfileskillsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user profileskills too many requests response a status code equal to that given
+func (o *PutUserProfileskillsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUserProfileskillsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUserProfileskillsTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPutUserProfileskillsInternalServerError() *PutUserProfileskillsInternalS
 	return &PutUserProfileskillsInternalServerError{}
 }
 
-/*PutUserProfileskillsInternalServerError handles this case with default header values.
+/*
+PutUserProfileskillsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PutUserProfileskillsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills internal server error response has a 2xx status code
+func (o *PutUserProfileskillsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills internal server error response has a 3xx status code
+func (o *PutUserProfileskillsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills internal server error response has a 4xx status code
+func (o *PutUserProfileskillsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user profileskills internal server error response has a 5xx status code
+func (o *PutUserProfileskillsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user profileskills internal server error response a status code equal to that given
+func (o *PutUserProfileskillsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUserProfileskillsInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUserProfileskillsInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPutUserProfileskillsServiceUnavailable() *PutUserProfileskillsServiceUna
 	return &PutUserProfileskillsServiceUnavailable{}
 }
 
-/*PutUserProfileskillsServiceUnavailable handles this case with default header values.
+/*
+PutUserProfileskillsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PutUserProfileskillsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills service unavailable response has a 2xx status code
+func (o *PutUserProfileskillsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills service unavailable response has a 3xx status code
+func (o *PutUserProfileskillsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills service unavailable response has a 4xx status code
+func (o *PutUserProfileskillsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user profileskills service unavailable response has a 5xx status code
+func (o *PutUserProfileskillsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user profileskills service unavailable response a status code equal to that given
+func (o *PutUserProfileskillsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUserProfileskillsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUserProfileskillsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPutUserProfileskillsGatewayTimeout() *PutUserProfileskillsGatewayTimeout
 	return &PutUserProfileskillsGatewayTimeout{}
 }
 
-/*PutUserProfileskillsGatewayTimeout handles this case with default header values.
+/*
+PutUserProfileskillsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PutUserProfileskillsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user profileskills gateway timeout response has a 2xx status code
+func (o *PutUserProfileskillsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user profileskills gateway timeout response has a 3xx status code
+func (o *PutUserProfileskillsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user profileskills gateway timeout response has a 4xx status code
+func (o *PutUserProfileskillsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user profileskills gateway timeout response has a 5xx status code
+func (o *PutUserProfileskillsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user profileskills gateway timeout response a status code equal to that given
+func (o *PutUserProfileskillsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUserProfileskillsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUserProfileskillsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/profileskills][%d] putUserProfileskillsGatewayTimeout  %+v", 504, o.Payload)
 }
 

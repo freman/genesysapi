@@ -17,94 +17,113 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetFlowVersionsParams creates a new GetFlowVersionsParams object
-// with the default values initialized.
+// NewGetFlowVersionsParams creates a new GetFlowVersionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowVersionsParams() *GetFlowVersionsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetFlowVersionsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowVersionsParamsWithTimeout creates a new GetFlowVersionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowVersionsParamsWithTimeout(timeout time.Duration) *GetFlowVersionsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetFlowVersionsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowVersionsParamsWithContext creates a new GetFlowVersionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowVersionsParamsWithContext(ctx context.Context) *GetFlowVersionsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetFlowVersionsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowVersionsParamsWithHTTPClient creates a new GetFlowVersionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowVersionsParamsWithHTTPClient(client *http.Client) *GetFlowVersionsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetFlowVersionsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowVersionsParams contains all the parameters to send to the API endpoint
-for the get flow versions operation typically these are written to a http.Request
+/*
+GetFlowVersionsParams contains all the parameters to send to the API endpoint
+
+	for the get flow versions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowVersionsParams struct {
 
-	/*Deleted
-	  Include Deleted flows
+	/* Deleted.
 
+	   Include Deleted flows
 	*/
 	Deleted *bool
-	/*FlowID
-	  Flow ID
 
+	/* FlowID.
+
+	   Flow ID
 	*/
 	FlowID string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flow versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowVersionsParams) WithDefaults() *GetFlowVersionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flow versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowVersionsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetFlowVersionsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get flow versions params
@@ -196,16 +215,17 @@ func (o *GetFlowVersionsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 		// query param deleted
 		var qrDeleted bool
+
 		if o.Deleted != nil {
 			qrDeleted = *o.Deleted
 		}
 		qDeleted := swag.FormatBool(qrDeleted)
 		if qDeleted != "" {
+
 			if err := r.SetQueryParam("deleted", qDeleted); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param flowId
@@ -217,32 +237,34 @@ func (o *GetFlowVersionsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

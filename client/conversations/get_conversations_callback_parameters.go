@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsCallbackParams creates a new GetConversationsCallbackParams object
-// with the default values initialized.
+// NewGetConversationsCallbackParams creates a new GetConversationsCallbackParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsCallbackParams() *GetConversationsCallbackParams {
-	var ()
 	return &GetConversationsCallbackParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsCallbackParamsWithTimeout creates a new GetConversationsCallbackParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsCallbackParamsWithTimeout(timeout time.Duration) *GetConversationsCallbackParams {
-	var ()
 	return &GetConversationsCallbackParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsCallbackParamsWithContext creates a new GetConversationsCallbackParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsCallbackParamsWithContext(ctx context.Context) *GetConversationsCallbackParams {
-	var ()
 	return &GetConversationsCallbackParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsCallbackParamsWithHTTPClient creates a new GetConversationsCallbackParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsCallbackParamsWithHTTPClient(client *http.Client) *GetConversationsCallbackParams {
-	var ()
 	return &GetConversationsCallbackParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsCallbackParams contains all the parameters to send to the API endpoint
-for the get conversations callback operation typically these are written to a http.Request
+/*
+GetConversationsCallbackParams contains all the parameters to send to the API endpoint
+
+	for the get conversations callback operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsCallbackParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations callback params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCallbackParams) WithDefaults() *GetConversationsCallbackParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations callback params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCallbackParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations callback params

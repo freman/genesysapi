@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesAvailablelanguagesParams creates a new GetTelephonyProvidersEdgesAvailablelanguagesParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesAvailablelanguagesParams creates a new GetTelephonyProvidersEdgesAvailablelanguagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesAvailablelanguagesParams() *GetTelephonyProvidersEdgesAvailablelanguagesParams {
-
 	return &GetTelephonyProvidersEdgesAvailablelanguagesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesAvailablelanguagesParamsWithTimeout creates a new GetTelephonyProvidersEdgesAvailablelanguagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesAvailablelanguagesParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesAvailablelanguagesParams {
-
 	return &GetTelephonyProvidersEdgesAvailablelanguagesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesAvailablelanguagesParamsWithContext creates a new GetTelephonyProvidersEdgesAvailablelanguagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesAvailablelanguagesParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesAvailablelanguagesParams {
-
 	return &GetTelephonyProvidersEdgesAvailablelanguagesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesAvailablelanguagesParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesAvailablelanguagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesAvailablelanguagesParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesAvailablelanguagesParams {
-
 	return &GetTelephonyProvidersEdgesAvailablelanguagesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesAvailablelanguagesParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges availablelanguages operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesAvailablelanguagesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges availablelanguages operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesAvailablelanguagesParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges availablelanguages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesAvailablelanguagesParams) WithDefaults() *GetTelephonyProvidersEdgesAvailablelanguagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges availablelanguages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesAvailablelanguagesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges availablelanguages params

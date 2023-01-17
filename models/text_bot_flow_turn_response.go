@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -92,7 +93,6 @@ func (m *TextBotFlowTurnResponse) validateID(formats strfmt.Registry) error {
 }
 
 func (m *TextBotFlowTurnResponse) validateNextActionDisconnect(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NextActionDisconnect) { // not required
 		return nil
 	}
@@ -101,6 +101,8 @@ func (m *TextBotFlowTurnResponse) validateNextActionDisconnect(formats strfmt.Re
 		if err := m.NextActionDisconnect.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("nextActionDisconnect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nextActionDisconnect")
 			}
 			return err
 		}
@@ -110,7 +112,6 @@ func (m *TextBotFlowTurnResponse) validateNextActionDisconnect(formats strfmt.Re
 }
 
 func (m *TextBotFlowTurnResponse) validateNextActionExit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NextActionExit) { // not required
 		return nil
 	}
@@ -119,6 +120,8 @@ func (m *TextBotFlowTurnResponse) validateNextActionExit(formats strfmt.Registry
 		if err := m.NextActionExit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("nextActionExit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nextActionExit")
 			}
 			return err
 		}
@@ -177,7 +180,6 @@ func (m *TextBotFlowTurnResponse) validateNextActionType(formats strfmt.Registry
 }
 
 func (m *TextBotFlowTurnResponse) validateNextActionWaitForInput(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NextActionWaitForInput) { // not required
 		return nil
 	}
@@ -186,6 +188,8 @@ func (m *TextBotFlowTurnResponse) validateNextActionWaitForInput(formats strfmt.
 		if err := m.NextActionWaitForInput.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("nextActionWaitForInput")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nextActionWaitForInput")
 			}
 			return err
 		}
@@ -195,7 +199,6 @@ func (m *TextBotFlowTurnResponse) validateNextActionWaitForInput(formats strfmt.
 }
 
 func (m *TextBotFlowTurnResponse) validatePreviousTurn(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviousTurn) { // not required
 		return nil
 	}
@@ -204,6 +207,8 @@ func (m *TextBotFlowTurnResponse) validatePreviousTurn(formats strfmt.Registry) 
 		if err := m.PreviousTurn.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("previousTurn")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("previousTurn")
 			}
 			return err
 		}
@@ -213,7 +218,6 @@ func (m *TextBotFlowTurnResponse) validatePreviousTurn(formats strfmt.Registry) 
 }
 
 func (m *TextBotFlowTurnResponse) validatePrompts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Prompts) { // not required
 		return nil
 	}
@@ -222,6 +226,118 @@ func (m *TextBotFlowTurnResponse) validatePrompts(formats strfmt.Registry) error
 		if err := m.Prompts.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("prompts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("prompts")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot flow turn response based on the context it is used
+func (m *TextBotFlowTurnResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateNextActionDisconnect(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNextActionExit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNextActionWaitForInput(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePreviousTurn(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrompts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotFlowTurnResponse) contextValidateNextActionDisconnect(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NextActionDisconnect != nil {
+		if err := m.NextActionDisconnect.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nextActionDisconnect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nextActionDisconnect")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowTurnResponse) contextValidateNextActionExit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NextActionExit != nil {
+		if err := m.NextActionExit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nextActionExit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nextActionExit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowTurnResponse) contextValidateNextActionWaitForInput(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NextActionWaitForInput != nil {
+		if err := m.NextActionWaitForInput.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nextActionWaitForInput")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nextActionWaitForInput")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowTurnResponse) contextValidatePreviousTurn(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PreviousTurn != nil {
+		if err := m.PreviousTurn.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("previousTurn")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("previousTurn")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowTurnResponse) contextValidatePrompts(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Prompts != nil {
+		if err := m.Prompts.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("prompts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("prompts")
 			}
 			return err
 		}

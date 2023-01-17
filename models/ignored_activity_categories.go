@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -58,7 +59,6 @@ func (m *IgnoredActivityCategories) validateValuesItemsEnum(path, location strin
 }
 
 func (m *IgnoredActivityCategories) validateValues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Values) { // not required
 		return nil
 	}
@@ -72,6 +72,11 @@ func (m *IgnoredActivityCategories) validateValues(formats strfmt.Registry) erro
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this ignored activity categories based on context it is used
+func (m *IgnoredActivityCategories) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -17,89 +17,101 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOutboundContactlistsDivisionviewParams creates a new GetOutboundContactlistsDivisionviewParams object
-// with the default values initialized.
+// NewGetOutboundContactlistsDivisionviewParams creates a new GetOutboundContactlistsDivisionviewParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundContactlistsDivisionviewParams() *GetOutboundContactlistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundContactlistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundContactlistsDivisionviewParamsWithTimeout creates a new GetOutboundContactlistsDivisionviewParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundContactlistsDivisionviewParamsWithTimeout(timeout time.Duration) *GetOutboundContactlistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundContactlistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundContactlistsDivisionviewParamsWithContext creates a new GetOutboundContactlistsDivisionviewParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundContactlistsDivisionviewParamsWithContext(ctx context.Context) *GetOutboundContactlistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundContactlistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundContactlistsDivisionviewParamsWithHTTPClient creates a new GetOutboundContactlistsDivisionviewParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundContactlistsDivisionviewParamsWithHTTPClient(client *http.Client) *GetOutboundContactlistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundContactlistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		HTTPClient:          client,
+		HTTPClient: client,
 	}
 }
 
-/*GetOutboundContactlistsDivisionviewParams contains all the parameters to send to the API endpoint
-for the get outbound contactlists divisionview operation typically these are written to a http.Request
+/*
+GetOutboundContactlistsDivisionviewParams contains all the parameters to send to the API endpoint
+
+	for the get outbound contactlists divisionview operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundContactlistsDivisionviewParams struct {
 
-	/*ContactListID
-	  Contactlist ID
+	/* ContactListID.
 
+	   Contactlist ID
 	*/
 	ContactListID string
-	/*IncludeImportStatus
-	  Include import status
 
+	/* IncludeImportStatus.
+
+	   Include import status
 	*/
 	IncludeImportStatus *bool
-	/*IncludeSize
-	  Include size
 
+	/* IncludeSize.
+
+	   Include size
 	*/
 	IncludeSize *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound contactlists divisionview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistsDivisionviewParams) WithDefaults() *GetOutboundContactlistsDivisionviewParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound contactlists divisionview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistsDivisionviewParams) SetDefaults() {
+	var (
+		includeImportStatusDefault = bool(false)
+
+		includeSizeDefault = bool(false)
+	)
+
+	val := GetOutboundContactlistsDivisionviewParams{
+		IncludeImportStatus: &includeImportStatusDefault,
+		IncludeSize:         &includeSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound contactlists divisionview params
@@ -185,32 +197,34 @@ func (o *GetOutboundContactlistsDivisionviewParams) WriteToRequest(r runtime.Cli
 
 		// query param includeImportStatus
 		var qrIncludeImportStatus bool
+
 		if o.IncludeImportStatus != nil {
 			qrIncludeImportStatus = *o.IncludeImportStatus
 		}
 		qIncludeImportStatus := swag.FormatBool(qrIncludeImportStatus)
 		if qIncludeImportStatus != "" {
+
 			if err := r.SetQueryParam("includeImportStatus", qIncludeImportStatus); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeSize != nil {
 
 		// query param includeSize
 		var qrIncludeSize bool
+
 		if o.IncludeSize != nil {
 			qrIncludeSize = *o.IncludeSize
 		}
 		qIncludeSize := swag.FormatBool(qrIncludeSize)
 		if qIncludeSize != "" {
+
 			if err := r.SetQueryParam("includeSize", qIncludeSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeKnowledgebaseSearchParams creates a new PostKnowledgeKnowledgebaseSearchParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseSearchParams creates a new PostKnowledgeKnowledgebaseSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseSearchParams() *PostKnowledgeKnowledgebaseSearchParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseSearchParamsWithTimeout creates a new PostKnowledgeKnowledgebaseSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseSearchParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseSearchParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseSearchParamsWithContext creates a new PostKnowledgeKnowledgebaseSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseSearchParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseSearchParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseSearchParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseSearchParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseSearchParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseSearchParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase search operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseSearchParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseSearchParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeSearchRequest
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseSearchParams) WithDefaults() *PostKnowledgeKnowledgebaseSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase search params
@@ -137,7 +154,6 @@ func (o *PostKnowledgeKnowledgebaseSearchParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

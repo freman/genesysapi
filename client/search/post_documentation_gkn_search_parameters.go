@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostDocumentationGknSearchParams creates a new PostDocumentationGknSearchParams object
-// with the default values initialized.
+// NewPostDocumentationGknSearchParams creates a new PostDocumentationGknSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostDocumentationGknSearchParams() *PostDocumentationGknSearchParams {
-	var ()
 	return &PostDocumentationGknSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostDocumentationGknSearchParamsWithTimeout creates a new PostDocumentationGknSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostDocumentationGknSearchParamsWithTimeout(timeout time.Duration) *PostDocumentationGknSearchParams {
-	var ()
 	return &PostDocumentationGknSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostDocumentationGknSearchParamsWithContext creates a new PostDocumentationGknSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostDocumentationGknSearchParamsWithContext(ctx context.Context) *PostDocumentationGknSearchParams {
-	var ()
 	return &PostDocumentationGknSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostDocumentationGknSearchParamsWithHTTPClient creates a new PostDocumentationGknSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostDocumentationGknSearchParamsWithHTTPClient(client *http.Client) *PostDocumentationGknSearchParams {
-	var ()
 	return &PostDocumentationGknSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostDocumentationGknSearchParams contains all the parameters to send to the API endpoint
-for the post documentation gkn search operation typically these are written to a http.Request
+/*
+PostDocumentationGknSearchParams contains all the parameters to send to the API endpoint
+
+	for the post documentation gkn search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostDocumentationGknSearchParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.GKNDocumentationSearchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post documentation gkn search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostDocumentationGknSearchParams) WithDefaults() *PostDocumentationGknSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post documentation gkn search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostDocumentationGknSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post documentation gkn search params
@@ -124,7 +140,6 @@ func (o *PostDocumentationGknSearchParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

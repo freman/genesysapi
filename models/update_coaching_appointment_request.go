@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -82,7 +83,6 @@ func (m *UpdateCoachingAppointmentRequest) Validate(formats strfmt.Registry) err
 }
 
 func (m *UpdateCoachingAppointmentRequest) validateConversationIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationIds) { // not required
 		return nil
 	}
@@ -95,7 +95,6 @@ func (m *UpdateCoachingAppointmentRequest) validateConversationIds(formats strfm
 }
 
 func (m *UpdateCoachingAppointmentRequest) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -108,7 +107,6 @@ func (m *UpdateCoachingAppointmentRequest) validateDateStart(formats strfmt.Regi
 }
 
 func (m *UpdateCoachingAppointmentRequest) validateDocumentIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DocumentIds) { // not required
 		return nil
 	}
@@ -153,7 +151,6 @@ func (m *UpdateCoachingAppointmentRequest) validateStatusEnum(path, location str
 }
 
 func (m *UpdateCoachingAppointmentRequest) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -167,7 +164,6 @@ func (m *UpdateCoachingAppointmentRequest) validateStatus(formats strfmt.Registr
 }
 
 func (m *UpdateCoachingAppointmentRequest) validateWfmSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WfmSchedule) { // not required
 		return nil
 	}
@@ -176,6 +172,38 @@ func (m *UpdateCoachingAppointmentRequest) validateWfmSchedule(formats strfmt.Re
 		if err := m.WfmSchedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update coaching appointment request based on the context it is used
+func (m *UpdateCoachingAppointmentRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateWfmSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateCoachingAppointmentRequest) contextValidateWfmSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
 			}
 			return err
 		}

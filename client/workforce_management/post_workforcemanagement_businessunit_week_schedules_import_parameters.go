@@ -18,66 +18,86 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParams creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParams creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParams() *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesImportParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week schedules import operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesImportParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week schedules import operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekSchedulesImportParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.WfmProcessUploadRequest
-	/*BusinessUnitID
-	  The ID of the business unit
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*WeekID
-	  First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekID.
+
+	   First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week schedules import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week schedules import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week schedules import params
@@ -153,7 +173,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekSchedulesImportParams) WriteToRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

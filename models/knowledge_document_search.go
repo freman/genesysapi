@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -18,6 +20,12 @@ import (
 //
 // swagger:model KnowledgeDocumentSearch
 type KnowledgeDocumentSearch struct {
+
+	// The client application details from which search happened.
+	Application *KnowledgeSearchClientApplication `json:"application,omitempty"`
+
+	// Conversation context information if the search is initiated in the context of a conversation.
+	ConversationContext *KnowledgeConversationContextResponse `json:"conversationContext,omitempty"`
 
 	// Number of pages returned in the result calculated according to the pageSize and the total
 	// Read Only: true
@@ -34,6 +42,10 @@ type KnowledgeDocumentSearch struct {
 	// Max Length: 2147483647
 	// Min Length: 3
 	Query *string `json:"query"`
+
+	// The type of the query that initiates the search.
+	// Enum: [AutoSearch ManualSearch Suggestion]
+	QueryType string `json:"queryType,omitempty"`
 
 	// Documents matching the search query.
 	// Read Only: true
@@ -52,7 +64,19 @@ type KnowledgeDocumentSearch struct {
 func (m *KnowledgeDocumentSearch) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateApplication(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConversationContext(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateQuery(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQueryType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -66,17 +90,100 @@ func (m *KnowledgeDocumentSearch) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *KnowledgeDocumentSearch) validateApplication(formats strfmt.Registry) error {
+	if swag.IsZero(m.Application) { // not required
+		return nil
+	}
+
+	if m.Application != nil {
+		if err := m.Application.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) validateConversationContext(formats strfmt.Registry) error {
+	if swag.IsZero(m.ConversationContext) { // not required
+		return nil
+	}
+
+	if m.ConversationContext != nil {
+		if err := m.ConversationContext.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationContext")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *KnowledgeDocumentSearch) validateQuery(formats strfmt.Registry) error {
 
 	if err := validate.Required("query", "body", m.Query); err != nil {
 		return err
 	}
 
-	if err := validate.MinLength("query", "body", string(*m.Query), 3); err != nil {
+	if err := validate.MinLength("query", "body", *m.Query, 3); err != nil {
 		return err
 	}
 
-	if err := validate.MaxLength("query", "body", string(*m.Query), 2147483647); err != nil {
+	if err := validate.MaxLength("query", "body", *m.Query, 2147483647); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var knowledgeDocumentSearchTypeQueryTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["AutoSearch","ManualSearch","Suggestion"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		knowledgeDocumentSearchTypeQueryTypePropEnum = append(knowledgeDocumentSearchTypeQueryTypePropEnum, v)
+	}
+}
+
+const (
+
+	// KnowledgeDocumentSearchQueryTypeAutoSearch captures enum value "AutoSearch"
+	KnowledgeDocumentSearchQueryTypeAutoSearch string = "AutoSearch"
+
+	// KnowledgeDocumentSearchQueryTypeManualSearch captures enum value "ManualSearch"
+	KnowledgeDocumentSearchQueryTypeManualSearch string = "ManualSearch"
+
+	// KnowledgeDocumentSearchQueryTypeSuggestion captures enum value "Suggestion"
+	KnowledgeDocumentSearchQueryTypeSuggestion string = "Suggestion"
+)
+
+// prop value enum
+func (m *KnowledgeDocumentSearch) validateQueryTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, knowledgeDocumentSearchTypeQueryTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) validateQueryType(formats strfmt.Registry) error {
+	if swag.IsZero(m.QueryType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateQueryTypeEnum("queryType", "body", m.QueryType); err != nil {
 		return err
 	}
 
@@ -84,7 +191,6 @@ func (m *KnowledgeDocumentSearch) validateQuery(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocumentSearch) validateResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Results) { // not required
 		return nil
 	}
@@ -98,11 +204,130 @@ func (m *KnowledgeDocumentSearch) validateResults(formats strfmt.Registry) error
 			if err := m.Results[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document search based on the context it is used
+func (m *KnowledgeDocumentSearch) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateApplication(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePageCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSearchID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotal(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) contextValidateApplication(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Application != nil {
+		if err := m.Application.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("application")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("application")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) contextValidateConversationContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationContext != nil {
+		if err := m.ConversationContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationContext")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) contextValidatePageCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "pageCount", "body", int32(m.PageCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) contextValidateResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "results", "body", []*KnowledgeDocumentSearchResult(m.Results)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Results); i++ {
+
+		if m.Results[i] != nil {
+			if err := m.Results[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) contextValidateSearchID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "searchId", "body", string(m.SearchID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSearch) contextValidateTotal(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "total", "body", int32(m.Total)); err != nil {
+		return err
 	}
 
 	return nil

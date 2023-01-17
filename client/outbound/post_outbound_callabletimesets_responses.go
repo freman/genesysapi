@@ -95,7 +95,6 @@ func (o *PostOutboundCallabletimesetsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundCallabletimesetsOK() *PostOutboundCallabletimesetsOK {
 	return &PostOutboundCallabletimesetsOK{}
 }
 
-/*PostOutboundCallabletimesetsOK handles this case with default header values.
+/*
+PostOutboundCallabletimesetsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundCallabletimesetsOK struct {
 	Payload *models.CallableTimeSet
 }
 
+// IsSuccess returns true when this post outbound callabletimesets o k response has a 2xx status code
+func (o *PostOutboundCallabletimesetsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound callabletimesets o k response has a 3xx status code
+func (o *PostOutboundCallabletimesetsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets o k response has a 4xx status code
+func (o *PostOutboundCallabletimesetsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound callabletimesets o k response has a 5xx status code
+func (o *PostOutboundCallabletimesetsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets o k response a status code equal to that given
+func (o *PostOutboundCallabletimesetsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundCallabletimesetsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundCallabletimesetsBadRequest() *PostOutboundCallabletimesetsBa
 	return &PostOutboundCallabletimesetsBadRequest{}
 }
 
-/*PostOutboundCallabletimesetsBadRequest handles this case with default header values.
+/*
+PostOutboundCallabletimesetsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundCallabletimesetsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets bad request response has a 2xx status code
+func (o *PostOutboundCallabletimesetsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets bad request response has a 3xx status code
+func (o *PostOutboundCallabletimesetsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets bad request response has a 4xx status code
+func (o *PostOutboundCallabletimesetsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets bad request response has a 5xx status code
+func (o *PostOutboundCallabletimesetsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets bad request response a status code equal to that given
+func (o *PostOutboundCallabletimesetsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundCallabletimesetsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundCallabletimesetsUnauthorized() *PostOutboundCallabletimesets
 	return &PostOutboundCallabletimesetsUnauthorized{}
 }
 
-/*PostOutboundCallabletimesetsUnauthorized handles this case with default header values.
+/*
+PostOutboundCallabletimesetsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundCallabletimesetsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets unauthorized response has a 2xx status code
+func (o *PostOutboundCallabletimesetsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets unauthorized response has a 3xx status code
+func (o *PostOutboundCallabletimesetsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets unauthorized response has a 4xx status code
+func (o *PostOutboundCallabletimesetsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets unauthorized response has a 5xx status code
+func (o *PostOutboundCallabletimesetsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets unauthorized response a status code equal to that given
+func (o *PostOutboundCallabletimesetsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundCallabletimesetsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundCallabletimesetsForbidden() *PostOutboundCallabletimesetsFor
 	return &PostOutboundCallabletimesetsForbidden{}
 }
 
-/*PostOutboundCallabletimesetsForbidden handles this case with default header values.
+/*
+PostOutboundCallabletimesetsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundCallabletimesetsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets forbidden response has a 2xx status code
+func (o *PostOutboundCallabletimesetsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets forbidden response has a 3xx status code
+func (o *PostOutboundCallabletimesetsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets forbidden response has a 4xx status code
+func (o *PostOutboundCallabletimesetsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets forbidden response has a 5xx status code
+func (o *PostOutboundCallabletimesetsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets forbidden response a status code equal to that given
+func (o *PostOutboundCallabletimesetsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundCallabletimesetsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundCallabletimesetsNotFound() *PostOutboundCallabletimesetsNotF
 	return &PostOutboundCallabletimesetsNotFound{}
 }
 
-/*PostOutboundCallabletimesetsNotFound handles this case with default header values.
+/*
+PostOutboundCallabletimesetsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundCallabletimesetsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets not found response has a 2xx status code
+func (o *PostOutboundCallabletimesetsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets not found response has a 3xx status code
+func (o *PostOutboundCallabletimesetsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets not found response has a 4xx status code
+func (o *PostOutboundCallabletimesetsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets not found response has a 5xx status code
+func (o *PostOutboundCallabletimesetsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets not found response a status code equal to that given
+func (o *PostOutboundCallabletimesetsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundCallabletimesetsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundCallabletimesetsRequestTimeout() *PostOutboundCallabletimese
 	return &PostOutboundCallabletimesetsRequestTimeout{}
 }
 
-/*PostOutboundCallabletimesetsRequestTimeout handles this case with default header values.
+/*
+PostOutboundCallabletimesetsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundCallabletimesetsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets request timeout response has a 2xx status code
+func (o *PostOutboundCallabletimesetsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets request timeout response has a 3xx status code
+func (o *PostOutboundCallabletimesetsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets request timeout response has a 4xx status code
+func (o *PostOutboundCallabletimesetsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets request timeout response has a 5xx status code
+func (o *PostOutboundCallabletimesetsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets request timeout response a status code equal to that given
+func (o *PostOutboundCallabletimesetsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundCallabletimesetsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundCallabletimesetsRequestEntityTooLarge() *PostOutboundCallabl
 	return &PostOutboundCallabletimesetsRequestEntityTooLarge{}
 }
 
-/*PostOutboundCallabletimesetsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundCallabletimesetsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundCallabletimesetsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets request entity too large response has a 2xx status code
+func (o *PostOutboundCallabletimesetsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets request entity too large response has a 3xx status code
+func (o *PostOutboundCallabletimesetsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets request entity too large response has a 4xx status code
+func (o *PostOutboundCallabletimesetsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets request entity too large response has a 5xx status code
+func (o *PostOutboundCallabletimesetsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets request entity too large response a status code equal to that given
+func (o *PostOutboundCallabletimesetsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundCallabletimesetsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundCallabletimesetsUnsupportedMediaType() *PostOutboundCallable
 	return &PostOutboundCallabletimesetsUnsupportedMediaType{}
 }
 
-/*PostOutboundCallabletimesetsUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundCallabletimesetsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundCallabletimesetsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets unsupported media type response has a 2xx status code
+func (o *PostOutboundCallabletimesetsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets unsupported media type response has a 3xx status code
+func (o *PostOutboundCallabletimesetsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets unsupported media type response has a 4xx status code
+func (o *PostOutboundCallabletimesetsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets unsupported media type response has a 5xx status code
+func (o *PostOutboundCallabletimesetsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets unsupported media type response a status code equal to that given
+func (o *PostOutboundCallabletimesetsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundCallabletimesetsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundCallabletimesetsTooManyRequests() *PostOutboundCallabletimes
 	return &PostOutboundCallabletimesetsTooManyRequests{}
 }
 
-/*PostOutboundCallabletimesetsTooManyRequests handles this case with default header values.
+/*
+PostOutboundCallabletimesetsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundCallabletimesetsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets too many requests response has a 2xx status code
+func (o *PostOutboundCallabletimesetsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets too many requests response has a 3xx status code
+func (o *PostOutboundCallabletimesetsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets too many requests response has a 4xx status code
+func (o *PostOutboundCallabletimesetsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound callabletimesets too many requests response has a 5xx status code
+func (o *PostOutboundCallabletimesetsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound callabletimesets too many requests response a status code equal to that given
+func (o *PostOutboundCallabletimesetsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundCallabletimesetsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundCallabletimesetsInternalServerError() *PostOutboundCallablet
 	return &PostOutboundCallabletimesetsInternalServerError{}
 }
 
-/*PostOutboundCallabletimesetsInternalServerError handles this case with default header values.
+/*
+PostOutboundCallabletimesetsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundCallabletimesetsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets internal server error response has a 2xx status code
+func (o *PostOutboundCallabletimesetsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets internal server error response has a 3xx status code
+func (o *PostOutboundCallabletimesetsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets internal server error response has a 4xx status code
+func (o *PostOutboundCallabletimesetsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound callabletimesets internal server error response has a 5xx status code
+func (o *PostOutboundCallabletimesetsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound callabletimesets internal server error response a status code equal to that given
+func (o *PostOutboundCallabletimesetsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundCallabletimesetsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundCallabletimesetsServiceUnavailable() *PostOutboundCallableti
 	return &PostOutboundCallabletimesetsServiceUnavailable{}
 }
 
-/*PostOutboundCallabletimesetsServiceUnavailable handles this case with default header values.
+/*
+PostOutboundCallabletimesetsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundCallabletimesetsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets service unavailable response has a 2xx status code
+func (o *PostOutboundCallabletimesetsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets service unavailable response has a 3xx status code
+func (o *PostOutboundCallabletimesetsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets service unavailable response has a 4xx status code
+func (o *PostOutboundCallabletimesetsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound callabletimesets service unavailable response has a 5xx status code
+func (o *PostOutboundCallabletimesetsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound callabletimesets service unavailable response a status code equal to that given
+func (o *PostOutboundCallabletimesetsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundCallabletimesetsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundCallabletimesetsGatewayTimeout() *PostOutboundCallabletimese
 	return &PostOutboundCallabletimesetsGatewayTimeout{}
 }
 
-/*PostOutboundCallabletimesetsGatewayTimeout handles this case with default header values.
+/*
+PostOutboundCallabletimesetsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundCallabletimesetsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound callabletimesets gateway timeout response has a 2xx status code
+func (o *PostOutboundCallabletimesetsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound callabletimesets gateway timeout response has a 3xx status code
+func (o *PostOutboundCallabletimesetsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound callabletimesets gateway timeout response has a 4xx status code
+func (o *PostOutboundCallabletimesetsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound callabletimesets gateway timeout response has a 5xx status code
+func (o *PostOutboundCallabletimesetsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound callabletimesets gateway timeout response a status code equal to that given
+func (o *PostOutboundCallabletimesetsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundCallabletimesetsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundCallabletimesetsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/callabletimesets][%d] postOutboundCallabletimesetsGatewayTimeout  %+v", 504, o.Payload)
 }
 

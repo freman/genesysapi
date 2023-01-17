@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetUsersDevelopmentActivityParams creates a new GetUsersDevelopmentActivityParams object
-// with the default values initialized.
+// NewGetUsersDevelopmentActivityParams creates a new GetUsersDevelopmentActivityParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUsersDevelopmentActivityParams() *GetUsersDevelopmentActivityParams {
-	var ()
 	return &GetUsersDevelopmentActivityParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUsersDevelopmentActivityParamsWithTimeout creates a new GetUsersDevelopmentActivityParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUsersDevelopmentActivityParamsWithTimeout(timeout time.Duration) *GetUsersDevelopmentActivityParams {
-	var ()
 	return &GetUsersDevelopmentActivityParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUsersDevelopmentActivityParamsWithContext creates a new GetUsersDevelopmentActivityParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUsersDevelopmentActivityParamsWithContext(ctx context.Context) *GetUsersDevelopmentActivityParams {
-	var ()
 	return &GetUsersDevelopmentActivityParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetUsersDevelopmentActivityParamsWithHTTPClient creates a new GetUsersDevelopmentActivityParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUsersDevelopmentActivityParamsWithHTTPClient(client *http.Client) *GetUsersDevelopmentActivityParams {
-	var ()
 	return &GetUsersDevelopmentActivityParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetUsersDevelopmentActivityParams contains all the parameters to send to the API endpoint
-for the get users development activity operation typically these are written to a http.Request
+/*
+GetUsersDevelopmentActivityParams contains all the parameters to send to the API endpoint
+
+	for the get users development activity operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUsersDevelopmentActivityParams struct {
 
-	/*ActivityID
-	  Specifies the activity ID, maps to either assignment or appointment ID
+	/* ActivityID.
 
+	   Specifies the activity ID, maps to either assignment or appointment ID
 	*/
 	ActivityID string
-	/*Type
-	  Specifies the activity type.
 
+	/* Type.
+
+	   Specifies the activity type.
 	*/
 	Type string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get users development activity params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsersDevelopmentActivityParams) WithDefaults() *GetUsersDevelopmentActivityParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get users development activity params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsersDevelopmentActivityParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get users development activity params
@@ -148,6 +165,7 @@ func (o *GetUsersDevelopmentActivityParams) WriteToRequest(r runtime.ClientReque
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}

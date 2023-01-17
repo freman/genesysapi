@@ -95,7 +95,6 @@ func (o *PutAuthorizationRolesDefaultReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutAuthorizationRolesDefaultOK() *PutAuthorizationRolesDefaultOK {
 	return &PutAuthorizationRolesDefaultOK{}
 }
 
-/*PutAuthorizationRolesDefaultOK handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutAuthorizationRolesDefaultOK struct {
 	Payload *models.OrganizationRoleEntityListing
 }
 
+// IsSuccess returns true when this put authorization roles default o k response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put authorization roles default o k response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default o k response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization roles default o k response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default o k response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutAuthorizationRolesDefaultOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultOK  %+v", 200, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutAuthorizationRolesDefaultBadRequest() *PutAuthorizationRolesDefaultBa
 	return &PutAuthorizationRolesDefaultBadRequest{}
 }
 
-/*PutAuthorizationRolesDefaultBadRequest handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutAuthorizationRolesDefaultBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default bad request response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default bad request response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default bad request response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default bad request response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default bad request response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutAuthorizationRolesDefaultBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutAuthorizationRolesDefaultUnauthorized() *PutAuthorizationRolesDefault
 	return &PutAuthorizationRolesDefaultUnauthorized{}
 }
 
-/*PutAuthorizationRolesDefaultUnauthorized handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutAuthorizationRolesDefaultUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default unauthorized response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default unauthorized response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default unauthorized response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default unauthorized response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default unauthorized response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutAuthorizationRolesDefaultUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutAuthorizationRolesDefaultForbidden() *PutAuthorizationRolesDefaultFor
 	return &PutAuthorizationRolesDefaultForbidden{}
 }
 
-/*PutAuthorizationRolesDefaultForbidden handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutAuthorizationRolesDefaultForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default forbidden response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default forbidden response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default forbidden response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default forbidden response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default forbidden response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutAuthorizationRolesDefaultForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutAuthorizationRolesDefaultNotFound() *PutAuthorizationRolesDefaultNotF
 	return &PutAuthorizationRolesDefaultNotFound{}
 }
 
-/*PutAuthorizationRolesDefaultNotFound handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutAuthorizationRolesDefaultNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default not found response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default not found response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default not found response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default not found response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default not found response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutAuthorizationRolesDefaultNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutAuthorizationRolesDefaultRequestTimeout() *PutAuthorizationRolesDefau
 	return &PutAuthorizationRolesDefaultRequestTimeout{}
 }
 
-/*PutAuthorizationRolesDefaultRequestTimeout handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutAuthorizationRolesDefaultRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default request timeout response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default request timeout response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default request timeout response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default request timeout response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default request timeout response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutAuthorizationRolesDefaultRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutAuthorizationRolesDefaultRequestEntityTooLarge() *PutAuthorizationRol
 	return &PutAuthorizationRolesDefaultRequestEntityTooLarge{}
 }
 
-/*PutAuthorizationRolesDefaultRequestEntityTooLarge handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutAuthorizationRolesDefaultRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default request entity too large response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default request entity too large response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default request entity too large response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default request entity too large response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default request entity too large response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutAuthorizationRolesDefaultRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutAuthorizationRolesDefaultUnsupportedMediaType() *PutAuthorizationRole
 	return &PutAuthorizationRolesDefaultUnsupportedMediaType{}
 }
 
-/*PutAuthorizationRolesDefaultUnsupportedMediaType handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutAuthorizationRolesDefaultUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default unsupported media type response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default unsupported media type response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default unsupported media type response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default unsupported media type response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default unsupported media type response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutAuthorizationRolesDefaultUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutAuthorizationRolesDefaultTooManyRequests() *PutAuthorizationRolesDefa
 	return &PutAuthorizationRolesDefaultTooManyRequests{}
 }
 
-/*PutAuthorizationRolesDefaultTooManyRequests handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutAuthorizationRolesDefaultTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default too many requests response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default too many requests response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default too many requests response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization roles default too many requests response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization roles default too many requests response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutAuthorizationRolesDefaultTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutAuthorizationRolesDefaultInternalServerError() *PutAuthorizationRoles
 	return &PutAuthorizationRolesDefaultInternalServerError{}
 }
 
-/*PutAuthorizationRolesDefaultInternalServerError handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutAuthorizationRolesDefaultInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default internal server error response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default internal server error response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default internal server error response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization roles default internal server error response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization roles default internal server error response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutAuthorizationRolesDefaultInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutAuthorizationRolesDefaultServiceUnavailable() *PutAuthorizationRolesD
 	return &PutAuthorizationRolesDefaultServiceUnavailable{}
 }
 
-/*PutAuthorizationRolesDefaultServiceUnavailable handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutAuthorizationRolesDefaultServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default service unavailable response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default service unavailable response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default service unavailable response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization roles default service unavailable response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization roles default service unavailable response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutAuthorizationRolesDefaultServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutAuthorizationRolesDefaultGatewayTimeout() *PutAuthorizationRolesDefau
 	return &PutAuthorizationRolesDefaultGatewayTimeout{}
 }
 
-/*PutAuthorizationRolesDefaultGatewayTimeout handles this case with default header values.
+/*
+PutAuthorizationRolesDefaultGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutAuthorizationRolesDefaultGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization roles default gateway timeout response has a 2xx status code
+func (o *PutAuthorizationRolesDefaultGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization roles default gateway timeout response has a 3xx status code
+func (o *PutAuthorizationRolesDefaultGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization roles default gateway timeout response has a 4xx status code
+func (o *PutAuthorizationRolesDefaultGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization roles default gateway timeout response has a 5xx status code
+func (o *PutAuthorizationRolesDefaultGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization roles default gateway timeout response a status code equal to that given
+func (o *PutAuthorizationRolesDefaultGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutAuthorizationRolesDefaultGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutAuthorizationRolesDefaultGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/default][%d] putAuthorizationRolesDefaultGatewayTimeout  %+v", 504, o.Payload)
 }
 

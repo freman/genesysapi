@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsMessagingIntegrationsFacebookParams creates a new PostConversationsMessagingIntegrationsFacebookParams object
-// with the default values initialized.
+// NewPostConversationsMessagingIntegrationsFacebookParams creates a new PostConversationsMessagingIntegrationsFacebookParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessagingIntegrationsFacebookParams() *PostConversationsMessagingIntegrationsFacebookParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsFacebookParamsWithTimeout creates a new PostConversationsMessagingIntegrationsFacebookParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessagingIntegrationsFacebookParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsFacebookParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsFacebookParamsWithContext creates a new PostConversationsMessagingIntegrationsFacebookParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessagingIntegrationsFacebookParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsFacebookParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsFacebookParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsFacebookParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessagingIntegrationsFacebookParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsFacebookParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsFacebookParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessagingIntegrationsFacebookParams contains all the parameters to send to the API endpoint
-for the post conversations messaging integrations facebook operation typically these are written to a http.Request
+/*
+PostConversationsMessagingIntegrationsFacebookParams contains all the parameters to send to the API endpoint
+
+	for the post conversations messaging integrations facebook operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessagingIntegrationsFacebookParams struct {
 
-	/*Body
-	  FacebookIntegrationRequest
+	/* Body.
 
+	   FacebookIntegrationRequest
 	*/
 	Body *models.FacebookIntegrationRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations messaging integrations facebook params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsFacebookParams) WithDefaults() *PostConversationsMessagingIntegrationsFacebookParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations messaging integrations facebook params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsFacebookParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations messaging integrations facebook params
@@ -124,7 +140,6 @@ func (o *PostConversationsMessagingIntegrationsFacebookParams) WriteToRequest(r 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

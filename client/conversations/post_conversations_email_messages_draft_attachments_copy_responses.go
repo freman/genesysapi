@@ -95,7 +95,6 @@ func (o *PostConversationsEmailMessagesDraftAttachmentsCopyReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyOK() *PostConversation
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyOK{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyOK handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyOK struct {
 	Payload *models.EmailMessage
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy o k response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy o k response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy o k response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy o k response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy o k response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyBadRequest() *PostConv
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy bad request response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy bad request response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy bad request response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy bad request response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy bad request response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized() *PostCo
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy unauthorized response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy unauthorized response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy unauthorized response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy unauthorized response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy unauthorized response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyForbidden() *PostConve
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyForbidden{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyForbidden handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy forbidden response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy forbidden response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy forbidden response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy forbidden response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy forbidden response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyNotFound() *PostConver
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyNotFound{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyNotFound handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy not found response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy not found response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy not found response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy not found response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy not found response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout() *Post
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy request timeout response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy request timeout response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy request timeout response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy request timeout response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy request timeout response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge(
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy request entity too large response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy request entity too large response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy request entity too large response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy request entity too large response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy request entity too large response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType()
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy unsupported media type response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy unsupported media type response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy unsupported media type response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy unsupported media type response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy unsupported media type response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests() *Pos
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy too many requests response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy too many requests response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy too many requests response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy too many requests response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy too many requests response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError() 
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy internal server error response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy internal server error response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy internal server error response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy internal server error response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy internal server error response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable() *
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy service unavailable response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy service unavailable response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy service unavailable response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy service unavailable response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy service unavailable response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout() *Post
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout{}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout handles this case with default header values.
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email messages draft attachments copy gateway timeout response has a 2xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email messages draft attachments copy gateway timeout response has a 3xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email messages draft attachments copy gateway timeout response has a 4xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email messages draft attachments copy gateway timeout response has a 5xx status code
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations email messages draft attachments copy gateway timeout response a status code equal to that given
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/copy][%d] postConversationsEmailMessagesDraftAttachmentsCopyGatewayTimeout  %+v", 504, o.Payload)
 }
 

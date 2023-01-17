@@ -17,81 +17,98 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetConversationsCobrowsesessionParticipantWrapupParams creates a new GetConversationsCobrowsesessionParticipantWrapupParams object
-// with the default values initialized.
+// NewGetConversationsCobrowsesessionParticipantWrapupParams creates a new GetConversationsCobrowsesessionParticipantWrapupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsCobrowsesessionParticipantWrapupParams() *GetConversationsCobrowsesessionParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsCobrowsesessionParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsCobrowsesessionParticipantWrapupParamsWithTimeout creates a new GetConversationsCobrowsesessionParticipantWrapupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsCobrowsesessionParticipantWrapupParamsWithTimeout(timeout time.Duration) *GetConversationsCobrowsesessionParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsCobrowsesessionParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsCobrowsesessionParticipantWrapupParamsWithContext creates a new GetConversationsCobrowsesessionParticipantWrapupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsCobrowsesessionParticipantWrapupParamsWithContext(ctx context.Context) *GetConversationsCobrowsesessionParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsCobrowsesessionParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsCobrowsesessionParticipantWrapupParamsWithHTTPClient creates a new GetConversationsCobrowsesessionParticipantWrapupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsCobrowsesessionParticipantWrapupParamsWithHTTPClient(client *http.Client) *GetConversationsCobrowsesessionParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsCobrowsesessionParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupParams contains all the parameters to send to the API endpoint
-for the get conversations cobrowsesession participant wrapup operation typically these are written to a http.Request
+/*
+GetConversationsCobrowsesessionParticipantWrapupParams contains all the parameters to send to the API endpoint
+
+	for the get conversations cobrowsesession participant wrapup operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsCobrowsesessionParticipantWrapupParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
-	/*Provisional
-	  Indicates if the wrap-up code is provisional.
 
+	/* Provisional.
+
+	   Indicates if the wrap-up code is provisional.
 	*/
 	Provisional *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations cobrowsesession participant wrapup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCobrowsesessionParticipantWrapupParams) WithDefaults() *GetConversationsCobrowsesessionParticipantWrapupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations cobrowsesession participant wrapup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCobrowsesessionParticipantWrapupParams) SetDefaults() {
+	var (
+		provisionalDefault = bool(false)
+	)
+
+	val := GetConversationsCobrowsesessionParticipantWrapupParams{
+		Provisional: &provisionalDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get conversations cobrowsesession participant wrapup params
@@ -182,16 +199,17 @@ func (o *GetConversationsCobrowsesessionParticipantWrapupParams) WriteToRequest(
 
 		// query param provisional
 		var qrProvisional bool
+
 		if o.Provisional != nil {
 			qrProvisional = *o.Provisional
 		}
 		qProvisional := swag.FormatBool(qrProvisional)
 		if qProvisional != "" {
+
 			if err := r.SetQueryParam("provisional", qProvisional); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

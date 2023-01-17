@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutRoutingUserUtilizationParams creates a new PutRoutingUserUtilizationParams object
-// with the default values initialized.
+// NewPutRoutingUserUtilizationParams creates a new PutRoutingUserUtilizationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutRoutingUserUtilizationParams() *PutRoutingUserUtilizationParams {
-	var ()
 	return &PutRoutingUserUtilizationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutRoutingUserUtilizationParamsWithTimeout creates a new PutRoutingUserUtilizationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutRoutingUserUtilizationParamsWithTimeout(timeout time.Duration) *PutRoutingUserUtilizationParams {
-	var ()
 	return &PutRoutingUserUtilizationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutRoutingUserUtilizationParamsWithContext creates a new PutRoutingUserUtilizationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutRoutingUserUtilizationParamsWithContext(ctx context.Context) *PutRoutingUserUtilizationParams {
-	var ()
 	return &PutRoutingUserUtilizationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutRoutingUserUtilizationParamsWithHTTPClient creates a new PutRoutingUserUtilizationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutRoutingUserUtilizationParamsWithHTTPClient(client *http.Client) *PutRoutingUserUtilizationParams {
-	var ()
 	return &PutRoutingUserUtilizationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutRoutingUserUtilizationParams contains all the parameters to send to the API endpoint
-for the put routing user utilization operation typically these are written to a http.Request
+/*
+PutRoutingUserUtilizationParams contains all the parameters to send to the API endpoint
+
+	for the put routing user utilization operation.
+
+	Typically these are written to a http.Request.
 */
 type PutRoutingUserUtilizationParams struct {
 
-	/*Body
-	  utilization
+	/* Body.
 
+	   utilization
 	*/
 	Body *models.Utilization
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put routing user utilization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingUserUtilizationParams) WithDefaults() *PutRoutingUserUtilizationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put routing user utilization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingUserUtilizationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put routing user utilization params
@@ -140,7 +157,6 @@ func (o *PutRoutingUserUtilizationParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

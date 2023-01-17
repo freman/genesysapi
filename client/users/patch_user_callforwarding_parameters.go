@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchUserCallforwardingParams creates a new PatchUserCallforwardingParams object
-// with the default values initialized.
+// NewPatchUserCallforwardingParams creates a new PatchUserCallforwardingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchUserCallforwardingParams() *PatchUserCallforwardingParams {
-	var ()
 	return &PatchUserCallforwardingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchUserCallforwardingParamsWithTimeout creates a new PatchUserCallforwardingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchUserCallforwardingParamsWithTimeout(timeout time.Duration) *PatchUserCallforwardingParams {
-	var ()
 	return &PatchUserCallforwardingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchUserCallforwardingParamsWithContext creates a new PatchUserCallforwardingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchUserCallforwardingParamsWithContext(ctx context.Context) *PatchUserCallforwardingParams {
-	var ()
 	return &PatchUserCallforwardingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchUserCallforwardingParamsWithHTTPClient creates a new PatchUserCallforwardingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchUserCallforwardingParamsWithHTTPClient(client *http.Client) *PatchUserCallforwardingParams {
-	var ()
 	return &PatchUserCallforwardingParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchUserCallforwardingParams contains all the parameters to send to the API endpoint
-for the patch user callforwarding operation typically these are written to a http.Request
+/*
+PatchUserCallforwardingParams contains all the parameters to send to the API endpoint
+
+	for the patch user callforwarding operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchUserCallforwardingParams struct {
 
-	/*Body
-	  Call forwarding
+	/* Body.
 
+	   Call forwarding
 	*/
 	Body *models.CallForwarding
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch user callforwarding params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserCallforwardingParams) WithDefaults() *PatchUserCallforwardingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch user callforwarding params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserCallforwardingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch user callforwarding params
@@ -140,7 +157,6 @@ func (o *PatchUserCallforwardingParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

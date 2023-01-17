@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutMobiledeviceParams creates a new PutMobiledeviceParams object
-// with the default values initialized.
+// NewPutMobiledeviceParams creates a new PutMobiledeviceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutMobiledeviceParams() *PutMobiledeviceParams {
-	var ()
 	return &PutMobiledeviceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutMobiledeviceParamsWithTimeout creates a new PutMobiledeviceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutMobiledeviceParamsWithTimeout(timeout time.Duration) *PutMobiledeviceParams {
-	var ()
 	return &PutMobiledeviceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutMobiledeviceParamsWithContext creates a new PutMobiledeviceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutMobiledeviceParamsWithContext(ctx context.Context) *PutMobiledeviceParams {
-	var ()
 	return &PutMobiledeviceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutMobiledeviceParamsWithHTTPClient creates a new PutMobiledeviceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutMobiledeviceParamsWithHTTPClient(client *http.Client) *PutMobiledeviceParams {
-	var ()
 	return &PutMobiledeviceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutMobiledeviceParams contains all the parameters to send to the API endpoint
-for the put mobiledevice operation typically these are written to a http.Request
+/*
+PutMobiledeviceParams contains all the parameters to send to the API endpoint
+
+	for the put mobiledevice operation.
+
+	Typically these are written to a http.Request.
 */
 type PutMobiledeviceParams struct {
 
-	/*Body
-	  Device
+	/* Body.
 
+	   Device
 	*/
 	Body *models.UserDevice
-	/*DeviceID
-	  Device ID
 
+	/* DeviceID.
+
+	   Device ID
 	*/
 	DeviceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put mobiledevice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutMobiledeviceParams) WithDefaults() *PutMobiledeviceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put mobiledevice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutMobiledeviceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put mobiledevice params
@@ -140,7 +157,6 @@ func (o *PutMobiledeviceParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

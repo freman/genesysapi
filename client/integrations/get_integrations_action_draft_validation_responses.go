@@ -95,7 +95,6 @@ func (o *GetIntegrationsActionDraftValidationReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsActionDraftValidationOK() *GetIntegrationsActionDraftVali
 	return &GetIntegrationsActionDraftValidationOK{}
 }
 
-/*GetIntegrationsActionDraftValidationOK handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsActionDraftValidationOK struct {
 	Payload *models.DraftValidationResult
 }
 
+// IsSuccess returns true when this get integrations action draft validation o k response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations action draft validation o k response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation o k response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action draft validation o k response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation o k response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsActionDraftValidationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsActionDraftValidationBadRequest() *GetIntegrationsActionD
 	return &GetIntegrationsActionDraftValidationBadRequest{}
 }
 
-/*GetIntegrationsActionDraftValidationBadRequest handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsActionDraftValidationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation bad request response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation bad request response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation bad request response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation bad request response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation bad request response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsActionDraftValidationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsActionDraftValidationUnauthorized() *GetIntegrationsActio
 	return &GetIntegrationsActionDraftValidationUnauthorized{}
 }
 
-/*GetIntegrationsActionDraftValidationUnauthorized handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsActionDraftValidationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation unauthorized response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation unauthorized response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation unauthorized response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation unauthorized response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation unauthorized response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsActionDraftValidationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsActionDraftValidationForbidden() *GetIntegrationsActionDr
 	return &GetIntegrationsActionDraftValidationForbidden{}
 }
 
-/*GetIntegrationsActionDraftValidationForbidden handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsActionDraftValidationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation forbidden response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation forbidden response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation forbidden response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation forbidden response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation forbidden response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsActionDraftValidationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsActionDraftValidationNotFound() *GetIntegrationsActionDra
 	return &GetIntegrationsActionDraftValidationNotFound{}
 }
 
-/*GetIntegrationsActionDraftValidationNotFound handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsActionDraftValidationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation not found response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation not found response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation not found response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation not found response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation not found response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsActionDraftValidationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsActionDraftValidationRequestTimeout() *GetIntegrationsAct
 	return &GetIntegrationsActionDraftValidationRequestTimeout{}
 }
 
-/*GetIntegrationsActionDraftValidationRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsActionDraftValidationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation request timeout response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation request timeout response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation request timeout response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation request timeout response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation request timeout response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsActionDraftValidationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsActionDraftValidationRequestEntityTooLarge() *GetIntegrat
 	return &GetIntegrationsActionDraftValidationRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsActionDraftValidationRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsActionDraftValidationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation request entity too large response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation request entity too large response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation request entity too large response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation request entity too large response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation request entity too large response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsActionDraftValidationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsActionDraftValidationUnsupportedMediaType() *GetIntegrati
 	return &GetIntegrationsActionDraftValidationUnsupportedMediaType{}
 }
 
-/*GetIntegrationsActionDraftValidationUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsActionDraftValidationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation unsupported media type response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation unsupported media type response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation unsupported media type response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation unsupported media type response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation unsupported media type response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsActionDraftValidationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsActionDraftValidationTooManyRequests() *GetIntegrationsAc
 	return &GetIntegrationsActionDraftValidationTooManyRequests{}
 }
 
-/*GetIntegrationsActionDraftValidationTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsActionDraftValidationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation too many requests response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation too many requests response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation too many requests response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action draft validation too many requests response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action draft validation too many requests response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsActionDraftValidationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsActionDraftValidationInternalServerError() *GetIntegratio
 	return &GetIntegrationsActionDraftValidationInternalServerError{}
 }
 
-/*GetIntegrationsActionDraftValidationInternalServerError handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsActionDraftValidationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation internal server error response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation internal server error response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation internal server error response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action draft validation internal server error response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations action draft validation internal server error response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsActionDraftValidationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsActionDraftValidationServiceUnavailable() *GetIntegration
 	return &GetIntegrationsActionDraftValidationServiceUnavailable{}
 }
 
-/*GetIntegrationsActionDraftValidationServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsActionDraftValidationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation service unavailable response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation service unavailable response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation service unavailable response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action draft validation service unavailable response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations action draft validation service unavailable response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsActionDraftValidationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsActionDraftValidationGatewayTimeout() *GetIntegrationsAct
 	return &GetIntegrationsActionDraftValidationGatewayTimeout{}
 }
 
-/*GetIntegrationsActionDraftValidationGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsActionDraftValidationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsActionDraftValidationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action draft validation gateway timeout response has a 2xx status code
+func (o *GetIntegrationsActionDraftValidationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action draft validation gateway timeout response has a 3xx status code
+func (o *GetIntegrationsActionDraftValidationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action draft validation gateway timeout response has a 4xx status code
+func (o *GetIntegrationsActionDraftValidationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action draft validation gateway timeout response has a 5xx status code
+func (o *GetIntegrationsActionDraftValidationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations action draft validation gateway timeout response a status code equal to that given
+func (o *GetIntegrationsActionDraftValidationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsActionDraftValidationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsActionDraftValidationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/draft/validation][%d] getIntegrationsActionDraftValidationGatewayTimeout  %+v", 504, o.Payload)
 }
 

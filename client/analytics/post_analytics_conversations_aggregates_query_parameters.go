@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAnalyticsConversationsAggregatesQueryParams creates a new PostAnalyticsConversationsAggregatesQueryParams object
-// with the default values initialized.
+// NewPostAnalyticsConversationsAggregatesQueryParams creates a new PostAnalyticsConversationsAggregatesQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsConversationsAggregatesQueryParams() *PostAnalyticsConversationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsConversationsAggregatesQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsConversationsAggregatesQueryParamsWithTimeout creates a new PostAnalyticsConversationsAggregatesQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsConversationsAggregatesQueryParamsWithTimeout(timeout time.Duration) *PostAnalyticsConversationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsConversationsAggregatesQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsConversationsAggregatesQueryParamsWithContext creates a new PostAnalyticsConversationsAggregatesQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsConversationsAggregatesQueryParamsWithContext(ctx context.Context) *PostAnalyticsConversationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsConversationsAggregatesQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsConversationsAggregatesQueryParamsWithHTTPClient creates a new PostAnalyticsConversationsAggregatesQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsConversationsAggregatesQueryParamsWithHTTPClient(client *http.Client) *PostAnalyticsConversationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsConversationsAggregatesQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsConversationsAggregatesQueryParams contains all the parameters to send to the API endpoint
-for the post analytics conversations aggregates query operation typically these are written to a http.Request
+/*
+PostAnalyticsConversationsAggregatesQueryParams contains all the parameters to send to the API endpoint
+
+	for the post analytics conversations aggregates query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsConversationsAggregatesQueryParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.ConversationAggregationQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics conversations aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsConversationsAggregatesQueryParams) WithDefaults() *PostAnalyticsConversationsAggregatesQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics conversations aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsConversationsAggregatesQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics conversations aggregates query params
@@ -124,7 +140,6 @@ func (o *PostAnalyticsConversationsAggregatesQueryParams) WriteToRequest(r runti
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

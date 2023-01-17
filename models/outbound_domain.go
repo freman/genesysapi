@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -73,7 +74,6 @@ func (m *OutboundDomain) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OutboundDomain) validateCnameVerificationResult(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CnameVerificationResult) { // not required
 		return nil
 	}
@@ -82,6 +82,8 @@ func (m *OutboundDomain) validateCnameVerificationResult(formats strfmt.Registry
 		if err := m.CnameVerificationResult.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cnameVerificationResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cnameVerificationResult")
 			}
 			return err
 		}
@@ -91,7 +93,6 @@ func (m *OutboundDomain) validateCnameVerificationResult(formats strfmt.Registry
 }
 
 func (m *OutboundDomain) validateDkimVerificationResult(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DkimVerificationResult) { // not required
 		return nil
 	}
@@ -100,6 +101,8 @@ func (m *OutboundDomain) validateDkimVerificationResult(formats strfmt.Registry)
 		if err := m.DkimVerificationResult.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dkimVerificationResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dkimVerificationResult")
 			}
 			return err
 		}
@@ -118,7 +121,6 @@ func (m *OutboundDomain) validateID(formats strfmt.Registry) error {
 }
 
 func (m *OutboundDomain) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -163,13 +165,75 @@ func (m *OutboundDomain) validateSenderTypeEnum(path, location string, value str
 }
 
 func (m *OutboundDomain) validateSenderType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SenderType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateSenderTypeEnum("senderType", "body", m.SenderType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this outbound domain based on the context it is used
+func (m *OutboundDomain) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCnameVerificationResult(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDkimVerificationResult(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OutboundDomain) contextValidateCnameVerificationResult(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CnameVerificationResult != nil {
+		if err := m.CnameVerificationResult.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cnameVerificationResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cnameVerificationResult")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OutboundDomain) contextValidateDkimVerificationResult(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DkimVerificationResult != nil {
+		if err := m.DkimVerificationResult.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dkimVerificationResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dkimVerificationResult")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OutboundDomain) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

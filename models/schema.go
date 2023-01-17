@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // Schema schema
@@ -21,6 +24,7 @@ type Schema struct {
 	Description string `json:"description,omitempty"`
 
 	// Denotes the type and pattern of the items in an enum core type
+	// Example: {\ntype\": \"string\",\n\"pattern\": \"^[\\\\S]+$\"\n}
 	// Read Only: true
 	Items *Items `json:"items,omitempty"`
 
@@ -33,6 +37,7 @@ type Schema struct {
 	Title string `json:"title,omitempty"`
 
 	// An array of fundamental JSON Schema primitive types on which the core type is based
+	// Example: [\"string\"] for a text-based core type, [\"integer\"] for a numeric core type, or [\"boolean\", \"null\"] for the checkbox core type
 	// Read Only: true
 	Type []string `json:"type"`
 }
@@ -52,7 +57,6 @@ func (m *Schema) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Schema) validateItems(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Items) { // not required
 		return nil
 	}
@@ -61,9 +65,93 @@ func (m *Schema) validateItems(formats strfmt.Registry) error {
 		if err := m.Items.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("items")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("items")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this schema based on the context it is used
+func (m *Schema) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateItems(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePattern(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTitle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Schema) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Schema) contextValidateItems(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Items != nil {
+		if err := m.Items.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("items")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("items")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Schema) contextValidatePattern(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "pattern", "body", string(m.Pattern)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Schema) contextValidateTitle(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "title", "body", string(m.Title)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Schema) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", []string(m.Type)); err != nil {
+		return err
 	}
 
 	return nil

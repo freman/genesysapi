@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetDataextensionsCoretypeParams creates a new GetDataextensionsCoretypeParams object
-// with the default values initialized.
+// NewGetDataextensionsCoretypeParams creates a new GetDataextensionsCoretypeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDataextensionsCoretypeParams() *GetDataextensionsCoretypeParams {
-	var ()
 	return &GetDataextensionsCoretypeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDataextensionsCoretypeParamsWithTimeout creates a new GetDataextensionsCoretypeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDataextensionsCoretypeParamsWithTimeout(timeout time.Duration) *GetDataextensionsCoretypeParams {
-	var ()
 	return &GetDataextensionsCoretypeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDataextensionsCoretypeParamsWithContext creates a new GetDataextensionsCoretypeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDataextensionsCoretypeParamsWithContext(ctx context.Context) *GetDataextensionsCoretypeParams {
-	var ()
 	return &GetDataextensionsCoretypeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDataextensionsCoretypeParamsWithHTTPClient creates a new GetDataextensionsCoretypeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDataextensionsCoretypeParamsWithHTTPClient(client *http.Client) *GetDataextensionsCoretypeParams {
-	var ()
 	return &GetDataextensionsCoretypeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDataextensionsCoretypeParams contains all the parameters to send to the API endpoint
-for the get dataextensions coretype operation typically these are written to a http.Request
+/*
+GetDataextensionsCoretypeParams contains all the parameters to send to the API endpoint
+
+	for the get dataextensions coretype operation.
+
+	Typically these are written to a http.Request.
 */
 type GetDataextensionsCoretypeParams struct {
 
-	/*CoretypeName
-	  The core type's name
+	/* CoretypeName.
 
+	   The core type's name
 	*/
 	CoretypeName string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get dataextensions coretype params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDataextensionsCoretypeParams) WithDefaults() *GetDataextensionsCoretypeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get dataextensions coretype params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDataextensionsCoretypeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get dataextensions coretype params

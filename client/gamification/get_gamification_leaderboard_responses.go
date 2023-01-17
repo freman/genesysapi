@@ -95,7 +95,6 @@ func (o *GetGamificationLeaderboardReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGamificationLeaderboardOK() *GetGamificationLeaderboardOK {
 	return &GetGamificationLeaderboardOK{}
 }
 
-/*GetGamificationLeaderboardOK handles this case with default header values.
+/*
+GetGamificationLeaderboardOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGamificationLeaderboardOK struct {
 	Payload *models.Leaderboard
 }
 
+// IsSuccess returns true when this get gamification leaderboard o k response has a 2xx status code
+func (o *GetGamificationLeaderboardOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gamification leaderboard o k response has a 3xx status code
+func (o *GetGamificationLeaderboardOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard o k response has a 4xx status code
+func (o *GetGamificationLeaderboardOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification leaderboard o k response has a 5xx status code
+func (o *GetGamificationLeaderboardOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard o k response a status code equal to that given
+func (o *GetGamificationLeaderboardOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGamificationLeaderboardOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGamificationLeaderboardBadRequest() *GetGamificationLeaderboardBadReq
 	return &GetGamificationLeaderboardBadRequest{}
 }
 
-/*GetGamificationLeaderboardBadRequest handles this case with default header values.
+/*
+GetGamificationLeaderboardBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGamificationLeaderboardBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard bad request response has a 2xx status code
+func (o *GetGamificationLeaderboardBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard bad request response has a 3xx status code
+func (o *GetGamificationLeaderboardBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard bad request response has a 4xx status code
+func (o *GetGamificationLeaderboardBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard bad request response has a 5xx status code
+func (o *GetGamificationLeaderboardBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard bad request response a status code equal to that given
+func (o *GetGamificationLeaderboardBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGamificationLeaderboardBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGamificationLeaderboardUnauthorized() *GetGamificationLeaderboardUnau
 	return &GetGamificationLeaderboardUnauthorized{}
 }
 
-/*GetGamificationLeaderboardUnauthorized handles this case with default header values.
+/*
+GetGamificationLeaderboardUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGamificationLeaderboardUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard unauthorized response has a 2xx status code
+func (o *GetGamificationLeaderboardUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard unauthorized response has a 3xx status code
+func (o *GetGamificationLeaderboardUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard unauthorized response has a 4xx status code
+func (o *GetGamificationLeaderboardUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard unauthorized response has a 5xx status code
+func (o *GetGamificationLeaderboardUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard unauthorized response a status code equal to that given
+func (o *GetGamificationLeaderboardUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGamificationLeaderboardUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGamificationLeaderboardForbidden() *GetGamificationLeaderboardForbidd
 	return &GetGamificationLeaderboardForbidden{}
 }
 
-/*GetGamificationLeaderboardForbidden handles this case with default header values.
+/*
+GetGamificationLeaderboardForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGamificationLeaderboardForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard forbidden response has a 2xx status code
+func (o *GetGamificationLeaderboardForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard forbidden response has a 3xx status code
+func (o *GetGamificationLeaderboardForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard forbidden response has a 4xx status code
+func (o *GetGamificationLeaderboardForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard forbidden response has a 5xx status code
+func (o *GetGamificationLeaderboardForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard forbidden response a status code equal to that given
+func (o *GetGamificationLeaderboardForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGamificationLeaderboardForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGamificationLeaderboardNotFound() *GetGamificationLeaderboardNotFound
 	return &GetGamificationLeaderboardNotFound{}
 }
 
-/*GetGamificationLeaderboardNotFound handles this case with default header values.
+/*
+GetGamificationLeaderboardNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGamificationLeaderboardNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard not found response has a 2xx status code
+func (o *GetGamificationLeaderboardNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard not found response has a 3xx status code
+func (o *GetGamificationLeaderboardNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard not found response has a 4xx status code
+func (o *GetGamificationLeaderboardNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard not found response has a 5xx status code
+func (o *GetGamificationLeaderboardNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard not found response a status code equal to that given
+func (o *GetGamificationLeaderboardNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGamificationLeaderboardNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGamificationLeaderboardRequestTimeout() *GetGamificationLeaderboardRe
 	return &GetGamificationLeaderboardRequestTimeout{}
 }
 
-/*GetGamificationLeaderboardRequestTimeout handles this case with default header values.
+/*
+GetGamificationLeaderboardRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGamificationLeaderboardRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard request timeout response has a 2xx status code
+func (o *GetGamificationLeaderboardRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard request timeout response has a 3xx status code
+func (o *GetGamificationLeaderboardRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard request timeout response has a 4xx status code
+func (o *GetGamificationLeaderboardRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard request timeout response has a 5xx status code
+func (o *GetGamificationLeaderboardRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard request timeout response a status code equal to that given
+func (o *GetGamificationLeaderboardRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGamificationLeaderboardRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGamificationLeaderboardRequestEntityTooLarge() *GetGamificationLeader
 	return &GetGamificationLeaderboardRequestEntityTooLarge{}
 }
 
-/*GetGamificationLeaderboardRequestEntityTooLarge handles this case with default header values.
+/*
+GetGamificationLeaderboardRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGamificationLeaderboardRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard request entity too large response has a 2xx status code
+func (o *GetGamificationLeaderboardRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard request entity too large response has a 3xx status code
+func (o *GetGamificationLeaderboardRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard request entity too large response has a 4xx status code
+func (o *GetGamificationLeaderboardRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard request entity too large response has a 5xx status code
+func (o *GetGamificationLeaderboardRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard request entity too large response a status code equal to that given
+func (o *GetGamificationLeaderboardRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGamificationLeaderboardRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGamificationLeaderboardUnsupportedMediaType() *GetGamificationLeaderb
 	return &GetGamificationLeaderboardUnsupportedMediaType{}
 }
 
-/*GetGamificationLeaderboardUnsupportedMediaType handles this case with default header values.
+/*
+GetGamificationLeaderboardUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGamificationLeaderboardUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard unsupported media type response has a 2xx status code
+func (o *GetGamificationLeaderboardUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard unsupported media type response has a 3xx status code
+func (o *GetGamificationLeaderboardUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard unsupported media type response has a 4xx status code
+func (o *GetGamificationLeaderboardUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard unsupported media type response has a 5xx status code
+func (o *GetGamificationLeaderboardUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard unsupported media type response a status code equal to that given
+func (o *GetGamificationLeaderboardUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGamificationLeaderboardUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGamificationLeaderboardTooManyRequests() *GetGamificationLeaderboardT
 	return &GetGamificationLeaderboardTooManyRequests{}
 }
 
-/*GetGamificationLeaderboardTooManyRequests handles this case with default header values.
+/*
+GetGamificationLeaderboardTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGamificationLeaderboardTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard too many requests response has a 2xx status code
+func (o *GetGamificationLeaderboardTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard too many requests response has a 3xx status code
+func (o *GetGamificationLeaderboardTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard too many requests response has a 4xx status code
+func (o *GetGamificationLeaderboardTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification leaderboard too many requests response has a 5xx status code
+func (o *GetGamificationLeaderboardTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification leaderboard too many requests response a status code equal to that given
+func (o *GetGamificationLeaderboardTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGamificationLeaderboardTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGamificationLeaderboardInternalServerError() *GetGamificationLeaderbo
 	return &GetGamificationLeaderboardInternalServerError{}
 }
 
-/*GetGamificationLeaderboardInternalServerError handles this case with default header values.
+/*
+GetGamificationLeaderboardInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGamificationLeaderboardInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard internal server error response has a 2xx status code
+func (o *GetGamificationLeaderboardInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard internal server error response has a 3xx status code
+func (o *GetGamificationLeaderboardInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard internal server error response has a 4xx status code
+func (o *GetGamificationLeaderboardInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification leaderboard internal server error response has a 5xx status code
+func (o *GetGamificationLeaderboardInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification leaderboard internal server error response a status code equal to that given
+func (o *GetGamificationLeaderboardInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGamificationLeaderboardInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGamificationLeaderboardServiceUnavailable() *GetGamificationLeaderboa
 	return &GetGamificationLeaderboardServiceUnavailable{}
 }
 
-/*GetGamificationLeaderboardServiceUnavailable handles this case with default header values.
+/*
+GetGamificationLeaderboardServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGamificationLeaderboardServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard service unavailable response has a 2xx status code
+func (o *GetGamificationLeaderboardServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard service unavailable response has a 3xx status code
+func (o *GetGamificationLeaderboardServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard service unavailable response has a 4xx status code
+func (o *GetGamificationLeaderboardServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification leaderboard service unavailable response has a 5xx status code
+func (o *GetGamificationLeaderboardServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification leaderboard service unavailable response a status code equal to that given
+func (o *GetGamificationLeaderboardServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGamificationLeaderboardServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGamificationLeaderboardGatewayTimeout() *GetGamificationLeaderboardGa
 	return &GetGamificationLeaderboardGatewayTimeout{}
 }
 
-/*GetGamificationLeaderboardGatewayTimeout handles this case with default header values.
+/*
+GetGamificationLeaderboardGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGamificationLeaderboardGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification leaderboard gateway timeout response has a 2xx status code
+func (o *GetGamificationLeaderboardGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification leaderboard gateway timeout response has a 3xx status code
+func (o *GetGamificationLeaderboardGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification leaderboard gateway timeout response has a 4xx status code
+func (o *GetGamificationLeaderboardGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification leaderboard gateway timeout response has a 5xx status code
+func (o *GetGamificationLeaderboardGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification leaderboard gateway timeout response a status code equal to that given
+func (o *GetGamificationLeaderboardGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGamificationLeaderboardGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGamificationLeaderboardGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/leaderboard][%d] getGamificationLeaderboardGatewayTimeout  %+v", 504, o.Payload)
 }
 

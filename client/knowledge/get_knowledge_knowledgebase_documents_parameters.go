@@ -17,109 +17,137 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeKnowledgebaseDocumentsParams creates a new GetKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseDocumentsParams creates a new GetKnowledgeKnowledgebaseDocumentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseDocumentsParams() *GetKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentsParamsWithTimeout creates a new GetKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseDocumentsParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentsParamsWithContext creates a new GetKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseDocumentsParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentsParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseDocumentsParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentsParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase documents operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseDocumentsParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase documents operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseDocumentsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*CategoryID
-	  If specified, retrieves documents associated with category ids, comma separated values expected.
 
+	/* CategoryID.
+
+	   If specified, retrieves documents associated with category ids, comma separated values expected.
 	*/
 	CategoryID []string
-	/*DocumentID
-	  Retrieves the specified documents, comma separated values expected.
 
+	/* DocumentID.
+
+	   Retrieves the specified documents, comma separated values expected.
 	*/
 	DocumentID []string
-	/*Expand
-	  The specified entity attributes will be filled. Comma separated values expected.
 
+	/* Expand.
+
+	   The specified entity attributes will be filled. Comma separated values expected.
 	*/
 	Expand []string
-	/*IncludeDrafts
-	  If includeDrafts is true, Documents in the draft state are also returned in the response.
 
+	/* IncludeDrafts.
+
+	   If includeDrafts is true, Documents in the draft state are also returned in the response.
 	*/
 	IncludeDrafts *bool
-	/*IncludeSubcategories
-	  Works along with 'categoryId' query parameter. If specified, retrieves documents associated with category ids and its children categories.
 
+	/* IncludeSubcategories.
+
+	   Works along with 'categoryId' query parameter. If specified, retrieves documents associated with category ids and its children categories.
 	*/
 	IncludeSubcategories *bool
-	/*Interval
-	  Retrieves the documents modified in specified date and time range. If the after and before cursor parameters are within this interval, it would return valid data, otherwise it throws an error.The dates in the interval are represented in ISO-8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ
 
+	/* Interval.
+
+	   Retrieves the documents modified in specified date and time range. If the after and before cursor parameters are within this interval, it would return valid data, otherwise it throws an error.The dates in the interval are represented in ISO-8601 format: YYYY-MM-DDThh:mm:ssZ/YYYY-MM-DDThh:mm:ssZ
+
+	   Format: interval
 	*/
 	Interval *string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LabelIds
-	  If specified, retrieves documents associated with label ids, comma separated values expected.
 
+	/* LabelIds.
+
+	   If specified, retrieves documents associated with label ids, comma separated values expected.
 	*/
 	LabelIds []string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) WithDefaults() *GetKnowledgeKnowledgebaseDocumentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase documents params
@@ -288,104 +316,118 @@ func (o *GetKnowledgeKnowledgebaseDocumentsParams) WriteToRequest(r runtime.Clie
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesCategoryID := o.CategoryID
+	if o.CategoryID != nil {
 
-	joinedCategoryID := swag.JoinByFormat(valuesCategoryID, "multi")
-	// query array param categoryId
-	if err := r.SetQueryParam("categoryId", joinedCategoryID...); err != nil {
-		return err
+		// binding items for categoryId
+		joinedCategoryID := o.bindParamCategoryID(reg)
+
+		// query array param categoryId
+		if err := r.SetQueryParam("categoryId", joinedCategoryID...); err != nil {
+			return err
+		}
 	}
 
-	valuesDocumentID := o.DocumentID
+	if o.DocumentID != nil {
 
-	joinedDocumentID := swag.JoinByFormat(valuesDocumentID, "multi")
-	// query array param documentId
-	if err := r.SetQueryParam("documentId", joinedDocumentID...); err != nil {
-		return err
+		// binding items for documentId
+		joinedDocumentID := o.bindParamDocumentID(reg)
+
+		// query array param documentId
+		if err := r.SetQueryParam("documentId", joinedDocumentID...); err != nil {
+			return err
+		}
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.IncludeDrafts != nil {
 
 		// query param includeDrafts
 		var qrIncludeDrafts bool
+
 		if o.IncludeDrafts != nil {
 			qrIncludeDrafts = *o.IncludeDrafts
 		}
 		qIncludeDrafts := swag.FormatBool(qrIncludeDrafts)
 		if qIncludeDrafts != "" {
+
 			if err := r.SetQueryParam("includeDrafts", qIncludeDrafts); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeSubcategories != nil {
 
 		// query param includeSubcategories
 		var qrIncludeSubcategories bool
+
 		if o.IncludeSubcategories != nil {
 			qrIncludeSubcategories = *o.IncludeSubcategories
 		}
 		qIncludeSubcategories := swag.FormatBool(qrIncludeSubcategories)
 		if qIncludeSubcategories != "" {
+
 			if err := r.SetQueryParam("includeSubcategories", qIncludeSubcategories); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Interval != nil {
 
 		// query param interval
 		var qrInterval string
+
 		if o.Interval != nil {
 			qrInterval = *o.Interval
 		}
 		qInterval := qrInterval
 		if qInterval != "" {
+
 			if err := r.SetQueryParam("interval", qInterval); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param knowledgeBaseId
@@ -393,32 +435,104 @@ func (o *GetKnowledgeKnowledgebaseDocumentsParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 
-	valuesLabelIds := o.LabelIds
+	if o.LabelIds != nil {
 
-	joinedLabelIds := swag.JoinByFormat(valuesLabelIds, "multi")
-	// query array param labelIds
-	if err := r.SetQueryParam("labelIds", joinedLabelIds...); err != nil {
-		return err
+		// binding items for labelIds
+		joinedLabelIds := o.bindParamLabelIds(reg)
+
+		// query array param labelIds
+		if err := r.SetQueryParam("labelIds", joinedLabelIds...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetKnowledgeKnowledgebaseDocuments binds the parameter categoryId
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) bindParamCategoryID(formats strfmt.Registry) []string {
+	categoryIDIR := o.CategoryID
+
+	var categoryIDIC []string
+	for _, categoryIDIIR := range categoryIDIR { // explode []string
+
+		categoryIDIIV := categoryIDIIR // string as string
+		categoryIDIC = append(categoryIDIC, categoryIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	categoryIDIS := swag.JoinByFormat(categoryIDIC, "multi")
+
+	return categoryIDIS
+}
+
+// bindParamGetKnowledgeKnowledgebaseDocuments binds the parameter documentId
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) bindParamDocumentID(formats strfmt.Registry) []string {
+	documentIDIR := o.DocumentID
+
+	var documentIDIC []string
+	for _, documentIDIIR := range documentIDIR { // explode []string
+
+		documentIDIIV := documentIDIIR // string as string
+		documentIDIC = append(documentIDIC, documentIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	documentIDIS := swag.JoinByFormat(documentIDIC, "multi")
+
+	return documentIDIS
+}
+
+// bindParamGetKnowledgeKnowledgebaseDocuments binds the parameter expand
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetKnowledgeKnowledgebaseDocuments binds the parameter labelIds
+func (o *GetKnowledgeKnowledgebaseDocumentsParams) bindParamLabelIds(formats strfmt.Registry) []string {
+	labelIdsIR := o.LabelIds
+
+	var labelIdsIC []string
+	for _, labelIdsIIR := range labelIdsIR { // explode []string
+
+		labelIdsIIV := labelIdsIIR // string as string
+		labelIdsIC = append(labelIdsIC, labelIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	labelIdsIS := swag.JoinByFormat(labelIdsIC, "multi")
+
+	return labelIdsIS
 }

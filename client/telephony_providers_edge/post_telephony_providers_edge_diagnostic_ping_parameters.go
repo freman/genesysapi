@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeDiagnosticPingParams creates a new PostTelephonyProvidersEdgeDiagnosticPingParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeDiagnosticPingParams creates a new PostTelephonyProvidersEdgeDiagnosticPingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeDiagnosticPingParams() *PostTelephonyProvidersEdgeDiagnosticPingParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticPingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticPingParamsWithTimeout creates a new PostTelephonyProvidersEdgeDiagnosticPingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeDiagnosticPingParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeDiagnosticPingParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticPingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticPingParamsWithContext creates a new PostTelephonyProvidersEdgeDiagnosticPingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeDiagnosticPingParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeDiagnosticPingParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticPingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticPingParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeDiagnosticPingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeDiagnosticPingParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeDiagnosticPingParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticPingParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge diagnostic ping operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeDiagnosticPingParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge diagnostic ping operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeDiagnosticPingParams struct {
 
-	/*Body
-	  request payload to get network diagnostic
+	/* Body.
 
+	   request payload to get network diagnostic
 	*/
 	Body *models.EdgeNetworkDiagnosticRequest
-	/*EdgeID
-	  Edge Id
 
+	/* EdgeID.
+
+	   Edge Id
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge diagnostic ping params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeDiagnosticPingParams) WithDefaults() *PostTelephonyProvidersEdgeDiagnosticPingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge diagnostic ping params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeDiagnosticPingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge diagnostic ping params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgeDiagnosticPingParams) WriteToRequest(r runtim
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

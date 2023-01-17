@@ -95,7 +95,6 @@ func (o *GetRecordingBatchrequestReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingBatchrequestOK() *GetRecordingBatchrequestOK {
 	return &GetRecordingBatchrequestOK{}
 }
 
-/*GetRecordingBatchrequestOK handles this case with default header values.
+/*
+GetRecordingBatchrequestOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingBatchrequestOK struct {
 	Payload *models.BatchDownloadJobStatusResult
 }
 
+// IsSuccess returns true when this get recording batchrequest o k response has a 2xx status code
+func (o *GetRecordingBatchrequestOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recording batchrequest o k response has a 3xx status code
+func (o *GetRecordingBatchrequestOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest o k response has a 4xx status code
+func (o *GetRecordingBatchrequestOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording batchrequest o k response has a 5xx status code
+func (o *GetRecordingBatchrequestOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest o k response a status code equal to that given
+func (o *GetRecordingBatchrequestOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingBatchrequestOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingBatchrequestBadRequest() *GetRecordingBatchrequestBadRequest
 	return &GetRecordingBatchrequestBadRequest{}
 }
 
-/*GetRecordingBatchrequestBadRequest handles this case with default header values.
+/*
+GetRecordingBatchrequestBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingBatchrequestBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest bad request response has a 2xx status code
+func (o *GetRecordingBatchrequestBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest bad request response has a 3xx status code
+func (o *GetRecordingBatchrequestBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest bad request response has a 4xx status code
+func (o *GetRecordingBatchrequestBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest bad request response has a 5xx status code
+func (o *GetRecordingBatchrequestBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest bad request response a status code equal to that given
+func (o *GetRecordingBatchrequestBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingBatchrequestBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingBatchrequestUnauthorized() *GetRecordingBatchrequestUnauthor
 	return &GetRecordingBatchrequestUnauthorized{}
 }
 
-/*GetRecordingBatchrequestUnauthorized handles this case with default header values.
+/*
+GetRecordingBatchrequestUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingBatchrequestUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest unauthorized response has a 2xx status code
+func (o *GetRecordingBatchrequestUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest unauthorized response has a 3xx status code
+func (o *GetRecordingBatchrequestUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest unauthorized response has a 4xx status code
+func (o *GetRecordingBatchrequestUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest unauthorized response has a 5xx status code
+func (o *GetRecordingBatchrequestUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest unauthorized response a status code equal to that given
+func (o *GetRecordingBatchrequestUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingBatchrequestUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingBatchrequestForbidden() *GetRecordingBatchrequestForbidden {
 	return &GetRecordingBatchrequestForbidden{}
 }
 
-/*GetRecordingBatchrequestForbidden handles this case with default header values.
+/*
+GetRecordingBatchrequestForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingBatchrequestForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest forbidden response has a 2xx status code
+func (o *GetRecordingBatchrequestForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest forbidden response has a 3xx status code
+func (o *GetRecordingBatchrequestForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest forbidden response has a 4xx status code
+func (o *GetRecordingBatchrequestForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest forbidden response has a 5xx status code
+func (o *GetRecordingBatchrequestForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest forbidden response a status code equal to that given
+func (o *GetRecordingBatchrequestForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingBatchrequestForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingBatchrequestNotFound() *GetRecordingBatchrequestNotFound {
 	return &GetRecordingBatchrequestNotFound{}
 }
 
-/*GetRecordingBatchrequestNotFound handles this case with default header values.
+/*
+GetRecordingBatchrequestNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingBatchrequestNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest not found response has a 2xx status code
+func (o *GetRecordingBatchrequestNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest not found response has a 3xx status code
+func (o *GetRecordingBatchrequestNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest not found response has a 4xx status code
+func (o *GetRecordingBatchrequestNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest not found response has a 5xx status code
+func (o *GetRecordingBatchrequestNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest not found response a status code equal to that given
+func (o *GetRecordingBatchrequestNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingBatchrequestNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingBatchrequestRequestTimeout() *GetRecordingBatchrequestReques
 	return &GetRecordingBatchrequestRequestTimeout{}
 }
 
-/*GetRecordingBatchrequestRequestTimeout handles this case with default header values.
+/*
+GetRecordingBatchrequestRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingBatchrequestRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest request timeout response has a 2xx status code
+func (o *GetRecordingBatchrequestRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest request timeout response has a 3xx status code
+func (o *GetRecordingBatchrequestRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest request timeout response has a 4xx status code
+func (o *GetRecordingBatchrequestRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest request timeout response has a 5xx status code
+func (o *GetRecordingBatchrequestRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest request timeout response a status code equal to that given
+func (o *GetRecordingBatchrequestRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingBatchrequestRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingBatchrequestRequestEntityTooLarge() *GetRecordingBatchreques
 	return &GetRecordingBatchrequestRequestEntityTooLarge{}
 }
 
-/*GetRecordingBatchrequestRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingBatchrequestRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingBatchrequestRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest request entity too large response has a 2xx status code
+func (o *GetRecordingBatchrequestRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest request entity too large response has a 3xx status code
+func (o *GetRecordingBatchrequestRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest request entity too large response has a 4xx status code
+func (o *GetRecordingBatchrequestRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest request entity too large response has a 5xx status code
+func (o *GetRecordingBatchrequestRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest request entity too large response a status code equal to that given
+func (o *GetRecordingBatchrequestRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingBatchrequestRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingBatchrequestUnsupportedMediaType() *GetRecordingBatchrequest
 	return &GetRecordingBatchrequestUnsupportedMediaType{}
 }
 
-/*GetRecordingBatchrequestUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingBatchrequestUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingBatchrequestUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest unsupported media type response has a 2xx status code
+func (o *GetRecordingBatchrequestUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest unsupported media type response has a 3xx status code
+func (o *GetRecordingBatchrequestUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest unsupported media type response has a 4xx status code
+func (o *GetRecordingBatchrequestUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest unsupported media type response has a 5xx status code
+func (o *GetRecordingBatchrequestUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest unsupported media type response a status code equal to that given
+func (o *GetRecordingBatchrequestUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingBatchrequestUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingBatchrequestTooManyRequests() *GetRecordingBatchrequestTooMa
 	return &GetRecordingBatchrequestTooManyRequests{}
 }
 
-/*GetRecordingBatchrequestTooManyRequests handles this case with default header values.
+/*
+GetRecordingBatchrequestTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingBatchrequestTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest too many requests response has a 2xx status code
+func (o *GetRecordingBatchrequestTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest too many requests response has a 3xx status code
+func (o *GetRecordingBatchrequestTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest too many requests response has a 4xx status code
+func (o *GetRecordingBatchrequestTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording batchrequest too many requests response has a 5xx status code
+func (o *GetRecordingBatchrequestTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording batchrequest too many requests response a status code equal to that given
+func (o *GetRecordingBatchrequestTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingBatchrequestTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingBatchrequestInternalServerError() *GetRecordingBatchrequestI
 	return &GetRecordingBatchrequestInternalServerError{}
 }
 
-/*GetRecordingBatchrequestInternalServerError handles this case with default header values.
+/*
+GetRecordingBatchrequestInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingBatchrequestInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest internal server error response has a 2xx status code
+func (o *GetRecordingBatchrequestInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest internal server error response has a 3xx status code
+func (o *GetRecordingBatchrequestInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest internal server error response has a 4xx status code
+func (o *GetRecordingBatchrequestInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording batchrequest internal server error response has a 5xx status code
+func (o *GetRecordingBatchrequestInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording batchrequest internal server error response a status code equal to that given
+func (o *GetRecordingBatchrequestInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingBatchrequestInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingBatchrequestServiceUnavailable() *GetRecordingBatchrequestSe
 	return &GetRecordingBatchrequestServiceUnavailable{}
 }
 
-/*GetRecordingBatchrequestServiceUnavailable handles this case with default header values.
+/*
+GetRecordingBatchrequestServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingBatchrequestServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest service unavailable response has a 2xx status code
+func (o *GetRecordingBatchrequestServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest service unavailable response has a 3xx status code
+func (o *GetRecordingBatchrequestServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest service unavailable response has a 4xx status code
+func (o *GetRecordingBatchrequestServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording batchrequest service unavailable response has a 5xx status code
+func (o *GetRecordingBatchrequestServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording batchrequest service unavailable response a status code equal to that given
+func (o *GetRecordingBatchrequestServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingBatchrequestServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingBatchrequestGatewayTimeout() *GetRecordingBatchrequestGatewa
 	return &GetRecordingBatchrequestGatewayTimeout{}
 }
 
-/*GetRecordingBatchrequestGatewayTimeout handles this case with default header values.
+/*
+GetRecordingBatchrequestGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingBatchrequestGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording batchrequest gateway timeout response has a 2xx status code
+func (o *GetRecordingBatchrequestGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording batchrequest gateway timeout response has a 3xx status code
+func (o *GetRecordingBatchrequestGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording batchrequest gateway timeout response has a 4xx status code
+func (o *GetRecordingBatchrequestGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording batchrequest gateway timeout response has a 5xx status code
+func (o *GetRecordingBatchrequestGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording batchrequest gateway timeout response a status code equal to that given
+func (o *GetRecordingBatchrequestGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingBatchrequestGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingBatchrequestGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/batchrequests/{jobId}][%d] getRecordingBatchrequestGatewayTimeout  %+v", 504, o.Payload)
 }
 

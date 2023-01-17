@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -21,7 +22,7 @@ import (
 type Operation struct {
 
 	// Action name
-	// Enum: [CREATE CHECKIN DEBUG DELETE HISTORY PUBLISH STATE_CHANGE UPDATE VALIDATE]
+	// Enum: [CREATE CHECKIN CHECKOUT DEBUG DELETE HISTORY PUBLISH REVERT SAVE STATE_CHANGE UPDATE VALIDATE]
 	ActionName string `json:"actionName,omitempty"`
 
 	// Action status
@@ -87,7 +88,7 @@ var operationTypeActionNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["CREATE","CHECKIN","DEBUG","DELETE","HISTORY","PUBLISH","STATE_CHANGE","UPDATE","VALIDATE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["CREATE","CHECKIN","CHECKOUT","DEBUG","DELETE","HISTORY","PUBLISH","REVERT","SAVE","STATE_CHANGE","UPDATE","VALIDATE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -103,6 +104,9 @@ const (
 	// OperationActionNameCHECKIN captures enum value "CHECKIN"
 	OperationActionNameCHECKIN string = "CHECKIN"
 
+	// OperationActionNameCHECKOUT captures enum value "CHECKOUT"
+	OperationActionNameCHECKOUT string = "CHECKOUT"
+
 	// OperationActionNameDEBUG captures enum value "DEBUG"
 	OperationActionNameDEBUG string = "DEBUG"
 
@@ -114,6 +118,12 @@ const (
 
 	// OperationActionNamePUBLISH captures enum value "PUBLISH"
 	OperationActionNamePUBLISH string = "PUBLISH"
+
+	// OperationActionNameREVERT captures enum value "REVERT"
+	OperationActionNameREVERT string = "REVERT"
+
+	// OperationActionNameSAVE captures enum value "SAVE"
+	OperationActionNameSAVE string = "SAVE"
 
 	// OperationActionNameSTATECHANGE captures enum value "STATE_CHANGE"
 	OperationActionNameSTATECHANGE string = "STATE_CHANGE"
@@ -134,7 +144,6 @@ func (m *Operation) validateActionNameEnum(path, location string, value string) 
 }
 
 func (m *Operation) validateActionName(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionName) { // not required
 		return nil
 	}
@@ -192,7 +201,6 @@ func (m *Operation) validateActionStatusEnum(path, location string, value string
 }
 
 func (m *Operation) validateActionStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionStatus) { // not required
 		return nil
 	}
@@ -206,7 +214,6 @@ func (m *Operation) validateActionStatus(formats strfmt.Registry) error {
 }
 
 func (m *Operation) validateClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Client) { // not required
 		return nil
 	}
@@ -215,6 +222,8 @@ func (m *Operation) validateClient(formats strfmt.Registry) error {
 		if err := m.Client.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
 			}
 			return err
 		}
@@ -224,7 +233,6 @@ func (m *Operation) validateClient(formats strfmt.Registry) error {
 }
 
 func (m *Operation) validateErrorDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorDetails) { // not required
 		return nil
 	}
@@ -238,6 +246,8 @@ func (m *Operation) validateErrorDetails(formats strfmt.Registry) error {
 			if err := m.ErrorDetails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -249,7 +259,6 @@ func (m *Operation) validateErrorDetails(formats strfmt.Registry) error {
 }
 
 func (m *Operation) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -258,6 +267,82 @@ func (m *Operation) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this operation based on the context it is used
+func (m *Operation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Operation) contextValidateClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Client != nil {
+		if err := m.Client.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Operation) contextValidateErrorDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ErrorDetails); i++ {
+
+		if m.ErrorDetails[i] != nil {
+			if err := m.ErrorDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Operation) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

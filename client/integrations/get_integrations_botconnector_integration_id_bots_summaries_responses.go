@@ -95,7 +95,6 @@ func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesReader) ReadRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesOK() *GetIntegratio
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK struct {
 	Payload *models.BotConnectorBotSummaryEntityListing
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries o k response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries o k response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries o k response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries o k response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries o k response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest() *GetIn
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries bad request response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries bad request response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries bad request response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries bad request response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries bad request response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized() *Get
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries unauthorized response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries unauthorized response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries unauthorized response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries unauthorized response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries unauthorized response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden() *GetInt
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries forbidden response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries forbidden response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries forbidden response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries forbidden response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries forbidden response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound() *GetInte
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries not found response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries not found response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries not found response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries not found response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries not found response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout() *G
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries request timeout response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries request timeout response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries request timeout response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries request timeout response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries request timeout response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLar
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries request entity too large response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries request entity too large response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries request entity too large response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries request entity too large response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries request entity too large response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaTyp
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries unsupported media type response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries unsupported media type response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries unsupported media type response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries unsupported media type response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries unsupported media type response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests() *
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries too many requests response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries too many requests response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries too many requests response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries too many requests response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries too many requests response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries internal server error response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries internal server error response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries internal server error response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries internal server error response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries internal server error response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable(
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries service unavailable response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries service unavailable response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries service unavailable response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries service unavailable response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries service unavailable response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout() *G
 	return &GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout{}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations botconnector integration Id bots summaries gateway timeout response has a 2xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations botconnector integration Id bots summaries gateway timeout response has a 3xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations botconnector integration Id bots summaries gateway timeout response has a 4xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations botconnector integration Id bots summaries gateway timeout response has a 5xx status code
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations botconnector integration Id bots summaries gateway timeout response a status code equal to that given
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsBotconnectorIntegrationIDBotsSummariesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/botconnector/{integrationId}/bots/summaries][%d] getIntegrationsBotconnectorIntegrationIdBotsSummariesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PutOrganizationsIpaddressauthenticationReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOrganizationsIpaddressauthenticationOK() *PutOrganizationsIpaddressau
 	return &PutOrganizationsIpaddressauthenticationOK{}
 }
 
-/*PutOrganizationsIpaddressauthenticationOK handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOrganizationsIpaddressauthenticationOK struct {
 	Payload *models.IPAddressAuthentication
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication o k response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication o k response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication o k response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication o k response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication o k response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOrganizationsIpaddressauthenticationOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOrganizationsIpaddressauthenticationBadRequest() *PutOrganizationsIpa
 	return &PutOrganizationsIpaddressauthenticationBadRequest{}
 }
 
-/*PutOrganizationsIpaddressauthenticationBadRequest handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOrganizationsIpaddressauthenticationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication bad request response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication bad request response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication bad request response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication bad request response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication bad request response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOrganizationsIpaddressauthenticationBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOrganizationsIpaddressauthenticationUnauthorized() *PutOrganizationsI
 	return &PutOrganizationsIpaddressauthenticationUnauthorized{}
 }
 
-/*PutOrganizationsIpaddressauthenticationUnauthorized handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOrganizationsIpaddressauthenticationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication unauthorized response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication unauthorized response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication unauthorized response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication unauthorized response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication unauthorized response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOrganizationsIpaddressauthenticationUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOrganizationsIpaddressauthenticationForbidden() *PutOrganizationsIpad
 	return &PutOrganizationsIpaddressauthenticationForbidden{}
 }
 
-/*PutOrganizationsIpaddressauthenticationForbidden handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOrganizationsIpaddressauthenticationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication forbidden response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication forbidden response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication forbidden response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication forbidden response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication forbidden response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOrganizationsIpaddressauthenticationForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOrganizationsIpaddressauthenticationNotFound() *PutOrganizationsIpadd
 	return &PutOrganizationsIpaddressauthenticationNotFound{}
 }
 
-/*PutOrganizationsIpaddressauthenticationNotFound handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOrganizationsIpaddressauthenticationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication not found response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication not found response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication not found response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication not found response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication not found response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOrganizationsIpaddressauthenticationNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOrganizationsIpaddressauthenticationRequestTimeout() *PutOrganization
 	return &PutOrganizationsIpaddressauthenticationRequestTimeout{}
 }
 
-/*PutOrganizationsIpaddressauthenticationRequestTimeout handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOrganizationsIpaddressauthenticationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication request timeout response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication request timeout response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication request timeout response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication request timeout response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication request timeout response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOrganizationsIpaddressauthenticationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOrganizationsIpaddressauthenticationRequestEntityTooLarge() *PutOrgan
 	return &PutOrganizationsIpaddressauthenticationRequestEntityTooLarge{}
 }
 
-/*PutOrganizationsIpaddressauthenticationRequestEntityTooLarge handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOrganizationsIpaddressauthenticationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication request entity too large response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication request entity too large response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication request entity too large response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication request entity too large response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication request entity too large response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOrganizationsIpaddressauthenticationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOrganizationsIpaddressauthenticationUnsupportedMediaType() *PutOrgani
 	return &PutOrganizationsIpaddressauthenticationUnsupportedMediaType{}
 }
 
-/*PutOrganizationsIpaddressauthenticationUnsupportedMediaType handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOrganizationsIpaddressauthenticationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication unsupported media type response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication unsupported media type response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication unsupported media type response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication unsupported media type response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication unsupported media type response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOrganizationsIpaddressauthenticationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOrganizationsIpaddressauthenticationTooManyRequests() *PutOrganizatio
 	return &PutOrganizationsIpaddressauthenticationTooManyRequests{}
 }
 
-/*PutOrganizationsIpaddressauthenticationTooManyRequests handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOrganizationsIpaddressauthenticationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication too many requests response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication too many requests response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication too many requests response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication too many requests response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication too many requests response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOrganizationsIpaddressauthenticationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOrganizationsIpaddressauthenticationInternalServerError() *PutOrganiz
 	return &PutOrganizationsIpaddressauthenticationInternalServerError{}
 }
 
-/*PutOrganizationsIpaddressauthenticationInternalServerError handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOrganizationsIpaddressauthenticationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication internal server error response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication internal server error response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication internal server error response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication internal server error response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication internal server error response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOrganizationsIpaddressauthenticationInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOrganizationsIpaddressauthenticationServiceUnavailable() *PutOrganiza
 	return &PutOrganizationsIpaddressauthenticationServiceUnavailable{}
 }
 
-/*PutOrganizationsIpaddressauthenticationServiceUnavailable handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOrganizationsIpaddressauthenticationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication service unavailable response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication service unavailable response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication service unavailable response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication service unavailable response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication service unavailable response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOrganizationsIpaddressauthenticationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOrganizationsIpaddressauthenticationGatewayTimeout() *PutOrganization
 	return &PutOrganizationsIpaddressauthenticationGatewayTimeout{}
 }
 
-/*PutOrganizationsIpaddressauthenticationGatewayTimeout handles this case with default header values.
+/*
+PutOrganizationsIpaddressauthenticationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOrganizationsIpaddressauthenticationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations ipaddressauthentication gateway timeout response has a 2xx status code
+func (o *PutOrganizationsIpaddressauthenticationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations ipaddressauthentication gateway timeout response has a 3xx status code
+func (o *PutOrganizationsIpaddressauthenticationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations ipaddressauthentication gateway timeout response has a 4xx status code
+func (o *PutOrganizationsIpaddressauthenticationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations ipaddressauthentication gateway timeout response has a 5xx status code
+func (o *PutOrganizationsIpaddressauthenticationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations ipaddressauthentication gateway timeout response a status code equal to that given
+func (o *PutOrganizationsIpaddressauthenticationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOrganizationsIpaddressauthenticationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOrganizationsIpaddressauthenticationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/ipaddressauthentication][%d] putOrganizationsIpaddressauthenticationGatewayTimeout  %+v", 504, o.Payload)
 }
 

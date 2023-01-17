@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetGroupsSearchParams creates a new GetGroupsSearchParams object
-// with the default values initialized.
+// NewGetGroupsSearchParams creates a new GetGroupsSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGroupsSearchParams() *GetGroupsSearchParams {
-	var ()
 	return &GetGroupsSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGroupsSearchParamsWithTimeout creates a new GetGroupsSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGroupsSearchParamsWithTimeout(timeout time.Duration) *GetGroupsSearchParams {
-	var ()
 	return &GetGroupsSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGroupsSearchParamsWithContext creates a new GetGroupsSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGroupsSearchParamsWithContext(ctx context.Context) *GetGroupsSearchParams {
-	var ()
 	return &GetGroupsSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGroupsSearchParamsWithHTTPClient creates a new GetGroupsSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGroupsSearchParamsWithHTTPClient(client *http.Client) *GetGroupsSearchParams {
-	var ()
 	return &GetGroupsSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGroupsSearchParams contains all the parameters to send to the API endpoint
-for the get groups search operation typically these are written to a http.Request
+/*
+GetGroupsSearchParams contains all the parameters to send to the API endpoint
+
+	for the get groups search operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGroupsSearchParams struct {
 
-	/*Expand
-	  expand
+	/* Expand.
 
+	   expand
 	*/
 	Expand []string
-	/*Q64
-	  q64
 
+	/* Q64.
+
+	   q64
 	*/
 	Q64 string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get groups search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGroupsSearchParams) WithDefaults() *GetGroupsSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get groups search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGroupsSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get groups search params
@@ -140,18 +157,22 @@ func (o *GetGroupsSearchParams) WriteToRequest(r runtime.ClientRequest, reg strf
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// query param q64
 	qrQ64 := o.Q64
 	qQ64 := qrQ64
 	if qQ64 != "" {
+
 		if err := r.SetQueryParam("q64", qQ64); err != nil {
 			return err
 		}
@@ -161,4 +182,21 @@ func (o *GetGroupsSearchParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetGroupsSearch binds the parameter expand
+func (o *GetGroupsSearchParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

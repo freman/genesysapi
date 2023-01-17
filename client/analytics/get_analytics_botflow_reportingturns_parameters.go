@@ -16,91 +16,124 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAnalyticsBotflowReportingturnsParams creates a new GetAnalyticsBotflowReportingturnsParams object
-// with the default values initialized.
+// NewGetAnalyticsBotflowReportingturnsParams creates a new GetAnalyticsBotflowReportingturnsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAnalyticsBotflowReportingturnsParams() *GetAnalyticsBotflowReportingturnsParams {
-	var (
-		pageSizeDefault = string("50")
-	)
 	return &GetAnalyticsBotflowReportingturnsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAnalyticsBotflowReportingturnsParamsWithTimeout creates a new GetAnalyticsBotflowReportingturnsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAnalyticsBotflowReportingturnsParamsWithTimeout(timeout time.Duration) *GetAnalyticsBotflowReportingturnsParams {
-	var (
-		pageSizeDefault = string("50")
-	)
 	return &GetAnalyticsBotflowReportingturnsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAnalyticsBotflowReportingturnsParamsWithContext creates a new GetAnalyticsBotflowReportingturnsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAnalyticsBotflowReportingturnsParamsWithContext(ctx context.Context) *GetAnalyticsBotflowReportingturnsParams {
-	var (
-		pageSizeDefault = string("50")
-	)
 	return &GetAnalyticsBotflowReportingturnsParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetAnalyticsBotflowReportingturnsParamsWithHTTPClient creates a new GetAnalyticsBotflowReportingturnsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAnalyticsBotflowReportingturnsParamsWithHTTPClient(client *http.Client) *GetAnalyticsBotflowReportingturnsParams {
-	var (
-		pageSizeDefault = string("50")
-	)
 	return &GetAnalyticsBotflowReportingturnsParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetAnalyticsBotflowReportingturnsParams contains all the parameters to send to the API endpoint
-for the get analytics botflow reportingturns operation typically these are written to a http.Request
+/*
+GetAnalyticsBotflowReportingturnsParams contains all the parameters to send to the API endpoint
+
+	for the get analytics botflow reportingturns operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAnalyticsBotflowReportingturnsParams struct {
 
-	/*ActionID
-	  Optional action ID to get the reporting turns associated to a particular flow action
+	/* ActionID.
 
+	   Optional action ID to get the reporting turns associated to a particular flow action
 	*/
 	ActionID *string
-	/*After
-	  The cursor that points to the ID of the last item in the list of entities that has been returned.
 
+	/* After.
+
+	   The cursor that points to the ID of the last item in the list of entities that has been returned.
 	*/
 	After *string
-	/*BotFlowID
-	  ID of the bot flow.
 
+	/* AskActionResults.
+
+	   Optional case-insensitive comma separated list of ask action results to filter the reporting turns.
+	*/
+	AskActionResults *string
+
+	/* BotFlowID.
+
+	   ID of the bot flow.
 	*/
 	BotFlowID string
-	/*PageSize
-	  Max number of entities to return. Maximum of 250
 
+	/* Language.
+
+	   Optional language code to get the reporting turns for a particular language
+	*/
+	Language *string
+
+	/* PageSize.
+
+	   Max number of entities to return. Maximum of 250
+
+	   Default: "50"
 	*/
 	PageSize *string
-	/*SessionID
-	  Optional session ID to get the reporting turns for a particular session
 
+	/* SessionID.
+
+	   Optional session ID to get the reporting turns for a particular session
 	*/
 	SessionID *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get analytics botflow reportingturns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsBotflowReportingturnsParams) WithDefaults() *GetAnalyticsBotflowReportingturnsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get analytics botflow reportingturns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsBotflowReportingturnsParams) SetDefaults() {
+	var (
+		pageSizeDefault = string("50")
+	)
+
+	val := GetAnalyticsBotflowReportingturnsParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get analytics botflow reportingturns params
@@ -158,6 +191,17 @@ func (o *GetAnalyticsBotflowReportingturnsParams) SetAfter(after *string) {
 	o.After = after
 }
 
+// WithAskActionResults adds the askActionResults to the get analytics botflow reportingturns params
+func (o *GetAnalyticsBotflowReportingturnsParams) WithAskActionResults(askActionResults *string) *GetAnalyticsBotflowReportingturnsParams {
+	o.SetAskActionResults(askActionResults)
+	return o
+}
+
+// SetAskActionResults adds the askActionResults to the get analytics botflow reportingturns params
+func (o *GetAnalyticsBotflowReportingturnsParams) SetAskActionResults(askActionResults *string) {
+	o.AskActionResults = askActionResults
+}
+
 // WithBotFlowID adds the botFlowID to the get analytics botflow reportingturns params
 func (o *GetAnalyticsBotflowReportingturnsParams) WithBotFlowID(botFlowID string) *GetAnalyticsBotflowReportingturnsParams {
 	o.SetBotFlowID(botFlowID)
@@ -167,6 +211,17 @@ func (o *GetAnalyticsBotflowReportingturnsParams) WithBotFlowID(botFlowID string
 // SetBotFlowID adds the botFlowId to the get analytics botflow reportingturns params
 func (o *GetAnalyticsBotflowReportingturnsParams) SetBotFlowID(botFlowID string) {
 	o.BotFlowID = botFlowID
+}
+
+// WithLanguage adds the language to the get analytics botflow reportingturns params
+func (o *GetAnalyticsBotflowReportingturnsParams) WithLanguage(language *string) *GetAnalyticsBotflowReportingturnsParams {
+	o.SetLanguage(language)
+	return o
+}
+
+// SetLanguage adds the language to the get analytics botflow reportingturns params
+func (o *GetAnalyticsBotflowReportingturnsParams) SetLanguage(language *string) {
+	o.Language = language
 }
 
 // WithPageSize adds the pageSize to the get analytics botflow reportingturns params
@@ -203,32 +258,51 @@ func (o *GetAnalyticsBotflowReportingturnsParams) WriteToRequest(r runtime.Clien
 
 		// query param actionId
 		var qrActionID string
+
 		if o.ActionID != nil {
 			qrActionID = *o.ActionID
 		}
 		qActionID := qrActionID
 		if qActionID != "" {
+
 			if err := r.SetQueryParam("actionId", qActionID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.After != nil {
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
+	}
 
+	if o.AskActionResults != nil {
+
+		// query param askActionResults
+		var qrAskActionResults string
+
+		if o.AskActionResults != nil {
+			qrAskActionResults = *o.AskActionResults
+		}
+		qAskActionResults := qrAskActionResults
+		if qAskActionResults != "" {
+
+			if err := r.SetQueryParam("askActionResults", qAskActionResults); err != nil {
+				return err
+			}
+		}
 	}
 
 	// path param botFlowId
@@ -236,36 +310,55 @@ func (o *GetAnalyticsBotflowReportingturnsParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 
+	if o.Language != nil {
+
+		// query param language
+		var qrLanguage string
+
+		if o.Language != nil {
+			qrLanguage = *o.Language
+		}
+		qLanguage := qrLanguage
+		if qLanguage != "" {
+
+			if err := r.SetQueryParam("language", qLanguage); err != nil {
+				return err
+			}
+		}
+	}
+
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SessionID != nil {
 
 		// query param sessionId
 		var qrSessionID string
+
 		if o.SessionID != nil {
 			qrSessionID = *o.SessionID
 		}
 		qSessionID := qrSessionID
 		if qSessionID != "" {
+
 			if err := r.SetQueryParam("sessionId", qSessionID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

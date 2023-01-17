@@ -101,7 +101,6 @@ func (o *GetOutboundCampaignAgentownedmappingpreviewResultsReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsOK() *GetOutboundCampa
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsOK{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsOK handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsOK struct {
 	Payload *models.AgentOwnedMappingPreviewListing
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results o k response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results o k response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results o k response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results o k response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results o k response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsOK  %+v", 200, o.Payload)
 }
 
@@ -145,14 +174,44 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsAccepted() *GetOutboun
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsAccepted{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsAccepted handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsAccepted describes a response with status code 202, with default header values.
 
 The preview is not yet ready
 */
 type GetOutboundCampaignAgentownedmappingpreviewResultsAccepted struct {
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results accepted response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results accepted response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results accepted response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results accepted response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results accepted response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsAccepted ", 202)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsAccepted ", 202)
 }
 
@@ -166,7 +225,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsBadRequest() *GetOutbo
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -174,7 +234,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results bad request response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results bad request response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results bad request response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results bad request response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results bad request response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized() *GetOut
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -207,7 +297,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results unauthorized response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results unauthorized response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results unauthorized response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results unauthorized response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results unauthorized response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsForbidden() *GetOutbou
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsForbidden{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsForbidden handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -240,7 +360,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results forbidden response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results forbidden response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results forbidden response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results forbidden response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results forbidden response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsForbidden  %+v", 403, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsNotFound() *GetOutboun
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsNotFound{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsNotFound handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -273,7 +423,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results not found response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results not found response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results not found response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results not found response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results not found response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsNotFound  %+v", 404, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout() *GetO
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -306,7 +486,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results request timeout response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results request timeout response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results request timeout response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results request timeout response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results request timeout response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge(
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results request entity too large response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results request entity too large response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results request entity too large response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results request entity too large response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results request entity too large response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType()
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results unsupported media type response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results unsupported media type response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results unsupported media type response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results unsupported media type response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results unsupported media type response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests() *Get
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results too many requests response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results too many requests response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results too many requests response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results too many requests response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results too many requests response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError() 
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results internal server error response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results internal server error response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results internal server error response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results internal server error response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results internal server error response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable() *
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results service unavailable response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results service unavailable response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results service unavailable response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results service unavailable response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results service unavailable response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewGetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout() *GetO
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout{}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout handles this case with default header values.
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaign agentownedmappingpreview results gateway timeout response has a 2xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaign agentownedmappingpreview results gateway timeout response has a 3xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaign agentownedmappingpreview results gateway timeout response has a 4xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaign agentownedmappingpreview results gateway timeout response has a 5xx status code
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaign agentownedmappingpreview results gateway timeout response a status code equal to that given
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/{campaignId}/agentownedmappingpreview/results][%d] getOutboundCampaignAgentownedmappingpreviewResultsGatewayTimeout  %+v", 504, o.Payload)
 }
 

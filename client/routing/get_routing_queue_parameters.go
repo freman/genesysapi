@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingQueueParams creates a new GetRoutingQueueParams object
-// with the default values initialized.
+// NewGetRoutingQueueParams creates a new GetRoutingQueueParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingQueueParams() *GetRoutingQueueParams {
-	var ()
 	return &GetRoutingQueueParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingQueueParamsWithTimeout creates a new GetRoutingQueueParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingQueueParamsWithTimeout(timeout time.Duration) *GetRoutingQueueParams {
-	var ()
 	return &GetRoutingQueueParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingQueueParamsWithContext creates a new GetRoutingQueueParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingQueueParamsWithContext(ctx context.Context) *GetRoutingQueueParams {
-	var ()
 	return &GetRoutingQueueParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingQueueParamsWithHTTPClient creates a new GetRoutingQueueParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingQueueParamsWithHTTPClient(client *http.Client) *GetRoutingQueueParams {
-	var ()
 	return &GetRoutingQueueParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingQueueParams contains all the parameters to send to the API endpoint
-for the get routing queue operation typically these are written to a http.Request
+/*
+GetRoutingQueueParams contains all the parameters to send to the API endpoint
+
+	for the get routing queue operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingQueueParams struct {
 
-	/*QueueID
-	  Queue ID
+	/* QueueID.
 
+	   Queue ID
 	*/
 	QueueID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing queue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueueParams) WithDefaults() *GetRoutingQueueParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing queue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueueParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing queue params

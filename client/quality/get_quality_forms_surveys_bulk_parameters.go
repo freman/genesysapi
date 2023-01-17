@@ -17,59 +17,75 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetQualityFormsSurveysBulkParams creates a new GetQualityFormsSurveysBulkParams object
-// with the default values initialized.
+// NewGetQualityFormsSurveysBulkParams creates a new GetQualityFormsSurveysBulkParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityFormsSurveysBulkParams() *GetQualityFormsSurveysBulkParams {
-	var ()
 	return &GetQualityFormsSurveysBulkParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityFormsSurveysBulkParamsWithTimeout creates a new GetQualityFormsSurveysBulkParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityFormsSurveysBulkParamsWithTimeout(timeout time.Duration) *GetQualityFormsSurveysBulkParams {
-	var ()
 	return &GetQualityFormsSurveysBulkParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityFormsSurveysBulkParamsWithContext creates a new GetQualityFormsSurveysBulkParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityFormsSurveysBulkParamsWithContext(ctx context.Context) *GetQualityFormsSurveysBulkParams {
-	var ()
 	return &GetQualityFormsSurveysBulkParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityFormsSurveysBulkParamsWithHTTPClient creates a new GetQualityFormsSurveysBulkParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityFormsSurveysBulkParamsWithHTTPClient(client *http.Client) *GetQualityFormsSurveysBulkParams {
-	var ()
 	return &GetQualityFormsSurveysBulkParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityFormsSurveysBulkParams contains all the parameters to send to the API endpoint
-for the get quality forms surveys bulk operation typically these are written to a http.Request
+/*
+GetQualityFormsSurveysBulkParams contains all the parameters to send to the API endpoint
+
+	for the get quality forms surveys bulk operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityFormsSurveysBulkParams struct {
 
-	/*ID
-	  A comma-delimited list of valid survey form ids
+	/* ID.
 
+	   A comma-delimited list of valid survey form ids
 	*/
 	ID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality forms surveys bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityFormsSurveysBulkParams) WithDefaults() *GetQualityFormsSurveysBulkParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality forms surveys bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityFormsSurveysBulkParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get quality forms surveys bulk params
@@ -124,16 +140,36 @@ func (o *GetQualityFormsSurveysBulkParams) WriteToRequest(r runtime.ClientReques
 	}
 	var res []error
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetQualityFormsSurveysBulk binds the parameter id
+func (o *GetQualityFormsSurveysBulkParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

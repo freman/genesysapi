@@ -95,7 +95,6 @@ func (o *PatchOrganizationsFeatureReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchOrganizationsFeatureOK() *PatchOrganizationsFeatureOK {
 	return &PatchOrganizationsFeatureOK{}
 }
 
-/*PatchOrganizationsFeatureOK handles this case with default header values.
+/*
+PatchOrganizationsFeatureOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchOrganizationsFeatureOK struct {
 	Payload *models.OrganizationFeatures
 }
 
+// IsSuccess returns true when this patch organizations feature o k response has a 2xx status code
+func (o *PatchOrganizationsFeatureOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch organizations feature o k response has a 3xx status code
+func (o *PatchOrganizationsFeatureOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature o k response has a 4xx status code
+func (o *PatchOrganizationsFeatureOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch organizations feature o k response has a 5xx status code
+func (o *PatchOrganizationsFeatureOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature o k response a status code equal to that given
+func (o *PatchOrganizationsFeatureOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchOrganizationsFeatureOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchOrganizationsFeatureBadRequest() *PatchOrganizationsFeatureBadReque
 	return &PatchOrganizationsFeatureBadRequest{}
 }
 
-/*PatchOrganizationsFeatureBadRequest handles this case with default header values.
+/*
+PatchOrganizationsFeatureBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchOrganizationsFeatureBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature bad request response has a 2xx status code
+func (o *PatchOrganizationsFeatureBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature bad request response has a 3xx status code
+func (o *PatchOrganizationsFeatureBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature bad request response has a 4xx status code
+func (o *PatchOrganizationsFeatureBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature bad request response has a 5xx status code
+func (o *PatchOrganizationsFeatureBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature bad request response a status code equal to that given
+func (o *PatchOrganizationsFeatureBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchOrganizationsFeatureBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchOrganizationsFeatureUnauthorized() *PatchOrganizationsFeatureUnauth
 	return &PatchOrganizationsFeatureUnauthorized{}
 }
 
-/*PatchOrganizationsFeatureUnauthorized handles this case with default header values.
+/*
+PatchOrganizationsFeatureUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchOrganizationsFeatureUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature unauthorized response has a 2xx status code
+func (o *PatchOrganizationsFeatureUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature unauthorized response has a 3xx status code
+func (o *PatchOrganizationsFeatureUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature unauthorized response has a 4xx status code
+func (o *PatchOrganizationsFeatureUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature unauthorized response has a 5xx status code
+func (o *PatchOrganizationsFeatureUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature unauthorized response a status code equal to that given
+func (o *PatchOrganizationsFeatureUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchOrganizationsFeatureUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchOrganizationsFeatureForbidden() *PatchOrganizationsFeatureForbidden
 	return &PatchOrganizationsFeatureForbidden{}
 }
 
-/*PatchOrganizationsFeatureForbidden handles this case with default header values.
+/*
+PatchOrganizationsFeatureForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchOrganizationsFeatureForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature forbidden response has a 2xx status code
+func (o *PatchOrganizationsFeatureForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature forbidden response has a 3xx status code
+func (o *PatchOrganizationsFeatureForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature forbidden response has a 4xx status code
+func (o *PatchOrganizationsFeatureForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature forbidden response has a 5xx status code
+func (o *PatchOrganizationsFeatureForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature forbidden response a status code equal to that given
+func (o *PatchOrganizationsFeatureForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchOrganizationsFeatureForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchOrganizationsFeatureNotFound() *PatchOrganizationsFeatureNotFound {
 	return &PatchOrganizationsFeatureNotFound{}
 }
 
-/*PatchOrganizationsFeatureNotFound handles this case with default header values.
+/*
+PatchOrganizationsFeatureNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchOrganizationsFeatureNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature not found response has a 2xx status code
+func (o *PatchOrganizationsFeatureNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature not found response has a 3xx status code
+func (o *PatchOrganizationsFeatureNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature not found response has a 4xx status code
+func (o *PatchOrganizationsFeatureNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature not found response has a 5xx status code
+func (o *PatchOrganizationsFeatureNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature not found response a status code equal to that given
+func (o *PatchOrganizationsFeatureNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchOrganizationsFeatureNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchOrganizationsFeatureRequestTimeout() *PatchOrganizationsFeatureRequ
 	return &PatchOrganizationsFeatureRequestTimeout{}
 }
 
-/*PatchOrganizationsFeatureRequestTimeout handles this case with default header values.
+/*
+PatchOrganizationsFeatureRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchOrganizationsFeatureRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature request timeout response has a 2xx status code
+func (o *PatchOrganizationsFeatureRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature request timeout response has a 3xx status code
+func (o *PatchOrganizationsFeatureRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature request timeout response has a 4xx status code
+func (o *PatchOrganizationsFeatureRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature request timeout response has a 5xx status code
+func (o *PatchOrganizationsFeatureRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature request timeout response a status code equal to that given
+func (o *PatchOrganizationsFeatureRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchOrganizationsFeatureRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchOrganizationsFeatureRequestEntityTooLarge() *PatchOrganizationsFeat
 	return &PatchOrganizationsFeatureRequestEntityTooLarge{}
 }
 
-/*PatchOrganizationsFeatureRequestEntityTooLarge handles this case with default header values.
+/*
+PatchOrganizationsFeatureRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchOrganizationsFeatureRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature request entity too large response has a 2xx status code
+func (o *PatchOrganizationsFeatureRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature request entity too large response has a 3xx status code
+func (o *PatchOrganizationsFeatureRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature request entity too large response has a 4xx status code
+func (o *PatchOrganizationsFeatureRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature request entity too large response has a 5xx status code
+func (o *PatchOrganizationsFeatureRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature request entity too large response a status code equal to that given
+func (o *PatchOrganizationsFeatureRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchOrganizationsFeatureRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchOrganizationsFeatureUnsupportedMediaType() *PatchOrganizationsFeatu
 	return &PatchOrganizationsFeatureUnsupportedMediaType{}
 }
 
-/*PatchOrganizationsFeatureUnsupportedMediaType handles this case with default header values.
+/*
+PatchOrganizationsFeatureUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchOrganizationsFeatureUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature unsupported media type response has a 2xx status code
+func (o *PatchOrganizationsFeatureUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature unsupported media type response has a 3xx status code
+func (o *PatchOrganizationsFeatureUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature unsupported media type response has a 4xx status code
+func (o *PatchOrganizationsFeatureUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature unsupported media type response has a 5xx status code
+func (o *PatchOrganizationsFeatureUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature unsupported media type response a status code equal to that given
+func (o *PatchOrganizationsFeatureUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchOrganizationsFeatureUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchOrganizationsFeatureTooManyRequests() *PatchOrganizationsFeatureToo
 	return &PatchOrganizationsFeatureTooManyRequests{}
 }
 
-/*PatchOrganizationsFeatureTooManyRequests handles this case with default header values.
+/*
+PatchOrganizationsFeatureTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchOrganizationsFeatureTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature too many requests response has a 2xx status code
+func (o *PatchOrganizationsFeatureTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature too many requests response has a 3xx status code
+func (o *PatchOrganizationsFeatureTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature too many requests response has a 4xx status code
+func (o *PatchOrganizationsFeatureTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch organizations feature too many requests response has a 5xx status code
+func (o *PatchOrganizationsFeatureTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch organizations feature too many requests response a status code equal to that given
+func (o *PatchOrganizationsFeatureTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchOrganizationsFeatureTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchOrganizationsFeatureInternalServerError() *PatchOrganizationsFeatur
 	return &PatchOrganizationsFeatureInternalServerError{}
 }
 
-/*PatchOrganizationsFeatureInternalServerError handles this case with default header values.
+/*
+PatchOrganizationsFeatureInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchOrganizationsFeatureInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature internal server error response has a 2xx status code
+func (o *PatchOrganizationsFeatureInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature internal server error response has a 3xx status code
+func (o *PatchOrganizationsFeatureInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature internal server error response has a 4xx status code
+func (o *PatchOrganizationsFeatureInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch organizations feature internal server error response has a 5xx status code
+func (o *PatchOrganizationsFeatureInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch organizations feature internal server error response a status code equal to that given
+func (o *PatchOrganizationsFeatureInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchOrganizationsFeatureInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchOrganizationsFeatureServiceUnavailable() *PatchOrganizationsFeature
 	return &PatchOrganizationsFeatureServiceUnavailable{}
 }
 
-/*PatchOrganizationsFeatureServiceUnavailable handles this case with default header values.
+/*
+PatchOrganizationsFeatureServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchOrganizationsFeatureServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature service unavailable response has a 2xx status code
+func (o *PatchOrganizationsFeatureServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature service unavailable response has a 3xx status code
+func (o *PatchOrganizationsFeatureServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature service unavailable response has a 4xx status code
+func (o *PatchOrganizationsFeatureServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch organizations feature service unavailable response has a 5xx status code
+func (o *PatchOrganizationsFeatureServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch organizations feature service unavailable response a status code equal to that given
+func (o *PatchOrganizationsFeatureServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchOrganizationsFeatureServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchOrganizationsFeatureGatewayTimeout() *PatchOrganizationsFeatureGate
 	return &PatchOrganizationsFeatureGatewayTimeout{}
 }
 
-/*PatchOrganizationsFeatureGatewayTimeout handles this case with default header values.
+/*
+PatchOrganizationsFeatureGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchOrganizationsFeatureGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch organizations feature gateway timeout response has a 2xx status code
+func (o *PatchOrganizationsFeatureGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch organizations feature gateway timeout response has a 3xx status code
+func (o *PatchOrganizationsFeatureGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch organizations feature gateway timeout response has a 4xx status code
+func (o *PatchOrganizationsFeatureGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch organizations feature gateway timeout response has a 5xx status code
+func (o *PatchOrganizationsFeatureGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch organizations feature gateway timeout response a status code equal to that given
+func (o *PatchOrganizationsFeatureGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchOrganizationsFeatureGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchOrganizationsFeatureGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/organizations/features/{featureName}][%d] patchOrganizationsFeatureGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -101,7 +101,6 @@ func (o *PatchJourneyOutcomeReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchJourneyOutcomeOK() *PatchJourneyOutcomeOK {
 	return &PatchJourneyOutcomeOK{}
 }
 
-/*PatchJourneyOutcomeOK handles this case with default header values.
+/*
+PatchJourneyOutcomeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchJourneyOutcomeOK struct {
 	Payload *models.Outcome
 }
 
+// IsSuccess returns true when this patch journey outcome o k response has a 2xx status code
+func (o *PatchJourneyOutcomeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch journey outcome o k response has a 3xx status code
+func (o *PatchJourneyOutcomeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome o k response has a 4xx status code
+func (o *PatchJourneyOutcomeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey outcome o k response has a 5xx status code
+func (o *PatchJourneyOutcomeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome o k response a status code equal to that given
+func (o *PatchJourneyOutcomeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchJourneyOutcomeOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchJourneyOutcomeBadRequest() *PatchJourneyOutcomeBadRequest {
 	return &PatchJourneyOutcomeBadRequest{}
 }
 
-/*PatchJourneyOutcomeBadRequest handles this case with default header values.
+/*
+PatchJourneyOutcomeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchJourneyOutcomeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome bad request response has a 2xx status code
+func (o *PatchJourneyOutcomeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome bad request response has a 3xx status code
+func (o *PatchJourneyOutcomeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome bad request response has a 4xx status code
+func (o *PatchJourneyOutcomeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome bad request response has a 5xx status code
+func (o *PatchJourneyOutcomeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome bad request response a status code equal to that given
+func (o *PatchJourneyOutcomeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchJourneyOutcomeBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchJourneyOutcomeUnauthorized() *PatchJourneyOutcomeUnauthorized {
 	return &PatchJourneyOutcomeUnauthorized{}
 }
 
-/*PatchJourneyOutcomeUnauthorized handles this case with default header values.
+/*
+PatchJourneyOutcomeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchJourneyOutcomeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome unauthorized response has a 2xx status code
+func (o *PatchJourneyOutcomeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome unauthorized response has a 3xx status code
+func (o *PatchJourneyOutcomeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome unauthorized response has a 4xx status code
+func (o *PatchJourneyOutcomeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome unauthorized response has a 5xx status code
+func (o *PatchJourneyOutcomeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome unauthorized response a status code equal to that given
+func (o *PatchJourneyOutcomeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchJourneyOutcomeUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchJourneyOutcomeForbidden() *PatchJourneyOutcomeForbidden {
 	return &PatchJourneyOutcomeForbidden{}
 }
 
-/*PatchJourneyOutcomeForbidden handles this case with default header values.
+/*
+PatchJourneyOutcomeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchJourneyOutcomeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome forbidden response has a 2xx status code
+func (o *PatchJourneyOutcomeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome forbidden response has a 3xx status code
+func (o *PatchJourneyOutcomeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome forbidden response has a 4xx status code
+func (o *PatchJourneyOutcomeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome forbidden response has a 5xx status code
+func (o *PatchJourneyOutcomeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome forbidden response a status code equal to that given
+func (o *PatchJourneyOutcomeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchJourneyOutcomeForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchJourneyOutcomeNotFound() *PatchJourneyOutcomeNotFound {
 	return &PatchJourneyOutcomeNotFound{}
 }
 
-/*PatchJourneyOutcomeNotFound handles this case with default header values.
+/*
+PatchJourneyOutcomeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchJourneyOutcomeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome not found response has a 2xx status code
+func (o *PatchJourneyOutcomeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome not found response has a 3xx status code
+func (o *PatchJourneyOutcomeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome not found response has a 4xx status code
+func (o *PatchJourneyOutcomeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome not found response has a 5xx status code
+func (o *PatchJourneyOutcomeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome not found response a status code equal to that given
+func (o *PatchJourneyOutcomeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchJourneyOutcomeNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchJourneyOutcomeRequestTimeout() *PatchJourneyOutcomeRequestTimeout {
 	return &PatchJourneyOutcomeRequestTimeout{}
 }
 
-/*PatchJourneyOutcomeRequestTimeout handles this case with default header values.
+/*
+PatchJourneyOutcomeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchJourneyOutcomeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome request timeout response has a 2xx status code
+func (o *PatchJourneyOutcomeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome request timeout response has a 3xx status code
+func (o *PatchJourneyOutcomeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome request timeout response has a 4xx status code
+func (o *PatchJourneyOutcomeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome request timeout response has a 5xx status code
+func (o *PatchJourneyOutcomeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome request timeout response a status code equal to that given
+func (o *PatchJourneyOutcomeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchJourneyOutcomeRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchJourneyOutcomeConflict() *PatchJourneyOutcomeConflict {
 	return &PatchJourneyOutcomeConflict{}
 }
 
-/*PatchJourneyOutcomeConflict handles this case with default header values.
+/*
+PatchJourneyOutcomeConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchJourneyOutcomeConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome conflict response has a 2xx status code
+func (o *PatchJourneyOutcomeConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome conflict response has a 3xx status code
+func (o *PatchJourneyOutcomeConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome conflict response has a 4xx status code
+func (o *PatchJourneyOutcomeConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome conflict response has a 5xx status code
+func (o *PatchJourneyOutcomeConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome conflict response a status code equal to that given
+func (o *PatchJourneyOutcomeConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchJourneyOutcomeConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchJourneyOutcomeRequestEntityTooLarge() *PatchJourneyOutcomeRequestEn
 	return &PatchJourneyOutcomeRequestEntityTooLarge{}
 }
 
-/*PatchJourneyOutcomeRequestEntityTooLarge handles this case with default header values.
+/*
+PatchJourneyOutcomeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchJourneyOutcomeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome request entity too large response has a 2xx status code
+func (o *PatchJourneyOutcomeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome request entity too large response has a 3xx status code
+func (o *PatchJourneyOutcomeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome request entity too large response has a 4xx status code
+func (o *PatchJourneyOutcomeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome request entity too large response has a 5xx status code
+func (o *PatchJourneyOutcomeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome request entity too large response a status code equal to that given
+func (o *PatchJourneyOutcomeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchJourneyOutcomeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchJourneyOutcomeUnsupportedMediaType() *PatchJourneyOutcomeUnsupporte
 	return &PatchJourneyOutcomeUnsupportedMediaType{}
 }
 
-/*PatchJourneyOutcomeUnsupportedMediaType handles this case with default header values.
+/*
+PatchJourneyOutcomeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchJourneyOutcomeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome unsupported media type response has a 2xx status code
+func (o *PatchJourneyOutcomeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome unsupported media type response has a 3xx status code
+func (o *PatchJourneyOutcomeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome unsupported media type response has a 4xx status code
+func (o *PatchJourneyOutcomeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome unsupported media type response has a 5xx status code
+func (o *PatchJourneyOutcomeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome unsupported media type response a status code equal to that given
+func (o *PatchJourneyOutcomeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchJourneyOutcomeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchJourneyOutcomeTooManyRequests() *PatchJourneyOutcomeTooManyRequests
 	return &PatchJourneyOutcomeTooManyRequests{}
 }
 
-/*PatchJourneyOutcomeTooManyRequests handles this case with default header values.
+/*
+PatchJourneyOutcomeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchJourneyOutcomeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome too many requests response has a 2xx status code
+func (o *PatchJourneyOutcomeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome too many requests response has a 3xx status code
+func (o *PatchJourneyOutcomeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome too many requests response has a 4xx status code
+func (o *PatchJourneyOutcomeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey outcome too many requests response has a 5xx status code
+func (o *PatchJourneyOutcomeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey outcome too many requests response a status code equal to that given
+func (o *PatchJourneyOutcomeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchJourneyOutcomeTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchJourneyOutcomeInternalServerError() *PatchJourneyOutcomeInternalSer
 	return &PatchJourneyOutcomeInternalServerError{}
 }
 
-/*PatchJourneyOutcomeInternalServerError handles this case with default header values.
+/*
+PatchJourneyOutcomeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchJourneyOutcomeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome internal server error response has a 2xx status code
+func (o *PatchJourneyOutcomeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome internal server error response has a 3xx status code
+func (o *PatchJourneyOutcomeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome internal server error response has a 4xx status code
+func (o *PatchJourneyOutcomeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey outcome internal server error response has a 5xx status code
+func (o *PatchJourneyOutcomeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch journey outcome internal server error response a status code equal to that given
+func (o *PatchJourneyOutcomeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchJourneyOutcomeInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchJourneyOutcomeServiceUnavailable() *PatchJourneyOutcomeServiceUnava
 	return &PatchJourneyOutcomeServiceUnavailable{}
 }
 
-/*PatchJourneyOutcomeServiceUnavailable handles this case with default header values.
+/*
+PatchJourneyOutcomeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchJourneyOutcomeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome service unavailable response has a 2xx status code
+func (o *PatchJourneyOutcomeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome service unavailable response has a 3xx status code
+func (o *PatchJourneyOutcomeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome service unavailable response has a 4xx status code
+func (o *PatchJourneyOutcomeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey outcome service unavailable response has a 5xx status code
+func (o *PatchJourneyOutcomeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch journey outcome service unavailable response a status code equal to that given
+func (o *PatchJourneyOutcomeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchJourneyOutcomeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchJourneyOutcomeGatewayTimeout() *PatchJourneyOutcomeGatewayTimeout {
 	return &PatchJourneyOutcomeGatewayTimeout{}
 }
 
-/*PatchJourneyOutcomeGatewayTimeout handles this case with default header values.
+/*
+PatchJourneyOutcomeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchJourneyOutcomeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey outcome gateway timeout response has a 2xx status code
+func (o *PatchJourneyOutcomeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey outcome gateway timeout response has a 3xx status code
+func (o *PatchJourneyOutcomeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey outcome gateway timeout response has a 4xx status code
+func (o *PatchJourneyOutcomeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey outcome gateway timeout response has a 5xx status code
+func (o *PatchJourneyOutcomeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch journey outcome gateway timeout response a status code equal to that given
+func (o *PatchJourneyOutcomeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchJourneyOutcomeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchJourneyOutcomeGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/outcomes/{outcomeId}][%d] patchJourneyOutcomeGatewayTimeout  %+v", 504, o.Payload)
 }
 

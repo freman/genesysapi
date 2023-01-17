@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundCampaignruleParams creates a new DeleteOutboundCampaignruleParams object
-// with the default values initialized.
+// NewDeleteOutboundCampaignruleParams creates a new DeleteOutboundCampaignruleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundCampaignruleParams() *DeleteOutboundCampaignruleParams {
-	var ()
 	return &DeleteOutboundCampaignruleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundCampaignruleParamsWithTimeout creates a new DeleteOutboundCampaignruleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundCampaignruleParamsWithTimeout(timeout time.Duration) *DeleteOutboundCampaignruleParams {
-	var ()
 	return &DeleteOutboundCampaignruleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundCampaignruleParamsWithContext creates a new DeleteOutboundCampaignruleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundCampaignruleParamsWithContext(ctx context.Context) *DeleteOutboundCampaignruleParams {
-	var ()
 	return &DeleteOutboundCampaignruleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundCampaignruleParamsWithHTTPClient creates a new DeleteOutboundCampaignruleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundCampaignruleParamsWithHTTPClient(client *http.Client) *DeleteOutboundCampaignruleParams {
-	var ()
 	return &DeleteOutboundCampaignruleParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundCampaignruleParams contains all the parameters to send to the API endpoint
-for the delete outbound campaignrule operation typically these are written to a http.Request
+/*
+DeleteOutboundCampaignruleParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound campaignrule operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundCampaignruleParams struct {
 
-	/*CampaignRuleID
-	  Campaign Rule ID
+	/* CampaignRuleID.
 
+	   Campaign Rule ID
 	*/
 	CampaignRuleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound campaignrule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundCampaignruleParams) WithDefaults() *DeleteOutboundCampaignruleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound campaignrule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundCampaignruleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound campaignrule params

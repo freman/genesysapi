@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutPresencedefinitionParams creates a new PutPresencedefinitionParams object
-// with the default values initialized.
+// NewPutPresencedefinitionParams creates a new PutPresencedefinitionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutPresencedefinitionParams() *PutPresencedefinitionParams {
-	var ()
 	return &PutPresencedefinitionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutPresencedefinitionParamsWithTimeout creates a new PutPresencedefinitionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutPresencedefinitionParamsWithTimeout(timeout time.Duration) *PutPresencedefinitionParams {
-	var ()
 	return &PutPresencedefinitionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutPresencedefinitionParamsWithContext creates a new PutPresencedefinitionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutPresencedefinitionParamsWithContext(ctx context.Context) *PutPresencedefinitionParams {
-	var ()
 	return &PutPresencedefinitionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutPresencedefinitionParamsWithHTTPClient creates a new PutPresencedefinitionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutPresencedefinitionParamsWithHTTPClient(client *http.Client) *PutPresencedefinitionParams {
-	var ()
 	return &PutPresencedefinitionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutPresencedefinitionParams contains all the parameters to send to the API endpoint
-for the put presencedefinition operation typically these are written to a http.Request
+/*
+PutPresencedefinitionParams contains all the parameters to send to the API endpoint
+
+	for the put presencedefinition operation.
+
+	Typically these are written to a http.Request.
 */
 type PutPresencedefinitionParams struct {
 
-	/*Body
-	  The OrganizationPresence to update
+	/* Body.
 
+	   The OrganizationPresence to update
 	*/
 	Body *models.OrganizationPresence
-	/*PresenceID
-	  Organization Presence ID
 
+	/* PresenceID.
+
+	   Organization Presence ID
 	*/
 	PresenceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put presencedefinition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutPresencedefinitionParams) WithDefaults() *PutPresencedefinitionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put presencedefinition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutPresencedefinitionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put presencedefinition params
@@ -140,7 +157,6 @@ func (o *PutPresencedefinitionParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

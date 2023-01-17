@@ -19,79 +19,101 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams() *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week shorttermforecast copy operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week shorttermforecast copy operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.CopyBuForecastRequest
-	/*BusinessUnitID
-	  The ID of the business unit to which the forecast belongs
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit to which the forecast belongs
 	*/
 	BusinessUnitID string
-	/*ForceAsync
-	  Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 
+	/* ForceAsync.
+
+	   Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 	*/
 	ForceAsync *bool
-	/*ForecastID
-	  The ID of the forecast to copy
 
+	/* ForecastID.
+
+	   The ID of the forecast to copy
 	*/
 	ForecastID string
-	/*WeekDateID
-	  The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecast copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecast copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week shorttermforecast copy params
@@ -189,7 +211,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams) Wri
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -205,16 +226,17 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyParams) Wri
 
 		// query param forceAsync
 		var qrForceAsync bool
+
 		if o.ForceAsync != nil {
 			qrForceAsync = *o.ForceAsync
 		}
 		qForceAsync := swag.FormatBool(qrForceAsync)
 		if qForceAsync != "" {
+
 			if err := r.SetQueryParam("forceAsync", qForceAsync); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param forecastId

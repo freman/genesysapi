@@ -95,7 +95,6 @@ func (o *GetConversationsCallsMaximumconferencepartiesReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsCallsMaximumconferencepartiesOK() *GetConversationsCalls
 	return &GetConversationsCallsMaximumconferencepartiesOK{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesOK handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsCallsMaximumconferencepartiesOK struct {
 	Payload *models.MaxParticipants
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties o k response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties o k response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties o k response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties o k response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties o k response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsCallsMaximumconferencepartiesBadRequest() *GetConversati
 	return &GetConversationsCallsMaximumconferencepartiesBadRequest{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesBadRequest handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsCallsMaximumconferencepartiesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties bad request response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties bad request response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties bad request response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties bad request response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties bad request response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsCallsMaximumconferencepartiesUnauthorized() *GetConversa
 	return &GetConversationsCallsMaximumconferencepartiesUnauthorized{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesUnauthorized handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsCallsMaximumconferencepartiesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties unauthorized response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties unauthorized response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties unauthorized response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties unauthorized response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties unauthorized response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsCallsMaximumconferencepartiesForbidden() *GetConversatio
 	return &GetConversationsCallsMaximumconferencepartiesForbidden{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesForbidden handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsCallsMaximumconferencepartiesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties forbidden response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties forbidden response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties forbidden response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties forbidden response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties forbidden response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsCallsMaximumconferencepartiesNotFound() *GetConversation
 	return &GetConversationsCallsMaximumconferencepartiesNotFound{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesNotFound handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsCallsMaximumconferencepartiesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties not found response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties not found response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties not found response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties not found response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties not found response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsCallsMaximumconferencepartiesRequestTimeout() *GetConver
 	return &GetConversationsCallsMaximumconferencepartiesRequestTimeout{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesRequestTimeout handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsCallsMaximumconferencepartiesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties request timeout response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties request timeout response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties request timeout response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties request timeout response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties request timeout response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge() *Ge
 	return &GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties request entity too large response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties request entity too large response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties request entity too large response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties request entity too large response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties request entity too large response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsCallsMaximumconferencepartiesUnsupportedMediaType() *Get
 	return &GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties unsupported media type response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties unsupported media type response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties unsupported media type response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties unsupported media type response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties unsupported media type response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsCallsMaximumconferencepartiesTooManyRequests() *GetConve
 	return &GetConversationsCallsMaximumconferencepartiesTooManyRequests{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesTooManyRequests handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsCallsMaximumconferencepartiesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties too many requests response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties too many requests response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties too many requests response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties too many requests response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties too many requests response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsCallsMaximumconferencepartiesInternalServerError() *GetC
 	return &GetConversationsCallsMaximumconferencepartiesInternalServerError{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesInternalServerError handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsCallsMaximumconferencepartiesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties internal server error response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties internal server error response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties internal server error response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties internal server error response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties internal server error response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsCallsMaximumconferencepartiesServiceUnavailable() *GetCo
 	return &GetConversationsCallsMaximumconferencepartiesServiceUnavailable{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesServiceUnavailable handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsCallsMaximumconferencepartiesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties service unavailable response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties service unavailable response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties service unavailable response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties service unavailable response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties service unavailable response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsCallsMaximumconferencepartiesGatewayTimeout() *GetConver
 	return &GetConversationsCallsMaximumconferencepartiesGatewayTimeout{}
 }
 
-/*GetConversationsCallsMaximumconferencepartiesGatewayTimeout handles this case with default header values.
+/*
+GetConversationsCallsMaximumconferencepartiesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsCallsMaximumconferencepartiesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations calls maximumconferenceparties gateway timeout response has a 2xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations calls maximumconferenceparties gateway timeout response has a 3xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations calls maximumconferenceparties gateway timeout response has a 4xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations calls maximumconferenceparties gateway timeout response has a 5xx status code
+func (o *GetConversationsCallsMaximumconferencepartiesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations calls maximumconferenceparties gateway timeout response a status code equal to that given
+func (o *GetConversationsCallsMaximumconferencepartiesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsCallsMaximumconferencepartiesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsCallsMaximumconferencepartiesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/calls/maximumconferenceparties][%d] getConversationsCallsMaximumconferencepartiesGatewayTimeout  %+v", 504, o.Payload)
 }
 

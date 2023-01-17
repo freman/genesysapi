@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLearningModuleJobsParams creates a new PostLearningModuleJobsParams object
-// with the default values initialized.
+// NewPostLearningModuleJobsParams creates a new PostLearningModuleJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLearningModuleJobsParams() *PostLearningModuleJobsParams {
-	var ()
 	return &PostLearningModuleJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLearningModuleJobsParamsWithTimeout creates a new PostLearningModuleJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLearningModuleJobsParamsWithTimeout(timeout time.Duration) *PostLearningModuleJobsParams {
-	var ()
 	return &PostLearningModuleJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLearningModuleJobsParamsWithContext creates a new PostLearningModuleJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLearningModuleJobsParamsWithContext(ctx context.Context) *PostLearningModuleJobsParams {
-	var ()
 	return &PostLearningModuleJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLearningModuleJobsParamsWithHTTPClient creates a new PostLearningModuleJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLearningModuleJobsParamsWithHTTPClient(client *http.Client) *PostLearningModuleJobsParams {
-	var ()
 	return &PostLearningModuleJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLearningModuleJobsParams contains all the parameters to send to the API endpoint
-for the post learning module jobs operation typically these are written to a http.Request
+/*
+PostLearningModuleJobsParams contains all the parameters to send to the API endpoint
+
+	for the post learning module jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLearningModuleJobsParams struct {
 
-	/*Body
-	  The learning module job request
+	/* Body.
 
+	   The learning module job request
 	*/
 	Body *models.LearningModuleJobRequest
-	/*ModuleID
-	  The ID of the learning module
 
+	/* ModuleID.
+
+	   The ID of the learning module
 	*/
 	ModuleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post learning module jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningModuleJobsParams) WithDefaults() *PostLearningModuleJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post learning module jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningModuleJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post learning module jobs params
@@ -140,7 +157,6 @@ func (o *PostLearningModuleJobsParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

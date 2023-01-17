@@ -95,7 +95,6 @@ func (o *GetUsageQueryExecutionIDResultsReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUsageQueryExecutionIDResultsOK() *GetUsageQueryExecutionIDResultsOK {
 	return &GetUsageQueryExecutionIDResultsOK{}
 }
 
-/*GetUsageQueryExecutionIDResultsOK handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUsageQueryExecutionIDResultsOK struct {
 	Payload *models.APIUsageQueryResult
 }
 
+// IsSuccess returns true when this get usage query execution Id results o k response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get usage query execution Id results o k response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results o k response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get usage query execution Id results o k response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results o k response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUsageQueryExecutionIDResultsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUsageQueryExecutionIDResultsBadRequest() *GetUsageQueryExecutionIDRes
 	return &GetUsageQueryExecutionIDResultsBadRequest{}
 }
 
-/*GetUsageQueryExecutionIDResultsBadRequest handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUsageQueryExecutionIDResultsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results bad request response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results bad request response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results bad request response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results bad request response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results bad request response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUsageQueryExecutionIDResultsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUsageQueryExecutionIDResultsUnauthorized() *GetUsageQueryExecutionIDR
 	return &GetUsageQueryExecutionIDResultsUnauthorized{}
 }
 
-/*GetUsageQueryExecutionIDResultsUnauthorized handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUsageQueryExecutionIDResultsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results unauthorized response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results unauthorized response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results unauthorized response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results unauthorized response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results unauthorized response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUsageQueryExecutionIDResultsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUsageQueryExecutionIDResultsForbidden() *GetUsageQueryExecutionIDResu
 	return &GetUsageQueryExecutionIDResultsForbidden{}
 }
 
-/*GetUsageQueryExecutionIDResultsForbidden handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUsageQueryExecutionIDResultsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results forbidden response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results forbidden response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results forbidden response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results forbidden response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results forbidden response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUsageQueryExecutionIDResultsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUsageQueryExecutionIDResultsNotFound() *GetUsageQueryExecutionIDResul
 	return &GetUsageQueryExecutionIDResultsNotFound{}
 }
 
-/*GetUsageQueryExecutionIDResultsNotFound handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUsageQueryExecutionIDResultsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results not found response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results not found response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results not found response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results not found response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results not found response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUsageQueryExecutionIDResultsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUsageQueryExecutionIDResultsRequestTimeout() *GetUsageQueryExecutionI
 	return &GetUsageQueryExecutionIDResultsRequestTimeout{}
 }
 
-/*GetUsageQueryExecutionIDResultsRequestTimeout handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUsageQueryExecutionIDResultsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results request timeout response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results request timeout response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results request timeout response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results request timeout response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results request timeout response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUsageQueryExecutionIDResultsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUsageQueryExecutionIDResultsRequestEntityTooLarge() *GetUsageQueryExe
 	return &GetUsageQueryExecutionIDResultsRequestEntityTooLarge{}
 }
 
-/*GetUsageQueryExecutionIDResultsRequestEntityTooLarge handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUsageQueryExecutionIDResultsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results request entity too large response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results request entity too large response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results request entity too large response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results request entity too large response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results request entity too large response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUsageQueryExecutionIDResultsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUsageQueryExecutionIDResultsUnsupportedMediaType() *GetUsageQueryExec
 	return &GetUsageQueryExecutionIDResultsUnsupportedMediaType{}
 }
 
-/*GetUsageQueryExecutionIDResultsUnsupportedMediaType handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUsageQueryExecutionIDResultsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results unsupported media type response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results unsupported media type response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results unsupported media type response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results unsupported media type response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results unsupported media type response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUsageQueryExecutionIDResultsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUsageQueryExecutionIDResultsTooManyRequests() *GetUsageQueryExecution
 	return &GetUsageQueryExecutionIDResultsTooManyRequests{}
 }
 
-/*GetUsageQueryExecutionIDResultsTooManyRequests handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUsageQueryExecutionIDResultsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results too many requests response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results too many requests response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results too many requests response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get usage query execution Id results too many requests response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get usage query execution Id results too many requests response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUsageQueryExecutionIDResultsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUsageQueryExecutionIDResultsInternalServerError() *GetUsageQueryExecu
 	return &GetUsageQueryExecutionIDResultsInternalServerError{}
 }
 
-/*GetUsageQueryExecutionIDResultsInternalServerError handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUsageQueryExecutionIDResultsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results internal server error response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results internal server error response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results internal server error response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get usage query execution Id results internal server error response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get usage query execution Id results internal server error response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUsageQueryExecutionIDResultsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUsageQueryExecutionIDResultsServiceUnavailable() *GetUsageQueryExecut
 	return &GetUsageQueryExecutionIDResultsServiceUnavailable{}
 }
 
-/*GetUsageQueryExecutionIDResultsServiceUnavailable handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUsageQueryExecutionIDResultsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results service unavailable response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results service unavailable response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results service unavailable response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get usage query execution Id results service unavailable response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get usage query execution Id results service unavailable response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUsageQueryExecutionIDResultsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUsageQueryExecutionIDResultsGatewayTimeout() *GetUsageQueryExecutionI
 	return &GetUsageQueryExecutionIDResultsGatewayTimeout{}
 }
 
-/*GetUsageQueryExecutionIDResultsGatewayTimeout handles this case with default header values.
+/*
+GetUsageQueryExecutionIDResultsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUsageQueryExecutionIDResultsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get usage query execution Id results gateway timeout response has a 2xx status code
+func (o *GetUsageQueryExecutionIDResultsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get usage query execution Id results gateway timeout response has a 3xx status code
+func (o *GetUsageQueryExecutionIDResultsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get usage query execution Id results gateway timeout response has a 4xx status code
+func (o *GetUsageQueryExecutionIDResultsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get usage query execution Id results gateway timeout response has a 5xx status code
+func (o *GetUsageQueryExecutionIDResultsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get usage query execution Id results gateway timeout response a status code equal to that given
+func (o *GetUsageQueryExecutionIDResultsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUsageQueryExecutionIDResultsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUsageQueryExecutionIDResultsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/usage/query/{executionId}/results][%d] getUsageQueryExecutionIdResultsGatewayTimeout  %+v", 504, o.Payload)
 }
 

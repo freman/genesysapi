@@ -95,7 +95,6 @@ func (o *PostTelephonyProvidersEdgeLogsJobsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsAccepted() *PostTelephonyProvidersEdge
 	return &PostTelephonyProvidersEdgeLogsJobsAccepted{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsAccepted handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsAccepted describes a response with status code 202, with default header values.
 
 Accepted - Job is being processed.  The job ID is returned.
 */
@@ -114,7 +114,36 @@ type PostTelephonyProvidersEdgeLogsJobsAccepted struct {
 	Payload *models.EdgeLogsJobResponse
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs accepted response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs accepted response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs accepted response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs accepted response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs accepted response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsBadRequest() *PostTelephonyProvidersEd
 	return &PostTelephonyProvidersEdgeLogsJobsBadRequest{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsBadRequest handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostTelephonyProvidersEdgeLogsJobsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs bad request response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs bad request response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs bad request response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs bad request response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs bad request response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsUnauthorized() *PostTelephonyProviders
 	return &PostTelephonyProvidersEdgeLogsJobsUnauthorized{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsUnauthorized handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostTelephonyProvidersEdgeLogsJobsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs unauthorized response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs unauthorized response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs unauthorized response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs unauthorized response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs unauthorized response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsForbidden() *PostTelephonyProvidersEdg
 	return &PostTelephonyProvidersEdgeLogsJobsForbidden{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsForbidden handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostTelephonyProvidersEdgeLogsJobsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs forbidden response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs forbidden response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs forbidden response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs forbidden response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs forbidden response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsNotFound() *PostTelephonyProvidersEdge
 	return &PostTelephonyProvidersEdgeLogsJobsNotFound{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsNotFound handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostTelephonyProvidersEdgeLogsJobsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs not found response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs not found response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs not found response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs not found response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs not found response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsRequestTimeout() *PostTelephonyProvide
 	return &PostTelephonyProvidersEdgeLogsJobsRequestTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsRequestTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostTelephonyProvidersEdgeLogsJobsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs request timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs request timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs request timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs request timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs request timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge() *PostTelephony
 	return &PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs request entity too large response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs request entity too large response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs request entity too large response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs request entity too large response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs request entity too large response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType() *PostTelephonyP
 	return &PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs unsupported media type response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs unsupported media type response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs unsupported media type response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs unsupported media type response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs unsupported media type response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsTooManyRequests() *PostTelephonyProvid
 	return &PostTelephonyProvidersEdgeLogsJobsTooManyRequests{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsTooManyRequests handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostTelephonyProvidersEdgeLogsJobsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs too many requests response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs too many requests response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs too many requests response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs too many requests response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs too many requests response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsInternalServerError() *PostTelephonyPr
 	return &PostTelephonyProvidersEdgeLogsJobsInternalServerError{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsInternalServerError handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostTelephonyProvidersEdgeLogsJobsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs internal server error response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs internal server error response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs internal server error response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs internal server error response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs internal server error response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsServiceUnavailable() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgeLogsJobsServiceUnavailable{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsServiceUnavailable handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostTelephonyProvidersEdgeLogsJobsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs service unavailable response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs service unavailable response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs service unavailable response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs service unavailable response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs service unavailable response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostTelephonyProvidersEdgeLogsJobsGatewayTimeout() *PostTelephonyProvide
 	return &PostTelephonyProvidersEdgeLogsJobsGatewayTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsGatewayTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeLogsJobsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostTelephonyProvidersEdgeLogsJobsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge logs jobs gateway timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge logs jobs gateway timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge logs jobs gateway timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge logs jobs gateway timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeLogsJobsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge logs jobs gateway timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeLogsJobsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTelephonyProvidersEdgeLogsJobsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeLogsJobsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/logs/jobs][%d] postTelephonyProvidersEdgeLogsJobsGatewayTimeout  %+v", 504, o.Payload)
 }
 

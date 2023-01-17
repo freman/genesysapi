@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementManagementunitTimeoffplansParams creates a new GetWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitTimeoffplansParams creates a new GetWorkforcemanagementManagementunitTimeoffplansParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitTimeoffplansParams() *GetWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplansParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitTimeoffplansParamsWithTimeout creates a new GetWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitTimeoffplansParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplansParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitTimeoffplansParamsWithContext creates a new GetWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitTimeoffplansParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplansParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitTimeoffplansParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitTimeoffplansParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplansParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitTimeoffplansParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit timeoffplans operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitTimeoffplansParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit timeoffplans operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitTimeoffplansParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit
+	/* ManagementUnitID.
 
+	   The ID of the management unit
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit timeoffplans params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitTimeoffplansParams) WithDefaults() *GetWorkforcemanagementManagementunitTimeoffplansParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit timeoffplans params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitTimeoffplansParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit timeoffplans params

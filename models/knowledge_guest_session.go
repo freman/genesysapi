@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -70,6 +71,8 @@ func (m *KnowledgeGuestSession) validateApp(formats strfmt.Registry) error {
 		if err := m.App.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("app")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("app")
 			}
 			return err
 		}
@@ -79,7 +82,6 @@ func (m *KnowledgeGuestSession) validateApp(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeGuestSession) validateContexts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Contexts) { // not required
 		return nil
 	}
@@ -93,6 +95,8 @@ func (m *KnowledgeGuestSession) validateContexts(formats strfmt.Registry) error 
 			if err := m.Contexts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contexts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contexts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -106,6 +110,73 @@ func (m *KnowledgeGuestSession) validateContexts(formats strfmt.Registry) error 
 func (m *KnowledgeGuestSession) validateCustomerID(formats strfmt.Registry) error {
 
 	if err := validate.Required("customerId", "body", m.CustomerID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge guest session based on the context it is used
+func (m *KnowledgeGuestSession) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContexts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeGuestSession) contextValidateApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.App != nil {
+		if err := m.App.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("app")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("app")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestSession) contextValidateContexts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Contexts); i++ {
+
+		if m.Contexts[i] != nil {
+			if err := m.Contexts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contexts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contexts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestSession) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
 		return err
 	}
 

@@ -17,66 +17,86 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetGamificationScorecardsUserParams creates a new GetGamificationScorecardsUserParams object
-// with the default values initialized.
+// NewGetGamificationScorecardsUserParams creates a new GetGamificationScorecardsUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationScorecardsUserParams() *GetGamificationScorecardsUserParams {
-	var ()
 	return &GetGamificationScorecardsUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationScorecardsUserParamsWithTimeout creates a new GetGamificationScorecardsUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationScorecardsUserParamsWithTimeout(timeout time.Duration) *GetGamificationScorecardsUserParams {
-	var ()
 	return &GetGamificationScorecardsUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationScorecardsUserParamsWithContext creates a new GetGamificationScorecardsUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationScorecardsUserParamsWithContext(ctx context.Context) *GetGamificationScorecardsUserParams {
-	var ()
 	return &GetGamificationScorecardsUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationScorecardsUserParamsWithHTTPClient creates a new GetGamificationScorecardsUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationScorecardsUserParamsWithHTTPClient(client *http.Client) *GetGamificationScorecardsUserParams {
-	var ()
 	return &GetGamificationScorecardsUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationScorecardsUserParams contains all the parameters to send to the API endpoint
-for the get gamification scorecards user operation typically these are written to a http.Request
+/*
+GetGamificationScorecardsUserParams contains all the parameters to send to the API endpoint
+
+	for the get gamification scorecards user operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationScorecardsUserParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand.
+	/* Expand.
 
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
-	/*UserID*/
-	UserID string
-	/*Workday
-	  Target querying workday. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	// UserID.
+	UserID string
+
+	/* Workday.
+
+	   Target querying workday. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification scorecards user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUserParams) WithDefaults() *GetGamificationScorecardsUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification scorecards user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification scorecards user params
@@ -153,12 +173,15 @@ func (o *GetGamificationScorecardsUserParams) WriteToRequest(r runtime.ClientReq
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param userId
@@ -170,6 +193,7 @@ func (o *GetGamificationScorecardsUserParams) WriteToRequest(r runtime.ClientReq
 	qrWorkday := o.Workday
 	qWorkday := qrWorkday.String()
 	if qWorkday != "" {
+
 		if err := r.SetQueryParam("workday", qWorkday); err != nil {
 			return err
 		}
@@ -179,4 +203,21 @@ func (o *GetGamificationScorecardsUserParams) WriteToRequest(r runtime.ClientReq
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetGamificationScorecardsUser binds the parameter expand
+func (o *GetGamificationScorecardsUserParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

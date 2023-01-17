@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostSpeechandtextanalyticsTopicsParams creates a new PostSpeechandtextanalyticsTopicsParams object
-// with the default values initialized.
+// NewPostSpeechandtextanalyticsTopicsParams creates a new PostSpeechandtextanalyticsTopicsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostSpeechandtextanalyticsTopicsParams() *PostSpeechandtextanalyticsTopicsParams {
-	var ()
 	return &PostSpeechandtextanalyticsTopicsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsTopicsParamsWithTimeout creates a new PostSpeechandtextanalyticsTopicsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostSpeechandtextanalyticsTopicsParamsWithTimeout(timeout time.Duration) *PostSpeechandtextanalyticsTopicsParams {
-	var ()
 	return &PostSpeechandtextanalyticsTopicsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsTopicsParamsWithContext creates a new PostSpeechandtextanalyticsTopicsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostSpeechandtextanalyticsTopicsParamsWithContext(ctx context.Context) *PostSpeechandtextanalyticsTopicsParams {
-	var ()
 	return &PostSpeechandtextanalyticsTopicsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostSpeechandtextanalyticsTopicsParamsWithHTTPClient creates a new PostSpeechandtextanalyticsTopicsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostSpeechandtextanalyticsTopicsParamsWithHTTPClient(client *http.Client) *PostSpeechandtextanalyticsTopicsParams {
-	var ()
 	return &PostSpeechandtextanalyticsTopicsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostSpeechandtextanalyticsTopicsParams contains all the parameters to send to the API endpoint
-for the post speechandtextanalytics topics operation typically these are written to a http.Request
+/*
+PostSpeechandtextanalyticsTopicsParams contains all the parameters to send to the API endpoint
+
+	for the post speechandtextanalytics topics operation.
+
+	Typically these are written to a http.Request.
 */
 type PostSpeechandtextanalyticsTopicsParams struct {
 
-	/*Body
-	  The topic to create
+	/* Body.
 
+	   The topic to create
 	*/
 	Body *models.TopicRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post speechandtextanalytics topics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsTopicsParams) WithDefaults() *PostSpeechandtextanalyticsTopicsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post speechandtextanalytics topics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsTopicsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post speechandtextanalytics topics params
@@ -124,7 +140,6 @@ func (o *PostSpeechandtextanalyticsTopicsParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

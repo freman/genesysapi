@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutLanguageunderstandingDomainVersionParams creates a new PutLanguageunderstandingDomainVersionParams object
-// with the default values initialized.
+// NewPutLanguageunderstandingDomainVersionParams creates a new PutLanguageunderstandingDomainVersionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutLanguageunderstandingDomainVersionParams() *PutLanguageunderstandingDomainVersionParams {
-	var ()
 	return &PutLanguageunderstandingDomainVersionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutLanguageunderstandingDomainVersionParamsWithTimeout creates a new PutLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutLanguageunderstandingDomainVersionParamsWithTimeout(timeout time.Duration) *PutLanguageunderstandingDomainVersionParams {
-	var ()
 	return &PutLanguageunderstandingDomainVersionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutLanguageunderstandingDomainVersionParamsWithContext creates a new PutLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutLanguageunderstandingDomainVersionParamsWithContext(ctx context.Context) *PutLanguageunderstandingDomainVersionParams {
-	var ()
 	return &PutLanguageunderstandingDomainVersionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutLanguageunderstandingDomainVersionParamsWithHTTPClient creates a new PutLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutLanguageunderstandingDomainVersionParamsWithHTTPClient(client *http.Client) *PutLanguageunderstandingDomainVersionParams {
-	var ()
 	return &PutLanguageunderstandingDomainVersionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutLanguageunderstandingDomainVersionParams contains all the parameters to send to the API endpoint
-for the put languageunderstanding domain version operation typically these are written to a http.Request
+/*
+PutLanguageunderstandingDomainVersionParams contains all the parameters to send to the API endpoint
+
+	for the put languageunderstanding domain version operation.
+
+	Typically these are written to a http.Request.
 */
 type PutLanguageunderstandingDomainVersionParams struct {
 
-	/*Body
-	  The updated NLU Domain Version.
+	/* Body.
 
+	   The updated NLU Domain Version.
 	*/
 	Body *models.NluDomainVersion
-	/*DomainID
-	  ID of the NLU domain.
 
+	/* DomainID.
+
+	   ID of the NLU domain.
 	*/
 	DomainID string
-	/*DomainVersionID
-	  ID of the NLU domain version.
 
+	/* DomainVersionID.
+
+	   ID of the NLU domain version.
 	*/
 	DomainVersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put languageunderstanding domain version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutLanguageunderstandingDomainVersionParams) WithDefaults() *PutLanguageunderstandingDomainVersionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put languageunderstanding domain version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutLanguageunderstandingDomainVersionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put languageunderstanding domain version params
@@ -156,7 +174,6 @@ func (o *PutLanguageunderstandingDomainVersionParams) WriteToRequest(r runtime.C
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

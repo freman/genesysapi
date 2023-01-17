@@ -95,7 +95,6 @@ func (o *PostOutboundCampaignCallbackScheduleReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundCampaignCallbackScheduleOK() *PostOutboundCampaignCallbackSc
 	return &PostOutboundCampaignCallbackScheduleOK{}
 }
 
-/*PostOutboundCampaignCallbackScheduleOK handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundCampaignCallbackScheduleOK struct {
 	Payload *models.ContactCallbackRequest
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule o k response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule o k response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule o k response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule o k response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule o k response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundCampaignCallbackScheduleOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundCampaignCallbackScheduleBadRequest() *PostOutboundCampaignCa
 	return &PostOutboundCampaignCallbackScheduleBadRequest{}
 }
 
-/*PostOutboundCampaignCallbackScheduleBadRequest handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundCampaignCallbackScheduleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule bad request response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule bad request response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule bad request response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule bad request response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule bad request response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundCampaignCallbackScheduleBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundCampaignCallbackScheduleUnauthorized() *PostOutboundCampaign
 	return &PostOutboundCampaignCallbackScheduleUnauthorized{}
 }
 
-/*PostOutboundCampaignCallbackScheduleUnauthorized handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundCampaignCallbackScheduleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule unauthorized response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule unauthorized response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule unauthorized response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule unauthorized response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule unauthorized response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundCampaignCallbackScheduleUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundCampaignCallbackScheduleForbidden() *PostOutboundCampaignCal
 	return &PostOutboundCampaignCallbackScheduleForbidden{}
 }
 
-/*PostOutboundCampaignCallbackScheduleForbidden handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundCampaignCallbackScheduleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule forbidden response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule forbidden response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule forbidden response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule forbidden response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule forbidden response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundCampaignCallbackScheduleForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundCampaignCallbackScheduleNotFound() *PostOutboundCampaignCall
 	return &PostOutboundCampaignCallbackScheduleNotFound{}
 }
 
-/*PostOutboundCampaignCallbackScheduleNotFound handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundCampaignCallbackScheduleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule not found response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule not found response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule not found response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule not found response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule not found response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundCampaignCallbackScheduleNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundCampaignCallbackScheduleRequestTimeout() *PostOutboundCampai
 	return &PostOutboundCampaignCallbackScheduleRequestTimeout{}
 }
 
-/*PostOutboundCampaignCallbackScheduleRequestTimeout handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundCampaignCallbackScheduleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule request timeout response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule request timeout response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule request timeout response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule request timeout response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule request timeout response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundCampaignCallbackScheduleRequestEntityTooLarge() *PostOutboun
 	return &PostOutboundCampaignCallbackScheduleRequestEntityTooLarge{}
 }
 
-/*PostOutboundCampaignCallbackScheduleRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundCampaignCallbackScheduleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule request entity too large response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule request entity too large response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule request entity too large response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule request entity too large response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule request entity too large response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundCampaignCallbackScheduleUnsupportedMediaType() *PostOutbound
 	return &PostOutboundCampaignCallbackScheduleUnsupportedMediaType{}
 }
 
-/*PostOutboundCampaignCallbackScheduleUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundCampaignCallbackScheduleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule unsupported media type response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule unsupported media type response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule unsupported media type response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule unsupported media type response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule unsupported media type response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundCampaignCallbackScheduleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundCampaignCallbackScheduleTooManyRequests() *PostOutboundCampa
 	return &PostOutboundCampaignCallbackScheduleTooManyRequests{}
 }
 
-/*PostOutboundCampaignCallbackScheduleTooManyRequests handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundCampaignCallbackScheduleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule too many requests response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule too many requests response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule too many requests response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule too many requests response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaign callback schedule too many requests response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundCampaignCallbackScheduleTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundCampaignCallbackScheduleInternalServerError() *PostOutboundC
 	return &PostOutboundCampaignCallbackScheduleInternalServerError{}
 }
 
-/*PostOutboundCampaignCallbackScheduleInternalServerError handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundCampaignCallbackScheduleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule internal server error response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule internal server error response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule internal server error response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule internal server error response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaign callback schedule internal server error response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundCampaignCallbackScheduleInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundCampaignCallbackScheduleServiceUnavailable() *PostOutboundCa
 	return &PostOutboundCampaignCallbackScheduleServiceUnavailable{}
 }
 
-/*PostOutboundCampaignCallbackScheduleServiceUnavailable handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundCampaignCallbackScheduleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule service unavailable response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule service unavailable response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule service unavailable response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule service unavailable response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaign callback schedule service unavailable response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundCampaignCallbackScheduleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundCampaignCallbackScheduleGatewayTimeout() *PostOutboundCampai
 	return &PostOutboundCampaignCallbackScheduleGatewayTimeout{}
 }
 
-/*PostOutboundCampaignCallbackScheduleGatewayTimeout handles this case with default header values.
+/*
+PostOutboundCampaignCallbackScheduleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundCampaignCallbackScheduleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaign callback schedule gateway timeout response has a 2xx status code
+func (o *PostOutboundCampaignCallbackScheduleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaign callback schedule gateway timeout response has a 3xx status code
+func (o *PostOutboundCampaignCallbackScheduleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaign callback schedule gateway timeout response has a 4xx status code
+func (o *PostOutboundCampaignCallbackScheduleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaign callback schedule gateway timeout response has a 5xx status code
+func (o *PostOutboundCampaignCallbackScheduleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaign callback schedule gateway timeout response a status code equal to that given
+func (o *PostOutboundCampaignCallbackScheduleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundCampaignCallbackScheduleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundCampaignCallbackScheduleGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/{campaignId}/callback/schedule][%d] postOutboundCampaignCallbackScheduleGatewayTimeout  %+v", 504, o.Payload)
 }
 

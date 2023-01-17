@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIdentityprovidersGenericParams creates a new PutIdentityprovidersGenericParams object
-// with the default values initialized.
+// NewPutIdentityprovidersGenericParams creates a new PutIdentityprovidersGenericParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIdentityprovidersGenericParams() *PutIdentityprovidersGenericParams {
-	var ()
 	return &PutIdentityprovidersGenericParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIdentityprovidersGenericParamsWithTimeout creates a new PutIdentityprovidersGenericParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIdentityprovidersGenericParamsWithTimeout(timeout time.Duration) *PutIdentityprovidersGenericParams {
-	var ()
 	return &PutIdentityprovidersGenericParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIdentityprovidersGenericParamsWithContext creates a new PutIdentityprovidersGenericParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIdentityprovidersGenericParamsWithContext(ctx context.Context) *PutIdentityprovidersGenericParams {
-	var ()
 	return &PutIdentityprovidersGenericParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIdentityprovidersGenericParamsWithHTTPClient creates a new PutIdentityprovidersGenericParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIdentityprovidersGenericParamsWithHTTPClient(client *http.Client) *PutIdentityprovidersGenericParams {
-	var ()
 	return &PutIdentityprovidersGenericParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIdentityprovidersGenericParams contains all the parameters to send to the API endpoint
-for the put identityproviders generic operation typically these are written to a http.Request
+/*
+PutIdentityprovidersGenericParams contains all the parameters to send to the API endpoint
+
+	for the put identityproviders generic operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIdentityprovidersGenericParams struct {
 
-	/*Body
-	  Provider
+	/* Body.
 
+	   Provider
 	*/
 	Body *models.GenericSAML
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put identityproviders generic params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersGenericParams) WithDefaults() *PutIdentityprovidersGenericParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put identityproviders generic params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersGenericParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put identityproviders generic params
@@ -124,7 +140,6 @@ func (o *PutIdentityprovidersGenericParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -159,7 +160,6 @@ func (m *VoicemailMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateCallerUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallerUser) { // not required
 		return nil
 	}
@@ -168,6 +168,8 @@ func (m *VoicemailMessage) validateCallerUser(formats strfmt.Registry) error {
 		if err := m.CallerUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("callerUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callerUser")
 			}
 			return err
 		}
@@ -177,7 +179,6 @@ func (m *VoicemailMessage) validateCallerUser(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -186,6 +187,8 @@ func (m *VoicemailMessage) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -195,7 +198,6 @@ func (m *VoicemailMessage) validateConversation(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateCopiedFrom(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CopiedFrom) { // not required
 		return nil
 	}
@@ -204,6 +206,8 @@ func (m *VoicemailMessage) validateCopiedFrom(formats strfmt.Registry) error {
 		if err := m.CopiedFrom.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("copiedFrom")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("copiedFrom")
 			}
 			return err
 		}
@@ -213,7 +217,6 @@ func (m *VoicemailMessage) validateCopiedFrom(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateCopiedTo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CopiedTo) { // not required
 		return nil
 	}
@@ -227,6 +230,8 @@ func (m *VoicemailMessage) validateCopiedTo(formats strfmt.Registry) error {
 			if err := m.CopiedTo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("copiedTo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("copiedTo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -238,7 +243,6 @@ func (m *VoicemailMessage) validateCopiedTo(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -251,7 +255,6 @@ func (m *VoicemailMessage) validateCreatedDate(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateDeleteRetentionPolicy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeleteRetentionPolicy) { // not required
 		return nil
 	}
@@ -260,6 +263,8 @@ func (m *VoicemailMessage) validateDeleteRetentionPolicy(formats strfmt.Registry
 		if err := m.DeleteRetentionPolicy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deleteRetentionPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteRetentionPolicy")
 			}
 			return err
 		}
@@ -269,7 +274,6 @@ func (m *VoicemailMessage) validateDeleteRetentionPolicy(formats strfmt.Registry
 }
 
 func (m *VoicemailMessage) validateDeletedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeletedDate) { // not required
 		return nil
 	}
@@ -282,7 +286,6 @@ func (m *VoicemailMessage) validateDeletedDate(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Group) { // not required
 		return nil
 	}
@@ -291,6 +294,8 @@ func (m *VoicemailMessage) validateGroup(formats strfmt.Registry) error {
 		if err := m.Group.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -300,7 +305,6 @@ func (m *VoicemailMessage) validateGroup(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -313,7 +317,6 @@ func (m *VoicemailMessage) validateModifiedDate(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -322,6 +325,8 @@ func (m *VoicemailMessage) validateQueue(formats strfmt.Registry) error {
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
@@ -331,7 +336,6 @@ func (m *VoicemailMessage) validateQueue(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -344,7 +348,6 @@ func (m *VoicemailMessage) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMessage) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -353,6 +356,303 @@ func (m *VoicemailMessage) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this voicemail message based on the context it is used
+func (m *VoicemailMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAudioRecordingDurationSeconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAudioRecordingSizeBytes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCallerAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCallerName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCallerUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCopiedFrom(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCopiedTo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeleteRetentionPolicy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeletedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateAudioRecordingDurationSeconds(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "audioRecordingDurationSeconds", "body", int32(m.AudioRecordingDurationSeconds)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateAudioRecordingSizeBytes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "audioRecordingSizeBytes", "body", int64(m.AudioRecordingSizeBytes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateCallerAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "callerAddress", "body", string(m.CallerAddress)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateCallerName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "callerName", "body", string(m.CallerName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateCallerUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CallerUser != nil {
+		if err := m.CallerUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("callerUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callerUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateCopiedFrom(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CopiedFrom != nil {
+		if err := m.CopiedFrom.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("copiedFrom")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("copiedFrom")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateCopiedTo(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "copiedTo", "body", []*VoicemailCopyRecord(m.CopiedTo)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.CopiedTo); i++ {
+
+		if m.CopiedTo[i] != nil {
+			if err := m.CopiedTo[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("copiedTo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("copiedTo" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateCreatedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdDate", "body", strfmt.DateTime(m.CreatedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateDeleteRetentionPolicy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DeleteRetentionPolicy != nil {
+		if err := m.DeleteRetentionPolicy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deleteRetentionPolicy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteRetentionPolicy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateDeletedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "deletedDate", "body", strfmt.DateTime(m.DeletedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Group != nil {
+		if err := m.Group.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateModifiedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedDate", "body", strfmt.DateTime(m.ModifiedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMessage) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

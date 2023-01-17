@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSpeechandtextanalyticsProgramMappingsParams creates a new GetSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsProgramMappingsParams creates a new GetSpeechandtextanalyticsProgramMappingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsProgramMappingsParams() *GetSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramMappingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramMappingsParamsWithTimeout creates a new GetSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsProgramMappingsParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramMappingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramMappingsParamsWithContext creates a new GetSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsProgramMappingsParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramMappingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramMappingsParamsWithHTTPClient creates a new GetSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsProgramMappingsParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramMappingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics program mappings operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsProgramMappingsParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics program mappings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsProgramMappingsParams struct {
 
-	/*ProgramID
-	  The id of the program
+	/* ProgramID.
 
+	   The id of the program
 	*/
 	ProgramID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics program mappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramMappingsParams) WithDefaults() *GetSpeechandtextanalyticsProgramMappingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics program mappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramMappingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics program mappings params

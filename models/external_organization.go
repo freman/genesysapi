@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -151,7 +152,6 @@ func (m *ExternalOrganization) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ExternalOrganization) validateAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Address) { // not required
 		return nil
 	}
@@ -160,6 +160,8 @@ func (m *ExternalOrganization) validateAddress(formats strfmt.Registry) error {
 		if err := m.Address.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
 			}
 			return err
 		}
@@ -169,7 +171,6 @@ func (m *ExternalOrganization) validateAddress(formats strfmt.Registry) error {
 }
 
 func (m *ExternalOrganization) validateCreateDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreateDate) { // not required
 		return nil
 	}
@@ -182,7 +183,6 @@ func (m *ExternalOrganization) validateCreateDate(formats strfmt.Registry) error
 }
 
 func (m *ExternalOrganization) validateExternalDataSources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalDataSources) { // not required
 		return nil
 	}
@@ -196,6 +196,8 @@ func (m *ExternalOrganization) validateExternalDataSources(formats strfmt.Regist
 			if err := m.ExternalDataSources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -207,7 +209,6 @@ func (m *ExternalOrganization) validateExternalDataSources(formats strfmt.Regist
 }
 
 func (m *ExternalOrganization) validateFaxNumber(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FaxNumber) { // not required
 		return nil
 	}
@@ -216,6 +217,8 @@ func (m *ExternalOrganization) validateFaxNumber(formats strfmt.Registry) error 
 		if err := m.FaxNumber.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("faxNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faxNumber")
 			}
 			return err
 		}
@@ -225,7 +228,6 @@ func (m *ExternalOrganization) validateFaxNumber(formats strfmt.Registry) error 
 }
 
 func (m *ExternalOrganization) validateModifyDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifyDate) { // not required
 		return nil
 	}
@@ -247,7 +249,6 @@ func (m *ExternalOrganization) validateName(formats strfmt.Registry) error {
 }
 
 func (m *ExternalOrganization) validatePhoneNumber(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneNumber) { // not required
 		return nil
 	}
@@ -256,6 +257,8 @@ func (m *ExternalOrganization) validatePhoneNumber(formats strfmt.Registry) erro
 		if err := m.PhoneNumber.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("phoneNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneNumber")
 			}
 			return err
 		}
@@ -265,7 +268,6 @@ func (m *ExternalOrganization) validatePhoneNumber(formats strfmt.Registry) erro
 }
 
 func (m *ExternalOrganization) validateSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schema) { // not required
 		return nil
 	}
@@ -274,6 +276,8 @@ func (m *ExternalOrganization) validateSchema(formats strfmt.Registry) error {
 		if err := m.Schema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schema")
 			}
 			return err
 		}
@@ -283,7 +287,6 @@ func (m *ExternalOrganization) validateSchema(formats strfmt.Registry) error {
 }
 
 func (m *ExternalOrganization) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -296,7 +299,6 @@ func (m *ExternalOrganization) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *ExternalOrganization) validateTickers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Tickers) { // not required
 		return nil
 	}
@@ -310,6 +312,8 @@ func (m *ExternalOrganization) validateTickers(formats strfmt.Registry) error {
 			if err := m.Tickers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tickers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tickers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -321,7 +325,6 @@ func (m *ExternalOrganization) validateTickers(formats strfmt.Registry) error {
 }
 
 func (m *ExternalOrganization) validateTrustor(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trustor) { // not required
 		return nil
 	}
@@ -330,6 +333,8 @@ func (m *ExternalOrganization) validateTrustor(formats strfmt.Registry) error {
 		if err := m.Trustor.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trustor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trustor")
 			}
 			return err
 		}
@@ -339,7 +344,6 @@ func (m *ExternalOrganization) validateTrustor(formats strfmt.Registry) error {
 }
 
 func (m *ExternalOrganization) validateTwitterID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TwitterID) { // not required
 		return nil
 	}
@@ -348,6 +352,203 @@ func (m *ExternalOrganization) validateTwitterID(formats strfmt.Registry) error 
 		if err := m.TwitterID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("twitterId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("twitterId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this external organization based on the context it is used
+func (m *ExternalOrganization) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalDataSources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFaxNumber(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneNumber(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTickers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrustor(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTwitterID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Address != nil {
+		if err := m.Address.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateExternalDataSources(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "externalDataSources", "body", []*ExternalDataSource(m.ExternalDataSources)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ExternalDataSources); i++ {
+
+		if m.ExternalDataSources[i] != nil {
+			if err := m.ExternalDataSources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateFaxNumber(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FaxNumber != nil {
+		if err := m.FaxNumber.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("faxNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faxNumber")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidatePhoneNumber(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PhoneNumber != nil {
+		if err := m.PhoneNumber.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("phoneNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneNumber")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schema != nil {
+		if err := m.Schema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateTickers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Tickers); i++ {
+
+		if m.Tickers[i] != nil {
+			if err := m.Tickers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("tickers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tickers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateTrustor(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trustor != nil {
+		if err := m.Trustor.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trustor")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trustor")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalOrganization) contextValidateTwitterID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TwitterID != nil {
+		if err := m.TwitterID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("twitterId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("twitterId")
 			}
 			return err
 		}

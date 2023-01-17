@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOrgauthorizationTrusteesParams creates a new PostOrgauthorizationTrusteesParams object
-// with the default values initialized.
+// NewPostOrgauthorizationTrusteesParams creates a new PostOrgauthorizationTrusteesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOrgauthorizationTrusteesParams() *PostOrgauthorizationTrusteesParams {
-	var ()
 	return &PostOrgauthorizationTrusteesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesParamsWithTimeout creates a new PostOrgauthorizationTrusteesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOrgauthorizationTrusteesParamsWithTimeout(timeout time.Duration) *PostOrgauthorizationTrusteesParams {
-	var ()
 	return &PostOrgauthorizationTrusteesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesParamsWithContext creates a new PostOrgauthorizationTrusteesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOrgauthorizationTrusteesParamsWithContext(ctx context.Context) *PostOrgauthorizationTrusteesParams {
-	var ()
 	return &PostOrgauthorizationTrusteesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesParamsWithHTTPClient creates a new PostOrgauthorizationTrusteesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOrgauthorizationTrusteesParamsWithHTTPClient(client *http.Client) *PostOrgauthorizationTrusteesParams {
-	var ()
 	return &PostOrgauthorizationTrusteesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOrgauthorizationTrusteesParams contains all the parameters to send to the API endpoint
-for the post orgauthorization trustees operation typically these are written to a http.Request
+/*
+PostOrgauthorizationTrusteesParams contains all the parameters to send to the API endpoint
+
+	for the post orgauthorization trustees operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOrgauthorizationTrusteesParams struct {
 
-	/*Body
-	  Trust
+	/* Body.
 
+	   Trust
 	*/
 	Body *models.TrustCreate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post orgauthorization trustees params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOrgauthorizationTrusteesParams) WithDefaults() *PostOrgauthorizationTrusteesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post orgauthorization trustees params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOrgauthorizationTrusteesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post orgauthorization trustees params
@@ -124,7 +140,6 @@ func (o *PostOrgauthorizationTrusteesParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

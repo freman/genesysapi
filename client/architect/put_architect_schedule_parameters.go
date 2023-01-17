@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutArchitectScheduleParams creates a new PutArchitectScheduleParams object
-// with the default values initialized.
+// NewPutArchitectScheduleParams creates a new PutArchitectScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutArchitectScheduleParams() *PutArchitectScheduleParams {
-	var ()
 	return &PutArchitectScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutArchitectScheduleParamsWithTimeout creates a new PutArchitectScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutArchitectScheduleParamsWithTimeout(timeout time.Duration) *PutArchitectScheduleParams {
-	var ()
 	return &PutArchitectScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutArchitectScheduleParamsWithContext creates a new PutArchitectScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutArchitectScheduleParamsWithContext(ctx context.Context) *PutArchitectScheduleParams {
-	var ()
 	return &PutArchitectScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutArchitectScheduleParamsWithHTTPClient creates a new PutArchitectScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutArchitectScheduleParamsWithHTTPClient(client *http.Client) *PutArchitectScheduleParams {
-	var ()
 	return &PutArchitectScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutArchitectScheduleParams contains all the parameters to send to the API endpoint
-for the put architect schedule operation typically these are written to a http.Request
+/*
+PutArchitectScheduleParams contains all the parameters to send to the API endpoint
+
+	for the put architect schedule operation.
+
+	Typically these are written to a http.Request.
 */
 type PutArchitectScheduleParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.Schedule
-	/*ScheduleID
-	  Schedule ID
 
+	/* ScheduleID.
+
+	   Schedule ID
 	*/
 	ScheduleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put architect schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectScheduleParams) WithDefaults() *PutArchitectScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put architect schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put architect schedule params
@@ -137,7 +154,6 @@ func (o *PutArchitectScheduleParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

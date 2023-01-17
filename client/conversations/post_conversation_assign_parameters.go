@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationAssignParams creates a new PostConversationAssignParams object
-// with the default values initialized.
+// NewPostConversationAssignParams creates a new PostConversationAssignParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationAssignParams() *PostConversationAssignParams {
-	var ()
 	return &PostConversationAssignParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationAssignParamsWithTimeout creates a new PostConversationAssignParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationAssignParamsWithTimeout(timeout time.Duration) *PostConversationAssignParams {
-	var ()
 	return &PostConversationAssignParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationAssignParamsWithContext creates a new PostConversationAssignParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationAssignParamsWithContext(ctx context.Context) *PostConversationAssignParams {
-	var ()
 	return &PostConversationAssignParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationAssignParamsWithHTTPClient creates a new PostConversationAssignParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationAssignParamsWithHTTPClient(client *http.Client) *PostConversationAssignParams {
-	var ()
 	return &PostConversationAssignParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationAssignParams contains all the parameters to send to the API endpoint
-for the post conversation assign operation typically these are written to a http.Request
+/*
+PostConversationAssignParams contains all the parameters to send to the API endpoint
+
+	for the post conversation assign operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationAssignParams struct {
 
-	/*Body
-	  Targeted user
+	/* Body.
 
+	   Targeted user
 	*/
 	Body *models.ConversationUser
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversation assign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationAssignParams) WithDefaults() *PostConversationAssignParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversation assign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationAssignParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversation assign params
@@ -140,7 +157,6 @@ func (o *PostConversationAssignParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

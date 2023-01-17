@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOrgauthorizationTrustorUserParams creates a new GetOrgauthorizationTrustorUserParams object
-// with the default values initialized.
+// NewGetOrgauthorizationTrustorUserParams creates a new GetOrgauthorizationTrustorUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrgauthorizationTrustorUserParams() *GetOrgauthorizationTrustorUserParams {
-	var ()
 	return &GetOrgauthorizationTrustorUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrgauthorizationTrustorUserParamsWithTimeout creates a new GetOrgauthorizationTrustorUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrgauthorizationTrustorUserParamsWithTimeout(timeout time.Duration) *GetOrgauthorizationTrustorUserParams {
-	var ()
 	return &GetOrgauthorizationTrustorUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrgauthorizationTrustorUserParamsWithContext creates a new GetOrgauthorizationTrustorUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrgauthorizationTrustorUserParamsWithContext(ctx context.Context) *GetOrgauthorizationTrustorUserParams {
-	var ()
 	return &GetOrgauthorizationTrustorUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrgauthorizationTrustorUserParamsWithHTTPClient creates a new GetOrgauthorizationTrustorUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrgauthorizationTrustorUserParamsWithHTTPClient(client *http.Client) *GetOrgauthorizationTrustorUserParams {
-	var ()
 	return &GetOrgauthorizationTrustorUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOrgauthorizationTrustorUserParams contains all the parameters to send to the API endpoint
-for the get orgauthorization trustor user operation typically these are written to a http.Request
+/*
+GetOrgauthorizationTrustorUserParams contains all the parameters to send to the API endpoint
+
+	for the get orgauthorization trustor user operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrgauthorizationTrustorUserParams struct {
 
-	/*TrusteeUserID
-	  Trustee User Id
+	/* TrusteeUserID.
 
+	   Trustee User Id
 	*/
 	TrusteeUserID string
-	/*TrustorOrgID
-	  Trustor Organization Id
 
+	/* TrustorOrgID.
+
+	   Trustor Organization Id
 	*/
 	TrustorOrgID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get orgauthorization trustor user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrgauthorizationTrustorUserParams) WithDefaults() *GetOrgauthorizationTrustorUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get orgauthorization trustor user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrgauthorizationTrustorUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get orgauthorization trustor user params

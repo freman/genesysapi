@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -181,7 +182,6 @@ func (m *CallbackBasic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -190,6 +190,8 @@ func (m *CallbackBasic) validateAfterCallWork(formats strfmt.Registry) error {
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -199,7 +201,6 @@ func (m *CallbackBasic) validateAfterCallWork(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateCallbackScheduledTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallbackScheduledTime) { // not required
 		return nil
 	}
@@ -212,7 +213,6 @@ func (m *CallbackBasic) validateCallbackScheduledTime(formats strfmt.Registry) e
 }
 
 func (m *CallbackBasic) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -225,7 +225,6 @@ func (m *CallbackBasic) validateConnectedTime(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateDialerPreview(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DialerPreview) { // not required
 		return nil
 	}
@@ -234,6 +233,8 @@ func (m *CallbackBasic) validateDialerPreview(formats strfmt.Registry) error {
 		if err := m.DialerPreview.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dialerPreview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dialerPreview")
 			}
 			return err
 		}
@@ -272,7 +273,6 @@ func (m *CallbackBasic) validateDirectionEnum(path, location string, value strin
 }
 
 func (m *CallbackBasic) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -314,23 +314,23 @@ const (
 	// CallbackBasicDisconnectTypeTransfer captures enum value "transfer"
 	CallbackBasicDisconnectTypeTransfer string = "transfer"
 
-	// CallbackBasicDisconnectTypeTransferConference captures enum value "transfer.conference"
-	CallbackBasicDisconnectTypeTransferConference string = "transfer.conference"
+	// CallbackBasicDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	CallbackBasicDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// CallbackBasicDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	CallbackBasicDisconnectTypeTransferConsult string = "transfer.consult"
+	// CallbackBasicDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	CallbackBasicDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// CallbackBasicDisconnectTypeTransferForward captures enum value "transfer.forward"
-	CallbackBasicDisconnectTypeTransferForward string = "transfer.forward"
+	// CallbackBasicDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	CallbackBasicDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// CallbackBasicDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	CallbackBasicDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// CallbackBasicDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	CallbackBasicDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// CallbackBasicDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	CallbackBasicDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// CallbackBasicDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	CallbackBasicDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// CallbackBasicDisconnectTypeTransportFailure captures enum value "transport.failure"
-	CallbackBasicDisconnectTypeTransportFailure string = "transport.failure"
+	// CallbackBasicDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	CallbackBasicDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// CallbackBasicDisconnectTypeError captures enum value "error"
 	CallbackBasicDisconnectTypeError string = "error"
@@ -357,7 +357,6 @@ func (m *CallbackBasic) validateDisconnectTypeEnum(path, location string, value 
 }
 
 func (m *CallbackBasic) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -371,7 +370,6 @@ func (m *CallbackBasic) validateDisconnectType(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -434,7 +432,6 @@ func (m *CallbackBasic) validateInitialStateEnum(path, location string, value st
 }
 
 func (m *CallbackBasic) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -448,7 +445,6 @@ func (m *CallbackBasic) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -462,6 +458,8 @@ func (m *CallbackBasic) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -473,7 +471,6 @@ func (m *CallbackBasic) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -486,7 +483,6 @@ func (m *CallbackBasic) validateStartAlertingTime(formats strfmt.Registry) error
 }
 
 func (m *CallbackBasic) validateStartHoldTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartHoldTime) { // not required
 		return nil
 	}
@@ -549,7 +545,6 @@ func (m *CallbackBasic) validateStateEnum(path, location string, value string) e
 }
 
 func (m *CallbackBasic) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -563,7 +558,6 @@ func (m *CallbackBasic) validateState(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateVoicemail(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Voicemail) { // not required
 		return nil
 	}
@@ -572,6 +566,8 @@ func (m *CallbackBasic) validateVoicemail(formats strfmt.Registry) error {
 		if err := m.Voicemail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("voicemail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("voicemail")
 			}
 			return err
 		}
@@ -581,7 +577,6 @@ func (m *CallbackBasic) validateVoicemail(formats strfmt.Registry) error {
 }
 
 func (m *CallbackBasic) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -590,6 +585,122 @@ func (m *CallbackBasic) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this callback basic based on the context it is used
+func (m *CallbackBasic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDialerPreview(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVoicemail(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CallbackBasic) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallbackBasic) contextValidateDialerPreview(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DialerPreview != nil {
+		if err := m.DialerPreview.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dialerPreview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dialerPreview")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallbackBasic) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CallbackBasic) contextValidateVoicemail(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Voicemail != nil {
+		if err := m.Voicemail.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("voicemail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("voicemail")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallbackBasic) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -77,7 +78,6 @@ func (m *PositionSettings) validateAlignmentEnum(path, location string, value st
 }
 
 func (m *PositionSettings) validateAlignment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Alignment) { // not required
 		return nil
 	}
@@ -87,6 +87,11 @@ func (m *PositionSettings) validateAlignment(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this position settings based on context it is used
+func (m *PositionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

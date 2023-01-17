@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -91,7 +92,6 @@ func (m *ConversationMessagingChannel) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConversationMessagingChannel) validateDateDeleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateDeleted) { // not required
 		return nil
 	}
@@ -104,7 +104,6 @@ func (m *ConversationMessagingChannel) validateDateDeleted(formats strfmt.Regist
 }
 
 func (m *ConversationMessagingChannel) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -117,7 +116,6 @@ func (m *ConversationMessagingChannel) validateDateModified(formats strfmt.Regis
 }
 
 func (m *ConversationMessagingChannel) validateFrom(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.From) { // not required
 		return nil
 	}
@@ -126,6 +124,8 @@ func (m *ConversationMessagingChannel) validateFrom(formats strfmt.Registry) err
 		if err := m.From.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
 			}
 			return err
 		}
@@ -182,7 +182,6 @@ func (m *ConversationMessagingChannel) validatePlatformEnum(path, location strin
 }
 
 func (m *ConversationMessagingChannel) validatePlatform(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Platform) { // not required
 		return nil
 	}
@@ -196,7 +195,6 @@ func (m *ConversationMessagingChannel) validatePlatform(formats strfmt.Registry)
 }
 
 func (m *ConversationMessagingChannel) validateTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Time) { // not required
 		return nil
 	}
@@ -209,7 +207,6 @@ func (m *ConversationMessagingChannel) validateTime(formats strfmt.Registry) err
 }
 
 func (m *ConversationMessagingChannel) validateTo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.To) { // not required
 		return nil
 	}
@@ -218,6 +215,136 @@ func (m *ConversationMessagingChannel) validateTo(formats strfmt.Registry) error
 		if err := m.To.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("to")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("to")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation messaging channel based on the context it is used
+func (m *ConversationMessagingChannel) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateDeleted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFrom(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessageID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePlatform(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTime(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidateDateDeleted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateDeleted", "body", strfmt.DateTime(m.DateDeleted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidateFrom(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.From != nil {
+		if err := m.From.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidateMessageID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "messageId", "body", string(m.MessageID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidatePlatform(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "platform", "body", string(m.Platform)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidateTime(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "time", "body", strfmt.DateTime(m.Time)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingChannel) contextValidateTo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.To != nil {
+		if err := m.To.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("to")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("to")
 			}
 			return err
 		}

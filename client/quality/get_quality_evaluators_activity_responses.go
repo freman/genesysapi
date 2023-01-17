@@ -95,7 +95,6 @@ func (o *GetQualityEvaluatorsActivityReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetQualityEvaluatorsActivityOK() *GetQualityEvaluatorsActivityOK {
 	return &GetQualityEvaluatorsActivityOK{}
 }
 
-/*GetQualityEvaluatorsActivityOK handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetQualityEvaluatorsActivityOK struct {
 	Payload *models.EvaluatorActivityEntityListing
 }
 
+// IsSuccess returns true when this get quality evaluators activity o k response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality evaluators activity o k response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity o k response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluators activity o k response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity o k response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityEvaluatorsActivityOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetQualityEvaluatorsActivityBadRequest() *GetQualityEvaluatorsActivityBa
 	return &GetQualityEvaluatorsActivityBadRequest{}
 }
 
-/*GetQualityEvaluatorsActivityBadRequest handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetQualityEvaluatorsActivityBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity bad request response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity bad request response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity bad request response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity bad request response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity bad request response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityEvaluatorsActivityBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetQualityEvaluatorsActivityUnauthorized() *GetQualityEvaluatorsActivity
 	return &GetQualityEvaluatorsActivityUnauthorized{}
 }
 
-/*GetQualityEvaluatorsActivityUnauthorized handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetQualityEvaluatorsActivityUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity unauthorized response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity unauthorized response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity unauthorized response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity unauthorized response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity unauthorized response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityEvaluatorsActivityUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetQualityEvaluatorsActivityForbidden() *GetQualityEvaluatorsActivityFor
 	return &GetQualityEvaluatorsActivityForbidden{}
 }
 
-/*GetQualityEvaluatorsActivityForbidden handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetQualityEvaluatorsActivityForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity forbidden response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity forbidden response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity forbidden response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity forbidden response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity forbidden response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityEvaluatorsActivityForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetQualityEvaluatorsActivityNotFound() *GetQualityEvaluatorsActivityNotF
 	return &GetQualityEvaluatorsActivityNotFound{}
 }
 
-/*GetQualityEvaluatorsActivityNotFound handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetQualityEvaluatorsActivityNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity not found response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity not found response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity not found response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity not found response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity not found response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityEvaluatorsActivityNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetQualityEvaluatorsActivityRequestTimeout() *GetQualityEvaluatorsActivi
 	return &GetQualityEvaluatorsActivityRequestTimeout{}
 }
 
-/*GetQualityEvaluatorsActivityRequestTimeout handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetQualityEvaluatorsActivityRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity request timeout response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity request timeout response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity request timeout response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity request timeout response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity request timeout response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityEvaluatorsActivityRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetQualityEvaluatorsActivityRequestEntityTooLarge() *GetQualityEvaluator
 	return &GetQualityEvaluatorsActivityRequestEntityTooLarge{}
 }
 
-/*GetQualityEvaluatorsActivityRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetQualityEvaluatorsActivityRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity request entity too large response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity request entity too large response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity request entity too large response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity request entity too large response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity request entity too large response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityEvaluatorsActivityRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetQualityEvaluatorsActivityUnsupportedMediaType() *GetQualityEvaluators
 	return &GetQualityEvaluatorsActivityUnsupportedMediaType{}
 }
 
-/*GetQualityEvaluatorsActivityUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetQualityEvaluatorsActivityUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity unsupported media type response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity unsupported media type response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity unsupported media type response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity unsupported media type response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity unsupported media type response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityEvaluatorsActivityUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetQualityEvaluatorsActivityTooManyRequests() *GetQualityEvaluatorsActiv
 	return &GetQualityEvaluatorsActivityTooManyRequests{}
 }
 
-/*GetQualityEvaluatorsActivityTooManyRequests handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetQualityEvaluatorsActivityTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity too many requests response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity too many requests response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity too many requests response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluators activity too many requests response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluators activity too many requests response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityEvaluatorsActivityTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetQualityEvaluatorsActivityInternalServerError() *GetQualityEvaluatorsA
 	return &GetQualityEvaluatorsActivityInternalServerError{}
 }
 
-/*GetQualityEvaluatorsActivityInternalServerError handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetQualityEvaluatorsActivityInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity internal server error response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity internal server error response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity internal server error response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluators activity internal server error response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality evaluators activity internal server error response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityEvaluatorsActivityInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetQualityEvaluatorsActivityServiceUnavailable() *GetQualityEvaluatorsAc
 	return &GetQualityEvaluatorsActivityServiceUnavailable{}
 }
 
-/*GetQualityEvaluatorsActivityServiceUnavailable handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetQualityEvaluatorsActivityServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity service unavailable response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity service unavailable response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity service unavailable response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluators activity service unavailable response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality evaluators activity service unavailable response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityEvaluatorsActivityServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetQualityEvaluatorsActivityGatewayTimeout() *GetQualityEvaluatorsActivi
 	return &GetQualityEvaluatorsActivityGatewayTimeout{}
 }
 
-/*GetQualityEvaluatorsActivityGatewayTimeout handles this case with default header values.
+/*
+GetQualityEvaluatorsActivityGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetQualityEvaluatorsActivityGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluators activity gateway timeout response has a 2xx status code
+func (o *GetQualityEvaluatorsActivityGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluators activity gateway timeout response has a 3xx status code
+func (o *GetQualityEvaluatorsActivityGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluators activity gateway timeout response has a 4xx status code
+func (o *GetQualityEvaluatorsActivityGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluators activity gateway timeout response has a 5xx status code
+func (o *GetQualityEvaluatorsActivityGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality evaluators activity gateway timeout response a status code equal to that given
+func (o *GetQualityEvaluatorsActivityGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityEvaluatorsActivityGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityEvaluatorsActivityGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluators/activity][%d] getQualityEvaluatorsActivityGatewayTimeout  %+v", 504, o.Payload)
 }
 

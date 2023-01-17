@@ -95,7 +95,6 @@ func (o *PostAnalyticsConversationsDetailsQueryReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAnalyticsConversationsDetailsQueryOK() *PostAnalyticsConversationsDe
 	return &PostAnalyticsConversationsDetailsQueryOK{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryOK handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAnalyticsConversationsDetailsQueryOK struct {
 	Payload *models.AnalyticsConversationQueryResponse
 }
 
+// IsSuccess returns true when this post analytics conversations details query o k response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post analytics conversations details query o k response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query o k response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details query o k response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query o k response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAnalyticsConversationsDetailsQueryBadRequest() *PostAnalyticsConvers
 	return &PostAnalyticsConversationsDetailsQueryBadRequest{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryBadRequest handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAnalyticsConversationsDetailsQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query bad request response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query bad request response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query bad request response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query bad request response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query bad request response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAnalyticsConversationsDetailsQueryUnauthorized() *PostAnalyticsConve
 	return &PostAnalyticsConversationsDetailsQueryUnauthorized{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryUnauthorized handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAnalyticsConversationsDetailsQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query unauthorized response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query unauthorized response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query unauthorized response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query unauthorized response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query unauthorized response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAnalyticsConversationsDetailsQueryForbidden() *PostAnalyticsConversa
 	return &PostAnalyticsConversationsDetailsQueryForbidden{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryForbidden handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAnalyticsConversationsDetailsQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query forbidden response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query forbidden response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query forbidden response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query forbidden response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query forbidden response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAnalyticsConversationsDetailsQueryNotFound() *PostAnalyticsConversat
 	return &PostAnalyticsConversationsDetailsQueryNotFound{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryNotFound handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAnalyticsConversationsDetailsQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query not found response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query not found response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query not found response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query not found response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query not found response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAnalyticsConversationsDetailsQueryRequestTimeout() *PostAnalyticsCon
 	return &PostAnalyticsConversationsDetailsQueryRequestTimeout{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryRequestTimeout handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAnalyticsConversationsDetailsQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query request timeout response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query request timeout response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query request timeout response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query request timeout response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query request timeout response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAnalyticsConversationsDetailsQueryRequestEntityTooLarge() *PostAnaly
 	return &PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query request entity too large response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query request entity too large response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query request entity too large response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query request entity too large response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query request entity too large response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAnalyticsConversationsDetailsQueryUnsupportedMediaType() *PostAnalyt
 	return &PostAnalyticsConversationsDetailsQueryUnsupportedMediaType{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAnalyticsConversationsDetailsQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query unsupported media type response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query unsupported media type response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query unsupported media type response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query unsupported media type response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query unsupported media type response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAnalyticsConversationsDetailsQueryTooManyRequests() *PostAnalyticsCo
 	return &PostAnalyticsConversationsDetailsQueryTooManyRequests{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryTooManyRequests handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAnalyticsConversationsDetailsQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query too many requests response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query too many requests response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query too many requests response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details query too many requests response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details query too many requests response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAnalyticsConversationsDetailsQueryInternalServerError() *PostAnalyti
 	return &PostAnalyticsConversationsDetailsQueryInternalServerError{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryInternalServerError handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAnalyticsConversationsDetailsQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query internal server error response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query internal server error response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query internal server error response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details query internal server error response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversations details query internal server error response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAnalyticsConversationsDetailsQueryServiceUnavailable() *PostAnalytic
 	return &PostAnalyticsConversationsDetailsQueryServiceUnavailable{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryServiceUnavailable handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAnalyticsConversationsDetailsQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query service unavailable response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query service unavailable response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query service unavailable response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details query service unavailable response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversations details query service unavailable response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAnalyticsConversationsDetailsQueryGatewayTimeout() *PostAnalyticsCon
 	return &PostAnalyticsConversationsDetailsQueryGatewayTimeout{}
 }
 
-/*PostAnalyticsConversationsDetailsQueryGatewayTimeout handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAnalyticsConversationsDetailsQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details query gateway timeout response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details query gateway timeout response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details query gateway timeout response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details query gateway timeout response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversations details query gateway timeout response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAnalyticsConversationsDetailsQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/query][%d] postAnalyticsConversationsDetailsQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

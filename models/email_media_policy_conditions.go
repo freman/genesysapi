@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -107,7 +108,6 @@ func (m *EmailMediaPolicyConditions) validateCustomerParticipationEnum(path, loc
 }
 
 func (m *EmailMediaPolicyConditions) validateCustomerParticipation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomerParticipation) { // not required
 		return nil
 	}
@@ -121,7 +121,6 @@ func (m *EmailMediaPolicyConditions) validateCustomerParticipation(formats strfm
 }
 
 func (m *EmailMediaPolicyConditions) validateForQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForQueues) { // not required
 		return nil
 	}
@@ -135,6 +134,8 @@ func (m *EmailMediaPolicyConditions) validateForQueues(formats strfmt.Registry) 
 			if err := m.ForQueues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forQueues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -146,7 +147,6 @@ func (m *EmailMediaPolicyConditions) validateForQueues(formats strfmt.Registry) 
 }
 
 func (m *EmailMediaPolicyConditions) validateForUsers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForUsers) { // not required
 		return nil
 	}
@@ -160,6 +160,8 @@ func (m *EmailMediaPolicyConditions) validateForUsers(formats strfmt.Registry) e
 			if err := m.ForUsers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forUsers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -171,7 +173,6 @@ func (m *EmailMediaPolicyConditions) validateForUsers(formats strfmt.Registry) e
 }
 
 func (m *EmailMediaPolicyConditions) validateLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Languages) { // not required
 		return nil
 	}
@@ -185,6 +186,8 @@ func (m *EmailMediaPolicyConditions) validateLanguages(formats strfmt.Registry) 
 			if err := m.Languages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -196,7 +199,6 @@ func (m *EmailMediaPolicyConditions) validateLanguages(formats strfmt.Registry) 
 }
 
 func (m *EmailMediaPolicyConditions) validateTimeAllowed(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeAllowed) { // not required
 		return nil
 	}
@@ -205,6 +207,8 @@ func (m *EmailMediaPolicyConditions) validateTimeAllowed(formats strfmt.Registry
 		if err := m.TimeAllowed.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeAllowed")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeAllowed")
 			}
 			return err
 		}
@@ -214,7 +218,6 @@ func (m *EmailMediaPolicyConditions) validateTimeAllowed(formats strfmt.Registry
 }
 
 func (m *EmailMediaPolicyConditions) validateWrapupCodes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WrapupCodes) { // not required
 		return nil
 	}
@@ -228,6 +231,134 @@ func (m *EmailMediaPolicyConditions) validateWrapupCodes(formats strfmt.Registry
 			if err := m.WrapupCodes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this email media policy conditions based on the context it is used
+func (m *EmailMediaPolicyConditions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateForQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateForUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeAllowed(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapupCodes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EmailMediaPolicyConditions) contextValidateForQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ForQueues); i++ {
+
+		if m.ForQueues[i] != nil {
+			if err := m.ForQueues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EmailMediaPolicyConditions) contextValidateForUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ForUsers); i++ {
+
+		if m.ForUsers[i] != nil {
+			if err := m.ForUsers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EmailMediaPolicyConditions) contextValidateLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Languages); i++ {
+
+		if m.Languages[i] != nil {
+			if err := m.Languages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EmailMediaPolicyConditions) contextValidateTimeAllowed(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeAllowed != nil {
+		if err := m.TimeAllowed.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeAllowed")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeAllowed")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmailMediaPolicyConditions) contextValidateWrapupCodes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.WrapupCodes); i++ {
+
+		if m.WrapupCodes[i] != nil {
+			if err := m.WrapupCodes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

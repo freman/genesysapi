@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -22,6 +24,7 @@ type CreateCallbackOnConversationCommand struct {
 	CallbackNumbers []string `json:"callbackNumbers"`
 
 	// The scheduled date-time for the callback as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss.SSSZ
+	// Example: 2015-01-02T16:59:59.000Z
 	// Format: date-time
 	CallbackScheduledTime strfmt.DateTime `json:"callbackScheduledTime,omitempty"`
 
@@ -85,7 +88,6 @@ func (m *CreateCallbackOnConversationCommand) validateCallbackNumbers(formats st
 }
 
 func (m *CreateCallbackOnConversationCommand) validateCallbackScheduledTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallbackScheduledTime) { // not required
 		return nil
 	}
@@ -98,7 +100,6 @@ func (m *CreateCallbackOnConversationCommand) validateCallbackScheduledTime(form
 }
 
 func (m *CreateCallbackOnConversationCommand) validateRoutingData(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingData) { // not required
 		return nil
 	}
@@ -107,6 +108,38 @@ func (m *CreateCallbackOnConversationCommand) validateRoutingData(formats strfmt
 		if err := m.RoutingData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("routingData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create callback on conversation command based on the context it is used
+func (m *CreateCallbackOnConversationCommand) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRoutingData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateCallbackOnConversationCommand) contextValidateRoutingData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RoutingData != nil {
+		if err := m.RoutingData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("routingData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingData")
 			}
 			return err
 		}

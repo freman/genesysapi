@@ -95,7 +95,6 @@ func (o *DeleteWebchatGuestConversationMemberReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteWebchatGuestConversationMemberNoContent() *DeleteWebchatGuestConve
 	return &DeleteWebchatGuestConversationMemberNoContent{}
 }
 
-/*DeleteWebchatGuestConversationMemberNoContent handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type DeleteWebchatGuestConversationMemberNoContent struct {
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member no content response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member no content response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member no content response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat guest conversation member no content response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member no content response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteWebchatGuestConversationMemberNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberNoContent ", 204)
+}
+
+func (o *DeleteWebchatGuestConversationMemberNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteWebchatGuestConversationMemberBadRequest() *DeleteWebchatGuestConv
 	return &DeleteWebchatGuestConversationMemberBadRequest{}
 }
 
-/*DeleteWebchatGuestConversationMemberBadRequest handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteWebchatGuestConversationMemberBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member bad request response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member bad request response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member bad request response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member bad request response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member bad request response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteWebchatGuestConversationMemberBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteWebchatGuestConversationMemberUnauthorized() *DeleteWebchatGuestCo
 	return &DeleteWebchatGuestConversationMemberUnauthorized{}
 }
 
-/*DeleteWebchatGuestConversationMemberUnauthorized handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteWebchatGuestConversationMemberUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member unauthorized response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member unauthorized response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member unauthorized response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member unauthorized response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member unauthorized response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteWebchatGuestConversationMemberUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteWebchatGuestConversationMemberForbidden() *DeleteWebchatGuestConve
 	return &DeleteWebchatGuestConversationMemberForbidden{}
 }
 
-/*DeleteWebchatGuestConversationMemberForbidden handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteWebchatGuestConversationMemberForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member forbidden response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member forbidden response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member forbidden response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member forbidden response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member forbidden response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteWebchatGuestConversationMemberForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteWebchatGuestConversationMemberNotFound() *DeleteWebchatGuestConver
 	return &DeleteWebchatGuestConversationMemberNotFound{}
 }
 
-/*DeleteWebchatGuestConversationMemberNotFound handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteWebchatGuestConversationMemberNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member not found response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member not found response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member not found response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member not found response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member not found response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteWebchatGuestConversationMemberNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteWebchatGuestConversationMemberRequestTimeout() *DeleteWebchatGuest
 	return &DeleteWebchatGuestConversationMemberRequestTimeout{}
 }
 
-/*DeleteWebchatGuestConversationMemberRequestTimeout handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteWebchatGuestConversationMemberRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member request timeout response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member request timeout response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member request timeout response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member request timeout response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member request timeout response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteWebchatGuestConversationMemberRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteWebchatGuestConversationMemberRequestEntityTooLarge() *DeleteWebch
 	return &DeleteWebchatGuestConversationMemberRequestEntityTooLarge{}
 }
 
-/*DeleteWebchatGuestConversationMemberRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteWebchatGuestConversationMemberRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member request entity too large response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member request entity too large response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member request entity too large response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member request entity too large response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member request entity too large response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteWebchatGuestConversationMemberRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteWebchatGuestConversationMemberUnsupportedMediaType() *DeleteWebcha
 	return &DeleteWebchatGuestConversationMemberUnsupportedMediaType{}
 }
 
-/*DeleteWebchatGuestConversationMemberUnsupportedMediaType handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteWebchatGuestConversationMemberUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member unsupported media type response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member unsupported media type response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member unsupported media type response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member unsupported media type response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member unsupported media type response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteWebchatGuestConversationMemberUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteWebchatGuestConversationMemberTooManyRequests() *DeleteWebchatGues
 	return &DeleteWebchatGuestConversationMemberTooManyRequests{}
 }
 
-/*DeleteWebchatGuestConversationMemberTooManyRequests handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteWebchatGuestConversationMemberTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member too many requests response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member too many requests response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member too many requests response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat guest conversation member too many requests response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat guest conversation member too many requests response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteWebchatGuestConversationMemberTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteWebchatGuestConversationMemberInternalServerError() *DeleteWebchat
 	return &DeleteWebchatGuestConversationMemberInternalServerError{}
 }
 
-/*DeleteWebchatGuestConversationMemberInternalServerError handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteWebchatGuestConversationMemberInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member internal server error response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member internal server error response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member internal server error response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat guest conversation member internal server error response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webchat guest conversation member internal server error response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteWebchatGuestConversationMemberInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteWebchatGuestConversationMemberServiceUnavailable() *DeleteWebchatG
 	return &DeleteWebchatGuestConversationMemberServiceUnavailable{}
 }
 
-/*DeleteWebchatGuestConversationMemberServiceUnavailable handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteWebchatGuestConversationMemberServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member service unavailable response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member service unavailable response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member service unavailable response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat guest conversation member service unavailable response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webchat guest conversation member service unavailable response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteWebchatGuestConversationMemberServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteWebchatGuestConversationMemberGatewayTimeout() *DeleteWebchatGuest
 	return &DeleteWebchatGuestConversationMemberGatewayTimeout{}
 }
 
-/*DeleteWebchatGuestConversationMemberGatewayTimeout handles this case with default header values.
+/*
+DeleteWebchatGuestConversationMemberGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteWebchatGuestConversationMemberGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat guest conversation member gateway timeout response has a 2xx status code
+func (o *DeleteWebchatGuestConversationMemberGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat guest conversation member gateway timeout response has a 3xx status code
+func (o *DeleteWebchatGuestConversationMemberGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat guest conversation member gateway timeout response has a 4xx status code
+func (o *DeleteWebchatGuestConversationMemberGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat guest conversation member gateway timeout response has a 5xx status code
+func (o *DeleteWebchatGuestConversationMemberGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webchat guest conversation member gateway timeout response a status code equal to that given
+func (o *DeleteWebchatGuestConversationMemberGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteWebchatGuestConversationMemberGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteWebchatGuestConversationMemberGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}][%d] deleteWebchatGuestConversationMemberGatewayTimeout  %+v", 504, o.Payload)
 }
 

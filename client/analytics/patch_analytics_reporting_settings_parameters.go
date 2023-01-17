@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchAnalyticsReportingSettingsParams creates a new PatchAnalyticsReportingSettingsParams object
-// with the default values initialized.
+// NewPatchAnalyticsReportingSettingsParams creates a new PatchAnalyticsReportingSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchAnalyticsReportingSettingsParams() *PatchAnalyticsReportingSettingsParams {
-	var ()
 	return &PatchAnalyticsReportingSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchAnalyticsReportingSettingsParamsWithTimeout creates a new PatchAnalyticsReportingSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchAnalyticsReportingSettingsParamsWithTimeout(timeout time.Duration) *PatchAnalyticsReportingSettingsParams {
-	var ()
 	return &PatchAnalyticsReportingSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchAnalyticsReportingSettingsParamsWithContext creates a new PatchAnalyticsReportingSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchAnalyticsReportingSettingsParamsWithContext(ctx context.Context) *PatchAnalyticsReportingSettingsParams {
-	var ()
 	return &PatchAnalyticsReportingSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchAnalyticsReportingSettingsParamsWithHTTPClient creates a new PatchAnalyticsReportingSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchAnalyticsReportingSettingsParamsWithHTTPClient(client *http.Client) *PatchAnalyticsReportingSettingsParams {
-	var ()
 	return &PatchAnalyticsReportingSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchAnalyticsReportingSettingsParams contains all the parameters to send to the API endpoint
-for the patch analytics reporting settings operation typically these are written to a http.Request
+/*
+PatchAnalyticsReportingSettingsParams contains all the parameters to send to the API endpoint
+
+	for the patch analytics reporting settings operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchAnalyticsReportingSettingsParams struct {
 
-	/*Body
-	  AnalyticsReportingSettingsRequest
+	/* Body.
 
+	   AnalyticsReportingSettingsRequest
 	*/
 	Body *models.AnalyticsReportingSettings
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch analytics reporting settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchAnalyticsReportingSettingsParams) WithDefaults() *PatchAnalyticsReportingSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch analytics reporting settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchAnalyticsReportingSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch analytics reporting settings params
@@ -124,7 +140,6 @@ func (o *PatchAnalyticsReportingSettingsParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

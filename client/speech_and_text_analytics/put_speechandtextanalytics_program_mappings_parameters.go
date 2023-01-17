@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutSpeechandtextanalyticsProgramMappingsParams creates a new PutSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized.
+// NewPutSpeechandtextanalyticsProgramMappingsParams creates a new PutSpeechandtextanalyticsProgramMappingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutSpeechandtextanalyticsProgramMappingsParams() *PutSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramMappingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutSpeechandtextanalyticsProgramMappingsParamsWithTimeout creates a new PutSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutSpeechandtextanalyticsProgramMappingsParamsWithTimeout(timeout time.Duration) *PutSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramMappingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutSpeechandtextanalyticsProgramMappingsParamsWithContext creates a new PutSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutSpeechandtextanalyticsProgramMappingsParamsWithContext(ctx context.Context) *PutSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramMappingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutSpeechandtextanalyticsProgramMappingsParamsWithHTTPClient creates a new PutSpeechandtextanalyticsProgramMappingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutSpeechandtextanalyticsProgramMappingsParamsWithHTTPClient(client *http.Client) *PutSpeechandtextanalyticsProgramMappingsParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramMappingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutSpeechandtextanalyticsProgramMappingsParams contains all the parameters to send to the API endpoint
-for the put speechandtextanalytics program mappings operation typically these are written to a http.Request
+/*
+PutSpeechandtextanalyticsProgramMappingsParams contains all the parameters to send to the API endpoint
+
+	for the put speechandtextanalytics program mappings operation.
+
+	Typically these are written to a http.Request.
 */
 type PutSpeechandtextanalyticsProgramMappingsParams struct {
 
-	/*Body
-	  The program to set mappings for
+	/* Body.
 
+	   The program to set mappings for
 	*/
 	Body *models.ProgramMappingsRequest
-	/*ProgramID
-	  The id of the program
 
+	/* ProgramID.
+
+	   The id of the program
 	*/
 	ProgramID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put speechandtextanalytics program mappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutSpeechandtextanalyticsProgramMappingsParams) WithDefaults() *PutSpeechandtextanalyticsProgramMappingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put speechandtextanalytics program mappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutSpeechandtextanalyticsProgramMappingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put speechandtextanalytics program mappings params
@@ -140,7 +157,6 @@ func (o *PutSpeechandtextanalyticsProgramMappingsParams) WriteToRequest(r runtim
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

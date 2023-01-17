@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -61,7 +63,6 @@ func (m *UpdateServiceGoalTemplate) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UpdateServiceGoalTemplate) validateAbandonRate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AbandonRate) { // not required
 		return nil
 	}
@@ -70,6 +71,8 @@ func (m *UpdateServiceGoalTemplate) validateAbandonRate(formats strfmt.Registry)
 		if err := m.AbandonRate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("abandonRate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("abandonRate")
 			}
 			return err
 		}
@@ -79,7 +82,6 @@ func (m *UpdateServiceGoalTemplate) validateAbandonRate(formats strfmt.Registry)
 }
 
 func (m *UpdateServiceGoalTemplate) validateAverageSpeedOfAnswer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AverageSpeedOfAnswer) { // not required
 		return nil
 	}
@@ -88,6 +90,8 @@ func (m *UpdateServiceGoalTemplate) validateAverageSpeedOfAnswer(formats strfmt.
 		if err := m.AverageSpeedOfAnswer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("averageSpeedOfAnswer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("averageSpeedOfAnswer")
 			}
 			return err
 		}
@@ -106,6 +110,8 @@ func (m *UpdateServiceGoalTemplate) validateMetadata(formats strfmt.Registry) er
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -115,7 +121,6 @@ func (m *UpdateServiceGoalTemplate) validateMetadata(formats strfmt.Registry) er
 }
 
 func (m *UpdateServiceGoalTemplate) validateServiceLevel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ServiceLevel) { // not required
 		return nil
 	}
@@ -124,6 +129,98 @@ func (m *UpdateServiceGoalTemplate) validateServiceLevel(formats strfmt.Registry
 		if err := m.ServiceLevel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceLevel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceLevel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update service goal template based on the context it is used
+func (m *UpdateServiceGoalTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAbandonRate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAverageSpeedOfAnswer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateServiceLevel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateServiceGoalTemplate) contextValidateAbandonRate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AbandonRate != nil {
+		if err := m.AbandonRate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("abandonRate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("abandonRate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateServiceGoalTemplate) contextValidateAverageSpeedOfAnswer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AverageSpeedOfAnswer != nil {
+		if err := m.AverageSpeedOfAnswer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("averageSpeedOfAnswer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("averageSpeedOfAnswer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateServiceGoalTemplate) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateServiceGoalTemplate) contextValidateServiceLevel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ServiceLevel != nil {
+		if err := m.ServiceLevel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("serviceLevel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceLevel")
 			}
 			return err
 		}

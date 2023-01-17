@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -74,7 +75,6 @@ func (m *ConversationMessagingFromRecipient) Validate(formats strfmt.Registry) e
 }
 
 func (m *ConversationMessagingFromRecipient) validateAdditionalIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AdditionalIds) { // not required
 		return nil
 	}
@@ -88,6 +88,8 @@ func (m *ConversationMessagingFromRecipient) validateAdditionalIds(formats strfm
 			if err := m.AdditionalIds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("additionalIds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -140,13 +142,89 @@ func (m *ConversationMessagingFromRecipient) validateIDTypeEnum(path, location s
 }
 
 func (m *ConversationMessagingFromRecipient) validateIDType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IDType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateIDTypeEnum("idType", "body", m.IDType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation messaging from recipient based on the context it is used
+func (m *ConversationMessagingFromRecipient) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdditionalIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmail(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIDType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNickname(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationMessagingFromRecipient) contextValidateAdditionalIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "additionalIds", "body", []*ConversationRecipientAdditionalIdentifier(m.AdditionalIds)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.AdditionalIds); i++ {
+
+		if m.AdditionalIds[i] != nil {
+			if err := m.AdditionalIds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingFromRecipient) contextValidateEmail(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "email", "body", string(m.Email)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingFromRecipient) contextValidateIDType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "idType", "body", string(m.IDType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationMessagingFromRecipient) contextValidateNickname(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "nickname", "body", string(m.Nickname)); err != nil {
 		return err
 	}
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesTrunkswithrecordingParams creates a new GetTelephonyProvidersEdgesTrunkswithrecordingParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesTrunkswithrecordingParams creates a new GetTelephonyProvidersEdgesTrunkswithrecordingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesTrunkswithrecordingParams() *GetTelephonyProvidersEdgesTrunkswithrecordingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkswithrecordingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkswithrecordingParamsWithTimeout creates a new GetTelephonyProvidersEdgesTrunkswithrecordingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesTrunkswithrecordingParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesTrunkswithrecordingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkswithrecordingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkswithrecordingParamsWithContext creates a new GetTelephonyProvidersEdgesTrunkswithrecordingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesTrunkswithrecordingParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesTrunkswithrecordingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkswithrecordingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkswithrecordingParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesTrunkswithrecordingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesTrunkswithrecordingParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesTrunkswithrecordingParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkswithrecordingParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesTrunkswithrecordingParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges trunkswithrecording operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesTrunkswithrecordingParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges trunkswithrecording operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesTrunkswithrecordingParams struct {
 
-	/*TrunkType
-	  The type of this trunk base.
+	/* TrunkType.
 
+	   The type of this trunk base.
 	*/
 	TrunkType *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges trunkswithrecording params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunkswithrecordingParams) WithDefaults() *GetTelephonyProvidersEdgesTrunkswithrecordingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges trunkswithrecording params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunkswithrecordingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges trunkswithrecording params
@@ -127,16 +143,17 @@ func (o *GetTelephonyProvidersEdgesTrunkswithrecordingParams) WriteToRequest(r r
 
 		// query param trunkType
 		var qrTrunkType string
+
 		if o.TrunkType != nil {
 			qrTrunkType = *o.TrunkType
 		}
 		qTrunkType := qrTrunkType
 		if qTrunkType != "" {
+
 			if err := r.SetQueryParam("trunkType", qTrunkType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

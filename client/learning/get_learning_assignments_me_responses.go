@@ -95,7 +95,6 @@ func (o *GetLearningAssignmentsMeReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLearningAssignmentsMeOK() *GetLearningAssignmentsMeOK {
 	return &GetLearningAssignmentsMeOK{}
 }
 
-/*GetLearningAssignmentsMeOK handles this case with default header values.
+/*
+GetLearningAssignmentsMeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLearningAssignmentsMeOK struct {
 	Payload *models.LearningAssignmentsDomainEntity
 }
 
+// IsSuccess returns true when this get learning assignments me o k response has a 2xx status code
+func (o *GetLearningAssignmentsMeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get learning assignments me o k response has a 3xx status code
+func (o *GetLearningAssignmentsMeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me o k response has a 4xx status code
+func (o *GetLearningAssignmentsMeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning assignments me o k response has a 5xx status code
+func (o *GetLearningAssignmentsMeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me o k response a status code equal to that given
+func (o *GetLearningAssignmentsMeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLearningAssignmentsMeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLearningAssignmentsMeBadRequest() *GetLearningAssignmentsMeBadRequest
 	return &GetLearningAssignmentsMeBadRequest{}
 }
 
-/*GetLearningAssignmentsMeBadRequest handles this case with default header values.
+/*
+GetLearningAssignmentsMeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLearningAssignmentsMeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me bad request response has a 2xx status code
+func (o *GetLearningAssignmentsMeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me bad request response has a 3xx status code
+func (o *GetLearningAssignmentsMeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me bad request response has a 4xx status code
+func (o *GetLearningAssignmentsMeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me bad request response has a 5xx status code
+func (o *GetLearningAssignmentsMeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me bad request response a status code equal to that given
+func (o *GetLearningAssignmentsMeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLearningAssignmentsMeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLearningAssignmentsMeUnauthorized() *GetLearningAssignmentsMeUnauthor
 	return &GetLearningAssignmentsMeUnauthorized{}
 }
 
-/*GetLearningAssignmentsMeUnauthorized handles this case with default header values.
+/*
+GetLearningAssignmentsMeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLearningAssignmentsMeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me unauthorized response has a 2xx status code
+func (o *GetLearningAssignmentsMeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me unauthorized response has a 3xx status code
+func (o *GetLearningAssignmentsMeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me unauthorized response has a 4xx status code
+func (o *GetLearningAssignmentsMeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me unauthorized response has a 5xx status code
+func (o *GetLearningAssignmentsMeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me unauthorized response a status code equal to that given
+func (o *GetLearningAssignmentsMeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLearningAssignmentsMeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLearningAssignmentsMeForbidden() *GetLearningAssignmentsMeForbidden {
 	return &GetLearningAssignmentsMeForbidden{}
 }
 
-/*GetLearningAssignmentsMeForbidden handles this case with default header values.
+/*
+GetLearningAssignmentsMeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLearningAssignmentsMeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me forbidden response has a 2xx status code
+func (o *GetLearningAssignmentsMeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me forbidden response has a 3xx status code
+func (o *GetLearningAssignmentsMeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me forbidden response has a 4xx status code
+func (o *GetLearningAssignmentsMeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me forbidden response has a 5xx status code
+func (o *GetLearningAssignmentsMeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me forbidden response a status code equal to that given
+func (o *GetLearningAssignmentsMeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLearningAssignmentsMeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLearningAssignmentsMeNotFound() *GetLearningAssignmentsMeNotFound {
 	return &GetLearningAssignmentsMeNotFound{}
 }
 
-/*GetLearningAssignmentsMeNotFound handles this case with default header values.
+/*
+GetLearningAssignmentsMeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLearningAssignmentsMeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me not found response has a 2xx status code
+func (o *GetLearningAssignmentsMeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me not found response has a 3xx status code
+func (o *GetLearningAssignmentsMeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me not found response has a 4xx status code
+func (o *GetLearningAssignmentsMeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me not found response has a 5xx status code
+func (o *GetLearningAssignmentsMeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me not found response a status code equal to that given
+func (o *GetLearningAssignmentsMeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLearningAssignmentsMeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLearningAssignmentsMeRequestTimeout() *GetLearningAssignmentsMeReques
 	return &GetLearningAssignmentsMeRequestTimeout{}
 }
 
-/*GetLearningAssignmentsMeRequestTimeout handles this case with default header values.
+/*
+GetLearningAssignmentsMeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLearningAssignmentsMeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me request timeout response has a 2xx status code
+func (o *GetLearningAssignmentsMeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me request timeout response has a 3xx status code
+func (o *GetLearningAssignmentsMeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me request timeout response has a 4xx status code
+func (o *GetLearningAssignmentsMeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me request timeout response has a 5xx status code
+func (o *GetLearningAssignmentsMeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me request timeout response a status code equal to that given
+func (o *GetLearningAssignmentsMeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLearningAssignmentsMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLearningAssignmentsMeRequestEntityTooLarge() *GetLearningAssignmentsM
 	return &GetLearningAssignmentsMeRequestEntityTooLarge{}
 }
 
-/*GetLearningAssignmentsMeRequestEntityTooLarge handles this case with default header values.
+/*
+GetLearningAssignmentsMeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLearningAssignmentsMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me request entity too large response has a 2xx status code
+func (o *GetLearningAssignmentsMeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me request entity too large response has a 3xx status code
+func (o *GetLearningAssignmentsMeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me request entity too large response has a 4xx status code
+func (o *GetLearningAssignmentsMeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me request entity too large response has a 5xx status code
+func (o *GetLearningAssignmentsMeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me request entity too large response a status code equal to that given
+func (o *GetLearningAssignmentsMeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLearningAssignmentsMeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLearningAssignmentsMeUnsupportedMediaType() *GetLearningAssignmentsMe
 	return &GetLearningAssignmentsMeUnsupportedMediaType{}
 }
 
-/*GetLearningAssignmentsMeUnsupportedMediaType handles this case with default header values.
+/*
+GetLearningAssignmentsMeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLearningAssignmentsMeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me unsupported media type response has a 2xx status code
+func (o *GetLearningAssignmentsMeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me unsupported media type response has a 3xx status code
+func (o *GetLearningAssignmentsMeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me unsupported media type response has a 4xx status code
+func (o *GetLearningAssignmentsMeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me unsupported media type response has a 5xx status code
+func (o *GetLearningAssignmentsMeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me unsupported media type response a status code equal to that given
+func (o *GetLearningAssignmentsMeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLearningAssignmentsMeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLearningAssignmentsMeTooManyRequests() *GetLearningAssignmentsMeTooMa
 	return &GetLearningAssignmentsMeTooManyRequests{}
 }
 
-/*GetLearningAssignmentsMeTooManyRequests handles this case with default header values.
+/*
+GetLearningAssignmentsMeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLearningAssignmentsMeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me too many requests response has a 2xx status code
+func (o *GetLearningAssignmentsMeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me too many requests response has a 3xx status code
+func (o *GetLearningAssignmentsMeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me too many requests response has a 4xx status code
+func (o *GetLearningAssignmentsMeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning assignments me too many requests response has a 5xx status code
+func (o *GetLearningAssignmentsMeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning assignments me too many requests response a status code equal to that given
+func (o *GetLearningAssignmentsMeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLearningAssignmentsMeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLearningAssignmentsMeInternalServerError() *GetLearningAssignmentsMeI
 	return &GetLearningAssignmentsMeInternalServerError{}
 }
 
-/*GetLearningAssignmentsMeInternalServerError handles this case with default header values.
+/*
+GetLearningAssignmentsMeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLearningAssignmentsMeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me internal server error response has a 2xx status code
+func (o *GetLearningAssignmentsMeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me internal server error response has a 3xx status code
+func (o *GetLearningAssignmentsMeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me internal server error response has a 4xx status code
+func (o *GetLearningAssignmentsMeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning assignments me internal server error response has a 5xx status code
+func (o *GetLearningAssignmentsMeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning assignments me internal server error response a status code equal to that given
+func (o *GetLearningAssignmentsMeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLearningAssignmentsMeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLearningAssignmentsMeServiceUnavailable() *GetLearningAssignmentsMeSe
 	return &GetLearningAssignmentsMeServiceUnavailable{}
 }
 
-/*GetLearningAssignmentsMeServiceUnavailable handles this case with default header values.
+/*
+GetLearningAssignmentsMeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLearningAssignmentsMeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me service unavailable response has a 2xx status code
+func (o *GetLearningAssignmentsMeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me service unavailable response has a 3xx status code
+func (o *GetLearningAssignmentsMeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me service unavailable response has a 4xx status code
+func (o *GetLearningAssignmentsMeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning assignments me service unavailable response has a 5xx status code
+func (o *GetLearningAssignmentsMeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning assignments me service unavailable response a status code equal to that given
+func (o *GetLearningAssignmentsMeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLearningAssignmentsMeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLearningAssignmentsMeGatewayTimeout() *GetLearningAssignmentsMeGatewa
 	return &GetLearningAssignmentsMeGatewayTimeout{}
 }
 
-/*GetLearningAssignmentsMeGatewayTimeout handles this case with default header values.
+/*
+GetLearningAssignmentsMeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLearningAssignmentsMeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning assignments me gateway timeout response has a 2xx status code
+func (o *GetLearningAssignmentsMeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning assignments me gateway timeout response has a 3xx status code
+func (o *GetLearningAssignmentsMeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning assignments me gateway timeout response has a 4xx status code
+func (o *GetLearningAssignmentsMeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning assignments me gateway timeout response has a 5xx status code
+func (o *GetLearningAssignmentsMeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning assignments me gateway timeout response a status code equal to that given
+func (o *GetLearningAssignmentsMeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLearningAssignmentsMeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLearningAssignmentsMeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/assignments/me][%d] getLearningAssignmentsMeGatewayTimeout  %+v", 504, o.Payload)
 }
 

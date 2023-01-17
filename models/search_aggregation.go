@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -78,7 +79,6 @@ func (m *SearchAggregation) validateOrderItemsEnum(path, location string, value 
 }
 
 func (m *SearchAggregation) validateOrder(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Order) { // not required
 		return nil
 	}
@@ -140,7 +140,6 @@ func (m *SearchAggregation) validateTypeEnum(path, location string, value string
 }
 
 func (m *SearchAggregation) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -150,6 +149,11 @@ func (m *SearchAggregation) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this search aggregation based on context it is used
+func (m *SearchAggregation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

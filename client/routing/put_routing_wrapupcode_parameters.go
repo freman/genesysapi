@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutRoutingWrapupcodeParams creates a new PutRoutingWrapupcodeParams object
-// with the default values initialized.
+// NewPutRoutingWrapupcodeParams creates a new PutRoutingWrapupcodeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutRoutingWrapupcodeParams() *PutRoutingWrapupcodeParams {
-	var ()
 	return &PutRoutingWrapupcodeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutRoutingWrapupcodeParamsWithTimeout creates a new PutRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutRoutingWrapupcodeParamsWithTimeout(timeout time.Duration) *PutRoutingWrapupcodeParams {
-	var ()
 	return &PutRoutingWrapupcodeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutRoutingWrapupcodeParamsWithContext creates a new PutRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutRoutingWrapupcodeParamsWithContext(ctx context.Context) *PutRoutingWrapupcodeParams {
-	var ()
 	return &PutRoutingWrapupcodeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutRoutingWrapupcodeParamsWithHTTPClient creates a new PutRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutRoutingWrapupcodeParamsWithHTTPClient(client *http.Client) *PutRoutingWrapupcodeParams {
-	var ()
 	return &PutRoutingWrapupcodeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutRoutingWrapupcodeParams contains all the parameters to send to the API endpoint
-for the put routing wrapupcode operation typically these are written to a http.Request
+/*
+PutRoutingWrapupcodeParams contains all the parameters to send to the API endpoint
+
+	for the put routing wrapupcode operation.
+
+	Typically these are written to a http.Request.
 */
 type PutRoutingWrapupcodeParams struct {
 
-	/*Body
-	  WrapupCode
+	/* Body.
 
+	   WrapupCode
 	*/
 	Body *models.WrapupCode
-	/*CodeID
-	  Wrapup Code ID
 
+	/* CodeID.
+
+	   Wrapup Code ID
 	*/
 	CodeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put routing wrapupcode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingWrapupcodeParams) WithDefaults() *PutRoutingWrapupcodeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put routing wrapupcode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingWrapupcodeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put routing wrapupcode params
@@ -140,7 +157,6 @@ func (o *PutRoutingWrapupcodeParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

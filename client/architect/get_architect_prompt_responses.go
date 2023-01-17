@@ -95,7 +95,6 @@ func (o *GetArchitectPromptReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetArchitectPromptOK() *GetArchitectPromptOK {
 	return &GetArchitectPromptOK{}
 }
 
-/*GetArchitectPromptOK handles this case with default header values.
+/*
+GetArchitectPromptOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetArchitectPromptOK struct {
 	Payload *models.Prompt
 }
 
+// IsSuccess returns true when this get architect prompt o k response has a 2xx status code
+func (o *GetArchitectPromptOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect prompt o k response has a 3xx status code
+func (o *GetArchitectPromptOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt o k response has a 4xx status code
+func (o *GetArchitectPromptOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect prompt o k response has a 5xx status code
+func (o *GetArchitectPromptOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt o k response a status code equal to that given
+func (o *GetArchitectPromptOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetArchitectPromptOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptOK  %+v", 200, o.Payload)
+}
+
+func (o *GetArchitectPromptOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetArchitectPromptBadRequest() *GetArchitectPromptBadRequest {
 	return &GetArchitectPromptBadRequest{}
 }
 
-/*GetArchitectPromptBadRequest handles this case with default header values.
+/*
+GetArchitectPromptBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetArchitectPromptBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt bad request response has a 2xx status code
+func (o *GetArchitectPromptBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt bad request response has a 3xx status code
+func (o *GetArchitectPromptBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt bad request response has a 4xx status code
+func (o *GetArchitectPromptBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt bad request response has a 5xx status code
+func (o *GetArchitectPromptBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt bad request response a status code equal to that given
+func (o *GetArchitectPromptBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArchitectPromptBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetArchitectPromptBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetArchitectPromptUnauthorized() *GetArchitectPromptUnauthorized {
 	return &GetArchitectPromptUnauthorized{}
 }
 
-/*GetArchitectPromptUnauthorized handles this case with default header values.
+/*
+GetArchitectPromptUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetArchitectPromptUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt unauthorized response has a 2xx status code
+func (o *GetArchitectPromptUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt unauthorized response has a 3xx status code
+func (o *GetArchitectPromptUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt unauthorized response has a 4xx status code
+func (o *GetArchitectPromptUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt unauthorized response has a 5xx status code
+func (o *GetArchitectPromptUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt unauthorized response a status code equal to that given
+func (o *GetArchitectPromptUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetArchitectPromptUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetArchitectPromptUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetArchitectPromptForbidden() *GetArchitectPromptForbidden {
 	return &GetArchitectPromptForbidden{}
 }
 
-/*GetArchitectPromptForbidden handles this case with default header values.
+/*
+GetArchitectPromptForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetArchitectPromptForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt forbidden response has a 2xx status code
+func (o *GetArchitectPromptForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt forbidden response has a 3xx status code
+func (o *GetArchitectPromptForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt forbidden response has a 4xx status code
+func (o *GetArchitectPromptForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt forbidden response has a 5xx status code
+func (o *GetArchitectPromptForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt forbidden response a status code equal to that given
+func (o *GetArchitectPromptForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArchitectPromptForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetArchitectPromptForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetArchitectPromptNotFound() *GetArchitectPromptNotFound {
 	return &GetArchitectPromptNotFound{}
 }
 
-/*GetArchitectPromptNotFound handles this case with default header values.
+/*
+GetArchitectPromptNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetArchitectPromptNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt not found response has a 2xx status code
+func (o *GetArchitectPromptNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt not found response has a 3xx status code
+func (o *GetArchitectPromptNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt not found response has a 4xx status code
+func (o *GetArchitectPromptNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt not found response has a 5xx status code
+func (o *GetArchitectPromptNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt not found response a status code equal to that given
+func (o *GetArchitectPromptNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArchitectPromptNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetArchitectPromptNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetArchitectPromptRequestTimeout() *GetArchitectPromptRequestTimeout {
 	return &GetArchitectPromptRequestTimeout{}
 }
 
-/*GetArchitectPromptRequestTimeout handles this case with default header values.
+/*
+GetArchitectPromptRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetArchitectPromptRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt request timeout response has a 2xx status code
+func (o *GetArchitectPromptRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt request timeout response has a 3xx status code
+func (o *GetArchitectPromptRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt request timeout response has a 4xx status code
+func (o *GetArchitectPromptRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt request timeout response has a 5xx status code
+func (o *GetArchitectPromptRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt request timeout response a status code equal to that given
+func (o *GetArchitectPromptRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetArchitectPromptRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectPromptRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetArchitectPromptRequestEntityTooLarge() *GetArchitectPromptRequestEnti
 	return &GetArchitectPromptRequestEntityTooLarge{}
 }
 
-/*GetArchitectPromptRequestEntityTooLarge handles this case with default header values.
+/*
+GetArchitectPromptRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetArchitectPromptRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt request entity too large response has a 2xx status code
+func (o *GetArchitectPromptRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt request entity too large response has a 3xx status code
+func (o *GetArchitectPromptRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt request entity too large response has a 4xx status code
+func (o *GetArchitectPromptRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt request entity too large response has a 5xx status code
+func (o *GetArchitectPromptRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt request entity too large response a status code equal to that given
+func (o *GetArchitectPromptRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetArchitectPromptRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetArchitectPromptRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetArchitectPromptUnsupportedMediaType() *GetArchitectPromptUnsupportedM
 	return &GetArchitectPromptUnsupportedMediaType{}
 }
 
-/*GetArchitectPromptUnsupportedMediaType handles this case with default header values.
+/*
+GetArchitectPromptUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetArchitectPromptUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt unsupported media type response has a 2xx status code
+func (o *GetArchitectPromptUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt unsupported media type response has a 3xx status code
+func (o *GetArchitectPromptUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt unsupported media type response has a 4xx status code
+func (o *GetArchitectPromptUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt unsupported media type response has a 5xx status code
+func (o *GetArchitectPromptUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt unsupported media type response a status code equal to that given
+func (o *GetArchitectPromptUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetArchitectPromptUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetArchitectPromptUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetArchitectPromptTooManyRequests() *GetArchitectPromptTooManyRequests {
 	return &GetArchitectPromptTooManyRequests{}
 }
 
-/*GetArchitectPromptTooManyRequests handles this case with default header values.
+/*
+GetArchitectPromptTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetArchitectPromptTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt too many requests response has a 2xx status code
+func (o *GetArchitectPromptTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt too many requests response has a 3xx status code
+func (o *GetArchitectPromptTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt too many requests response has a 4xx status code
+func (o *GetArchitectPromptTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect prompt too many requests response has a 5xx status code
+func (o *GetArchitectPromptTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect prompt too many requests response a status code equal to that given
+func (o *GetArchitectPromptTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArchitectPromptTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetArchitectPromptTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetArchitectPromptInternalServerError() *GetArchitectPromptInternalServe
 	return &GetArchitectPromptInternalServerError{}
 }
 
-/*GetArchitectPromptInternalServerError handles this case with default header values.
+/*
+GetArchitectPromptInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetArchitectPromptInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt internal server error response has a 2xx status code
+func (o *GetArchitectPromptInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt internal server error response has a 3xx status code
+func (o *GetArchitectPromptInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt internal server error response has a 4xx status code
+func (o *GetArchitectPromptInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect prompt internal server error response has a 5xx status code
+func (o *GetArchitectPromptInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect prompt internal server error response a status code equal to that given
+func (o *GetArchitectPromptInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArchitectPromptInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetArchitectPromptInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetArchitectPromptServiceUnavailable() *GetArchitectPromptServiceUnavail
 	return &GetArchitectPromptServiceUnavailable{}
 }
 
-/*GetArchitectPromptServiceUnavailable handles this case with default header values.
+/*
+GetArchitectPromptServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetArchitectPromptServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt service unavailable response has a 2xx status code
+func (o *GetArchitectPromptServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt service unavailable response has a 3xx status code
+func (o *GetArchitectPromptServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt service unavailable response has a 4xx status code
+func (o *GetArchitectPromptServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect prompt service unavailable response has a 5xx status code
+func (o *GetArchitectPromptServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect prompt service unavailable response a status code equal to that given
+func (o *GetArchitectPromptServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetArchitectPromptServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetArchitectPromptServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetArchitectPromptGatewayTimeout() *GetArchitectPromptGatewayTimeout {
 	return &GetArchitectPromptGatewayTimeout{}
 }
 
-/*GetArchitectPromptGatewayTimeout handles this case with default header values.
+/*
+GetArchitectPromptGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetArchitectPromptGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect prompt gateway timeout response has a 2xx status code
+func (o *GetArchitectPromptGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect prompt gateway timeout response has a 3xx status code
+func (o *GetArchitectPromptGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect prompt gateway timeout response has a 4xx status code
+func (o *GetArchitectPromptGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect prompt gateway timeout response has a 5xx status code
+func (o *GetArchitectPromptGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect prompt gateway timeout response a status code equal to that given
+func (o *GetArchitectPromptGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetArchitectPromptGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetArchitectPromptGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/prompts/{promptId}][%d] getArchitectPromptGatewayTimeout  %+v", 504, o.Payload)
 }
 

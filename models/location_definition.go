@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -122,7 +123,6 @@ func (m *LocationDefinition) Validate(formats strfmt.Registry) error {
 }
 
 func (m *LocationDefinition) validateAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Address) { // not required
 		return nil
 	}
@@ -131,6 +131,8 @@ func (m *LocationDefinition) validateAddress(formats strfmt.Registry) error {
 		if err := m.Address.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
 			}
 			return err
 		}
@@ -140,7 +142,6 @@ func (m *LocationDefinition) validateAddress(formats strfmt.Registry) error {
 }
 
 func (m *LocationDefinition) validateAddressVerificationDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AddressVerificationDetails) { // not required
 		return nil
 	}
@@ -149,6 +150,8 @@ func (m *LocationDefinition) validateAddressVerificationDetails(formats strfmt.R
 		if err := m.AddressVerificationDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("addressVerificationDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("addressVerificationDetails")
 			}
 			return err
 		}
@@ -158,7 +161,6 @@ func (m *LocationDefinition) validateAddressVerificationDetails(formats strfmt.R
 }
 
 func (m *LocationDefinition) validateContactUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactUser) { // not required
 		return nil
 	}
@@ -167,6 +169,8 @@ func (m *LocationDefinition) validateContactUser(formats strfmt.Registry) error 
 		if err := m.ContactUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactUser")
 			}
 			return err
 		}
@@ -176,7 +180,6 @@ func (m *LocationDefinition) validateContactUser(formats strfmt.Registry) error 
 }
 
 func (m *LocationDefinition) validateEmergencyNumber(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmergencyNumber) { // not required
 		return nil
 	}
@@ -185,6 +188,8 @@ func (m *LocationDefinition) validateEmergencyNumber(formats strfmt.Registry) er
 		if err := m.EmergencyNumber.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emergencyNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyNumber")
 			}
 			return err
 		}
@@ -194,7 +199,6 @@ func (m *LocationDefinition) validateEmergencyNumber(formats strfmt.Registry) er
 }
 
 func (m *LocationDefinition) validateFloorplanImage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FloorplanImage) { // not required
 		return nil
 	}
@@ -208,6 +212,8 @@ func (m *LocationDefinition) validateFloorplanImage(formats strfmt.Registry) err
 			if err := m.FloorplanImage[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("floorplanImage" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("floorplanImage" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -219,7 +225,6 @@ func (m *LocationDefinition) validateFloorplanImage(formats strfmt.Registry) err
 }
 
 func (m *LocationDefinition) validateProfileImage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProfileImage) { // not required
 		return nil
 	}
@@ -233,6 +238,8 @@ func (m *LocationDefinition) validateProfileImage(formats strfmt.Registry) error
 			if err := m.ProfileImage[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("profileImage" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("profileImage" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -244,7 +251,6 @@ func (m *LocationDefinition) validateProfileImage(formats strfmt.Registry) error
 }
 
 func (m *LocationDefinition) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -286,13 +292,223 @@ func (m *LocationDefinition) validateStateEnum(path, location string, value stri
 }
 
 func (m *LocationDefinition) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this location definition based on the context it is used
+func (m *LocationDefinition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAddressStored(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAddressVerificationDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAddressVerified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmergencyNumber(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFloorplanImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePath(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProfileImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Address != nil {
+		if err := m.Address.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateAddressStored(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "addressStored", "body", m.AddressStored); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateAddressVerificationDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AddressVerificationDetails != nil {
+		if err := m.AddressVerificationDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("addressVerificationDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("addressVerificationDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateAddressVerified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "addressVerified", "body", m.AddressVerified); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateContactUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactUser != nil {
+		if err := m.ContactUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateEmergencyNumber(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmergencyNumber != nil {
+		if err := m.EmergencyNumber.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emergencyNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyNumber")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateFloorplanImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "floorplanImage", "body", []*LocationImage(m.FloorplanImage)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.FloorplanImage); i++ {
+
+		if m.FloorplanImage[i] != nil {
+			if err := m.FloorplanImage[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("floorplanImage" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("floorplanImage" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidatePath(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "path", "body", []string(m.Path)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateProfileImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "profileImage", "body", []*LocationImage(m.ProfileImage)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ProfileImage); i++ {
+
+		if m.ProfileImage[i] != nil {
+			if err := m.ProfileImage[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("profileImage" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("profileImage" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *LocationDefinition) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

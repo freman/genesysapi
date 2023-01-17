@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -59,7 +60,6 @@ func (m *Format) validateFlagsItemsEnum(path, location string, value string) err
 }
 
 func (m *Format) validateFlags(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flags) { // not required
 		return nil
 	}
@@ -77,6 +77,11 @@ func (m *Format) validateFlags(formats strfmt.Registry) error {
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this format based on context it is used
+func (m *Format) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // UserAuthorization user authorization
@@ -57,7 +59,6 @@ func (m *UserAuthorization) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserAuthorization) validatePermissionPolicies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PermissionPolicies) { // not required
 		return nil
 	}
@@ -71,6 +72,8 @@ func (m *UserAuthorization) validatePermissionPolicies(formats strfmt.Registry) 
 			if err := m.PermissionPolicies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -82,7 +85,6 @@ func (m *UserAuthorization) validatePermissionPolicies(formats strfmt.Registry) 
 }
 
 func (m *UserAuthorization) validateRoles(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Roles) { // not required
 		return nil
 	}
@@ -96,6 +98,8 @@ func (m *UserAuthorization) validateRoles(formats strfmt.Registry) error {
 			if err := m.Roles[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("roles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roles" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -107,7 +111,6 @@ func (m *UserAuthorization) validateRoles(formats strfmt.Registry) error {
 }
 
 func (m *UserAuthorization) validateUnusedRoles(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnusedRoles) { // not required
 		return nil
 	}
@@ -121,6 +124,111 @@ func (m *UserAuthorization) validateUnusedRoles(formats strfmt.Registry) error {
 			if err := m.UnusedRoles[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("unusedRoles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("unusedRoles" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user authorization based on the context it is used
+func (m *UserAuthorization) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePermissionPolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePermissions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUnusedRoles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserAuthorization) contextValidatePermissionPolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "permissionPolicies", "body", []*ResourcePermissionPolicy(m.PermissionPolicies)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.PermissionPolicies); i++ {
+
+		if m.PermissionPolicies[i] != nil {
+			if err := m.PermissionPolicies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserAuthorization) contextValidatePermissions(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "permissions", "body", []string(m.Permissions)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserAuthorization) contextValidateRoles(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Roles); i++ {
+
+		if m.Roles[i] != nil {
+			if err := m.Roles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("roles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roles" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserAuthorization) contextValidateUnusedRoles(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "unusedRoles", "body", []*DomainRole(m.UnusedRoles)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.UnusedRoles); i++ {
+
+		if m.UnusedRoles[i] != nil {
+			if err := m.UnusedRoles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("unusedRoles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("unusedRoles" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -95,7 +95,6 @@ func (o *PutTelephonyProvidersEdgesSiteNumberplansReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansOK() *PutTelephonyProvidersEdge
 	return &PutTelephonyProvidersEdgesSiteNumberplansOK{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansOK handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansOK struct {
 	Payload []*models.NumberPlan
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans o k response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans o k response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans o k response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans o k response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans o k response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansOK  %+v", 200, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansBadRequest() *PutTelephonyProvi
 	return &PutTelephonyProvidersEdgesSiteNumberplansBadRequest{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansBadRequest handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans bad request response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans bad request response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans bad request response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans bad request response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans bad request response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansUnauthorized() *PutTelephonyPro
 	return &PutTelephonyProvidersEdgesSiteNumberplansUnauthorized{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansUnauthorized handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans unauthorized response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans unauthorized response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans unauthorized response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans unauthorized response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans unauthorized response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansForbidden() *PutTelephonyProvid
 	return &PutTelephonyProvidersEdgesSiteNumberplansForbidden{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansForbidden handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans forbidden response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans forbidden response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans forbidden response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans forbidden response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans forbidden response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansNotFound() *PutTelephonyProvide
 	return &PutTelephonyProvidersEdgesSiteNumberplansNotFound{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansNotFound handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans not found response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans not found response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans not found response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans not found response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans not found response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansRequestTimeout() *PutTelephonyP
 	return &PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans request timeout response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans request timeout response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans request timeout response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans request timeout response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans request timeout response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge() *PutTel
 	return &PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans request entity too large response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans request entity too large response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans request entity too large response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans request entity too large response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans request entity too large response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType() *PutTele
 	return &PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans unsupported media type response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans unsupported media type response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans unsupported media type response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans unsupported media type response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans unsupported media type response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansTooManyRequests() *PutTelephony
 	return &PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans too many requests response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans too many requests response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans too many requests response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans too many requests response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans too many requests response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansInternalServerError() *PutTelep
 	return &PutTelephonyProvidersEdgesSiteNumberplansInternalServerError{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansInternalServerError handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans internal server error response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans internal server error response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans internal server error response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans internal server error response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans internal server error response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable() *PutTeleph
 	return &PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans service unavailable response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans service unavailable response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans service unavailable response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans service unavailable response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans service unavailable response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout() *PutTelephonyP
 	return &PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout{}
 }
 
-/*PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout handles this case with default header values.
+/*
+PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put telephony providers edges site numberplans gateway timeout response has a 2xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put telephony providers edges site numberplans gateway timeout response has a 3xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put telephony providers edges site numberplans gateway timeout response has a 4xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put telephony providers edges site numberplans gateway timeout response has a 5xx status code
+func (o *PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put telephony providers edges site numberplans gateway timeout response a status code equal to that given
+func (o *PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutTelephonyProvidersEdgesSiteNumberplansGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/telephony/providers/edges/sites/{siteId}/numberplans][%d] putTelephonyProvidersEdgesSiteNumberplansGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRecordingKeyconfigurationParams creates a new GetRecordingKeyconfigurationParams object
-// with the default values initialized.
+// NewGetRecordingKeyconfigurationParams creates a new GetRecordingKeyconfigurationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingKeyconfigurationParams() *GetRecordingKeyconfigurationParams {
-	var ()
 	return &GetRecordingKeyconfigurationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingKeyconfigurationParamsWithTimeout creates a new GetRecordingKeyconfigurationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingKeyconfigurationParamsWithTimeout(timeout time.Duration) *GetRecordingKeyconfigurationParams {
-	var ()
 	return &GetRecordingKeyconfigurationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingKeyconfigurationParamsWithContext creates a new GetRecordingKeyconfigurationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingKeyconfigurationParamsWithContext(ctx context.Context) *GetRecordingKeyconfigurationParams {
-	var ()
 	return &GetRecordingKeyconfigurationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingKeyconfigurationParamsWithHTTPClient creates a new GetRecordingKeyconfigurationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingKeyconfigurationParamsWithHTTPClient(client *http.Client) *GetRecordingKeyconfigurationParams {
-	var ()
 	return &GetRecordingKeyconfigurationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRecordingKeyconfigurationParams contains all the parameters to send to the API endpoint
-for the get recording keyconfiguration operation typically these are written to a http.Request
+/*
+GetRecordingKeyconfigurationParams contains all the parameters to send to the API endpoint
+
+	for the get recording keyconfiguration operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingKeyconfigurationParams struct {
 
-	/*KeyConfigurationID
-	  Key Configurations Id
+	/* KeyConfigurationID.
 
+	   Key Configurations Id
 	*/
 	KeyConfigurationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recording keyconfiguration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingKeyconfigurationParams) WithDefaults() *GetRecordingKeyconfigurationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recording keyconfiguration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingKeyconfigurationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get recording keyconfiguration params

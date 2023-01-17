@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsCallParticipantWrapupcodesParams creates a new GetConversationsCallParticipantWrapupcodesParams object
-// with the default values initialized.
+// NewGetConversationsCallParticipantWrapupcodesParams creates a new GetConversationsCallParticipantWrapupcodesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsCallParticipantWrapupcodesParams() *GetConversationsCallParticipantWrapupcodesParams {
-	var ()
 	return &GetConversationsCallParticipantWrapupcodesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsCallParticipantWrapupcodesParamsWithTimeout creates a new GetConversationsCallParticipantWrapupcodesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsCallParticipantWrapupcodesParamsWithTimeout(timeout time.Duration) *GetConversationsCallParticipantWrapupcodesParams {
-	var ()
 	return &GetConversationsCallParticipantWrapupcodesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsCallParticipantWrapupcodesParamsWithContext creates a new GetConversationsCallParticipantWrapupcodesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsCallParticipantWrapupcodesParamsWithContext(ctx context.Context) *GetConversationsCallParticipantWrapupcodesParams {
-	var ()
 	return &GetConversationsCallParticipantWrapupcodesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsCallParticipantWrapupcodesParamsWithHTTPClient creates a new GetConversationsCallParticipantWrapupcodesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsCallParticipantWrapupcodesParamsWithHTTPClient(client *http.Client) *GetConversationsCallParticipantWrapupcodesParams {
-	var ()
 	return &GetConversationsCallParticipantWrapupcodesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsCallParticipantWrapupcodesParams contains all the parameters to send to the API endpoint
-for the get conversations call participant wrapupcodes operation typically these are written to a http.Request
+/*
+GetConversationsCallParticipantWrapupcodesParams contains all the parameters to send to the API endpoint
+
+	for the get conversations call participant wrapupcodes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsCallParticipantWrapupcodesParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations call participant wrapupcodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCallParticipantWrapupcodesParams) WithDefaults() *GetConversationsCallParticipantWrapupcodesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations call participant wrapupcodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCallParticipantWrapupcodesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations call participant wrapupcodes params

@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetStationsSettingsParams creates a new GetStationsSettingsParams object
-// with the default values initialized.
+// NewGetStationsSettingsParams creates a new GetStationsSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetStationsSettingsParams() *GetStationsSettingsParams {
-
 	return &GetStationsSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetStationsSettingsParamsWithTimeout creates a new GetStationsSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetStationsSettingsParamsWithTimeout(timeout time.Duration) *GetStationsSettingsParams {
-
 	return &GetStationsSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetStationsSettingsParamsWithContext creates a new GetStationsSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetStationsSettingsParamsWithContext(ctx context.Context) *GetStationsSettingsParams {
-
 	return &GetStationsSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetStationsSettingsParamsWithHTTPClient creates a new GetStationsSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetStationsSettingsParamsWithHTTPClient(client *http.Client) *GetStationsSettingsParams {
-
 	return &GetStationsSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetStationsSettingsParams contains all the parameters to send to the API endpoint
-for the get stations settings operation typically these are written to a http.Request
+/*
+GetStationsSettingsParams contains all the parameters to send to the API endpoint
+
+	for the get stations settings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetStationsSettingsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get stations settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetStationsSettingsParams) WithDefaults() *GetStationsSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get stations settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetStationsSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get stations settings params

@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetContentmanagementWorkspaceParams creates a new GetContentmanagementWorkspaceParams object
-// with the default values initialized.
+// NewGetContentmanagementWorkspaceParams creates a new GetContentmanagementWorkspaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementWorkspaceParams() *GetContentmanagementWorkspaceParams {
-	var ()
 	return &GetContentmanagementWorkspaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementWorkspaceParamsWithTimeout creates a new GetContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementWorkspaceParamsWithTimeout(timeout time.Duration) *GetContentmanagementWorkspaceParams {
-	var ()
 	return &GetContentmanagementWorkspaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementWorkspaceParamsWithContext creates a new GetContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementWorkspaceParamsWithContext(ctx context.Context) *GetContentmanagementWorkspaceParams {
-	var ()
 	return &GetContentmanagementWorkspaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementWorkspaceParamsWithHTTPClient creates a new GetContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementWorkspaceParamsWithHTTPClient(client *http.Client) *GetContentmanagementWorkspaceParams {
-	var ()
 	return &GetContentmanagementWorkspaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementWorkspaceParams contains all the parameters to send to the API endpoint
-for the get contentmanagement workspace operation typically these are written to a http.Request
+/*
+GetContentmanagementWorkspaceParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement workspace operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementWorkspaceParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand.
+	/* Expand.
 
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement workspace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementWorkspaceParams) WithDefaults() *GetContentmanagementWorkspaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement workspace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementWorkspaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get contentmanagement workspace params
@@ -140,12 +157,15 @@ func (o *GetContentmanagementWorkspaceParams) WriteToRequest(r runtime.ClientReq
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param workspaceId
@@ -157,4 +177,21 @@ func (o *GetContentmanagementWorkspaceParams) WriteToRequest(r runtime.ClientReq
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetContentmanagementWorkspace binds the parameter expand
+func (o *GetContentmanagementWorkspaceParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

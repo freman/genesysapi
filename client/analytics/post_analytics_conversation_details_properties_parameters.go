@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAnalyticsConversationDetailsPropertiesParams creates a new PostAnalyticsConversationDetailsPropertiesParams object
-// with the default values initialized.
+// NewPostAnalyticsConversationDetailsPropertiesParams creates a new PostAnalyticsConversationDetailsPropertiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsConversationDetailsPropertiesParams() *PostAnalyticsConversationDetailsPropertiesParams {
-	var ()
 	return &PostAnalyticsConversationDetailsPropertiesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsConversationDetailsPropertiesParamsWithTimeout creates a new PostAnalyticsConversationDetailsPropertiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsConversationDetailsPropertiesParamsWithTimeout(timeout time.Duration) *PostAnalyticsConversationDetailsPropertiesParams {
-	var ()
 	return &PostAnalyticsConversationDetailsPropertiesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsConversationDetailsPropertiesParamsWithContext creates a new PostAnalyticsConversationDetailsPropertiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsConversationDetailsPropertiesParamsWithContext(ctx context.Context) *PostAnalyticsConversationDetailsPropertiesParams {
-	var ()
 	return &PostAnalyticsConversationDetailsPropertiesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsConversationDetailsPropertiesParamsWithHTTPClient creates a new PostAnalyticsConversationDetailsPropertiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsConversationDetailsPropertiesParamsWithHTTPClient(client *http.Client) *PostAnalyticsConversationDetailsPropertiesParams {
-	var ()
 	return &PostAnalyticsConversationDetailsPropertiesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesParams contains all the parameters to send to the API endpoint
-for the post analytics conversation details properties operation typically these are written to a http.Request
+/*
+PostAnalyticsConversationDetailsPropertiesParams contains all the parameters to send to the API endpoint
+
+	for the post analytics conversation details properties operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsConversationDetailsPropertiesParams struct {
 
-	/*Body
-	  request
+	/* Body.
 
+	   request
 	*/
 	Body *models.PropertyIndexRequest
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics conversation details properties params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsConversationDetailsPropertiesParams) WithDefaults() *PostAnalyticsConversationDetailsPropertiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics conversation details properties params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsConversationDetailsPropertiesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics conversation details properties params
@@ -140,7 +157,6 @@ func (o *PostAnalyticsConversationDetailsPropertiesParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

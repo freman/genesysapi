@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRecordingLocalkeysSettingParams creates a new GetRecordingLocalkeysSettingParams object
-// with the default values initialized.
+// NewGetRecordingLocalkeysSettingParams creates a new GetRecordingLocalkeysSettingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingLocalkeysSettingParams() *GetRecordingLocalkeysSettingParams {
-	var ()
 	return &GetRecordingLocalkeysSettingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingLocalkeysSettingParamsWithTimeout creates a new GetRecordingLocalkeysSettingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingLocalkeysSettingParamsWithTimeout(timeout time.Duration) *GetRecordingLocalkeysSettingParams {
-	var ()
 	return &GetRecordingLocalkeysSettingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingLocalkeysSettingParamsWithContext creates a new GetRecordingLocalkeysSettingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingLocalkeysSettingParamsWithContext(ctx context.Context) *GetRecordingLocalkeysSettingParams {
-	var ()
 	return &GetRecordingLocalkeysSettingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingLocalkeysSettingParamsWithHTTPClient creates a new GetRecordingLocalkeysSettingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingLocalkeysSettingParamsWithHTTPClient(client *http.Client) *GetRecordingLocalkeysSettingParams {
-	var ()
 	return &GetRecordingLocalkeysSettingParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRecordingLocalkeysSettingParams contains all the parameters to send to the API endpoint
-for the get recording localkeys setting operation typically these are written to a http.Request
+/*
+GetRecordingLocalkeysSettingParams contains all the parameters to send to the API endpoint
+
+	for the get recording localkeys setting operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingLocalkeysSettingParams struct {
 
-	/*SettingsID
-	  Settings Id
+	/* SettingsID.
 
+	   Settings Id
 	*/
 	SettingsID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recording localkeys setting params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingLocalkeysSettingParams) WithDefaults() *GetRecordingLocalkeysSettingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recording localkeys setting params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingLocalkeysSettingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get recording localkeys setting params

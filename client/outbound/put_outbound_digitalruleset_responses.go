@@ -101,7 +101,6 @@ func (o *PutOutboundDigitalrulesetReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutOutboundDigitalrulesetOK() *PutOutboundDigitalrulesetOK {
 	return &PutOutboundDigitalrulesetOK{}
 }
 
-/*PutOutboundDigitalrulesetOK handles this case with default header values.
+/*
+PutOutboundDigitalrulesetOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutOutboundDigitalrulesetOK struct {
 	Payload *models.DigitalRuleSet
 }
 
+// IsSuccess returns true when this put outbound digitalruleset o k response has a 2xx status code
+func (o *PutOutboundDigitalrulesetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound digitalruleset o k response has a 3xx status code
+func (o *PutOutboundDigitalrulesetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset o k response has a 4xx status code
+func (o *PutOutboundDigitalrulesetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound digitalruleset o k response has a 5xx status code
+func (o *PutOutboundDigitalrulesetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset o k response a status code equal to that given
+func (o *PutOutboundDigitalrulesetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundDigitalrulesetOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutOutboundDigitalrulesetBadRequest() *PutOutboundDigitalrulesetBadReque
 	return &PutOutboundDigitalrulesetBadRequest{}
 }
 
-/*PutOutboundDigitalrulesetBadRequest handles this case with default header values.
+/*
+PutOutboundDigitalrulesetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutOutboundDigitalrulesetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset bad request response has a 2xx status code
+func (o *PutOutboundDigitalrulesetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset bad request response has a 3xx status code
+func (o *PutOutboundDigitalrulesetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset bad request response has a 4xx status code
+func (o *PutOutboundDigitalrulesetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset bad request response has a 5xx status code
+func (o *PutOutboundDigitalrulesetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset bad request response a status code equal to that given
+func (o *PutOutboundDigitalrulesetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundDigitalrulesetBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutOutboundDigitalrulesetUnauthorized() *PutOutboundDigitalrulesetUnauth
 	return &PutOutboundDigitalrulesetUnauthorized{}
 }
 
-/*PutOutboundDigitalrulesetUnauthorized handles this case with default header values.
+/*
+PutOutboundDigitalrulesetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutOutboundDigitalrulesetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset unauthorized response has a 2xx status code
+func (o *PutOutboundDigitalrulesetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset unauthorized response has a 3xx status code
+func (o *PutOutboundDigitalrulesetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset unauthorized response has a 4xx status code
+func (o *PutOutboundDigitalrulesetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset unauthorized response has a 5xx status code
+func (o *PutOutboundDigitalrulesetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset unauthorized response a status code equal to that given
+func (o *PutOutboundDigitalrulesetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundDigitalrulesetUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutOutboundDigitalrulesetForbidden() *PutOutboundDigitalrulesetForbidden
 	return &PutOutboundDigitalrulesetForbidden{}
 }
 
-/*PutOutboundDigitalrulesetForbidden handles this case with default header values.
+/*
+PutOutboundDigitalrulesetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutOutboundDigitalrulesetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset forbidden response has a 2xx status code
+func (o *PutOutboundDigitalrulesetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset forbidden response has a 3xx status code
+func (o *PutOutboundDigitalrulesetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset forbidden response has a 4xx status code
+func (o *PutOutboundDigitalrulesetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset forbidden response has a 5xx status code
+func (o *PutOutboundDigitalrulesetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset forbidden response a status code equal to that given
+func (o *PutOutboundDigitalrulesetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundDigitalrulesetForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutOutboundDigitalrulesetNotFound() *PutOutboundDigitalrulesetNotFound {
 	return &PutOutboundDigitalrulesetNotFound{}
 }
 
-/*PutOutboundDigitalrulesetNotFound handles this case with default header values.
+/*
+PutOutboundDigitalrulesetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutOutboundDigitalrulesetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset not found response has a 2xx status code
+func (o *PutOutboundDigitalrulesetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset not found response has a 3xx status code
+func (o *PutOutboundDigitalrulesetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset not found response has a 4xx status code
+func (o *PutOutboundDigitalrulesetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset not found response has a 5xx status code
+func (o *PutOutboundDigitalrulesetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset not found response a status code equal to that given
+func (o *PutOutboundDigitalrulesetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundDigitalrulesetNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutOutboundDigitalrulesetRequestTimeout() *PutOutboundDigitalrulesetRequ
 	return &PutOutboundDigitalrulesetRequestTimeout{}
 }
 
-/*PutOutboundDigitalrulesetRequestTimeout handles this case with default header values.
+/*
+PutOutboundDigitalrulesetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutOutboundDigitalrulesetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset request timeout response has a 2xx status code
+func (o *PutOutboundDigitalrulesetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset request timeout response has a 3xx status code
+func (o *PutOutboundDigitalrulesetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset request timeout response has a 4xx status code
+func (o *PutOutboundDigitalrulesetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset request timeout response has a 5xx status code
+func (o *PutOutboundDigitalrulesetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset request timeout response a status code equal to that given
+func (o *PutOutboundDigitalrulesetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundDigitalrulesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutOutboundDigitalrulesetConflict() *PutOutboundDigitalrulesetConflict {
 	return &PutOutboundDigitalrulesetConflict{}
 }
 
-/*PutOutboundDigitalrulesetConflict handles this case with default header values.
+/*
+PutOutboundDigitalrulesetConflict describes a response with status code 409, with default header values.
 
 Conflict.
 */
@@ -318,7 +498,36 @@ type PutOutboundDigitalrulesetConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset conflict response has a 2xx status code
+func (o *PutOutboundDigitalrulesetConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset conflict response has a 3xx status code
+func (o *PutOutboundDigitalrulesetConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset conflict response has a 4xx status code
+func (o *PutOutboundDigitalrulesetConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset conflict response has a 5xx status code
+func (o *PutOutboundDigitalrulesetConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset conflict response a status code equal to that given
+func (o *PutOutboundDigitalrulesetConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutOutboundDigitalrulesetConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutOutboundDigitalrulesetRequestEntityTooLarge() *PutOutboundDigitalrule
 	return &PutOutboundDigitalrulesetRequestEntityTooLarge{}
 }
 
-/*PutOutboundDigitalrulesetRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundDigitalrulesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutOutboundDigitalrulesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset request entity too large response has a 2xx status code
+func (o *PutOutboundDigitalrulesetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset request entity too large response has a 3xx status code
+func (o *PutOutboundDigitalrulesetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset request entity too large response has a 4xx status code
+func (o *PutOutboundDigitalrulesetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset request entity too large response has a 5xx status code
+func (o *PutOutboundDigitalrulesetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset request entity too large response a status code equal to that given
+func (o *PutOutboundDigitalrulesetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundDigitalrulesetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutOutboundDigitalrulesetUnsupportedMediaType() *PutOutboundDigitalrules
 	return &PutOutboundDigitalrulesetUnsupportedMediaType{}
 }
 
-/*PutOutboundDigitalrulesetUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundDigitalrulesetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutOutboundDigitalrulesetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset unsupported media type response has a 2xx status code
+func (o *PutOutboundDigitalrulesetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset unsupported media type response has a 3xx status code
+func (o *PutOutboundDigitalrulesetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset unsupported media type response has a 4xx status code
+func (o *PutOutboundDigitalrulesetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset unsupported media type response has a 5xx status code
+func (o *PutOutboundDigitalrulesetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset unsupported media type response a status code equal to that given
+func (o *PutOutboundDigitalrulesetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundDigitalrulesetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutOutboundDigitalrulesetTooManyRequests() *PutOutboundDigitalrulesetToo
 	return &PutOutboundDigitalrulesetTooManyRequests{}
 }
 
-/*PutOutboundDigitalrulesetTooManyRequests handles this case with default header values.
+/*
+PutOutboundDigitalrulesetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutOutboundDigitalrulesetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset too many requests response has a 2xx status code
+func (o *PutOutboundDigitalrulesetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset too many requests response has a 3xx status code
+func (o *PutOutboundDigitalrulesetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset too many requests response has a 4xx status code
+func (o *PutOutboundDigitalrulesetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound digitalruleset too many requests response has a 5xx status code
+func (o *PutOutboundDigitalrulesetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound digitalruleset too many requests response a status code equal to that given
+func (o *PutOutboundDigitalrulesetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundDigitalrulesetTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutOutboundDigitalrulesetInternalServerError() *PutOutboundDigitalrulese
 	return &PutOutboundDigitalrulesetInternalServerError{}
 }
 
-/*PutOutboundDigitalrulesetInternalServerError handles this case with default header values.
+/*
+PutOutboundDigitalrulesetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutOutboundDigitalrulesetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset internal server error response has a 2xx status code
+func (o *PutOutboundDigitalrulesetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset internal server error response has a 3xx status code
+func (o *PutOutboundDigitalrulesetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset internal server error response has a 4xx status code
+func (o *PutOutboundDigitalrulesetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound digitalruleset internal server error response has a 5xx status code
+func (o *PutOutboundDigitalrulesetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound digitalruleset internal server error response a status code equal to that given
+func (o *PutOutboundDigitalrulesetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundDigitalrulesetInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutOutboundDigitalrulesetServiceUnavailable() *PutOutboundDigitalruleset
 	return &PutOutboundDigitalrulesetServiceUnavailable{}
 }
 
-/*PutOutboundDigitalrulesetServiceUnavailable handles this case with default header values.
+/*
+PutOutboundDigitalrulesetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutOutboundDigitalrulesetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset service unavailable response has a 2xx status code
+func (o *PutOutboundDigitalrulesetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset service unavailable response has a 3xx status code
+func (o *PutOutboundDigitalrulesetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset service unavailable response has a 4xx status code
+func (o *PutOutboundDigitalrulesetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound digitalruleset service unavailable response has a 5xx status code
+func (o *PutOutboundDigitalrulesetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound digitalruleset service unavailable response a status code equal to that given
+func (o *PutOutboundDigitalrulesetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundDigitalrulesetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutOutboundDigitalrulesetGatewayTimeout() *PutOutboundDigitalrulesetGate
 	return &PutOutboundDigitalrulesetGatewayTimeout{}
 }
 
-/*PutOutboundDigitalrulesetGatewayTimeout handles this case with default header values.
+/*
+PutOutboundDigitalrulesetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutOutboundDigitalrulesetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound digitalruleset gateway timeout response has a 2xx status code
+func (o *PutOutboundDigitalrulesetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound digitalruleset gateway timeout response has a 3xx status code
+func (o *PutOutboundDigitalrulesetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound digitalruleset gateway timeout response has a 4xx status code
+func (o *PutOutboundDigitalrulesetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound digitalruleset gateway timeout response has a 5xx status code
+func (o *PutOutboundDigitalrulesetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound digitalruleset gateway timeout response a status code equal to that given
+func (o *PutOutboundDigitalrulesetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundDigitalrulesetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundDigitalrulesetGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/digitalrulesets/{digitalRuleSetId}][%d] putOutboundDigitalrulesetGatewayTimeout  %+v", 504, o.Payload)
 }
 

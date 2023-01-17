@@ -95,7 +95,6 @@ func (o *PutConversationRecordingAnnotationReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutConversationRecordingAnnotationOK() *PutConversationRecordingAnnotati
 	return &PutConversationRecordingAnnotationOK{}
 }
 
-/*PutConversationRecordingAnnotationOK handles this case with default header values.
+/*
+PutConversationRecordingAnnotationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutConversationRecordingAnnotationOK struct {
 	Payload *models.Annotation
 }
 
+// IsSuccess returns true when this put conversation recording annotation o k response has a 2xx status code
+func (o *PutConversationRecordingAnnotationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversation recording annotation o k response has a 3xx status code
+func (o *PutConversationRecordingAnnotationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation o k response has a 4xx status code
+func (o *PutConversationRecordingAnnotationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation recording annotation o k response has a 5xx status code
+func (o *PutConversationRecordingAnnotationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation o k response a status code equal to that given
+func (o *PutConversationRecordingAnnotationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationRecordingAnnotationOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutConversationRecordingAnnotationBadRequest() *PutConversationRecording
 	return &PutConversationRecordingAnnotationBadRequest{}
 }
 
-/*PutConversationRecordingAnnotationBadRequest handles this case with default header values.
+/*
+PutConversationRecordingAnnotationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutConversationRecordingAnnotationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation bad request response has a 2xx status code
+func (o *PutConversationRecordingAnnotationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation bad request response has a 3xx status code
+func (o *PutConversationRecordingAnnotationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation bad request response has a 4xx status code
+func (o *PutConversationRecordingAnnotationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation bad request response has a 5xx status code
+func (o *PutConversationRecordingAnnotationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation bad request response a status code equal to that given
+func (o *PutConversationRecordingAnnotationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationRecordingAnnotationBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutConversationRecordingAnnotationUnauthorized() *PutConversationRecordi
 	return &PutConversationRecordingAnnotationUnauthorized{}
 }
 
-/*PutConversationRecordingAnnotationUnauthorized handles this case with default header values.
+/*
+PutConversationRecordingAnnotationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutConversationRecordingAnnotationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation unauthorized response has a 2xx status code
+func (o *PutConversationRecordingAnnotationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation unauthorized response has a 3xx status code
+func (o *PutConversationRecordingAnnotationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation unauthorized response has a 4xx status code
+func (o *PutConversationRecordingAnnotationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation unauthorized response has a 5xx status code
+func (o *PutConversationRecordingAnnotationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation unauthorized response a status code equal to that given
+func (o *PutConversationRecordingAnnotationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationRecordingAnnotationUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutConversationRecordingAnnotationForbidden() *PutConversationRecordingA
 	return &PutConversationRecordingAnnotationForbidden{}
 }
 
-/*PutConversationRecordingAnnotationForbidden handles this case with default header values.
+/*
+PutConversationRecordingAnnotationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutConversationRecordingAnnotationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation forbidden response has a 2xx status code
+func (o *PutConversationRecordingAnnotationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation forbidden response has a 3xx status code
+func (o *PutConversationRecordingAnnotationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation forbidden response has a 4xx status code
+func (o *PutConversationRecordingAnnotationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation forbidden response has a 5xx status code
+func (o *PutConversationRecordingAnnotationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation forbidden response a status code equal to that given
+func (o *PutConversationRecordingAnnotationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationRecordingAnnotationForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutConversationRecordingAnnotationNotFound() *PutConversationRecordingAn
 	return &PutConversationRecordingAnnotationNotFound{}
 }
 
-/*PutConversationRecordingAnnotationNotFound handles this case with default header values.
+/*
+PutConversationRecordingAnnotationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutConversationRecordingAnnotationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation not found response has a 2xx status code
+func (o *PutConversationRecordingAnnotationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation not found response has a 3xx status code
+func (o *PutConversationRecordingAnnotationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation not found response has a 4xx status code
+func (o *PutConversationRecordingAnnotationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation not found response has a 5xx status code
+func (o *PutConversationRecordingAnnotationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation not found response a status code equal to that given
+func (o *PutConversationRecordingAnnotationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationRecordingAnnotationNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutConversationRecordingAnnotationRequestTimeout() *PutConversationRecor
 	return &PutConversationRecordingAnnotationRequestTimeout{}
 }
 
-/*PutConversationRecordingAnnotationRequestTimeout handles this case with default header values.
+/*
+PutConversationRecordingAnnotationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutConversationRecordingAnnotationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation request timeout response has a 2xx status code
+func (o *PutConversationRecordingAnnotationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation request timeout response has a 3xx status code
+func (o *PutConversationRecordingAnnotationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation request timeout response has a 4xx status code
+func (o *PutConversationRecordingAnnotationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation request timeout response has a 5xx status code
+func (o *PutConversationRecordingAnnotationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation request timeout response a status code equal to that given
+func (o *PutConversationRecordingAnnotationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationRecordingAnnotationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutConversationRecordingAnnotationRequestEntityTooLarge() *PutConversati
 	return &PutConversationRecordingAnnotationRequestEntityTooLarge{}
 }
 
-/*PutConversationRecordingAnnotationRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationRecordingAnnotationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutConversationRecordingAnnotationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation request entity too large response has a 2xx status code
+func (o *PutConversationRecordingAnnotationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation request entity too large response has a 3xx status code
+func (o *PutConversationRecordingAnnotationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation request entity too large response has a 4xx status code
+func (o *PutConversationRecordingAnnotationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation request entity too large response has a 5xx status code
+func (o *PutConversationRecordingAnnotationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation request entity too large response a status code equal to that given
+func (o *PutConversationRecordingAnnotationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationRecordingAnnotationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutConversationRecordingAnnotationUnsupportedMediaType() *PutConversatio
 	return &PutConversationRecordingAnnotationUnsupportedMediaType{}
 }
 
-/*PutConversationRecordingAnnotationUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationRecordingAnnotationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutConversationRecordingAnnotationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation unsupported media type response has a 2xx status code
+func (o *PutConversationRecordingAnnotationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation unsupported media type response has a 3xx status code
+func (o *PutConversationRecordingAnnotationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation unsupported media type response has a 4xx status code
+func (o *PutConversationRecordingAnnotationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation unsupported media type response has a 5xx status code
+func (o *PutConversationRecordingAnnotationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation unsupported media type response a status code equal to that given
+func (o *PutConversationRecordingAnnotationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationRecordingAnnotationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutConversationRecordingAnnotationTooManyRequests() *PutConversationReco
 	return &PutConversationRecordingAnnotationTooManyRequests{}
 }
 
-/*PutConversationRecordingAnnotationTooManyRequests handles this case with default header values.
+/*
+PutConversationRecordingAnnotationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutConversationRecordingAnnotationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation too many requests response has a 2xx status code
+func (o *PutConversationRecordingAnnotationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation too many requests response has a 3xx status code
+func (o *PutConversationRecordingAnnotationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation too many requests response has a 4xx status code
+func (o *PutConversationRecordingAnnotationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation recording annotation too many requests response has a 5xx status code
+func (o *PutConversationRecordingAnnotationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation recording annotation too many requests response a status code equal to that given
+func (o *PutConversationRecordingAnnotationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationRecordingAnnotationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutConversationRecordingAnnotationInternalServerError() *PutConversation
 	return &PutConversationRecordingAnnotationInternalServerError{}
 }
 
-/*PutConversationRecordingAnnotationInternalServerError handles this case with default header values.
+/*
+PutConversationRecordingAnnotationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutConversationRecordingAnnotationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation internal server error response has a 2xx status code
+func (o *PutConversationRecordingAnnotationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation internal server error response has a 3xx status code
+func (o *PutConversationRecordingAnnotationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation internal server error response has a 4xx status code
+func (o *PutConversationRecordingAnnotationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation recording annotation internal server error response has a 5xx status code
+func (o *PutConversationRecordingAnnotationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation recording annotation internal server error response a status code equal to that given
+func (o *PutConversationRecordingAnnotationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationRecordingAnnotationInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutConversationRecordingAnnotationServiceUnavailable() *PutConversationR
 	return &PutConversationRecordingAnnotationServiceUnavailable{}
 }
 
-/*PutConversationRecordingAnnotationServiceUnavailable handles this case with default header values.
+/*
+PutConversationRecordingAnnotationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutConversationRecordingAnnotationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation service unavailable response has a 2xx status code
+func (o *PutConversationRecordingAnnotationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation service unavailable response has a 3xx status code
+func (o *PutConversationRecordingAnnotationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation service unavailable response has a 4xx status code
+func (o *PutConversationRecordingAnnotationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation recording annotation service unavailable response has a 5xx status code
+func (o *PutConversationRecordingAnnotationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation recording annotation service unavailable response a status code equal to that given
+func (o *PutConversationRecordingAnnotationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationRecordingAnnotationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutConversationRecordingAnnotationGatewayTimeout() *PutConversationRecor
 	return &PutConversationRecordingAnnotationGatewayTimeout{}
 }
 
-/*PutConversationRecordingAnnotationGatewayTimeout handles this case with default header values.
+/*
+PutConversationRecordingAnnotationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutConversationRecordingAnnotationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation recording annotation gateway timeout response has a 2xx status code
+func (o *PutConversationRecordingAnnotationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation recording annotation gateway timeout response has a 3xx status code
+func (o *PutConversationRecordingAnnotationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation recording annotation gateway timeout response has a 4xx status code
+func (o *PutConversationRecordingAnnotationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation recording annotation gateway timeout response has a 5xx status code
+func (o *PutConversationRecordingAnnotationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation recording annotation gateway timeout response a status code equal to that given
+func (o *PutConversationRecordingAnnotationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationRecordingAnnotationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationRecordingAnnotationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] putConversationRecordingAnnotationGatewayTimeout  %+v", 504, o.Payload)
 }
 

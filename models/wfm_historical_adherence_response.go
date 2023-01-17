@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -55,7 +56,6 @@ func (m *WfmHistoricalAdherenceResponse) Validate(formats strfmt.Registry) error
 }
 
 func (m *WfmHistoricalAdherenceResponse) validateDownloadResult(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DownloadResult) { // not required
 		return nil
 	}
@@ -64,6 +64,8 @@ func (m *WfmHistoricalAdherenceResponse) validateDownloadResult(formats strfmt.R
 		if err := m.DownloadResult.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("downloadResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("downloadResult")
 			}
 			return err
 		}
@@ -105,7 +107,6 @@ func (m *WfmHistoricalAdherenceResponse) validateQueryStateEnum(path, location s
 }
 
 func (m *WfmHistoricalAdherenceResponse) validateQueryState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QueryState) { // not required
 		return nil
 	}
@@ -113,6 +114,36 @@ func (m *WfmHistoricalAdherenceResponse) validateQueryState(formats strfmt.Regis
 	// value enum
 	if err := m.validateQueryStateEnum("queryState", "body", m.QueryState); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this wfm historical adherence response based on the context it is used
+func (m *WfmHistoricalAdherenceResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDownloadResult(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WfmHistoricalAdherenceResponse) contextValidateDownloadResult(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DownloadResult != nil {
+		if err := m.DownloadResult.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("downloadResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("downloadResult")
+			}
+			return err
+		}
 	}
 
 	return nil

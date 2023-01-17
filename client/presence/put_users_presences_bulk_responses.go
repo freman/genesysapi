@@ -95,7 +95,6 @@ func (o *PutUsersPresencesBulkReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutUsersPresencesBulkOK() *PutUsersPresencesBulkOK {
 	return &PutUsersPresencesBulkOK{}
 }
 
-/*PutUsersPresencesBulkOK handles this case with default header values.
+/*
+PutUsersPresencesBulkOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutUsersPresencesBulkOK struct {
 	Payload []*models.UserPresence
 }
 
+// IsSuccess returns true when this put users presences bulk o k response has a 2xx status code
+func (o *PutUsersPresencesBulkOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put users presences bulk o k response has a 3xx status code
+func (o *PutUsersPresencesBulkOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk o k response has a 4xx status code
+func (o *PutUsersPresencesBulkOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put users presences bulk o k response has a 5xx status code
+func (o *PutUsersPresencesBulkOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk o k response a status code equal to that given
+func (o *PutUsersPresencesBulkOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutUsersPresencesBulkOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkOK  %+v", 200, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPutUsersPresencesBulkBadRequest() *PutUsersPresencesBulkBadRequest {
 	return &PutUsersPresencesBulkBadRequest{}
 }
 
-/*PutUsersPresencesBulkBadRequest handles this case with default header values.
+/*
+PutUsersPresencesBulkBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PutUsersPresencesBulkBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk bad request response has a 2xx status code
+func (o *PutUsersPresencesBulkBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk bad request response has a 3xx status code
+func (o *PutUsersPresencesBulkBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk bad request response has a 4xx status code
+func (o *PutUsersPresencesBulkBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk bad request response has a 5xx status code
+func (o *PutUsersPresencesBulkBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk bad request response a status code equal to that given
+func (o *PutUsersPresencesBulkBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUsersPresencesBulkBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPutUsersPresencesBulkUnauthorized() *PutUsersPresencesBulkUnauthorized {
 	return &PutUsersPresencesBulkUnauthorized{}
 }
 
-/*PutUsersPresencesBulkUnauthorized handles this case with default header values.
+/*
+PutUsersPresencesBulkUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PutUsersPresencesBulkUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk unauthorized response has a 2xx status code
+func (o *PutUsersPresencesBulkUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk unauthorized response has a 3xx status code
+func (o *PutUsersPresencesBulkUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk unauthorized response has a 4xx status code
+func (o *PutUsersPresencesBulkUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk unauthorized response has a 5xx status code
+func (o *PutUsersPresencesBulkUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk unauthorized response a status code equal to that given
+func (o *PutUsersPresencesBulkUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUsersPresencesBulkUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPutUsersPresencesBulkForbidden() *PutUsersPresencesBulkForbidden {
 	return &PutUsersPresencesBulkForbidden{}
 }
 
-/*PutUsersPresencesBulkForbidden handles this case with default header values.
+/*
+PutUsersPresencesBulkForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PutUsersPresencesBulkForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk forbidden response has a 2xx status code
+func (o *PutUsersPresencesBulkForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk forbidden response has a 3xx status code
+func (o *PutUsersPresencesBulkForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk forbidden response has a 4xx status code
+func (o *PutUsersPresencesBulkForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk forbidden response has a 5xx status code
+func (o *PutUsersPresencesBulkForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk forbidden response a status code equal to that given
+func (o *PutUsersPresencesBulkForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUsersPresencesBulkForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPutUsersPresencesBulkNotFound() *PutUsersPresencesBulkNotFound {
 	return &PutUsersPresencesBulkNotFound{}
 }
 
-/*PutUsersPresencesBulkNotFound handles this case with default header values.
+/*
+PutUsersPresencesBulkNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PutUsersPresencesBulkNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk not found response has a 2xx status code
+func (o *PutUsersPresencesBulkNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk not found response has a 3xx status code
+func (o *PutUsersPresencesBulkNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk not found response has a 4xx status code
+func (o *PutUsersPresencesBulkNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk not found response has a 5xx status code
+func (o *PutUsersPresencesBulkNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk not found response a status code equal to that given
+func (o *PutUsersPresencesBulkNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUsersPresencesBulkNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPutUsersPresencesBulkRequestTimeout() *PutUsersPresencesBulkRequestTimeo
 	return &PutUsersPresencesBulkRequestTimeout{}
 }
 
-/*PutUsersPresencesBulkRequestTimeout handles this case with default header values.
+/*
+PutUsersPresencesBulkRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PutUsersPresencesBulkRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk request timeout response has a 2xx status code
+func (o *PutUsersPresencesBulkRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk request timeout response has a 3xx status code
+func (o *PutUsersPresencesBulkRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk request timeout response has a 4xx status code
+func (o *PutUsersPresencesBulkRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk request timeout response has a 5xx status code
+func (o *PutUsersPresencesBulkRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk request timeout response a status code equal to that given
+func (o *PutUsersPresencesBulkRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUsersPresencesBulkRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPutUsersPresencesBulkRequestEntityTooLarge() *PutUsersPresencesBulkReque
 	return &PutUsersPresencesBulkRequestEntityTooLarge{}
 }
 
-/*PutUsersPresencesBulkRequestEntityTooLarge handles this case with default header values.
+/*
+PutUsersPresencesBulkRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PutUsersPresencesBulkRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk request entity too large response has a 2xx status code
+func (o *PutUsersPresencesBulkRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk request entity too large response has a 3xx status code
+func (o *PutUsersPresencesBulkRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk request entity too large response has a 4xx status code
+func (o *PutUsersPresencesBulkRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk request entity too large response has a 5xx status code
+func (o *PutUsersPresencesBulkRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk request entity too large response a status code equal to that given
+func (o *PutUsersPresencesBulkRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUsersPresencesBulkRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPutUsersPresencesBulkUnsupportedMediaType() *PutUsersPresencesBulkUnsupp
 	return &PutUsersPresencesBulkUnsupportedMediaType{}
 }
 
-/*PutUsersPresencesBulkUnsupportedMediaType handles this case with default header values.
+/*
+PutUsersPresencesBulkUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PutUsersPresencesBulkUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk unsupported media type response has a 2xx status code
+func (o *PutUsersPresencesBulkUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk unsupported media type response has a 3xx status code
+func (o *PutUsersPresencesBulkUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk unsupported media type response has a 4xx status code
+func (o *PutUsersPresencesBulkUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk unsupported media type response has a 5xx status code
+func (o *PutUsersPresencesBulkUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk unsupported media type response a status code equal to that given
+func (o *PutUsersPresencesBulkUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUsersPresencesBulkUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPutUsersPresencesBulkTooManyRequests() *PutUsersPresencesBulkTooManyRequ
 	return &PutUsersPresencesBulkTooManyRequests{}
 }
 
-/*PutUsersPresencesBulkTooManyRequests handles this case with default header values.
+/*
+PutUsersPresencesBulkTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PutUsersPresencesBulkTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk too many requests response has a 2xx status code
+func (o *PutUsersPresencesBulkTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk too many requests response has a 3xx status code
+func (o *PutUsersPresencesBulkTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk too many requests response has a 4xx status code
+func (o *PutUsersPresencesBulkTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put users presences bulk too many requests response has a 5xx status code
+func (o *PutUsersPresencesBulkTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put users presences bulk too many requests response a status code equal to that given
+func (o *PutUsersPresencesBulkTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUsersPresencesBulkTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPutUsersPresencesBulkInternalServerError() *PutUsersPresencesBulkInterna
 	return &PutUsersPresencesBulkInternalServerError{}
 }
 
-/*PutUsersPresencesBulkInternalServerError handles this case with default header values.
+/*
+PutUsersPresencesBulkInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PutUsersPresencesBulkInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk internal server error response has a 2xx status code
+func (o *PutUsersPresencesBulkInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk internal server error response has a 3xx status code
+func (o *PutUsersPresencesBulkInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk internal server error response has a 4xx status code
+func (o *PutUsersPresencesBulkInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put users presences bulk internal server error response has a 5xx status code
+func (o *PutUsersPresencesBulkInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put users presences bulk internal server error response a status code equal to that given
+func (o *PutUsersPresencesBulkInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUsersPresencesBulkInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPutUsersPresencesBulkServiceUnavailable() *PutUsersPresencesBulkServiceU
 	return &PutUsersPresencesBulkServiceUnavailable{}
 }
 
-/*PutUsersPresencesBulkServiceUnavailable handles this case with default header values.
+/*
+PutUsersPresencesBulkServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PutUsersPresencesBulkServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk service unavailable response has a 2xx status code
+func (o *PutUsersPresencesBulkServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk service unavailable response has a 3xx status code
+func (o *PutUsersPresencesBulkServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk service unavailable response has a 4xx status code
+func (o *PutUsersPresencesBulkServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put users presences bulk service unavailable response has a 5xx status code
+func (o *PutUsersPresencesBulkServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put users presences bulk service unavailable response a status code equal to that given
+func (o *PutUsersPresencesBulkServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUsersPresencesBulkServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPutUsersPresencesBulkGatewayTimeout() *PutUsersPresencesBulkGatewayTimeo
 	return &PutUsersPresencesBulkGatewayTimeout{}
 }
 
-/*PutUsersPresencesBulkGatewayTimeout handles this case with default header values.
+/*
+PutUsersPresencesBulkGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PutUsersPresencesBulkGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put users presences bulk gateway timeout response has a 2xx status code
+func (o *PutUsersPresencesBulkGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put users presences bulk gateway timeout response has a 3xx status code
+func (o *PutUsersPresencesBulkGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put users presences bulk gateway timeout response has a 4xx status code
+func (o *PutUsersPresencesBulkGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put users presences bulk gateway timeout response has a 5xx status code
+func (o *PutUsersPresencesBulkGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put users presences bulk gateway timeout response a status code equal to that given
+func (o *PutUsersPresencesBulkGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUsersPresencesBulkGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUsersPresencesBulkGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/presences/bulk][%d] putUsersPresencesBulkGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDReader)
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoConten
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent describes a response with status code 204, with default header values.
 
 No Content
 */
 type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent struct {
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id no content response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id no content response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id no content response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id no content response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id no content response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdNoContent ", 204)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadReque
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id bad request response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id bad request response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id bad request response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id bad request response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id bad request response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthor
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorize
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unauthorized response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unauthorized response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unauthorized response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unauthorized response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unauthorized response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidde
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id forbidden response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id forbidden response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id forbidden response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id forbidden response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id forbidden response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id not found response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id not found response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id not found response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id not found response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id not found response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestT
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTime
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request timeout response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request timeout response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request timeout response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request timeout response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request timeout response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestE
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEnti
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request entity too large response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request entity too large response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request entity too large response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request entity too large response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id request entity too large response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsuppor
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupported
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unsupported media type response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unsupported media type response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unsupported media type response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unsupported media type response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id unsupported media type response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyR
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequ
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id too many requests response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id too many requests response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id too many requests response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id too many requests response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id too many requests response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternal
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalSer
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id internal server error response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id internal server error response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id internal server error response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id internal server error response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id internal server error response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceU
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnav
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id service unavailable response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id service unavailable response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id service unavailable response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id service unavailable response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id service unavailable response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayT
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout{}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTime
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id gateway timeout response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id gateway timeout response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id gateway timeout response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id gateway timeout response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics sentimentfeedback sentiment feedback Id gateway timeout response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/sentimentfeedback/{sentimentFeedbackId}][%d] deleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

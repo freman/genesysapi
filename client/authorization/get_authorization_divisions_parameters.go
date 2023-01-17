@@ -17,127 +17,146 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetAuthorizationDivisionsParams creates a new GetAuthorizationDivisionsParams object
-// with the default values initialized.
+// NewGetAuthorizationDivisionsParams creates a new GetAuthorizationDivisionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationDivisionsParams() *GetAuthorizationDivisionsParams {
-	var (
-		objectCountDefault = bool(false)
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-	)
 	return &GetAuthorizationDivisionsParams{
-		ObjectCount: &objectCountDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationDivisionsParamsWithTimeout creates a new GetAuthorizationDivisionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationDivisionsParamsWithTimeout(timeout time.Duration) *GetAuthorizationDivisionsParams {
-	var (
-		objectCountDefault = bool(false)
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-	)
 	return &GetAuthorizationDivisionsParams{
-		ObjectCount: &objectCountDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationDivisionsParamsWithContext creates a new GetAuthorizationDivisionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationDivisionsParamsWithContext(ctx context.Context) *GetAuthorizationDivisionsParams {
-	var (
-		objectCountDefault = bool(false)
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-	)
 	return &GetAuthorizationDivisionsParams{
-		ObjectCount: &objectCountDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationDivisionsParamsWithHTTPClient creates a new GetAuthorizationDivisionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationDivisionsParamsWithHTTPClient(client *http.Client) *GetAuthorizationDivisionsParams {
-	var (
-		objectCountDefault = bool(false)
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-	)
 	return &GetAuthorizationDivisionsParams{
-		ObjectCount: &objectCountDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationDivisionsParams contains all the parameters to send to the API endpoint
-for the get authorization divisions operation typically these are written to a http.Request
+/*
+GetAuthorizationDivisionsParams contains all the parameters to send to the API endpoint
+
+	for the get authorization divisions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationDivisionsParams struct {
 
-	/*Expand
-	  variable name requested by expand list
+	/* Expand.
 
+	   variable name requested by expand list
 	*/
 	Expand []string
-	/*ID
-	  Optionally request specific divisions by their IDs
 
+	/* ID.
+
+	   Optionally request specific divisions by their IDs
 	*/
 	ID []string
-	/*Name
-	  Search term to filter by division name
 
+	/* Name.
+
+	   Search term to filter by division name
 	*/
 	Name *string
-	/*NextPage
-	  next page token
 
+	/* NextPage.
+
+	   next page token
 	*/
 	NextPage *string
-	/*ObjectCount
-	  Include the count of objects contained in the division
 
+	/* ObjectCount.
+
+	   Include the count of objects contained in the division
 	*/
 	ObjectCount *bool
-	/*PageNumber
-	  The page number requested
 
+	/* PageNumber.
+
+	   The page number requested
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  The total page size requested
 
+	/* PageSize.
+
+	   The total page size requested
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*PreviousPage
-	  Previous page token
 
+	/* PreviousPage.
+
+	   Previous page token
 	*/
 	PreviousPage *string
-	/*SortBy
-	  variable name requested to sort by
 
+	/* SortBy.
+
+	   variable name requested to sort by
 	*/
 	SortBy *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization divisions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationDivisionsParams) WithDefaults() *GetAuthorizationDivisionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization divisions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationDivisionsParams) SetDefaults() {
+	var (
+		objectCountDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetAuthorizationDivisionsParams{
+		ObjectCount: &objectCountDefault,
+		PageNumber:  &pageNumberDefault,
+		PageSize:    &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get authorization divisions params
@@ -280,136 +299,183 @@ func (o *GetAuthorizationDivisionsParams) WriteToRequest(r runtime.ClientRequest
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.NextPage != nil {
 
 		// query param nextPage
 		var qrNextPage string
+
 		if o.NextPage != nil {
 			qrNextPage = *o.NextPage
 		}
 		qNextPage := qrNextPage
 		if qNextPage != "" {
+
 			if err := r.SetQueryParam("nextPage", qNextPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ObjectCount != nil {
 
 		// query param objectCount
 		var qrObjectCount bool
+
 		if o.ObjectCount != nil {
 			qrObjectCount = *o.ObjectCount
 		}
 		qObjectCount := swag.FormatBool(qrObjectCount)
 		if qObjectCount != "" {
+
 			if err := r.SetQueryParam("objectCount", qObjectCount); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PreviousPage != nil {
 
 		// query param previousPage
 		var qrPreviousPage string
+
 		if o.PreviousPage != nil {
 			qrPreviousPage = *o.PreviousPage
 		}
 		qPreviousPage := qrPreviousPage
 		if qPreviousPage != "" {
+
 			if err := r.SetQueryParam("previousPage", qPreviousPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetAuthorizationDivisions binds the parameter expand
+func (o *GetAuthorizationDivisionsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetAuthorizationDivisions binds the parameter id
+func (o *GetAuthorizationDivisionsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

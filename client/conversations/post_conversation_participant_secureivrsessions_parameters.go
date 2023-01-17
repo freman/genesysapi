@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationParticipantSecureivrsessionsParams creates a new PostConversationParticipantSecureivrsessionsParams object
-// with the default values initialized.
+// NewPostConversationParticipantSecureivrsessionsParams creates a new PostConversationParticipantSecureivrsessionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationParticipantSecureivrsessionsParams() *PostConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &PostConversationParticipantSecureivrsessionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationParticipantSecureivrsessionsParamsWithTimeout creates a new PostConversationParticipantSecureivrsessionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationParticipantSecureivrsessionsParamsWithTimeout(timeout time.Duration) *PostConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &PostConversationParticipantSecureivrsessionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationParticipantSecureivrsessionsParamsWithContext creates a new PostConversationParticipantSecureivrsessionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationParticipantSecureivrsessionsParamsWithContext(ctx context.Context) *PostConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &PostConversationParticipantSecureivrsessionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationParticipantSecureivrsessionsParamsWithHTTPClient creates a new PostConversationParticipantSecureivrsessionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationParticipantSecureivrsessionsParamsWithHTTPClient(client *http.Client) *PostConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &PostConversationParticipantSecureivrsessionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationParticipantSecureivrsessionsParams contains all the parameters to send to the API endpoint
-for the post conversation participant secureivrsessions operation typically these are written to a http.Request
+/*
+PostConversationParticipantSecureivrsessionsParams contains all the parameters to send to the API endpoint
+
+	for the post conversation participant secureivrsessions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationParticipantSecureivrsessionsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.CreateSecureSession
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participant ID
 
+	/* ParticipantID.
+
+	   participant ID
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversation participant secureivrsessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationParticipantSecureivrsessionsParams) WithDefaults() *PostConversationParticipantSecureivrsessionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversation participant secureivrsessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationParticipantSecureivrsessionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversation participant secureivrsessions params
@@ -153,7 +171,6 @@ func (o *PostConversationParticipantSecureivrsessionsParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

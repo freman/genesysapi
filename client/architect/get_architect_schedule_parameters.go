@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetArchitectScheduleParams creates a new GetArchitectScheduleParams object
-// with the default values initialized.
+// NewGetArchitectScheduleParams creates a new GetArchitectScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectScheduleParams() *GetArchitectScheduleParams {
-	var ()
 	return &GetArchitectScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectScheduleParamsWithTimeout creates a new GetArchitectScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectScheduleParamsWithTimeout(timeout time.Duration) *GetArchitectScheduleParams {
-	var ()
 	return &GetArchitectScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectScheduleParamsWithContext creates a new GetArchitectScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectScheduleParamsWithContext(ctx context.Context) *GetArchitectScheduleParams {
-	var ()
 	return &GetArchitectScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectScheduleParamsWithHTTPClient creates a new GetArchitectScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectScheduleParamsWithHTTPClient(client *http.Client) *GetArchitectScheduleParams {
-	var ()
 	return &GetArchitectScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectScheduleParams contains all the parameters to send to the API endpoint
-for the get architect schedule operation typically these are written to a http.Request
+/*
+GetArchitectScheduleParams contains all the parameters to send to the API endpoint
+
+	for the get architect schedule operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectScheduleParams struct {
 
-	/*ScheduleID
-	  Schedule ID
+	/* ScheduleID.
 
+	   Schedule ID
 	*/
 	ScheduleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectScheduleParams) WithDefaults() *GetArchitectScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get architect schedule params

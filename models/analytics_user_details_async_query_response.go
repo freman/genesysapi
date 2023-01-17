@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -49,7 +50,6 @@ func (m *AnalyticsUserDetailsAsyncQueryResponse) Validate(formats strfmt.Registr
 }
 
 func (m *AnalyticsUserDetailsAsyncQueryResponse) validateDataAvailabilityDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DataAvailabilityDate) { // not required
 		return nil
 	}
@@ -62,7 +62,6 @@ func (m *AnalyticsUserDetailsAsyncQueryResponse) validateDataAvailabilityDate(fo
 }
 
 func (m *AnalyticsUserDetailsAsyncQueryResponse) validateUserDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserDetails) { // not required
 		return nil
 	}
@@ -76,6 +75,42 @@ func (m *AnalyticsUserDetailsAsyncQueryResponse) validateUserDetails(formats str
 			if err := m.UserDetails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("userDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userDetails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics user details async query response based on the context it is used
+func (m *AnalyticsUserDetailsAsyncQueryResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUserDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsUserDetailsAsyncQueryResponse) contextValidateUserDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UserDetails); i++ {
+
+		if m.UserDetails[i] != nil {
+			if err := m.UserDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

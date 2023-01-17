@@ -101,7 +101,6 @@ func (o *PostArchitectDependencytrackingBuildReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewPostArchitectDependencytrackingBuildAccepted() *PostArchitectDependencyt
 	return &PostArchitectDependencytrackingBuildAccepted{}
 }
 
-/*PostArchitectDependencytrackingBuildAccepted handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildAccepted describes a response with status code 202, with default header values.
 
 Accepted - the rebuild has begun.
 */
 type PostArchitectDependencytrackingBuildAccepted struct {
 }
 
+// IsSuccess returns true when this post architect dependencytracking build accepted response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post architect dependencytracking build accepted response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build accepted response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect dependencytracking build accepted response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build accepted response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostArchitectDependencytrackingBuildAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildAccepted ", 202)
+}
+
+func (o *PostArchitectDependencytrackingBuildAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildAccepted ", 202)
 }
 
@@ -133,7 +162,8 @@ func NewPostArchitectDependencytrackingBuildBadRequest() *PostArchitectDependenc
 	return &PostArchitectDependencytrackingBuildBadRequest{}
 }
 
-/*PostArchitectDependencytrackingBuildBadRequest handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type PostArchitectDependencytrackingBuildBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build bad request response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build bad request response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build bad request response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build bad request response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build bad request response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostArchitectDependencytrackingBuildBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewPostArchitectDependencytrackingBuildUnauthorized() *PostArchitectDepende
 	return &PostArchitectDependencytrackingBuildUnauthorized{}
 }
 
-/*PostArchitectDependencytrackingBuildUnauthorized handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type PostArchitectDependencytrackingBuildUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build unauthorized response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build unauthorized response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build unauthorized response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build unauthorized response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build unauthorized response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostArchitectDependencytrackingBuildUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewPostArchitectDependencytrackingBuildForbidden() *PostArchitectDependency
 	return &PostArchitectDependencytrackingBuildForbidden{}
 }
 
-/*PostArchitectDependencytrackingBuildForbidden handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type PostArchitectDependencytrackingBuildForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build forbidden response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build forbidden response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build forbidden response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build forbidden response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build forbidden response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostArchitectDependencytrackingBuildForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewPostArchitectDependencytrackingBuildNotFound() *PostArchitectDependencyt
 	return &PostArchitectDependencytrackingBuildNotFound{}
 }
 
-/*PostArchitectDependencytrackingBuildNotFound handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type PostArchitectDependencytrackingBuildNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build not found response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build not found response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build not found response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build not found response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build not found response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostArchitectDependencytrackingBuildNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewPostArchitectDependencytrackingBuildRequestTimeout() *PostArchitectDepen
 	return &PostArchitectDependencytrackingBuildRequestTimeout{}
 }
 
-/*PostArchitectDependencytrackingBuildRequestTimeout handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type PostArchitectDependencytrackingBuildRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build request timeout response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build request timeout response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build request timeout response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build request timeout response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build request timeout response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostArchitectDependencytrackingBuildRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewPostArchitectDependencytrackingBuildConflict() *PostArchitectDependencyt
 	return &PostArchitectDependencytrackingBuildConflict{}
 }
 
-/*PostArchitectDependencytrackingBuildConflict handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type PostArchitectDependencytrackingBuildConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build conflict response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build conflict response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build conflict response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build conflict response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build conflict response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostArchitectDependencytrackingBuildConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewPostArchitectDependencytrackingBuildRequestEntityTooLarge() *PostArchite
 	return &PostArchitectDependencytrackingBuildRequestEntityTooLarge{}
 }
 
-/*PostArchitectDependencytrackingBuildRequestEntityTooLarge handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PostArchitectDependencytrackingBuildRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build request entity too large response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build request entity too large response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build request entity too large response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build request entity too large response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build request entity too large response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostArchitectDependencytrackingBuildRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPostArchitectDependencytrackingBuildUnsupportedMediaType() *PostArchitec
 	return &PostArchitectDependencytrackingBuildUnsupportedMediaType{}
 }
 
-/*PostArchitectDependencytrackingBuildUnsupportedMediaType handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PostArchitectDependencytrackingBuildUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build unsupported media type response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build unsupported media type response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build unsupported media type response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build unsupported media type response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build unsupported media type response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostArchitectDependencytrackingBuildUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPostArchitectDependencytrackingBuildTooManyRequests() *PostArchitectDepe
 	return &PostArchitectDependencytrackingBuildTooManyRequests{}
 }
 
-/*PostArchitectDependencytrackingBuildTooManyRequests handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PostArchitectDependencytrackingBuildTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build too many requests response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build too many requests response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build too many requests response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect dependencytracking build too many requests response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect dependencytracking build too many requests response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostArchitectDependencytrackingBuildTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPostArchitectDependencytrackingBuildInternalServerError() *PostArchitect
 	return &PostArchitectDependencytrackingBuildInternalServerError{}
 }
 
-/*PostArchitectDependencytrackingBuildInternalServerError handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PostArchitectDependencytrackingBuildInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build internal server error response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build internal server error response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build internal server error response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect dependencytracking build internal server error response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect dependencytracking build internal server error response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostArchitectDependencytrackingBuildInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPostArchitectDependencytrackingBuildServiceUnavailable() *PostArchitectD
 	return &PostArchitectDependencytrackingBuildServiceUnavailable{}
 }
 
-/*PostArchitectDependencytrackingBuildServiceUnavailable handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PostArchitectDependencytrackingBuildServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build service unavailable response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build service unavailable response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build service unavailable response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect dependencytracking build service unavailable response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect dependencytracking build service unavailable response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostArchitectDependencytrackingBuildServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPostArchitectDependencytrackingBuildGatewayTimeout() *PostArchitectDepen
 	return &PostArchitectDependencytrackingBuildGatewayTimeout{}
 }
 
-/*PostArchitectDependencytrackingBuildGatewayTimeout handles this case with default header values.
+/*
+PostArchitectDependencytrackingBuildGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PostArchitectDependencytrackingBuildGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect dependencytracking build gateway timeout response has a 2xx status code
+func (o *PostArchitectDependencytrackingBuildGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect dependencytracking build gateway timeout response has a 3xx status code
+func (o *PostArchitectDependencytrackingBuildGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect dependencytracking build gateway timeout response has a 4xx status code
+func (o *PostArchitectDependencytrackingBuildGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect dependencytracking build gateway timeout response has a 5xx status code
+func (o *PostArchitectDependencytrackingBuildGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect dependencytracking build gateway timeout response a status code equal to that given
+func (o *PostArchitectDependencytrackingBuildGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostArchitectDependencytrackingBuildGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostArchitectDependencytrackingBuildGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/dependencytracking/build][%d] postArchitectDependencytrackingBuildGatewayTimeout  %+v", 504, o.Payload)
 }
 

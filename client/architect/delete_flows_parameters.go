@@ -17,59 +17,75 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteFlowsParams creates a new DeleteFlowsParams object
-// with the default values initialized.
+// NewDeleteFlowsParams creates a new DeleteFlowsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteFlowsParams() *DeleteFlowsParams {
-	var ()
 	return &DeleteFlowsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteFlowsParamsWithTimeout creates a new DeleteFlowsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteFlowsParamsWithTimeout(timeout time.Duration) *DeleteFlowsParams {
-	var ()
 	return &DeleteFlowsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteFlowsParamsWithContext creates a new DeleteFlowsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteFlowsParamsWithContext(ctx context.Context) *DeleteFlowsParams {
-	var ()
 	return &DeleteFlowsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteFlowsParamsWithHTTPClient creates a new DeleteFlowsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteFlowsParamsWithHTTPClient(client *http.Client) *DeleteFlowsParams {
-	var ()
 	return &DeleteFlowsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteFlowsParams contains all the parameters to send to the API endpoint
-for the delete flows operation typically these are written to a http.Request
+/*
+DeleteFlowsParams contains all the parameters to send to the API endpoint
+
+	for the delete flows operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteFlowsParams struct {
 
-	/*ID
-	  List of Flow IDs
+	/* ID.
 
+	   List of Flow IDs
 	*/
 	ID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete flows params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFlowsParams) WithDefaults() *DeleteFlowsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete flows params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFlowsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete flows params
@@ -124,16 +140,36 @@ func (o *DeleteFlowsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	}
 	var res []error
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteFlows binds the parameter id
+func (o *DeleteFlowsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

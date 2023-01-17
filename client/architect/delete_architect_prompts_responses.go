@@ -101,7 +101,6 @@ func (o *DeleteArchitectPromptsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewDeleteArchitectPromptsOK() *DeleteArchitectPromptsOK {
 	return &DeleteArchitectPromptsOK{}
 }
 
-/*DeleteArchitectPromptsOK handles this case with default header values.
+/*
+DeleteArchitectPromptsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type DeleteArchitectPromptsOK struct {
 	Payload *models.Operation
 }
 
+// IsSuccess returns true when this delete architect prompts o k response has a 2xx status code
+func (o *DeleteArchitectPromptsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete architect prompts o k response has a 3xx status code
+func (o *DeleteArchitectPromptsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts o k response has a 4xx status code
+func (o *DeleteArchitectPromptsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect prompts o k response has a 5xx status code
+func (o *DeleteArchitectPromptsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts o k response a status code equal to that given
+func (o *DeleteArchitectPromptsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteArchitectPromptsOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewDeleteArchitectPromptsBadRequest() *DeleteArchitectPromptsBadRequest {
 	return &DeleteArchitectPromptsBadRequest{}
 }
 
-/*DeleteArchitectPromptsBadRequest handles this case with default header values.
+/*
+DeleteArchitectPromptsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type DeleteArchitectPromptsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts bad request response has a 2xx status code
+func (o *DeleteArchitectPromptsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts bad request response has a 3xx status code
+func (o *DeleteArchitectPromptsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts bad request response has a 4xx status code
+func (o *DeleteArchitectPromptsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts bad request response has a 5xx status code
+func (o *DeleteArchitectPromptsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts bad request response a status code equal to that given
+func (o *DeleteArchitectPromptsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteArchitectPromptsBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewDeleteArchitectPromptsUnauthorized() *DeleteArchitectPromptsUnauthorized
 	return &DeleteArchitectPromptsUnauthorized{}
 }
 
-/*DeleteArchitectPromptsUnauthorized handles this case with default header values.
+/*
+DeleteArchitectPromptsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type DeleteArchitectPromptsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts unauthorized response has a 2xx status code
+func (o *DeleteArchitectPromptsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts unauthorized response has a 3xx status code
+func (o *DeleteArchitectPromptsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts unauthorized response has a 4xx status code
+func (o *DeleteArchitectPromptsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts unauthorized response has a 5xx status code
+func (o *DeleteArchitectPromptsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts unauthorized response a status code equal to that given
+func (o *DeleteArchitectPromptsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteArchitectPromptsUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewDeleteArchitectPromptsForbidden() *DeleteArchitectPromptsForbidden {
 	return &DeleteArchitectPromptsForbidden{}
 }
 
-/*DeleteArchitectPromptsForbidden handles this case with default header values.
+/*
+DeleteArchitectPromptsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type DeleteArchitectPromptsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts forbidden response has a 2xx status code
+func (o *DeleteArchitectPromptsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts forbidden response has a 3xx status code
+func (o *DeleteArchitectPromptsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts forbidden response has a 4xx status code
+func (o *DeleteArchitectPromptsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts forbidden response has a 5xx status code
+func (o *DeleteArchitectPromptsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts forbidden response a status code equal to that given
+func (o *DeleteArchitectPromptsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteArchitectPromptsForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewDeleteArchitectPromptsNotFound() *DeleteArchitectPromptsNotFound {
 	return &DeleteArchitectPromptsNotFound{}
 }
 
-/*DeleteArchitectPromptsNotFound handles this case with default header values.
+/*
+DeleteArchitectPromptsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type DeleteArchitectPromptsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts not found response has a 2xx status code
+func (o *DeleteArchitectPromptsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts not found response has a 3xx status code
+func (o *DeleteArchitectPromptsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts not found response has a 4xx status code
+func (o *DeleteArchitectPromptsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts not found response has a 5xx status code
+func (o *DeleteArchitectPromptsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts not found response a status code equal to that given
+func (o *DeleteArchitectPromptsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteArchitectPromptsNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewDeleteArchitectPromptsRequestTimeout() *DeleteArchitectPromptsRequestTim
 	return &DeleteArchitectPromptsRequestTimeout{}
 }
 
-/*DeleteArchitectPromptsRequestTimeout handles this case with default header values.
+/*
+DeleteArchitectPromptsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type DeleteArchitectPromptsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts request timeout response has a 2xx status code
+func (o *DeleteArchitectPromptsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts request timeout response has a 3xx status code
+func (o *DeleteArchitectPromptsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts request timeout response has a 4xx status code
+func (o *DeleteArchitectPromptsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts request timeout response has a 5xx status code
+func (o *DeleteArchitectPromptsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts request timeout response a status code equal to that given
+func (o *DeleteArchitectPromptsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteArchitectPromptsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewDeleteArchitectPromptsConflict() *DeleteArchitectPromptsConflict {
 	return &DeleteArchitectPromptsConflict{}
 }
 
-/*DeleteArchitectPromptsConflict handles this case with default header values.
+/*
+DeleteArchitectPromptsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type DeleteArchitectPromptsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts conflict response has a 2xx status code
+func (o *DeleteArchitectPromptsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts conflict response has a 3xx status code
+func (o *DeleteArchitectPromptsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts conflict response has a 4xx status code
+func (o *DeleteArchitectPromptsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts conflict response has a 5xx status code
+func (o *DeleteArchitectPromptsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts conflict response a status code equal to that given
+func (o *DeleteArchitectPromptsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteArchitectPromptsConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewDeleteArchitectPromptsRequestEntityTooLarge() *DeleteArchitectPromptsReq
 	return &DeleteArchitectPromptsRequestEntityTooLarge{}
 }
 
-/*DeleteArchitectPromptsRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteArchitectPromptsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type DeleteArchitectPromptsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts request entity too large response has a 2xx status code
+func (o *DeleteArchitectPromptsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts request entity too large response has a 3xx status code
+func (o *DeleteArchitectPromptsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts request entity too large response has a 4xx status code
+func (o *DeleteArchitectPromptsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts request entity too large response has a 5xx status code
+func (o *DeleteArchitectPromptsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts request entity too large response a status code equal to that given
+func (o *DeleteArchitectPromptsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteArchitectPromptsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewDeleteArchitectPromptsUnsupportedMediaType() *DeleteArchitectPromptsUnsu
 	return &DeleteArchitectPromptsUnsupportedMediaType{}
 }
 
-/*DeleteArchitectPromptsUnsupportedMediaType handles this case with default header values.
+/*
+DeleteArchitectPromptsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type DeleteArchitectPromptsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts unsupported media type response has a 2xx status code
+func (o *DeleteArchitectPromptsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts unsupported media type response has a 3xx status code
+func (o *DeleteArchitectPromptsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts unsupported media type response has a 4xx status code
+func (o *DeleteArchitectPromptsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts unsupported media type response has a 5xx status code
+func (o *DeleteArchitectPromptsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts unsupported media type response a status code equal to that given
+func (o *DeleteArchitectPromptsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteArchitectPromptsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewDeleteArchitectPromptsTooManyRequests() *DeleteArchitectPromptsTooManyRe
 	return &DeleteArchitectPromptsTooManyRequests{}
 }
 
-/*DeleteArchitectPromptsTooManyRequests handles this case with default header values.
+/*
+DeleteArchitectPromptsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type DeleteArchitectPromptsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts too many requests response has a 2xx status code
+func (o *DeleteArchitectPromptsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts too many requests response has a 3xx status code
+func (o *DeleteArchitectPromptsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts too many requests response has a 4xx status code
+func (o *DeleteArchitectPromptsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect prompts too many requests response has a 5xx status code
+func (o *DeleteArchitectPromptsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect prompts too many requests response a status code equal to that given
+func (o *DeleteArchitectPromptsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteArchitectPromptsTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewDeleteArchitectPromptsInternalServerError() *DeleteArchitectPromptsInter
 	return &DeleteArchitectPromptsInternalServerError{}
 }
 
-/*DeleteArchitectPromptsInternalServerError handles this case with default header values.
+/*
+DeleteArchitectPromptsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type DeleteArchitectPromptsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts internal server error response has a 2xx status code
+func (o *DeleteArchitectPromptsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts internal server error response has a 3xx status code
+func (o *DeleteArchitectPromptsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts internal server error response has a 4xx status code
+func (o *DeleteArchitectPromptsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect prompts internal server error response has a 5xx status code
+func (o *DeleteArchitectPromptsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect prompts internal server error response a status code equal to that given
+func (o *DeleteArchitectPromptsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteArchitectPromptsInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewDeleteArchitectPromptsServiceUnavailable() *DeleteArchitectPromptsServic
 	return &DeleteArchitectPromptsServiceUnavailable{}
 }
 
-/*DeleteArchitectPromptsServiceUnavailable handles this case with default header values.
+/*
+DeleteArchitectPromptsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type DeleteArchitectPromptsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts service unavailable response has a 2xx status code
+func (o *DeleteArchitectPromptsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts service unavailable response has a 3xx status code
+func (o *DeleteArchitectPromptsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts service unavailable response has a 4xx status code
+func (o *DeleteArchitectPromptsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect prompts service unavailable response has a 5xx status code
+func (o *DeleteArchitectPromptsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect prompts service unavailable response a status code equal to that given
+func (o *DeleteArchitectPromptsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteArchitectPromptsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewDeleteArchitectPromptsGatewayTimeout() *DeleteArchitectPromptsGatewayTim
 	return &DeleteArchitectPromptsGatewayTimeout{}
 }
 
-/*DeleteArchitectPromptsGatewayTimeout handles this case with default header values.
+/*
+DeleteArchitectPromptsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type DeleteArchitectPromptsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect prompts gateway timeout response has a 2xx status code
+func (o *DeleteArchitectPromptsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect prompts gateway timeout response has a 3xx status code
+func (o *DeleteArchitectPromptsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect prompts gateway timeout response has a 4xx status code
+func (o *DeleteArchitectPromptsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect prompts gateway timeout response has a 5xx status code
+func (o *DeleteArchitectPromptsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect prompts gateway timeout response a status code equal to that given
+func (o *DeleteArchitectPromptsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteArchitectPromptsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteArchitectPromptsGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/prompts][%d] deleteArchitectPromptsGatewayTimeout  %+v", 504, o.Payload)
 }
 

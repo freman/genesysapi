@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationsCobrowsesessionRecordingstateParams creates a new PutConversationsCobrowsesessionRecordingstateParams object
-// with the default values initialized.
+// NewPutConversationsCobrowsesessionRecordingstateParams creates a new PutConversationsCobrowsesessionRecordingstateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationsCobrowsesessionRecordingstateParams() *PutConversationsCobrowsesessionRecordingstateParams {
-	var ()
 	return &PutConversationsCobrowsesessionRecordingstateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationsCobrowsesessionRecordingstateParamsWithTimeout creates a new PutConversationsCobrowsesessionRecordingstateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationsCobrowsesessionRecordingstateParamsWithTimeout(timeout time.Duration) *PutConversationsCobrowsesessionRecordingstateParams {
-	var ()
 	return &PutConversationsCobrowsesessionRecordingstateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationsCobrowsesessionRecordingstateParamsWithContext creates a new PutConversationsCobrowsesessionRecordingstateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationsCobrowsesessionRecordingstateParamsWithContext(ctx context.Context) *PutConversationsCobrowsesessionRecordingstateParams {
-	var ()
 	return &PutConversationsCobrowsesessionRecordingstateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationsCobrowsesessionRecordingstateParamsWithHTTPClient creates a new PutConversationsCobrowsesessionRecordingstateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationsCobrowsesessionRecordingstateParamsWithHTTPClient(client *http.Client) *PutConversationsCobrowsesessionRecordingstateParams {
-	var ()
 	return &PutConversationsCobrowsesessionRecordingstateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateParams contains all the parameters to send to the API endpoint
-for the put conversations cobrowsesession recordingstate operation typically these are written to a http.Request
+/*
+PutConversationsCobrowsesessionRecordingstateParams contains all the parameters to send to the API endpoint
+
+	for the put conversations cobrowsesession recordingstate operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationsCobrowsesessionRecordingstateParams struct {
 
-	/*Body
-	  SetRecordingState
+	/* Body.
 
+	   SetRecordingState
 	*/
 	Body *models.SetRecordingState
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversations cobrowsesession recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsCobrowsesessionRecordingstateParams) WithDefaults() *PutConversationsCobrowsesessionRecordingstateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversations cobrowsesession recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsCobrowsesessionRecordingstateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversations cobrowsesession recordingstate params
@@ -140,7 +157,6 @@ func (o *PutConversationsCobrowsesessionRecordingstateParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

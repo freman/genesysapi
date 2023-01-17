@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRecordingBatchrequestsParams creates a new PostRecordingBatchrequestsParams object
-// with the default values initialized.
+// NewPostRecordingBatchrequestsParams creates a new PostRecordingBatchrequestsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRecordingBatchrequestsParams() *PostRecordingBatchrequestsParams {
-	var ()
 	return &PostRecordingBatchrequestsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRecordingBatchrequestsParamsWithTimeout creates a new PostRecordingBatchrequestsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRecordingBatchrequestsParamsWithTimeout(timeout time.Duration) *PostRecordingBatchrequestsParams {
-	var ()
 	return &PostRecordingBatchrequestsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRecordingBatchrequestsParamsWithContext creates a new PostRecordingBatchrequestsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRecordingBatchrequestsParamsWithContext(ctx context.Context) *PostRecordingBatchrequestsParams {
-	var ()
 	return &PostRecordingBatchrequestsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRecordingBatchrequestsParamsWithHTTPClient creates a new PostRecordingBatchrequestsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRecordingBatchrequestsParamsWithHTTPClient(client *http.Client) *PostRecordingBatchrequestsParams {
-	var ()
 	return &PostRecordingBatchrequestsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRecordingBatchrequestsParams contains all the parameters to send to the API endpoint
-for the post recording batchrequests operation typically these are written to a http.Request
+/*
+PostRecordingBatchrequestsParams contains all the parameters to send to the API endpoint
+
+	for the post recording batchrequests operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRecordingBatchrequestsParams struct {
 
-	/*Body
-	  Job submission criteria
+	/* Body.
 
+	   Job submission criteria
 	*/
 	Body *models.BatchDownloadJobSubmission
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post recording batchrequests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingBatchrequestsParams) WithDefaults() *PostRecordingBatchrequestsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post recording batchrequests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingBatchrequestsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post recording batchrequests params
@@ -124,7 +140,6 @@ func (o *PostRecordingBatchrequestsParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

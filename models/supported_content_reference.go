@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -67,7 +69,6 @@ func (m *SupportedContentReference) validateID(formats strfmt.Registry) error {
 }
 
 func (m *SupportedContentReference) validateMediaTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaTypes) { // not required
 		return nil
 	}
@@ -76,6 +77,8 @@ func (m *SupportedContentReference) validateMediaTypes(formats strfmt.Registry) 
 		if err := m.MediaTypes.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mediaTypes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mediaTypes")
 			}
 			return err
 		}
@@ -85,12 +88,67 @@ func (m *SupportedContentReference) validateMediaTypes(formats strfmt.Registry) 
 }
 
 func (m *SupportedContentReference) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this supported content reference based on the context it is used
+func (m *SupportedContentReference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMediaTypes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SupportedContentReference) contextValidateMediaTypes(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MediaTypes != nil {
+		if err := m.MediaTypes.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mediaTypes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mediaTypes")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SupportedContentReference) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SupportedContentReference) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

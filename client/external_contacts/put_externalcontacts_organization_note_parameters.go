@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutExternalcontactsOrganizationNoteParams creates a new PutExternalcontactsOrganizationNoteParams object
-// with the default values initialized.
+// NewPutExternalcontactsOrganizationNoteParams creates a new PutExternalcontactsOrganizationNoteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutExternalcontactsOrganizationNoteParams() *PutExternalcontactsOrganizationNoteParams {
-	var ()
 	return &PutExternalcontactsOrganizationNoteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutExternalcontactsOrganizationNoteParamsWithTimeout creates a new PutExternalcontactsOrganizationNoteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutExternalcontactsOrganizationNoteParamsWithTimeout(timeout time.Duration) *PutExternalcontactsOrganizationNoteParams {
-	var ()
 	return &PutExternalcontactsOrganizationNoteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutExternalcontactsOrganizationNoteParamsWithContext creates a new PutExternalcontactsOrganizationNoteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutExternalcontactsOrganizationNoteParamsWithContext(ctx context.Context) *PutExternalcontactsOrganizationNoteParams {
-	var ()
 	return &PutExternalcontactsOrganizationNoteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutExternalcontactsOrganizationNoteParamsWithHTTPClient creates a new PutExternalcontactsOrganizationNoteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutExternalcontactsOrganizationNoteParamsWithHTTPClient(client *http.Client) *PutExternalcontactsOrganizationNoteParams {
-	var ()
 	return &PutExternalcontactsOrganizationNoteParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutExternalcontactsOrganizationNoteParams contains all the parameters to send to the API endpoint
-for the put externalcontacts organization note operation typically these are written to a http.Request
+/*
+PutExternalcontactsOrganizationNoteParams contains all the parameters to send to the API endpoint
+
+	for the put externalcontacts organization note operation.
+
+	Typically these are written to a http.Request.
 */
 type PutExternalcontactsOrganizationNoteParams struct {
 
-	/*Body
-	  Note
+	/* Body.
 
+	   Note
 	*/
 	Body *models.Note
-	/*ExternalOrganizationID
-	  External Organization Id
 
+	/* ExternalOrganizationID.
+
+	   External Organization Id
 	*/
 	ExternalOrganizationID string
-	/*NoteID
-	  Note Id
 
+	/* NoteID.
+
+	   Note Id
 	*/
 	NoteID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put externalcontacts organization note params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutExternalcontactsOrganizationNoteParams) WithDefaults() *PutExternalcontactsOrganizationNoteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put externalcontacts organization note params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutExternalcontactsOrganizationNoteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put externalcontacts organization note params
@@ -156,7 +174,6 @@ func (o *PutExternalcontactsOrganizationNoteParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

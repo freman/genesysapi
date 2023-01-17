@@ -16,76 +16,94 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOauthAuthorizationParams creates a new GetOauthAuthorizationParams object
-// with the default values initialized.
+// NewGetOauthAuthorizationParams creates a new GetOauthAuthorizationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOauthAuthorizationParams() *GetOauthAuthorizationParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOauthAuthorizationParamsWithTimeout creates a new GetOauthAuthorizationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOauthAuthorizationParamsWithTimeout(timeout time.Duration) *GetOauthAuthorizationParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOauthAuthorizationParamsWithContext creates a new GetOauthAuthorizationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOauthAuthorizationParamsWithContext(ctx context.Context) *GetOauthAuthorizationParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOauthAuthorizationParamsWithHTTPClient creates a new GetOauthAuthorizationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOauthAuthorizationParamsWithHTTPClient(client *http.Client) *GetOauthAuthorizationParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationParams{
-		AcceptLanguage: &acceptLanguageDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*GetOauthAuthorizationParams contains all the parameters to send to the API endpoint
-for the get oauth authorization operation typically these are written to a http.Request
+/*
+GetOauthAuthorizationParams contains all the parameters to send to the API endpoint
+
+	for the get oauth authorization operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOauthAuthorizationParams struct {
 
-	/*AcceptLanguage
-	  The language in which to display the client descriptions.
+	/* AcceptLanguage.
 
+	   The language in which to display the client descriptions.
+
+	   Default: "en-us"
 	*/
 	AcceptLanguage *string
-	/*ClientID
-	  The ID of client
 
+	/* ClientID.
+
+	   The ID of client
 	*/
 	ClientID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get oauth authorization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthAuthorizationParams) WithDefaults() *GetOauthAuthorizationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get oauth authorization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthAuthorizationParams) SetDefaults() {
+	var (
+		acceptLanguageDefault = string("en-us")
+	)
+
+	val := GetOauthAuthorizationParams{
+		AcceptLanguage: &acceptLanguageDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get oauth authorization params
@@ -157,7 +175,6 @@ func (o *GetOauthAuthorizationParams) WriteToRequest(r runtime.ClientRequest, re
 		if err := r.SetHeaderParam("Accept-Language", *o.AcceptLanguage); err != nil {
 			return err
 		}
-
 	}
 
 	// path param clientId

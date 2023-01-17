@@ -101,7 +101,6 @@ func (o *GetOrphanrecordingMediaReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetOrphanrecordingMediaOK() *GetOrphanrecordingMediaOK {
 	return &GetOrphanrecordingMediaOK{}
 }
 
-/*GetOrphanrecordingMediaOK handles this case with default header values.
+/*
+GetOrphanrecordingMediaOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetOrphanrecordingMediaOK struct {
 	Payload *models.Recording
 }
 
+// IsSuccess returns true when this get orphanrecording media o k response has a 2xx status code
+func (o *GetOrphanrecordingMediaOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get orphanrecording media o k response has a 3xx status code
+func (o *GetOrphanrecordingMediaOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media o k response has a 4xx status code
+func (o *GetOrphanrecordingMediaOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orphanrecording media o k response has a 5xx status code
+func (o *GetOrphanrecordingMediaOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media o k response a status code equal to that given
+func (o *GetOrphanrecordingMediaOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrphanrecordingMediaOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaOK  %+v", 200, o.Payload)
 }
 
@@ -145,14 +174,44 @@ func NewGetOrphanrecordingMediaAccepted() *GetOrphanrecordingMediaAccepted {
 	return &GetOrphanrecordingMediaAccepted{}
 }
 
-/*GetOrphanrecordingMediaAccepted handles this case with default header values.
+/*
+GetOrphanrecordingMediaAccepted describes a response with status code 202, with default header values.
 
 Accepted - Transcoding orphan media
 */
 type GetOrphanrecordingMediaAccepted struct {
 }
 
+// IsSuccess returns true when this get orphanrecording media accepted response has a 2xx status code
+func (o *GetOrphanrecordingMediaAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get orphanrecording media accepted response has a 3xx status code
+func (o *GetOrphanrecordingMediaAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media accepted response has a 4xx status code
+func (o *GetOrphanrecordingMediaAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orphanrecording media accepted response has a 5xx status code
+func (o *GetOrphanrecordingMediaAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media accepted response a status code equal to that given
+func (o *GetOrphanrecordingMediaAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetOrphanrecordingMediaAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaAccepted ", 202)
+}
+
+func (o *GetOrphanrecordingMediaAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaAccepted ", 202)
 }
 
@@ -166,7 +225,8 @@ func NewGetOrphanrecordingMediaBadRequest() *GetOrphanrecordingMediaBadRequest {
 	return &GetOrphanrecordingMediaBadRequest{}
 }
 
-/*GetOrphanrecordingMediaBadRequest handles this case with default header values.
+/*
+GetOrphanrecordingMediaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -174,7 +234,36 @@ type GetOrphanrecordingMediaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media bad request response has a 2xx status code
+func (o *GetOrphanrecordingMediaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media bad request response has a 3xx status code
+func (o *GetOrphanrecordingMediaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media bad request response has a 4xx status code
+func (o *GetOrphanrecordingMediaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media bad request response has a 5xx status code
+func (o *GetOrphanrecordingMediaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media bad request response a status code equal to that given
+func (o *GetOrphanrecordingMediaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrphanrecordingMediaBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewGetOrphanrecordingMediaUnauthorized() *GetOrphanrecordingMediaUnauthoriz
 	return &GetOrphanrecordingMediaUnauthorized{}
 }
 
-/*GetOrphanrecordingMediaUnauthorized handles this case with default header values.
+/*
+GetOrphanrecordingMediaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -207,7 +297,36 @@ type GetOrphanrecordingMediaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media unauthorized response has a 2xx status code
+func (o *GetOrphanrecordingMediaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media unauthorized response has a 3xx status code
+func (o *GetOrphanrecordingMediaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media unauthorized response has a 4xx status code
+func (o *GetOrphanrecordingMediaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media unauthorized response has a 5xx status code
+func (o *GetOrphanrecordingMediaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media unauthorized response a status code equal to that given
+func (o *GetOrphanrecordingMediaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrphanrecordingMediaUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewGetOrphanrecordingMediaForbidden() *GetOrphanrecordingMediaForbidden {
 	return &GetOrphanrecordingMediaForbidden{}
 }
 
-/*GetOrphanrecordingMediaForbidden handles this case with default header values.
+/*
+GetOrphanrecordingMediaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -240,7 +360,36 @@ type GetOrphanrecordingMediaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media forbidden response has a 2xx status code
+func (o *GetOrphanrecordingMediaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media forbidden response has a 3xx status code
+func (o *GetOrphanrecordingMediaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media forbidden response has a 4xx status code
+func (o *GetOrphanrecordingMediaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media forbidden response has a 5xx status code
+func (o *GetOrphanrecordingMediaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media forbidden response a status code equal to that given
+func (o *GetOrphanrecordingMediaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrphanrecordingMediaForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaForbidden  %+v", 403, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewGetOrphanrecordingMediaNotFound() *GetOrphanrecordingMediaNotFound {
 	return &GetOrphanrecordingMediaNotFound{}
 }
 
-/*GetOrphanrecordingMediaNotFound handles this case with default header values.
+/*
+GetOrphanrecordingMediaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -273,7 +423,36 @@ type GetOrphanrecordingMediaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media not found response has a 2xx status code
+func (o *GetOrphanrecordingMediaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media not found response has a 3xx status code
+func (o *GetOrphanrecordingMediaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media not found response has a 4xx status code
+func (o *GetOrphanrecordingMediaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media not found response has a 5xx status code
+func (o *GetOrphanrecordingMediaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media not found response a status code equal to that given
+func (o *GetOrphanrecordingMediaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrphanrecordingMediaNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaNotFound  %+v", 404, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewGetOrphanrecordingMediaRequestTimeout() *GetOrphanrecordingMediaRequestT
 	return &GetOrphanrecordingMediaRequestTimeout{}
 }
 
-/*GetOrphanrecordingMediaRequestTimeout handles this case with default header values.
+/*
+GetOrphanrecordingMediaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -306,7 +486,36 @@ type GetOrphanrecordingMediaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media request timeout response has a 2xx status code
+func (o *GetOrphanrecordingMediaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media request timeout response has a 3xx status code
+func (o *GetOrphanrecordingMediaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media request timeout response has a 4xx status code
+func (o *GetOrphanrecordingMediaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media request timeout response has a 5xx status code
+func (o *GetOrphanrecordingMediaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media request timeout response a status code equal to that given
+func (o *GetOrphanrecordingMediaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrphanrecordingMediaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewGetOrphanrecordingMediaRequestEntityTooLarge() *GetOrphanrecordingMediaR
 	return &GetOrphanrecordingMediaRequestEntityTooLarge{}
 }
 
-/*GetOrphanrecordingMediaRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrphanrecordingMediaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type GetOrphanrecordingMediaRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media request entity too large response has a 2xx status code
+func (o *GetOrphanrecordingMediaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media request entity too large response has a 3xx status code
+func (o *GetOrphanrecordingMediaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media request entity too large response has a 4xx status code
+func (o *GetOrphanrecordingMediaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media request entity too large response has a 5xx status code
+func (o *GetOrphanrecordingMediaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media request entity too large response a status code equal to that given
+func (o *GetOrphanrecordingMediaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrphanrecordingMediaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewGetOrphanrecordingMediaUnsupportedMediaType() *GetOrphanrecordingMediaUn
 	return &GetOrphanrecordingMediaUnsupportedMediaType{}
 }
 
-/*GetOrphanrecordingMediaUnsupportedMediaType handles this case with default header values.
+/*
+GetOrphanrecordingMediaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type GetOrphanrecordingMediaUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media unsupported media type response has a 2xx status code
+func (o *GetOrphanrecordingMediaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media unsupported media type response has a 3xx status code
+func (o *GetOrphanrecordingMediaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media unsupported media type response has a 4xx status code
+func (o *GetOrphanrecordingMediaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media unsupported media type response has a 5xx status code
+func (o *GetOrphanrecordingMediaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media unsupported media type response a status code equal to that given
+func (o *GetOrphanrecordingMediaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrphanrecordingMediaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewGetOrphanrecordingMediaTooManyRequests() *GetOrphanrecordingMediaTooMany
 	return &GetOrphanrecordingMediaTooManyRequests{}
 }
 
-/*GetOrphanrecordingMediaTooManyRequests handles this case with default header values.
+/*
+GetOrphanrecordingMediaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type GetOrphanrecordingMediaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media too many requests response has a 2xx status code
+func (o *GetOrphanrecordingMediaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media too many requests response has a 3xx status code
+func (o *GetOrphanrecordingMediaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media too many requests response has a 4xx status code
+func (o *GetOrphanrecordingMediaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orphanrecording media too many requests response has a 5xx status code
+func (o *GetOrphanrecordingMediaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orphanrecording media too many requests response a status code equal to that given
+func (o *GetOrphanrecordingMediaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrphanrecordingMediaTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewGetOrphanrecordingMediaInternalServerError() *GetOrphanrecordingMediaInt
 	return &GetOrphanrecordingMediaInternalServerError{}
 }
 
-/*GetOrphanrecordingMediaInternalServerError handles this case with default header values.
+/*
+GetOrphanrecordingMediaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type GetOrphanrecordingMediaInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media internal server error response has a 2xx status code
+func (o *GetOrphanrecordingMediaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media internal server error response has a 3xx status code
+func (o *GetOrphanrecordingMediaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media internal server error response has a 4xx status code
+func (o *GetOrphanrecordingMediaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orphanrecording media internal server error response has a 5xx status code
+func (o *GetOrphanrecordingMediaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orphanrecording media internal server error response a status code equal to that given
+func (o *GetOrphanrecordingMediaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrphanrecordingMediaInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewGetOrphanrecordingMediaServiceUnavailable() *GetOrphanrecordingMediaServ
 	return &GetOrphanrecordingMediaServiceUnavailable{}
 }
 
-/*GetOrphanrecordingMediaServiceUnavailable handles this case with default header values.
+/*
+GetOrphanrecordingMediaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type GetOrphanrecordingMediaServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media service unavailable response has a 2xx status code
+func (o *GetOrphanrecordingMediaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media service unavailable response has a 3xx status code
+func (o *GetOrphanrecordingMediaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media service unavailable response has a 4xx status code
+func (o *GetOrphanrecordingMediaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orphanrecording media service unavailable response has a 5xx status code
+func (o *GetOrphanrecordingMediaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orphanrecording media service unavailable response a status code equal to that given
+func (o *GetOrphanrecordingMediaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrphanrecordingMediaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewGetOrphanrecordingMediaGatewayTimeout() *GetOrphanrecordingMediaGatewayT
 	return &GetOrphanrecordingMediaGatewayTimeout{}
 }
 
-/*GetOrphanrecordingMediaGatewayTimeout handles this case with default header values.
+/*
+GetOrphanrecordingMediaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type GetOrphanrecordingMediaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orphanrecording media gateway timeout response has a 2xx status code
+func (o *GetOrphanrecordingMediaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orphanrecording media gateway timeout response has a 3xx status code
+func (o *GetOrphanrecordingMediaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orphanrecording media gateway timeout response has a 4xx status code
+func (o *GetOrphanrecordingMediaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orphanrecording media gateway timeout response has a 5xx status code
+func (o *GetOrphanrecordingMediaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orphanrecording media gateway timeout response a status code equal to that given
+func (o *GetOrphanrecordingMediaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrphanrecordingMediaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrphanrecordingMediaGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orphanrecordings/{orphanId}/media][%d] getOrphanrecordingMediaGatewayTimeout  %+v", 504, o.Payload)
 }
 

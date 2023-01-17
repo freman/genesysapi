@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingSkillsParams creates a new PostRoutingSkillsParams object
-// with the default values initialized.
+// NewPostRoutingSkillsParams creates a new PostRoutingSkillsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingSkillsParams() *PostRoutingSkillsParams {
-	var ()
 	return &PostRoutingSkillsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingSkillsParamsWithTimeout creates a new PostRoutingSkillsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingSkillsParamsWithTimeout(timeout time.Duration) *PostRoutingSkillsParams {
-	var ()
 	return &PostRoutingSkillsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingSkillsParamsWithContext creates a new PostRoutingSkillsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingSkillsParamsWithContext(ctx context.Context) *PostRoutingSkillsParams {
-	var ()
 	return &PostRoutingSkillsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingSkillsParamsWithHTTPClient creates a new PostRoutingSkillsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingSkillsParamsWithHTTPClient(client *http.Client) *PostRoutingSkillsParams {
-	var ()
 	return &PostRoutingSkillsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingSkillsParams contains all the parameters to send to the API endpoint
-for the post routing skills operation typically these are written to a http.Request
+/*
+PostRoutingSkillsParams contains all the parameters to send to the API endpoint
+
+	for the post routing skills operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingSkillsParams struct {
 
-	/*Body
-	  Skill
+	/* Body.
 
+	   Skill
 	*/
 	Body *models.RoutingSkill
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing skills params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingSkillsParams) WithDefaults() *PostRoutingSkillsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing skills params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingSkillsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing skills params
@@ -124,7 +140,6 @@ func (o *PostRoutingSkillsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

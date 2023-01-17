@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementAgentsMeManagementunitReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitOK() *GetWorkforcemanagement
 	return &GetWorkforcemanagementAgentsMeManagementunitOK{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitOK handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementAgentsMeManagementunitOK struct {
 	Payload *models.AgentManagementUnitReference
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit o k response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit o k response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit o k response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit o k response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit o k response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitBadRequest() *GetWorkforcema
 	return &GetWorkforcemanagementAgentsMeManagementunitBadRequest{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementAgentsMeManagementunitBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit bad request response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit bad request response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit bad request response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit bad request response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit bad request response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitUnauthorized() *GetWorkforce
 	return &GetWorkforcemanagementAgentsMeManagementunitUnauthorized{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementAgentsMeManagementunitUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitForbidden() *GetWorkforceman
 	return &GetWorkforcemanagementAgentsMeManagementunitForbidden{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementAgentsMeManagementunitForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitNotFound() *GetWorkforcemana
 	return &GetWorkforcemanagementAgentsMeManagementunitNotFound{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementAgentsMeManagementunitNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit not found response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit not found response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit not found response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit not found response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit not found response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitRequestTimeout() *GetWorkfor
 	return &GetWorkforcemanagementAgentsMeManagementunitRequestTimeout{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementAgentsMeManagementunitRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge() *Get
 	return &GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType() *GetW
 	return &GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitTooManyRequests() *GetWorkfo
 	return &GetWorkforcemanagementAgentsMeManagementunitTooManyRequests{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementAgentsMeManagementunitTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitInternalServerError() *GetWo
 	return &GetWorkforcemanagementAgentsMeManagementunitInternalServerError{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementAgentsMeManagementunitInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitServiceUnavailable() *GetWor
 	return &GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementAgentsMeManagementunitGatewayTimeout() *GetWorkfor
 	return &GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement agents me managementunit gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement agents me managementunit gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement agents me managementunit gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement agents me managementunit gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement agents me managementunit gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAgentsMeManagementunitGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/agents/me/managementunit][%d] getWorkforcemanagementAgentsMeManagementunitGatewayTimeout  %+v", 504, o.Payload)
 }
 

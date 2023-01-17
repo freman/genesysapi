@@ -95,7 +95,6 @@ func (o *PostArchitectSchedulesReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostArchitectSchedulesOK() *PostArchitectSchedulesOK {
 	return &PostArchitectSchedulesOK{}
 }
 
-/*PostArchitectSchedulesOK handles this case with default header values.
+/*
+PostArchitectSchedulesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostArchitectSchedulesOK struct {
 	Payload *models.Schedule
 }
 
+// IsSuccess returns true when this post architect schedules o k response has a 2xx status code
+func (o *PostArchitectSchedulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post architect schedules o k response has a 3xx status code
+func (o *PostArchitectSchedulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules o k response has a 4xx status code
+func (o *PostArchitectSchedulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect schedules o k response has a 5xx status code
+func (o *PostArchitectSchedulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules o k response a status code equal to that given
+func (o *PostArchitectSchedulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostArchitectSchedulesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostArchitectSchedulesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostArchitectSchedulesBadRequest() *PostArchitectSchedulesBadRequest {
 	return &PostArchitectSchedulesBadRequest{}
 }
 
-/*PostArchitectSchedulesBadRequest handles this case with default header values.
+/*
+PostArchitectSchedulesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostArchitectSchedulesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules bad request response has a 2xx status code
+func (o *PostArchitectSchedulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules bad request response has a 3xx status code
+func (o *PostArchitectSchedulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules bad request response has a 4xx status code
+func (o *PostArchitectSchedulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules bad request response has a 5xx status code
+func (o *PostArchitectSchedulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules bad request response a status code equal to that given
+func (o *PostArchitectSchedulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostArchitectSchedulesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostArchitectSchedulesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostArchitectSchedulesUnauthorized() *PostArchitectSchedulesUnauthorized
 	return &PostArchitectSchedulesUnauthorized{}
 }
 
-/*PostArchitectSchedulesUnauthorized handles this case with default header values.
+/*
+PostArchitectSchedulesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostArchitectSchedulesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules unauthorized response has a 2xx status code
+func (o *PostArchitectSchedulesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules unauthorized response has a 3xx status code
+func (o *PostArchitectSchedulesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules unauthorized response has a 4xx status code
+func (o *PostArchitectSchedulesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules unauthorized response has a 5xx status code
+func (o *PostArchitectSchedulesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules unauthorized response a status code equal to that given
+func (o *PostArchitectSchedulesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostArchitectSchedulesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostArchitectSchedulesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostArchitectSchedulesForbidden() *PostArchitectSchedulesForbidden {
 	return &PostArchitectSchedulesForbidden{}
 }
 
-/*PostArchitectSchedulesForbidden handles this case with default header values.
+/*
+PostArchitectSchedulesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostArchitectSchedulesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules forbidden response has a 2xx status code
+func (o *PostArchitectSchedulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules forbidden response has a 3xx status code
+func (o *PostArchitectSchedulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules forbidden response has a 4xx status code
+func (o *PostArchitectSchedulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules forbidden response has a 5xx status code
+func (o *PostArchitectSchedulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules forbidden response a status code equal to that given
+func (o *PostArchitectSchedulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostArchitectSchedulesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostArchitectSchedulesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostArchitectSchedulesNotFound() *PostArchitectSchedulesNotFound {
 	return &PostArchitectSchedulesNotFound{}
 }
 
-/*PostArchitectSchedulesNotFound handles this case with default header values.
+/*
+PostArchitectSchedulesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostArchitectSchedulesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules not found response has a 2xx status code
+func (o *PostArchitectSchedulesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules not found response has a 3xx status code
+func (o *PostArchitectSchedulesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules not found response has a 4xx status code
+func (o *PostArchitectSchedulesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules not found response has a 5xx status code
+func (o *PostArchitectSchedulesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules not found response a status code equal to that given
+func (o *PostArchitectSchedulesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostArchitectSchedulesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostArchitectSchedulesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostArchitectSchedulesRequestTimeout() *PostArchitectSchedulesRequestTim
 	return &PostArchitectSchedulesRequestTimeout{}
 }
 
-/*PostArchitectSchedulesRequestTimeout handles this case with default header values.
+/*
+PostArchitectSchedulesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostArchitectSchedulesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules request timeout response has a 2xx status code
+func (o *PostArchitectSchedulesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules request timeout response has a 3xx status code
+func (o *PostArchitectSchedulesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules request timeout response has a 4xx status code
+func (o *PostArchitectSchedulesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules request timeout response has a 5xx status code
+func (o *PostArchitectSchedulesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules request timeout response a status code equal to that given
+func (o *PostArchitectSchedulesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostArchitectSchedulesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostArchitectSchedulesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostArchitectSchedulesRequestEntityTooLarge() *PostArchitectSchedulesReq
 	return &PostArchitectSchedulesRequestEntityTooLarge{}
 }
 
-/*PostArchitectSchedulesRequestEntityTooLarge handles this case with default header values.
+/*
+PostArchitectSchedulesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostArchitectSchedulesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules request entity too large response has a 2xx status code
+func (o *PostArchitectSchedulesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules request entity too large response has a 3xx status code
+func (o *PostArchitectSchedulesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules request entity too large response has a 4xx status code
+func (o *PostArchitectSchedulesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules request entity too large response has a 5xx status code
+func (o *PostArchitectSchedulesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules request entity too large response a status code equal to that given
+func (o *PostArchitectSchedulesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostArchitectSchedulesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostArchitectSchedulesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostArchitectSchedulesUnsupportedMediaType() *PostArchitectSchedulesUnsu
 	return &PostArchitectSchedulesUnsupportedMediaType{}
 }
 
-/*PostArchitectSchedulesUnsupportedMediaType handles this case with default header values.
+/*
+PostArchitectSchedulesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostArchitectSchedulesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules unsupported media type response has a 2xx status code
+func (o *PostArchitectSchedulesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules unsupported media type response has a 3xx status code
+func (o *PostArchitectSchedulesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules unsupported media type response has a 4xx status code
+func (o *PostArchitectSchedulesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules unsupported media type response has a 5xx status code
+func (o *PostArchitectSchedulesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules unsupported media type response a status code equal to that given
+func (o *PostArchitectSchedulesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostArchitectSchedulesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostArchitectSchedulesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostArchitectSchedulesTooManyRequests() *PostArchitectSchedulesTooManyRe
 	return &PostArchitectSchedulesTooManyRequests{}
 }
 
-/*PostArchitectSchedulesTooManyRequests handles this case with default header values.
+/*
+PostArchitectSchedulesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostArchitectSchedulesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules too many requests response has a 2xx status code
+func (o *PostArchitectSchedulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules too many requests response has a 3xx status code
+func (o *PostArchitectSchedulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules too many requests response has a 4xx status code
+func (o *PostArchitectSchedulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect schedules too many requests response has a 5xx status code
+func (o *PostArchitectSchedulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect schedules too many requests response a status code equal to that given
+func (o *PostArchitectSchedulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostArchitectSchedulesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostArchitectSchedulesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostArchitectSchedulesInternalServerError() *PostArchitectSchedulesInter
 	return &PostArchitectSchedulesInternalServerError{}
 }
 
-/*PostArchitectSchedulesInternalServerError handles this case with default header values.
+/*
+PostArchitectSchedulesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostArchitectSchedulesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules internal server error response has a 2xx status code
+func (o *PostArchitectSchedulesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules internal server error response has a 3xx status code
+func (o *PostArchitectSchedulesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules internal server error response has a 4xx status code
+func (o *PostArchitectSchedulesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect schedules internal server error response has a 5xx status code
+func (o *PostArchitectSchedulesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect schedules internal server error response a status code equal to that given
+func (o *PostArchitectSchedulesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostArchitectSchedulesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostArchitectSchedulesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostArchitectSchedulesServiceUnavailable() *PostArchitectSchedulesServic
 	return &PostArchitectSchedulesServiceUnavailable{}
 }
 
-/*PostArchitectSchedulesServiceUnavailable handles this case with default header values.
+/*
+PostArchitectSchedulesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostArchitectSchedulesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules service unavailable response has a 2xx status code
+func (o *PostArchitectSchedulesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules service unavailable response has a 3xx status code
+func (o *PostArchitectSchedulesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules service unavailable response has a 4xx status code
+func (o *PostArchitectSchedulesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect schedules service unavailable response has a 5xx status code
+func (o *PostArchitectSchedulesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect schedules service unavailable response a status code equal to that given
+func (o *PostArchitectSchedulesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostArchitectSchedulesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostArchitectSchedulesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostArchitectSchedulesGatewayTimeout() *PostArchitectSchedulesGatewayTim
 	return &PostArchitectSchedulesGatewayTimeout{}
 }
 
-/*PostArchitectSchedulesGatewayTimeout handles this case with default header values.
+/*
+PostArchitectSchedulesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostArchitectSchedulesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect schedules gateway timeout response has a 2xx status code
+func (o *PostArchitectSchedulesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect schedules gateway timeout response has a 3xx status code
+func (o *PostArchitectSchedulesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect schedules gateway timeout response has a 4xx status code
+func (o *PostArchitectSchedulesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect schedules gateway timeout response has a 5xx status code
+func (o *PostArchitectSchedulesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect schedules gateway timeout response a status code equal to that given
+func (o *PostArchitectSchedulesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostArchitectSchedulesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostArchitectSchedulesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/schedules][%d] postArchitectSchedulesGatewayTimeout  %+v", 504, o.Payload)
 }
 

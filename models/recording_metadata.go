@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -135,7 +136,6 @@ func (m *RecordingMetadata) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingMetadata) validateAnnotations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Annotations) { // not required
 		return nil
 	}
@@ -149,6 +149,8 @@ func (m *RecordingMetadata) validateAnnotations(formats strfmt.Registry) error {
 			if err := m.Annotations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("annotations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("annotations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -160,7 +162,6 @@ func (m *RecordingMetadata) validateAnnotations(formats strfmt.Registry) error {
 }
 
 func (m *RecordingMetadata) validateArchiveDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveDate) { // not required
 		return nil
 	}
@@ -199,7 +200,6 @@ func (m *RecordingMetadata) validateArchiveMediumEnum(path, location string, val
 }
 
 func (m *RecordingMetadata) validateArchiveMedium(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveMedium) { // not required
 		return nil
 	}
@@ -213,7 +213,6 @@ func (m *RecordingMetadata) validateArchiveMedium(formats strfmt.Registry) error
 }
 
 func (m *RecordingMetadata) validateDeleteDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeleteDate) { // not required
 		return nil
 	}
@@ -226,7 +225,6 @@ func (m *RecordingMetadata) validateDeleteDate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingMetadata) validateExportDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExportDate) { // not required
 		return nil
 	}
@@ -239,7 +237,6 @@ func (m *RecordingMetadata) validateExportDate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingMetadata) validateExportedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExportedDate) { // not required
 		return nil
 	}
@@ -296,7 +293,6 @@ func (m *RecordingMetadata) validateFileStateEnum(path, location string, value s
 }
 
 func (m *RecordingMetadata) validateFileState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FileState) { // not required
 		return nil
 	}
@@ -310,7 +306,6 @@ func (m *RecordingMetadata) validateFileState(formats strfmt.Registry) error {
 }
 
 func (m *RecordingMetadata) validateRestoreExpirationTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RestoreExpirationTime) { // not required
 		return nil
 	}
@@ -323,12 +318,71 @@ func (m *RecordingMetadata) validateRestoreExpirationTime(formats strfmt.Registr
 }
 
 func (m *RecordingMetadata) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording metadata based on the context it is used
+func (m *RecordingMetadata) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAnnotations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecordingMetadata) contextValidateAnnotations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Annotations); i++ {
+
+		if m.Annotations[i] != nil {
+			if err := m.Annotations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("annotations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("annotations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingMetadata) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingMetadata) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

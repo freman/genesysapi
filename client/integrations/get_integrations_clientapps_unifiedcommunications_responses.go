@@ -95,7 +95,6 @@ func (o *GetIntegrationsClientappsUnifiedcommunicationsReader) ReadResponse(resp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsOK() *GetIntegrationsClien
 	return &GetIntegrationsClientappsUnifiedcommunicationsOK{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsOK handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsOK struct {
 	Payload *models.UCIntegrationListing
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications o k response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications o k response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications o k response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications o k response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications o k response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsBadRequest() *GetIntegrati
 	return &GetIntegrationsClientappsUnifiedcommunicationsBadRequest{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsBadRequest handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications bad request response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications bad request response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications bad request response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications bad request response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications bad request response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsUnauthorized() *GetIntegra
 	return &GetIntegrationsClientappsUnifiedcommunicationsUnauthorized{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsUnauthorized handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications unauthorized response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications unauthorized response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications unauthorized response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications unauthorized response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications unauthorized response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsForbidden() *GetIntegratio
 	return &GetIntegrationsClientappsUnifiedcommunicationsForbidden{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsForbidden handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications forbidden response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications forbidden response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications forbidden response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications forbidden response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications forbidden response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsNotFound() *GetIntegration
 	return &GetIntegrationsClientappsUnifiedcommunicationsNotFound{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsNotFound handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications not found response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications not found response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications not found response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications not found response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications not found response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsRequestTimeout() *GetInteg
 	return &GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications request timeout response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications request timeout response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications request timeout response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications request timeout response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications request timeout response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge() *G
 	return &GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications request entity too large response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications request entity too large response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications request entity too large response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications request entity too large response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications request entity too large response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType() *Ge
 	return &GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications unsupported media type response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications unsupported media type response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications unsupported media type response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications unsupported media type response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications unsupported media type response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsTooManyRequests() *GetInte
 	return &GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications too many requests response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications too many requests response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications too many requests response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications too many requests response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications too many requests response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsInternalServerError() *Get
 	return &GetIntegrationsClientappsUnifiedcommunicationsInternalServerError{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsInternalServerError handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications internal server error response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications internal server error response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications internal server error response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications internal server error response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications internal server error response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable() *GetI
 	return &GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications service unavailable response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications service unavailable response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications service unavailable response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications service unavailable response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications service unavailable response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout() *GetInteg
 	return &GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout{}
 }
 
-/*GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations clientapps unifiedcommunications gateway timeout response has a 2xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations clientapps unifiedcommunications gateway timeout response has a 3xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations clientapps unifiedcommunications gateway timeout response has a 4xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations clientapps unifiedcommunications gateway timeout response has a 5xx status code
+func (o *GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations clientapps unifiedcommunications gateway timeout response a status code equal to that given
+func (o *GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsClientappsUnifiedcommunicationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/clientapps/unifiedcommunications][%d] getIntegrationsClientappsUnifiedcommunicationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -101,7 +101,6 @@ func (o *PostPresenceSourcesReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostPresenceSourcesOK() *PostPresenceSourcesOK {
 	return &PostPresenceSourcesOK{}
 }
 
-/*PostPresenceSourcesOK handles this case with default header values.
+/*
+PostPresenceSourcesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostPresenceSourcesOK struct {
 	Payload *models.Source
 }
 
+// IsSuccess returns true when this post presence sources o k response has a 2xx status code
+func (o *PostPresenceSourcesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post presence sources o k response has a 3xx status code
+func (o *PostPresenceSourcesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources o k response has a 4xx status code
+func (o *PostPresenceSourcesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presence sources o k response has a 5xx status code
+func (o *PostPresenceSourcesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources o k response a status code equal to that given
+func (o *PostPresenceSourcesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostPresenceSourcesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostPresenceSourcesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostPresenceSourcesBadRequest() *PostPresenceSourcesBadRequest {
 	return &PostPresenceSourcesBadRequest{}
 }
 
-/*PostPresenceSourcesBadRequest handles this case with default header values.
+/*
+PostPresenceSourcesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostPresenceSourcesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources bad request response has a 2xx status code
+func (o *PostPresenceSourcesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources bad request response has a 3xx status code
+func (o *PostPresenceSourcesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources bad request response has a 4xx status code
+func (o *PostPresenceSourcesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources bad request response has a 5xx status code
+func (o *PostPresenceSourcesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources bad request response a status code equal to that given
+func (o *PostPresenceSourcesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostPresenceSourcesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostPresenceSourcesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostPresenceSourcesUnauthorized() *PostPresenceSourcesUnauthorized {
 	return &PostPresenceSourcesUnauthorized{}
 }
 
-/*PostPresenceSourcesUnauthorized handles this case with default header values.
+/*
+PostPresenceSourcesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostPresenceSourcesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources unauthorized response has a 2xx status code
+func (o *PostPresenceSourcesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources unauthorized response has a 3xx status code
+func (o *PostPresenceSourcesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources unauthorized response has a 4xx status code
+func (o *PostPresenceSourcesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources unauthorized response has a 5xx status code
+func (o *PostPresenceSourcesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources unauthorized response a status code equal to that given
+func (o *PostPresenceSourcesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostPresenceSourcesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostPresenceSourcesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostPresenceSourcesForbidden() *PostPresenceSourcesForbidden {
 	return &PostPresenceSourcesForbidden{}
 }
 
-/*PostPresenceSourcesForbidden handles this case with default header values.
+/*
+PostPresenceSourcesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostPresenceSourcesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources forbidden response has a 2xx status code
+func (o *PostPresenceSourcesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources forbidden response has a 3xx status code
+func (o *PostPresenceSourcesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources forbidden response has a 4xx status code
+func (o *PostPresenceSourcesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources forbidden response has a 5xx status code
+func (o *PostPresenceSourcesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources forbidden response a status code equal to that given
+func (o *PostPresenceSourcesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostPresenceSourcesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostPresenceSourcesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostPresenceSourcesNotFound() *PostPresenceSourcesNotFound {
 	return &PostPresenceSourcesNotFound{}
 }
 
-/*PostPresenceSourcesNotFound handles this case with default header values.
+/*
+PostPresenceSourcesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostPresenceSourcesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources not found response has a 2xx status code
+func (o *PostPresenceSourcesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources not found response has a 3xx status code
+func (o *PostPresenceSourcesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources not found response has a 4xx status code
+func (o *PostPresenceSourcesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources not found response has a 5xx status code
+func (o *PostPresenceSourcesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources not found response a status code equal to that given
+func (o *PostPresenceSourcesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostPresenceSourcesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostPresenceSourcesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostPresenceSourcesRequestTimeout() *PostPresenceSourcesRequestTimeout {
 	return &PostPresenceSourcesRequestTimeout{}
 }
 
-/*PostPresenceSourcesRequestTimeout handles this case with default header values.
+/*
+PostPresenceSourcesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostPresenceSourcesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources request timeout response has a 2xx status code
+func (o *PostPresenceSourcesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources request timeout response has a 3xx status code
+func (o *PostPresenceSourcesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources request timeout response has a 4xx status code
+func (o *PostPresenceSourcesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources request timeout response has a 5xx status code
+func (o *PostPresenceSourcesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources request timeout response a status code equal to that given
+func (o *PostPresenceSourcesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostPresenceSourcesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostPresenceSourcesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostPresenceSourcesConflict() *PostPresenceSourcesConflict {
 	return &PostPresenceSourcesConflict{}
 }
 
-/*PostPresenceSourcesConflict handles this case with default header values.
+/*
+PostPresenceSourcesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostPresenceSourcesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources conflict response has a 2xx status code
+func (o *PostPresenceSourcesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources conflict response has a 3xx status code
+func (o *PostPresenceSourcesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources conflict response has a 4xx status code
+func (o *PostPresenceSourcesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources conflict response has a 5xx status code
+func (o *PostPresenceSourcesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources conflict response a status code equal to that given
+func (o *PostPresenceSourcesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostPresenceSourcesConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostPresenceSourcesConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostPresenceSourcesRequestEntityTooLarge() *PostPresenceSourcesRequestEn
 	return &PostPresenceSourcesRequestEntityTooLarge{}
 }
 
-/*PostPresenceSourcesRequestEntityTooLarge handles this case with default header values.
+/*
+PostPresenceSourcesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostPresenceSourcesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources request entity too large response has a 2xx status code
+func (o *PostPresenceSourcesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources request entity too large response has a 3xx status code
+func (o *PostPresenceSourcesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources request entity too large response has a 4xx status code
+func (o *PostPresenceSourcesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources request entity too large response has a 5xx status code
+func (o *PostPresenceSourcesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources request entity too large response a status code equal to that given
+func (o *PostPresenceSourcesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostPresenceSourcesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostPresenceSourcesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostPresenceSourcesUnsupportedMediaType() *PostPresenceSourcesUnsupporte
 	return &PostPresenceSourcesUnsupportedMediaType{}
 }
 
-/*PostPresenceSourcesUnsupportedMediaType handles this case with default header values.
+/*
+PostPresenceSourcesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostPresenceSourcesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources unsupported media type response has a 2xx status code
+func (o *PostPresenceSourcesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources unsupported media type response has a 3xx status code
+func (o *PostPresenceSourcesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources unsupported media type response has a 4xx status code
+func (o *PostPresenceSourcesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources unsupported media type response has a 5xx status code
+func (o *PostPresenceSourcesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources unsupported media type response a status code equal to that given
+func (o *PostPresenceSourcesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostPresenceSourcesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostPresenceSourcesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostPresenceSourcesTooManyRequests() *PostPresenceSourcesTooManyRequests
 	return &PostPresenceSourcesTooManyRequests{}
 }
 
-/*PostPresenceSourcesTooManyRequests handles this case with default header values.
+/*
+PostPresenceSourcesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostPresenceSourcesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources too many requests response has a 2xx status code
+func (o *PostPresenceSourcesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources too many requests response has a 3xx status code
+func (o *PostPresenceSourcesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources too many requests response has a 4xx status code
+func (o *PostPresenceSourcesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presence sources too many requests response has a 5xx status code
+func (o *PostPresenceSourcesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presence sources too many requests response a status code equal to that given
+func (o *PostPresenceSourcesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostPresenceSourcesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostPresenceSourcesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostPresenceSourcesInternalServerError() *PostPresenceSourcesInternalSer
 	return &PostPresenceSourcesInternalServerError{}
 }
 
-/*PostPresenceSourcesInternalServerError handles this case with default header values.
+/*
+PostPresenceSourcesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostPresenceSourcesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources internal server error response has a 2xx status code
+func (o *PostPresenceSourcesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources internal server error response has a 3xx status code
+func (o *PostPresenceSourcesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources internal server error response has a 4xx status code
+func (o *PostPresenceSourcesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presence sources internal server error response has a 5xx status code
+func (o *PostPresenceSourcesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post presence sources internal server error response a status code equal to that given
+func (o *PostPresenceSourcesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostPresenceSourcesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostPresenceSourcesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostPresenceSourcesServiceUnavailable() *PostPresenceSourcesServiceUnava
 	return &PostPresenceSourcesServiceUnavailable{}
 }
 
-/*PostPresenceSourcesServiceUnavailable handles this case with default header values.
+/*
+PostPresenceSourcesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostPresenceSourcesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources service unavailable response has a 2xx status code
+func (o *PostPresenceSourcesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources service unavailable response has a 3xx status code
+func (o *PostPresenceSourcesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources service unavailable response has a 4xx status code
+func (o *PostPresenceSourcesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presence sources service unavailable response has a 5xx status code
+func (o *PostPresenceSourcesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post presence sources service unavailable response a status code equal to that given
+func (o *PostPresenceSourcesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostPresenceSourcesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostPresenceSourcesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostPresenceSourcesGatewayTimeout() *PostPresenceSourcesGatewayTimeout {
 	return &PostPresenceSourcesGatewayTimeout{}
 }
 
-/*PostPresenceSourcesGatewayTimeout handles this case with default header values.
+/*
+PostPresenceSourcesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostPresenceSourcesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presence sources gateway timeout response has a 2xx status code
+func (o *PostPresenceSourcesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presence sources gateway timeout response has a 3xx status code
+func (o *PostPresenceSourcesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presence sources gateway timeout response has a 4xx status code
+func (o *PostPresenceSourcesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presence sources gateway timeout response has a 5xx status code
+func (o *PostPresenceSourcesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post presence sources gateway timeout response a status code equal to that given
+func (o *PostPresenceSourcesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostPresenceSourcesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostPresenceSourcesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/presence/sources][%d] postPresenceSourcesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,71 +16,94 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationScorecardsUserPointsTrendsParams creates a new GetGamificationScorecardsUserPointsTrendsParams object
-// with the default values initialized.
+// NewGetGamificationScorecardsUserPointsTrendsParams creates a new GetGamificationScorecardsUserPointsTrendsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationScorecardsUserPointsTrendsParams() *GetGamificationScorecardsUserPointsTrendsParams {
-	var ()
 	return &GetGamificationScorecardsUserPointsTrendsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationScorecardsUserPointsTrendsParamsWithTimeout creates a new GetGamificationScorecardsUserPointsTrendsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationScorecardsUserPointsTrendsParamsWithTimeout(timeout time.Duration) *GetGamificationScorecardsUserPointsTrendsParams {
-	var ()
 	return &GetGamificationScorecardsUserPointsTrendsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationScorecardsUserPointsTrendsParamsWithContext creates a new GetGamificationScorecardsUserPointsTrendsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationScorecardsUserPointsTrendsParamsWithContext(ctx context.Context) *GetGamificationScorecardsUserPointsTrendsParams {
-	var ()
 	return &GetGamificationScorecardsUserPointsTrendsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationScorecardsUserPointsTrendsParamsWithHTTPClient creates a new GetGamificationScorecardsUserPointsTrendsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationScorecardsUserPointsTrendsParamsWithHTTPClient(client *http.Client) *GetGamificationScorecardsUserPointsTrendsParams {
-	var ()
 	return &GetGamificationScorecardsUserPointsTrendsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationScorecardsUserPointsTrendsParams contains all the parameters to send to the API endpoint
-for the get gamification scorecards user points trends operation typically these are written to a http.Request
+/*
+GetGamificationScorecardsUserPointsTrendsParams contains all the parameters to send to the API endpoint
+
+	for the get gamification scorecards user points trends operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationScorecardsUserPointsTrendsParams struct {
 
-	/*DayOfWeek
-	  Optional filter to specify which day of weeks to be included in the response
+	/* DayOfWeek.
 
+	   Optional filter to specify which day of weeks to be included in the response
 	*/
 	DayOfWeek *string
-	/*EndWorkday
-	  End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* EndWorkday.
+
+	   End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	EndWorkday strfmt.Date
-	/*StartWorkday
-	  Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* StartWorkday.
+
+	   Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	StartWorkday strfmt.Date
-	/*UserID*/
+
+	// UserID.
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification scorecards user points trends params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUserPointsTrendsParams) WithDefaults() *GetGamificationScorecardsUserPointsTrendsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification scorecards user points trends params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUserPointsTrendsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification scorecards user points trends params
@@ -172,22 +195,24 @@ func (o *GetGamificationScorecardsUserPointsTrendsParams) WriteToRequest(r runti
 
 		// query param dayOfWeek
 		var qrDayOfWeek string
+
 		if o.DayOfWeek != nil {
 			qrDayOfWeek = *o.DayOfWeek
 		}
 		qDayOfWeek := qrDayOfWeek
 		if qDayOfWeek != "" {
+
 			if err := r.SetQueryParam("dayOfWeek", qDayOfWeek); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param endWorkday
 	qrEndWorkday := o.EndWorkday
 	qEndWorkday := qrEndWorkday.String()
 	if qEndWorkday != "" {
+
 		if err := r.SetQueryParam("endWorkday", qEndWorkday); err != nil {
 			return err
 		}
@@ -197,6 +222,7 @@ func (o *GetGamificationScorecardsUserPointsTrendsParams) WriteToRequest(r runti
 	qrStartWorkday := o.StartWorkday
 	qStartWorkday := qrStartWorkday.String()
 	if qStartWorkday != "" {
+
 		if err := r.SetQueryParam("startWorkday", qStartWorkday); err != nil {
 			return err
 		}

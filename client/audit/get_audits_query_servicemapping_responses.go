@@ -95,7 +95,6 @@ func (o *GetAuditsQueryServicemappingReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAuditsQueryServicemappingOK() *GetAuditsQueryServicemappingOK {
 	return &GetAuditsQueryServicemappingOK{}
 }
 
-/*GetAuditsQueryServicemappingOK handles this case with default header values.
+/*
+GetAuditsQueryServicemappingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAuditsQueryServicemappingOK struct {
 	Payload *models.AuditQueryServiceMapping
 }
 
+// IsSuccess returns true when this get audits query servicemapping o k response has a 2xx status code
+func (o *GetAuditsQueryServicemappingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get audits query servicemapping o k response has a 3xx status code
+func (o *GetAuditsQueryServicemappingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping o k response has a 4xx status code
+func (o *GetAuditsQueryServicemappingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query servicemapping o k response has a 5xx status code
+func (o *GetAuditsQueryServicemappingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping o k response a status code equal to that given
+func (o *GetAuditsQueryServicemappingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAuditsQueryServicemappingOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAuditsQueryServicemappingBadRequest() *GetAuditsQueryServicemappingBa
 	return &GetAuditsQueryServicemappingBadRequest{}
 }
 
-/*GetAuditsQueryServicemappingBadRequest handles this case with default header values.
+/*
+GetAuditsQueryServicemappingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAuditsQueryServicemappingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping bad request response has a 2xx status code
+func (o *GetAuditsQueryServicemappingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping bad request response has a 3xx status code
+func (o *GetAuditsQueryServicemappingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping bad request response has a 4xx status code
+func (o *GetAuditsQueryServicemappingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping bad request response has a 5xx status code
+func (o *GetAuditsQueryServicemappingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping bad request response a status code equal to that given
+func (o *GetAuditsQueryServicemappingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAuditsQueryServicemappingBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAuditsQueryServicemappingUnauthorized() *GetAuditsQueryServicemapping
 	return &GetAuditsQueryServicemappingUnauthorized{}
 }
 
-/*GetAuditsQueryServicemappingUnauthorized handles this case with default header values.
+/*
+GetAuditsQueryServicemappingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAuditsQueryServicemappingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping unauthorized response has a 2xx status code
+func (o *GetAuditsQueryServicemappingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping unauthorized response has a 3xx status code
+func (o *GetAuditsQueryServicemappingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping unauthorized response has a 4xx status code
+func (o *GetAuditsQueryServicemappingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping unauthorized response has a 5xx status code
+func (o *GetAuditsQueryServicemappingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping unauthorized response a status code equal to that given
+func (o *GetAuditsQueryServicemappingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAuditsQueryServicemappingUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAuditsQueryServicemappingForbidden() *GetAuditsQueryServicemappingFor
 	return &GetAuditsQueryServicemappingForbidden{}
 }
 
-/*GetAuditsQueryServicemappingForbidden handles this case with default header values.
+/*
+GetAuditsQueryServicemappingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAuditsQueryServicemappingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping forbidden response has a 2xx status code
+func (o *GetAuditsQueryServicemappingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping forbidden response has a 3xx status code
+func (o *GetAuditsQueryServicemappingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping forbidden response has a 4xx status code
+func (o *GetAuditsQueryServicemappingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping forbidden response has a 5xx status code
+func (o *GetAuditsQueryServicemappingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping forbidden response a status code equal to that given
+func (o *GetAuditsQueryServicemappingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAuditsQueryServicemappingForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAuditsQueryServicemappingNotFound() *GetAuditsQueryServicemappingNotF
 	return &GetAuditsQueryServicemappingNotFound{}
 }
 
-/*GetAuditsQueryServicemappingNotFound handles this case with default header values.
+/*
+GetAuditsQueryServicemappingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAuditsQueryServicemappingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping not found response has a 2xx status code
+func (o *GetAuditsQueryServicemappingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping not found response has a 3xx status code
+func (o *GetAuditsQueryServicemappingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping not found response has a 4xx status code
+func (o *GetAuditsQueryServicemappingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping not found response has a 5xx status code
+func (o *GetAuditsQueryServicemappingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping not found response a status code equal to that given
+func (o *GetAuditsQueryServicemappingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAuditsQueryServicemappingNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAuditsQueryServicemappingRequestTimeout() *GetAuditsQueryServicemappi
 	return &GetAuditsQueryServicemappingRequestTimeout{}
 }
 
-/*GetAuditsQueryServicemappingRequestTimeout handles this case with default header values.
+/*
+GetAuditsQueryServicemappingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAuditsQueryServicemappingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping request timeout response has a 2xx status code
+func (o *GetAuditsQueryServicemappingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping request timeout response has a 3xx status code
+func (o *GetAuditsQueryServicemappingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping request timeout response has a 4xx status code
+func (o *GetAuditsQueryServicemappingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping request timeout response has a 5xx status code
+func (o *GetAuditsQueryServicemappingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping request timeout response a status code equal to that given
+func (o *GetAuditsQueryServicemappingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAuditsQueryServicemappingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAuditsQueryServicemappingRequestEntityTooLarge() *GetAuditsQueryServi
 	return &GetAuditsQueryServicemappingRequestEntityTooLarge{}
 }
 
-/*GetAuditsQueryServicemappingRequestEntityTooLarge handles this case with default header values.
+/*
+GetAuditsQueryServicemappingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAuditsQueryServicemappingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping request entity too large response has a 2xx status code
+func (o *GetAuditsQueryServicemappingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping request entity too large response has a 3xx status code
+func (o *GetAuditsQueryServicemappingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping request entity too large response has a 4xx status code
+func (o *GetAuditsQueryServicemappingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping request entity too large response has a 5xx status code
+func (o *GetAuditsQueryServicemappingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping request entity too large response a status code equal to that given
+func (o *GetAuditsQueryServicemappingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAuditsQueryServicemappingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAuditsQueryServicemappingUnsupportedMediaType() *GetAuditsQueryServic
 	return &GetAuditsQueryServicemappingUnsupportedMediaType{}
 }
 
-/*GetAuditsQueryServicemappingUnsupportedMediaType handles this case with default header values.
+/*
+GetAuditsQueryServicemappingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAuditsQueryServicemappingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping unsupported media type response has a 2xx status code
+func (o *GetAuditsQueryServicemappingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping unsupported media type response has a 3xx status code
+func (o *GetAuditsQueryServicemappingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping unsupported media type response has a 4xx status code
+func (o *GetAuditsQueryServicemappingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping unsupported media type response has a 5xx status code
+func (o *GetAuditsQueryServicemappingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping unsupported media type response a status code equal to that given
+func (o *GetAuditsQueryServicemappingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAuditsQueryServicemappingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAuditsQueryServicemappingTooManyRequests() *GetAuditsQueryServicemapp
 	return &GetAuditsQueryServicemappingTooManyRequests{}
 }
 
-/*GetAuditsQueryServicemappingTooManyRequests handles this case with default header values.
+/*
+GetAuditsQueryServicemappingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAuditsQueryServicemappingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping too many requests response has a 2xx status code
+func (o *GetAuditsQueryServicemappingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping too many requests response has a 3xx status code
+func (o *GetAuditsQueryServicemappingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping too many requests response has a 4xx status code
+func (o *GetAuditsQueryServicemappingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query servicemapping too many requests response has a 5xx status code
+func (o *GetAuditsQueryServicemappingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query servicemapping too many requests response a status code equal to that given
+func (o *GetAuditsQueryServicemappingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAuditsQueryServicemappingTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAuditsQueryServicemappingInternalServerError() *GetAuditsQueryService
 	return &GetAuditsQueryServicemappingInternalServerError{}
 }
 
-/*GetAuditsQueryServicemappingInternalServerError handles this case with default header values.
+/*
+GetAuditsQueryServicemappingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAuditsQueryServicemappingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping internal server error response has a 2xx status code
+func (o *GetAuditsQueryServicemappingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping internal server error response has a 3xx status code
+func (o *GetAuditsQueryServicemappingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping internal server error response has a 4xx status code
+func (o *GetAuditsQueryServicemappingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query servicemapping internal server error response has a 5xx status code
+func (o *GetAuditsQueryServicemappingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query servicemapping internal server error response a status code equal to that given
+func (o *GetAuditsQueryServicemappingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAuditsQueryServicemappingInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAuditsQueryServicemappingServiceUnavailable() *GetAuditsQueryServicem
 	return &GetAuditsQueryServicemappingServiceUnavailable{}
 }
 
-/*GetAuditsQueryServicemappingServiceUnavailable handles this case with default header values.
+/*
+GetAuditsQueryServicemappingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAuditsQueryServicemappingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping service unavailable response has a 2xx status code
+func (o *GetAuditsQueryServicemappingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping service unavailable response has a 3xx status code
+func (o *GetAuditsQueryServicemappingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping service unavailable response has a 4xx status code
+func (o *GetAuditsQueryServicemappingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query servicemapping service unavailable response has a 5xx status code
+func (o *GetAuditsQueryServicemappingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query servicemapping service unavailable response a status code equal to that given
+func (o *GetAuditsQueryServicemappingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAuditsQueryServicemappingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAuditsQueryServicemappingGatewayTimeout() *GetAuditsQueryServicemappi
 	return &GetAuditsQueryServicemappingGatewayTimeout{}
 }
 
-/*GetAuditsQueryServicemappingGatewayTimeout handles this case with default header values.
+/*
+GetAuditsQueryServicemappingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAuditsQueryServicemappingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query servicemapping gateway timeout response has a 2xx status code
+func (o *GetAuditsQueryServicemappingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query servicemapping gateway timeout response has a 3xx status code
+func (o *GetAuditsQueryServicemappingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query servicemapping gateway timeout response has a 4xx status code
+func (o *GetAuditsQueryServicemappingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query servicemapping gateway timeout response has a 5xx status code
+func (o *GetAuditsQueryServicemappingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query servicemapping gateway timeout response a status code equal to that given
+func (o *GetAuditsQueryServicemappingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAuditsQueryServicemappingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAuditsQueryServicemappingGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/servicemapping][%d] getAuditsQueryServicemappingGatewayTimeout  %+v", 504, o.Payload)
 }
 

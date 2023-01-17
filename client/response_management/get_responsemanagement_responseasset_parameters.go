@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetResponsemanagementResponseassetParams creates a new GetResponsemanagementResponseassetParams object
-// with the default values initialized.
+// NewGetResponsemanagementResponseassetParams creates a new GetResponsemanagementResponseassetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetResponsemanagementResponseassetParams() *GetResponsemanagementResponseassetParams {
-	var ()
 	return &GetResponsemanagementResponseassetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetResponsemanagementResponseassetParamsWithTimeout creates a new GetResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetResponsemanagementResponseassetParamsWithTimeout(timeout time.Duration) *GetResponsemanagementResponseassetParams {
-	var ()
 	return &GetResponsemanagementResponseassetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetResponsemanagementResponseassetParamsWithContext creates a new GetResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetResponsemanagementResponseassetParamsWithContext(ctx context.Context) *GetResponsemanagementResponseassetParams {
-	var ()
 	return &GetResponsemanagementResponseassetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetResponsemanagementResponseassetParamsWithHTTPClient creates a new GetResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetResponsemanagementResponseassetParamsWithHTTPClient(client *http.Client) *GetResponsemanagementResponseassetParams {
-	var ()
 	return &GetResponsemanagementResponseassetParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetResponsemanagementResponseassetParams contains all the parameters to send to the API endpoint
-for the get responsemanagement responseasset operation typically these are written to a http.Request
+/*
+GetResponsemanagementResponseassetParams contains all the parameters to send to the API endpoint
+
+	for the get responsemanagement responseasset operation.
+
+	Typically these are written to a http.Request.
 */
 type GetResponsemanagementResponseassetParams struct {
 
-	/*ResponseAssetID
-	  Asset Id
+	/* ResponseAssetID.
 
+	   Asset Id
 	*/
 	ResponseAssetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get responsemanagement responseasset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementResponseassetParams) WithDefaults() *GetResponsemanagementResponseassetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get responsemanagement responseasset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementResponseassetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get responsemanagement responseasset params

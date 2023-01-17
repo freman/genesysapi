@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIdentityprovidersPurecloudParams creates a new GetIdentityprovidersPurecloudParams object
-// with the default values initialized.
+// NewGetIdentityprovidersPurecloudParams creates a new GetIdentityprovidersPurecloudParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIdentityprovidersPurecloudParams() *GetIdentityprovidersPurecloudParams {
-
 	return &GetIdentityprovidersPurecloudParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIdentityprovidersPurecloudParamsWithTimeout creates a new GetIdentityprovidersPurecloudParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIdentityprovidersPurecloudParamsWithTimeout(timeout time.Duration) *GetIdentityprovidersPurecloudParams {
-
 	return &GetIdentityprovidersPurecloudParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIdentityprovidersPurecloudParamsWithContext creates a new GetIdentityprovidersPurecloudParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIdentityprovidersPurecloudParamsWithContext(ctx context.Context) *GetIdentityprovidersPurecloudParams {
-
 	return &GetIdentityprovidersPurecloudParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIdentityprovidersPurecloudParamsWithHTTPClient creates a new GetIdentityprovidersPurecloudParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIdentityprovidersPurecloudParamsWithHTTPClient(client *http.Client) *GetIdentityprovidersPurecloudParams {
-
 	return &GetIdentityprovidersPurecloudParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIdentityprovidersPurecloudParams contains all the parameters to send to the API endpoint
-for the get identityproviders purecloud operation typically these are written to a http.Request
+/*
+GetIdentityprovidersPurecloudParams contains all the parameters to send to the API endpoint
+
+	for the get identityproviders purecloud operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIdentityprovidersPurecloudParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get identityproviders purecloud params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIdentityprovidersPurecloudParams) WithDefaults() *GetIdentityprovidersPurecloudParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get identityproviders purecloud params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIdentityprovidersPurecloudParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get identityproviders purecloud params

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,7 +54,6 @@ func (m *ScheduleGenerationResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGenerationResult) validateMessageSeverities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageSeverities) { // not required
 		return nil
 	}
@@ -67,6 +67,8 @@ func (m *ScheduleGenerationResult) validateMessageSeverities(formats strfmt.Regi
 			if err := m.MessageSeverities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messageSeverities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageSeverities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -78,7 +80,6 @@ func (m *ScheduleGenerationResult) validateMessageSeverities(formats strfmt.Regi
 }
 
 func (m *ScheduleGenerationResult) validateMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Messages) { // not required
 		return nil
 	}
@@ -92,6 +93,66 @@ func (m *ScheduleGenerationResult) validateMessages(formats strfmt.Registry) err
 			if err := m.Messages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this schedule generation result based on the context it is used
+func (m *ScheduleGenerationResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMessageSeverities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScheduleGenerationResult) contextValidateMessageSeverities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MessageSeverities); i++ {
+
+		if m.MessageSeverities[i] != nil {
+			if err := m.MessageSeverities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messageSeverities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageSeverities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScheduleGenerationResult) contextValidateMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Messages); i++ {
+
+		if m.Messages[i] != nil {
+			if err := m.Messages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

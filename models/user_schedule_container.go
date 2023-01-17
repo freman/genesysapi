@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -48,7 +49,6 @@ func (m *UserScheduleContainer) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserScheduleContainer) validatePublishedSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedSchedules) { // not required
 		return nil
 	}
@@ -62,6 +62,8 @@ func (m *UserScheduleContainer) validatePublishedSchedules(formats strfmt.Regist
 			if err := m.PublishedSchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -73,7 +75,6 @@ func (m *UserScheduleContainer) validatePublishedSchedules(formats strfmt.Regist
 }
 
 func (m *UserScheduleContainer) validateUserSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserSchedules) { // not required
 		return nil
 	}
@@ -85,6 +86,64 @@ func (m *UserScheduleContainer) validateUserSchedules(formats strfmt.Registry) e
 		}
 		if val, ok := m.UserSchedules[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userSchedules" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userSchedules" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user schedule container based on the context it is used
+func (m *UserScheduleContainer) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePublishedSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserScheduleContainer) contextValidatePublishedSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PublishedSchedules); i++ {
+
+		if m.PublishedSchedules[i] != nil {
+			if err := m.PublishedSchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserScheduleContainer) contextValidateUserSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.UserSchedules {
+
+		if val, ok := m.UserSchedules[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -30,6 +32,11 @@ type TestSchemaOperation struct {
 
 // Validate validates this test schema operation
 func (m *TestSchemaOperation) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this test schema operation based on context it is used
+func (m *TestSchemaOperation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

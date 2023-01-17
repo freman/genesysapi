@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -85,7 +86,6 @@ func (m *ButtonResponse) validateMessageTypeEnum(path, location string, value st
 }
 
 func (m *ButtonResponse) validateMessageType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageType) { // not required
 		return nil
 	}
@@ -128,7 +128,6 @@ func (m *ButtonResponse) validateTypeEnum(path, location string, value string) e
 }
 
 func (m *ButtonResponse) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -138,6 +137,11 @@ func (m *ButtonResponse) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this button response based on context it is used
+func (m *ButtonResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

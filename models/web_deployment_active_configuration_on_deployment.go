@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *WebDeploymentActiveConfigurationOnDeployment) Validate(formats strfmt.R
 }
 
 func (m *WebDeploymentActiveConfigurationOnDeployment) validateConfigurationVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConfigurationVersion) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *WebDeploymentActiveConfigurationOnDeployment) validateConfigurationVers
 		if err := m.ConfigurationVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("configurationVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configurationVersion")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *WebDeploymentActiveConfigurationOnDeployment) validateConfigurationVers
 }
 
 func (m *WebDeploymentActiveConfigurationOnDeployment) validateDeployment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Deployment) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *WebDeploymentActiveConfigurationOnDeployment) validateDeployment(format
 		if err := m.Deployment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deployment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deployment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web deployment active configuration on deployment based on the context it is used
+func (m *WebDeploymentActiveConfigurationOnDeployment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConfigurationVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeployment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebDeploymentActiveConfigurationOnDeployment) contextValidateConfigurationVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConfigurationVersion != nil {
+		if err := m.ConfigurationVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("configurationVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configurationVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentActiveConfigurationOnDeployment) contextValidateDeployment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Deployment != nil {
+		if err := m.Deployment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deployment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deployment")
 			}
 			return err
 		}

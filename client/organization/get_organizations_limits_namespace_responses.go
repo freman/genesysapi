@@ -95,7 +95,6 @@ func (o *GetOrganizationsLimitsNamespaceReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrganizationsLimitsNamespaceOK() *GetOrganizationsLimitsNamespaceOK {
 	return &GetOrganizationsLimitsNamespaceOK{}
 }
 
-/*GetOrganizationsLimitsNamespaceOK handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrganizationsLimitsNamespaceOK struct {
 	Payload *models.LimitsEntityListing
 }
 
+// IsSuccess returns true when this get organizations limits namespace o k response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organizations limits namespace o k response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace o k response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits namespace o k response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace o k response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationsLimitsNamespaceOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrganizationsLimitsNamespaceBadRequest() *GetOrganizationsLimitsNames
 	return &GetOrganizationsLimitsNamespaceBadRequest{}
 }
 
-/*GetOrganizationsLimitsNamespaceBadRequest handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrganizationsLimitsNamespaceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace bad request response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace bad request response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace bad request response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace bad request response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace bad request response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrganizationsLimitsNamespaceBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrganizationsLimitsNamespaceUnauthorized() *GetOrganizationsLimitsNam
 	return &GetOrganizationsLimitsNamespaceUnauthorized{}
 }
 
-/*GetOrganizationsLimitsNamespaceUnauthorized handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrganizationsLimitsNamespaceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace unauthorized response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace unauthorized response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace unauthorized response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace unauthorized response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace unauthorized response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrganizationsLimitsNamespaceUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrganizationsLimitsNamespaceForbidden() *GetOrganizationsLimitsNamesp
 	return &GetOrganizationsLimitsNamespaceForbidden{}
 }
 
-/*GetOrganizationsLimitsNamespaceForbidden handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrganizationsLimitsNamespaceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace forbidden response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace forbidden response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace forbidden response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace forbidden response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace forbidden response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationsLimitsNamespaceForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrganizationsLimitsNamespaceNotFound() *GetOrganizationsLimitsNamespa
 	return &GetOrganizationsLimitsNamespaceNotFound{}
 }
 
-/*GetOrganizationsLimitsNamespaceNotFound handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrganizationsLimitsNamespaceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace not found response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace not found response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace not found response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace not found response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace not found response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationsLimitsNamespaceNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrganizationsLimitsNamespaceRequestTimeout() *GetOrganizationsLimitsN
 	return &GetOrganizationsLimitsNamespaceRequestTimeout{}
 }
 
-/*GetOrganizationsLimitsNamespaceRequestTimeout handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrganizationsLimitsNamespaceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace request timeout response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace request timeout response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace request timeout response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace request timeout response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace request timeout response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrganizationsLimitsNamespaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrganizationsLimitsNamespaceRequestEntityTooLarge() *GetOrganizations
 	return &GetOrganizationsLimitsNamespaceRequestEntityTooLarge{}
 }
 
-/*GetOrganizationsLimitsNamespaceRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrganizationsLimitsNamespaceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace request entity too large response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace request entity too large response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace request entity too large response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace request entity too large response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace request entity too large response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrganizationsLimitsNamespaceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrganizationsLimitsNamespaceUnsupportedMediaType() *GetOrganizationsL
 	return &GetOrganizationsLimitsNamespaceUnsupportedMediaType{}
 }
 
-/*GetOrganizationsLimitsNamespaceUnsupportedMediaType handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrganizationsLimitsNamespaceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace unsupported media type response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace unsupported media type response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace unsupported media type response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace unsupported media type response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace unsupported media type response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrganizationsLimitsNamespaceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrganizationsLimitsNamespaceTooManyRequests() *GetOrganizationsLimits
 	return &GetOrganizationsLimitsNamespaceTooManyRequests{}
 }
 
-/*GetOrganizationsLimitsNamespaceTooManyRequests handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrganizationsLimitsNamespaceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace too many requests response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace too many requests response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace too many requests response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits namespace too many requests response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits namespace too many requests response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrganizationsLimitsNamespaceTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrganizationsLimitsNamespaceInternalServerError() *GetOrganizationsLi
 	return &GetOrganizationsLimitsNamespaceInternalServerError{}
 }
 
-/*GetOrganizationsLimitsNamespaceInternalServerError handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrganizationsLimitsNamespaceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace internal server error response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace internal server error response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace internal server error response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits namespace internal server error response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits namespace internal server error response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrganizationsLimitsNamespaceInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrganizationsLimitsNamespaceServiceUnavailable() *GetOrganizationsLim
 	return &GetOrganizationsLimitsNamespaceServiceUnavailable{}
 }
 
-/*GetOrganizationsLimitsNamespaceServiceUnavailable handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrganizationsLimitsNamespaceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace service unavailable response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace service unavailable response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace service unavailable response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits namespace service unavailable response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits namespace service unavailable response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrganizationsLimitsNamespaceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrganizationsLimitsNamespaceGatewayTimeout() *GetOrganizationsLimitsN
 	return &GetOrganizationsLimitsNamespaceGatewayTimeout{}
 }
 
-/*GetOrganizationsLimitsNamespaceGatewayTimeout handles this case with default header values.
+/*
+GetOrganizationsLimitsNamespaceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrganizationsLimitsNamespaceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits namespace gateway timeout response has a 2xx status code
+func (o *GetOrganizationsLimitsNamespaceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits namespace gateway timeout response has a 3xx status code
+func (o *GetOrganizationsLimitsNamespaceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits namespace gateway timeout response has a 4xx status code
+func (o *GetOrganizationsLimitsNamespaceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits namespace gateway timeout response has a 5xx status code
+func (o *GetOrganizationsLimitsNamespaceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits namespace gateway timeout response a status code equal to that given
+func (o *GetOrganizationsLimitsNamespaceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrganizationsLimitsNamespaceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsNamespaceGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/namespaces/{namespaceName}][%d] getOrganizationsLimitsNamespaceGatewayTimeout  %+v", 504, o.Payload)
 }
 

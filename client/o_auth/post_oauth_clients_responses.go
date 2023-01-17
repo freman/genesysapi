@@ -95,7 +95,6 @@ func (o *PostOauthClientsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOauthClientsOK() *PostOauthClientsOK {
 	return &PostOauthClientsOK{}
 }
 
-/*PostOauthClientsOK handles this case with default header values.
+/*
+PostOauthClientsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOauthClientsOK struct {
 	Payload *models.OAuthClient
 }
 
+// IsSuccess returns true when this post oauth clients o k response has a 2xx status code
+func (o *PostOauthClientsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post oauth clients o k response has a 3xx status code
+func (o *PostOauthClientsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients o k response has a 4xx status code
+func (o *PostOauthClientsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth clients o k response has a 5xx status code
+func (o *PostOauthClientsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients o k response a status code equal to that given
+func (o *PostOauthClientsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOauthClientsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOauthClientsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOauthClientsBadRequest() *PostOauthClientsBadRequest {
 	return &PostOauthClientsBadRequest{}
 }
 
-/*PostOauthClientsBadRequest handles this case with default header values.
+/*
+PostOauthClientsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOauthClientsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients bad request response has a 2xx status code
+func (o *PostOauthClientsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients bad request response has a 3xx status code
+func (o *PostOauthClientsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients bad request response has a 4xx status code
+func (o *PostOauthClientsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients bad request response has a 5xx status code
+func (o *PostOauthClientsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients bad request response a status code equal to that given
+func (o *PostOauthClientsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOauthClientsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOauthClientsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOauthClientsUnauthorized() *PostOauthClientsUnauthorized {
 	return &PostOauthClientsUnauthorized{}
 }
 
-/*PostOauthClientsUnauthorized handles this case with default header values.
+/*
+PostOauthClientsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOauthClientsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients unauthorized response has a 2xx status code
+func (o *PostOauthClientsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients unauthorized response has a 3xx status code
+func (o *PostOauthClientsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients unauthorized response has a 4xx status code
+func (o *PostOauthClientsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients unauthorized response has a 5xx status code
+func (o *PostOauthClientsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients unauthorized response a status code equal to that given
+func (o *PostOauthClientsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOauthClientsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOauthClientsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOauthClientsForbidden() *PostOauthClientsForbidden {
 	return &PostOauthClientsForbidden{}
 }
 
-/*PostOauthClientsForbidden handles this case with default header values.
+/*
+PostOauthClientsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOauthClientsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients forbidden response has a 2xx status code
+func (o *PostOauthClientsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients forbidden response has a 3xx status code
+func (o *PostOauthClientsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients forbidden response has a 4xx status code
+func (o *PostOauthClientsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients forbidden response has a 5xx status code
+func (o *PostOauthClientsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients forbidden response a status code equal to that given
+func (o *PostOauthClientsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOauthClientsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOauthClientsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOauthClientsNotFound() *PostOauthClientsNotFound {
 	return &PostOauthClientsNotFound{}
 }
 
-/*PostOauthClientsNotFound handles this case with default header values.
+/*
+PostOauthClientsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOauthClientsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients not found response has a 2xx status code
+func (o *PostOauthClientsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients not found response has a 3xx status code
+func (o *PostOauthClientsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients not found response has a 4xx status code
+func (o *PostOauthClientsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients not found response has a 5xx status code
+func (o *PostOauthClientsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients not found response a status code equal to that given
+func (o *PostOauthClientsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOauthClientsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOauthClientsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOauthClientsRequestTimeout() *PostOauthClientsRequestTimeout {
 	return &PostOauthClientsRequestTimeout{}
 }
 
-/*PostOauthClientsRequestTimeout handles this case with default header values.
+/*
+PostOauthClientsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOauthClientsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients request timeout response has a 2xx status code
+func (o *PostOauthClientsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients request timeout response has a 3xx status code
+func (o *PostOauthClientsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients request timeout response has a 4xx status code
+func (o *PostOauthClientsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients request timeout response has a 5xx status code
+func (o *PostOauthClientsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients request timeout response a status code equal to that given
+func (o *PostOauthClientsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOauthClientsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOauthClientsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOauthClientsRequestEntityTooLarge() *PostOauthClientsRequestEntityTo
 	return &PostOauthClientsRequestEntityTooLarge{}
 }
 
-/*PostOauthClientsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOauthClientsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOauthClientsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients request entity too large response has a 2xx status code
+func (o *PostOauthClientsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients request entity too large response has a 3xx status code
+func (o *PostOauthClientsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients request entity too large response has a 4xx status code
+func (o *PostOauthClientsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients request entity too large response has a 5xx status code
+func (o *PostOauthClientsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients request entity too large response a status code equal to that given
+func (o *PostOauthClientsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOauthClientsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOauthClientsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOauthClientsUnsupportedMediaType() *PostOauthClientsUnsupportedMedia
 	return &PostOauthClientsUnsupportedMediaType{}
 }
 
-/*PostOauthClientsUnsupportedMediaType handles this case with default header values.
+/*
+PostOauthClientsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOauthClientsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients unsupported media type response has a 2xx status code
+func (o *PostOauthClientsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients unsupported media type response has a 3xx status code
+func (o *PostOauthClientsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients unsupported media type response has a 4xx status code
+func (o *PostOauthClientsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients unsupported media type response has a 5xx status code
+func (o *PostOauthClientsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients unsupported media type response a status code equal to that given
+func (o *PostOauthClientsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOauthClientsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOauthClientsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOauthClientsTooManyRequests() *PostOauthClientsTooManyRequests {
 	return &PostOauthClientsTooManyRequests{}
 }
 
-/*PostOauthClientsTooManyRequests handles this case with default header values.
+/*
+PostOauthClientsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOauthClientsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients too many requests response has a 2xx status code
+func (o *PostOauthClientsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients too many requests response has a 3xx status code
+func (o *PostOauthClientsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients too many requests response has a 4xx status code
+func (o *PostOauthClientsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth clients too many requests response has a 5xx status code
+func (o *PostOauthClientsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth clients too many requests response a status code equal to that given
+func (o *PostOauthClientsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOauthClientsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOauthClientsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOauthClientsInternalServerError() *PostOauthClientsInternalServerErr
 	return &PostOauthClientsInternalServerError{}
 }
 
-/*PostOauthClientsInternalServerError handles this case with default header values.
+/*
+PostOauthClientsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOauthClientsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients internal server error response has a 2xx status code
+func (o *PostOauthClientsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients internal server error response has a 3xx status code
+func (o *PostOauthClientsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients internal server error response has a 4xx status code
+func (o *PostOauthClientsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth clients internal server error response has a 5xx status code
+func (o *PostOauthClientsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth clients internal server error response a status code equal to that given
+func (o *PostOauthClientsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOauthClientsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOauthClientsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOauthClientsServiceUnavailable() *PostOauthClientsServiceUnavailable
 	return &PostOauthClientsServiceUnavailable{}
 }
 
-/*PostOauthClientsServiceUnavailable handles this case with default header values.
+/*
+PostOauthClientsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOauthClientsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients service unavailable response has a 2xx status code
+func (o *PostOauthClientsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients service unavailable response has a 3xx status code
+func (o *PostOauthClientsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients service unavailable response has a 4xx status code
+func (o *PostOauthClientsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth clients service unavailable response has a 5xx status code
+func (o *PostOauthClientsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth clients service unavailable response a status code equal to that given
+func (o *PostOauthClientsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOauthClientsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOauthClientsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOauthClientsGatewayTimeout() *PostOauthClientsGatewayTimeout {
 	return &PostOauthClientsGatewayTimeout{}
 }
 
-/*PostOauthClientsGatewayTimeout handles this case with default header values.
+/*
+PostOauthClientsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOauthClientsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth clients gateway timeout response has a 2xx status code
+func (o *PostOauthClientsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth clients gateway timeout response has a 3xx status code
+func (o *PostOauthClientsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth clients gateway timeout response has a 4xx status code
+func (o *PostOauthClientsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth clients gateway timeout response has a 5xx status code
+func (o *PostOauthClientsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth clients gateway timeout response a status code equal to that given
+func (o *PostOauthClientsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOauthClientsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOauthClientsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients][%d] postOauthClientsGatewayTimeout  %+v", 504, o.Payload)
 }
 

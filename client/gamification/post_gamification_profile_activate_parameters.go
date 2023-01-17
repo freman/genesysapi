@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostGamificationProfileActivateParams creates a new PostGamificationProfileActivateParams object
-// with the default values initialized.
+// NewPostGamificationProfileActivateParams creates a new PostGamificationProfileActivateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGamificationProfileActivateParams() *PostGamificationProfileActivateParams {
-	var ()
 	return &PostGamificationProfileActivateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGamificationProfileActivateParamsWithTimeout creates a new PostGamificationProfileActivateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGamificationProfileActivateParamsWithTimeout(timeout time.Duration) *PostGamificationProfileActivateParams {
-	var ()
 	return &PostGamificationProfileActivateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGamificationProfileActivateParamsWithContext creates a new PostGamificationProfileActivateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGamificationProfileActivateParamsWithContext(ctx context.Context) *PostGamificationProfileActivateParams {
-	var ()
 	return &PostGamificationProfileActivateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGamificationProfileActivateParamsWithHTTPClient creates a new PostGamificationProfileActivateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGamificationProfileActivateParamsWithHTTPClient(client *http.Client) *PostGamificationProfileActivateParams {
-	var ()
 	return &PostGamificationProfileActivateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGamificationProfileActivateParams contains all the parameters to send to the API endpoint
-for the post gamification profile activate operation typically these are written to a http.Request
+/*
+PostGamificationProfileActivateParams contains all the parameters to send to the API endpoint
+
+	for the post gamification profile activate operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGamificationProfileActivateParams struct {
 
-	/*ProfileID
-	  performanceProfileId
+	/* ProfileID.
 
+	   performanceProfileId
 	*/
 	ProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post gamification profile activate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileActivateParams) WithDefaults() *PostGamificationProfileActivateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post gamification profile activate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileActivateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post gamification profile activate params

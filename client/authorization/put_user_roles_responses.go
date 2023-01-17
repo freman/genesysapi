@@ -95,7 +95,6 @@ func (o *PutUserRolesReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutUserRolesOK() *PutUserRolesOK {
 	return &PutUserRolesOK{}
 }
 
-/*PutUserRolesOK handles this case with default header values.
+/*
+PutUserRolesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutUserRolesOK struct {
 	Payload *models.UserAuthorization
 }
 
+// IsSuccess returns true when this put user roles o k response has a 2xx status code
+func (o *PutUserRolesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put user roles o k response has a 3xx status code
+func (o *PutUserRolesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles o k response has a 4xx status code
+func (o *PutUserRolesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user roles o k response has a 5xx status code
+func (o *PutUserRolesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles o k response a status code equal to that given
+func (o *PutUserRolesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutUserRolesOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesOK  %+v", 200, o.Payload)
+}
+
+func (o *PutUserRolesOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutUserRolesBadRequest() *PutUserRolesBadRequest {
 	return &PutUserRolesBadRequest{}
 }
 
-/*PutUserRolesBadRequest handles this case with default header values.
+/*
+PutUserRolesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutUserRolesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles bad request response has a 2xx status code
+func (o *PutUserRolesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles bad request response has a 3xx status code
+func (o *PutUserRolesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles bad request response has a 4xx status code
+func (o *PutUserRolesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles bad request response has a 5xx status code
+func (o *PutUserRolesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles bad request response a status code equal to that given
+func (o *PutUserRolesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUserRolesBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUserRolesBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutUserRolesUnauthorized() *PutUserRolesUnauthorized {
 	return &PutUserRolesUnauthorized{}
 }
 
-/*PutUserRolesUnauthorized handles this case with default header values.
+/*
+PutUserRolesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutUserRolesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles unauthorized response has a 2xx status code
+func (o *PutUserRolesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles unauthorized response has a 3xx status code
+func (o *PutUserRolesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles unauthorized response has a 4xx status code
+func (o *PutUserRolesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles unauthorized response has a 5xx status code
+func (o *PutUserRolesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles unauthorized response a status code equal to that given
+func (o *PutUserRolesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUserRolesUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUserRolesUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutUserRolesForbidden() *PutUserRolesForbidden {
 	return &PutUserRolesForbidden{}
 }
 
-/*PutUserRolesForbidden handles this case with default header values.
+/*
+PutUserRolesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutUserRolesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles forbidden response has a 2xx status code
+func (o *PutUserRolesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles forbidden response has a 3xx status code
+func (o *PutUserRolesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles forbidden response has a 4xx status code
+func (o *PutUserRolesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles forbidden response has a 5xx status code
+func (o *PutUserRolesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles forbidden response a status code equal to that given
+func (o *PutUserRolesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUserRolesForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUserRolesForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutUserRolesNotFound() *PutUserRolesNotFound {
 	return &PutUserRolesNotFound{}
 }
 
-/*PutUserRolesNotFound handles this case with default header values.
+/*
+PutUserRolesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutUserRolesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles not found response has a 2xx status code
+func (o *PutUserRolesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles not found response has a 3xx status code
+func (o *PutUserRolesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles not found response has a 4xx status code
+func (o *PutUserRolesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles not found response has a 5xx status code
+func (o *PutUserRolesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles not found response a status code equal to that given
+func (o *PutUserRolesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUserRolesNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUserRolesNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutUserRolesRequestTimeout() *PutUserRolesRequestTimeout {
 	return &PutUserRolesRequestTimeout{}
 }
 
-/*PutUserRolesRequestTimeout handles this case with default header values.
+/*
+PutUserRolesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutUserRolesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles request timeout response has a 2xx status code
+func (o *PutUserRolesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles request timeout response has a 3xx status code
+func (o *PutUserRolesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles request timeout response has a 4xx status code
+func (o *PutUserRolesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles request timeout response has a 5xx status code
+func (o *PutUserRolesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles request timeout response a status code equal to that given
+func (o *PutUserRolesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUserRolesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserRolesRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutUserRolesRequestEntityTooLarge() *PutUserRolesRequestEntityTooLarge {
 	return &PutUserRolesRequestEntityTooLarge{}
 }
 
-/*PutUserRolesRequestEntityTooLarge handles this case with default header values.
+/*
+PutUserRolesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutUserRolesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles request entity too large response has a 2xx status code
+func (o *PutUserRolesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles request entity too large response has a 3xx status code
+func (o *PutUserRolesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles request entity too large response has a 4xx status code
+func (o *PutUserRolesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles request entity too large response has a 5xx status code
+func (o *PutUserRolesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles request entity too large response a status code equal to that given
+func (o *PutUserRolesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUserRolesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUserRolesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutUserRolesUnsupportedMediaType() *PutUserRolesUnsupportedMediaType {
 	return &PutUserRolesUnsupportedMediaType{}
 }
 
-/*PutUserRolesUnsupportedMediaType handles this case with default header values.
+/*
+PutUserRolesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutUserRolesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles unsupported media type response has a 2xx status code
+func (o *PutUserRolesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles unsupported media type response has a 3xx status code
+func (o *PutUserRolesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles unsupported media type response has a 4xx status code
+func (o *PutUserRolesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles unsupported media type response has a 5xx status code
+func (o *PutUserRolesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles unsupported media type response a status code equal to that given
+func (o *PutUserRolesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUserRolesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUserRolesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutUserRolesTooManyRequests() *PutUserRolesTooManyRequests {
 	return &PutUserRolesTooManyRequests{}
 }
 
-/*PutUserRolesTooManyRequests handles this case with default header values.
+/*
+PutUserRolesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutUserRolesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles too many requests response has a 2xx status code
+func (o *PutUserRolesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles too many requests response has a 3xx status code
+func (o *PutUserRolesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles too many requests response has a 4xx status code
+func (o *PutUserRolesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user roles too many requests response has a 5xx status code
+func (o *PutUserRolesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user roles too many requests response a status code equal to that given
+func (o *PutUserRolesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUserRolesTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUserRolesTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutUserRolesInternalServerError() *PutUserRolesInternalServerError {
 	return &PutUserRolesInternalServerError{}
 }
 
-/*PutUserRolesInternalServerError handles this case with default header values.
+/*
+PutUserRolesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutUserRolesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles internal server error response has a 2xx status code
+func (o *PutUserRolesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles internal server error response has a 3xx status code
+func (o *PutUserRolesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles internal server error response has a 4xx status code
+func (o *PutUserRolesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user roles internal server error response has a 5xx status code
+func (o *PutUserRolesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user roles internal server error response a status code equal to that given
+func (o *PutUserRolesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUserRolesInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUserRolesInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutUserRolesServiceUnavailable() *PutUserRolesServiceUnavailable {
 	return &PutUserRolesServiceUnavailable{}
 }
 
-/*PutUserRolesServiceUnavailable handles this case with default header values.
+/*
+PutUserRolesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutUserRolesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles service unavailable response has a 2xx status code
+func (o *PutUserRolesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles service unavailable response has a 3xx status code
+func (o *PutUserRolesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles service unavailable response has a 4xx status code
+func (o *PutUserRolesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user roles service unavailable response has a 5xx status code
+func (o *PutUserRolesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user roles service unavailable response a status code equal to that given
+func (o *PutUserRolesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUserRolesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUserRolesServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutUserRolesGatewayTimeout() *PutUserRolesGatewayTimeout {
 	return &PutUserRolesGatewayTimeout{}
 }
 
-/*PutUserRolesGatewayTimeout handles this case with default header values.
+/*
+PutUserRolesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutUserRolesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user roles gateway timeout response has a 2xx status code
+func (o *PutUserRolesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user roles gateway timeout response has a 3xx status code
+func (o *PutUserRolesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user roles gateway timeout response has a 4xx status code
+func (o *PutUserRolesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user roles gateway timeout response has a 5xx status code
+func (o *PutUserRolesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user roles gateway timeout response a status code equal to that given
+func (o *PutUserRolesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUserRolesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUserRolesGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{subjectId}/roles][%d] putUserRolesGatewayTimeout  %+v", 504, o.Payload)
 }
 

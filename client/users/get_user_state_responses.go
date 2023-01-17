@@ -95,7 +95,6 @@ func (o *GetUserStateReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserStateOK() *GetUserStateOK {
 	return &GetUserStateOK{}
 }
 
-/*GetUserStateOK handles this case with default header values.
+/*
+GetUserStateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserStateOK struct {
 	Payload *models.UserState
 }
 
+// IsSuccess returns true when this get user state o k response has a 2xx status code
+func (o *GetUserStateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user state o k response has a 3xx status code
+func (o *GetUserStateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state o k response has a 4xx status code
+func (o *GetUserStateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user state o k response has a 5xx status code
+func (o *GetUserStateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state o k response a status code equal to that given
+func (o *GetUserStateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserStateOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserStateOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserStateBadRequest() *GetUserStateBadRequest {
 	return &GetUserStateBadRequest{}
 }
 
-/*GetUserStateBadRequest handles this case with default header values.
+/*
+GetUserStateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserStateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state bad request response has a 2xx status code
+func (o *GetUserStateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state bad request response has a 3xx status code
+func (o *GetUserStateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state bad request response has a 4xx status code
+func (o *GetUserStateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state bad request response has a 5xx status code
+func (o *GetUserStateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state bad request response a status code equal to that given
+func (o *GetUserStateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserStateBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserStateBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserStateUnauthorized() *GetUserStateUnauthorized {
 	return &GetUserStateUnauthorized{}
 }
 
-/*GetUserStateUnauthorized handles this case with default header values.
+/*
+GetUserStateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserStateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state unauthorized response has a 2xx status code
+func (o *GetUserStateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state unauthorized response has a 3xx status code
+func (o *GetUserStateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state unauthorized response has a 4xx status code
+func (o *GetUserStateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state unauthorized response has a 5xx status code
+func (o *GetUserStateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state unauthorized response a status code equal to that given
+func (o *GetUserStateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserStateUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserStateUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserStateForbidden() *GetUserStateForbidden {
 	return &GetUserStateForbidden{}
 }
 
-/*GetUserStateForbidden handles this case with default header values.
+/*
+GetUserStateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserStateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state forbidden response has a 2xx status code
+func (o *GetUserStateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state forbidden response has a 3xx status code
+func (o *GetUserStateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state forbidden response has a 4xx status code
+func (o *GetUserStateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state forbidden response has a 5xx status code
+func (o *GetUserStateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state forbidden response a status code equal to that given
+func (o *GetUserStateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserStateForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserStateForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserStateNotFound() *GetUserStateNotFound {
 	return &GetUserStateNotFound{}
 }
 
-/*GetUserStateNotFound handles this case with default header values.
+/*
+GetUserStateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserStateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state not found response has a 2xx status code
+func (o *GetUserStateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state not found response has a 3xx status code
+func (o *GetUserStateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state not found response has a 4xx status code
+func (o *GetUserStateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state not found response has a 5xx status code
+func (o *GetUserStateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state not found response a status code equal to that given
+func (o *GetUserStateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserStateNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserStateNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserStateRequestTimeout() *GetUserStateRequestTimeout {
 	return &GetUserStateRequestTimeout{}
 }
 
-/*GetUserStateRequestTimeout handles this case with default header values.
+/*
+GetUserStateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserStateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state request timeout response has a 2xx status code
+func (o *GetUserStateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state request timeout response has a 3xx status code
+func (o *GetUserStateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state request timeout response has a 4xx status code
+func (o *GetUserStateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state request timeout response has a 5xx status code
+func (o *GetUserStateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state request timeout response a status code equal to that given
+func (o *GetUserStateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserStateRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserStateRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserStateRequestEntityTooLarge() *GetUserStateRequestEntityTooLarge {
 	return &GetUserStateRequestEntityTooLarge{}
 }
 
-/*GetUserStateRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserStateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserStateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state request entity too large response has a 2xx status code
+func (o *GetUserStateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state request entity too large response has a 3xx status code
+func (o *GetUserStateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state request entity too large response has a 4xx status code
+func (o *GetUserStateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state request entity too large response has a 5xx status code
+func (o *GetUserStateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state request entity too large response a status code equal to that given
+func (o *GetUserStateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserStateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserStateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserStateUnsupportedMediaType() *GetUserStateUnsupportedMediaType {
 	return &GetUserStateUnsupportedMediaType{}
 }
 
-/*GetUserStateUnsupportedMediaType handles this case with default header values.
+/*
+GetUserStateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserStateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state unsupported media type response has a 2xx status code
+func (o *GetUserStateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state unsupported media type response has a 3xx status code
+func (o *GetUserStateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state unsupported media type response has a 4xx status code
+func (o *GetUserStateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state unsupported media type response has a 5xx status code
+func (o *GetUserStateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state unsupported media type response a status code equal to that given
+func (o *GetUserStateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserStateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserStateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserStateTooManyRequests() *GetUserStateTooManyRequests {
 	return &GetUserStateTooManyRequests{}
 }
 
-/*GetUserStateTooManyRequests handles this case with default header values.
+/*
+GetUserStateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserStateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state too many requests response has a 2xx status code
+func (o *GetUserStateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state too many requests response has a 3xx status code
+func (o *GetUserStateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state too many requests response has a 4xx status code
+func (o *GetUserStateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user state too many requests response has a 5xx status code
+func (o *GetUserStateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user state too many requests response a status code equal to that given
+func (o *GetUserStateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserStateTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserStateTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserStateInternalServerError() *GetUserStateInternalServerError {
 	return &GetUserStateInternalServerError{}
 }
 
-/*GetUserStateInternalServerError handles this case with default header values.
+/*
+GetUserStateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserStateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state internal server error response has a 2xx status code
+func (o *GetUserStateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state internal server error response has a 3xx status code
+func (o *GetUserStateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state internal server error response has a 4xx status code
+func (o *GetUserStateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user state internal server error response has a 5xx status code
+func (o *GetUserStateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user state internal server error response a status code equal to that given
+func (o *GetUserStateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserStateInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserStateInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserStateServiceUnavailable() *GetUserStateServiceUnavailable {
 	return &GetUserStateServiceUnavailable{}
 }
 
-/*GetUserStateServiceUnavailable handles this case with default header values.
+/*
+GetUserStateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserStateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state service unavailable response has a 2xx status code
+func (o *GetUserStateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state service unavailable response has a 3xx status code
+func (o *GetUserStateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state service unavailable response has a 4xx status code
+func (o *GetUserStateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user state service unavailable response has a 5xx status code
+func (o *GetUserStateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user state service unavailable response a status code equal to that given
+func (o *GetUserStateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserStateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserStateServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserStateGatewayTimeout() *GetUserStateGatewayTimeout {
 	return &GetUserStateGatewayTimeout{}
 }
 
-/*GetUserStateGatewayTimeout handles this case with default header values.
+/*
+GetUserStateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserStateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user state gateway timeout response has a 2xx status code
+func (o *GetUserStateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user state gateway timeout response has a 3xx status code
+func (o *GetUserStateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user state gateway timeout response has a 4xx status code
+func (o *GetUserStateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user state gateway timeout response has a 5xx status code
+func (o *GetUserStateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user state gateway timeout response a status code equal to that given
+func (o *GetUserStateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserStateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserStateGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/state][%d] getUserStateGatewayTimeout  %+v", 504, o.Payload)
 }
 

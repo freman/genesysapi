@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScimV2ResourcetypesParams creates a new GetScimV2ResourcetypesParams object
-// with the default values initialized.
+// NewGetScimV2ResourcetypesParams creates a new GetScimV2ResourcetypesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScimV2ResourcetypesParams() *GetScimV2ResourcetypesParams {
-
 	return &GetScimV2ResourcetypesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScimV2ResourcetypesParamsWithTimeout creates a new GetScimV2ResourcetypesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScimV2ResourcetypesParamsWithTimeout(timeout time.Duration) *GetScimV2ResourcetypesParams {
-
 	return &GetScimV2ResourcetypesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScimV2ResourcetypesParamsWithContext creates a new GetScimV2ResourcetypesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScimV2ResourcetypesParamsWithContext(ctx context.Context) *GetScimV2ResourcetypesParams {
-
 	return &GetScimV2ResourcetypesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScimV2ResourcetypesParamsWithHTTPClient creates a new GetScimV2ResourcetypesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScimV2ResourcetypesParamsWithHTTPClient(client *http.Client) *GetScimV2ResourcetypesParams {
-
 	return &GetScimV2ResourcetypesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScimV2ResourcetypesParams contains all the parameters to send to the API endpoint
-for the get scim v2 resourcetypes operation typically these are written to a http.Request
+/*
+GetScimV2ResourcetypesParams contains all the parameters to send to the API endpoint
+
+	for the get scim v2 resourcetypes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScimV2ResourcetypesParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scim v2 resourcetypes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimV2ResourcetypesParams) WithDefaults() *GetScimV2ResourcetypesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scim v2 resourcetypes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimV2ResourcetypesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scim v2 resourcetypes params

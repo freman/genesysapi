@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -134,7 +135,6 @@ func (m *CommandStatus) validateCommandTypeEnum(path, location string, value str
 }
 
 func (m *CommandStatus) validateCommandType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CommandType) { // not required
 		return nil
 	}
@@ -148,7 +148,6 @@ func (m *CommandStatus) validateCommandType(formats strfmt.Registry) error {
 }
 
 func (m *CommandStatus) validateDocument(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Document) { // not required
 		return nil
 	}
@@ -157,6 +156,8 @@ func (m *CommandStatus) validateDocument(formats strfmt.Registry) error {
 		if err := m.Document.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("document")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("document")
 			}
 			return err
 		}
@@ -166,7 +167,6 @@ func (m *CommandStatus) validateDocument(formats strfmt.Registry) error {
 }
 
 func (m *CommandStatus) validateExpiration(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Expiration) { // not required
 		return nil
 	}
@@ -179,7 +179,6 @@ func (m *CommandStatus) validateExpiration(formats strfmt.Registry) error {
 }
 
 func (m *CommandStatus) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -230,13 +229,68 @@ func (m *CommandStatus) validateStatusCodeEnum(path, location string, value stri
 }
 
 func (m *CommandStatus) validateStatusCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StatusCode) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusCodeEnum("statusCode", "body", m.StatusCode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this command status based on the context it is used
+func (m *CommandStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDocument(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CommandStatus) contextValidateDocument(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Document != nil {
+		if err := m.Document.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("document")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("document")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CommandStatus) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CommandStatus) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

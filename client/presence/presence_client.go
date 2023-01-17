@@ -51,7 +51,7 @@ type API interface {
 	GetSystempresences(ctx context.Context, params *GetSystempresencesParams) (*GetSystempresencesOK, error)
 	/*
 	   GetUserPresence gets a user s presence
-	   Get a user's presence for the specified source that is not specifically listed.  Used to support custom presence sources.
+	   Get a user's presence for the specified source that is not specifically listed.  Used to support custom presence sources. This endpoint does not support registered presence sources.
 	*/
 	GetUserPresence(ctx context.Context, params *GetUserPresenceParams) (*GetUserPresenceOK, error)
 	/*
@@ -61,7 +61,7 @@ type API interface {
 	GetUserPresencesPurecloud(ctx context.Context, params *GetUserPresencesPurecloudParams) (*GetUserPresencesPurecloudOK, error)
 	/*
 	   PatchUserPresence patches a user s presence
-	   Patch a user's presence for the specified source that is not specifically listed. The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
+	   Patch a user's presence for the specified source that is not specifically listed. This endpoint does not support registered presence sources. The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
 	*/
 	PatchUserPresence(ctx context.Context, params *PatchUserPresenceParams) (*PatchUserPresenceOK, error)
 	/*
@@ -316,7 +316,7 @@ func (a *Client) GetSystempresences(ctx context.Context, params *GetSystempresen
 /*
 GetUserPresence gets a user s presence
 
-Get a user's presence for the specified source that is not specifically listed.  Used to support custom presence sources.
+Get a user's presence for the specified source that is not specifically listed.  Used to support custom presence sources. This endpoint does not support registered presence sources.
 */
 func (a *Client) GetUserPresence(ctx context.Context, params *GetUserPresenceParams) (*GetUserPresenceOK, error) {
 
@@ -370,7 +370,7 @@ func (a *Client) GetUserPresencesPurecloud(ctx context.Context, params *GetUserP
 /*
 PatchUserPresence patches a user s presence
 
-Patch a user's presence for the specified source that is not specifically listed. The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
+Patch a user's presence for the specified source that is not specifically listed. This endpoint does not support registered presence sources. The presence object can be patched one of three ways. Option 1: Set the 'primary' property to true. This will set the 'source' defined in the path as the user's primary presence source. Option 2: Provide the presenceDefinition value. The 'id' is the only value required within the presenceDefinition. Option 3: Provide the message value. Option 1 can be combined with Option 2 and/or Option 3.
 */
 func (a *Client) PatchUserPresence(ctx context.Context, params *PatchUserPresenceParams) (*PatchUserPresenceOK, error) {
 

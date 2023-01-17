@@ -101,7 +101,6 @@ func (o *DeleteLanguageunderstandingDomainVersionReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteLanguageunderstandingDomainVersionNoContent() *DeleteLanguageunder
 	return &DeleteLanguageunderstandingDomainVersionNoContent{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionNoContent handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionNoContent describes a response with status code 204, with default header values.
 
 Deleted the specified NLU Domain Version
 */
 type DeleteLanguageunderstandingDomainVersionNoContent struct {
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version no content response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version no content response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version no content response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version no content response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version no content response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionNoContent ", 204)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteLanguageunderstandingDomainVersionBadRequest() *DeleteLanguageunde
 	return &DeleteLanguageunderstandingDomainVersionBadRequest{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionBadRequest handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteLanguageunderstandingDomainVersionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version bad request response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version bad request response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version bad request response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version bad request response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version bad request response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteLanguageunderstandingDomainVersionUnauthorized() *DeleteLanguageun
 	return &DeleteLanguageunderstandingDomainVersionUnauthorized{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionUnauthorized handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteLanguageunderstandingDomainVersionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version unauthorized response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version unauthorized response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version unauthorized response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version unauthorized response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version unauthorized response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteLanguageunderstandingDomainVersionForbidden() *DeleteLanguageunder
 	return &DeleteLanguageunderstandingDomainVersionForbidden{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionForbidden handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteLanguageunderstandingDomainVersionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version forbidden response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version forbidden response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version forbidden response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version forbidden response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version forbidden response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteLanguageunderstandingDomainVersionNotFound() *DeleteLanguageunders
 	return &DeleteLanguageunderstandingDomainVersionNotFound{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionNotFound handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteLanguageunderstandingDomainVersionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version not found response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version not found response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version not found response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version not found response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version not found response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteLanguageunderstandingDomainVersionRequestTimeout() *DeleteLanguage
 	return &DeleteLanguageunderstandingDomainVersionRequestTimeout{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionRequestTimeout handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteLanguageunderstandingDomainVersionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version request timeout response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version request timeout response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version request timeout response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version request timeout response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version request timeout response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteLanguageunderstandingDomainVersionConflict() *DeleteLanguageunders
 	return &DeleteLanguageunderstandingDomainVersionConflict{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionConflict handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteLanguageunderstandingDomainVersionConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version conflict response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version conflict response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version conflict response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version conflict response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version conflict response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteLanguageunderstandingDomainVersionRequestEntityTooLarge() *DeleteL
 	return &DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version request entity too large response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version request entity too large response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version request entity too large response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version request entity too large response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version request entity too large response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteLanguageunderstandingDomainVersionUnsupportedMediaType() *DeleteLa
 	return &DeleteLanguageunderstandingDomainVersionUnsupportedMediaType{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionUnsupportedMediaType handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteLanguageunderstandingDomainVersionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version unsupported media type response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version unsupported media type response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version unsupported media type response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version unsupported media type response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version unsupported media type response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteLanguageunderstandingDomainVersionTooManyRequests() *DeleteLanguag
 	return &DeleteLanguageunderstandingDomainVersionTooManyRequests{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionTooManyRequests handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteLanguageunderstandingDomainVersionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version too many requests response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version too many requests response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version too many requests response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version too many requests response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain version too many requests response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteLanguageunderstandingDomainVersionInternalServerError() *DeleteLan
 	return &DeleteLanguageunderstandingDomainVersionInternalServerError{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionInternalServerError handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteLanguageunderstandingDomainVersionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version internal server error response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version internal server error response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version internal server error response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version internal server error response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding domain version internal server error response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteLanguageunderstandingDomainVersionServiceUnavailable() *DeleteLang
 	return &DeleteLanguageunderstandingDomainVersionServiceUnavailable{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionServiceUnavailable handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteLanguageunderstandingDomainVersionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version service unavailable response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version service unavailable response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version service unavailable response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version service unavailable response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding domain version service unavailable response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteLanguageunderstandingDomainVersionGatewayTimeout() *DeleteLanguage
 	return &DeleteLanguageunderstandingDomainVersionGatewayTimeout{}
 }
 
-/*DeleteLanguageunderstandingDomainVersionGatewayTimeout handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainVersionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteLanguageunderstandingDomainVersionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain version gateway timeout response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainVersionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain version gateway timeout response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainVersionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain version gateway timeout response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainVersionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain version gateway timeout response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainVersionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding domain version gateway timeout response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainVersionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteLanguageunderstandingDomainVersionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainVersionGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] deleteLanguageunderstandingDomainVersionGatewayTimeout  %+v", 504, o.Payload)
 }
 

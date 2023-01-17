@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWebdeploymentsConfigurationsParams creates a new PostWebdeploymentsConfigurationsParams object
-// with the default values initialized.
+// NewPostWebdeploymentsConfigurationsParams creates a new PostWebdeploymentsConfigurationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWebdeploymentsConfigurationsParams() *PostWebdeploymentsConfigurationsParams {
-	var ()
 	return &PostWebdeploymentsConfigurationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWebdeploymentsConfigurationsParamsWithTimeout creates a new PostWebdeploymentsConfigurationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWebdeploymentsConfigurationsParamsWithTimeout(timeout time.Duration) *PostWebdeploymentsConfigurationsParams {
-	var ()
 	return &PostWebdeploymentsConfigurationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWebdeploymentsConfigurationsParamsWithContext creates a new PostWebdeploymentsConfigurationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWebdeploymentsConfigurationsParamsWithContext(ctx context.Context) *PostWebdeploymentsConfigurationsParams {
-	var ()
 	return &PostWebdeploymentsConfigurationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWebdeploymentsConfigurationsParamsWithHTTPClient creates a new PostWebdeploymentsConfigurationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWebdeploymentsConfigurationsParamsWithHTTPClient(client *http.Client) *PostWebdeploymentsConfigurationsParams {
-	var ()
 	return &PostWebdeploymentsConfigurationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWebdeploymentsConfigurationsParams contains all the parameters to send to the API endpoint
-for the post webdeployments configurations operation typically these are written to a http.Request
+/*
+PostWebdeploymentsConfigurationsParams contains all the parameters to send to the API endpoint
+
+	for the post webdeployments configurations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWebdeploymentsConfigurationsParams struct {
 
-	/*ConfigurationVersion*/
+	// ConfigurationVersion.
 	ConfigurationVersion *models.WebDeploymentConfigurationVersion
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post webdeployments configurations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebdeploymentsConfigurationsParams) WithDefaults() *PostWebdeploymentsConfigurationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post webdeployments configurations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebdeploymentsConfigurationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post webdeployments configurations params
@@ -121,7 +137,6 @@ func (o *PostWebdeploymentsConfigurationsParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.ConfigurationVersion != nil {
 		if err := r.SetBodyParam(o.ConfigurationVersion); err != nil {
 			return err

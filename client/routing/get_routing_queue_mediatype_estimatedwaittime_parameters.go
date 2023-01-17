@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingQueueMediatypeEstimatedwaittimeParams creates a new GetRoutingQueueMediatypeEstimatedwaittimeParams object
-// with the default values initialized.
+// NewGetRoutingQueueMediatypeEstimatedwaittimeParams creates a new GetRoutingQueueMediatypeEstimatedwaittimeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingQueueMediatypeEstimatedwaittimeParams() *GetRoutingQueueMediatypeEstimatedwaittimeParams {
-	var ()
 	return &GetRoutingQueueMediatypeEstimatedwaittimeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingQueueMediatypeEstimatedwaittimeParamsWithTimeout creates a new GetRoutingQueueMediatypeEstimatedwaittimeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingQueueMediatypeEstimatedwaittimeParamsWithTimeout(timeout time.Duration) *GetRoutingQueueMediatypeEstimatedwaittimeParams {
-	var ()
 	return &GetRoutingQueueMediatypeEstimatedwaittimeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingQueueMediatypeEstimatedwaittimeParamsWithContext creates a new GetRoutingQueueMediatypeEstimatedwaittimeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingQueueMediatypeEstimatedwaittimeParamsWithContext(ctx context.Context) *GetRoutingQueueMediatypeEstimatedwaittimeParams {
-	var ()
 	return &GetRoutingQueueMediatypeEstimatedwaittimeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingQueueMediatypeEstimatedwaittimeParamsWithHTTPClient creates a new GetRoutingQueueMediatypeEstimatedwaittimeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingQueueMediatypeEstimatedwaittimeParamsWithHTTPClient(client *http.Client) *GetRoutingQueueMediatypeEstimatedwaittimeParams {
-	var ()
 	return &GetRoutingQueueMediatypeEstimatedwaittimeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingQueueMediatypeEstimatedwaittimeParams contains all the parameters to send to the API endpoint
-for the get routing queue mediatype estimatedwaittime operation typically these are written to a http.Request
+/*
+GetRoutingQueueMediatypeEstimatedwaittimeParams contains all the parameters to send to the API endpoint
+
+	for the get routing queue mediatype estimatedwaittime operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingQueueMediatypeEstimatedwaittimeParams struct {
 
-	/*MediaType
-	  mediaType
+	/* MediaType.
 
+	   mediaType
 	*/
 	MediaType string
-	/*QueueID
-	  queueId
 
+	/* QueueID.
+
+	   queueId
 	*/
 	QueueID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing queue mediatype estimatedwaittime params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueueMediatypeEstimatedwaittimeParams) WithDefaults() *GetRoutingQueueMediatypeEstimatedwaittimeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing queue mediatype estimatedwaittime params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueueMediatypeEstimatedwaittimeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing queue mediatype estimatedwaittime params

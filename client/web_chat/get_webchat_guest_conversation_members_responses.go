@@ -95,7 +95,6 @@ func (o *GetWebchatGuestConversationMembersReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWebchatGuestConversationMembersOK() *GetWebchatGuestConversationMembe
 	return &GetWebchatGuestConversationMembersOK{}
 }
 
-/*GetWebchatGuestConversationMembersOK handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWebchatGuestConversationMembersOK struct {
 	Payload *models.WebChatMemberInfoEntityList
 }
 
+// IsSuccess returns true when this get webchat guest conversation members o k response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get webchat guest conversation members o k response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members o k response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat guest conversation members o k response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members o k response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWebchatGuestConversationMembersOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWebchatGuestConversationMembersBadRequest() *GetWebchatGuestConversat
 	return &GetWebchatGuestConversationMembersBadRequest{}
 }
 
-/*GetWebchatGuestConversationMembersBadRequest handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWebchatGuestConversationMembersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members bad request response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members bad request response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members bad request response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members bad request response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members bad request response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWebchatGuestConversationMembersBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWebchatGuestConversationMembersUnauthorized() *GetWebchatGuestConvers
 	return &GetWebchatGuestConversationMembersUnauthorized{}
 }
 
-/*GetWebchatGuestConversationMembersUnauthorized handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWebchatGuestConversationMembersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members unauthorized response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members unauthorized response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members unauthorized response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members unauthorized response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members unauthorized response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWebchatGuestConversationMembersUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWebchatGuestConversationMembersForbidden() *GetWebchatGuestConversati
 	return &GetWebchatGuestConversationMembersForbidden{}
 }
 
-/*GetWebchatGuestConversationMembersForbidden handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWebchatGuestConversationMembersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members forbidden response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members forbidden response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members forbidden response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members forbidden response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members forbidden response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWebchatGuestConversationMembersForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWebchatGuestConversationMembersNotFound() *GetWebchatGuestConversatio
 	return &GetWebchatGuestConversationMembersNotFound{}
 }
 
-/*GetWebchatGuestConversationMembersNotFound handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWebchatGuestConversationMembersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members not found response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members not found response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members not found response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members not found response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members not found response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWebchatGuestConversationMembersNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWebchatGuestConversationMembersRequestTimeout() *GetWebchatGuestConve
 	return &GetWebchatGuestConversationMembersRequestTimeout{}
 }
 
-/*GetWebchatGuestConversationMembersRequestTimeout handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWebchatGuestConversationMembersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members request timeout response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members request timeout response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members request timeout response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members request timeout response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members request timeout response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWebchatGuestConversationMembersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWebchatGuestConversationMembersRequestEntityTooLarge() *GetWebchatGue
 	return &GetWebchatGuestConversationMembersRequestEntityTooLarge{}
 }
 
-/*GetWebchatGuestConversationMembersRequestEntityTooLarge handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWebchatGuestConversationMembersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members request entity too large response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members request entity too large response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members request entity too large response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members request entity too large response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members request entity too large response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWebchatGuestConversationMembersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWebchatGuestConversationMembersUnsupportedMediaType() *GetWebchatGues
 	return &GetWebchatGuestConversationMembersUnsupportedMediaType{}
 }
 
-/*GetWebchatGuestConversationMembersUnsupportedMediaType handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWebchatGuestConversationMembersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members unsupported media type response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members unsupported media type response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members unsupported media type response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members unsupported media type response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members unsupported media type response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWebchatGuestConversationMembersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWebchatGuestConversationMembersTooManyRequests() *GetWebchatGuestConv
 	return &GetWebchatGuestConversationMembersTooManyRequests{}
 }
 
-/*GetWebchatGuestConversationMembersTooManyRequests handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWebchatGuestConversationMembersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members too many requests response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members too many requests response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members too many requests response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat guest conversation members too many requests response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat guest conversation members too many requests response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWebchatGuestConversationMembersTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWebchatGuestConversationMembersInternalServerError() *GetWebchatGuest
 	return &GetWebchatGuestConversationMembersInternalServerError{}
 }
 
-/*GetWebchatGuestConversationMembersInternalServerError handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWebchatGuestConversationMembersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members internal server error response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members internal server error response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members internal server error response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat guest conversation members internal server error response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webchat guest conversation members internal server error response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWebchatGuestConversationMembersInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWebchatGuestConversationMembersServiceUnavailable() *GetWebchatGuestC
 	return &GetWebchatGuestConversationMembersServiceUnavailable{}
 }
 
-/*GetWebchatGuestConversationMembersServiceUnavailable handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWebchatGuestConversationMembersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members service unavailable response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members service unavailable response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members service unavailable response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat guest conversation members service unavailable response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webchat guest conversation members service unavailable response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWebchatGuestConversationMembersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWebchatGuestConversationMembersGatewayTimeout() *GetWebchatGuestConve
 	return &GetWebchatGuestConversationMembersGatewayTimeout{}
 }
 
-/*GetWebchatGuestConversationMembersGatewayTimeout handles this case with default header values.
+/*
+GetWebchatGuestConversationMembersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWebchatGuestConversationMembersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat guest conversation members gateway timeout response has a 2xx status code
+func (o *GetWebchatGuestConversationMembersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat guest conversation members gateway timeout response has a 3xx status code
+func (o *GetWebchatGuestConversationMembersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat guest conversation members gateway timeout response has a 4xx status code
+func (o *GetWebchatGuestConversationMembersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat guest conversation members gateway timeout response has a 5xx status code
+func (o *GetWebchatGuestConversationMembersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webchat guest conversation members gateway timeout response a status code equal to that given
+func (o *GetWebchatGuestConversationMembersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWebchatGuestConversationMembersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWebchatGuestConversationMembersGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/guest/conversations/{conversationId}/members][%d] getWebchatGuestConversationMembersGatewayTimeout  %+v", 504, o.Payload)
 }
 

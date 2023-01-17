@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParams creates a new DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams object
-// with the default values initialized.
+// NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParams creates a new DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParams() *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams {
-	var ()
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParamsWithTimeout creates a new DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParamsWithTimeout(timeout time.Duration) *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams {
-	var ()
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParamsWithContext creates a new DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParamsWithContext(ctx context.Context) *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams {
-	var ()
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParamsWithHTTPClient creates a new DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteConversationsMessagingIntegrationsOpenIntegrationIDParamsWithHTTPClient(client *http.Client) *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams {
-	var ()
 	return &DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams contains all the parameters to send to the API endpoint
-for the delete conversations messaging integrations open integration Id operation typically these are written to a http.Request
+/*
+DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams contains all the parameters to send to the API endpoint
+
+	for the delete conversations messaging integrations open integration Id operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams struct {
 
-	/*IntegrationID
-	  Integration ID
+	/* IntegrationID.
 
+	   Integration ID
 	*/
 	IntegrationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete conversations messaging integrations open integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams) WithDefaults() *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete conversations messaging integrations open integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationsMessagingIntegrationsOpenIntegrationIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete conversations messaging integrations open integration Id params

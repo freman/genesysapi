@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -86,7 +87,6 @@ func (m *RecordingEmailMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingEmailMessage) validateAttachments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attachments) { // not required
 		return nil
 	}
@@ -100,6 +100,8 @@ func (m *RecordingEmailMessage) validateAttachments(formats strfmt.Registry) err
 			if err := m.Attachments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attachments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -111,7 +113,6 @@ func (m *RecordingEmailMessage) validateAttachments(formats strfmt.Registry) err
 }
 
 func (m *RecordingEmailMessage) validateBcc(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Bcc) { // not required
 		return nil
 	}
@@ -125,6 +126,8 @@ func (m *RecordingEmailMessage) validateBcc(formats strfmt.Registry) error {
 			if err := m.Bcc[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bcc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bcc" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -136,7 +139,6 @@ func (m *RecordingEmailMessage) validateBcc(formats strfmt.Registry) error {
 }
 
 func (m *RecordingEmailMessage) validateCc(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Cc) { // not required
 		return nil
 	}
@@ -150,6 +152,8 @@ func (m *RecordingEmailMessage) validateCc(formats strfmt.Registry) error {
 			if err := m.Cc[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cc" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -161,7 +165,6 @@ func (m *RecordingEmailMessage) validateCc(formats strfmt.Registry) error {
 }
 
 func (m *RecordingEmailMessage) validateFrom(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.From) { // not required
 		return nil
 	}
@@ -170,6 +173,8 @@ func (m *RecordingEmailMessage) validateFrom(formats strfmt.Registry) error {
 		if err := m.From.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
 			}
 			return err
 		}
@@ -179,7 +184,6 @@ func (m *RecordingEmailMessage) validateFrom(formats strfmt.Registry) error {
 }
 
 func (m *RecordingEmailMessage) validateTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Time) { // not required
 		return nil
 	}
@@ -192,7 +196,6 @@ func (m *RecordingEmailMessage) validateTime(formats strfmt.Registry) error {
 }
 
 func (m *RecordingEmailMessage) validateTo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.To) { // not required
 		return nil
 	}
@@ -206,6 +209,134 @@ func (m *RecordingEmailMessage) validateTo(formats strfmt.Registry) error {
 			if err := m.To[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("to" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("to" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording email message based on the context it is used
+func (m *RecordingEmailMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttachments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBcc(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCc(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFrom(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecordingEmailMessage) contextValidateAttachments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Attachments); i++ {
+
+		if m.Attachments[i] != nil {
+			if err := m.Attachments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attachments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingEmailMessage) contextValidateBcc(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Bcc); i++ {
+
+		if m.Bcc[i] != nil {
+			if err := m.Bcc[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bcc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bcc" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingEmailMessage) contextValidateCc(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Cc); i++ {
+
+		if m.Cc[i] != nil {
+			if err := m.Cc[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cc" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingEmailMessage) contextValidateFrom(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.From != nil {
+		if err := m.From.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingEmailMessage) contextValidateTo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.To); i++ {
+
+		if m.To[i] != nil {
+			if err := m.To[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("to" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("to" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

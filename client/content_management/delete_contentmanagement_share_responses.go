@@ -106,7 +106,8 @@ func NewDeleteContentmanagementShareBadRequest() *DeleteContentmanagementShareBa
 	return &DeleteContentmanagementShareBadRequest{}
 }
 
-/*DeleteContentmanagementShareBadRequest handles this case with default header values.
+/*
+DeleteContentmanagementShareBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteContentmanagementShareBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share bad request response has a 2xx status code
+func (o *DeleteContentmanagementShareBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share bad request response has a 3xx status code
+func (o *DeleteContentmanagementShareBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share bad request response has a 4xx status code
+func (o *DeleteContentmanagementShareBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share bad request response has a 5xx status code
+func (o *DeleteContentmanagementShareBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share bad request response a status code equal to that given
+func (o *DeleteContentmanagementShareBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteContentmanagementShareBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteContentmanagementShareUnauthorized() *DeleteContentmanagementShare
 	return &DeleteContentmanagementShareUnauthorized{}
 }
 
-/*DeleteContentmanagementShareUnauthorized handles this case with default header values.
+/*
+DeleteContentmanagementShareUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteContentmanagementShareUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share unauthorized response has a 2xx status code
+func (o *DeleteContentmanagementShareUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share unauthorized response has a 3xx status code
+func (o *DeleteContentmanagementShareUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share unauthorized response has a 4xx status code
+func (o *DeleteContentmanagementShareUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share unauthorized response has a 5xx status code
+func (o *DeleteContentmanagementShareUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share unauthorized response a status code equal to that given
+func (o *DeleteContentmanagementShareUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteContentmanagementShareUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteContentmanagementShareForbidden() *DeleteContentmanagementShareFor
 	return &DeleteContentmanagementShareForbidden{}
 }
 
-/*DeleteContentmanagementShareForbidden handles this case with default header values.
+/*
+DeleteContentmanagementShareForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteContentmanagementShareForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share forbidden response has a 2xx status code
+func (o *DeleteContentmanagementShareForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share forbidden response has a 3xx status code
+func (o *DeleteContentmanagementShareForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share forbidden response has a 4xx status code
+func (o *DeleteContentmanagementShareForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share forbidden response has a 5xx status code
+func (o *DeleteContentmanagementShareForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share forbidden response a status code equal to that given
+func (o *DeleteContentmanagementShareForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteContentmanagementShareForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteContentmanagementShareNotFound() *DeleteContentmanagementShareNotF
 	return &DeleteContentmanagementShareNotFound{}
 }
 
-/*DeleteContentmanagementShareNotFound handles this case with default header values.
+/*
+DeleteContentmanagementShareNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteContentmanagementShareNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share not found response has a 2xx status code
+func (o *DeleteContentmanagementShareNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share not found response has a 3xx status code
+func (o *DeleteContentmanagementShareNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share not found response has a 4xx status code
+func (o *DeleteContentmanagementShareNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share not found response has a 5xx status code
+func (o *DeleteContentmanagementShareNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share not found response a status code equal to that given
+func (o *DeleteContentmanagementShareNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteContentmanagementShareNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteContentmanagementShareRequestTimeout() *DeleteContentmanagementSha
 	return &DeleteContentmanagementShareRequestTimeout{}
 }
 
-/*DeleteContentmanagementShareRequestTimeout handles this case with default header values.
+/*
+DeleteContentmanagementShareRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteContentmanagementShareRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share request timeout response has a 2xx status code
+func (o *DeleteContentmanagementShareRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share request timeout response has a 3xx status code
+func (o *DeleteContentmanagementShareRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share request timeout response has a 4xx status code
+func (o *DeleteContentmanagementShareRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share request timeout response has a 5xx status code
+func (o *DeleteContentmanagementShareRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share request timeout response a status code equal to that given
+func (o *DeleteContentmanagementShareRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteContentmanagementShareRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteContentmanagementShareRequestEntityTooLarge() *DeleteContentmanage
 	return &DeleteContentmanagementShareRequestEntityTooLarge{}
 }
 
-/*DeleteContentmanagementShareRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteContentmanagementShareRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteContentmanagementShareRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share request entity too large response has a 2xx status code
+func (o *DeleteContentmanagementShareRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share request entity too large response has a 3xx status code
+func (o *DeleteContentmanagementShareRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share request entity too large response has a 4xx status code
+func (o *DeleteContentmanagementShareRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share request entity too large response has a 5xx status code
+func (o *DeleteContentmanagementShareRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share request entity too large response a status code equal to that given
+func (o *DeleteContentmanagementShareRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteContentmanagementShareRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteContentmanagementShareUnsupportedMediaType() *DeleteContentmanagem
 	return &DeleteContentmanagementShareUnsupportedMediaType{}
 }
 
-/*DeleteContentmanagementShareUnsupportedMediaType handles this case with default header values.
+/*
+DeleteContentmanagementShareUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteContentmanagementShareUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share unsupported media type response has a 2xx status code
+func (o *DeleteContentmanagementShareUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share unsupported media type response has a 3xx status code
+func (o *DeleteContentmanagementShareUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share unsupported media type response has a 4xx status code
+func (o *DeleteContentmanagementShareUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share unsupported media type response has a 5xx status code
+func (o *DeleteContentmanagementShareUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share unsupported media type response a status code equal to that given
+func (o *DeleteContentmanagementShareUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteContentmanagementShareUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteContentmanagementShareTooManyRequests() *DeleteContentmanagementSh
 	return &DeleteContentmanagementShareTooManyRequests{}
 }
 
-/*DeleteContentmanagementShareTooManyRequests handles this case with default header values.
+/*
+DeleteContentmanagementShareTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteContentmanagementShareTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share too many requests response has a 2xx status code
+func (o *DeleteContentmanagementShareTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share too many requests response has a 3xx status code
+func (o *DeleteContentmanagementShareTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share too many requests response has a 4xx status code
+func (o *DeleteContentmanagementShareTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement share too many requests response has a 5xx status code
+func (o *DeleteContentmanagementShareTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement share too many requests response a status code equal to that given
+func (o *DeleteContentmanagementShareTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteContentmanagementShareTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteContentmanagementShareInternalServerError() *DeleteContentmanageme
 	return &DeleteContentmanagementShareInternalServerError{}
 }
 
-/*DeleteContentmanagementShareInternalServerError handles this case with default header values.
+/*
+DeleteContentmanagementShareInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteContentmanagementShareInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share internal server error response has a 2xx status code
+func (o *DeleteContentmanagementShareInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share internal server error response has a 3xx status code
+func (o *DeleteContentmanagementShareInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share internal server error response has a 4xx status code
+func (o *DeleteContentmanagementShareInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement share internal server error response has a 5xx status code
+func (o *DeleteContentmanagementShareInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement share internal server error response a status code equal to that given
+func (o *DeleteContentmanagementShareInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteContentmanagementShareInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteContentmanagementShareServiceUnavailable() *DeleteContentmanagemen
 	return &DeleteContentmanagementShareServiceUnavailable{}
 }
 
-/*DeleteContentmanagementShareServiceUnavailable handles this case with default header values.
+/*
+DeleteContentmanagementShareServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteContentmanagementShareServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share service unavailable response has a 2xx status code
+func (o *DeleteContentmanagementShareServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share service unavailable response has a 3xx status code
+func (o *DeleteContentmanagementShareServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share service unavailable response has a 4xx status code
+func (o *DeleteContentmanagementShareServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement share service unavailable response has a 5xx status code
+func (o *DeleteContentmanagementShareServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement share service unavailable response a status code equal to that given
+func (o *DeleteContentmanagementShareServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteContentmanagementShareServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteContentmanagementShareGatewayTimeout() *DeleteContentmanagementSha
 	return &DeleteContentmanagementShareGatewayTimeout{}
 }
 
-/*DeleteContentmanagementShareGatewayTimeout handles this case with default header values.
+/*
+DeleteContentmanagementShareGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteContentmanagementShareGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement share gateway timeout response has a 2xx status code
+func (o *DeleteContentmanagementShareGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement share gateway timeout response has a 3xx status code
+func (o *DeleteContentmanagementShareGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement share gateway timeout response has a 4xx status code
+func (o *DeleteContentmanagementShareGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement share gateway timeout response has a 5xx status code
+func (o *DeleteContentmanagementShareGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement share gateway timeout response a status code equal to that given
+func (o *DeleteContentmanagementShareGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteContentmanagementShareGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteContentmanagementShareGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShareGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteContentmanagementShareDefault(code int) *DeleteContentmanagementSh
 	}
 }
 
-/*DeleteContentmanagementShareDefault handles this case with default header values.
+/*
+DeleteContentmanagementShareDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteContentmanagementShareDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete contentmanagement share default response has a 2xx status code
+func (o *DeleteContentmanagementShareDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete contentmanagement share default response has a 3xx status code
+func (o *DeleteContentmanagementShareDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete contentmanagement share default response has a 4xx status code
+func (o *DeleteContentmanagementShareDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete contentmanagement share default response has a 5xx status code
+func (o *DeleteContentmanagementShareDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete contentmanagement share default response a status code equal to that given
+func (o *DeleteContentmanagementShareDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteContentmanagementShareDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShare default ", o._statusCode)
+}
+
+func (o *DeleteContentmanagementShareDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/shares/{shareId}][%d] deleteContentmanagementShare default ", o._statusCode)
 }
 

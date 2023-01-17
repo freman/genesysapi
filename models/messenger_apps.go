@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *MessengerApps) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessengerApps) validateConversations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversations) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *MessengerApps) validateConversations(formats strfmt.Registry) error {
 		if err := m.Conversations.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversations")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversations")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *MessengerApps) validateConversations(formats strfmt.Registry) error {
 }
 
 func (m *MessengerApps) validateKnowledge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Knowledge) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *MessengerApps) validateKnowledge(formats strfmt.Registry) error {
 		if err := m.Knowledge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this messenger apps based on the context it is used
+func (m *MessengerApps) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessengerApps) contextValidateConversations(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversations != nil {
+		if err := m.Conversations.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversations")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversations")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessengerApps) contextValidateKnowledge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Knowledge != nil {
+		if err := m.Knowledge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledge")
 			}
 			return err
 		}

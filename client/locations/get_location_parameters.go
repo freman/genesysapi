@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetLocationParams creates a new GetLocationParams object
-// with the default values initialized.
+// NewGetLocationParams creates a new GetLocationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLocationParams() *GetLocationParams {
-	var ()
 	return &GetLocationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLocationParamsWithTimeout creates a new GetLocationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLocationParamsWithTimeout(timeout time.Duration) *GetLocationParams {
-	var ()
 	return &GetLocationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLocationParamsWithContext creates a new GetLocationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLocationParamsWithContext(ctx context.Context) *GetLocationParams {
-	var ()
 	return &GetLocationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLocationParamsWithHTTPClient creates a new GetLocationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLocationParamsWithHTTPClient(client *http.Client) *GetLocationParams {
-	var ()
 	return &GetLocationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLocationParams contains all the parameters to send to the API endpoint
-for the get location operation typically these are written to a http.Request
+/*
+GetLocationParams contains all the parameters to send to the API endpoint
+
+	for the get location operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLocationParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*LocationID
-	  Location ID
 
+	/* LocationID.
+
+	   Location ID
 	*/
 	LocationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get location params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLocationParams) WithDefaults() *GetLocationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get location params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLocationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get location params
@@ -140,12 +157,15 @@ func (o *GetLocationParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param locationId
@@ -157,4 +177,21 @@ func (o *GetLocationParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetLocation binds the parameter expand
+func (o *GetLocationParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -91,7 +92,6 @@ func (m *KeyPerformanceIndicatorAssessment) validateAssessmentResultEnum(path, l
 }
 
 func (m *KeyPerformanceIndicatorAssessment) validateAssessmentResult(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssessmentResult) { // not required
 		return nil
 	}
@@ -105,7 +105,6 @@ func (m *KeyPerformanceIndicatorAssessment) validateAssessmentResult(formats str
 }
 
 func (m *KeyPerformanceIndicatorAssessment) validateChecks(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Checks) { // not required
 		return nil
 	}
@@ -119,11 +118,77 @@ func (m *KeyPerformanceIndicatorAssessment) validateChecks(formats strfmt.Regist
 			if err := m.Checks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("checks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("checks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this key performance indicator assessment based on the context it is used
+func (m *KeyPerformanceIndicatorAssessment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssessmentResult(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateChecks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpi(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicatorAssessment) contextValidateAssessmentResult(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "assessmentResult", "body", string(m.AssessmentResult)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicatorAssessment) contextValidateChecks(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "checks", "body", []*Check(m.Checks)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Checks); i++ {
+
+		if m.Checks[i] != nil {
+			if err := m.Checks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("checks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("checks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicatorAssessment) contextValidateKpi(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpi", "body", string(m.Kpi)); err != nil {
+		return err
 	}
 
 	return nil

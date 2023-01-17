@@ -95,7 +95,6 @@ func (o *PutOrgauthorizationTrusteeUserRolesReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOrgauthorizationTrusteeUserRolesOK() *PutOrgauthorizationTrusteeUserR
 	return &PutOrgauthorizationTrusteeUserRolesOK{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesOK handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOrgauthorizationTrusteeUserRolesOK struct {
 	Payload *models.UserAuthorization
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles o k response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles o k response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles o k response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles o k response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles o k response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOrgauthorizationTrusteeUserRolesBadRequest() *PutOrgauthorizationTrus
 	return &PutOrgauthorizationTrusteeUserRolesBadRequest{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesBadRequest handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOrgauthorizationTrusteeUserRolesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles bad request response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles bad request response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles bad request response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles bad request response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles bad request response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOrgauthorizationTrusteeUserRolesUnauthorized() *PutOrgauthorizationTr
 	return &PutOrgauthorizationTrusteeUserRolesUnauthorized{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesUnauthorized handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOrgauthorizationTrusteeUserRolesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles unauthorized response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles unauthorized response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles unauthorized response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles unauthorized response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles unauthorized response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOrgauthorizationTrusteeUserRolesForbidden() *PutOrgauthorizationTrust
 	return &PutOrgauthorizationTrusteeUserRolesForbidden{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesForbidden handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOrgauthorizationTrusteeUserRolesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles forbidden response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles forbidden response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles forbidden response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles forbidden response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles forbidden response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOrgauthorizationTrusteeUserRolesNotFound() *PutOrgauthorizationTruste
 	return &PutOrgauthorizationTrusteeUserRolesNotFound{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesNotFound handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOrgauthorizationTrusteeUserRolesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles not found response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles not found response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles not found response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles not found response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles not found response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOrgauthorizationTrusteeUserRolesRequestTimeout() *PutOrgauthorization
 	return &PutOrgauthorizationTrusteeUserRolesRequestTimeout{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesRequestTimeout handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOrgauthorizationTrusteeUserRolesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles request timeout response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles request timeout response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles request timeout response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles request timeout response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles request timeout response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge() *PutOrgauthor
 	return &PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles request entity too large response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles request entity too large response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles request entity too large response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles request entity too large response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles request entity too large response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOrgauthorizationTrusteeUserRolesUnsupportedMediaType() *PutOrgauthori
 	return &PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles unsupported media type response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles unsupported media type response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles unsupported media type response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles unsupported media type response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles unsupported media type response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOrgauthorizationTrusteeUserRolesTooManyRequests() *PutOrgauthorizatio
 	return &PutOrgauthorizationTrusteeUserRolesTooManyRequests{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesTooManyRequests handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOrgauthorizationTrusteeUserRolesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles too many requests response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles too many requests response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles too many requests response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles too many requests response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles too many requests response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOrgauthorizationTrusteeUserRolesInternalServerError() *PutOrgauthoriz
 	return &PutOrgauthorizationTrusteeUserRolesInternalServerError{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesInternalServerError handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOrgauthorizationTrusteeUserRolesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles internal server error response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles internal server error response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles internal server error response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles internal server error response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles internal server error response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOrgauthorizationTrusteeUserRolesServiceUnavailable() *PutOrgauthoriza
 	return &PutOrgauthorizationTrusteeUserRolesServiceUnavailable{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesServiceUnavailable handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOrgauthorizationTrusteeUserRolesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles service unavailable response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles service unavailable response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles service unavailable response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles service unavailable response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles service unavailable response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOrgauthorizationTrusteeUserRolesGatewayTimeout() *PutOrgauthorization
 	return &PutOrgauthorizationTrusteeUserRolesGatewayTimeout{}
 }
 
-/*PutOrgauthorizationTrusteeUserRolesGatewayTimeout handles this case with default header values.
+/*
+PutOrgauthorizationTrusteeUserRolesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOrgauthorizationTrusteeUserRolesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustee user roles gateway timeout response has a 2xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustee user roles gateway timeout response has a 3xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustee user roles gateway timeout response has a 4xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustee user roles gateway timeout response has a 5xx status code
+func (o *PutOrgauthorizationTrusteeUserRolesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put orgauthorization trustee user roles gateway timeout response a status code equal to that given
+func (o *PutOrgauthorizationTrusteeUserRolesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOrgauthorizationTrusteeUserRolesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrusteeUserRolesGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustees/{trusteeOrgId}/users/{trusteeUserId}/roles][%d] putOrgauthorizationTrusteeUserRolesGatewayTimeout  %+v", 504, o.Payload)
 }
 
