@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -62,6 +63,10 @@ type EmailMessage struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
+	// state
+	// Enum: [Created Ready]
+	State string `json:"state,omitempty"`
+
 	// The subject of the email message.
 	Subject string `json:"subject,omitempty"`
 
@@ -103,6 +108,10 @@ func (m *EmailMessage) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -247,6 +256,48 @@ func (m *EmailMessage) validateSelfURI(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var emailMessageTypeStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Created","Ready"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		emailMessageTypeStatePropEnum = append(emailMessageTypeStatePropEnum, v)
+	}
+}
+
+const (
+
+	// EmailMessageStateCreated captures enum value "Created"
+	EmailMessageStateCreated string = "Created"
+
+	// EmailMessageStateReady captures enum value "Ready"
+	EmailMessageStateReady string = "Ready"
+)
+
+// prop value enum
+func (m *EmailMessage) validateStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, emailMessageTypeStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *EmailMessage) validateState(formats strfmt.Registry) error {
+	if swag.IsZero(m.State) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
 	}
 

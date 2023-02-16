@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -34,6 +35,13 @@ type CreateMetric struct {
 
 	// Performance profile id of this metric
 	PerformanceProfileID string `json:"performanceProfileId,omitempty"`
+
+	// The precision of the metric, must be between 0 and 5
+	Precision int32 `json:"precision,omitempty"`
+
+	// The time unit in which the metric should be displayed -- this parameter is ignored when displaying non-time values
+	// Enum: [None Seconds Minutes Hours]
+	TimeDisplayUnit string `json:"timeDisplayUnit,omitempty"`
 }
 
 // Validate validates this create metric
@@ -45,6 +53,10 @@ func (m *CreateMetric) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateObjective(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTimeDisplayUnit(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -77,6 +89,54 @@ func (m *CreateMetric) validateObjective(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var createMetricTypeTimeDisplayUnitPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["None","Seconds","Minutes","Hours"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		createMetricTypeTimeDisplayUnitPropEnum = append(createMetricTypeTimeDisplayUnitPropEnum, v)
+	}
+}
+
+const (
+
+	// CreateMetricTimeDisplayUnitNone captures enum value "None"
+	CreateMetricTimeDisplayUnitNone string = "None"
+
+	// CreateMetricTimeDisplayUnitSeconds captures enum value "Seconds"
+	CreateMetricTimeDisplayUnitSeconds string = "Seconds"
+
+	// CreateMetricTimeDisplayUnitMinutes captures enum value "Minutes"
+	CreateMetricTimeDisplayUnitMinutes string = "Minutes"
+
+	// CreateMetricTimeDisplayUnitHours captures enum value "Hours"
+	CreateMetricTimeDisplayUnitHours string = "Hours"
+)
+
+// prop value enum
+func (m *CreateMetric) validateTimeDisplayUnitEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, createMetricTypeTimeDisplayUnitPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *CreateMetric) validateTimeDisplayUnit(formats strfmt.Registry) error {
+	if swag.IsZero(m.TimeDisplayUnit) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTimeDisplayUnitEnum("timeDisplayUnit", "body", m.TimeDisplayUnit); err != nil {
+		return err
 	}
 
 	return nil

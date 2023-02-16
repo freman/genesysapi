@@ -105,6 +105,9 @@ type CallMediaParticipant struct {
 	// Journey System data/context that is applicable to this communication.  When used for historical purposes, the context should be immutable.  When null, there is no applicable Journey System context.
 	JourneyContext *JourneyContext `json:"journeyContext,omitempty"`
 
+	// List of roles this participant's media has had on the conversation, ie monitor, coach, etc
+	MediaRoles []string `json:"mediaRoles"`
+
 	// The ID of the participant being monitored when performing a call monitor.
 	MonitoredParticipantID string `json:"monitoredParticipantId,omitempty"`
 

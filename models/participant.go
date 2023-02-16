@@ -100,6 +100,9 @@ type Participant struct {
 	// An ISO 639 language code specifying the locale for this participant
 	Locale string `json:"locale,omitempty"`
 
+	// List of roles this participant's media has had on the conversation, ie monitor, coach, etc.
+	MediaRoles []string `json:"mediaRoles"`
+
 	// messages
 	Messages []*Message `json:"messages"`
 

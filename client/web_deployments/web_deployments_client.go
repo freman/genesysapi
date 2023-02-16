@@ -26,6 +26,10 @@ type API interface {
 	*/
 	DeleteWebdeploymentsDeployment(ctx context.Context, params *DeleteWebdeploymentsDeploymentParams) (*DeleteWebdeploymentsDeploymentNoContent, error)
 	/*
+	   DeleteWebdeploymentsDeploymentCobrowseSessionID deletes a cobrowse session
+	*/
+	DeleteWebdeploymentsDeploymentCobrowseSessionID(ctx context.Context, params *DeleteWebdeploymentsDeploymentCobrowseSessionIDParams) (*DeleteWebdeploymentsDeploymentCobrowseSessionIDOK, *DeleteWebdeploymentsDeploymentCobrowseSessionIDNoContent, error)
+	/*
 	   DeleteWebdeploymentsTokenRevoke invalidates j w t
 	*/
 	DeleteWebdeploymentsTokenRevoke(ctx context.Context, params *DeleteWebdeploymentsTokenRevokeParams) (*DeleteWebdeploymentsTokenRevokeNoContent, error)
@@ -50,6 +54,10 @@ type API interface {
 	   GetWebdeploymentsDeployment gets a deployment
 	*/
 	GetWebdeploymentsDeployment(ctx context.Context, params *GetWebdeploymentsDeploymentParams) (*GetWebdeploymentsDeploymentOK, error)
+	/*
+	   GetWebdeploymentsDeploymentCobrowseSessionID retrieves a cobrowse session
+	*/
+	GetWebdeploymentsDeploymentCobrowseSessionID(ctx context.Context, params *GetWebdeploymentsDeploymentCobrowseSessionIDParams) (*GetWebdeploymentsDeploymentCobrowseSessionIDOK, error)
 	/*
 	   GetWebdeploymentsDeploymentConfigurations gets active configuration for a given deployment
 	*/
@@ -153,6 +161,36 @@ func (a *Client) DeleteWebdeploymentsDeployment(ctx context.Context, params *Del
 		return nil, err
 	}
 	return result.(*DeleteWebdeploymentsDeploymentNoContent), nil
+
+}
+
+/*
+DeleteWebdeploymentsDeploymentCobrowseSessionID deletes a cobrowse session
+*/
+func (a *Client) DeleteWebdeploymentsDeploymentCobrowseSessionID(ctx context.Context, params *DeleteWebdeploymentsDeploymentCobrowseSessionIDParams) (*DeleteWebdeploymentsDeploymentCobrowseSessionIDOK, *DeleteWebdeploymentsDeploymentCobrowseSessionIDNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteWebdeploymentsDeploymentCobrowseSessionId",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/webdeployments/deployments/{deploymentId}/cobrowse/{sessionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteWebdeploymentsDeploymentCobrowseSessionIDReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *DeleteWebdeploymentsDeploymentCobrowseSessionIDOK:
+		return value, nil, nil
+	case *DeleteWebdeploymentsDeploymentCobrowseSessionIDNoContent:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -305,6 +343,30 @@ func (a *Client) GetWebdeploymentsDeployment(ctx context.Context, params *GetWeb
 		return nil, err
 	}
 	return result.(*GetWebdeploymentsDeploymentOK), nil
+
+}
+
+/*
+GetWebdeploymentsDeploymentCobrowseSessionID retrieves a cobrowse session
+*/
+func (a *Client) GetWebdeploymentsDeploymentCobrowseSessionID(ctx context.Context, params *GetWebdeploymentsDeploymentCobrowseSessionIDParams) (*GetWebdeploymentsDeploymentCobrowseSessionIDOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWebdeploymentsDeploymentCobrowseSessionId",
+		Method:             "GET",
+		PathPattern:        "/api/v2/webdeployments/deployments/{deploymentId}/cobrowse/{sessionId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWebdeploymentsDeploymentCobrowseSessionIDReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWebdeploymentsDeploymentCobrowseSessionIDOK), nil
 
 }
 

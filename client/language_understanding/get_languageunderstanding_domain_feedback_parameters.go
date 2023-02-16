@@ -114,6 +114,14 @@ type GetLanguageunderstandingDomainFeedbackParams struct {
 	*/
 	IncludeDeleted *bool
 
+	/* IncludeTrainingUtterances.
+
+	   Include Training Utterances. By default they're included.
+
+	   Default: true
+	*/
+	IncludeTrainingUtterances *bool
+
 	/* IntentName.
 
 	   The top intent name to retrieve feedback for.
@@ -164,15 +172,18 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) SetDefaults() {
 	var (
 		enableCursorPaginationDefault = bool(false)
 
+		includeTrainingUtterancesDefault = bool(true)
+
 		pageNumberDefault = int32(1)
 
 		pageSizeDefault = int32(25)
 	)
 
 	val := GetLanguageunderstandingDomainFeedbackParams{
-		EnableCursorPagination: &enableCursorPaginationDefault,
-		PageNumber:             &pageNumberDefault,
-		PageSize:               &pageSizeDefault,
+		EnableCursorPagination:    &enableCursorPaginationDefault,
+		IncludeTrainingUtterances: &includeTrainingUtterancesDefault,
+		PageNumber:                &pageNumberDefault,
+		PageSize:                  &pageSizeDefault,
 	}
 
 	val.timeout = o.timeout
@@ -300,6 +311,17 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) WithIncludeDeleted(includ
 // SetIncludeDeleted adds the includeDeleted to the get languageunderstanding domain feedback params
 func (o *GetLanguageunderstandingDomainFeedbackParams) SetIncludeDeleted(includeDeleted *bool) {
 	o.IncludeDeleted = includeDeleted
+}
+
+// WithIncludeTrainingUtterances adds the includeTrainingUtterances to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) WithIncludeTrainingUtterances(includeTrainingUtterances *bool) *GetLanguageunderstandingDomainFeedbackParams {
+	o.SetIncludeTrainingUtterances(includeTrainingUtterances)
+	return o
+}
+
+// SetIncludeTrainingUtterances adds the includeTrainingUtterances to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) SetIncludeTrainingUtterances(includeTrainingUtterances *bool) {
+	o.IncludeTrainingUtterances = includeTrainingUtterances
 }
 
 // WithIntentName adds the intentName to the get languageunderstanding domain feedback params
@@ -467,6 +489,23 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) WriteToRequest(r runtime.
 		if qIncludeDeleted != "" {
 
 			if err := r.SetQueryParam("includeDeleted", qIncludeDeleted); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.IncludeTrainingUtterances != nil {
+
+		// query param includeTrainingUtterances
+		var qrIncludeTrainingUtterances bool
+
+		if o.IncludeTrainingUtterances != nil {
+			qrIncludeTrainingUtterances = *o.IncludeTrainingUtterances
+		}
+		qIncludeTrainingUtterances := swag.FormatBool(qrIncludeTrainingUtterances)
+		if qIncludeTrainingUtterances != "" {
+
+			if err := r.SetQueryParam("includeTrainingUtterances", qIncludeTrainingUtterances); err != nil {
 				return err
 			}
 		}

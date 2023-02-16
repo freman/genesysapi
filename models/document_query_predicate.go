@@ -61,7 +61,7 @@ var documentQueryPredicateFieldsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["alternatives","categoryId","categoryName","contextId","contextName","contextValueId","contextValueName","labelId","labelName","title"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["alternatives","categoryId","categoryName","contextId","contextName","contextValueId","contextValueName","documentId","labelId","labelName","title"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

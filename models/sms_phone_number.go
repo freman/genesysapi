@@ -36,6 +36,9 @@ type SmsPhoneNumber struct {
 	// Read Only: true
 	Capabilities []string `json:"capabilities"`
 
+	// Compliance configuration for short codes, including help, stop and opt in.
+	Compliance *Compliance `json:"compliance,omitempty"`
+
 	// Localized country name for the country code this phone number belongs too
 	Country string `json:"country,omitempty"`
 
@@ -56,6 +59,9 @@ type SmsPhoneNumber struct {
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// The Genesys Cloud integration this phone number belongs to.
+	Integration *DomainEntityRef `json:"integration,omitempty"`
 
 	// User that last modified this phone number
 	ModifiedBy *User `json:"modifiedBy,omitempty"`
@@ -133,6 +139,10 @@ func (m *SmsPhoneNumber) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateCompliance(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateCreatedBy(formats); err != nil {
 		res = append(res, err)
 	}
@@ -142,6 +152,10 @@ func (m *SmsPhoneNumber) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDateModified(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIntegration(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -297,6 +311,25 @@ func (m *SmsPhoneNumber) validateCapabilities(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *SmsPhoneNumber) validateCompliance(formats strfmt.Registry) error {
+	if swag.IsZero(m.Compliance) { // not required
+		return nil
+	}
+
+	if m.Compliance != nil {
+		if err := m.Compliance.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("compliance")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("compliance")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SmsPhoneNumber) validateCreatedBy(formats strfmt.Registry) error {
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
@@ -335,6 +368,25 @@ func (m *SmsPhoneNumber) validateDateModified(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("dateModified", "body", "date-time", m.DateModified.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) validateIntegration(formats strfmt.Registry) error {
+	if swag.IsZero(m.Integration) { // not required
+		return nil
+	}
+
+	if m.Integration != nil {
+		if err := m.Integration.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -588,11 +640,19 @@ func (m *SmsPhoneNumber) ContextValidate(ctx context.Context, formats strfmt.Reg
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateCompliance(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntegration(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -643,6 +703,22 @@ func (m *SmsPhoneNumber) contextValidateCapabilities(ctx context.Context, format
 	return nil
 }
 
+func (m *SmsPhoneNumber) contextValidateCompliance(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Compliance != nil {
+		if err := m.Compliance.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("compliance")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("compliance")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *SmsPhoneNumber) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.CreatedBy != nil {
@@ -663,6 +739,22 @@ func (m *SmsPhoneNumber) contextValidateID(ctx context.Context, formats strfmt.R
 
 	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateIntegration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Integration != nil {
+		if err := m.Integration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -26,6 +26,14 @@ type API interface {
 	*/
 	DeleteOrgauthorizationTrusteeCloneduser(ctx context.Context, params *DeleteOrgauthorizationTrusteeCloneduserParams) (*DeleteOrgauthorizationTrusteeCloneduserNoContent, error)
 	/*
+	   DeleteOrgauthorizationTrusteeGroup deletes trustee group
+	*/
+	DeleteOrgauthorizationTrusteeGroup(ctx context.Context, params *DeleteOrgauthorizationTrusteeGroupParams) (*DeleteOrgauthorizationTrusteeGroupNoContent, error)
+	/*
+	   DeleteOrgauthorizationTrusteeGroupRoles deletes trustee group roles
+	*/
+	DeleteOrgauthorizationTrusteeGroupRoles(ctx context.Context, params *DeleteOrgauthorizationTrusteeGroupRolesParams) (*DeleteOrgauthorizationTrusteeGroupRolesNoContent, error)
+	/*
 	   DeleteOrgauthorizationTrusteeUser deletes trustee user
 	*/
 	DeleteOrgauthorizationTrusteeUser(ctx context.Context, params *DeleteOrgauthorizationTrusteeUserParams) (*DeleteOrgauthorizationTrusteeUserNoContent, error)
@@ -41,6 +49,10 @@ type API interface {
 	   DeleteOrgauthorizationTrustorCloneduser deletes cloned user
 	*/
 	DeleteOrgauthorizationTrustorCloneduser(ctx context.Context, params *DeleteOrgauthorizationTrustorCloneduserParams) (*DeleteOrgauthorizationTrustorCloneduserNoContent, error)
+	/*
+	   DeleteOrgauthorizationTrustorGroup deletes trustee group
+	*/
+	DeleteOrgauthorizationTrustorGroup(ctx context.Context, params *DeleteOrgauthorizationTrustorGroupParams) (*DeleteOrgauthorizationTrustorGroupNoContent, error)
 	/*
 	   DeleteOrgauthorizationTrustorUser deletes trustee user
 	*/
@@ -58,6 +70,18 @@ type API interface {
 	   There can be no more than 5 cloned users per organization, so results are represented as simple list and not paged
 	*/
 	GetOrgauthorizationTrusteeClonedusers(ctx context.Context, params *GetOrgauthorizationTrusteeClonedusersParams) (*GetOrgauthorizationTrusteeClonedusersOK, error)
+	/*
+	   GetOrgauthorizationTrusteeGroup gets trustee group
+	*/
+	GetOrgauthorizationTrusteeGroup(ctx context.Context, params *GetOrgauthorizationTrusteeGroupParams) (*GetOrgauthorizationTrusteeGroupOK, error)
+	/*
+	   GetOrgauthorizationTrusteeGroupRoles gets trustee group roles
+	*/
+	GetOrgauthorizationTrusteeGroupRoles(ctx context.Context, params *GetOrgauthorizationTrusteeGroupRolesParams) (*GetOrgauthorizationTrusteeGroupRolesOK, error)
+	/*
+	   GetOrgauthorizationTrusteeGroups thes list of trustee groups for this organization i e groups granted access to this organization
+	*/
+	GetOrgauthorizationTrusteeGroups(ctx context.Context, params *GetOrgauthorizationTrusteeGroupsParams) (*GetOrgauthorizationTrusteeGroupsOK, error)
 	/*
 	   GetOrgauthorizationTrusteeUser gets trustee user
 	*/
@@ -91,6 +115,14 @@ type API interface {
 	*/
 	GetOrgauthorizationTrustorClonedusers(ctx context.Context, params *GetOrgauthorizationTrustorClonedusersParams) (*GetOrgauthorizationTrustorClonedusersOK, error)
 	/*
+	   GetOrgauthorizationTrustorGroup gets trustee group
+	*/
+	GetOrgauthorizationTrustorGroup(ctx context.Context, params *GetOrgauthorizationTrustorGroupParams) (*GetOrgauthorizationTrustorGroupOK, error)
+	/*
+	   GetOrgauthorizationTrustorGroups thes list of groups in the trustor organization i e groups granted access
+	*/
+	GetOrgauthorizationTrustorGroups(ctx context.Context, params *GetOrgauthorizationTrustorGroupsParams) (*GetOrgauthorizationTrustorGroupsOK, error)
+	/*
 	   GetOrgauthorizationTrustorUser gets trustee user
 	*/
 	GetOrgauthorizationTrustorUser(ctx context.Context, params *GetOrgauthorizationTrustorUserParams) (*GetOrgauthorizationTrustorUserOK, error)
@@ -106,6 +138,10 @@ type API interface {
 	   PostOrgauthorizationPairings as pairing id is created by the trustee and given to the trustor to create a trust
 	*/
 	PostOrgauthorizationPairings(ctx context.Context, params *PostOrgauthorizationPairingsParams) (*PostOrgauthorizationPairingsOK, error)
+	/*
+	   PostOrgauthorizationTrusteeGroups adds a group to the trust
+	*/
+	PostOrgauthorizationTrusteeGroups(ctx context.Context, params *PostOrgauthorizationTrusteeGroupsParams) (*PostOrgauthorizationTrusteeGroupsOK, error)
 	/*
 	   PostOrgauthorizationTrusteeUsers adds a user to the trust
 	*/
@@ -131,6 +167,14 @@ type API interface {
 	*/
 	PutOrgauthorizationTrustee(ctx context.Context, params *PutOrgauthorizationTrusteeParams) (*PutOrgauthorizationTrusteeOK, error)
 	/*
+	   PutOrgauthorizationTrusteeGroupRoledivisions updates trustee group roles
+	*/
+	PutOrgauthorizationTrusteeGroupRoledivisions(ctx context.Context, params *PutOrgauthorizationTrusteeGroupRoledivisionsParams) (*PutOrgauthorizationTrusteeGroupRoledivisionsOK, error)
+	/*
+	   PutOrgauthorizationTrusteeGroupRoles updates trustee group roles
+	*/
+	PutOrgauthorizationTrusteeGroupRoles(ctx context.Context, params *PutOrgauthorizationTrusteeGroupRolesParams) (*PutOrgauthorizationTrusteeGroupRolesOK, error)
+	/*
 	   PutOrgauthorizationTrusteeUserRoledivisions updates trustee user roles
 	*/
 	PutOrgauthorizationTrusteeUserRoledivisions(ctx context.Context, params *PutOrgauthorizationTrusteeUserRoledivisionsParams) (*PutOrgauthorizationTrusteeUserRoledivisionsOK, error)
@@ -142,6 +186,10 @@ type API interface {
 	   PutOrgauthorizationTrustorCloneduser creates a clone of the trustee user in the trustor org
 	*/
 	PutOrgauthorizationTrustorCloneduser(ctx context.Context, params *PutOrgauthorizationTrustorCloneduserParams) (*PutOrgauthorizationTrustorCloneduserOK, error)
+	/*
+	   PutOrgauthorizationTrustorGroup adds a trustee group to the trust
+	*/
+	PutOrgauthorizationTrustorGroup(ctx context.Context, params *PutOrgauthorizationTrustorGroupParams) (*PutOrgauthorizationTrustorGroupOK, error)
 	/*
 	   PutOrgauthorizationTrustorUser adds a trustee user to the trust
 	*/
@@ -213,6 +261,56 @@ func (a *Client) DeleteOrgauthorizationTrusteeCloneduser(ctx context.Context, pa
 		return nil, err
 	}
 	return result.(*DeleteOrgauthorizationTrusteeCloneduserNoContent), nil
+
+}
+
+/*
+DeleteOrgauthorizationTrusteeGroup deletes trustee group
+*/
+func (a *Client) DeleteOrgauthorizationTrusteeGroup(ctx context.Context, params *DeleteOrgauthorizationTrusteeGroupParams) (*DeleteOrgauthorizationTrusteeGroupNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOrgauthorizationTrusteeGroup",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups/{trusteeGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOrgauthorizationTrusteeGroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOrgauthorizationTrusteeGroupNoContent), nil
+
+}
+
+/*
+DeleteOrgauthorizationTrusteeGroupRoles deletes trustee group roles
+*/
+func (a *Client) DeleteOrgauthorizationTrusteeGroupRoles(ctx context.Context, params *DeleteOrgauthorizationTrusteeGroupRolesParams) (*DeleteOrgauthorizationTrusteeGroupRolesNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOrgauthorizationTrusteeGroupRoles",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups/{trusteeGroupId}/roles",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOrgauthorizationTrusteeGroupRolesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOrgauthorizationTrusteeGroupRolesNoContent), nil
 
 }
 
@@ -317,6 +415,31 @@ func (a *Client) DeleteOrgauthorizationTrustorCloneduser(ctx context.Context, pa
 }
 
 /*
+DeleteOrgauthorizationTrustorGroup deletes trustee group
+*/
+func (a *Client) DeleteOrgauthorizationTrustorGroup(ctx context.Context, params *DeleteOrgauthorizationTrustorGroupParams) (*DeleteOrgauthorizationTrustorGroupNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOrgauthorizationTrustorGroup",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/groups/{trustorGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOrgauthorizationTrustorGroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOrgauthorizationTrustorGroupNoContent), nil
+
+}
+
+/*
 DeleteOrgauthorizationTrustorUser deletes trustee user
 */
 func (a *Client) DeleteOrgauthorizationTrustorUser(ctx context.Context, params *DeleteOrgauthorizationTrustorUserParams) (*DeleteOrgauthorizationTrustorUserNoContent, error) {
@@ -415,6 +538,81 @@ func (a *Client) GetOrgauthorizationTrusteeClonedusers(ctx context.Context, para
 		return nil, err
 	}
 	return result.(*GetOrgauthorizationTrusteeClonedusersOK), nil
+
+}
+
+/*
+GetOrgauthorizationTrusteeGroup gets trustee group
+*/
+func (a *Client) GetOrgauthorizationTrusteeGroup(ctx context.Context, params *GetOrgauthorizationTrusteeGroupParams) (*GetOrgauthorizationTrusteeGroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrusteeGroup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups/{trusteeGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrusteeGroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrusteeGroupOK), nil
+
+}
+
+/*
+GetOrgauthorizationTrusteeGroupRoles gets trustee group roles
+*/
+func (a *Client) GetOrgauthorizationTrusteeGroupRoles(ctx context.Context, params *GetOrgauthorizationTrusteeGroupRolesParams) (*GetOrgauthorizationTrusteeGroupRolesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrusteeGroupRoles",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups/{trusteeGroupId}/roles",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrusteeGroupRolesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrusteeGroupRolesOK), nil
+
+}
+
+/*
+GetOrgauthorizationTrusteeGroups thes list of trustee groups for this organization i e groups granted access to this organization
+*/
+func (a *Client) GetOrgauthorizationTrusteeGroups(ctx context.Context, params *GetOrgauthorizationTrusteeGroupsParams) (*GetOrgauthorizationTrusteeGroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrusteeGroups",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrusteeGroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrusteeGroupsOK), nil
 
 }
 
@@ -619,6 +817,56 @@ func (a *Client) GetOrgauthorizationTrustorClonedusers(ctx context.Context, para
 }
 
 /*
+GetOrgauthorizationTrustorGroup gets trustee group
+*/
+func (a *Client) GetOrgauthorizationTrustorGroup(ctx context.Context, params *GetOrgauthorizationTrustorGroupParams) (*GetOrgauthorizationTrustorGroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrustorGroup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/groups/{trustorGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrustorGroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrustorGroupOK), nil
+
+}
+
+/*
+GetOrgauthorizationTrustorGroups thes list of groups in the trustor organization i e groups granted access
+*/
+func (a *Client) GetOrgauthorizationTrustorGroups(ctx context.Context, params *GetOrgauthorizationTrustorGroupsParams) (*GetOrgauthorizationTrustorGroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getOrgauthorizationTrustorGroups",
+		Method:             "GET",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/groups",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetOrgauthorizationTrustorGroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetOrgauthorizationTrustorGroupsOK), nil
+
+}
+
+/*
 GetOrgauthorizationTrustorUser gets trustee user
 */
 func (a *Client) GetOrgauthorizationTrustorUser(ctx context.Context, params *GetOrgauthorizationTrustorUserParams) (*GetOrgauthorizationTrustorUserOK, error) {
@@ -715,6 +963,31 @@ func (a *Client) PostOrgauthorizationPairings(ctx context.Context, params *PostO
 		return nil, err
 	}
 	return result.(*PostOrgauthorizationPairingsOK), nil
+
+}
+
+/*
+PostOrgauthorizationTrusteeGroups adds a group to the trust
+*/
+func (a *Client) PostOrgauthorizationTrusteeGroups(ctx context.Context, params *PostOrgauthorizationTrusteeGroupsParams) (*PostOrgauthorizationTrusteeGroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postOrgauthorizationTrusteeGroups",
+		Method:             "POST",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostOrgauthorizationTrusteeGroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostOrgauthorizationTrusteeGroupsOK), nil
 
 }
 
@@ -869,6 +1142,56 @@ func (a *Client) PutOrgauthorizationTrustee(ctx context.Context, params *PutOrga
 }
 
 /*
+PutOrgauthorizationTrusteeGroupRoledivisions updates trustee group roles
+*/
+func (a *Client) PutOrgauthorizationTrusteeGroupRoledivisions(ctx context.Context, params *PutOrgauthorizationTrusteeGroupRoledivisionsParams) (*PutOrgauthorizationTrusteeGroupRoledivisionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOrgauthorizationTrusteeGroupRoledivisions",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups/{trusteeGroupId}/roledivisions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOrgauthorizationTrusteeGroupRoledivisionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOrgauthorizationTrusteeGroupRoledivisionsOK), nil
+
+}
+
+/*
+PutOrgauthorizationTrusteeGroupRoles updates trustee group roles
+*/
+func (a *Client) PutOrgauthorizationTrusteeGroupRoles(ctx context.Context, params *PutOrgauthorizationTrusteeGroupRolesParams) (*PutOrgauthorizationTrusteeGroupRolesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOrgauthorizationTrusteeGroupRoles",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/orgauthorization/trustees/{trusteeOrgId}/groups/{trusteeGroupId}/roles",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOrgauthorizationTrusteeGroupRolesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOrgauthorizationTrusteeGroupRolesOK), nil
+
+}
+
+/*
 PutOrgauthorizationTrusteeUserRoledivisions updates trustee user roles
 */
 func (a *Client) PutOrgauthorizationTrusteeUserRoledivisions(ctx context.Context, params *PutOrgauthorizationTrusteeUserRoledivisionsParams) (*PutOrgauthorizationTrusteeUserRoledivisionsOK, error) {
@@ -940,6 +1263,31 @@ func (a *Client) PutOrgauthorizationTrustorCloneduser(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*PutOrgauthorizationTrustorCloneduserOK), nil
+
+}
+
+/*
+PutOrgauthorizationTrustorGroup adds a trustee group to the trust
+*/
+func (a *Client) PutOrgauthorizationTrustorGroup(ctx context.Context, params *PutOrgauthorizationTrustorGroupParams) (*PutOrgauthorizationTrustorGroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putOrgauthorizationTrustorGroup",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/orgauthorization/trustors/{trustorOrgId}/groups/{trustorGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutOrgauthorizationTrustorGroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutOrgauthorizationTrustorGroupOK), nil
 
 }
 

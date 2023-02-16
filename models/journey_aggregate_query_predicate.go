@@ -21,7 +21,7 @@ import (
 type JourneyAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [containsAllCondition containsAnyCondition endsWithCondition equalCondition journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTargetId journeyActionTemplateId journeyBlockingActionMapId journeyBlockingEmergencyScheduleGroupId journeyBlockingReason journeyBlockingScheduleGroupId journeyCustomerId journeyCustomerIdType journeyDeviceCategory journeyDeviceType journeyFrequencyCapReason journeyOutcomeId journeySegmentId journeySegmentScope journeySessionId journeySessionSegmentId journeySessionType notContainsAllCondition notContainsAnyCondition notEqualCondition startsWithCondition touchpointActionMapId]
+	// Enum: [containsAllCondition containsAnyCondition endsWithCondition equalCondition journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTargetId journeyActionTemplateId journeyBlockingActionMapId journeyBlockingEmergencyScheduleGroupId journeyBlockingReason journeyBlockingScheduleGroupId journeyCustomerId journeyCustomerIdType journeyDeviceCategory journeyDeviceType journeyFrequencyCapReason journeyIpGeolocationCountry journeyOutcomeId journeySegmentId journeySegmentScope journeySessionId journeySessionSegmentId journeySessionType notContainsAllCondition notContainsAnyCondition notEqualCondition startsWithCondition touchpointActionMapId touchpointAgentId touchpointAttributionScope touchpointChannelMessageType touchpointChannelPlatform touchpointChannelType touchpointConversationId touchpointInteractionType touchpointQueueId touchpointWrapupCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -69,7 +69,7 @@ var journeyAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingEmergencyScheduleGroupId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionId","journeySessionSegmentId","journeySessionType","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingEmergencyScheduleGroupId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyIpGeolocationCountry","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionId","journeySessionSegmentId","journeySessionType","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId","touchpointAgentId","touchpointAttributionScope","touchpointChannelMessageType","touchpointChannelPlatform","touchpointChannelType","touchpointConversationId","touchpointInteractionType","touchpointQueueId","touchpointWrapupCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -136,6 +136,9 @@ const (
 	// JourneyAggregateQueryPredicateDimensionJourneyFrequencyCapReason captures enum value "journeyFrequencyCapReason"
 	JourneyAggregateQueryPredicateDimensionJourneyFrequencyCapReason string = "journeyFrequencyCapReason"
 
+	// JourneyAggregateQueryPredicateDimensionJourneyIPGeolocationCountry captures enum value "journeyIpGeolocationCountry"
+	JourneyAggregateQueryPredicateDimensionJourneyIPGeolocationCountry string = "journeyIpGeolocationCountry"
+
 	// JourneyAggregateQueryPredicateDimensionJourneyOutcomeID captures enum value "journeyOutcomeId"
 	JourneyAggregateQueryPredicateDimensionJourneyOutcomeID string = "journeyOutcomeId"
 
@@ -168,6 +171,33 @@ const (
 
 	// JourneyAggregateQueryPredicateDimensionTouchpointActionMapID captures enum value "touchpointActionMapId"
 	JourneyAggregateQueryPredicateDimensionTouchpointActionMapID string = "touchpointActionMapId"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointAgentID captures enum value "touchpointAgentId"
+	JourneyAggregateQueryPredicateDimensionTouchpointAgentID string = "touchpointAgentId"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointAttributionScope captures enum value "touchpointAttributionScope"
+	JourneyAggregateQueryPredicateDimensionTouchpointAttributionScope string = "touchpointAttributionScope"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointChannelMessageType captures enum value "touchpointChannelMessageType"
+	JourneyAggregateQueryPredicateDimensionTouchpointChannelMessageType string = "touchpointChannelMessageType"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointChannelPlatform captures enum value "touchpointChannelPlatform"
+	JourneyAggregateQueryPredicateDimensionTouchpointChannelPlatform string = "touchpointChannelPlatform"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointChannelType captures enum value "touchpointChannelType"
+	JourneyAggregateQueryPredicateDimensionTouchpointChannelType string = "touchpointChannelType"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointConversationID captures enum value "touchpointConversationId"
+	JourneyAggregateQueryPredicateDimensionTouchpointConversationID string = "touchpointConversationId"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointInteractionType captures enum value "touchpointInteractionType"
+	JourneyAggregateQueryPredicateDimensionTouchpointInteractionType string = "touchpointInteractionType"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointQueueID captures enum value "touchpointQueueId"
+	JourneyAggregateQueryPredicateDimensionTouchpointQueueID string = "touchpointQueueId"
+
+	// JourneyAggregateQueryPredicateDimensionTouchpointWrapupCode captures enum value "touchpointWrapupCode"
+	JourneyAggregateQueryPredicateDimensionTouchpointWrapupCode string = "touchpointWrapupCode"
 )
 
 // prop value enum

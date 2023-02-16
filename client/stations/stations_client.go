@@ -31,10 +31,12 @@ type API interface {
 	GetStations(ctx context.Context, params *GetStationsParams) (*GetStationsOK, error)
 	/*
 	   GetStationsSettings gets an organization s station settings
+	   This route is deprecated as the FreeSeatingConfiguration feature it references has been removed
 	*/
 	GetStationsSettings(ctx context.Context, params *GetStationsSettingsParams) (*GetStationsSettingsOK, error)
 	/*
 	   PatchStationsSettings patches an organization s station settings
+	   This route is deprecated as the FreeSeatingConfiguration feature it references has been removed
 	*/
 	PatchStationsSettings(ctx context.Context, params *PatchStationsSettingsParams) (*PatchStationsSettingsOK, error)
 }
@@ -134,6 +136,8 @@ func (a *Client) GetStations(ctx context.Context, params *GetStationsParams) (*G
 
 /*
 GetStationsSettings gets an organization s station settings
+
+This route is deprecated as the FreeSeatingConfiguration feature it references has been removed
 */
 func (a *Client) GetStationsSettings(ctx context.Context, params *GetStationsSettingsParams) (*GetStationsSettingsOK, error) {
 
@@ -159,6 +163,8 @@ func (a *Client) GetStationsSettings(ctx context.Context, params *GetStationsSet
 
 /*
 PatchStationsSettings patches an organization s station settings
+
+This route is deprecated as the FreeSeatingConfiguration feature it references has been removed
 */
 func (a *Client) PatchStationsSettings(ctx context.Context, params *PatchStationsSettingsParams) (*PatchStationsSettingsOK, error) {
 

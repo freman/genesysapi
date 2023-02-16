@@ -453,6 +453,10 @@ type API interface {
 	*/
 	PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error)
 	/*
+	   PostConversationCobrowse creates a cobrowse session
+	*/
+	PostConversationCobrowse(ctx context.Context, params *PostConversationCobrowseParams) (*PostConversationCobrowseOK, error)
+	/*
 	   PostConversationDisconnect performs a full conversation teardown issues disconnect requests for any connected media applies a system wrap up code to any participants that are pending wrap up this is not intended to be the normal way of ending interactions but is available in the event of problems with the application to allow a resynchronization of state across all components it is recommended that users submit a support case if they are relying on this endpoint systematically as there is likely something that needs investigation
 	*/
 	PostConversationDisconnect(ctx context.Context, params *PostConversationDisconnectParams) (*PostConversationDisconnectAccepted, error)
@@ -3419,6 +3423,31 @@ func (a *Client) PostConversationAssign(ctx context.Context, params *PostConvers
 		return nil, err
 	}
 	return result.(*PostConversationAssignAccepted), nil
+
+}
+
+/*
+PostConversationCobrowse creates a cobrowse session
+*/
+func (a *Client) PostConversationCobrowse(ctx context.Context, params *PostConversationCobrowseParams) (*PostConversationCobrowseOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationCobrowse",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/{conversationId}/cobrowse",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationCobrowseReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationCobrowseOK), nil
 
 }
 

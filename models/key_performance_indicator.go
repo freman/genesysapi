@@ -45,7 +45,7 @@ type KeyPerformanceIndicator struct {
 
 	// The type of Key Performance Indicator.
 	// Read Only: true
-	// Enum: [SalesConversion Churn Retention HandleTime NumberOfTransfers]
+	// Enum: [SalesConversion Churn Retention SalesValue HandleTime NumberOfTransfers]
 	KpiType string `json:"kpiType,omitempty"`
 
 	// The name of the Key Performance Indicator.
@@ -57,6 +57,10 @@ type KeyPerformanceIndicator struct {
 	// Enum: [Maximization Minimization]
 	OptimizationType string `json:"optimizationType,omitempty"`
 
+	// Defines what outcome ids are mapped to Key Performance Indicator.
+	// Read Only: true
+	OutcomeConfig *OutcomeConfig `json:"outcomeConfig,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -64,7 +68,7 @@ type KeyPerformanceIndicator struct {
 
 	// Source of values for Key Performance Indicator.
 	// Read Only: true
-	// Enum: [WrapUpCode]
+	// Enum: [WrapUpCode Outcome None]
 	Source string `json:"source,omitempty"`
 
 	// The status of the Key Performance Indicator.
@@ -98,6 +102,10 @@ func (m *KeyPerformanceIndicator) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateOptimizationType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOutcomeConfig(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -193,7 +201,7 @@ var keyPerformanceIndicatorTypeKpiTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["SalesConversion","Churn","Retention","HandleTime","NumberOfTransfers"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["SalesConversion","Churn","Retention","SalesValue","HandleTime","NumberOfTransfers"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -211,6 +219,9 @@ const (
 
 	// KeyPerformanceIndicatorKpiTypeRetention captures enum value "Retention"
 	KeyPerformanceIndicatorKpiTypeRetention string = "Retention"
+
+	// KeyPerformanceIndicatorKpiTypeSalesValue captures enum value "SalesValue"
+	KeyPerformanceIndicatorKpiTypeSalesValue string = "SalesValue"
 
 	// KeyPerformanceIndicatorKpiTypeHandleTime captures enum value "HandleTime"
 	KeyPerformanceIndicatorKpiTypeHandleTime string = "HandleTime"
@@ -282,6 +293,25 @@ func (m *KeyPerformanceIndicator) validateOptimizationType(formats strfmt.Regist
 	return nil
 }
 
+func (m *KeyPerformanceIndicator) validateOutcomeConfig(formats strfmt.Registry) error {
+	if swag.IsZero(m.OutcomeConfig) { // not required
+		return nil
+	}
+
+	if m.OutcomeConfig != nil {
+		if err := m.OutcomeConfig.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outcomeConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcomeConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *KeyPerformanceIndicator) validateSelfURI(formats strfmt.Registry) error {
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
@@ -298,7 +328,7 @@ var keyPerformanceIndicatorTypeSourcePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["WrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["WrapUpCode","Outcome","None"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -310,6 +340,12 @@ const (
 
 	// KeyPerformanceIndicatorSourceWrapUpCode captures enum value "WrapUpCode"
 	KeyPerformanceIndicatorSourceWrapUpCode string = "WrapUpCode"
+
+	// KeyPerformanceIndicatorSourceOutcome captures enum value "Outcome"
+	KeyPerformanceIndicatorSourceOutcome string = "Outcome"
+
+	// KeyPerformanceIndicatorSourceNone captures enum value "None"
+	KeyPerformanceIndicatorSourceNone string = "None"
 )
 
 // prop value enum
@@ -430,6 +466,10 @@ func (m *KeyPerformanceIndicator) ContextValidate(ctx context.Context, formats s
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateOutcomeConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -519,6 +559,22 @@ func (m *KeyPerformanceIndicator) contextValidateOptimizationType(ctx context.Co
 
 	if err := validate.ReadOnly(ctx, "optimizationType", "body", string(m.OptimizationType)); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateOutcomeConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutcomeConfig != nil {
+		if err := m.OutcomeConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outcomeConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcomeConfig")
+			}
+			return err
+		}
 	}
 
 	return nil

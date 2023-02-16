@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -53,6 +54,10 @@ type Metric struct {
 	// Performance profile id of this metric
 	PerformanceProfileID string `json:"performanceProfileId,omitempty"`
 
+	// The precision of the metric, must be between 0 and 5
+	// Read Only: true
+	Precision int32 `json:"precision,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -61,6 +66,10 @@ type Metric struct {
 	// The source performance profile when this metric is linked
 	// Read Only: true
 	SourcePerformanceProfile *PerformanceProfile `json:"sourcePerformanceProfile,omitempty"`
+
+	// The time unit in which the metric should be displayed -- this parameter is ignored when displaying non-time values
+	// Enum: [None Seconds Minutes Hours]
+	TimeDisplayUnit string `json:"timeDisplayUnit,omitempty"`
 }
 
 // Validate validates this metric
@@ -92,6 +101,10 @@ func (m *Metric) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateSourcePerformanceProfile(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTimeDisplayUnit(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -203,6 +216,54 @@ func (m *Metric) validateSourcePerformanceProfile(formats strfmt.Registry) error
 	return nil
 }
 
+var metricTypeTimeDisplayUnitPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["None","Seconds","Minutes","Hours"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		metricTypeTimeDisplayUnitPropEnum = append(metricTypeTimeDisplayUnitPropEnum, v)
+	}
+}
+
+const (
+
+	// MetricTimeDisplayUnitNone captures enum value "None"
+	MetricTimeDisplayUnitNone string = "None"
+
+	// MetricTimeDisplayUnitSeconds captures enum value "Seconds"
+	MetricTimeDisplayUnitSeconds string = "Seconds"
+
+	// MetricTimeDisplayUnitMinutes captures enum value "Minutes"
+	MetricTimeDisplayUnitMinutes string = "Minutes"
+
+	// MetricTimeDisplayUnitHours captures enum value "Hours"
+	MetricTimeDisplayUnitHours string = "Hours"
+)
+
+// prop value enum
+func (m *Metric) validateTimeDisplayUnitEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, metricTypeTimeDisplayUnitPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Metric) validateTimeDisplayUnit(formats strfmt.Registry) error {
+	if swag.IsZero(m.TimeDisplayUnit) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTimeDisplayUnitEnum("timeDisplayUnit", "body", m.TimeDisplayUnit); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 // ContextValidate validate this metric based on the context it is used
 func (m *Metric) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -224,6 +285,10 @@ func (m *Metric) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 	}
 
 	if err := m.contextValidateObjective(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrecision(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -295,6 +360,15 @@ func (m *Metric) contextValidateObjective(ctx context.Context, formats strfmt.Re
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *Metric) contextValidatePrecision(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "precision", "body", int32(m.Precision)); err != nil {
+		return err
 	}
 
 	return nil

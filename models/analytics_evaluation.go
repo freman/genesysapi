@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -30,6 +31,10 @@ type AnalyticsEvaluation struct {
 
 	// Unique identifier for the evaluation
 	EvaluationID string `json:"evaluationId,omitempty"`
+
+	// Status of evaluation
+	// Enum: [Finished InProgress InReview Pending Retracted]
+	EvaluationStatus string `json:"evaluationStatus,omitempty"`
 
 	// A unique identifier of the user who evaluated the interaction
 	EvaluatorID string `json:"evaluatorId,omitempty"`
@@ -67,6 +72,10 @@ type AnalyticsEvaluation struct {
 func (m *AnalyticsEvaluation) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateEvaluationStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEventTime(formats); err != nil {
 		res = append(res, err)
 	}
@@ -74,6 +83,57 @@ func (m *AnalyticsEvaluation) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var analyticsEvaluationTypeEvaluationStatusPropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Finished","InProgress","InReview","Pending","Retracted"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		analyticsEvaluationTypeEvaluationStatusPropEnum = append(analyticsEvaluationTypeEvaluationStatusPropEnum, v)
+	}
+}
+
+const (
+
+	// AnalyticsEvaluationEvaluationStatusFinished captures enum value "Finished"
+	AnalyticsEvaluationEvaluationStatusFinished string = "Finished"
+
+	// AnalyticsEvaluationEvaluationStatusInProgress captures enum value "InProgress"
+	AnalyticsEvaluationEvaluationStatusInProgress string = "InProgress"
+
+	// AnalyticsEvaluationEvaluationStatusInReview captures enum value "InReview"
+	AnalyticsEvaluationEvaluationStatusInReview string = "InReview"
+
+	// AnalyticsEvaluationEvaluationStatusPending captures enum value "Pending"
+	AnalyticsEvaluationEvaluationStatusPending string = "Pending"
+
+	// AnalyticsEvaluationEvaluationStatusRetracted captures enum value "Retracted"
+	AnalyticsEvaluationEvaluationStatusRetracted string = "Retracted"
+)
+
+// prop value enum
+func (m *AnalyticsEvaluation) validateEvaluationStatusEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, analyticsEvaluationTypeEvaluationStatusPropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AnalyticsEvaluation) validateEvaluationStatus(formats strfmt.Registry) error {
+	if swag.IsZero(m.EvaluationStatus) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateEvaluationStatusEnum("evaluationStatus", "body", m.EvaluationStatus); err != nil {
+		return err
+	}
+
 	return nil
 }
 

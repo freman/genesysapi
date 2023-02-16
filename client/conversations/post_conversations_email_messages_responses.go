@@ -117,7 +117,7 @@ PostConversationsEmailMessagesOK describes a response with status code 200, with
 successful operation
 */
 type PostConversationsEmailMessagesOK struct {
-	Payload *models.EmailMessage
+	Payload *models.EmailMessageReply
 }
 
 // IsSuccess returns true when this post conversations email messages o k response has a 2xx status code
@@ -153,13 +153,13 @@ func (o *PostConversationsEmailMessagesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/messages][%d] postConversationsEmailMessagesOK  %+v", 200, o.Payload)
 }
 
-func (o *PostConversationsEmailMessagesOK) GetPayload() *models.EmailMessage {
+func (o *PostConversationsEmailMessagesOK) GetPayload() *models.EmailMessageReply {
 	return o.Payload
 }
 
 func (o *PostConversationsEmailMessagesOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.EmailMessage)
+	o.Payload = new(models.EmailMessageReply)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

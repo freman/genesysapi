@@ -162,7 +162,7 @@ type GetLearningAssignmentsParams struct {
 
 	/* Types.
 
-	   Specifies the assignment types, currently not supported and will be ignored. For now, all learning assignments regardless of types will be returned
+	   Specifies the module types to filter by
 	*/
 	Types []string
 
