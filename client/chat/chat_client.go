@@ -19,16 +19,31 @@ import (
 type API interface {
 	/*
 	   GetChatSettings gets chat settings
+	   This route is deprecated, please use /chats/settings instead
 	*/
 	GetChatSettings(ctx context.Context, params *GetChatSettingsParams) (*GetChatSettingsOK, error)
 	/*
+	   GetChatsSettings gets chat settings
+	*/
+	GetChatsSettings(ctx context.Context, params *GetChatsSettingsParams) (*GetChatsSettingsOK, error)
+	/*
 	   PatchChatSettings patches chat settings
+	   This route is deprecated, please use /chats/settings instead
 	*/
 	PatchChatSettings(ctx context.Context, params *PatchChatSettingsParams) (*PatchChatSettingsOK, error)
 	/*
+	   PatchChatsSettings patches chat settings
+	*/
+	PatchChatsSettings(ctx context.Context, params *PatchChatsSettingsParams) (*PatchChatsSettingsOK, error)
+	/*
 	   PutChatSettings updates chat settings
+	   This route is deprecated, please use /chats/settings instead
 	*/
 	PutChatSettings(ctx context.Context, params *PutChatSettingsParams) (*PutChatSettingsOK, error)
+	/*
+	   PutChatsSettings updates chat settings
+	*/
+	PutChatsSettings(ctx context.Context, params *PutChatsSettingsParams) (*PutChatsSettingsOK, error)
 }
 
 // New creates a new chat API client.
@@ -51,6 +66,8 @@ type Client struct {
 
 /*
 GetChatSettings gets chat settings
+
+This route is deprecated, please use /chats/settings instead
 */
 func (a *Client) GetChatSettings(ctx context.Context, params *GetChatSettingsParams) (*GetChatSettingsOK, error) {
 
@@ -75,7 +92,34 @@ func (a *Client) GetChatSettings(ctx context.Context, params *GetChatSettingsPar
 }
 
 /*
+GetChatsSettings gets chat settings
+*/
+func (a *Client) GetChatsSettings(ctx context.Context, params *GetChatsSettingsParams) (*GetChatsSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getChatsSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/chats/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetChatsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetChatsSettingsOK), nil
+
+}
+
+/*
 PatchChatSettings patches chat settings
+
+This route is deprecated, please use /chats/settings instead
 */
 func (a *Client) PatchChatSettings(ctx context.Context, params *PatchChatSettingsParams) (*PatchChatSettingsOK, error) {
 
@@ -100,7 +144,34 @@ func (a *Client) PatchChatSettings(ctx context.Context, params *PatchChatSetting
 }
 
 /*
+PatchChatsSettings patches chat settings
+*/
+func (a *Client) PatchChatsSettings(ctx context.Context, params *PatchChatsSettingsParams) (*PatchChatsSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchChatsSettings",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/chats/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchChatsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchChatsSettingsOK), nil
+
+}
+
+/*
 PutChatSettings updates chat settings
+
+This route is deprecated, please use /chats/settings instead
 */
 func (a *Client) PutChatSettings(ctx context.Context, params *PutChatSettingsParams) (*PutChatSettingsOK, error) {
 
@@ -121,5 +192,30 @@ func (a *Client) PutChatSettings(ctx context.Context, params *PutChatSettingsPar
 		return nil, err
 	}
 	return result.(*PutChatSettingsOK), nil
+
+}
+
+/*
+PutChatsSettings updates chat settings
+*/
+func (a *Client) PutChatsSettings(ctx context.Context, params *PutChatsSettingsParams) (*PutChatsSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putChatsSettings",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/chats/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutChatsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutChatsSettingsOK), nil
 
 }

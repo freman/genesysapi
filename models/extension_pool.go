@@ -44,7 +44,7 @@ type ExtensionPool struct {
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`
 
-	// The ending phone number for the range of this Extension pool. Must be in E.164 format
+	// The ending phone number for the range of this Extension pool. The number must be between 3 and 9 digits in length and the same length as the startNumber.
 	EndNumber string `json:"endNumber,omitempty"`
 
 	// The globally unique identifier for the object.
@@ -68,7 +68,7 @@ type ExtensionPool struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// The starting phone number for the range of this Extension pool. Must be in E.164 format
+	// The starting phone number for the range of this Extension pool. The number must be between 3 and 9 digits in length and the same length as the endNumber.
 	StartNumber string `json:"startNumber,omitempty"`
 
 	// Indicates if the resource is active, inactive, or deleted.

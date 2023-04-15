@@ -26,6 +26,9 @@ type TriggerTarget struct {
 	// The entity type to target
 	// Enum: [Workflow]
 	Type string `json:"type,omitempty"`
+
+	// Optional config for the target. Until the feature gets enabled will always operate in TopLevelPrimitives mode.
+	WorkflowTargetSettings *WorkflowTargetSettings `json:"workflowTargetSettings,omitempty"`
 }
 
 // Validate validates this trigger target
@@ -33,6 +36,10 @@ func (m *TriggerTarget) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWorkflowTargetSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -81,8 +88,52 @@ func (m *TriggerTarget) validateType(formats strfmt.Registry) error {
 	return nil
 }
 
-// ContextValidate validates this trigger target based on context it is used
+func (m *TriggerTarget) validateWorkflowTargetSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.WorkflowTargetSettings) { // not required
+		return nil
+	}
+
+	if m.WorkflowTargetSettings != nil {
+		if err := m.WorkflowTargetSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workflowTargetSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workflowTargetSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this trigger target based on the context it is used
 func (m *TriggerTarget) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateWorkflowTargetSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TriggerTarget) contextValidateWorkflowTargetSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkflowTargetSettings != nil {
+		if err := m.WorkflowTargetSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workflowTargetSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workflowTargetSettings")
+			}
+			return err
+		}
+	}
+
 	return nil
 }
 

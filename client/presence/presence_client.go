@@ -26,6 +26,10 @@ type API interface {
 	*/
 	DeletePresencedefinition(ctx context.Context, params *DeletePresencedefinitionParams) error
 	/*
+	   GetPresenceSettings gets the presence settings
+	*/
+	GetPresenceSettings(ctx context.Context, params *GetPresenceSettingsParams) (*GetPresenceSettingsOK, error)
+	/*
 	   GetPresenceSource gets a presence source
 	*/
 	GetPresenceSource(ctx context.Context, params *GetPresenceSourceParams) (*GetPresenceSourceOK, error)
@@ -77,6 +81,10 @@ type API interface {
 	   PostPresencedefinitions creates a presence definition
 	*/
 	PostPresencedefinitions(ctx context.Context, params *PostPresencedefinitionsParams) (*PostPresencedefinitionsOK, error)
+	/*
+	   PutPresenceSettings updates the presence settings
+	*/
+	PutPresenceSettings(ctx context.Context, params *PutPresenceSettingsParams) (*PutPresenceSettingsOK, error)
 	/*
 	   PutPresenceSource updates a presence source
 	*/
@@ -160,6 +168,31 @@ func (a *Client) DeletePresencedefinition(ctx context.Context, params *DeletePre
 		return err
 	}
 	return nil
+
+}
+
+/*
+GetPresenceSettings gets the presence settings
+*/
+func (a *Client) GetPresenceSettings(ctx context.Context, params *GetPresenceSettingsParams) (*GetPresenceSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getPresenceSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/presence/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetPresenceSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetPresenceSettingsOK), nil
 
 }
 
@@ -468,6 +501,31 @@ func (a *Client) PostPresencedefinitions(ctx context.Context, params *PostPresen
 		return nil, err
 	}
 	return result.(*PostPresencedefinitionsOK), nil
+
+}
+
+/*
+PutPresenceSettings updates the presence settings
+*/
+func (a *Client) PutPresenceSettings(ctx context.Context, params *PutPresenceSettingsParams) (*PutPresenceSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putPresenceSettings",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/presence/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutPresenceSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutPresenceSettingsOK), nil
 
 }
 

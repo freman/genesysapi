@@ -27,6 +27,9 @@ type DigitalCondition struct {
 	// The settings for a 'contact list column' condition.
 	ContactColumnConditionSettings *ContactColumnConditionSettings `json:"contactColumnConditionSettings,omitempty"`
 
+	// The settings for a 'data action' condition.
+	DataActionConditionSettings *DataActionConditionSettings `json:"dataActionConditionSettings,omitempty"`
+
 	// If true, inverts the result of evaluating this condition. Default is false.
 	Inverted bool `json:"inverted"`
 
@@ -56,6 +59,10 @@ func (m *DigitalCondition) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateContactColumnConditionSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDataActionConditionSettings(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -130,6 +137,25 @@ func (m *DigitalCondition) validateContactColumnConditionSettings(formats strfmt
 				return ve.ValidateName("contactColumnConditionSettings")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("contactColumnConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) validateDataActionConditionSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.DataActionConditionSettings) { // not required
+		return nil
+	}
+
+	if m.DataActionConditionSettings != nil {
+		if err := m.DataActionConditionSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dataActionConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dataActionConditionSettings")
 			}
 			return err
 		}
@@ -230,6 +256,10 @@ func (m *DigitalCondition) ContextValidate(ctx context.Context, formats strfmt.R
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDataActionConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateLastAttemptByColumnConditionSettings(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -292,6 +322,22 @@ func (m *DigitalCondition) contextValidateContactColumnConditionSettings(ctx con
 				return ve.ValidateName("contactColumnConditionSettings")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("contactColumnConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateDataActionConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DataActionConditionSettings != nil {
+		if err := m.DataActionConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dataActionConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dataActionConditionSettings")
 			}
 			return err
 		}

@@ -21,7 +21,7 @@ import (
 type OpenMessageContent struct {
 
 	// Attachment content.
-	Attachment *ContentAttachment `json:"attachment,omitempty"`
+	Attachment *ConversationContentAttachment `json:"attachment,omitempty"`
 
 	// Type of this content element. If contentType = "Attachment" only one item is allowed.
 	// Required: true

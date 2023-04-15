@@ -32,7 +32,7 @@ type OpenMessagingChannel struct {
 	MessageID string `json:"messageId,omitempty"`
 
 	// Information about the channel.
-	Metadata ChannelMetadata `json:"metadata,omitempty"`
+	Metadata ConversationChannelMetadata `json:"metadata,omitempty"`
 
 	// The provider type.
 	// Read Only: true

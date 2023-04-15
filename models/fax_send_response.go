@@ -20,6 +20,9 @@ import (
 // swagger:model FaxSendResponse
 type FaxSendResponse struct {
 
+	// headers
+	Headers map[string]string `json:"headers,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`

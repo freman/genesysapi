@@ -79,6 +79,9 @@ type LearningModule struct {
 	// Required: true
 	Name *string `json:"name"`
 
+	// The learning module reassign summary data
+	ReassignSummaryData *LearningModuleReassignSummary `json:"reassignSummaryData,omitempty"`
+
 	// The rule for learning module; read-only, and only populated when requested via expand param.
 	// Read Only: true
 	Rule *LearningModuleRule `json:"rule,omitempty"`
@@ -97,7 +100,7 @@ type LearningModule struct {
 	SummaryData *LearningModuleSummary `json:"summaryData,omitempty"`
 
 	// The type for the learning module
-	// Enum: [Informational AssessedContent Assessment]
+	// Enum: [Informational AssessedContent Assessment External]
 	Type string `json:"type,omitempty"`
 
 	// The version of published learning module
@@ -146,6 +149,10 @@ func (m *LearningModule) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReassignSummaryData(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -361,6 +368,25 @@ func (m *LearningModule) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *LearningModule) validateReassignSummaryData(formats strfmt.Registry) error {
+	if swag.IsZero(m.ReassignSummaryData) { // not required
+		return nil
+	}
+
+	if m.ReassignSummaryData != nil {
+		if err := m.ReassignSummaryData.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("reassignSummaryData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reassignSummaryData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *LearningModule) validateRule(formats strfmt.Registry) error {
 	if swag.IsZero(m.Rule) { // not required
 		return nil
@@ -457,7 +483,7 @@ var learningModuleTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Informational","AssessedContent","Assessment"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Informational","AssessedContent","Assessment","External"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -475,6 +501,9 @@ const (
 
 	// LearningModuleTypeAssessment captures enum value "Assessment"
 	LearningModuleTypeAssessment string = "Assessment"
+
+	// LearningModuleTypeExternal captures enum value "External"
+	LearningModuleTypeExternal string = "External"
 )
 
 // prop value enum
@@ -543,6 +572,10 @@ func (m *LearningModule) ContextValidate(ctx context.Context, formats strfmt.Reg
 	}
 
 	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReassignSummaryData(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -702,6 +735,22 @@ func (m *LearningModule) contextValidateModifiedBy(ctx context.Context, formats 
 				return ve.ValidateName("modifiedBy")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningModule) contextValidateReassignSummaryData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReassignSummaryData != nil {
+		if err := m.ReassignSummaryData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("reassignSummaryData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reassignSummaryData")
 			}
 			return err
 		}

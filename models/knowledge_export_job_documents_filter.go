@@ -7,9 +7,12 @@ package models
 
 import (
 	"context"
+	"strconv"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // KnowledgeExportJobDocumentsFilter knowledge export job documents filter
@@ -17,17 +20,96 @@ import (
 // swagger:model KnowledgeExportJobDocumentsFilter
 type KnowledgeExportJobDocumentsFilter struct {
 
-	// Retrieves the documents modified in specified date and time range. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	// Retrieves the documents with the given ids. Cannot be used together with internal filter.
+	// Max Items: 100
+	// Min Items: 1
+	Entities []*Entity `json:"entities"`
+
+	// Retrieves the documents modified in specified date and time range. Cannot be used together with entities filter. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 	Interval string `json:"interval,omitempty"`
 }
 
 // Validate validates this knowledge export job documents filter
 func (m *KnowledgeExportJobDocumentsFilter) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateEntities(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
 	return nil
 }
 
-// ContextValidate validates this knowledge export job documents filter based on context it is used
+func (m *KnowledgeExportJobDocumentsFilter) validateEntities(formats strfmt.Registry) error {
+	if swag.IsZero(m.Entities) { // not required
+		return nil
+	}
+
+	iEntitiesSize := int64(len(m.Entities))
+
+	if err := validate.MinItems("entities", "body", iEntitiesSize, 1); err != nil {
+		return err
+	}
+
+	if err := validate.MaxItems("entities", "body", iEntitiesSize, 100); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Entities); i++ {
+		if swag.IsZero(m.Entities[i]) { // not required
+			continue
+		}
+
+		if m.Entities[i] != nil {
+			if err := m.Entities[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge export job documents filter based on the context it is used
 func (m *KnowledgeExportJobDocumentsFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeExportJobDocumentsFilter) contextValidateEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Entities); i++ {
+
+		if m.Entities[i] != nil {
+			if err := m.Entities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
 	return nil
 }
 

@@ -73,6 +73,10 @@ type API interface {
 	*/
 	PatchLearningAssignment(ctx context.Context, params *PatchLearningAssignmentParams) (*PatchLearningAssignmentOK, error)
 	/*
+	   PatchLearningAssignmentReschedule reschedules learning assignment
+	*/
+	PatchLearningAssignmentReschedule(ctx context.Context, params *PatchLearningAssignmentRescheduleParams) (*PatchLearningAssignmentRescheduleOK, error)
+	/*
 	   PostLearningAssessmentsScoring scores learning assessment for preview
 	*/
 	PostLearningAssessmentsScoring(ctx context.Context, params *PostLearningAssessmentsScoringParams) (*PostLearningAssessmentsScoringOK, error)
@@ -121,6 +125,10 @@ type API interface {
 	   This will get the users who matches the given rule.
 	*/
 	PostLearningRulesQuery(ctx context.Context, params *PostLearningRulesQueryParams) (*PostLearningRulesQueryOK, error)
+	/*
+	   PostLearningScheduleslotsQuery gets list of possible slots where a learning activity can be scheduled
+	*/
+	PostLearningScheduleslotsQuery(ctx context.Context, params *PostLearningScheduleslotsQueryParams) (*PostLearningScheduleslotsQueryOK, error)
 	/*
 	   PutLearningModule updates a learning module
 	   This will update the name, description, completion time in days and inform steps for a learning module
@@ -483,6 +491,31 @@ func (a *Client) PatchLearningAssignment(ctx context.Context, params *PatchLearn
 }
 
 /*
+PatchLearningAssignmentReschedule reschedules learning assignment
+*/
+func (a *Client) PatchLearningAssignmentReschedule(ctx context.Context, params *PatchLearningAssignmentRescheduleParams) (*PatchLearningAssignmentRescheduleOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchLearningAssignmentReschedule",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/learning/assignments/{assignmentId}/reschedule",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchLearningAssignmentRescheduleReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchLearningAssignmentRescheduleOK), nil
+
+}
+
+/*
 PostLearningAssessmentsScoring scores learning assessment for preview
 */
 func (a *Client) PostLearningAssessmentsScoring(ctx context.Context, params *PostLearningAssessmentsScoringParams) (*PostLearningAssessmentsScoringOK, error) {
@@ -764,6 +797,31 @@ func (a *Client) PostLearningRulesQuery(ctx context.Context, params *PostLearnin
 		return nil, err
 	}
 	return result.(*PostLearningRulesQueryOK), nil
+
+}
+
+/*
+PostLearningScheduleslotsQuery gets list of possible slots where a learning activity can be scheduled
+*/
+func (a *Client) PostLearningScheduleslotsQuery(ctx context.Context, params *PostLearningScheduleslotsQueryParams) (*PostLearningScheduleslotsQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postLearningScheduleslotsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/learning/scheduleslots/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostLearningScheduleslotsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostLearningScheduleslotsQueryOK), nil
 
 }
 

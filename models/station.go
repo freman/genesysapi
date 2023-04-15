@@ -70,6 +70,10 @@ type Station struct {
 	// Read Only: true
 	WebRtcPersistentEnabled *bool `json:"webRtcPersistentEnabled"`
 
+	// True when the media helper required.
+	// Read Only: true
+	WebRtcRequireMediaHelper *bool `json:"webRtcRequireMediaHelper"`
+
 	// The Id of the user configured for the station if it is of type inin_webrtc_softphone. Empty if station type is not inin_webrtc_softphone.
 	WebRtcUserID string `json:"webRtcUserId,omitempty"`
 }
@@ -228,6 +232,10 @@ func (m *Station) ContextValidate(ctx context.Context, formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateWebRtcRequireMediaHelper(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -314,6 +322,15 @@ func (m *Station) contextValidateWebRtcMediaDscp(ctx context.Context, formats st
 func (m *Station) contextValidateWebRtcPersistentEnabled(ctx context.Context, formats strfmt.Registry) error {
 
 	if err := validate.ReadOnly(ctx, "webRtcPersistentEnabled", "body", m.WebRtcPersistentEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Station) contextValidateWebRtcRequireMediaHelper(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "webRtcRequireMediaHelper", "body", m.WebRtcRequireMediaHelper); err != nil {
 		return err
 	}
 

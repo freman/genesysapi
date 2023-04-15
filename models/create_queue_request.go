@@ -79,8 +79,8 @@ type CreateQueueRequest struct {
 	// Read Only: true
 	JoinedMemberCount int32 `json:"joinedMemberCount,omitempty"`
 
-	// The media settings for the queue. Valid key values: CALL, CALLBACK, CHAT, EMAIL, MESSAGE, SOCIAL_EXPRESSION, VIDEO_COMM
-	MediaSettings map[string]MediaSetting `json:"mediaSettings,omitempty"`
+	// The media settings for the queue.
+	MediaSettings *QueueMediaSettings `json:"mediaSettings,omitempty"`
 
 	// The total number of members in the queue.
 	// Read Only: true
@@ -401,22 +401,15 @@ func (m *CreateQueueRequest) validateMediaSettings(formats strfmt.Registry) erro
 		return nil
 	}
 
-	for k := range m.MediaSettings {
-
-		if err := validate.Required("mediaSettings"+"."+k, "body", m.MediaSettings[k]); err != nil {
+	if m.MediaSettings != nil {
+		if err := m.MediaSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mediaSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mediaSettings")
+			}
 			return err
 		}
-		if val, ok := m.MediaSettings[k]; ok {
-			if err := val.Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("mediaSettings" + "." + k)
-				} else if ce, ok := err.(*errors.CompositeError); ok {
-					return ce.ValidateName("mediaSettings" + "." + k)
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil
@@ -883,14 +876,15 @@ func (m *CreateQueueRequest) contextValidateJoinedMemberCount(ctx context.Contex
 
 func (m *CreateQueueRequest) contextValidateMediaSettings(ctx context.Context, formats strfmt.Registry) error {
 
-	for k := range m.MediaSettings {
-
-		if val, ok := m.MediaSettings[k]; ok {
-			if err := val.ContextValidate(ctx, formats); err != nil {
-				return err
+	if m.MediaSettings != nil {
+		if err := m.MediaSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mediaSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mediaSettings")
 			}
+			return err
 		}
-
 	}
 
 	return nil

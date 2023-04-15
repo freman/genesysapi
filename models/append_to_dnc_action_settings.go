@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -26,6 +27,10 @@ type AppendToDncActionSettings struct {
 	// Whether to expire the record appended to the DNC list.
 	// Required: true
 	Expire *bool `json:"expire"`
+
+	// The Dnc List Type to append entries to
+	// Enum: [Rds RdsCustom]
+	ListType string `json:"listType,omitempty"`
 }
 
 // Validate validates this append to dnc action settings
@@ -33,6 +38,10 @@ func (m *AppendToDncActionSettings) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateExpire(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateListType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -45,6 +54,48 @@ func (m *AppendToDncActionSettings) Validate(formats strfmt.Registry) error {
 func (m *AppendToDncActionSettings) validateExpire(formats strfmt.Registry) error {
 
 	if err := validate.Required("expire", "body", m.Expire); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var appendToDncActionSettingsTypeListTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Rds","RdsCustom"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		appendToDncActionSettingsTypeListTypePropEnum = append(appendToDncActionSettingsTypeListTypePropEnum, v)
+	}
+}
+
+const (
+
+	// AppendToDncActionSettingsListTypeRds captures enum value "Rds"
+	AppendToDncActionSettingsListTypeRds string = "Rds"
+
+	// AppendToDncActionSettingsListTypeRdsCustom captures enum value "RdsCustom"
+	AppendToDncActionSettingsListTypeRdsCustom string = "RdsCustom"
+)
+
+// prop value enum
+func (m *AppendToDncActionSettings) validateListTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, appendToDncActionSettingsTypeListTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *AppendToDncActionSettings) validateListType(formats strfmt.Registry) error {
+	if swag.IsZero(m.ListType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateListTypeEnum("listType", "body", m.ListType); err != nil {
 		return err
 	}
 

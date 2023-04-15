@@ -91,6 +91,10 @@ type API interface {
 	*/
 	GetConversationsCall(ctx context.Context, params *GetConversationsCallParams) (*GetConversationsCallOK, error)
 	/*
+	   GetConversationsCallParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsCallParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsCallParticipantCommunicationWrapupParams) (*GetConversationsCallParticipantCommunicationWrapupOK, error)
+	/*
 	   GetConversationsCallParticipantWrapup gets the wrap up for this conversation participant
 	*/
 	GetConversationsCallParticipantWrapup(ctx context.Context, params *GetConversationsCallParticipantWrapupParams) (*GetConversationsCallParticipantWrapupOK, error)
@@ -102,6 +106,10 @@ type API interface {
 	   GetConversationsCallback gets callback conversation
 	*/
 	GetConversationsCallback(ctx context.Context, params *GetConversationsCallbackParams) (*GetConversationsCallbackOK, error)
+	/*
+	   GetConversationsCallbackParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsCallbackParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsCallbackParticipantCommunicationWrapupParams) (*GetConversationsCallbackParticipantCommunicationWrapupOK, error)
 	/*
 	   GetConversationsCallbackParticipantWrapup gets the wrap up for this conversation participant
 	*/
@@ -141,6 +149,10 @@ type API interface {
 	*/
 	GetConversationsChatMessages(ctx context.Context, params *GetConversationsChatMessagesParams) (*GetConversationsChatMessagesOK, error)
 	/*
+	   GetConversationsChatParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsChatParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsChatParticipantCommunicationWrapupParams) (*GetConversationsChatParticipantCommunicationWrapupOK, error)
+	/*
 	   GetConversationsChatParticipantWrapup gets the wrap up for this conversation participant
 	*/
 	GetConversationsChatParticipantWrapup(ctx context.Context, params *GetConversationsChatParticipantWrapupParams) (*GetConversationsChatParticipantWrapupOK, error)
@@ -156,6 +168,10 @@ type API interface {
 	   GetConversationsCobrowsesession gets cobrowse conversation
 	*/
 	GetConversationsCobrowsesession(ctx context.Context, params *GetConversationsCobrowsesessionParams) (*GetConversationsCobrowsesessionOK, error)
+	/*
+	   GetConversationsCobrowsesessionParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsCobrowsesessionParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsCobrowsesessionParticipantCommunicationWrapupParams) (*GetConversationsCobrowsesessionParticipantCommunicationWrapupOK, error)
 	/*
 	   GetConversationsCobrowsesessionParticipantWrapup gets the wrap up for this conversation participant
 	*/
@@ -184,6 +200,10 @@ type API interface {
 	   GetConversationsEmailMessagesDraft gets conversation draft reply
 	*/
 	GetConversationsEmailMessagesDraft(ctx context.Context, params *GetConversationsEmailMessagesDraftParams) (*GetConversationsEmailMessagesDraftOK, error)
+	/*
+	   GetConversationsEmailParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsEmailParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsEmailParticipantCommunicationWrapupParams) (*GetConversationsEmailParticipantCommunicationWrapupOK, error)
 	/*
 	   GetConversationsEmailParticipantWrapup gets the wrap up for this conversation participant
 	*/
@@ -225,6 +245,10 @@ type API interface {
 	   GetConversationsMessageMessage gets conversation message
 	*/
 	GetConversationsMessageMessage(ctx context.Context, params *GetConversationsMessageMessageParams) (*GetConversationsMessageMessageOK, error)
+	/*
+	   GetConversationsMessageParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsMessageParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsMessageParticipantCommunicationWrapupParams) (*GetConversationsMessageParticipantCommunicationWrapupOK, error)
 	/*
 	   GetConversationsMessageParticipantWrapup gets the wrap up for this conversation participant
 	*/
@@ -310,6 +334,22 @@ type API interface {
 	*/
 	GetConversationsMessagingThreadingtimeline(ctx context.Context, params *GetConversationsMessagingThreadingtimelineParams) (*GetConversationsMessagingThreadingtimelineOK, error)
 	/*
+	   GetConversationsScreenshareParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsScreenshareParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsScreenshareParticipantCommunicationWrapupParams) (*GetConversationsScreenshareParticipantCommunicationWrapupOK, error)
+	/*
+	   GetConversationsSettings gets settings
+	*/
+	GetConversationsSettings(ctx context.Context, params *GetConversationsSettingsParams) (*GetConversationsSettingsOK, error)
+	/*
+	   GetConversationsSocialParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsSocialParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsSocialParticipantCommunicationWrapupParams) (*GetConversationsSocialParticipantCommunicationWrapupOK, error)
+	/*
+	   GetConversationsVideoParticipantCommunicationWrapup gets the wrap up for this conversation communication
+	*/
+	GetConversationsVideoParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsVideoParticipantCommunicationWrapupParams) (*GetConversationsVideoParticipantCommunicationWrapupOK, error)
+	/*
 	   PatchConversationParticipant updates a participant
 	   Update conversation participant.
 	*/
@@ -322,6 +362,10 @@ type API interface {
 	   PatchConversationSecureattributes updates the secure attributes on a conversation
 	*/
 	PatchConversationSecureattributes(ctx context.Context, params *PatchConversationSecureattributesParams) (*PatchConversationSecureattributesAccepted, error)
+	/*
+	   PatchConversationsAftercallworkConversationIDParticipantCommunication updates after call work for this conversation communication
+	*/
+	PatchConversationsAftercallworkConversationIDParticipantCommunication(ctx context.Context, params *PatchConversationsAftercallworkConversationIDParticipantCommunicationParams) (*PatchConversationsAftercallworkConversationIDParticipantCommunicationOK, *PatchConversationsAftercallworkConversationIDParticipantCommunicationAccepted, error)
 	/*
 	   PatchConversationsCall updates a conversation by setting its recording state merging in other conversations to create a conference or disconnecting all of the participants
 	*/
@@ -449,11 +493,15 @@ type API interface {
 	*/
 	PatchConversationsMessagingSupportedcontentSupportedContentID(ctx context.Context, params *PatchConversationsMessagingSupportedcontentSupportedContentIDParams) (*PatchConversationsMessagingSupportedcontentSupportedContentIDOK, error)
 	/*
+	   PatchConversationsSettings updates settings
+	*/
+	PatchConversationsSettings(ctx context.Context, params *PatchConversationsSettingsParams) (*PatchConversationsSettingsAccepted, error)
+	/*
 	   PostConversationAssign attempts to manually assign a specified conversation to a specified user ignores bullseye ring p a r score skills and languages
 	*/
 	PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error)
 	/*
-	   PostConversationCobrowse creates a cobrowse session
+	   PostConversationCobrowse creates a cobrowse session requires conversation cobrowse add for web messaging or conversation cobrowsevoice add permission
 	*/
 	PostConversationCobrowse(ctx context.Context, params *PostConversationCobrowseParams) (*PostConversationCobrowseOK, error)
 	/*
@@ -485,6 +533,10 @@ type API interface {
 	*/
 	PostConversationsCallParticipantCoach(ctx context.Context, params *PostConversationsCallParticipantCoachParams) (*PostConversationsCallParticipantCoachCreated, error)
 	/*
+	   PostConversationsCallParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsCallParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsCallParticipantCommunicationWrapupParams) (*PostConversationsCallParticipantCommunicationWrapupAccepted, error)
+	/*
 	   PostConversationsCallParticipantConsult initiates and update consult transfer
 	*/
 	PostConversationsCallParticipantConsult(ctx context.Context, params *PostConversationsCallParticipantConsultParams) (*PostConversationsCallParticipantConsultOK, error)
@@ -500,6 +552,10 @@ type API interface {
 	   PostConversationsCallParticipants adds participants to a conversation
 	*/
 	PostConversationsCallParticipants(ctx context.Context, params *PostConversationsCallParticipantsParams) (*PostConversationsCallParticipantsOK, error)
+	/*
+	   PostConversationsCallbackParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsCallbackParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsCallbackParticipantCommunicationWrapupParams) (*PostConversationsCallbackParticipantCommunicationWrapupAccepted, error)
 	/*
 	   PostConversationsCallbackParticipantReplace replaces this participant with the specified user and or address
 	*/
@@ -529,6 +585,10 @@ type API interface {
 	*/
 	PostConversationsChatCommunicationTyping(ctx context.Context, params *PostConversationsChatCommunicationTypingParams) (*PostConversationsChatCommunicationTypingOK, error)
 	/*
+	   PostConversationsChatParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsChatParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsChatParticipantCommunicationWrapupParams) (*PostConversationsChatParticipantCommunicationWrapupAccepted, error)
+	/*
 	   PostConversationsChatParticipantReplace replaces this participant with the specified user and or address
 	*/
 	PostConversationsChatParticipantReplace(ctx context.Context, params *PostConversationsChatParticipantReplaceParams) (*PostConversationsChatParticipantReplaceAccepted, error)
@@ -536,6 +596,10 @@ type API interface {
 	   PostConversationsChats creates a web chat conversation
 	*/
 	PostConversationsChats(ctx context.Context, params *PostConversationsChatsParams) (*PostConversationsChatsOK, error)
+	/*
+	   PostConversationsCobrowsesessionParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsCobrowsesessionParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsCobrowsesessionParticipantCommunicationWrapupParams) (*PostConversationsCobrowsesessionParticipantCommunicationWrapupAccepted, error)
 	/*
 	   PostConversationsCobrowsesessionParticipantReplace replaces this participant with the specified user and or address
 	*/
@@ -552,6 +616,10 @@ type API interface {
 	   PostConversationsEmailMessagesDraftAttachmentsCopy copies attachments from an email message to the current draft
 	*/
 	PostConversationsEmailMessagesDraftAttachmentsCopy(ctx context.Context, params *PostConversationsEmailMessagesDraftAttachmentsCopyParams) (*PostConversationsEmailMessagesDraftAttachmentsCopyOK, error)
+	/*
+	   PostConversationsEmailParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsEmailParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsEmailParticipantCommunicationWrapupParams) (*PostConversationsEmailParticipantCommunicationWrapupAccepted, error)
 	/*
 	   PostConversationsEmailParticipantReplace replaces this participant with the specified user and or address
 	*/
@@ -598,6 +666,10 @@ type API interface {
 	*/
 	PostConversationsMessageMessagesBulk(ctx context.Context, params *PostConversationsMessageMessagesBulkParams) (*PostConversationsMessageMessagesBulkOK, error)
 	/*
+	   PostConversationsMessageParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsMessageParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsMessageParticipantCommunicationWrapupParams) (*PostConversationsMessageParticipantCommunicationWrapupAccepted, error)
+	/*
 	   PostConversationsMessageParticipantReplace replaces this participant with the specified user and or address
 	*/
 	PostConversationsMessageParticipantReplace(ctx context.Context, params *PostConversationsMessageParticipantReplaceParams) (*PostConversationsMessageParticipantReplaceAccepted, error)
@@ -642,6 +714,22 @@ type API interface {
 	   PostConversationsMessagingSupportedcontent creates a supported content profile
 	*/
 	PostConversationsMessagingSupportedcontent(ctx context.Context, params *PostConversationsMessagingSupportedcontentParams) (*PostConversationsMessagingSupportedcontentOK, *PostConversationsMessagingSupportedcontentCreated, error)
+	/*
+	   PostConversationsParticipantsAttributesSearch searches conversations
+	*/
+	PostConversationsParticipantsAttributesSearch(ctx context.Context, params *PostConversationsParticipantsAttributesSearchParams) (*PostConversationsParticipantsAttributesSearchOK, error)
+	/*
+	   PostConversationsScreenshareParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsScreenshareParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsScreenshareParticipantCommunicationWrapupParams) (*PostConversationsScreenshareParticipantCommunicationWrapupAccepted, error)
+	/*
+	   PostConversationsSocialParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsSocialParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsSocialParticipantCommunicationWrapupParams) (*PostConversationsSocialParticipantCommunicationWrapupAccepted, error)
+	/*
+	   PostConversationsVideoParticipantCommunicationWrapup applies wrap up for this conversation communication
+	*/
+	PostConversationsVideoParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsVideoParticipantCommunicationWrapupParams) (*PostConversationsVideoParticipantCommunicationWrapupAccepted, error)
 	/*
 	   PutConversationParticipantFlaggedreason sets flagged reason on conversation participant to indicate bad conversation quality
 	*/
@@ -1195,6 +1283,31 @@ func (a *Client) GetConversationsCall(ctx context.Context, params *GetConversati
 }
 
 /*
+GetConversationsCallParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsCallParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsCallParticipantCommunicationWrapupParams) (*GetConversationsCallParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsCallParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsCallParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsCallParticipantCommunicationWrapupOK), nil
+
+}
+
+/*
 GetConversationsCallParticipantWrapup gets the wrap up for this conversation participant
 */
 func (a *Client) GetConversationsCallParticipantWrapup(ctx context.Context, params *GetConversationsCallParticipantWrapupParams) (*GetConversationsCallParticipantWrapupOK, error) {
@@ -1266,6 +1379,31 @@ func (a *Client) GetConversationsCallback(ctx context.Context, params *GetConver
 		return nil, err
 	}
 	return result.(*GetConversationsCallbackOK), nil
+
+}
+
+/*
+GetConversationsCallbackParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsCallbackParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsCallbackParticipantCommunicationWrapupParams) (*GetConversationsCallbackParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsCallbackParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsCallbackParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsCallbackParticipantCommunicationWrapupOK), nil
 
 }
 
@@ -1499,6 +1637,31 @@ func (a *Client) GetConversationsChatMessages(ctx context.Context, params *GetCo
 }
 
 /*
+GetConversationsChatParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsChatParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsChatParticipantCommunicationWrapupParams) (*GetConversationsChatParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsChatParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/chats/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsChatParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsChatParticipantCommunicationWrapupOK), nil
+
+}
+
+/*
 GetConversationsChatParticipantWrapup gets the wrap up for this conversation participant
 */
 func (a *Client) GetConversationsChatParticipantWrapup(ctx context.Context, params *GetConversationsChatParticipantWrapupParams) (*GetConversationsChatParticipantWrapupOK, error) {
@@ -1595,6 +1758,31 @@ func (a *Client) GetConversationsCobrowsesession(ctx context.Context, params *Ge
 		return nil, err
 	}
 	return result.(*GetConversationsCobrowsesessionOK), nil
+
+}
+
+/*
+GetConversationsCobrowsesessionParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsCobrowsesessionParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsCobrowsesessionParticipantCommunicationWrapupParams) (*GetConversationsCobrowsesessionParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsCobrowsesessionParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsCobrowsesessionParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsCobrowsesessionParticipantCommunicationWrapupOK), nil
 
 }
 
@@ -1770,6 +1958,31 @@ func (a *Client) GetConversationsEmailMessagesDraft(ctx context.Context, params 
 		return nil, err
 	}
 	return result.(*GetConversationsEmailMessagesDraftOK), nil
+
+}
+
+/*
+GetConversationsEmailParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsEmailParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsEmailParticipantCommunicationWrapupParams) (*GetConversationsEmailParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsEmailParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/emails/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsEmailParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsEmailParticipantCommunicationWrapupOK), nil
 
 }
 
@@ -2022,6 +2235,31 @@ func (a *Client) GetConversationsMessageMessage(ctx context.Context, params *Get
 		return nil, err
 	}
 	return result.(*GetConversationsMessageMessageOK), nil
+
+}
+
+/*
+GetConversationsMessageParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsMessageParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsMessageParticipantCommunicationWrapupParams) (*GetConversationsMessageParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsMessageParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/messages/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsMessageParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsMessageParticipantCommunicationWrapupOK), nil
 
 }
 
@@ -2534,6 +2772,106 @@ func (a *Client) GetConversationsMessagingThreadingtimeline(ctx context.Context,
 }
 
 /*
+GetConversationsScreenshareParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsScreenshareParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsScreenshareParticipantCommunicationWrapupParams) (*GetConversationsScreenshareParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsScreenshareParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/screenshares/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsScreenshareParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsScreenshareParticipantCommunicationWrapupOK), nil
+
+}
+
+/*
+GetConversationsSettings gets settings
+*/
+func (a *Client) GetConversationsSettings(ctx context.Context, params *GetConversationsSettingsParams) (*GetConversationsSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsSettingsOK), nil
+
+}
+
+/*
+GetConversationsSocialParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsSocialParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsSocialParticipantCommunicationWrapupParams) (*GetConversationsSocialParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsSocialParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/socials/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsSocialParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsSocialParticipantCommunicationWrapupOK), nil
+
+}
+
+/*
+GetConversationsVideoParticipantCommunicationWrapup gets the wrap up for this conversation communication
+*/
+func (a *Client) GetConversationsVideoParticipantCommunicationWrapup(ctx context.Context, params *GetConversationsVideoParticipantCommunicationWrapupParams) (*GetConversationsVideoParticipantCommunicationWrapupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getConversationsVideoParticipantCommunicationWrapup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/conversations/videos/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetConversationsVideoParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetConversationsVideoParticipantCommunicationWrapupOK), nil
+
+}
+
+/*
 PatchConversationParticipant updates a participant
 
 Update conversation participant.
@@ -2607,6 +2945,37 @@ func (a *Client) PatchConversationSecureattributes(ctx context.Context, params *
 		return nil, err
 	}
 	return result.(*PatchConversationSecureattributesAccepted), nil
+
+}
+
+/*
+PatchConversationsAftercallworkConversationIDParticipantCommunication updates after call work for this conversation communication
+*/
+func (a *Client) PatchConversationsAftercallworkConversationIDParticipantCommunication(ctx context.Context, params *PatchConversationsAftercallworkConversationIDParticipantCommunicationParams) (*PatchConversationsAftercallworkConversationIDParticipantCommunicationOK, *PatchConversationsAftercallworkConversationIDParticipantCommunicationAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationsAftercallworkConversationIdParticipantCommunication",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/aftercallwork/{conversationId}/participants/{participantId}/communications/{communicationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationsAftercallworkConversationIDParticipantCommunicationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchConversationsAftercallworkConversationIDParticipantCommunicationOK:
+		return value, nil, nil
+	case *PatchConversationsAftercallworkConversationIDParticipantCommunicationAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -3402,6 +3771,31 @@ func (a *Client) PatchConversationsMessagingSupportedcontentSupportedContentID(c
 }
 
 /*
+PatchConversationsSettings updates settings
+*/
+func (a *Client) PatchConversationsSettings(ctx context.Context, params *PatchConversationsSettingsParams) (*PatchConversationsSettingsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchConversationsSettings",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/conversations/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchConversationsSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchConversationsSettingsAccepted), nil
+
+}
+
+/*
 PostConversationAssign attempts to manually assign a specified conversation to a specified user ignores bullseye ring p a r score skills and languages
 */
 func (a *Client) PostConversationAssign(ctx context.Context, params *PostConversationAssignParams) (*PostConversationAssignAccepted, error) {
@@ -3427,7 +3821,7 @@ func (a *Client) PostConversationAssign(ctx context.Context, params *PostConvers
 }
 
 /*
-PostConversationCobrowse creates a cobrowse session
+PostConversationCobrowse creates a cobrowse session requires conversation cobrowse add for web messaging or conversation cobrowsevoice add permission
 */
 func (a *Client) PostConversationCobrowse(ctx context.Context, params *PostConversationCobrowseParams) (*PostConversationCobrowseOK, error) {
 
@@ -3627,6 +4021,31 @@ func (a *Client) PostConversationsCallParticipantCoach(ctx context.Context, para
 }
 
 /*
+PostConversationsCallParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsCallParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsCallParticipantCommunicationWrapupParams) (*PostConversationsCallParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsCallParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/calls/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsCallParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsCallParticipantCommunicationWrapupAccepted), nil
+
+}
+
+/*
 PostConversationsCallParticipantConsult initiates and update consult transfer
 */
 func (a *Client) PostConversationsCallParticipantConsult(ctx context.Context, params *PostConversationsCallParticipantConsultParams) (*PostConversationsCallParticipantConsultOK, error) {
@@ -3723,6 +4142,31 @@ func (a *Client) PostConversationsCallParticipants(ctx context.Context, params *
 		return nil, err
 	}
 	return result.(*PostConversationsCallParticipantsOK), nil
+
+}
+
+/*
+PostConversationsCallbackParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsCallbackParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsCallbackParticipantCommunicationWrapupParams) (*PostConversationsCallbackParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsCallbackParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsCallbackParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsCallbackParticipantCommunicationWrapupAccepted), nil
 
 }
 
@@ -3908,6 +4352,31 @@ func (a *Client) PostConversationsChatCommunicationTyping(ctx context.Context, p
 }
 
 /*
+PostConversationsChatParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsChatParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsChatParticipantCommunicationWrapupParams) (*PostConversationsChatParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsChatParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/chats/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsChatParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsChatParticipantCommunicationWrapupAccepted), nil
+
+}
+
+/*
 PostConversationsChatParticipantReplace replaces this participant with the specified user and or address
 */
 func (a *Client) PostConversationsChatParticipantReplace(ctx context.Context, params *PostConversationsChatParticipantReplaceParams) (*PostConversationsChatParticipantReplaceAccepted, error) {
@@ -3954,6 +4423,31 @@ func (a *Client) PostConversationsChats(ctx context.Context, params *PostConvers
 		return nil, err
 	}
 	return result.(*PostConversationsChatsOK), nil
+
+}
+
+/*
+PostConversationsCobrowsesessionParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsCobrowsesessionParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsCobrowsesessionParticipantCommunicationWrapupParams) (*PostConversationsCobrowsesessionParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsCobrowsesessionParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsCobrowsesessionParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsCobrowsesessionParticipantCommunicationWrapupAccepted), nil
 
 }
 
@@ -4054,6 +4548,31 @@ func (a *Client) PostConversationsEmailMessagesDraftAttachmentsCopy(ctx context.
 		return nil, err
 	}
 	return result.(*PostConversationsEmailMessagesDraftAttachmentsCopyOK), nil
+
+}
+
+/*
+PostConversationsEmailParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsEmailParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsEmailParticipantCommunicationWrapupParams) (*PostConversationsEmailParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsEmailParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/emails/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsEmailParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsEmailParticipantCommunicationWrapupAccepted), nil
 
 }
 
@@ -4320,6 +4839,31 @@ func (a *Client) PostConversationsMessageMessagesBulk(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*PostConversationsMessageMessagesBulkOK), nil
+
+}
+
+/*
+PostConversationsMessageParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsMessageParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsMessageParticipantCommunicationWrapupParams) (*PostConversationsMessageParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsMessageParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/messages/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsMessageParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsMessageParticipantCommunicationWrapupAccepted), nil
 
 }
 
@@ -4628,6 +5172,106 @@ func (a *Client) PostConversationsMessagingSupportedcontent(ctx context.Context,
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PostConversationsParticipantsAttributesSearch searches conversations
+*/
+func (a *Client) PostConversationsParticipantsAttributesSearch(ctx context.Context, params *PostConversationsParticipantsAttributesSearchParams) (*PostConversationsParticipantsAttributesSearchOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsParticipantsAttributesSearch",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/participants/attributes/search",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsParticipantsAttributesSearchReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsParticipantsAttributesSearchOK), nil
+
+}
+
+/*
+PostConversationsScreenshareParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsScreenshareParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsScreenshareParticipantCommunicationWrapupParams) (*PostConversationsScreenshareParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsScreenshareParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/screenshares/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsScreenshareParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsScreenshareParticipantCommunicationWrapupAccepted), nil
+
+}
+
+/*
+PostConversationsSocialParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsSocialParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsSocialParticipantCommunicationWrapupParams) (*PostConversationsSocialParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsSocialParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/socials/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsSocialParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsSocialParticipantCommunicationWrapupAccepted), nil
+
+}
+
+/*
+PostConversationsVideoParticipantCommunicationWrapup applies wrap up for this conversation communication
+*/
+func (a *Client) PostConversationsVideoParticipantCommunicationWrapup(ctx context.Context, params *PostConversationsVideoParticipantCommunicationWrapupParams) (*PostConversationsVideoParticipantCommunicationWrapupAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsVideoParticipantCommunicationWrapup",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/videos/{conversationId}/participants/{participantId}/communications/{communicationId}/wrapup",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsVideoParticipantCommunicationWrapupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsVideoParticipantCommunicationWrapupAccepted), nil
 
 }
 

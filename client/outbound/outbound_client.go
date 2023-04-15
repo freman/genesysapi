@@ -70,6 +70,11 @@ type API interface {
 	*/
 	DeleteOutboundDnclist(ctx context.Context, params *DeleteOutboundDnclistParams) (*DeleteOutboundDnclistOK, error)
 	/*
+	   DeleteOutboundDnclistCustomexclusioncolumns deletes all or expired custom exclusion column entries from a d n c list
+	   This operation is only for Internal DNC lists of custom exclusion column entries
+	*/
+	DeleteOutboundDnclistCustomexclusioncolumns(ctx context.Context, params *DeleteOutboundDnclistCustomexclusioncolumnsParams) (*DeleteOutboundDnclistCustomexclusioncolumnsNoContent, error)
+	/*
 	   DeleteOutboundDnclistEmailaddresses deletes all or expired email addresses from a d n c list
 	   This operation is Only for Internal DNC lists of email addresses
 	*/
@@ -351,6 +356,11 @@ type API interface {
 	   GetOutboundWrapupcodemappings gets the dialer wrap up code mapping
 	*/
 	GetOutboundWrapupcodemappings(ctx context.Context, params *GetOutboundWrapupcodemappingsParams) (*GetOutboundWrapupcodemappingsOK, error)
+	/*
+	   PatchOutboundDnclistCustomexclusioncolumns adds entries to or delete entries from a d n c list
+	   Only Internal DNC lists may be deleted from
+	*/
+	PatchOutboundDnclistCustomexclusioncolumns(ctx context.Context, params *PatchOutboundDnclistCustomexclusioncolumnsParams) (*PatchOutboundDnclistCustomexclusioncolumnsNoContent, error)
 	/*
 	   PatchOutboundDnclistEmailaddresses adds emails to or delete emails from a d n c list
 	   Only Internal DNC lists may be added to or deleted from
@@ -893,6 +903,33 @@ func (a *Client) DeleteOutboundDnclist(ctx context.Context, params *DeleteOutbou
 		return nil, err
 	}
 	return result.(*DeleteOutboundDnclistOK), nil
+
+}
+
+/*
+DeleteOutboundDnclistCustomexclusioncolumns deletes all or expired custom exclusion column entries from a d n c list
+
+This operation is only for Internal DNC lists of custom exclusion column entries
+*/
+func (a *Client) DeleteOutboundDnclistCustomexclusioncolumns(ctx context.Context, params *DeleteOutboundDnclistCustomexclusioncolumnsParams) (*DeleteOutboundDnclistCustomexclusioncolumnsNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundDnclistCustomexclusioncolumns",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/dnclists/{dncListId}/customexclusioncolumns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundDnclistCustomexclusioncolumnsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOutboundDnclistCustomexclusioncolumnsNoContent), nil
 
 }
 
@@ -2625,6 +2662,33 @@ func (a *Client) GetOutboundWrapupcodemappings(ctx context.Context, params *GetO
 		return nil, err
 	}
 	return result.(*GetOutboundWrapupcodemappingsOK), nil
+
+}
+
+/*
+PatchOutboundDnclistCustomexclusioncolumns adds entries to or delete entries from a d n c list
+
+Only Internal DNC lists may be deleted from
+*/
+func (a *Client) PatchOutboundDnclistCustomexclusioncolumns(ctx context.Context, params *PatchOutboundDnclistCustomexclusioncolumnsParams) (*PatchOutboundDnclistCustomexclusioncolumnsNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchOutboundDnclistCustomexclusioncolumns",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/outbound/dnclists/{dncListId}/customexclusioncolumns",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchOutboundDnclistCustomexclusioncolumnsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchOutboundDnclistCustomexclusioncolumnsNoContent), nil
 
 }
 

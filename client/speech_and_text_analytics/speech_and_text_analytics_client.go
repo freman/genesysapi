@@ -50,6 +50,10 @@ type API interface {
 	*/
 	GetSpeechandtextanalyticsProgramMappings(ctx context.Context, params *GetSpeechandtextanalyticsProgramMappingsParams) (*GetSpeechandtextanalyticsProgramMappingsOK, error)
 	/*
+	   GetSpeechandtextanalyticsProgramTranscriptionengines gets transcription engine settings of a program
+	*/
+	GetSpeechandtextanalyticsProgramTranscriptionengines(ctx context.Context, params *GetSpeechandtextanalyticsProgramTranscriptionenginesParams) (*GetSpeechandtextanalyticsProgramTranscriptionenginesOK, error)
+	/*
 	   GetSpeechandtextanalyticsPrograms gets the list of speech and text analytics programs
 	*/
 	GetSpeechandtextanalyticsPrograms(ctx context.Context, params *GetSpeechandtextanalyticsProgramsParams) (*GetSpeechandtextanalyticsProgramsOK, error)
@@ -65,6 +69,10 @@ type API interface {
 	   GetSpeechandtextanalyticsProgramsPublishjob gets a speech and text analytics publish programs job by id
 	*/
 	GetSpeechandtextanalyticsProgramsPublishjob(ctx context.Context, params *GetSpeechandtextanalyticsProgramsPublishjobParams) (*GetSpeechandtextanalyticsProgramsPublishjobOK, error)
+	/*
+	   GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects gets supported dialects for each transcription engine
+	*/
+	GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects(ctx context.Context, params *GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsParams) (*GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsOK, error)
 	/*
 	   GetSpeechandtextanalyticsProgramsUnpublished gets the list of speech and text analytics unpublished programs
 	*/
@@ -137,6 +145,10 @@ type API interface {
 	   PutSpeechandtextanalyticsProgramMappings sets speech and text analytics program mappings to queues and flows
 	*/
 	PutSpeechandtextanalyticsProgramMappings(ctx context.Context, params *PutSpeechandtextanalyticsProgramMappingsParams) (*PutSpeechandtextanalyticsProgramMappingsOK, error)
+	/*
+	   PutSpeechandtextanalyticsProgramTranscriptionengines updates transcription engine settings of a program
+	*/
+	PutSpeechandtextanalyticsProgramTranscriptionengines(ctx context.Context, params *PutSpeechandtextanalyticsProgramTranscriptionenginesParams) (*PutSpeechandtextanalyticsProgramTranscriptionenginesOK, error)
 	/*
 	   PutSpeechandtextanalyticsSettings updates speech and text analytics settings
 	*/
@@ -366,6 +378,31 @@ func (a *Client) GetSpeechandtextanalyticsProgramMappings(ctx context.Context, p
 }
 
 /*
+GetSpeechandtextanalyticsProgramTranscriptionengines gets transcription engine settings of a program
+*/
+func (a *Client) GetSpeechandtextanalyticsProgramTranscriptionengines(ctx context.Context, params *GetSpeechandtextanalyticsProgramTranscriptionenginesParams) (*GetSpeechandtextanalyticsProgramTranscriptionenginesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgramTranscriptionengines",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/{programId}/transcriptionengines",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramTranscriptionenginesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramTranscriptionenginesOK), nil
+
+}
+
+/*
 GetSpeechandtextanalyticsPrograms gets the list of speech and text analytics programs
 */
 func (a *Client) GetSpeechandtextanalyticsPrograms(ctx context.Context, params *GetSpeechandtextanalyticsProgramsParams) (*GetSpeechandtextanalyticsProgramsOK, error) {
@@ -462,6 +499,31 @@ func (a *Client) GetSpeechandtextanalyticsProgramsPublishjob(ctx context.Context
 		return nil, err
 	}
 	return result.(*GetSpeechandtextanalyticsProgramsPublishjobOK), nil
+
+}
+
+/*
+GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects gets supported dialects for each transcription engine
+*/
+func (a *Client) GetSpeechandtextanalyticsProgramsTranscriptionenginesDialects(ctx context.Context, params *GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsParams) (*GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getSpeechandtextanalyticsProgramsTranscriptionenginesDialects",
+		Method:             "GET",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/transcriptionengines/dialects",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetSpeechandtextanalyticsProgramsTranscriptionenginesDialectsOK), nil
 
 }
 
@@ -912,6 +974,31 @@ func (a *Client) PutSpeechandtextanalyticsProgramMappings(ctx context.Context, p
 		return nil, err
 	}
 	return result.(*PutSpeechandtextanalyticsProgramMappingsOK), nil
+
+}
+
+/*
+PutSpeechandtextanalyticsProgramTranscriptionengines updates transcription engine settings of a program
+*/
+func (a *Client) PutSpeechandtextanalyticsProgramTranscriptionengines(ctx context.Context, params *PutSpeechandtextanalyticsProgramTranscriptionenginesParams) (*PutSpeechandtextanalyticsProgramTranscriptionenginesOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "putSpeechandtextanalyticsProgramTranscriptionengines",
+		Method:             "PUT",
+		PathPattern:        "/api/v2/speechandtextanalytics/programs/{programId}/transcriptionengines",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PutSpeechandtextanalyticsProgramTranscriptionenginesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PutSpeechandtextanalyticsProgramTranscriptionenginesOK), nil
 
 }
 

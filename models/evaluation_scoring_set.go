@@ -28,6 +28,9 @@ type EvaluationScoringSet struct {
 	// Overall comments from the evaluator
 	Comments string `json:"comments,omitempty"`
 
+	// Overall private comments from the evaluator
+	PrivateComments string `json:"privateComments,omitempty"`
+
 	// question group scores
 	QuestionGroupScores []*EvaluationQuestionGroupScore `json:"questionGroupScores"`
 

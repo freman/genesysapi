@@ -18,9 +18,6 @@ import (
 // swagger:model EventSetting
 type EventSetting struct {
 
-	// Settings regarding presence events
-	Presence *PresenceSetting `json:"presence,omitempty"`
-
 	// Settings regarding typing events
 	Typing *TypingSetting `json:"typing,omitempty"`
 }
@@ -29,10 +26,6 @@ type EventSetting struct {
 func (m *EventSetting) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validatePresence(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateTyping(formats); err != nil {
 		res = append(res, err)
 	}
@@ -40,25 +33,6 @@ func (m *EventSetting) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *EventSetting) validatePresence(formats strfmt.Registry) error {
-	if swag.IsZero(m.Presence) { // not required
-		return nil
-	}
-
-	if m.Presence != nil {
-		if err := m.Presence.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("presence")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("presence")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 
@@ -85,10 +59,6 @@ func (m *EventSetting) validateTyping(formats strfmt.Registry) error {
 func (m *EventSetting) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidatePresence(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateTyping(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -96,22 +66,6 @@ func (m *EventSetting) ContextValidate(ctx context.Context, formats strfmt.Regis
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *EventSetting) contextValidatePresence(ctx context.Context, formats strfmt.Registry) error {
-
-	if m.Presence != nil {
-		if err := m.Presence.ContextValidate(ctx, formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("presence")
-			} else if ce, ok := err.(*errors.CompositeError); ok {
-				return ce.ValidateName("presence")
-			}
-			return err
-		}
-	}
-
 	return nil
 }
 

@@ -111,14 +111,6 @@ type API interface {
 	*/
 	GetTelephonyProvidersEdgeDiagnosticTracepath(ctx context.Context, params *GetTelephonyProvidersEdgeDiagnosticTracepathParams) (*GetTelephonyProvidersEdgeDiagnosticTracepathOK, error)
 	/*
-	   GetTelephonyProvidersEdgeLine gets line
-	*/
-	GetTelephonyProvidersEdgeLine(ctx context.Context, params *GetTelephonyProvidersEdgeLineParams) (*GetTelephonyProvidersEdgeLineOK, error)
-	/*
-	   GetTelephonyProvidersEdgeLines gets the list of lines
-	*/
-	GetTelephonyProvidersEdgeLines(ctx context.Context, params *GetTelephonyProvidersEdgeLinesParams) (*GetTelephonyProvidersEdgeLinesOK, error)
-	/*
 	   GetTelephonyProvidersEdgeLogicalinterface gets an edge logical interface
 	*/
 	GetTelephonyProvidersEdgeLogicalinterface(ctx context.Context, params *GetTelephonyProvidersEdgeLogicalinterfaceParams) (*GetTelephonyProvidersEdgeLogicalinterfaceOK, error)
@@ -471,10 +463,6 @@ type API interface {
 	*/
 	PostTelephonyProvidersEdgesSiteOutboundroutes(ctx context.Context, params *PostTelephonyProvidersEdgesSiteOutboundroutesParams) (*PostTelephonyProvidersEdgesSiteOutboundroutesOK, error)
 	/*
-	   PostTelephonyProvidersEdgesSiteRebalance triggers the rebalance operation
-	*/
-	PostTelephonyProvidersEdgesSiteRebalance(ctx context.Context, params *PostTelephonyProvidersEdgesSiteRebalanceParams) (*PostTelephonyProvidersEdgesSiteRebalanceAccepted, error)
-	/*
 	   PostTelephonyProvidersEdgesSites creates a site
 	*/
 	PostTelephonyProvidersEdgesSites(ctx context.Context, params *PostTelephonyProvidersEdgesSitesParams) (*PostTelephonyProvidersEdgesSitesOK, error)
@@ -486,10 +474,6 @@ type API interface {
 	   PutTelephonyProvidersEdge updates a edge
 	*/
 	PutTelephonyProvidersEdge(ctx context.Context, params *PutTelephonyProvidersEdgeParams) (*PutTelephonyProvidersEdgeOK, error)
-	/*
-	   PutTelephonyProvidersEdgeLine updates a line
-	*/
-	PutTelephonyProvidersEdgeLine(ctx context.Context, params *PutTelephonyProvidersEdgeLineParams) (*PutTelephonyProvidersEdgeLineOK, error)
 	/*
 	   PutTelephonyProvidersEdgeLogicalinterface updates an edge logical interface
 	*/
@@ -1145,56 +1129,6 @@ func (a *Client) GetTelephonyProvidersEdgeDiagnosticTracepath(ctx context.Contex
 		return nil, err
 	}
 	return result.(*GetTelephonyProvidersEdgeDiagnosticTracepathOK), nil
-
-}
-
-/*
-GetTelephonyProvidersEdgeLine gets line
-*/
-func (a *Client) GetTelephonyProvidersEdgeLine(ctx context.Context, params *GetTelephonyProvidersEdgeLineParams) (*GetTelephonyProvidersEdgeLineOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getTelephonyProvidersEdgeLine",
-		Method:             "GET",
-		PathPattern:        "/api/v2/telephony/providers/edges/{edgeId}/lines/{lineId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetTelephonyProvidersEdgeLineReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetTelephonyProvidersEdgeLineOK), nil
-
-}
-
-/*
-GetTelephonyProvidersEdgeLines gets the list of lines
-*/
-func (a *Client) GetTelephonyProvidersEdgeLines(ctx context.Context, params *GetTelephonyProvidersEdgeLinesParams) (*GetTelephonyProvidersEdgeLinesOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getTelephonyProvidersEdgeLines",
-		Method:             "GET",
-		PathPattern:        "/api/v2/telephony/providers/edges/{edgeId}/lines",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetTelephonyProvidersEdgeLinesReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetTelephonyProvidersEdgeLinesOK), nil
 
 }
 
@@ -3354,31 +3288,6 @@ func (a *Client) PostTelephonyProvidersEdgesSiteOutboundroutes(ctx context.Conte
 }
 
 /*
-PostTelephonyProvidersEdgesSiteRebalance triggers the rebalance operation
-*/
-func (a *Client) PostTelephonyProvidersEdgesSiteRebalance(ctx context.Context, params *PostTelephonyProvidersEdgesSiteRebalanceParams) (*PostTelephonyProvidersEdgesSiteRebalanceAccepted, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postTelephonyProvidersEdgesSiteRebalance",
-		Method:             "POST",
-		PathPattern:        "/api/v2/telephony/providers/edges/sites/{siteId}/rebalance",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostTelephonyProvidersEdgesSiteRebalanceReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostTelephonyProvidersEdgesSiteRebalanceAccepted), nil
-
-}
-
-/*
 PostTelephonyProvidersEdgesSites creates a site
 */
 func (a *Client) PostTelephonyProvidersEdgesSites(ctx context.Context, params *PostTelephonyProvidersEdgesSitesParams) (*PostTelephonyProvidersEdgesSitesOK, error) {
@@ -3450,31 +3359,6 @@ func (a *Client) PutTelephonyProvidersEdge(ctx context.Context, params *PutTelep
 		return nil, err
 	}
 	return result.(*PutTelephonyProvidersEdgeOK), nil
-
-}
-
-/*
-PutTelephonyProvidersEdgeLine updates a line
-*/
-func (a *Client) PutTelephonyProvidersEdgeLine(ctx context.Context, params *PutTelephonyProvidersEdgeLineParams) (*PutTelephonyProvidersEdgeLineOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "putTelephonyProvidersEdgeLine",
-		Method:             "PUT",
-		PathPattern:        "/api/v2/telephony/providers/edges/{edgeId}/lines/{lineId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutTelephonyProvidersEdgeLineReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PutTelephonyProvidersEdgeLineOK), nil
 
 }
 

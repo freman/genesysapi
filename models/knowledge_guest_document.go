@@ -71,7 +71,7 @@ type KnowledgeGuestDocument struct {
 	// Enum: [Draft Published Archived]
 	State string `json:"state,omitempty"`
 
-	// Document title.
+	// Document title, having a limit of 500 words.
 	Title string `json:"title,omitempty"`
 
 	// Variations of the document.

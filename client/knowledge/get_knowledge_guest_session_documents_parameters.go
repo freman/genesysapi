@@ -68,12 +68,6 @@ type GetKnowledgeGuestSessionDocumentsParams struct {
 	*/
 	CategoryID []string
 
-	/* IncludeSubcategories.
-
-	   Deprecated - Do Not Use. Works along with 'categoryId' query parameter. If specified, retrieves documents associated with category ids and its children categories.
-	*/
-	IncludeSubcategories *bool
-
 	/* PageSize.
 
 	   Number of entities to return. Maximum of 200.
@@ -164,17 +158,6 @@ func (o *GetKnowledgeGuestSessionDocumentsParams) SetCategoryID(categoryID []str
 	o.CategoryID = categoryID
 }
 
-// WithIncludeSubcategories adds the includeSubcategories to the get knowledge guest session documents params
-func (o *GetKnowledgeGuestSessionDocumentsParams) WithIncludeSubcategories(includeSubcategories *bool) *GetKnowledgeGuestSessionDocumentsParams {
-	o.SetIncludeSubcategories(includeSubcategories)
-	return o
-}
-
-// SetIncludeSubcategories adds the includeSubcategories to the get knowledge guest session documents params
-func (o *GetKnowledgeGuestSessionDocumentsParams) SetIncludeSubcategories(includeSubcategories *bool) {
-	o.IncludeSubcategories = includeSubcategories
-}
-
 // WithPageSize adds the pageSize to the get knowledge guest session documents params
 func (o *GetKnowledgeGuestSessionDocumentsParams) WithPageSize(pageSize *int32) *GetKnowledgeGuestSessionDocumentsParams {
 	o.SetPageSize(pageSize)
@@ -213,23 +196,6 @@ func (o *GetKnowledgeGuestSessionDocumentsParams) WriteToRequest(r runtime.Clien
 		// query array param categoryId
 		if err := r.SetQueryParam("categoryId", joinedCategoryID...); err != nil {
 			return err
-		}
-	}
-
-	if o.IncludeSubcategories != nil {
-
-		// query param includeSubcategories
-		var qrIncludeSubcategories bool
-
-		if o.IncludeSubcategories != nil {
-			qrIncludeSubcategories = *o.IncludeSubcategories
-		}
-		qIncludeSubcategories := swag.FormatBool(qrIncludeSubcategories)
-		if qIncludeSubcategories != "" {
-
-			if err := r.SetQueryParam("includeSubcategories", qIncludeSubcategories); err != nil {
-				return err
-			}
 		}
 	}
 

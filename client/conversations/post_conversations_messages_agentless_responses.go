@@ -65,6 +65,12 @@ func (o *PostConversationsMessagesAgentlessReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostConversationsMessagesAgentlessConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsMessagesAgentlessRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -535,6 +541,69 @@ func (o *PostConversationsMessagesAgentlessRequestTimeout) readResponse(response
 	return nil
 }
 
+// NewPostConversationsMessagesAgentlessConflict creates a PostConversationsMessagesAgentlessConflict with default headers values
+func NewPostConversationsMessagesAgentlessConflict() *PostConversationsMessagesAgentlessConflict {
+	return &PostConversationsMessagesAgentlessConflict{}
+}
+
+/*
+PostConversationsMessagesAgentlessConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type PostConversationsMessagesAgentlessConflict struct {
+	Payload *models.ErrorBody
+}
+
+// IsSuccess returns true when this post conversations messages agentless conflict response has a 2xx status code
+func (o *PostConversationsMessagesAgentlessConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messages agentless conflict response has a 3xx status code
+func (o *PostConversationsMessagesAgentlessConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messages agentless conflict response has a 4xx status code
+func (o *PostConversationsMessagesAgentlessConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messages agentless conflict response has a 5xx status code
+func (o *PostConversationsMessagesAgentlessConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messages agentless conflict response a status code equal to that given
+func (o *PostConversationsMessagesAgentlessConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+func (o *PostConversationsMessagesAgentlessConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/agentless][%d] postConversationsMessagesAgentlessConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostConversationsMessagesAgentlessConflict) String() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/agentless][%d] postConversationsMessagesAgentlessConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostConversationsMessagesAgentlessConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsMessagesAgentlessConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsMessagesAgentlessRequestEntityTooLarge creates a PostConversationsMessagesAgentlessRequestEntityTooLarge with default headers values
 func NewPostConversationsMessagesAgentlessRequestEntityTooLarge() *PostConversationsMessagesAgentlessRequestEntityTooLarge {
 	return &PostConversationsMessagesAgentlessRequestEntityTooLarge{}
@@ -543,7 +612,7 @@ func NewPostConversationsMessagesAgentlessRequestEntityTooLarge() *PostConversat
 /*
 PostConversationsMessagesAgentlessRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type PostConversationsMessagesAgentlessRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

@@ -442,6 +442,10 @@ type API interface {
 	*/
 	PostWorkforcemanagementAgentAdherenceExplanationsQuery(ctx context.Context, params *PostWorkforcemanagementAgentAdherenceExplanationsQueryParams) (*PostWorkforcemanagementAgentAdherenceExplanationsQueryOK, *PostWorkforcemanagementAgentAdherenceExplanationsQueryAccepted, error)
 	/*
+	   PostWorkforcemanagementAgentsMePossibleworkshifts gets agent possible work shifts for requested time frame
+	*/
+	PostWorkforcemanagementAgentsMePossibleworkshifts(ctx context.Context, params *PostWorkforcemanagementAgentsMePossibleworkshiftsParams) (*PostWorkforcemanagementAgentsMePossibleworkshiftsOK, error)
+	/*
 	   PostWorkforcemanagementAgentschedulesMine gets published schedule for the current user
 	*/
 	PostWorkforcemanagementAgentschedulesMine(ctx context.Context, params *PostWorkforcemanagementAgentschedulesMineParams) (*PostWorkforcemanagementAgentschedulesMineOK, error)
@@ -3280,6 +3284,31 @@ func (a *Client) PostWorkforcemanagementAgentAdherenceExplanationsQuery(ctx cont
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementAgentsMePossibleworkshifts gets agent possible work shifts for requested time frame
+*/
+func (a *Client) PostWorkforcemanagementAgentsMePossibleworkshifts(ctx context.Context, params *PostWorkforcemanagementAgentsMePossibleworkshiftsParams) (*PostWorkforcemanagementAgentsMePossibleworkshiftsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementAgentsMePossibleworkshifts",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/agents/me/possibleworkshifts",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementAgentsMePossibleworkshiftsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementAgentsMePossibleworkshiftsOK), nil
 
 }
 

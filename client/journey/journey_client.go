@@ -30,6 +30,10 @@ type API interface {
 	*/
 	DeleteJourneyOutcome(ctx context.Context, params *DeleteJourneyOutcomeParams) (*DeleteJourneyOutcomeNoContent, error)
 	/*
+	   DeleteJourneyOutcomesPredictor deletes an outcome predictor
+	*/
+	DeleteJourneyOutcomesPredictor(ctx context.Context, params *DeleteJourneyOutcomesPredictorParams) (*DeleteJourneyOutcomesPredictorNoContent, error)
+	/*
 	   DeleteJourneySegment deletes a segment
 	*/
 	DeleteJourneySegment(ctx context.Context, params *DeleteJourneySegmentParams) (*DeleteJourneySegmentNoContent, error)
@@ -73,6 +77,14 @@ type API interface {
 	   GetJourneyOutcomes retrieves all outcomes
 	*/
 	GetJourneyOutcomes(ctx context.Context, params *GetJourneyOutcomesParams) (*GetJourneyOutcomesOK, error)
+	/*
+	   GetJourneyOutcomesPredictor retrieves a single outcome predictor
+	*/
+	GetJourneyOutcomesPredictor(ctx context.Context, params *GetJourneyOutcomesPredictorParams) (*GetJourneyOutcomesPredictorOK, error)
+	/*
+	   GetJourneyOutcomesPredictors retrieves all outcome predictors
+	*/
+	GetJourneyOutcomesPredictors(ctx context.Context, params *GetJourneyOutcomesPredictorsParams) (*GetJourneyOutcomesPredictorsOK, error)
 	/*
 	   GetJourneySegment retrieves a single segment
 	*/
@@ -125,6 +137,10 @@ type API interface {
 	   PostJourneyOutcomes creates an outcome
 	*/
 	PostJourneyOutcomes(ctx context.Context, params *PostJourneyOutcomesParams) (*PostJourneyOutcomesOK, *PostJourneyOutcomesCreated, error)
+	/*
+	   PostJourneyOutcomesPredictors creates an outcome predictor
+	*/
+	PostJourneyOutcomesPredictors(ctx context.Context, params *PostJourneyOutcomesPredictorsParams) (*PostJourneyOutcomesPredictorsOK, *PostJourneyOutcomesPredictorsCreated, error)
 	/*
 	   PostJourneySegments creates a segment
 	*/
@@ -221,6 +237,31 @@ func (a *Client) DeleteJourneyOutcome(ctx context.Context, params *DeleteJourney
 		return nil, err
 	}
 	return result.(*DeleteJourneyOutcomeNoContent), nil
+
+}
+
+/*
+DeleteJourneyOutcomesPredictor deletes an outcome predictor
+*/
+func (a *Client) DeleteJourneyOutcomesPredictor(ctx context.Context, params *DeleteJourneyOutcomesPredictorParams) (*DeleteJourneyOutcomesPredictorNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteJourneyOutcomesPredictor",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/journey/outcomes/predictors/{predictorId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteJourneyOutcomesPredictorReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteJourneyOutcomesPredictorNoContent), nil
 
 }
 
@@ -502,6 +543,56 @@ func (a *Client) GetJourneyOutcomes(ctx context.Context, params *GetJourneyOutco
 		return nil, err
 	}
 	return result.(*GetJourneyOutcomesOK), nil
+
+}
+
+/*
+GetJourneyOutcomesPredictor retrieves a single outcome predictor
+*/
+func (a *Client) GetJourneyOutcomesPredictor(ctx context.Context, params *GetJourneyOutcomesPredictorParams) (*GetJourneyOutcomesPredictorOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyOutcomesPredictor",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/outcomes/predictors/{predictorId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyOutcomesPredictorReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyOutcomesPredictorOK), nil
+
+}
+
+/*
+GetJourneyOutcomesPredictors retrieves all outcome predictors
+*/
+func (a *Client) GetJourneyOutcomesPredictors(ctx context.Context, params *GetJourneyOutcomesPredictorsParams) (*GetJourneyOutcomesPredictorsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getJourneyOutcomesPredictors",
+		Method:             "GET",
+		PathPattern:        "/api/v2/journey/outcomes/predictors",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetJourneyOutcomesPredictorsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetJourneyOutcomesPredictorsOK), nil
 
 }
 
@@ -842,6 +933,37 @@ func (a *Client) PostJourneyOutcomes(ctx context.Context, params *PostJourneyOut
 	case *PostJourneyOutcomesOK:
 		return value, nil, nil
 	case *PostJourneyOutcomesCreated:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostJourneyOutcomesPredictors creates an outcome predictor
+*/
+func (a *Client) PostJourneyOutcomesPredictors(ctx context.Context, params *PostJourneyOutcomesPredictorsParams) (*PostJourneyOutcomesPredictorsOK, *PostJourneyOutcomesPredictorsCreated, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postJourneyOutcomesPredictors",
+		Method:             "POST",
+		PathPattern:        "/api/v2/journey/outcomes/predictors",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostJourneyOutcomesPredictorsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostJourneyOutcomesPredictorsOK:
+		return value, nil, nil
+	case *PostJourneyOutcomesPredictorsCreated:
 		return nil, value, nil
 	}
 	return nil, nil, nil

@@ -21,7 +21,7 @@ import (
 type JourneyAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [containsAllCondition containsAnyCondition endsWithCondition equalCondition journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTargetId journeyActionTemplateId journeyBlockingActionMapId journeyBlockingEmergencyScheduleGroupId journeyBlockingReason journeyBlockingScheduleGroupId journeyCustomerId journeyCustomerIdType journeyDeviceCategory journeyDeviceType journeyFrequencyCapReason journeyIpGeolocationCountry journeyOutcomeId journeySegmentId journeySegmentScope journeySessionId journeySessionSegmentId journeySessionType notContainsAllCondition notContainsAnyCondition notEqualCondition startsWithCondition touchpointActionMapId touchpointAgentId touchpointAttributionScope touchpointChannelMessageType touchpointChannelPlatform touchpointChannelType touchpointConversationId touchpointInteractionType touchpointQueueId touchpointWrapupCode]
+	// Enum: [containsAllCondition containsAnyCondition endsWithCondition equalCondition journeyActionId journeyActionMapId journeyActionMapVersion journeyActionMediaType journeyActionTargetId journeyActionTemplateId journeyBlockingActionMapId journeyBlockingEmergencyScheduleGroupId journeyBlockingReason journeyBlockingScheduleGroupId journeyDeviceCategory journeyDeviceType journeyFrequencyCapReason journeyIpGeolocationCountry journeyOutcomeId journeySegmentId journeySegmentScope journeySessionId journeySessionSegmentId journeySessionType notContainsAllCondition notContainsAnyCondition notEqualCondition startsWithCondition touchpointActionMapId touchpointAgentId touchpointAttributionScope touchpointChannelMessageType touchpointChannelPlatform touchpointChannelType touchpointConversationId touchpointInteractionType touchpointQueueId touchpointWrapupCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -69,7 +69,7 @@ var journeyAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingEmergencyScheduleGroupId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyCustomerId","journeyCustomerIdType","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyIpGeolocationCountry","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionId","journeySessionSegmentId","journeySessionType","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId","touchpointAgentId","touchpointAttributionScope","touchpointChannelMessageType","touchpointChannelPlatform","touchpointChannelType","touchpointConversationId","touchpointInteractionType","touchpointQueueId","touchpointWrapupCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["containsAllCondition","containsAnyCondition","endsWithCondition","equalCondition","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyActionMediaType","journeyActionTargetId","journeyActionTemplateId","journeyBlockingActionMapId","journeyBlockingEmergencyScheduleGroupId","journeyBlockingReason","journeyBlockingScheduleGroupId","journeyDeviceCategory","journeyDeviceType","journeyFrequencyCapReason","journeyIpGeolocationCountry","journeyOutcomeId","journeySegmentId","journeySegmentScope","journeySessionId","journeySessionSegmentId","journeySessionType","notContainsAllCondition","notContainsAnyCondition","notEqualCondition","startsWithCondition","touchpointActionMapId","touchpointAgentId","touchpointAttributionScope","touchpointChannelMessageType","touchpointChannelPlatform","touchpointChannelType","touchpointConversationId","touchpointInteractionType","touchpointQueueId","touchpointWrapupCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -120,12 +120,6 @@ const (
 
 	// JourneyAggregateQueryPredicateDimensionJourneyBlockingScheduleGroupID captures enum value "journeyBlockingScheduleGroupId"
 	JourneyAggregateQueryPredicateDimensionJourneyBlockingScheduleGroupID string = "journeyBlockingScheduleGroupId"
-
-	// JourneyAggregateQueryPredicateDimensionJourneyCustomerID captures enum value "journeyCustomerId"
-	JourneyAggregateQueryPredicateDimensionJourneyCustomerID string = "journeyCustomerId"
-
-	// JourneyAggregateQueryPredicateDimensionJourneyCustomerIDType captures enum value "journeyCustomerIdType"
-	JourneyAggregateQueryPredicateDimensionJourneyCustomerIDType string = "journeyCustomerIdType"
 
 	// JourneyAggregateQueryPredicateDimensionJourneyDeviceCategory captures enum value "journeyDeviceCategory"
 	JourneyAggregateQueryPredicateDimensionJourneyDeviceCategory string = "journeyDeviceCategory"

@@ -20,6 +20,9 @@ import (
 // swagger:model AnalyticsEvaluation
 type AnalyticsEvaluation struct {
 
+	// UserId of the assignee
+	AssigneeID string `json:"assigneeId,omitempty"`
+
 	// The calibration ID used for the purpose of training evaluators
 	CalibrationID string `json:"calibrationId,omitempty"`
 

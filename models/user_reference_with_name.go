@@ -20,7 +20,6 @@ import (
 type UserReferenceWithName struct {
 
 	// The globally unique identifier for the object.
-	// Read Only: true
 	ID string `json:"id,omitempty"`
 
 	// name
@@ -62,10 +61,6 @@ func (m *UserReferenceWithName) validateSelfURI(formats strfmt.Registry) error {
 func (m *UserReferenceWithName) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.contextValidateID(ctx, formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -73,15 +68,6 @@ func (m *UserReferenceWithName) ContextValidate(ctx context.Context, formats str
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *UserReferenceWithName) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
-
-	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
-		return err
-	}
-
 	return nil
 }
 

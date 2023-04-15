@@ -27,6 +27,16 @@ type AuthorizationSettings struct {
 	// Read Only: true
 	AnalysisEnabled *bool `json:"analysisEnabled"`
 
+	// The date of the most recent org activity used for analysis. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Read Only: true
+	// Format: date
+	DateLastActive strfmt.Date `json:"dateLastActive,omitempty"`
+
+	// The date and time of the most recent unused role calculation. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Read Only: true
+	// Format: date-time
+	DateLastCalculated strfmt.DateTime `json:"dateLastCalculated,omitempty"`
+
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
@@ -41,6 +51,14 @@ type AuthorizationSettings struct {
 func (m *AuthorizationSettings) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateDateLastActive(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDateLastCalculated(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateSelfURI(formats); err != nil {
 		res = append(res, err)
 	}
@@ -48,6 +66,30 @@ func (m *AuthorizationSettings) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *AuthorizationSettings) validateDateLastActive(formats strfmt.Registry) error {
+	if swag.IsZero(m.DateLastActive) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateLastActive", "body", "date", m.DateLastActive.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AuthorizationSettings) validateDateLastCalculated(formats strfmt.Registry) error {
+	if swag.IsZero(m.DateLastCalculated) { // not required
+		return nil
+	}
+
+	if err := validate.FormatOf("dateLastCalculated", "body", "date-time", m.DateLastCalculated.String(), formats); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -72,6 +114,14 @@ func (m *AuthorizationSettings) ContextValidate(ctx context.Context, formats str
 	}
 
 	if err := m.contextValidateAnalysisEnabled(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateLastActive(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateLastCalculated(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -101,6 +151,24 @@ func (m *AuthorizationSettings) contextValidateAnalysisDays(ctx context.Context,
 func (m *AuthorizationSettings) contextValidateAnalysisEnabled(ctx context.Context, formats strfmt.Registry) error {
 
 	if err := validate.ReadOnly(ctx, "analysisEnabled", "body", m.AnalysisEnabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AuthorizationSettings) contextValidateDateLastActive(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateLastActive", "body", strfmt.Date(m.DateLastActive)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AuthorizationSettings) contextValidateDateLastCalculated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateLastCalculated", "body", strfmt.DateTime(m.DateLastCalculated)); err != nil {
 		return err
 	}
 

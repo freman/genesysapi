@@ -23,6 +23,9 @@ type ActionConfig struct {
 
 	// Configuration of response processing.
 	Response *ResponseConfig `json:"response,omitempty"`
+
+	// Optional 1-60 second timeout enforced on the execution or test of this action. This setting is invalid for Custom Authentication Actions.
+	TimeoutSeconds int32 `json:"timeoutSeconds,omitempty"`
 }
 
 // Validate validates this action config

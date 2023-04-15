@@ -75,7 +75,7 @@ type GetQualityConversationEvaluationParams struct {
 
 	/* Expand.
 
-	   agent, evaluator, evaluationForm
+	   agent, assignee, evaluator, evaluationForm
 	*/
 	Expand *string
 

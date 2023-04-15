@@ -486,7 +486,7 @@ func NewGetOrgauthorizationTrusteeGroupRequestEntityTooLarge() *GetOrgauthorizat
 /*
 GetOrgauthorizationTrusteeGroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type GetOrgauthorizationTrusteeGroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

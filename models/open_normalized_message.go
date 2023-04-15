@@ -42,7 +42,7 @@ type OpenNormalizedMessage struct {
 	Metadata map[string]string `json:"metadata,omitempty"`
 
 	// List of reasons for a message receipt that indicates the message has failed. Only used with Failed status.
-	Reasons []*Reason `json:"reasons"`
+	Reasons []*ConversationReason `json:"reasons"`
 
 	// Message receipt status, only used with type Receipt.
 	// Enum: [Sent Delivered Read Failed Published Removed]

@@ -65,6 +65,12 @@ func (o *PostConversationsMessageCommunicationMessagesReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
+	case 409:
+		result := NewPostConversationsMessageCommunicationMessagesConflict()
+		if err := result.readResponse(response, consumer, o.formats); err != nil {
+			return nil, err
+		}
+		return nil, result
 	case 413:
 		result := NewPostConversationsMessageCommunicationMessagesRequestEntityTooLarge()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
@@ -535,6 +541,69 @@ func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) readRespon
 	return nil
 }
 
+// NewPostConversationsMessageCommunicationMessagesConflict creates a PostConversationsMessageCommunicationMessagesConflict with default headers values
+func NewPostConversationsMessageCommunicationMessagesConflict() *PostConversationsMessageCommunicationMessagesConflict {
+	return &PostConversationsMessageCommunicationMessagesConflict{}
+}
+
+/*
+PostConversationsMessageCommunicationMessagesConflict describes a response with status code 409, with default header values.
+
+Conflict
+*/
+type PostConversationsMessageCommunicationMessagesConflict struct {
+	Payload *models.ErrorBody
+}
+
+// IsSuccess returns true when this post conversations message communication messages conflict response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages conflict response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages conflict response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages conflict response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages conflict response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
+func (o *PostConversationsMessageCommunicationMessagesConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesConflict) String() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesConflict) GetPayload() *models.ErrorBody {
+	return o.Payload
+}
+
+func (o *PostConversationsMessageCommunicationMessagesConflict) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+
+	o.Payload = new(models.ErrorBody)
+
+	// response payload
+	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {
+		return err
+	}
+
+	return nil
+}
+
 // NewPostConversationsMessageCommunicationMessagesRequestEntityTooLarge creates a PostConversationsMessageCommunicationMessagesRequestEntityTooLarge with default headers values
 func NewPostConversationsMessageCommunicationMessagesRequestEntityTooLarge() *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge {
 	return &PostConversationsMessageCommunicationMessagesRequestEntityTooLarge{}
@@ -543,7 +612,7 @@ func NewPostConversationsMessageCommunicationMessagesRequestEntityTooLarge() *Po
 /*
 PostConversationsMessageCommunicationMessagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type PostConversationsMessageCommunicationMessagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

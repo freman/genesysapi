@@ -7,6 +7,7 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
@@ -22,10 +23,17 @@ type ChannelTopic struct {
 	// id
 	ID string `json:"id,omitempty"`
 
+	// rejection reason
+	RejectionReason string `json:"rejectionReason,omitempty"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// state
+	// Enum: [Permitted Rejected]
+	State string `json:"state,omitempty"`
 }
 
 // Validate validates this channel topic
@@ -33,6 +41,10 @@ func (m *ChannelTopic) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateSelfURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -48,6 +60,48 @@ func (m *ChannelTopic) validateSelfURI(formats strfmt.Registry) error {
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var channelTopicTypeStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Permitted","Rejected"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		channelTopicTypeStatePropEnum = append(channelTopicTypeStatePropEnum, v)
+	}
+}
+
+const (
+
+	// ChannelTopicStatePermitted captures enum value "Permitted"
+	ChannelTopicStatePermitted string = "Permitted"
+
+	// ChannelTopicStateRejected captures enum value "Rejected"
+	ChannelTopicStateRejected string = "Rejected"
+)
+
+// prop value enum
+func (m *ChannelTopic) validateStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, channelTopicTypeStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ChannelTopic) validateState(formats strfmt.Registry) error {
+	if swag.IsZero(m.State) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
 	}
 

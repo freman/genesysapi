@@ -42,7 +42,7 @@ type LearningModuleRequest struct {
 	Name *string `json:"name"`
 
 	// The type for the learning module
-	// Enum: [Informational AssessedContent Assessment]
+	// Enum: [Informational AssessedContent Assessment External]
 	Type string `json:"type,omitempty"`
 }
 
@@ -166,7 +166,7 @@ var learningModuleRequestTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Informational","AssessedContent","Assessment"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Informational","AssessedContent","Assessment","External"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -184,6 +184,9 @@ const (
 
 	// LearningModuleRequestTypeAssessment captures enum value "Assessment"
 	LearningModuleRequestTypeAssessment string = "Assessment"
+
+	// LearningModuleRequestTypeExternal captures enum value "External"
+	LearningModuleRequestTypeExternal string = "External"
 )
 
 // prop value enum

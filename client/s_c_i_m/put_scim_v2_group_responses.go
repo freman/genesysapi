@@ -555,7 +555,7 @@ func NewPutScimV2GroupRequestEntityTooLarge() *PutScimV2GroupRequestEntityTooLar
 /*
 PutScimV2GroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type PutScimV2GroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

@@ -21,6 +21,10 @@ import (
 // swagger:model DevelopmentActivity
 type DevelopmentActivity struct {
 
+	// Module archive type
+	// Enum: [Graceful Immediate]
+	ArchivalMode string `json:"archivalMode,omitempty"`
+
 	// List of users attending the activity
 	Attendees []*UserReference `json:"attendees"`
 
@@ -52,6 +56,9 @@ type DevelopmentActivity struct {
 	// True if this is the latest version of assignment assigned to the user
 	IsLatest bool `json:"isLatest"`
 
+	// True if the associated module is archived
+	IsModuleArchived bool `json:"isModuleArchived"`
+
 	// Indicates if the activity is overdue
 	IsOverdue bool `json:"isOverdue"`
 
@@ -76,13 +83,17 @@ type DevelopmentActivity struct {
 	Status string `json:"status,omitempty"`
 
 	// The type of activity
-	// Enum: [Informational Coaching AssessedContent Assessment]
+	// Enum: [Informational Coaching AssessedContent Assessment External]
 	Type string `json:"type,omitempty"`
 }
 
 // Validate validates this development activity
 func (m *DevelopmentActivity) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateArchivalMode(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateAttendees(formats); err != nil {
 		res = append(res, err)
@@ -123,6 +134,48 @@ func (m *DevelopmentActivity) Validate(formats strfmt.Registry) error {
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+var developmentActivityTypeArchivalModePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Graceful","Immediate"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		developmentActivityTypeArchivalModePropEnum = append(developmentActivityTypeArchivalModePropEnum, v)
+	}
+}
+
+const (
+
+	// DevelopmentActivityArchivalModeGraceful captures enum value "Graceful"
+	DevelopmentActivityArchivalModeGraceful string = "Graceful"
+
+	// DevelopmentActivityArchivalModeImmediate captures enum value "Immediate"
+	DevelopmentActivityArchivalModeImmediate string = "Immediate"
+)
+
+// prop value enum
+func (m *DevelopmentActivity) validateArchivalModeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, developmentActivityTypeArchivalModePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *DevelopmentActivity) validateArchivalMode(formats strfmt.Registry) error {
+	if swag.IsZero(m.ArchivalMode) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateArchivalModeEnum("archivalMode", "body", m.ArchivalMode); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -293,7 +346,7 @@ var developmentActivityTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Informational","Coaching","AssessedContent","Assessment"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Informational","Coaching","AssessedContent","Assessment","External"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -314,6 +367,9 @@ const (
 
 	// DevelopmentActivityTypeAssessment captures enum value "Assessment"
 	DevelopmentActivityTypeAssessment string = "Assessment"
+
+	// DevelopmentActivityTypeExternal captures enum value "External"
+	DevelopmentActivityTypeExternal string = "External"
 )
 
 // prop value enum

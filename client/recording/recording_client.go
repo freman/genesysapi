@@ -118,14 +118,6 @@ type API interface {
 	*/
 	GetRecordingKeyconfigurations(ctx context.Context, params *GetRecordingKeyconfigurationsParams) (*GetRecordingKeyconfigurationsOK, error)
 	/*
-	   GetRecordingLocalkeysSetting gets the local encryption settings replaced by API recording keyconfigurations key configuration Id
-	*/
-	GetRecordingLocalkeysSetting(ctx context.Context, params *GetRecordingLocalkeysSettingParams) (*GetRecordingLocalkeysSettingOK, error)
-	/*
-	   GetRecordingLocalkeysSettings gets a list local key settings data replaced by API recording keyconfigurations
-	*/
-	GetRecordingLocalkeysSettings(ctx context.Context, params *GetRecordingLocalkeysSettingsParams) (*GetRecordingLocalkeysSettingsOK, error)
-	/*
 	   GetRecordingMediaretentionpolicies gets media retention policy list with query options to filter on name and enabled
 	   for a less verbose response, add summary=true to this endpoint
 	*/
@@ -185,7 +177,7 @@ type API interface {
 	PostRecordingCrossplatformMediaretentionpolicies(ctx context.Context, params *PostRecordingCrossplatformMediaretentionpoliciesParams) (*PostRecordingCrossplatformMediaretentionpoliciesOK, error)
 	/*
 	   PostRecordingJobs creates a recording bulk job
-	   Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+	   Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
 	*/
 	PostRecordingJobs(ctx context.Context, params *PostRecordingJobsParams) (*PostRecordingJobsAccepted, error)
 	/*
@@ -200,10 +192,6 @@ type API interface {
 	   PostRecordingLocalkeys creates a local key management recording key
 	*/
 	PostRecordingLocalkeys(ctx context.Context, params *PostRecordingLocalkeysParams) (*PostRecordingLocalkeysOK, error)
-	/*
-	   PostRecordingLocalkeysSettings creates settings for local key creation replaced by API recording keyconfigurations
-	*/
-	PostRecordingLocalkeysSettings(ctx context.Context, params *PostRecordingLocalkeysSettingsParams) (*PostRecordingLocalkeysSettingsOK, error)
 	/*
 	   PostRecordingMediaretentionpolicies creates media retention policy
 	   Policy does not work retroactively
@@ -257,10 +245,6 @@ type API interface {
 	   PutRecordingKeyconfiguration updates the encryption key configurations
 	*/
 	PutRecordingKeyconfiguration(ctx context.Context, params *PutRecordingKeyconfigurationParams) (*PutRecordingKeyconfigurationOK, error)
-	/*
-	   PutRecordingLocalkeysSetting updates the local encryption settings replaced by API recording keyconfigurations key configuration Id
-	*/
-	PutRecordingLocalkeysSetting(ctx context.Context, params *PutRecordingLocalkeysSettingParams) (*PutRecordingLocalkeysSettingOK, error)
 	/*
 	   PutRecordingMediaretentionpolicy updates a media retention policy
 	   Policy does not work retroactively
@@ -919,56 +903,6 @@ func (a *Client) GetRecordingKeyconfigurations(ctx context.Context, params *GetR
 }
 
 /*
-GetRecordingLocalkeysSetting gets the local encryption settings replaced by API recording keyconfigurations key configuration Id
-*/
-func (a *Client) GetRecordingLocalkeysSetting(ctx context.Context, params *GetRecordingLocalkeysSettingParams) (*GetRecordingLocalkeysSettingOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getRecordingLocalkeysSetting",
-		Method:             "GET",
-		PathPattern:        "/api/v2/recording/localkeys/settings/{settingsId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetRecordingLocalkeysSettingReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetRecordingLocalkeysSettingOK), nil
-
-}
-
-/*
-GetRecordingLocalkeysSettings gets a list local key settings data replaced by API recording keyconfigurations
-*/
-func (a *Client) GetRecordingLocalkeysSettings(ctx context.Context, params *GetRecordingLocalkeysSettingsParams) (*GetRecordingLocalkeysSettingsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getRecordingLocalkeysSettings",
-		Method:             "GET",
-		PathPattern:        "/api/v2/recording/localkeys/settings",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetRecordingLocalkeysSettingsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetRecordingLocalkeysSettingsOK), nil
-
-}
-
-/*
 GetRecordingMediaretentionpolicies gets media retention policy list with query options to filter on name and enabled
 
 for a less verbose response, add summary=true to this endpoint
@@ -1325,7 +1259,7 @@ func (a *Client) PostRecordingCrossplatformMediaretentionpolicies(ctx context.Co
 /*
 PostRecordingJobs creates a recording bulk job
 
-Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
+Each organization can run up to a maximum of two concurrent jobs that are either in pending or processing state. Furthermore, the recording:recording:viewSensitiveData permission is required to access recordings with PCI DSS and/or PII data when redaction is enabled for their organization. If the requester does not have that permission and includeRecordingsWithSensitiveData is set to true, then their request will be rejected.
 */
 func (a *Client) PostRecordingJobs(ctx context.Context, params *PostRecordingJobsParams) (*PostRecordingJobsAccepted, error) {
 
@@ -1421,31 +1355,6 @@ func (a *Client) PostRecordingLocalkeys(ctx context.Context, params *PostRecordi
 		return nil, err
 	}
 	return result.(*PostRecordingLocalkeysOK), nil
-
-}
-
-/*
-PostRecordingLocalkeysSettings creates settings for local key creation replaced by API recording keyconfigurations
-*/
-func (a *Client) PostRecordingLocalkeysSettings(ctx context.Context, params *PostRecordingLocalkeysSettingsParams) (*PostRecordingLocalkeysSettingsOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "postRecordingLocalkeysSettings",
-		Method:             "POST",
-		PathPattern:        "/api/v2/recording/localkeys/settings",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PostRecordingLocalkeysSettingsReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PostRecordingLocalkeysSettingsOK), nil
 
 }
 
@@ -1756,31 +1665,6 @@ func (a *Client) PutRecordingKeyconfiguration(ctx context.Context, params *PutRe
 		return nil, err
 	}
 	return result.(*PutRecordingKeyconfigurationOK), nil
-
-}
-
-/*
-PutRecordingLocalkeysSetting updates the local encryption settings replaced by API recording keyconfigurations key configuration Id
-*/
-func (a *Client) PutRecordingLocalkeysSetting(ctx context.Context, params *PutRecordingLocalkeysSettingParams) (*PutRecordingLocalkeysSettingOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "putRecordingLocalkeysSetting",
-		Method:             "PUT",
-		PathPattern:        "/api/v2/recording/localkeys/settings/{settingsId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutRecordingLocalkeysSettingReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PutRecordingLocalkeysSettingOK), nil
 
 }
 

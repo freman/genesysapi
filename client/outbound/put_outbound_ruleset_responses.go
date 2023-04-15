@@ -555,7 +555,7 @@ func NewPutOutboundRulesetRequestEntityTooLarge() *PutOutboundRulesetRequestEnti
 /*
 PutOutboundRulesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type PutOutboundRulesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

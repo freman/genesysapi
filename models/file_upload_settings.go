@@ -19,8 +19,14 @@ import (
 // swagger:model FileUploadSettings
 type FileUploadSettings struct {
 
+	// whether or not attachments is enabled
+	EnableAttachments bool `json:"enableAttachments"`
+
 	// The list of supported file upload modes
 	Modes []*FileUploadMode `json:"modes"`
+
+	// whether or not supported content profile is enabled
+	UseSupportedContentProfile bool `json:"useSupportedContentProfile"`
 }
 
 // Validate validates this file upload settings

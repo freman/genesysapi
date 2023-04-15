@@ -33,6 +33,9 @@ type Message struct {
 	// If true, the participant member is authenticated.
 	Authenticated bool `json:"authenticated"`
 
+	// The internal id representing the customer supplied sms integration message.
+	ByoSmsIntegrationID string `json:"byoSmsIntegrationId,omitempty"`
+
 	// The timestamp when this communication was connected in the cloud clock. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	ConnectedTime strfmt.DateTime `json:"connectedTime,omitempty"`

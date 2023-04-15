@@ -47,7 +47,7 @@ type Line struct {
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`
 
-	// edge group
+	// The edge group associated with the line. (Deprecated)
 	EdgeGroup *DomainEntityRef `json:"edgeGroup,omitempty"`
 
 	// The globally unique identifier for the object.

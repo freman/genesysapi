@@ -60,6 +60,13 @@ GetRoutingEmailOutboundDomainsParams contains all the parameters to send to the 
 	Typically these are written to a http.Request.
 */
 type GetRoutingEmailOutboundDomainsParams struct {
+
+	/* Filter.
+
+	   Optional search filter
+	*/
+	Filter *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -113,6 +120,17 @@ func (o *GetRoutingEmailOutboundDomainsParams) SetHTTPClient(client *http.Client
 	o.HTTPClient = client
 }
 
+// WithFilter adds the filter to the get routing email outbound domains params
+func (o *GetRoutingEmailOutboundDomainsParams) WithFilter(filter *string) *GetRoutingEmailOutboundDomainsParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the get routing email outbound domains params
+func (o *GetRoutingEmailOutboundDomainsParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetRoutingEmailOutboundDomainsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -120,6 +138,23 @@ func (o *GetRoutingEmailOutboundDomainsParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
+				return err
+			}
+		}
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

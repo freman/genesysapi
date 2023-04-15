@@ -74,6 +74,12 @@ type GetQualityEvaluationsQueryParams struct {
 	*/
 	AgentUserID *string
 
+	/* AssigneeUserID.
+
+	   assignee user id
+	*/
+	AssigneeUserID *string
+
 	/* ConversationID.
 
 	   conversationId specified
@@ -165,7 +171,7 @@ type GetQualityEvaluationsQueryParams struct {
 
 	/* SortOrder.
 
-	   sort order options for agentUserId or evaluatorUserId query. Valid options are 'a', 'asc', 'ascending', 'd', 'desc', 'descending'
+	   sort order options for agentUserId or evaluatorUserId query. Valid options are 'a', 'asc', 'ascending', 'd', 'desc', 'descending'. Sorts by assigned date when evaluatorUserId or agentTeamId are supplied, and by released date for agentUserId
 	*/
 	SortOrder *string
 
@@ -262,6 +268,17 @@ func (o *GetQualityEvaluationsQueryParams) WithAgentUserID(agentUserID *string) 
 // SetAgentUserID adds the agentUserId to the get quality evaluations query params
 func (o *GetQualityEvaluationsQueryParams) SetAgentUserID(agentUserID *string) {
 	o.AgentUserID = agentUserID
+}
+
+// WithAssigneeUserID adds the assigneeUserID to the get quality evaluations query params
+func (o *GetQualityEvaluationsQueryParams) WithAssigneeUserID(assigneeUserID *string) *GetQualityEvaluationsQueryParams {
+	o.SetAssigneeUserID(assigneeUserID)
+	return o
+}
+
+// SetAssigneeUserID adds the assigneeUserId to the get quality evaluations query params
+func (o *GetQualityEvaluationsQueryParams) SetAssigneeUserID(assigneeUserID *string) {
+	o.AssigneeUserID = assigneeUserID
 }
 
 // WithConversationID adds the conversationID to the get quality evaluations query params
@@ -477,6 +494,23 @@ func (o *GetQualityEvaluationsQueryParams) WriteToRequest(r runtime.ClientReques
 		if qAgentUserID != "" {
 
 			if err := r.SetQueryParam("agentUserId", qAgentUserID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.AssigneeUserID != nil {
+
+		// query param assigneeUserId
+		var qrAssigneeUserID string
+
+		if o.AssigneeUserID != nil {
+			qrAssigneeUserID = *o.AssigneeUserID
+		}
+		qAssigneeUserID := qrAssigneeUserID
+		if qAssigneeUserID != "" {
+
+			if err := r.SetQueryParam("assigneeUserId", qAssigneeUserID); err != nil {
 				return err
 			}
 		}

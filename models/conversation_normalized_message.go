@@ -21,6 +21,9 @@ import (
 // swagger:model ConversationNormalizedMessage
 type ConversationNormalizedMessage struct {
 
+	// The internal id representing the customer supplied sms integration message.
+	ByoSmsIntegrationID string `json:"byoSmsIntegrationId,omitempty"`
+
 	// Channel-specific information that describes the message and the message channel/provider.
 	// Read Only: true
 	Channel *ConversationMessagingChannel `json:"channel,omitempty"`

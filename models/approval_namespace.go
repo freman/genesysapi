@@ -22,7 +22,7 @@ type ApprovalNamespace struct {
 
 	// The namespace of the associated approvers.
 	// Read Only: true
-	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search secondary.automation.testing skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
+	// Enum: [agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice callback cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing presence quality recording response.management routing scim search secondary.automation.testing skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration users web.deployments web.messaging webchat webhooks workforce.management]
 	Namespace string `json:"namespace,omitempty"`
 
 	// The current namespace approval status.
@@ -62,7 +62,7 @@ var approvalNamespaceTypeNamespacePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","secondary.automation.testing","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","callback","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","presence","quality","recording","response.management","routing","scim","search","secondary.automation.testing","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","users","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -71,9 +71,6 @@ func init() {
 }
 
 const (
-
-	// ApprovalNamespaceNamespaceContacts captures enum value "contacts"
-	ApprovalNamespaceNamespaceContacts string = "contacts"
 
 	// ApprovalNamespaceNamespaceAgentDotAssistant captures enum value "agent.assistant"
 	ApprovalNamespaceNamespaceAgentDotAssistant string = "agent.assistant"
@@ -113,6 +110,9 @@ const (
 
 	// ApprovalNamespaceNamespaceBotsDotVoice captures enum value "bots.voice"
 	ApprovalNamespaceNamespaceBotsDotVoice string = "bots.voice"
+
+	// ApprovalNamespaceNamespaceCallback captures enum value "callback"
+	ApprovalNamespaceNamespaceCallback string = "callback"
 
 	// ApprovalNamespaceNamespaceCobrowse captures enum value "cobrowse"
 	ApprovalNamespaceNamespaceCobrowse string = "cobrowse"
@@ -195,6 +195,9 @@ const (
 	// ApprovalNamespaceNamespacePredictiveDotRouting captures enum value "predictive.routing"
 	ApprovalNamespaceNamespacePredictiveDotRouting string = "predictive.routing"
 
+	// ApprovalNamespaceNamespacePresence captures enum value "presence"
+	ApprovalNamespaceNamespacePresence string = "presence"
+
 	// ApprovalNamespaceNamespaceQuality captures enum value "quality"
 	ApprovalNamespaceNamespaceQuality string = "quality"
 
@@ -233,6 +236,9 @@ const (
 
 	// ApprovalNamespaceNamespaceTelephonyDotConfiguration captures enum value "telephony.configuration"
 	ApprovalNamespaceNamespaceTelephonyDotConfiguration string = "telephony.configuration"
+
+	// ApprovalNamespaceNamespaceUsers captures enum value "users"
+	ApprovalNamespaceNamespaceUsers string = "users"
 
 	// ApprovalNamespaceNamespaceWebDotDeployments captures enum value "web.deployments"
 	ApprovalNamespaceNamespaceWebDotDeployments string = "web.deployments"

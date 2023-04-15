@@ -307,6 +307,10 @@ type API interface {
 	*/
 	GetUserQueues(ctx context.Context, params *GetUserQueuesParams) (*GetUserQueuesOK, error)
 	/*
+	   GetUserSkillgroups gets skill groups for a user
+	*/
+	GetUserSkillgroups(ctx context.Context, params *GetUserSkillgroupsParams) (*GetUserSkillgroupsOK, error)
+	/*
 	   PatchRoutingConversation updates attributes of an in queue conversation
 	   Returns an object indicating the updated values of all settable attributes. Supported attributes: skillIds, languageId, and priority.
 	*/
@@ -2297,6 +2301,31 @@ func (a *Client) GetUserQueues(ctx context.Context, params *GetUserQueuesParams)
 		return nil, err
 	}
 	return result.(*GetUserQueuesOK), nil
+
+}
+
+/*
+GetUserSkillgroups gets skill groups for a user
+*/
+func (a *Client) GetUserSkillgroups(ctx context.Context, params *GetUserSkillgroupsParams) (*GetUserSkillgroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getUserSkillgroups",
+		Method:             "GET",
+		PathPattern:        "/api/v2/users/{userId}/skillgroups",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetUserSkillgroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetUserSkillgroupsOK), nil
 
 }
 

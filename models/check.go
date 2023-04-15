@@ -27,7 +27,7 @@ type Check struct {
 
 	// The type of check executed.
 	// Read Only: true
-	// Enum: [HandleTimeValue TransferRateValue SalesConversionRateValue RetentionRateValue ChurnRateValue InteractionVolume UserVariance DataCoverage ModelQuality]
+	// Enum: [HandleTimeValue TransferRateValue SalesConversionRateValue SalesAmountValue RetentionRateValue ChurnRateValue InteractionVolume UserVariance DataCoverage ModelQuality]
 	Type string `json:"type,omitempty"`
 }
 
@@ -104,7 +104,7 @@ var checkTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["HandleTimeValue","TransferRateValue","SalesConversionRateValue","RetentionRateValue","ChurnRateValue","InteractionVolume","UserVariance","DataCoverage","ModelQuality"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["HandleTimeValue","TransferRateValue","SalesConversionRateValue","SalesAmountValue","RetentionRateValue","ChurnRateValue","InteractionVolume","UserVariance","DataCoverage","ModelQuality"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -122,6 +122,9 @@ const (
 
 	// CheckTypeSalesConversionRateValue captures enum value "SalesConversionRateValue"
 	CheckTypeSalesConversionRateValue string = "SalesConversionRateValue"
+
+	// CheckTypeSalesAmountValue captures enum value "SalesAmountValue"
+	CheckTypeSalesAmountValue string = "SalesAmountValue"
 
 	// CheckTypeRetentionRateValue captures enum value "RetentionRateValue"
 	CheckTypeRetentionRateValue string = "RetentionRateValue"

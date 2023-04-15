@@ -7,9 +7,12 @@ package models
 
 import (
 	"context"
+	"encoding/json"
 
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // Signature signature
@@ -25,10 +28,68 @@ type Signature struct {
 
 	// A toggle to enable the signature on email send.
 	Enabled bool `json:"enabled"`
+
+	// The configuration to indicate when the signature of a conversation has to be included
+	// Enum: [Draft Send SendOnce]
+	InclusionType string `json:"inclusionType,omitempty"`
 }
 
 // Validate validates this signature
 func (m *Signature) Validate(formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.validateInclusionType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+var signatureTypeInclusionTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Draft","Send","SendOnce"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		signatureTypeInclusionTypePropEnum = append(signatureTypeInclusionTypePropEnum, v)
+	}
+}
+
+const (
+
+	// SignatureInclusionTypeDraft captures enum value "Draft"
+	SignatureInclusionTypeDraft string = "Draft"
+
+	// SignatureInclusionTypeSend captures enum value "Send"
+	SignatureInclusionTypeSend string = "Send"
+
+	// SignatureInclusionTypeSendOnce captures enum value "SendOnce"
+	SignatureInclusionTypeSendOnce string = "SendOnce"
+)
+
+// prop value enum
+func (m *Signature) validateInclusionTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, signatureTypeInclusionTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Signature) validateInclusionType(formats strfmt.Registry) error {
+	if swag.IsZero(m.InclusionType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateInclusionTypeEnum("inclusionType", "body", m.InclusionType); err != nil {
+		return err
+	}
+
 	return nil
 }
 

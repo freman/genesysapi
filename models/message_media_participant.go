@@ -87,6 +87,9 @@ type MessageMediaParticipant struct {
 	// Message instance details on the communication.
 	Messages []*MessageDetails `json:"messages"`
 
+	// The ID of the participant being monitored when performing a message monitor.
+	MonitoredParticipantID string `json:"monitoredParticipantId,omitempty"`
+
 	// The display friendly name of the participant.
 	Name string `json:"name,omitempty"`
 

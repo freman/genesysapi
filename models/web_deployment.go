@@ -70,6 +70,9 @@ type WebDeployment struct {
 	// The current status of the deployment
 	// Enum: [Pending Active Inactive Error Deleting]
 	Status string `json:"status,omitempty"`
+
+	// The supported content profile for a deployment
+	SupportedContentProfile *SupportedContentProfile `json:"supportedContentProfile,omitempty"`
 }
 
 // Validate validates this web deployment
@@ -105,6 +108,10 @@ func (m *WebDeployment) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSupportedContentProfile(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -268,6 +275,25 @@ func (m *WebDeployment) validateStatus(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *WebDeployment) validateSupportedContentProfile(formats strfmt.Registry) error {
+	if swag.IsZero(m.SupportedContentProfile) { // not required
+		return nil
+	}
+
+	if m.SupportedContentProfile != nil {
+		if err := m.SupportedContentProfile.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContentProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContentProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 // ContextValidate validate this web deployment based on the context it is used
 func (m *WebDeployment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	var res []error
@@ -301,6 +327,10 @@ func (m *WebDeployment) ContextValidate(ctx context.Context, formats strfmt.Regi
 	}
 
 	if err := m.contextValidateSnippet(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedContentProfile(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -398,6 +428,22 @@ func (m *WebDeployment) contextValidateSnippet(ctx context.Context, formats strf
 
 	if err := validate.ReadOnly(ctx, "snippet", "body", string(m.Snippet)); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeployment) contextValidateSupportedContentProfile(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SupportedContentProfile != nil {
+		if err := m.SupportedContentProfile.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContentProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContentProfile")
+			}
+			return err
+		}
 	}
 
 	return nil

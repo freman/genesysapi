@@ -48,6 +48,10 @@ type LearningAssignment struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
+	// True if the assignment is based on latest module
+	// Read Only: true
+	IsLatest *bool `json:"isLatest"`
+
 	// True if this assignment was created manually
 	// Read Only: true
 	IsManual *bool `json:"isManual"`
@@ -389,6 +393,10 @@ func (m *LearningAssignment) ContextValidate(ctx context.Context, formats strfmt
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateIsLatest(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateIsManual(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -500,6 +508,15 @@ func (m *LearningAssignment) contextValidateDateModified(ctx context.Context, fo
 func (m *LearningAssignment) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
 
 	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateIsLatest(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isLatest", "body", m.IsLatest); err != nil {
 		return err
 	}
 

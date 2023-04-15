@@ -67,6 +67,12 @@ type GetRoutingSmsPhonenumberParams struct {
 	*/
 	AddressID string
 
+	/* Expand.
+
+	   Expand response with additional information
+	*/
+	Expand *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -131,6 +137,17 @@ func (o *GetRoutingSmsPhonenumberParams) SetAddressID(addressID string) {
 	o.AddressID = addressID
 }
 
+// WithExpand adds the expand to the get routing sms phonenumber params
+func (o *GetRoutingSmsPhonenumberParams) WithExpand(expand *string) *GetRoutingSmsPhonenumberParams {
+	o.SetExpand(expand)
+	return o
+}
+
+// SetExpand adds the expand to the get routing sms phonenumber params
+func (o *GetRoutingSmsPhonenumberParams) SetExpand(expand *string) {
+	o.Expand = expand
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetRoutingSmsPhonenumberParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -142,6 +159,23 @@ func (o *GetRoutingSmsPhonenumberParams) WriteToRequest(r runtime.ClientRequest,
 	// path param addressId
 	if err := r.SetPathParam("addressId", o.AddressID); err != nil {
 		return err
+	}
+
+	if o.Expand != nil {
+
+		// query param expand
+		var qrExpand string
+
+		if o.Expand != nil {
+			qrExpand = *o.Expand
+		}
+		qExpand := qrExpand
+		if qExpand != "" {
+
+			if err := r.SetQueryParam("expand", qExpand); err != nil {
+				return err
+			}
+		}
 	}
 
 	if len(res) > 0 {

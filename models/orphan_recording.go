@@ -61,7 +61,7 @@ type OrphanRecording struct {
 	RecoveredTime strfmt.DateTime `json:"recoveredTime,omitempty"`
 
 	// region
-	// Enum: [af-south-1 ap-northeast-1 ap-northeast-2 ap-south-1 ap-southeast-2 ca-central-1 eu-central-1 eu-west-1 eu-west-2 sa-east-1 us-east-1 us-west-2]
+	// Enum: [af-south-1 ap-east-1 ap-northeast-1 ap-northeast-2 ap-south-1 ap-southeast-2 ap-southeast-3 ca-central-1 eu-central-1 eu-west-1 eu-west-2 eu-west-3 sa-east-1 us-east-1 us-west-2]
 	Region string `json:"region,omitempty"`
 
 	// The URI for this object
@@ -396,7 +396,7 @@ var orphanRecordingTypeRegionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["af-south-1","ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-west-2"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["af-south-1","ap-east-1","ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-2","ap-southeast-3","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-west-2"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -408,6 +408,9 @@ const (
 
 	// OrphanRecordingRegionAfDashSouthDash1 captures enum value "af-south-1"
 	OrphanRecordingRegionAfDashSouthDash1 string = "af-south-1"
+
+	// OrphanRecordingRegionApDashEastDash1 captures enum value "ap-east-1"
+	OrphanRecordingRegionApDashEastDash1 string = "ap-east-1"
 
 	// OrphanRecordingRegionApDashNortheastDash1 captures enum value "ap-northeast-1"
 	OrphanRecordingRegionApDashNortheastDash1 string = "ap-northeast-1"
@@ -421,6 +424,9 @@ const (
 	// OrphanRecordingRegionApDashSoutheastDash2 captures enum value "ap-southeast-2"
 	OrphanRecordingRegionApDashSoutheastDash2 string = "ap-southeast-2"
 
+	// OrphanRecordingRegionApDashSoutheastDash3 captures enum value "ap-southeast-3"
+	OrphanRecordingRegionApDashSoutheastDash3 string = "ap-southeast-3"
+
 	// OrphanRecordingRegionCaDashCentralDash1 captures enum value "ca-central-1"
 	OrphanRecordingRegionCaDashCentralDash1 string = "ca-central-1"
 
@@ -432,6 +438,9 @@ const (
 
 	// OrphanRecordingRegionEuDashWestDash2 captures enum value "eu-west-2"
 	OrphanRecordingRegionEuDashWestDash2 string = "eu-west-2"
+
+	// OrphanRecordingRegionEuDashWestDash3 captures enum value "eu-west-3"
+	OrphanRecordingRegionEuDashWestDash3 string = "eu-west-3"
 
 	// OrphanRecordingRegionSaDashEastDash1 captures enum value "sa-east-1"
 	OrphanRecordingRegionSaDashEastDash1 string = "sa-east-1"

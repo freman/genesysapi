@@ -67,7 +67,7 @@ type PutRoutingWrapupcodeParams struct {
 
 	   WrapupCode
 	*/
-	Body *models.WrapupCode
+	Body *models.WrapupCodeRequest
 
 	/* CodeID.
 
@@ -129,13 +129,13 @@ func (o *PutRoutingWrapupcodeParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the put routing wrapupcode params
-func (o *PutRoutingWrapupcodeParams) WithBody(body *models.WrapupCode) *PutRoutingWrapupcodeParams {
+func (o *PutRoutingWrapupcodeParams) WithBody(body *models.WrapupCodeRequest) *PutRoutingWrapupcodeParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the put routing wrapupcode params
-func (o *PutRoutingWrapupcodeParams) SetBody(body *models.WrapupCode) {
+func (o *PutRoutingWrapupcodeParams) SetBody(body *models.WrapupCodeRequest) {
 	o.Body = body
 }
 

@@ -67,7 +67,7 @@ type PostRoutingWrapupcodesParams struct {
 
 	   WrapupCode
 	*/
-	Body *models.WrapupCode
+	Body *models.WrapupCodeRequest
 
 	timeout    time.Duration
 	Context    context.Context
@@ -123,13 +123,13 @@ func (o *PostRoutingWrapupcodesParams) SetHTTPClient(client *http.Client) {
 }
 
 // WithBody adds the body to the post routing wrapupcodes params
-func (o *PostRoutingWrapupcodesParams) WithBody(body *models.WrapupCode) *PostRoutingWrapupcodesParams {
+func (o *PostRoutingWrapupcodesParams) WithBody(body *models.WrapupCodeRequest) *PostRoutingWrapupcodesParams {
 	o.SetBody(body)
 	return o
 }
 
 // SetBody adds the body to the post routing wrapupcodes params
-func (o *PostRoutingWrapupcodesParams) SetBody(body *models.WrapupCode) {
+func (o *PostRoutingWrapupcodesParams) SetBody(body *models.WrapupCodeRequest) {
 	o.Body = body
 }
 

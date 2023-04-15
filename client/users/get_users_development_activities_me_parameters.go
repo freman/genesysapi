@@ -110,6 +110,14 @@ type GetUsersDevelopmentActivitiesMeParams struct {
 	*/
 	PageSize *int32
 
+	/* Pass.
+
+	   Specifies if only the failed (pass is "False") or passed (pass is "True") activities are returned. If pass is "Any" or if the pass parameter is not supplied, all activities are returned
+
+	   Default: "Any"
+	*/
+	Pass *string
+
 	/* Relationship.
 
 	   Specifies how the current user relation should be interpreted, and filters the activities returned to only the activities that have the specified relationship. If a value besides Attendee is specified, it will only return Coaching Appointments. If not specified, no filtering is applied.
@@ -160,6 +168,8 @@ func (o *GetUsersDevelopmentActivitiesMeParams) SetDefaults() {
 
 		pageSizeDefault = int32(25)
 
+		passDefault = string("Any")
+
 		sortOrderDefault = string("Desc")
 	)
 
@@ -167,6 +177,7 @@ func (o *GetUsersDevelopmentActivitiesMeParams) SetDefaults() {
 		Overdue:    &overdueDefault,
 		PageNumber: &pageNumberDefault,
 		PageSize:   &pageSizeDefault,
+		Pass:       &passDefault,
 		SortOrder:  &sortOrderDefault,
 	}
 
@@ -273,6 +284,17 @@ func (o *GetUsersDevelopmentActivitiesMeParams) WithPageSize(pageSize *int32) *G
 // SetPageSize adds the pageSize to the get users development activities me params
 func (o *GetUsersDevelopmentActivitiesMeParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
+}
+
+// WithPass adds the pass to the get users development activities me params
+func (o *GetUsersDevelopmentActivitiesMeParams) WithPass(pass *string) *GetUsersDevelopmentActivitiesMeParams {
+	o.SetPass(pass)
+	return o
+}
+
+// SetPass adds the pass to the get users development activities me params
+func (o *GetUsersDevelopmentActivitiesMeParams) SetPass(pass *string) {
+	o.Pass = pass
 }
 
 // WithRelationship adds the relationship to the get users development activities me params
@@ -424,6 +446,23 @@ func (o *GetUsersDevelopmentActivitiesMeParams) WriteToRequest(r runtime.ClientR
 		if qPageSize != "" {
 
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Pass != nil {
+
+		// query param pass
+		var qrPass string
+
+		if o.Pass != nil {
+			qrPass = *o.Pass
+		}
+		qPass := qrPass
+		if qPass != "" {
+
+			if err := r.SetQueryParam("pass", qPass); err != nil {
 				return err
 			}
 		}

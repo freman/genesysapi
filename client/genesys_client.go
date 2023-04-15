@@ -41,6 +41,7 @@ import (
 	"github.com/freman/genesysapi/client/greetings"
 	"github.com/freman/genesysapi/client/groups"
 	"github.com/freman/genesysapi/client/identity_provider"
+	"github.com/freman/genesysapi/client/infrastructure_as_code"
 	"github.com/freman/genesysapi/client/integrations"
 	"github.com/freman/genesysapi/client/journey"
 	"github.com/freman/genesysapi/client/knowledge"
@@ -181,6 +182,7 @@ func New(c Config) *Genesys {
 	cli.Greetings = greetings.New(transport, strfmt.Default, nil)
 	cli.Groups = groups.New(transport, strfmt.Default, nil)
 	cli.IdentityProvider = identity_provider.New(transport, strfmt.Default, nil)
+	cli.InfrastructureAsCode = infrastructure_as_code.New(transport, strfmt.Default, nil)
 	cli.Integrations = integrations.New(transport, strfmt.Default, nil)
 	cli.Journey = journey.New(transport, strfmt.Default, nil)
 	cli.Knowledge = knowledge.New(transport, strfmt.Default, nil)
@@ -253,6 +255,7 @@ type Genesys struct {
 	Greetings                       *greetings.Client
 	Groups                          *groups.Client
 	IdentityProvider                *identity_provider.Client
+	InfrastructureAsCode            *infrastructure_as_code.Client
 	Integrations                    *integrations.Client
 	Journey                         *journey.Client
 	Knowledge                       *knowledge.Client

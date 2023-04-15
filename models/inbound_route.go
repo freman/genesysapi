@@ -21,6 +21,9 @@ import (
 // swagger:model InboundRoute
 type InboundRoute struct {
 
+	// Control if multiple actions are allowed on this route. When true the disconnect has to be done manually. When false a conversation will be disconnected by the system after every action
+	AllowMultipleActions bool `json:"allowMultipleActions"`
+
 	// The recipients that should be automatically blind copied on outbound emails associated with this InboundRoute.
 	AutoBcc []*EmailAddress `json:"autoBcc"`
 

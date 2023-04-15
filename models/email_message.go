@@ -30,6 +30,10 @@ type EmailMessage struct {
 	// The recipients that were copied on the email message.
 	Cc []*EmailAddress `json:"cc"`
 
+	// The type of draft that need to be treated.
+	// Enum: [Reply ReplyAll Forward]
+	DraftType string `json:"draftType,omitempty"`
+
 	// Indicates an estimation of the size of the current email as a whole, in its final, ready to be sent form.
 	// Read Only: true
 	EmailSizeBytes int32 `json:"emailSizeBytes,omitempty"`
@@ -63,8 +67,8 @@ type EmailMessage struct {
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
-	// state
-	// Enum: [Created Ready]
+	// The state of the current draft.
+	// Enum: [Created Ready Edited]
 	State string `json:"state,omitempty"`
 
 	// The subject of the email message.
@@ -96,6 +100,10 @@ func (m *EmailMessage) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCc(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDraftType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -211,6 +219,51 @@ func (m *EmailMessage) validateCc(formats strfmt.Registry) error {
 	return nil
 }
 
+var emailMessageTypeDraftTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Reply","ReplyAll","Forward"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		emailMessageTypeDraftTypePropEnum = append(emailMessageTypeDraftTypePropEnum, v)
+	}
+}
+
+const (
+
+	// EmailMessageDraftTypeReply captures enum value "Reply"
+	EmailMessageDraftTypeReply string = "Reply"
+
+	// EmailMessageDraftTypeReplyAll captures enum value "ReplyAll"
+	EmailMessageDraftTypeReplyAll string = "ReplyAll"
+
+	// EmailMessageDraftTypeForward captures enum value "Forward"
+	EmailMessageDraftTypeForward string = "Forward"
+)
+
+// prop value enum
+func (m *EmailMessage) validateDraftTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, emailMessageTypeDraftTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *EmailMessage) validateDraftType(formats strfmt.Registry) error {
+	if swag.IsZero(m.DraftType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateDraftTypeEnum("draftType", "body", m.DraftType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *EmailMessage) validateFrom(formats strfmt.Registry) error {
 
 	if err := validate.Required("from", "body", m.From); err != nil {
@@ -266,7 +319,7 @@ var emailMessageTypeStatePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Created","Ready"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Created","Ready","Edited"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -281,6 +334,9 @@ const (
 
 	// EmailMessageStateReady captures enum value "Ready"
 	EmailMessageStateReady string = "Ready"
+
+	// EmailMessageStateEdited captures enum value "Edited"
+	EmailMessageStateEdited string = "Edited"
 )
 
 // prop value enum

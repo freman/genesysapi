@@ -31,6 +31,7 @@ type API interface {
 	DeleteAnalyticsUsersDetailsJob(ctx context.Context, params *DeleteAnalyticsUsersDetailsJobParams) (*DeleteAnalyticsUsersDetailsJobNoContent, error)
 	/*
 	   GetAnalyticsBotflowReportingturns gets reporting turns
+	   Returns the reporting turns grouped by session, in reverse chronological order from the date the session was created, with the reporting turns from the most recent session appearing at the start of the list.
 	*/
 	GetAnalyticsBotflowReportingturns(ctx context.Context, params *GetAnalyticsBotflowReportingturnsParams) (*GetAnalyticsBotflowReportingturnsOK, error)
 	/*
@@ -311,6 +312,8 @@ func (a *Client) DeleteAnalyticsUsersDetailsJob(ctx context.Context, params *Del
 
 /*
 GetAnalyticsBotflowReportingturns gets reporting turns
+
+Returns the reporting turns grouped by session, in reverse chronological order from the date the session was created, with the reporting turns from the most recent session appearing at the start of the list.
 */
 func (a *Client) GetAnalyticsBotflowReportingturns(ctx context.Context, params *GetAnalyticsBotflowReportingturnsParams) (*GetAnalyticsBotflowReportingturnsOK, error) {
 

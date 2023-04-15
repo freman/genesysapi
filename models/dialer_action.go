@@ -23,7 +23,7 @@ type DialerAction struct {
 
 	// Additional type specification for this DialerAction.
 	// Required: true
-	// Enum: [DO_NOT_DIAL MODIFY_CONTACT_ATTRIBUTE SWITCH_TO_PREVIEW APPEND_NUMBER_TO_DNC_LIST SCHEDULE_CALLBACK CONTACT_UNCALLABLE NUMBER_UNCALLABLE SET_CALLER_ID SET_SKILLS DATA_ACTION]
+	// Enum: [DO_NOT_DIAL MODIFY_CONTACT_ATTRIBUTE SWITCH_TO_PREVIEW APPEND_NUMBER_TO_DNC_LIST APPEND_CUSTOM_ENTRY_TO_DNC_LIST SCHEDULE_CALLBACK CONTACT_UNCALLABLE NUMBER_UNCALLABLE SET_CALLER_ID SET_SKILLS DATA_ACTION]
 	ActionTypeName *string `json:"actionTypeName"`
 
 	// The input field from the data action that the agentWrapup will be passed to for this condition. Valid for a wrapup dataActionBehavior.
@@ -88,7 +88,7 @@ var dialerActionTypeActionTypeNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["DO_NOT_DIAL","MODIFY_CONTACT_ATTRIBUTE","SWITCH_TO_PREVIEW","APPEND_NUMBER_TO_DNC_LIST","SCHEDULE_CALLBACK","CONTACT_UNCALLABLE","NUMBER_UNCALLABLE","SET_CALLER_ID","SET_SKILLS","DATA_ACTION"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["DO_NOT_DIAL","MODIFY_CONTACT_ATTRIBUTE","SWITCH_TO_PREVIEW","APPEND_NUMBER_TO_DNC_LIST","APPEND_CUSTOM_ENTRY_TO_DNC_LIST","SCHEDULE_CALLBACK","CONTACT_UNCALLABLE","NUMBER_UNCALLABLE","SET_CALLER_ID","SET_SKILLS","DATA_ACTION"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -109,6 +109,9 @@ const (
 
 	// DialerActionActionTypeNameAPPENDNUMBERTODNCLIST captures enum value "APPEND_NUMBER_TO_DNC_LIST"
 	DialerActionActionTypeNameAPPENDNUMBERTODNCLIST string = "APPEND_NUMBER_TO_DNC_LIST"
+
+	// DialerActionActionTypeNameAPPENDCUSTOMENTRYTODNCLIST captures enum value "APPEND_CUSTOM_ENTRY_TO_DNC_LIST"
+	DialerActionActionTypeNameAPPENDCUSTOMENTRYTODNCLIST string = "APPEND_CUSTOM_ENTRY_TO_DNC_LIST"
 
 	// DialerActionActionTypeNameSCHEDULECALLBACK captures enum value "SCHEDULE_CALLBACK"
 	DialerActionActionTypeNameSCHEDULECALLBACK string = "SCHEDULE_CALLBACK"

@@ -45,6 +45,9 @@ type ViewFilter struct {
 	// The list of callback owners used to filter interactions
 	AgentCallbackOwnerIds []string `json:"agentCallbackOwnerIds"`
 
+	// The list of Alert Rule IDs
+	AlertRuleIds []string `json:"alertRuleIds"`
+
 	// The ani list ids are used to filter the view
 	AniList []string `json:"aniList"`
 
@@ -157,11 +160,17 @@ type ViewFilter struct {
 	// The evaluationCriticalScore is used to filter the view
 	EvaluationCriticalScore *NumericRange `json:"evaluationCriticalScore,omitempty"`
 
+	// The list of Evaluation Form Context IDs
+	EvaluationFormContextIds []string `json:"evaluationFormContextIds"`
+
 	// The evaluation form ids are used to filter the view
 	EvaluationFormIds []string `json:"evaluationFormIds"`
 
 	// The evaluationScore is used to filter the view
 	EvaluationScore *NumericRange `json:"evaluationScore,omitempty"`
+
+	// The evaluation statuses that are used to filter the view
+	EvaluationStatuses []string `json:"evaluationStatuses"`
 
 	// The evaluator ids are used to filter the view
 	EvaluatorIds []string `json:"evaluatorIds"`
@@ -256,6 +265,9 @@ type ViewFilter struct {
 	// Indicates filtering for scored evaluation
 	HasScoredEvaluation bool `json:"hasScoredEvaluation"`
 
+	// Filter to indicate the transcript contains sensitive data.
+	HasSensitiveData bool `json:"hasSensitiveData"`
+
 	// The hold durations in milliseconds used to filter the view
 	HoldDurationsMilliseconds []*NumericRange `json:"holdDurationsMilliseconds"`
 
@@ -267,6 +279,9 @@ type ViewFilter struct {
 
 	// Indicates filtering for agent owned callback interactions
 	IsAgentOwnedCallback bool `json:"isAgentOwnedCallback"`
+
+	// Filter to indicate the transcript has been analyzed for sensitive data.
+	IsAnalyzedForSensitiveData bool `json:"isAnalyzedForSensitiveData"`
 
 	// Filter to indicate if Agent passed assessment or not
 	IsAssessmentPassed bool `json:"isAssessmentPassed"`
@@ -427,6 +442,9 @@ type ViewFilter struct {
 	// The list of agent errors that are related to station
 	StationErrors []string `json:"stationErrors"`
 
+	// Filter for Sub Path
+	SubPath string `json:"subPath,omitempty"`
+
 	// The list of survey form context ids used to filter the view
 	SurveyFormContextIds []string `json:"surveyFormContextIds"`
 
@@ -477,6 +495,10 @@ type ViewFilter struct {
 
 	// The user ids are used to filter the view
 	UserIds []string `json:"userIds"`
+
+	// The user supplied state value in the view
+	// Enum: [ActiveAndInactive Active Inactive Deleted]
+	UserState string `json:"userState,omitempty"`
 
 	// The wrap up codes are used to filter the view
 	WrapUpCodes []string `json:"wrapUpCodes"`
@@ -567,6 +589,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateEvaluationScore(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEvaluationStatuses(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -663,6 +689,10 @@ func (m *ViewFilter) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateUsedRoutingTypes(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUserState(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -1304,6 +1334,42 @@ func (m *ViewFilter) validateEvaluationScore(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+var viewFilterEvaluationStatusesItemsEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Finished","InProgress","InReview","Pending","Retracted"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterEvaluationStatusesItemsEnum = append(viewFilterEvaluationStatusesItemsEnum, v)
+	}
+}
+
+func (m *ViewFilter) validateEvaluationStatusesItemsEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterEvaluationStatusesItemsEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateEvaluationStatuses(formats strfmt.Registry) error {
+	if swag.IsZero(m.EvaluationStatuses) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.EvaluationStatuses); i++ {
+
+		// value enum
+		if err := m.validateEvaluationStatusesItemsEnum("evaluationStatuses"+"."+strconv.Itoa(i), "body", m.EvaluationStatuses[i]); err != nil {
+			return err
+		}
+
 	}
 
 	return nil
@@ -2013,6 +2079,54 @@ func (m *ViewFilter) validateUsedRoutingTypes(formats strfmt.Registry) error {
 			return err
 		}
 
+	}
+
+	return nil
+}
+
+var viewFilterTypeUserStatePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["ActiveAndInactive","Active","Inactive","Deleted"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		viewFilterTypeUserStatePropEnum = append(viewFilterTypeUserStatePropEnum, v)
+	}
+}
+
+const (
+
+	// ViewFilterUserStateActiveAndInactive captures enum value "ActiveAndInactive"
+	ViewFilterUserStateActiveAndInactive string = "ActiveAndInactive"
+
+	// ViewFilterUserStateActive captures enum value "Active"
+	ViewFilterUserStateActive string = "Active"
+
+	// ViewFilterUserStateInactive captures enum value "Inactive"
+	ViewFilterUserStateInactive string = "Inactive"
+
+	// ViewFilterUserStateDeleted captures enum value "Deleted"
+	ViewFilterUserStateDeleted string = "Deleted"
+)
+
+// prop value enum
+func (m *ViewFilter) validateUserStateEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, viewFilterTypeUserStatePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ViewFilter) validateUserState(formats strfmt.Registry) error {
+	if swag.IsZero(m.UserState) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateUserStateEnum("userState", "body", m.UserState); err != nil {
+		return err
 	}
 
 	return nil

@@ -27,6 +27,9 @@ type DncListCreate struct {
 	// Enum: [Email Phone Any]
 	ContactMethod string `json:"contactMethod,omitempty"`
 
+	// The column to evaluate exclusion against. Required if the dncSourceType is rds_custom.
+	CustomExclusionColumn string `json:"customExclusionColumn,omitempty"`
+
 	// Creation time of the entity. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
 	// Format: date-time

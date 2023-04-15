@@ -62,6 +62,18 @@ GetRoutingWrapupcodesParams contains all the parameters to send to the API endpo
 */
 type GetRoutingWrapupcodesParams struct {
 
+	/* DivisionID.
+
+	   Filter by division ID(s)
+	*/
+	DivisionID []string
+
+	/* ID.
+
+	   Filter by wrapup code ID(s)
+	*/
+	ID []string
+
 	/* Name.
 
 	   Wrapup code's name ('Sort by' param is ignored unless this field is provided)
@@ -175,6 +187,28 @@ func (o *GetRoutingWrapupcodesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
+// WithDivisionID adds the divisionID to the get routing wrapupcodes params
+func (o *GetRoutingWrapupcodesParams) WithDivisionID(divisionID []string) *GetRoutingWrapupcodesParams {
+	o.SetDivisionID(divisionID)
+	return o
+}
+
+// SetDivisionID adds the divisionId to the get routing wrapupcodes params
+func (o *GetRoutingWrapupcodesParams) SetDivisionID(divisionID []string) {
+	o.DivisionID = divisionID
+}
+
+// WithID adds the id to the get routing wrapupcodes params
+func (o *GetRoutingWrapupcodesParams) WithID(id []string) *GetRoutingWrapupcodesParams {
+	o.SetID(id)
+	return o
+}
+
+// SetID adds the id to the get routing wrapupcodes params
+func (o *GetRoutingWrapupcodesParams) SetID(id []string) {
+	o.ID = id
+}
+
 // WithName adds the name to the get routing wrapupcodes params
 func (o *GetRoutingWrapupcodesParams) WithName(name *string) *GetRoutingWrapupcodesParams {
 	o.SetName(name)
@@ -237,6 +271,28 @@ func (o *GetRoutingWrapupcodesParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
+
+	if o.DivisionID != nil {
+
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
+	}
+
+	if o.ID != nil {
+
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
+	}
 
 	if o.Name != nil {
 
@@ -327,4 +383,38 @@ func (o *GetRoutingWrapupcodesParams) WriteToRequest(r runtime.ClientRequest, re
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRoutingWrapupcodes binds the parameter divisionId
+func (o *GetRoutingWrapupcodesParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
+}
+
+// bindParamGetRoutingWrapupcodes binds the parameter id
+func (o *GetRoutingWrapupcodesParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

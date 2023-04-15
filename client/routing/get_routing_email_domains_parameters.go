@@ -68,6 +68,12 @@ type GetRoutingEmailDomainsParams struct {
 	*/
 	ExcludeStatus *bool
 
+	/* Filter.
+
+	   Optional search filter
+	*/
+	Filter *string
+
 	/* PageNumber.
 
 	   Page number
@@ -167,6 +173,17 @@ func (o *GetRoutingEmailDomainsParams) SetExcludeStatus(excludeStatus *bool) {
 	o.ExcludeStatus = excludeStatus
 }
 
+// WithFilter adds the filter to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) WithFilter(filter *string) *GetRoutingEmailDomainsParams {
+	o.SetFilter(filter)
+	return o
+}
+
+// SetFilter adds the filter to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) SetFilter(filter *string) {
+	o.Filter = filter
+}
+
 // WithPageNumber adds the pageNumber to the get routing email domains params
 func (o *GetRoutingEmailDomainsParams) WithPageNumber(pageNumber *int32) *GetRoutingEmailDomainsParams {
 	o.SetPageNumber(pageNumber)
@@ -209,6 +226,23 @@ func (o *GetRoutingEmailDomainsParams) WriteToRequest(r runtime.ClientRequest, r
 		if qExcludeStatus != "" {
 
 			if err := r.SetQueryParam("excludeStatus", qExcludeStatus); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.Filter != nil {
+
+		// query param filter
+		var qrFilter string
+
+		if o.Filter != nil {
+			qrFilter = *o.Filter
+		}
+		qFilter := qrFilter
+		if qFilter != "" {
+
+			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}

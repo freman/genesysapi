@@ -68,7 +68,7 @@ type API interface {
 	GetQualityConversationsAuditsQueryTransactionIDResults(ctx context.Context, params *GetQualityConversationsAuditsQueryTransactionIDResultsParams) (*GetQualityConversationsAuditsQueryTransactionIDResultsOK, error)
 	/*
 	   GetQualityEvaluationsQuery queries evaluations and returns a paged list
-	   Query params must include one of conversationId, evaluatorUserId, or agentUserId. When querying by agentUserId (and not conversationId or evaluatorUserId), the results are sorted by release date. Evaluations set to 'Never Release' are omitted in this case. When querying by evaluatorUserId or conversationId (including when combined with agentUserId), the results are sorted by assigned date.
+	   Query params must include one of conversationId, evaluatorUserId, agentUserId or assigneeUserId. When querying by agentUserId (and not conversationId or evaluatorUserId), the results are sorted by release date. Evaluations set to 'Never Release' are omitted in this case. When querying by evaluatorUserId or conversationId (including when combined with agentUserId), the results are sorted by assigned date.
 	*/
 	GetQualityEvaluationsQuery(ctx context.Context, params *GetQualityEvaluationsQueryParams) (*GetQualityEvaluationsQueryOK, error)
 	/*
@@ -563,7 +563,7 @@ func (a *Client) GetQualityConversationsAuditsQueryTransactionIDResults(ctx cont
 /*
 GetQualityEvaluationsQuery queries evaluations and returns a paged list
 
-Query params must include one of conversationId, evaluatorUserId, or agentUserId. When querying by agentUserId (and not conversationId or evaluatorUserId), the results are sorted by release date. Evaluations set to 'Never Release' are omitted in this case. When querying by evaluatorUserId or conversationId (including when combined with agentUserId), the results are sorted by assigned date.
+Query params must include one of conversationId, evaluatorUserId, agentUserId or assigneeUserId. When querying by agentUserId (and not conversationId or evaluatorUserId), the results are sorted by release date. Evaluations set to 'Never Release' are omitted in this case. When querying by evaluatorUserId or conversationId (including when combined with agentUserId), the results are sorted by assigned date.
 */
 func (a *Client) GetQualityEvaluationsQuery(ctx context.Context, params *GetQualityEvaluationsQueryParams) (*GetQualityEvaluationsQueryOK, error) {
 

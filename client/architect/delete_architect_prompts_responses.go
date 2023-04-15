@@ -555,7 +555,7 @@ func NewDeleteArchitectPromptsRequestEntityTooLarge() *DeleteArchitectPromptsReq
 /*
 DeleteArchitectPromptsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type DeleteArchitectPromptsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

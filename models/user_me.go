@@ -67,6 +67,10 @@ type UserMe struct {
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`
 
+	// The presence definitions that the user has access to
+	// Read Only: true
+	DivisionedPresenceDefinitions []*OrganizationPresenceDefinition `json:"divisionedPresenceDefinitions"`
+
 	// email
 	Email string `json:"email,omitempty"`
 
@@ -149,7 +153,7 @@ type UserMe struct {
 	// Read Only: true
 	Presence *UserPresence `json:"presence,omitempty"`
 
-	// The first 100 presence definitions for user's organization.
+	// The first 100 non-divisioned presence definitions for user's organization.
 	// Read Only: true
 	PresenceDefinitions []*OrganizationPresence `json:"presenceDefinitions"`
 
@@ -255,6 +259,10 @@ func (m *UserMe) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDivision(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDivisionedPresenceDefinitions(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -580,6 +588,32 @@ func (m *UserMe) validateDivision(formats strfmt.Registry) error {
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) validateDivisionedPresenceDefinitions(formats strfmt.Registry) error {
+	if swag.IsZero(m.DivisionedPresenceDefinitions) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.DivisionedPresenceDefinitions); i++ {
+		if swag.IsZero(m.DivisionedPresenceDefinitions[i]) { // not required
+			continue
+		}
+
+		if m.DivisionedPresenceDefinitions[i] != nil {
+			if err := m.DivisionedPresenceDefinitions[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("divisionedPresenceDefinitions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("divisionedPresenceDefinitions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
@@ -1325,6 +1359,10 @@ func (m *UserMe) ContextValidate(ctx context.Context, formats strfmt.Registry) e
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateDivisionedPresenceDefinitions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateEmployerInfo(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -1623,6 +1661,30 @@ func (m *UserMe) contextValidateDivision(ctx context.Context, formats strfmt.Reg
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (m *UserMe) contextValidateDivisionedPresenceDefinitions(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "divisionedPresenceDefinitions", "body", []*OrganizationPresenceDefinition(m.DivisionedPresenceDefinitions)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.DivisionedPresenceDefinitions); i++ {
+
+		if m.DivisionedPresenceDefinitions[i] != nil {
+			if err := m.DivisionedPresenceDefinitions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("divisionedPresenceDefinitions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("divisionedPresenceDefinitions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

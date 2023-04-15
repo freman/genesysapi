@@ -484,7 +484,7 @@ func NewPostRecordingsDeletionprotectionRequestEntityTooLarge() *PostRecordingsD
 /*
 PostRecordingsDeletionprotectionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type PostRecordingsDeletionprotectionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

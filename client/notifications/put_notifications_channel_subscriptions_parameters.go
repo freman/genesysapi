@@ -14,6 +14,7 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
@@ -75,6 +76,12 @@ type PutNotificationsChannelSubscriptionsParams struct {
 	*/
 	ChannelID string
 
+	/* IgnoreErrors.
+
+	   Optionally prevent throwing of errors for failed permissions checks.
+	*/
+	IgnoreErrors *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -92,7 +99,18 @@ func (o *PutNotificationsChannelSubscriptionsParams) WithDefaults() *PutNotifica
 //
 // All values with no default are reset to their zero value.
 func (o *PutNotificationsChannelSubscriptionsParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		ignoreErrorsDefault = bool(false)
+	)
+
+	val := PutNotificationsChannelSubscriptionsParams{
+		IgnoreErrors: &ignoreErrorsDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the put notifications channel subscriptions params
@@ -150,6 +168,17 @@ func (o *PutNotificationsChannelSubscriptionsParams) SetChannelID(channelID stri
 	o.ChannelID = channelID
 }
 
+// WithIgnoreErrors adds the ignoreErrors to the put notifications channel subscriptions params
+func (o *PutNotificationsChannelSubscriptionsParams) WithIgnoreErrors(ignoreErrors *bool) *PutNotificationsChannelSubscriptionsParams {
+	o.SetIgnoreErrors(ignoreErrors)
+	return o
+}
+
+// SetIgnoreErrors adds the ignoreErrors to the put notifications channel subscriptions params
+func (o *PutNotificationsChannelSubscriptionsParams) SetIgnoreErrors(ignoreErrors *bool) {
+	o.IgnoreErrors = ignoreErrors
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PutNotificationsChannelSubscriptionsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -166,6 +195,23 @@ func (o *PutNotificationsChannelSubscriptionsParams) WriteToRequest(r runtime.Cl
 	// path param channelId
 	if err := r.SetPathParam("channelId", o.ChannelID); err != nil {
 		return err
+	}
+
+	if o.IgnoreErrors != nil {
+
+		// query param ignoreErrors
+		var qrIgnoreErrors bool
+
+		if o.IgnoreErrors != nil {
+			qrIgnoreErrors = *o.IgnoreErrors
+		}
+		qIgnoreErrors := swag.FormatBool(qrIgnoreErrors)
+		if qIgnoreErrors != "" {
+
+			if err := r.SetQueryParam("ignoreErrors", qIgnoreErrors); err != nil {
+				return err
+			}
+		}
 	}
 
 	if len(res) > 0 {

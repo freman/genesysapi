@@ -33,6 +33,9 @@ type MessageConversation struct {
 	// The list of participants involved in the conversation.
 	Participants []*MessageMediaParticipant `json:"participants"`
 
+	// The list of the most recent 20 transfer commands applied to this conversation.
+	RecentTransfers []*TransferResponse `json:"recentTransfers"`
+
 	// The URI for this object
 	// Read Only: true
 	// Format: uri
@@ -48,6 +51,10 @@ func (m *MessageConversation) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateParticipants(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRecentTransfers(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -103,6 +110,32 @@ func (m *MessageConversation) validateParticipants(formats strfmt.Registry) erro
 	return nil
 }
 
+func (m *MessageConversation) validateRecentTransfers(formats strfmt.Registry) error {
+	if swag.IsZero(m.RecentTransfers) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.RecentTransfers); i++ {
+		if swag.IsZero(m.RecentTransfers[i]) { // not required
+			continue
+		}
+
+		if m.RecentTransfers[i] != nil {
+			if err := m.RecentTransfers[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("recentTransfers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("recentTransfers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *MessageConversation) validateSelfURI(formats strfmt.Registry) error {
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
@@ -124,6 +157,10 @@ func (m *MessageConversation) ContextValidate(ctx context.Context, formats strfm
 	}
 
 	if err := m.contextValidateParticipants(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecentTransfers(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -156,6 +193,26 @@ func (m *MessageConversation) contextValidateParticipants(ctx context.Context, f
 					return ve.ValidateName("participants" + "." + strconv.Itoa(i))
 				} else if ce, ok := err.(*errors.CompositeError); ok {
 					return ce.ValidateName("participants" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessageConversation) contextValidateRecentTransfers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RecentTransfers); i++ {
+
+		if m.RecentTransfers[i] != nil {
+			if err := m.RecentTransfers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("recentTransfers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("recentTransfers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

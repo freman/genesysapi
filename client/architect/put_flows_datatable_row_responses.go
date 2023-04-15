@@ -553,7 +553,7 @@ func NewPutFlowsDatatableRowRequestEntityTooLarge() *PutFlowsDatatableRowRequest
 /*
 PutFlowsDatatableRowRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type PutFlowsDatatableRowRequestEntityTooLarge struct {
 	Payload *models.ErrorBody

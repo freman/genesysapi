@@ -3,7 +3,6 @@ module github.com/freman/genesysapi
 go 1.14
 
 require (
-	github.com/evanphx/json-patch/v5 v5.6.0 // indirect
 	github.com/go-openapi/errors v0.19.6
 	github.com/go-openapi/runtime v0.19.21
 	github.com/go-openapi/strfmt v0.19.5

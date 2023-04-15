@@ -26,7 +26,7 @@ type RecordingUploadReportRequest struct {
 	DateSince *strfmt.DateTime `json:"dateSince"`
 
 	// Report will include uploads with this status
-	// Enum: [Pending Success Failure]
+	// Enum: [Pending Success Failure WaitForConversation]
 	UploadStatus string `json:"uploadStatus,omitempty"`
 }
 
@@ -65,7 +65,7 @@ var recordingUploadReportRequestTypeUploadStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Pending","Success","Failure"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Pending","Success","Failure","WaitForConversation"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -83,6 +83,9 @@ const (
 
 	// RecordingUploadReportRequestUploadStatusFailure captures enum value "Failure"
 	RecordingUploadReportRequestUploadStatusFailure string = "Failure"
+
+	// RecordingUploadReportRequestUploadStatusWaitForConversation captures enum value "WaitForConversation"
+	RecordingUploadReportRequestUploadStatusWaitForConversation string = "WaitForConversation"
 )
 
 // prop value enum

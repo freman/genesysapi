@@ -35,7 +35,7 @@ type LearningModuleInformStepRequest struct {
 
 	// The learning module inform step type
 	// Required: true
-	// Enum: [Url Content RichText]
+	// Enum: [Url Content RichText Scorm]
 	Type *string `json:"type"`
 
 	// The value for inform step
@@ -78,7 +78,7 @@ var learningModuleInformStepRequestTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Url","Content","RichText"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Url","Content","RichText","Scorm"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -96,6 +96,9 @@ const (
 
 	// LearningModuleInformStepRequestTypeRichText captures enum value "RichText"
 	LearningModuleInformStepRequestTypeRichText string = "RichText"
+
+	// LearningModuleInformStepRequestTypeScorm captures enum value "Scorm"
+	LearningModuleInformStepRequestTypeScorm string = "Scorm"
 )
 
 // prop value enum

@@ -74,6 +74,14 @@ type GetAuthorizationRoleParams struct {
 	*/
 	RoleID string
 
+	/* UserCount.
+
+	   Fetch the count of users who have this role granted in at least one division
+
+	   Default: true
+	*/
+	UserCount *bool
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
@@ -91,7 +99,18 @@ func (o *GetAuthorizationRoleParams) WithDefaults() *GetAuthorizationRoleParams 
 //
 // All values with no default are reset to their zero value.
 func (o *GetAuthorizationRoleParams) SetDefaults() {
-	// no default values defined for this parameter
+	var (
+		userCountDefault = bool(true)
+	)
+
+	val := GetAuthorizationRoleParams{
+		UserCount: &userCountDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get authorization role params
@@ -149,6 +168,17 @@ func (o *GetAuthorizationRoleParams) SetRoleID(roleID string) {
 	o.RoleID = roleID
 }
 
+// WithUserCount adds the userCount to the get authorization role params
+func (o *GetAuthorizationRoleParams) WithUserCount(userCount *bool) *GetAuthorizationRoleParams {
+	o.SetUserCount(userCount)
+	return o
+}
+
+// SetUserCount adds the userCount to the get authorization role params
+func (o *GetAuthorizationRoleParams) SetUserCount(userCount *bool) {
+	o.UserCount = userCount
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetAuthorizationRoleParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -171,6 +201,23 @@ func (o *GetAuthorizationRoleParams) WriteToRequest(r runtime.ClientRequest, reg
 	// path param roleId
 	if err := r.SetPathParam("roleId", o.RoleID); err != nil {
 		return err
+	}
+
+	if o.UserCount != nil {
+
+		// query param userCount
+		var qrUserCount bool
+
+		if o.UserCount != nil {
+			qrUserCount = *o.UserCount
+		}
+		qUserCount := swag.FormatBool(qrUserCount)
+		if qUserCount != "" {
+
+			if err := r.SetQueryParam("userCount", qUserCount); err != nil {
+				return err
+			}
+		}
 	}
 
 	if len(res) > 0 {

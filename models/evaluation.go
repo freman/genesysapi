@@ -30,11 +30,17 @@ type Evaluation struct {
 	// answers
 	Answers *EvaluationScoringSet `json:"answers,omitempty"`
 
+	// Set to false to unassign the evaluation. This cannot be set to false when assignee is also set.
+	Assigned bool `json:"assigned"`
+
 	// Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Format: date-time
 	AssignedDate strfmt.DateTime `json:"assignedDate,omitempty"`
 
-	// List of user authorized actions on evaluation. Possible values: edit, editScore, editAgentSignoff, delete, viewAudit
+	// assignee
+	Assignee *User `json:"assignee,omitempty"`
+
+	// List of user authorized actions on evaluation. Possible values: assign, edit, editScore, editAgentSignoff, delete, release, viewAudit
 	AuthorizedActions []string `json:"authorizedActions"`
 
 	// calibration
@@ -57,6 +63,10 @@ type Evaluation struct {
 
 	// Evaluation form used for evaluation.
 	EvaluationForm *EvaluationForm `json:"evaluationForm,omitempty"`
+
+	// The source that created the evaluation.
+	// Read Only: true
+	EvaluationSource *EvaluationSource `json:"evaluationSource,omitempty"`
 
 	// evaluator
 	Evaluator *User `json:"evaluator,omitempty"`
@@ -106,7 +116,7 @@ type Evaluation struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// status
-	// Enum: [PENDING INPROGRESS FINISHED]
+	// Enum: [PENDING INPROGRESS FINISHED INREVIEW RETRACTED]
 	Status string `json:"status,omitempty"`
 }
 
@@ -123,6 +133,10 @@ func (m *Evaluation) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateAssignedDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateAssignee(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -147,6 +161,10 @@ func (m *Evaluation) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateEvaluationForm(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEvaluationSource(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -229,6 +247,25 @@ func (m *Evaluation) validateAssignedDate(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("assignedDate", "body", "date-time", m.AssignedDate.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Evaluation) validateAssignee(formats strfmt.Registry) error {
+	if swag.IsZero(m.Assignee) { // not required
+		return nil
+	}
+
+	if m.Assignee != nil {
+		if err := m.Assignee.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assignee")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assignee")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -319,6 +356,25 @@ func (m *Evaluation) validateEvaluationForm(formats strfmt.Registry) error {
 				return ve.ValidateName("evaluationForm")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("evaluationForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Evaluation) validateEvaluationSource(formats strfmt.Registry) error {
+	if swag.IsZero(m.EvaluationSource) { // not required
+		return nil
+	}
+
+	if m.EvaluationSource != nil {
+		if err := m.EvaluationSource.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("evaluationSource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationSource")
 			}
 			return err
 		}
@@ -468,7 +524,7 @@ var evaluationTypeStatusPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["PENDING","INPROGRESS","FINISHED"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["PENDING","INPROGRESS","FINISHED","INREVIEW","RETRACTED"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -486,6 +542,12 @@ const (
 
 	// EvaluationStatusFINISHED captures enum value "FINISHED"
 	EvaluationStatusFINISHED string = "FINISHED"
+
+	// EvaluationStatusINREVIEW captures enum value "INREVIEW"
+	EvaluationStatusINREVIEW string = "INREVIEW"
+
+	// EvaluationStatusRETRACTED captures enum value "RETRACTED"
+	EvaluationStatusRETRACTED string = "RETRACTED"
 )
 
 // prop value enum
@@ -521,6 +583,10 @@ func (m *Evaluation) ContextValidate(ctx context.Context, formats strfmt.Registr
 		res = append(res, err)
 	}
 
+	if err := m.contextValidateAssignee(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.contextValidateCalibration(ctx, formats); err != nil {
 		res = append(res, err)
 	}
@@ -530,6 +596,10 @@ func (m *Evaluation) ContextValidate(ctx context.Context, formats strfmt.Registr
 	}
 
 	if err := m.contextValidateEvaluationForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluationSource(ctx, formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -587,6 +657,22 @@ func (m *Evaluation) contextValidateAnswers(ctx context.Context, formats strfmt.
 	return nil
 }
 
+func (m *Evaluation) contextValidateAssignee(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Assignee != nil {
+		if err := m.Assignee.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assignee")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assignee")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (m *Evaluation) contextValidateCalibration(ctx context.Context, formats strfmt.Registry) error {
 
 	if m.Calibration != nil {
@@ -627,6 +713,22 @@ func (m *Evaluation) contextValidateEvaluationForm(ctx context.Context, formats 
 				return ve.ValidateName("evaluationForm")
 			} else if ce, ok := err.(*errors.CompositeError); ok {
 				return ce.ValidateName("evaluationForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Evaluation) contextValidateEvaluationSource(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EvaluationSource != nil {
+		if err := m.EvaluationSource.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("evaluationSource")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationSource")
 			}
 			return err
 		}

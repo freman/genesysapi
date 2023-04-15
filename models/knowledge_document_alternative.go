@@ -23,7 +23,7 @@ type KnowledgeDocumentAlternative struct {
 	// Required: true
 	Autocomplete *bool `json:"autocomplete"`
 
-	// Alternate phrasing to the document title.
+	// Alternate phrasing to the document title, having a limit of 500 words.
 	// Required: true
 	Phrase *string `json:"phrase"`
 }

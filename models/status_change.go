@@ -31,7 +31,7 @@ type StatusChange struct {
 
 	// The namespace for the status change
 	// Read Only: true
-	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search secondary.automation.testing skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
+	// Enum: [agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice callback cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing presence quality recording response.management routing scim search secondary.automation.testing skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration users web.deployments web.messaging webchat webhooks workforce.management]
 	Namespace string `json:"namespace,omitempty"`
 
 	// The status the change request transitioned from
@@ -96,7 +96,7 @@ var statusChangeTypeNamespacePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","secondary.automation.testing","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","callback","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","presence","quality","recording","response.management","routing","scim","search","secondary.automation.testing","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","users","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -105,9 +105,6 @@ func init() {
 }
 
 const (
-
-	// StatusChangeNamespaceContacts captures enum value "contacts"
-	StatusChangeNamespaceContacts string = "contacts"
 
 	// StatusChangeNamespaceAgentDotAssistant captures enum value "agent.assistant"
 	StatusChangeNamespaceAgentDotAssistant string = "agent.assistant"
@@ -147,6 +144,9 @@ const (
 
 	// StatusChangeNamespaceBotsDotVoice captures enum value "bots.voice"
 	StatusChangeNamespaceBotsDotVoice string = "bots.voice"
+
+	// StatusChangeNamespaceCallback captures enum value "callback"
+	StatusChangeNamespaceCallback string = "callback"
 
 	// StatusChangeNamespaceCobrowse captures enum value "cobrowse"
 	StatusChangeNamespaceCobrowse string = "cobrowse"
@@ -229,6 +229,9 @@ const (
 	// StatusChangeNamespacePredictiveDotRouting captures enum value "predictive.routing"
 	StatusChangeNamespacePredictiveDotRouting string = "predictive.routing"
 
+	// StatusChangeNamespacePresence captures enum value "presence"
+	StatusChangeNamespacePresence string = "presence"
+
 	// StatusChangeNamespaceQuality captures enum value "quality"
 	StatusChangeNamespaceQuality string = "quality"
 
@@ -267,6 +270,9 @@ const (
 
 	// StatusChangeNamespaceTelephonyDotConfiguration captures enum value "telephony.configuration"
 	StatusChangeNamespaceTelephonyDotConfiguration string = "telephony.configuration"
+
+	// StatusChangeNamespaceUsers captures enum value "users"
+	StatusChangeNamespaceUsers string = "users"
 
 	// StatusChangeNamespaceWebDotDeployments captures enum value "web.deployments"
 	StatusChangeNamespaceWebDotDeployments string = "web.deployments"

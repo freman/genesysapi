@@ -76,7 +76,7 @@ type GetAuditsQueryTransactionIDResultsParams struct {
 
 	/* PageSize.
 
-	   Page size
+	   Indicates maximum number of results in response. Default page size is 25 results. The maximum page size is 500.
 
 	   Format: int32
 	   Default: 25

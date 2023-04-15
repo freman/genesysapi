@@ -98,6 +98,14 @@ type GetTelephonyProvidersEdgesParams struct {
 	*/
 	PageSize *int32
 
+	/* ShowCloudMedia.
+
+	   True to show the cloud media devices in the result.
+
+	   Default: true
+	*/
+	ShowCloudMedia *bool
+
 	/* SiteID.
 
 	   Filter by site.id
@@ -134,13 +142,16 @@ func (o *GetTelephonyProvidersEdgesParams) SetDefaults() {
 
 		pageSizeDefault = int32(25)
 
+		showCloudMediaDefault = bool(true)
+
 		sortByDefault = string("name")
 	)
 
 	val := GetTelephonyProvidersEdgesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
+		PageNumber:     &pageNumberDefault,
+		PageSize:       &pageSizeDefault,
+		ShowCloudMedia: &showCloudMediaDefault,
+		SortBy:         &sortByDefault,
 	}
 
 	val.timeout = o.timeout
@@ -235,6 +246,17 @@ func (o *GetTelephonyProvidersEdgesParams) WithPageSize(pageSize *int32) *GetTel
 // SetPageSize adds the pageSize to the get telephony providers edges params
 func (o *GetTelephonyProvidersEdgesParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
+}
+
+// WithShowCloudMedia adds the showCloudMedia to the get telephony providers edges params
+func (o *GetTelephonyProvidersEdgesParams) WithShowCloudMedia(showCloudMedia *bool) *GetTelephonyProvidersEdgesParams {
+	o.SetShowCloudMedia(showCloudMedia)
+	return o
+}
+
+// SetShowCloudMedia adds the showCloudMedia to the get telephony providers edges params
+func (o *GetTelephonyProvidersEdgesParams) SetShowCloudMedia(showCloudMedia *bool) {
+	o.ShowCloudMedia = showCloudMedia
 }
 
 // WithSiteID adds the siteID to the get telephony providers edges params
@@ -347,6 +369,23 @@ func (o *GetTelephonyProvidersEdgesParams) WriteToRequest(r runtime.ClientReques
 		if qPageSize != "" {
 
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.ShowCloudMedia != nil {
+
+		// query param showCloudMedia
+		var qrShowCloudMedia bool
+
+		if o.ShowCloudMedia != nil {
+			qrShowCloudMedia = *o.ShowCloudMedia
+		}
+		qShowCloudMedia := swag.FormatBool(qrShowCloudMedia)
+		if qShowCloudMedia != "" {
+
+			if err := r.SetQueryParam("showCloudMedia", qShowCloudMedia); err != nil {
 				return err
 			}
 		}

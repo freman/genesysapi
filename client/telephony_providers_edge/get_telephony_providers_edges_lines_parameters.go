@@ -64,7 +64,7 @@ type GetTelephonyProvidersEdgesLinesParams struct {
 
 	/* Expand.
 
-	   Fields to expand in the response, comma-separated
+	   Fields to expand in the response, comma-separated. The edgeGroup value is deprecated.
 	*/
 	Expand []string
 

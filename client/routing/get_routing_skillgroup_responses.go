@@ -486,7 +486,7 @@ func NewGetRoutingSkillgroupRequestEntityTooLarge() *GetRoutingSkillgroupRequest
 /*
 GetRoutingSkillgroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
-The request is over the size limit. Content-Length: %s, Maximum bytes: %s
+The request is over the size limit. Maximum bytes: %s
 */
 type GetRoutingSkillgroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
