@@ -79,6 +79,9 @@ type AnalyticsSession struct {
 	// Carbon copy email address(es)
 	Cc []string `json:"cc"`
 
+	// Flag that indicates that the conversation has been cleared by the customer
+	Cleared bool `json:"cleared"`
+
 	// The participantId being coached (if someone (e.g. an agent) is being coached, this would correspond to one of the other participantIds present in the conversation)
 	CoachedParticipantID string `json:"coachedParticipantId,omitempty"`
 
@@ -249,7 +252,7 @@ type AnalyticsSession struct {
 	TimeoutSeconds int32 `json:"timeoutSeconds,omitempty"`
 
 	// Complete routing method
-	// Enum: [Bullseye Conditional Last Manual Predictive Preferred Standard Vip]
+	// Enum: [Bullseye Conditional Direct Last Manual Predictive Preferred Standard Vip]
 	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Direct Video address
@@ -637,7 +640,7 @@ var analyticsSessionRequestedRoutingsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Direct","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -699,7 +702,7 @@ var analyticsSessionTypeUsedRoutingPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Direct","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -714,6 +717,9 @@ const (
 
 	// AnalyticsSessionUsedRoutingConditional captures enum value "Conditional"
 	AnalyticsSessionUsedRoutingConditional string = "Conditional"
+
+	// AnalyticsSessionUsedRoutingDirect captures enum value "Direct"
+	AnalyticsSessionUsedRoutingDirect string = "Direct"
 
 	// AnalyticsSessionUsedRoutingLast captures enum value "Last"
 	AnalyticsSessionUsedRoutingLast string = "Last"

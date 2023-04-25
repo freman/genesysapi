@@ -68,6 +68,12 @@ type GetRoutingSmsPhonenumbersParams struct {
 	*/
 	CountryCode []string
 
+	/* IntegrationID.
+
+	   Filter on the Genesys Cloud integration id to which the phone number belongs to
+	*/
+	IntegrationID *string
+
 	/* Language.
 
 	   A language tag (which is sometimes referred to as a "locale identifier") to use to localize country field and sort operations
@@ -205,6 +211,17 @@ func (o *GetRoutingSmsPhonenumbersParams) SetCountryCode(countryCode []string) {
 	o.CountryCode = countryCode
 }
 
+// WithIntegrationID adds the integrationID to the get routing sms phonenumbers params
+func (o *GetRoutingSmsPhonenumbersParams) WithIntegrationID(integrationID *string) *GetRoutingSmsPhonenumbersParams {
+	o.SetIntegrationID(integrationID)
+	return o
+}
+
+// SetIntegrationID adds the integrationId to the get routing sms phonenumbers params
+func (o *GetRoutingSmsPhonenumbersParams) SetIntegrationID(integrationID *string) {
+	o.IntegrationID = integrationID
+}
+
 // WithLanguage adds the language to the get routing sms phonenumbers params
 func (o *GetRoutingSmsPhonenumbersParams) WithLanguage(language *string) *GetRoutingSmsPhonenumbersParams {
 	o.SetLanguage(language)
@@ -309,6 +326,23 @@ func (o *GetRoutingSmsPhonenumbersParams) WriteToRequest(r runtime.ClientRequest
 		// query array param countryCode
 		if err := r.SetQueryParam("countryCode", joinedCountryCode...); err != nil {
 			return err
+		}
+	}
+
+	if o.IntegrationID != nil {
+
+		// query param integration.id
+		var qrIntegrationID string
+
+		if o.IntegrationID != nil {
+			qrIntegrationID = *o.IntegrationID
+		}
+		qIntegrationID := qrIntegrationID
+		if qIntegrationID != "" {
+
+			if err := r.SetQueryParam("integration.id", qIntegrationID); err != nil {
+				return err
+			}
 		}
 	}
 

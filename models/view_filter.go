@@ -1836,7 +1836,7 @@ var viewFilterRequestedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Direct","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -2052,7 +2052,7 @@ var viewFilterUsedRoutingTypesItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Direct","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {

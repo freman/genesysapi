@@ -73,7 +73,6 @@ type GetKnowledgeGuestSessionDocumentsParams struct {
 	   Number of entities to return. Maximum of 200.
 
 	   Format: int32
-	   Default: 10
 	*/
 	PageSize *int32
 
@@ -100,18 +99,7 @@ func (o *GetKnowledgeGuestSessionDocumentsParams) WithDefaults() *GetKnowledgeGu
 //
 // All values with no default are reset to their zero value.
 func (o *GetKnowledgeGuestSessionDocumentsParams) SetDefaults() {
-	var (
-		pageSizeDefault = int32(10)
-	)
-
-	val := GetKnowledgeGuestSessionDocumentsParams{
-		PageSize: &pageSizeDefault,
-	}
-
-	val.timeout = o.timeout
-	val.Context = o.Context
-	val.HTTPClient = o.HTTPClient
-	*o = val
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge guest session documents params

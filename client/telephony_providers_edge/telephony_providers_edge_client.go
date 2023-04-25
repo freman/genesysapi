@@ -71,26 +71,6 @@ type API interface {
 	*/
 	DeleteTelephonyProvidersEdgesTrunkbasesetting(ctx context.Context, params *DeleteTelephonyProvidersEdgesTrunkbasesettingParams) (*DeleteTelephonyProvidersEdgesTrunkbasesettingOK, error)
 	/*
-	   GetConfigurationSchemasEdgesVnext lists available schema categories deprecated
-	*/
-	GetConfigurationSchemasEdgesVnext(ctx context.Context, params *GetConfigurationSchemasEdgesVnextParams) (*GetConfigurationSchemasEdgesVnextOK, error)
-	/*
-	   GetConfigurationSchemasEdgesVnextSchemaCategory lists schemas of a specific category deprecated
-	*/
-	GetConfigurationSchemasEdgesVnextSchemaCategory(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategoryParams) (*GetConfigurationSchemasEdgesVnextSchemaCategoryOK, error)
-	/*
-	   GetConfigurationSchemasEdgesVnextSchemaCategorySchemaType lists schemas of a specific category deprecated
-	*/
-	GetConfigurationSchemasEdgesVnextSchemaCategorySchemaType(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeParams) (*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeOK, error)
-	/*
-	   GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaID gets a json schema deprecated
-	*/
-	GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaID(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams) (*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDOK, error)
-	/*
-	   GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataID gets metadata for a schema deprecated
-	*/
-	GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataID(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams) (*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDOK, error)
-	/*
 	   GetTelephonyProvidersEdge gets edge
 	*/
 	GetTelephonyProvidersEdge(ctx context.Context, params *GetTelephonyProvidersEdgeParams) (*GetTelephonyProvidersEdgeOK, error)
@@ -483,10 +463,6 @@ type API interface {
 	*/
 	PutTelephonyProvidersEdgesCertificateauthority(ctx context.Context, params *PutTelephonyProvidersEdgesCertificateauthorityParams) (*PutTelephonyProvidersEdgesCertificateauthorityOK, error)
 	/*
-	   PutTelephonyProvidersEdgesDid updates a d ID by ID
-	*/
-	PutTelephonyProvidersEdgesDid(ctx context.Context, params *PutTelephonyProvidersEdgesDidParams) (*PutTelephonyProvidersEdgesDidOK, error)
-	/*
 	   PutTelephonyProvidersEdgesDidpool updates a d ID pool by ID
 	*/
 	PutTelephonyProvidersEdgesDidpool(ctx context.Context, params *PutTelephonyProvidersEdgesDidpoolParams) (*PutTelephonyProvidersEdgesDidpoolOK, error)
@@ -498,10 +474,6 @@ type API interface {
 	   PutTelephonyProvidersEdgesEdgegroupEdgetrunkbase updates the edge trunk base associated with the edge group
 	*/
 	PutTelephonyProvidersEdgesEdgegroupEdgetrunkbase(ctx context.Context, params *PutTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams) (*PutTelephonyProvidersEdgesEdgegroupEdgetrunkbaseOK, error)
-	/*
-	   PutTelephonyProvidersEdgesExtension updates an extension by ID
-	*/
-	PutTelephonyProvidersEdgesExtension(ctx context.Context, params *PutTelephonyProvidersEdgesExtensionParams) (*PutTelephonyProvidersEdgesExtensionOK, error)
 	/*
 	   PutTelephonyProvidersEdgesExtensionpool updates an extension pool by ID
 	*/
@@ -879,131 +851,6 @@ func (a *Client) DeleteTelephonyProvidersEdgesTrunkbasesetting(ctx context.Conte
 		return nil, err
 	}
 	return result.(*DeleteTelephonyProvidersEdgesTrunkbasesettingOK), nil
-
-}
-
-/*
-GetConfigurationSchemasEdgesVnext lists available schema categories deprecated
-*/
-func (a *Client) GetConfigurationSchemasEdgesVnext(ctx context.Context, params *GetConfigurationSchemasEdgesVnextParams) (*GetConfigurationSchemasEdgesVnextOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getConfigurationSchemasEdgesVnext",
-		Method:             "GET",
-		PathPattern:        "/api/v2/configuration/schemas/edges/vnext",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetConfigurationSchemasEdgesVnextReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetConfigurationSchemasEdgesVnextOK), nil
-
-}
-
-/*
-GetConfigurationSchemasEdgesVnextSchemaCategory lists schemas of a specific category deprecated
-*/
-func (a *Client) GetConfigurationSchemasEdgesVnextSchemaCategory(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategoryParams) (*GetConfigurationSchemasEdgesVnextSchemaCategoryOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getConfigurationSchemasEdgesVnextSchemaCategory",
-		Method:             "GET",
-		PathPattern:        "/api/v2/configuration/schemas/edges/vnext/{schemaCategory}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetConfigurationSchemasEdgesVnextSchemaCategoryReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetConfigurationSchemasEdgesVnextSchemaCategoryOK), nil
-
-}
-
-/*
-GetConfigurationSchemasEdgesVnextSchemaCategorySchemaType lists schemas of a specific category deprecated
-*/
-func (a *Client) GetConfigurationSchemasEdgesVnextSchemaCategorySchemaType(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeParams) (*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getConfigurationSchemasEdgesVnextSchemaCategorySchemaType",
-		Method:             "GET",
-		PathPattern:        "/api/v2/configuration/schemas/edges/vnext/{schemaCategory}/{schemaType}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeOK), nil
-
-}
-
-/*
-GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaID gets a json schema deprecated
-*/
-func (a *Client) GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaID(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams) (*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaId",
-		Method:             "GET",
-		PathPattern:        "/api/v2/configuration/schemas/edges/vnext/{schemaCategory}/{schemaType}/{schemaId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDOK), nil
-
-}
-
-/*
-GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataID gets metadata for a schema deprecated
-*/
-func (a *Client) GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataID(ctx context.Context, params *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams) (*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIdExtensionTypeMetadataId",
-		Method:             "GET",
-		PathPattern:        "/api/v2/configuration/schemas/edges/vnext/{schemaCategory}/{schemaType}/{schemaId}/{extensionType}/{metadataId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDOK), nil
 
 }
 
@@ -3413,31 +3260,6 @@ func (a *Client) PutTelephonyProvidersEdgesCertificateauthority(ctx context.Cont
 }
 
 /*
-PutTelephonyProvidersEdgesDid updates a d ID by ID
-*/
-func (a *Client) PutTelephonyProvidersEdgesDid(ctx context.Context, params *PutTelephonyProvidersEdgesDidParams) (*PutTelephonyProvidersEdgesDidOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "putTelephonyProvidersEdgesDid",
-		Method:             "PUT",
-		PathPattern:        "/api/v2/telephony/providers/edges/dids/{didId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutTelephonyProvidersEdgesDidReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PutTelephonyProvidersEdgesDidOK), nil
-
-}
-
-/*
 PutTelephonyProvidersEdgesDidpool updates a d ID pool by ID
 */
 func (a *Client) PutTelephonyProvidersEdgesDidpool(ctx context.Context, params *PutTelephonyProvidersEdgesDidpoolParams) (*PutTelephonyProvidersEdgesDidpoolOK, error) {
@@ -3509,31 +3331,6 @@ func (a *Client) PutTelephonyProvidersEdgesEdgegroupEdgetrunkbase(ctx context.Co
 		return nil, err
 	}
 	return result.(*PutTelephonyProvidersEdgesEdgegroupEdgetrunkbaseOK), nil
-
-}
-
-/*
-PutTelephonyProvidersEdgesExtension updates an extension by ID
-*/
-func (a *Client) PutTelephonyProvidersEdgesExtension(ctx context.Context, params *PutTelephonyProvidersEdgesExtensionParams) (*PutTelephonyProvidersEdgesExtensionOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "putTelephonyProvidersEdgesExtension",
-		Method:             "PUT",
-		PathPattern:        "/api/v2/telephony/providers/edges/extensions/{extensionId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PutTelephonyProvidersEdgesExtensionReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*PutTelephonyProvidersEdgesExtensionOK), nil
 
 }
 
