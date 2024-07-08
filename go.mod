@@ -1,6 +1,6 @@
 module github.com/freman/genesysapi
 
-go 1.1666666
+go 1.21.0
 
 require (
 	github.com/evanphx/json-patch/v5 v5.6.0 // indirect
